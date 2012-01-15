@@ -1,0 +1,13 @@
+<h1 id="centro">Centro</h1>
+<ul>
+	<li> Nombre: <%= @centro.nombre %> </li>
+	<li> Estado: <%= @centro.estado %> </li>
+	<li> Municipio: <%= @centro.municipio %> </li>
+	<li> Parroquia: <%= @centro.parroquia %> </li>
+	<li> Votantes: <%= @centro.votantes %> </li>
+	<li id="centro_abrio"> ¿Abri&oacute; el centro?: <%= @centro.abrio != '2000-01-01 00:00:00.000000' ? 'Sí (' + @centro.abrio.strftime("%I:%M%p") + ')' : 'No' %> </li>
+	<li id="centro_instalacion_correcta"> ¿Se instal&oacute; el centro de forma correcta?: <%= @centro.instalacion_correcta ? 'Sí' : 'No'  %> </li>
+	<li id="centro_testigos_nuestros_presentes"> ¿Se encuentran nuestros miembros y testigos?: <%= @centro.testigos_nuestros_presentes ? 'Sí' : 'No'  %> </li>
+	<li id="centro_otros_testigos_presentes"> ¿Est&aacute;n los testigos de otros candidatos?: <%= @centro.otros_testigos_presentes ? 'Sí' : 'No'  %> </li>
+	<li id="centro_plan_republica_presente"> ¿Lleg&oacute; el Plan Rep&uacute;blica?: <%= @centro.plan_republica_presente ? 'Sí' : 'No'  %> </li>
+</ul>

@@ -1,0 +1,46 @@
+<h1 id="primera_llamada">Primera Llamada</h1>
+
+<%= form_for @centro do |f| %>
+
+	¿Abri&oacute; el centro?
+	<%= f.radio_button :abrio, Time.now, :id => 'centro_abrio' %>
+	<%= f.label :abrio, 'Sí' %>
+	<%= f.radio_button :abrio, false %>
+	<%= f.label :abrio, 'No'%>
+	
+	<br/>
+	
+	<%= f.label :instalacion_correcta, '¿Se instaló el centro de forma correcta?' %>
+	<%= f.label :instalacion_correcta, 'Sí' %>
+	<%= f.radio_button :instalacion_correcta, :true %>
+	<%= f.label :instalacion_correcta, 'No' %>
+	<%= f.radio_button :instalacion_correcta, :false %>
+	
+	<br/>
+	
+	<%= f.label :testigos_nuestros_presentes, '¿Se encuentran nuestros miembros y testigos?' %>
+	<%= f.label :testigos_nuestros_presentes, 'Sí' %>
+	<%= f.radio_button :testigos_nuestros_presentes, :true %>
+	<%= f.label :testigos_nuestros_presentes, 'No' %>
+	<%= f.radio_button :testigos_nuestros_presentes, :false %>
+	
+	<br/>
+	
+	<%= f.label :otros_testigos_presentes, '¿Están los testigos de otros candidatos?' %>
+	<%= f.label :otros_testigos_presentes, 'Sí' %>
+	<%= f.radio_button :otros_testigos_presentes, :true %>
+	<%= f.label :otros_testigos_presentes, 'No' %>
+	<%= f.radio_button :otros_testigos_presentes, :false %>
+	
+	<br/>
+	
+	<%= f.label :plan_republica_presente, '¿Llegó el Plan República?' %>
+	<%= f.label :plan_republica_presente, 'Sí' %>
+	<%= f.radio_button :plan_republica_presente, :true %>
+	<%= f.label :plan_republica_presente, 'No' %>
+	<%= f.radio_button :plan_republica_presente, :false %>
+	
+	<br/>
+	
+	<%= f.submit "Guardar", :disable_with => 'Guardando...' %>
+<% end %>

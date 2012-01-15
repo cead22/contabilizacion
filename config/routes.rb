@@ -1,5 +1,7 @@
 Contabilizacion::Application.routes.draw do
-  resources :centros
+  resources :centros, :only => [:index, :show, :edit, :update]
+  match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
+  root :to => 'centros#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

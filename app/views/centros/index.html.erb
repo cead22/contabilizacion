@@ -1,0 +1,8 @@
+<h1 id="centros">Centros de Votaci&oacute;n</h1>
+<ul>
+	<% for centro in @centros %>
+		<li id="centro_<%= centro.id %>"> <%= centro.nombre %> </li>
+		| <%= link_to 'Mostrar', centro_path(centro) %>
+		| <%= link_to 'Primera Llamada', abrir_centro_path(centro) %>
+	<% end %>
+</ul>
