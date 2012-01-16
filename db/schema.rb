@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115202629) do
+ActiveRecord::Schema.define(:version => 20120116205122) do
+
+  create_table "LLAMADA", :force => true do |t|
+    t.datetime "hora"
+    t.integer  "CENTRO_id"
+    t.boolean  "funcionando"
+    t.integer  "votos"
+    t.boolean  "cerrado_forzado"
+  end
 
   create_table "centros", :force => true do |t|
     t.string   "nombre"
@@ -26,6 +34,27 @@ ActiveRecord::Schema.define(:version => 20120115202629) do
     t.integer  "votos"
     t.integer  "votantes"
     t.time     "escrutinio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "llamadas", :force => true do |t|
+    t.datetime "hora"
+    t.integer  "centro_id"
+    t.boolean  "funcionando"
+    t.integer  "votos"
+    t.boolean  "cerrado_forzado"
+  end
+
+  create_table "mesas", :force => true do |t|
+    t.integer  "numero"
+    t.integer  "centro_id"
+    t.integer  "votos_hc"
+    t.integer  "votos_ll"
+    t.integer  "votos_pp"
+    t.integer  "votos_mc"
+    t.integer  "votos_da"
+    t.integer  "votos_pm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

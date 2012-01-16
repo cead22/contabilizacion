@@ -1,7 +1,19 @@
 Contabilizacion::Application.routes.draw do
+  get "llamadas/index"
+
+  get "llamadas/show"
+
+  get "llamadas/create"
+
   resources :centros, :only => [:index, :show, :edit, :update]
   match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
+  match '/centros/:id/cerrar' => 'centros#cerrar', :as => 'cerrar_centro'
+  
+  resources :llamadas, :only => [:create]
+  match '/llamada/:id/' => 'llamadas#new', :as => 'llamada_control'
+  
   root :to => 'centros#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

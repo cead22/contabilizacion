@@ -2,11 +2,11 @@
 
 <%= form_for @centro do |f| %>
 
-	¿Abri&oacute; el centro?
-	<%= f.radio_button :abrio, Time.now, :id => 'centro_abrio' %>
+	<%= f.label :abrio, '¿Abrió el centro?' %>
 	<%= f.label :abrio, 'Sí' %>
-	<%= f.radio_button :abrio, false %>
+	<%= f.radio_button :abrio, Time.now, :id => 'centro_abrio' %>
 	<%= f.label :abrio, 'No'%>
+	<%= f.radio_button :abrio, false %>
 	
 	<br/>
 	

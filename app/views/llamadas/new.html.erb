@@ -1,0 +1,27 @@
+<%= form_for @llamada do |f| %>
+	
+	<%= hidden_field_tag 'centro', @centro.id %>
+	
+	<%= f.label :funcionando, '¿El centro está funcionando correctamente?' %>
+	<%= f.label :funcionando, 'Sí' %>
+	<%= f.radio_button :funcionando, true %>
+	<%= f.label :funcionando, 'No' %>
+	<%= f.radio_button :funcionando, false %>
+	
+	<br />
+	
+	<%= f.label :votos, '¿Cuántas personas han votado?' %>
+	<%= f.text_field :votos %>
+
+	<br />
+	
+	<%= f.label :cerrado_forzado, '¿Cerraron el centro de manera forzada?' %>
+	<%= f.label :cerrado_forzado, 'Sí' %>
+	<%= f.radio_button :cerrado_forzado, true %>
+	<%= f.label :cerrado_forzado, 'No' %>
+	<%= f.radio_button :cerrado_forzado, false %>
+	
+	<br />
+	
+	<%= f.submit 'Guardar', :disable_with => 'Guardando...' %>
+<% end %>

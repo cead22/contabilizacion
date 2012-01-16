@@ -5,9 +5,34 @@
 	<li> Municipio: <%= @centro.municipio %> </li>
 	<li> Parroquia: <%= @centro.parroquia %> </li>
 	<li> Votantes: <%= @centro.votantes %> </li>
-	<li id="centro_abrio"> ¿Abri&oacute; el centro?: <%= @centro.abrio != '2000-01-01 00:00:00.000000' ? 'Sí (' + @centro.abrio.strftime("%I:%M%p") + ')' : 'No' %> </li>
+	<li id="centro_abrio"> ¿Abri&oacute; el centro?: <%= @centro.abrio != '2000-01-01 00:00:00.000000' ? 'Sí (' + @centro.abrio.strftime("
+	%I:%M%p") + ')' : 'No' %> </li>
 	<li id="centro_instalacion_correcta"> ¿Se instal&oacute; el centro de forma correcta?: <%= @centro.instalacion_correcta ? 'Sí' : 'No'  %> </li>
 	<li id="centro_testigos_nuestros_presentes"> ¿Se encuentran nuestros miembros y testigos?: <%= @centro.testigos_nuestros_presentes ? 'Sí' : 'No'  %> </li>
 	<li id="centro_otros_testigos_presentes"> ¿Est&aacute;n los testigos de otros candidatos?: <%= @centro.otros_testigos_presentes ? 'Sí' : 'No'  %> </li>
 	<li id="centro_plan_republica_presente"> ¿Lleg&oacute; el Plan Rep&uacute;blica?: <%= @centro.plan_republica_presente ? 'Sí' : 'No'  %> </li>
 </ul>
+
+<h2 id="llamadas"> Llamadas de control </h2>
+<% for llamada in Llamada.where :centro_id => @centro.id %>
+	<ul>
+		<li class="funcionando"> ¿El centro est&aacute; funcionando correctamente?: <%= llamada.funcionando ? 'Sí' : 'No' %> </li>
+		<li class="votos"> ¿Cu&aacute;ntas personas han votado?: <%= llamada.votos %> </li>
+		<li class="cerrado_forzado"> ¿Cerraron el centro de manera forzada? <%= llamada.cerrado_forzado ? 'Sí' : 'No' %> </li>
+	</ul>
+<% end %>
+
+<p>¿Cerr&oacute; el centro?: <%= @centro.cerro != nil ? 'Sí (' + @centro.cerro.strftime("%I:%M%p") + ')' : 'No' %> </p>
+<p>¿Se hizo el escrutinio?: <%= @centro.escrutinio != nil ? 'Sí (' + @centro.escrutinio.strftime("%I:%M%p") + ')' : 'No' %> </p>
+<% for mesa in Mesa.where :centro_id => @centro.id %>
+	<p>Mesa <%= mesa.numero %></p>
+	<ul>
+		<li> Votos HC: <%= mesa.votos_hc %> </li>
+		<li> Votos LL: <%= mesa.votos_ll %> </li>
+		<li> Votos PP: <%= mesa.votos_pp %> </li>
+		<li> Votos MC: <%= mesa.votos_mc %> </li>
+		<li> Votos DA: <%= mesa.votos_da %> </li>
+		<li> Votos PM: <%= mesa.votos_pm %> </li>
+	</ul>
+<% end %>
+<!-- @centro.abrio.strftime("%I:%M%p") -->
