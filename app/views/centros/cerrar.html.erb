@@ -1,29 +1,59 @@
-<h1 id="ultima_llamada">&Uacute;ltima Llamada</h1>
-
-<%= h @centro.nombre %>
+	<h1 id="ultima_llamada">&Uacute;ltima Llamada <small> <%= @centro.nombre %> </small></h1>
+</div>
 <%= form_for @centro do |f| %>
-<p>
-	<%= f.label :cerro, "¿Cerró el centro?" %>
-	<%= f.label :cerro, 'Sí' %>
-	<%= f.radio_button :cerro, Time.now, :id => 'centro_cerro' %>
-	<%= f.label :cerro, 'No'%>
-	<%= f.radio_button :cerro, false %>
+<div class="row">
+	<div class="span3"> &nbsp; </div>
+	<div class="span7">
+		<fieldset>
+			<div class="clearfix">
+				<%= f.label :cerro, "¿Cerró el centro?" %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :cerro, Time.now, :id => 'centro_cerro' %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :cerro, false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+			<div class="clearfix">
+				<%= f.label :escrutinio, "¿Se hizo el escrutinio?" %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :escrutinio, Time.now, :id => 'centro_escrutinio' %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :escrutinio, false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-</p>
+			<%= f.fields_for :mesas do |builder| %>
+			<%= render 'mesas_form', :f => builder %>
+			<% end %>
 
-<p>
-	<%= f.label :escrutinio, "¿Se hizo el escrutinio?" %>
-	<%= f.label :escrutinio, 'Sí' %>
-	<%= f.radio_button :escrutinio, Time.now, :id => 'centro_escrutinio' %>
-	<%= f.label :escrutinio, 'No'%>
-	<%= f.radio_button :escrutinio, false %>
-</p>
-
-<p>	
-	<%= f.fields_for :mesas do |builder| %>
-	<%= render 'mesas_form', :f => builder %>
-	<% end %>
-</p>
-
-	<%= f.submit "Guardar", :disable_with => 'Guardando...' %>
+			<div class="actions">
+				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
+				<button type="reset" class="btn"> Cancelar </button>
+			</div>
+		</fieldset>
+	</div>
+</div>
 <% end %>

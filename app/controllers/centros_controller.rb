@@ -14,9 +14,9 @@ class CentrosController < ApplicationController
   
   def update
     if @centro.update_attributes params[:centro]
-      redirect_to centro_path(@centro), :notice => 'centro actualizado'
+      redirect_to centro_path(@centro), :flash => {:success => 'centro actualizado'}
     else
-      redirect_to :back, :notice => 'error al actualizar centros'
+      redirect_to :back, :error => 'error al actualizar centros'
     end
   end
   
@@ -24,6 +24,10 @@ class CentrosController < ApplicationController
   end
   
   def cerrar    
+  end
+
+  def control
+    
   end
 
   private

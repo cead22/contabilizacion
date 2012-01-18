@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116205122) do
+ActiveRecord::Schema.define(:version => 20120118004633) do
 
   create_table "LLAMADA", :force => true do |t|
     t.datetime "hora"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(:version => 20120116205122) do
     t.boolean  "funcionando"
     t.integer  "votos"
     t.boolean  "cerrado_forzado"
+  end
+
+  create_table "anomalia", :force => true do |t|
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "centros", :force => true do |t|
@@ -34,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20120116205122) do
     t.integer  "votos"
     t.integer  "votantes"
     t.time     "escrutinio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "incidencia", :force => true do |t|
+    t.integer  "centro_id"
+    t.time     "hora"
+    t.integer  "tipo_incidencia_id"
+    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +70,13 @@ ActiveRecord::Schema.define(:version => 20120116205122) do
     t.integer  "votos_mc"
     t.integer  "votos_da"
     t.integer  "votos_pm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipo_incidencia", :force => true do |t|
+    t.integer  "anomalia_id"
+    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

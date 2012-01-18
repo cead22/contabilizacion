@@ -1,5 +1,5 @@
 require 'spec_helper'
-
-describe CentrosController do
-
-end
+# 
+# describe CentrosController do
+# 
+# end

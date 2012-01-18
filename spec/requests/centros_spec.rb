@@ -78,12 +78,12 @@ describe "Centros" do
       page.should have_content '¿Cerró el centro?'
       page.should have_content '¿Se hizo el escrutinio?'
       # save_and_open_page
-      page.should have_content '¿Cuántos votaron por HC?'
-      page.should have_content '¿Cuántos votaron por LL?'
-      page.should have_content '¿Cuántos votaron por PP?'
-      page.should have_content '¿Cuántos votaron por MC?'
-      page.should have_content '¿Cuántos votaron por DA?'
-      page.should have_content '¿Cuántos votaron por PM?'
+      page.should have_content 'Votos HC'
+      page.should have_content 'Votos LL'
+      page.should have_content 'Votos PP'
+      page.should have_content 'Votos MC'
+      page.should have_content 'Votos DA'
+      page.should have_content 'Votos PM'
       
       choose('centro_cerro')
       choose('centro_escrutinio')
@@ -114,6 +114,7 @@ describe "Centros" do
       page.should have_content 'Votos MC'
       page.should have_content 'Votos DA'
       page.should have_content 'Votos PM'
+      # save_and_open_page
     end
   end
 end

@@ -1,12 +1,25 @@
-<h1 id="centros">Centros de Votaci&oacute;n</h1>
-<ul>
-	<% for centro in @centros %>
-		<li id="centro_<%= centro.id %>">
-			<%= centro.nombre %>
-			| <%= link_to 'Mostrar', centro_path(centro) %>
-			| <%= link_to 'Primera Llamada', abrir_centro_path(centro) %>
-			| <%= link_to 'Segunda Llamada', llamada_control_path(centro) %>
-			| <%= link_to 'Tercera Llamada', cerrar_centro_path(centro), :id => "tercera_llamada_#{centro.id}" %>
-		</li>
-	<% end %>
-</ul>
+  <h1>Centros de Votaci&oacute;n</h1>
+</div>
+
+		<table class="bordered-table zebra-striped">
+			<thead>
+				<tr>
+					<th>Centro</td>
+					<th>Ver</td>
+					<th>Abrir</td>
+					<th>Control</td>
+					<th>Cerrar</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% for centro in @centros %>
+				<tr>
+					<td> <%= centro.nombre %> </td>
+					<td> <%= link_to 'Ver', centro_path(centro), :class => 'btn small'%> </td>
+					<td> <%= link_to 'Primera Llamada', abrir_centro_path(centro), :class => 'btn small primary' %> </td>
+					<td> <%= link_to 'Llamada de Control', centro_control_path(centro), :class => 'btn small info' %> </td>
+					<td> <%= link_to 'Última Llamada', cerrar_centro_path(centro), :id => "tercera_llamada_#{centro.id}", :class => 'btn small success' %> </td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>

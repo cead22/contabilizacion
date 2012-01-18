@@ -13,9 +13,9 @@ class LlamadasController < ApplicationController
     @llamada[:centro_id] = centro_id
     if @llamada.save
       @centro = Centro.find centro_id
-      redirect_to centro_path(@centro), :notice => 'llamada guardada'
+      redirect_to centro_path(@centro), :flash => {:success => 'llamada guardada'}
     else
-      redirect_to :back, :notice => 'error al guardar llamada'
+      redirect_to :back, :flash => {:error => 'error al guardar llamada'}
     end
   end
 

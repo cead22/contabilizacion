@@ -1,46 +1,114 @@
-<h1 id="primera_llamada">Primera Llamada</h1>
-
+  <h1>Primera Llamada <small> <%= @centro.nombre %> </small></h1>
+</div>
 <%= form_for @centro do |f| %>
-
-	<%= f.label :abrio, '¿Abrió el centro?' %>
-	<%= f.label :abrio, 'Sí' %>
-	<%= f.radio_button :abrio, Time.now, :id => 'centro_abrio' %>
-	<%= f.label :abrio, 'No'%>
-	<%= f.radio_button :abrio, false %>
+<div class="row">
+	<div class="span3"> &nbsp; </div>
+	<div class="span7">
+		<fieldset>
+			<div class="clearfix">
+				<%= f.label :abrio, '¿Abrió el centro?' %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :abrio, Time.now, :id => 'centro_abrio' %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :abrio, false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
 	
-	<br/>
-	
-	<%= f.label :instalacion_correcta, '¿Se instaló el centro de forma correcta?' %>
-	<%= f.label :instalacion_correcta, 'Sí' %>
-	<%= f.radio_button :instalacion_correcta, :true %>
-	<%= f.label :instalacion_correcta, 'No' %>
-	<%= f.radio_button :instalacion_correcta, :false %>
-	
-	<br/>
-	
-	<%= f.label :testigos_nuestros_presentes, '¿Se encuentran nuestros miembros y testigos?' %>
-	<%= f.label :testigos_nuestros_presentes, 'Sí' %>
-	<%= f.radio_button :testigos_nuestros_presentes, :true %>
-	<%= f.label :testigos_nuestros_presentes, 'No' %>
-	<%= f.radio_button :testigos_nuestros_presentes, :false %>
-	
-	<br/>
-	
-	<%= f.label :otros_testigos_presentes, '¿Están los testigos de otros candidatos?' %>
-	<%= f.label :otros_testigos_presentes, 'Sí' %>
-	<%= f.radio_button :otros_testigos_presentes, :true %>
-	<%= f.label :otros_testigos_presentes, 'No' %>
-	<%= f.radio_button :otros_testigos_presentes, :false %>
-	
-	<br/>
-	
-	<%= f.label :plan_republica_presente, '¿Llegó el Plan República?' %>
-	<%= f.label :plan_republica_presente, 'Sí' %>
-	<%= f.radio_button :plan_republica_presente, :true %>
-	<%= f.label :plan_republica_presente, 'No' %>
-	<%= f.radio_button :plan_republica_presente, :false %>
-	
-	<br/>
-	
-	<%= f.submit "Guardar", :disable_with => 'Guardando...' %>
+			<div class="clearfix">
+				<%= f.label :instalacion_correcta, '¿Se instaló el centro de forma correcta?' %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :instalacion_correcta, :true %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :instalacion_correcta, :false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="clearfix">
+				<%= f.label :testigos_nuestros_presentes, '¿Se encuentran nuestros miembros y testigos?' %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :testigos_nuestros_presentes, :true %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :testigos_nuestros_presentes, :false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="clearfix">
+				<%= f.label :otros_testigos_presentes, '¿Están los testigos de otros candidatos?' %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :otros_testigos_presentes, :true %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :otros_testigos_presentes, :false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="clearfix">
+				<%= f.label :plan_republica_presente, '¿Llegó el Plan República?' %>
+				<div class="input">
+					<ul class="inputs-list">
+						<li>
+							<label>
+								<%= f.radio_button :plan_republica_presente, :true %>
+								<span><%= 'Sí' %></span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<%= f.radio_button :plan_republica_presente, :false %>
+								<span><%= 'No' %></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="actions">
+				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
+				<button type="reset" class="btn"> Cancelar </button>
+			</div>
+		</fieldset>
+	</div>
+</div>
 <% end %>

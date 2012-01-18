@@ -8,9 +8,9 @@ Contabilizacion::Application.routes.draw do
   resources :centros, :only => [:index, :show, :edit, :update]
   match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
   match '/centros/:id/cerrar' => 'centros#cerrar', :as => 'cerrar_centro'
+  match '/centros/:id/control' => 'centros#control', :as => 'centro_control'
   
-  resources :llamadas, :only => [:create]
-  match '/llamada/:id/' => 'llamadas#new', :as => 'llamada_control'
+  # resources :llamadas, :only => [:create]
   
   root :to => 'centros#index'
   

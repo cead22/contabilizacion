@@ -9,17 +9,18 @@ describe "LlamadasDeControls" do
   describe "PUT /llamadas_de_controls" do
     it "guarda la informacion de la segunda llamada sin observaciones" do
       visit centros_path
-      click_link 'Segunda Llamada'
-      current_path.should == llamada_control_path(@centro)
+      click_link 'Llamada de Control'
+      current_path.should == centro_control_path(@centro)
 
       page.should have_content '¿El centro está funcionando correctamente?'
       page.should have_content '¿Cuántas personas han votado?'
       page.should have_content '¿Cerraron el centro de manera forzada?'
 
-      choose('llamada_funcionando_true')
-      fill_in 'llamada_votos', :with => 123
       # save_and_open_page
-      choose('llamada_cerrado_forzado_false')
+      choose('centro_llamadas_attributes_0_funcionando_true')
+      fill_in 'centro_llamadas_attributes_0_votos', :with => 123
+      # save_and_open_page
+      choose('centro_llamadas_attributes_0_cerrado_forzado_true')
       
       click_button('Guardar')
       current_path.should == centro_path(@centro)
