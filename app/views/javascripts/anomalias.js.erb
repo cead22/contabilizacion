@@ -1,0 +1,31 @@
+var anomalias = new Array();
+<% for anomalia in @anomalias %>
+anomalias.push(new Array(<%= anomalia.tipo_anomalia_id %>, '<%=h anomalia.descripcion %>', <%= anomalia.id %>));
+<% end %>
+
+// function trigger_menus() {
+// 	$('.tipo_anomalia').each(function (index) {
+// 		$(this).children().trigger('change');
+// 	});
+// }
+// function addEventToMenus () {
+// 	$('.tipo_anomalia').each( function (index) {
+// 		$(this).children().change( function () {  
+// 			country_id = parseInt( $('#anomalia_tipo_anomalia_id').val() );
+// 			var options = '<option value="">Seleccione</option>';
+// 
+// 			for (i=0;i < anomalias.length;i++) {
+// 				if (country_id == anomalias[i][0]) {
+// 					options += '<option value="' + anomalias[i][2] + '">' + anomalias[i][1] + '</option>';
+// 				}
+// 			}
+// 			$("#causa").children().html(options);
+// 		});
+// 	});
+// }
+// $(document).ready(function() {
+// 	addEventToMenus();
+// 	trigger_menus();
+// });
+
+

@@ -1,4 +1,6 @@
 Contabilizacion::Application.routes.draw do
+  get "anomalia/actualizar_anomalias"
+
   get "llamadas/index"
 
   get "llamadas/show"
@@ -9,8 +11,6 @@ Contabilizacion::Application.routes.draw do
   match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
   match '/centros/:id/cerrar' => 'centros#cerrar', :as => 'cerrar_centro'
   match '/centros/:id/control' => 'centros#control', :as => 'centro_control'
-  
-  # resources :llamadas, :only => [:create]
   
   root :to => 'centros#index'
   

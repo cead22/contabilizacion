@@ -1,16 +1,11 @@
+<% javascript 'anomalias' %>
 <div class="well fields">
 	<fieldset>
 		<legend>Nueva Incidencia</legend>
 		<div class="clearfix">
-			<%= label_tag :tipo_anomalia, 'Tipo' %>
-			<div class="input">
-				<%= collection_select(:anomalia, :tipo_anomalia_id, TipoAnomalia.all, :id, :descripcion, :include_blank => 'Seleccione') %>
-			</div>
-		</div>
-		<div class="clearfix">
-			<%= f.label :anomalia_id, 'Causa' %>
-			<div class="input">
-				<%= f.collection_select(:anomalia_id, Anomalia.all, :id, :descripcion, :include_blank => 'Seleccione') %>
+			<%= f.label :anomalia_id, 'Irregularidad - Causa' %>
+			<div class="input" id="causa">
+				<%= f.grouped_collection_select(:anomalia_id, TipoAnomalia.all, :anomalias, :descripcion, :id, :descripcion, :include_blank => 'Seleccione') %>
 			</div>
 		</div>
 		<div class="clearfix">

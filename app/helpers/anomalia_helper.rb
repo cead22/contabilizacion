@@ -1,0 +1,2 @@
+module AnomaliaHelper
+end
