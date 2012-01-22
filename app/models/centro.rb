@@ -9,5 +9,5 @@ class Centro < ActiveRecord::Base
   has_many :incidencias
   accepts_nested_attributes_for :mesas
   accepts_nested_attributes_for :llamadas
-  accepts_nested_attributes_for :incidencias
+  accepts_nested_attributes_for :incidencias, :reject_if => lambda { |i| i[:descripcion].blank? || i[:anomalia_id].blank?}, :allow_destroy => true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118004633) do
+ActiveRecord::Schema.define(:version => 20120122132155) do
 
   create_table "LLAMADA", :force => true do |t|
     t.datetime "hora"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(:version => 20120118004633) do
   end
 
   create_table "anomalia", :force => true do |t|
-    t.text     "descripcion"
+    t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tipo_anomalia_id"
   end
 
   create_table "centros", :force => true do |t|
@@ -47,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20120118004633) do
   create_table "incidencia", :force => true do |t|
     t.integer  "centro_id"
     t.time     "hora"
-    t.integer  "tipo_incidencia_id"
+    t.integer  "anomalia_id", :limit => 255
     t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -74,9 +75,8 @@ ActiveRecord::Schema.define(:version => 20120118004633) do
     t.datetime "updated_at"
   end
 
-  create_table "tipo_incidencia", :force => true do |t|
-    t.integer  "anomalia_id"
-    t.text     "descripcion"
+  create_table "tipo_anomalia", :force => true do |t|
+    t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

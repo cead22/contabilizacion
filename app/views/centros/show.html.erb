@@ -50,8 +50,8 @@
 		<h3>Incidencias</h3>
 		<% for incidencia in Incidencia.where :centro_id => @centro.id %>
 		<div class="alert-message block-message warning">
-			<% ti = TipoIncidencia.find(incidencia.tipo_incidencia_id) %>
-			<strong> <%= ti.descripcion + ' > ' + Anomalia.find(ti.anomalia_id).descripcion %> </strong>
+			<% anomalia = Anomalia.find(incidencia.anomalia_id) %>
+			<strong> <%= TipoAnomalia.find(anomalia.tipo_anomalia_id).descripcion + ' > ' + anomalia.descripcion %> </strong>
 			<p> <%= incidencia.descripcion %>  </p>
 		</div>
 		<% end %>

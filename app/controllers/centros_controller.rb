@@ -27,8 +27,8 @@ class CentrosController < ApplicationController
   end
 
   def control
-    
   end
+    
 
   private
   
