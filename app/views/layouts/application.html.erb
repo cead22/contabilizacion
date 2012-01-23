@@ -9,13 +9,16 @@
   <%= yield :head %>
 </head>
 <body>
+	
 	<div class="topbar">
 		<div class="fill">
 			<div class="container">
 				<a class="brand" href="<%= root_path %>">Contabilizaci&oacute;n</a>
-				<ul class="nav">
-
+				<% if usuario_signed_in? %>
+				<ul class="nav secondary-nav">
+					<li> <%= link_to "Cerrar Sesión", destroy_usuario_session_path, :method => :delete %>  </li>
 				</ul>
+				<% end %>
 			</div>
 		</div>
 	</div>

@@ -1,13 +1,8 @@
 Contabilizacion::Application.routes.draw do
-  get "anomalia/actualizar_anomalias"
+  devise_for :usuarios
 
-  get "llamadas/index"
 
-  get "llamadas/show"
-
-  get "llamadas/create"
-
-  resources :centros, :only => [:index, :show, :edit, :update]
+  resources :centros, :only => [:index, :show, :update]
   match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
   match '/centros/:id/cerrar' => 'centros#cerrar', :as => 'cerrar_centro'
   match '/centros/:id/control' => 'centros#control', :as => 'centro_control'

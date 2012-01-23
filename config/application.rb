@@ -50,5 +50,6 @@ module Contabilizacion
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.secret_token = '1c3bd2898986c3feca48606a0bf558b45436bfb9dc6921d8ce75a9557a256ed6bfbc92484af8e583c58510fe19de12a24b13865a317ca1e5f865806640f7a57e'
   end
 end

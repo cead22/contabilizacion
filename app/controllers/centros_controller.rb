@@ -9,9 +9,6 @@ class CentrosController < ApplicationController
   def show
   end
   
-  def edit
-  end
-  
   def update
     if @centro.update_attributes params[:centro]
       redirect_to centro_path(@centro), :flash => {:success => 'centro actualizado'}
