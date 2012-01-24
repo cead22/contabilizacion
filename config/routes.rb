@@ -1,6 +1,5 @@
 Contabilizacion::Application.routes.draw do
-  devise_for :usuarios
-
+  devise_for :usuarios, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout'}
 
   resources :centros, :only => [:index, :show, :update]
   match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'

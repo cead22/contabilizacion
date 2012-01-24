@@ -2,8 +2,8 @@
 </div>
 <%= form_for @centro do |f| %>
 <div class="row">
-	<div class="span3"> &nbsp; </div>
-	<div class="span7">
+	<div class="span1"> &nbsp; </div>
+	<div class="span6">
 		<fieldset>
 			<div class="clearfix">
 				<%= f.label :cerro, "¿Cerró el centro?" %>
@@ -49,11 +49,23 @@
 			<%= render 'mesas_form', :f => builder %>
 			<% end %>
 
-			<div class="actions">
-				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
-				<button type="reset" class="btn"> Cancelar </button>
-			</div>
+
 		</fieldset>
+	</div><!-- end span6 -->
+	<div class="span7">
+		<%= f.fields_for :incidencias, f.object.class.reflect_on_association(:incidencias).klass.new do |builder| %>
+		<%= render 'incidencia_form', :f => builder %>
+		<% end %>
+
+		<p id="link_add" ><%= link_to_add_fields 'Agregar Nueva Incidencia', f, :incidencias %></p>
+	</div>	
+</div><!-- end row -->
+<div class="row">
+	<div class="span14">
+		<div class="actions">
+			<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
+			<button type="reset" class="btn"> Cancelar </button>
+		</div>
 	</div>
 </div>
 <% end %>

@@ -4,7 +4,7 @@
 <%= form_for @centro do |f| %>
 	<%= f.fields_for :llamadas, f.object.class.reflect_on_association(:llamadas).klass.new do |llamada| %>
 	<div class="row">
-		<div class="span3"> &nbsp; </div>
+		<div class="span1"> &nbsp; </div>
 		<div class="span6">
 			<fieldset>
 				<div class="clearfix">
@@ -32,7 +32,7 @@
 				<div class="clearfix">
 					<%= llamada.label :votos, '¿Cuántas personas han votado?' %>
 					<div class="input">
-						<%= llamada.text_field :votos %>
+						<%= llamada.text_field :votos, :class => 'mini'%>
 					</div>
 				</div>
 			
@@ -55,14 +55,28 @@
 						</ul>
 					</div>
 				</div>
-				<div class="actions">
+				<!-- <div class="actions">
 					<%= llamada.submit 'Guardar', :disable_with => 'Guardando...', :class => 'btn primary' %>
 					<button type="reset" class="btn"> Cancelar </button>
-				</div>
+				</div> -->
 			</fieldset>
+		</div> <!-- end span6 -->
+		<div class="span7">
+			<%= f.fields_for :incidencias, f.object.class.reflect_on_association(:incidencias).klass.new do |builder| %>
+			<%= render 'incidencia_form', :f => builder %>
+			<% end %>
+
+			<p id="link_add" ><%= link_to_add_fields 'Agregar Nueva Incidencia', f, :incidencias %></p>
+		</div>
+	</div><!-- end row -->
+	<div class="row">
+		<div class="span14">
+			<div class="actions">
+				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
+				<button type="reset" class="btn"> Cancelar </button>
+			</div>
 		</div>
 	</div>
-
 	
 	<% end %>
 <% end %>
