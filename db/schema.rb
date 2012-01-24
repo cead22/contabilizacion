@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema.define(:version => 20120123043927) do
 
-  create_table "LLAMADA", :force => true do |t|
+  create_table "llamada", :force => true do |t|
     t.datetime "hora"
-    t.integer  "CENTRO_id"
+    t.integer  "centro_id"
     t.boolean  "funcionando"
     t.integer  "votos"
     t.boolean  "cerrado_forzado"
