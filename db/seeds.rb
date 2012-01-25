@@ -50,26 +50,26 @@ Mesa.create :numero => 1, :centro_id => c6.id
 Mesa.create :numero => 2, :centro_id => c6.id
 
 retraso = TipoAnomalia.create :descripcion => 'Restraso en la apertura'
-['Falta de material', 'Falta de miembros de mesa','Equipos dañados','Por los testigos de algún candidato','Por grupos armados','Por la Guardia Nacional','Otra'].each do |a|
+['Falta de material', 'Falta de miembros de mesa','Equipos danados','Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional','Otra'].each do |a|
   Anomalia.create :descripcion => a, :tipo_anomalia_id => retraso.id
 end
    
 malfun = TipoAnomalia.create :descripcion => 'Mal funcionamiento del centro'
-['Falla de equipos', 'Falla eléctrica', 'Problemas logísticos', 'Paso a proceso manual', 'Otra'].each do |a|
+['Falla de equipos', 'Falla electrica', 'Problemas logisticos', 'Paso a proceso manual', 'Otra'].each do |a|
   Anomalia.create :descripcion => a, :tipo_anomalia_id => malfun.id
 end
 
 cierre = TipoAnomalia.create :descripcion => 'Cierre forzado del centro'
-['Por los testigos de algún candidato','Por grupos armados','Por la Guardia Nacional','Otra'].each do |a|
+['Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional','Otra'].each do |a|
   Anomalia.create :descripcion => a, :tipo_anomalia_id => cierre.id
 end
 
 irreg = TipoAnomalia.create :descripcion => 'Irregularidades en la jornada'
-['Múltiples votos por una sola persona', 'Papeletas que no corresponden con lo seleccionado en la máquina', 'Relativas a la propaganda', 'Retirada forzada de testigos de algún grupo','Otra'].each do |a|
+['Multiples votos por una sola persona', 'Papeletas que no corresponden con lo seleccionado en la maquina', 'Relativas a la propaganda', 'Retirada forzada de testigos de algun grupo','Otra'].each do |a|
   Anomalia.create :descripcion => a, :tipo_anomalia_id => irreg.id
 end
 
 apertura = TipoAnomalia.create :descripcion => 'Apertura forzada del centro luego del cierre'
-['Por los testigos de algún candidato','Por grupos armados','Por la Guardia Nacional','Otra'].each do |a|
+['Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional','Otra'].each do |a|
   Anomalia.create :descripcion => a, :tipo_anomalia_id => apertura.id
 end
