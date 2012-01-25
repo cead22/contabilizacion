@@ -1,22 +1,22 @@
 class LlamadasController < ApplicationController
-  def index
+  before_filter :get_llamada
+  
+  def modificar
+    # @llamada = Llamada.find params[:id]
   end
   
-  def new
-    @centro = Centro.find params[:id]
-    @llamada = Llamada.new
+  def update
+    if @llamada.update_attributes params[:llamada]
+      redirect_to centro_path(@llamada.centro), :flash => {:success => 'Llamada actualizado'}
+    else
+      redirect_to :back, :error => 'Error al actualizar llamada'
+    end
   end
 
-  def create
-    centro_id = params[:centro]
-    @llamada = Llamada.new params[:llamada]
-    @llamada[:centro_id] = centro_id
-    if @llamada.save
-      @centro = Centro.find centro_id
-      redirect_to centro_path(@centro), :flash => {:success => 'llamada guardada'}
-    else
-      redirect_to :back, :flash => {:error => 'error al guardar llamada'}
-    end
+  private
+  
+  def get_llamada
+    @llamada = Llamada.find params[:id]
   end
 
 end

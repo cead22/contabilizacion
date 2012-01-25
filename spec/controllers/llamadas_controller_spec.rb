@@ -1,26 +1,12 @@
 require 'spec_helper'
-# 
-# describe LlamadasController do
-# 
-#   describe "GET 'index'" do
-#     it "returns http success" do
-#       get 'index'
-#       response.should be_success
-#     end
-#   end
-# 
-#   describe "GET 'show'" do
-#     it "returns http success" do
-#       get 'show'
-#       response.should be_success
-#     end
-#   end
-# 
-#   # describe "GET 'create'" do
-#   #   it "returns http success" do
-#   #     get 'create'
-#   #     response.should be_success
-#   #   end
-#   # end
-# 
-# end
+
+describe LlamadasController do
+
+  describe "GET 'modificar'" do
+    it "returns http success" do
+      get 'modificar'
+      response.should be_success
+    end
+  end
+
+end

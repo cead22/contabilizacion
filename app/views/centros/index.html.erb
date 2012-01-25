@@ -4,7 +4,7 @@
 		<table class="bordered-table zebra-striped">
 			<thead>
 				<tr>
-					<th>Centro</td>
+					<th width="360px">Centro</td>
 					<th>Ver</td>
 					<th>Abrir</td>
 					<th>Control</td>
@@ -14,7 +14,7 @@
 			<tbody>
 				<% for centro in @centros %>
 				<tr>
-					<td> <%= centro.nombre %> </td>
+					<td style="font-size:9pt"> <%= centro.nombre %> </td>
 					<td> <%= link_to 'Ver', centro_path(centro), :class => 'btn small'%> </td>
 					<td> <%= link_to 'Primera Llamada', abrir_centro_path(centro), :class => 'btn small primary' %> </td>
 					<td> <%= link_to 'Llamada de Control', centro_control_path(centro), :class => 'btn small info' %> </td>

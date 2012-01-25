@@ -10,15 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123043927) do
-
-  create_table "llamada", :force => true do |t|
-    t.datetime "hora"
-    t.integer  "centro_id"
-    t.boolean  "funcionando"
-    t.integer  "votos"
-    t.boolean  "cerrado_forzado"
-  end
+ActiveRecord::Schema.define(:version => 20120124232033) do
 
   create_table "anomalia", :force => true do |t|
     t.string   "descripcion"
@@ -29,9 +21,6 @@ ActiveRecord::Schema.define(:version => 20120123043927) do
 
   create_table "centros", :force => true do |t|
     t.string   "nombre"
-    t.string   "parroquia"
-    t.string   "municipio"
-    t.string   "estado"
     t.time     "abrio"
     t.time     "cerro"
     t.boolean  "instalacion_correcta"
@@ -43,15 +32,30 @@ ActiveRecord::Schema.define(:version => 20120123043927) do
     t.time     "escrutinio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parroquia_id"
+  end
+
+  create_table "estados", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "incidencia", :force => true do |t|
     t.integer  "centro_id"
     t.time     "hora"
-    t.integer  "anomalia_id", :limit => 255
+    t.integer  "anomalia_id"
     t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "llamada", :force => true do |t|
+    t.datetime "hora"
+    t.integer  "centro_id"
+    t.boolean  "funcionando"
+    t.integer  "votos"
+    t.boolean  "cerrado_forzado"
   end
 
   create_table "llamadas", :force => true do |t|
@@ -71,6 +75,20 @@ ActiveRecord::Schema.define(:version => 20120123043927) do
     t.integer  "votos_mc"
     t.integer  "votos_da"
     t.integer  "votos_pm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "municipios", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "estado_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parroquia", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "municipio_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,10 +3,20 @@ require 'spec_helper'
 describe "Centros" do
   
   before :each do
-    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia => 'CANDELARIA', :estado => 'CANDELARIA', :municipio => 'DTTO. CAPITAL', :votantes =>   345
-    @cerrar = Centro.create :nombre => 'Nombre Centro Cerrar', :parroquia => 'CANDELARIA', :estado => 'DTTO. CAPITAL', :municipio => 'LIBERTADOR', :votantes => 123, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
+    Usuario.new(:encrypted_password => '16cc392c3e17cf76ea66dd0e0202cba7fb3339025e401bcd3be2faebf0d5777f44619643b9183a0df6ee91a9c6290714c14d58a480ab389b138d1c12cc3b6699', :password_salt => 'fJ68tN7Pjcz9NpPrwmcd', :email => 'cead22@il.com').save!
+    Parroquia.create :id => 1, :nombre => 'Sartenejas', :municipio_id => 1
+    Municipio.create :id => 1, :nombre => 'Baruta', :estado_id => 1
+    Estado.create :id => 1, :nombre => 'Miranda'
+    
+    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => 1, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
+    @cerrar = Centro.create :nombre => 'Nombre Centro Cerrar', :parroquia_id => 1, :votantes => 123, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
     @mesa1 = Mesa.create :centro_id => @cerrar.id, :numero => 1
     @mesa2 = Mesa.create :centro_id => @cerrar.id, :numero => 2
+    visit centros_path
+    fill_in 'usuario_email', :with => 'cead22@il.com'
+    fill_in 'usuario_password', :with => 'carlos'
+    click_button 'Entrar'
+    # save_and_open_page
   end
   
   describe "GET /centros" do
@@ -16,10 +26,9 @@ describe "Centros" do
       page.should have_content 'COLEGIO SAN FRANCISCO DE SALES'
       # save_and_open_page
     end
-    
   
   end
-
+  
   describe "PUT /centros" do
     it "guarda la informacion de la primera llamada" do
       visit centros_path
@@ -31,7 +40,7 @@ describe "Centros" do
       page.should have_content '¿Abrió el centro?'
       choose('centro_abrio')
       # save_and_open_page
-
+  
       page.should have_content '¿Se instaló el centro de forma correcta?'
       choose('centro_instalacion_correcta_true')
       # save_and_open_page
@@ -49,19 +58,19 @@ describe "Centros" do
       
       current_path.should == centro_path(@centro)
        # save_and_open_page
-
+  
       page.should have_content '¿Abrió el centro?'
       find('#centro_abrio').text == 'Sí'
-
+  
       page.should have_content '¿Se instaló el centro de forma correcta?'
       find('#centro_instalacion_correcta').text == 'Sí'
-
+  
       page.should have_content '¿Se encuentran nuestros miembros y testigos?'
       find('#centro_testigos_nuestros_presentes').text == 'No'
-
+  
       page.should have_content '¿Están los testigos de otros candidatos?'
       find('#centro_otros_testigos_presentes').text == 'No'
-
+  
       page.should have_content '¿Llegó el Plan República?'
       find('#centro_plan_republica_presente').text == 'Sí'
       # save_and_open_page

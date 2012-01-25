@@ -3,7 +3,13 @@ require 'spec_helper'
 describe "LlamadasDeControls" do
   
   before :each do
-    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia => 'CANDELARIA', :estado => 'CANDELARIA', :municipio => 'DTTO. CAPITAL', :votantes =>   345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
+    Parroquia.create :id => 1, :nombre => 'Sartenejas', :municipio_id => 1
+    Municipio.create :id => 1, :nombre => 'Baruta', :estado_id => 1
+    Estado.create :id => 1, :nombre => 'Miranda'
+    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => 1, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
+    fill_in 'Email', :with => 'cead22@gmail.com'
+    fill_in 'Password', :with => 'carlos'
+    click_button 'Entrar'
   end
   
   describe "PUT /llamadas_de_controls" do

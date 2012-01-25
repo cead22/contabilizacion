@@ -1,5 +1,12 @@
-	<h1 id="centro"><%= @centro.nombre %></h1>
-	<h6> <%= @centro.estado %> > <%= @centro.municipio %> > <%= @centro.parroquia %></h6>
+	<h2 id="centro"><%= @centro.nombre %></h2>
+	<div class="row">
+		<div class="span7">
+			<h6><%= @centro.parroquia.municipio.estado.nombre %> > <%= @centro.parroquia.municipio.nombre %> > <%= @centro.parroquia.nombre %></h6>
+		</div>
+		<div class="span3 offset4">
+			<%= link_to '← Volver a Centros', centros_path, :class => 'btn' %>
+		</div>
+	</div>
 </div>
 <div class="row">
 	<div class="span1">&nbsp;</div>
@@ -42,8 +49,10 @@
 				<li class="votos"> ¿Cu&aacute;ntas personas han votado?: <strong><%= llamada.votos %></strong> </li>
 				<li class="cerrado_forzado"> ¿Cerraron el centro de manera forzada? <strong><%= llamada.cerrado_forzado ? 'Sí' : 'No' %></strong> </li>
 			</ul>
+			<p></p>
+			<%= link_to 'Modificar', modificar_llamada_path(llamada), :class => 'secondary-nav' %>
 			</li>
-			<br/>
+			<br/><br/>
 		<% end %>
 		</ol>
 		
@@ -51,7 +60,8 @@
 		<% for incidencia in Incidencia.where :centro_id => @centro.id %>
 		<div class="alert-message block-message warning">
 			<% anomalia = Anomalia.find(incidencia.anomalia_id) %>
-			<strong> <%= TipoAnomalia.find(anomalia.tipo_anomalia_id).descripcion + ' > ' + anomalia.descripcion %> </strong>
+			<p class="hora"> <%= '(' + incidencia.updated_at.strftime("%I:%M%p") +') ' %> </p><br/>
+			<strong>	<%=  TipoAnomalia.find(anomalia.tipo_anomalia_id).descripcion + ' > ' + anomalia.descripcion %> </strong>
 			<p> <%= incidencia.descripcion %>  </p>
 		</div>
 		<% end %>

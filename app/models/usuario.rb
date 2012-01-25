@@ -5,5 +5,5 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:encryptable
   # devise :database_authenticatable, :rememberable, :trackable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :encrypted_password, :password_salt, :id
 end
