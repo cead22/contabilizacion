@@ -1,6 +1,7 @@
 class CentrosController < ApplicationController
   
   before_filter :get_centro, :except => [:index]
+  before_filter :admin_o_conector, :except => [:index, :show]
   
   def index
     @centros = Centro.all

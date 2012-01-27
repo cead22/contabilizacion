@@ -1,0 +1,68 @@
+<%= form_for(resource, :as => resource_name, :url => url) do |f| %>
+<%= devise_error_messages! %>
+
+<div class="row">
+	<div class="span3">&nbsp;</div>
+	<div class="span7">
+		
+		<div class="clearfix">
+			<%= f.label :username, 'Nombre de usuario' %>
+			<div class="input">
+				<%= f.text_field :username %>
+			</div>
+		</div>
+		
+		<div class="clearfix">
+			<%= f.label :email %>
+			<div class="input">
+				<%= f.email_field :email %>
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<%= f.label :password %>
+			<div class="input">
+				<%= f.password_field :password %>
+			</div>
+		</div>
+
+		<div class="clearfix">
+		<%= f.label :password_confirmation %>
+			<div class="input">
+				<%= f.password_field :password_confirmation %>
+			</div>
+		</div>
+		<div class="clearfix">
+			<%= f.label :rol %>
+			<div class="input">
+				<ul class="inputs-list">
+					<li>
+						<label>
+							<%= f.radio_button :rol, 'conector' %>
+							<span><%= 'Conector' %></span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<%= f.radio_button :rol, 'observador' %>
+							<span><%= 'Observador' %></span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<%= f.radio_button :rol, 'admin' %>
+							<span><%= 'Administrador' %></span>
+						</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span3">&nbsp;</div>
+	<div class="actions span5">
+		<%= f.submit "Crear Usuario", :disable_with => 'Espere...', :class => ['btn small primary'] %> <br/>
+	</div>
+	<% end %>
+</div>	

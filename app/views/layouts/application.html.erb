@@ -9,16 +9,26 @@
   <%= yield :head %>
 </head>
 <body>
-	
+
 	<div class="topbar">
 		<div class="fill">
 			<div class="container">
 				<a class="brand" href="#">Contabilizaci&oacute;n</a>
+				<% if usuario_signed_in? %>
 				<ul class="nav">
 					<li> <%= link_to "Centros", centros_path %>  </li>
 				</ul>
-				<% if usuario_signed_in? %>
 				<ul class="nav secondary-nav">
+					<% if current_usuario.rol == 'admin' %>
+					<li class="dropdown" data-dropdown="dropdown"> <%= link_to 'Admin', '#', :class => 'dropdown-toggle'%>
+						<ul class="dropdown-menu">
+							<li><%= link_to 'Ver Usuarios', usuarios_path %></li>
+							<li><%= link_to 'Crear Usuario', crear_usuario_path %></li>
+							<li class="divider"></li>
+							<li><%= link_to 'Reasignar Centros', reasignar_centros_path %></li>
+						</ul>
+					</li>
+					<% end %>
 					<li> <%= link_to "Cerrar Sesión", destroy_usuario_session_path, :method => :delete %>  </li>
 				</ul>
 				<% end %>

@@ -1,16 +1,25 @@
 Contabilizacion::Application.routes.draw do
   get "llamadas/modificar"
 
-  devise_for :usuarios
-  # , :path => "usuarios", :only => [:sessions], :path_names => { :sign_in => 'login', :sign_out => 'logout'}
+  devise_for :usuarios, :path => "usuarios", :only => [:sessions], :path_names => { :sign_in => 'login', :sign_out => 'logout'}
 
   resources :llamadas, :only => :update
   resources :centros, :only => [:index, :show, :update]
-  match '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
-  match '/centros/:id/cerrar' => 'centros#cerrar', :as => 'cerrar_centro'
-  match '/centros/:id/control' => 'centros#control', :as => 'centro_control'
-  match '/llamada/:id/modificar' => 'llamadas#modificar', :as => 'modificar_llamada'
+  get '/centros/:id/abrir' => 'centros#abrir', :as => 'abrir_centro'
+  get '/centros/:id/cerrar' => 'centros#cerrar', :as => 'cerrar_centro'
+  get '/centros/:id/control' => 'centros#control', :as => 'centro_control'
+  get '/llamada/:id/modificar' => 'llamadas#modificar', :as => 'modificar_llamada'
+
+  get '/admin/crear_usuario' => 'admins#crear_usuario', :as => 'crear_usuario'
+  post '/admin/crear_usuario' => 'admins#new_usuario', :as => 'new_usuario'
+  get '/admin/usuarios' => 'admins#usuarios', :as => 'usuarios'
   
+  get '/admin/centros' => 'admin#centros', :as => 'admin_centros'
+  get '/admin/reasignar_centros' => 'admins#reasignar_centros', :as => 'reasignar_centros'
+  get '/admin/reasignar_centros_del_conector' => 'admins#reasignar_centros_del_conector', :as => 'reasignar_centros_del_conector'
+  get '/admin/:id/asignar_centro_a_conector' => 'admins#asignar_centro_a_conector', :as => 'asignar_centro_a_conector'
+  put '/admin/:id/update_centro' => 'admins#update_centro', :as => 'update_centro'
+    
   root :to => 'centros#index'
   
   # The priority is based upon order of creation:

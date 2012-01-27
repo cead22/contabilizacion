@@ -11,12 +11,14 @@
 		<div class="clearfix">
 			<%= f.label :descripcion, 'Descripción' %>
 			<div class="input">
-				<%= f.text_area :descripcion, :rows => 5, :class => 'descripcion_incidencia' %>
+				<%= f.text_area :descripcion, :rows => 3, :class => 'descripcion_incidencia' %>
 			</div>
 		</div>
 		<div class="input">
-			<%= link_to_function 'Guardar Incidencia', 'guardar_y_esconder(this.parentNode.parentNode.parentNode)', :class => ['btn', 'primary', 'small'] %>
-			<%= link_to_remove_fields 'Cancelar', f %>
+			<%= #link_to_function 'Guardar Incidencia', 'guardar_y_esconder(this.parentNode.parentNode.parentNode)', :class => ['btn', 'primary', 'small'] 
+			%>
+			<%= link_to_remove_fields 'Cancelar', f 
+			%>
 		</div>
 	</fieldset>
 </div>

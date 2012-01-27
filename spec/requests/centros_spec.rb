@@ -3,37 +3,31 @@ require 'spec_helper'
 describe "Centros" do
   
   before :each do
-    Usuario.new(:encrypted_password => '16cc392c3e17cf76ea66dd0e0202cba7fb3339025e401bcd3be2faebf0d5777f44619643b9183a0df6ee91a9c6290714c14d58a480ab389b138d1c12cc3b6699', :password_salt => 'fJ68tN7Pjcz9NpPrwmcd', :email => 'cead22@il.com').save!
-    Parroquia.create :id => 1, :nombre => 'Sartenejas', :municipio_id => 1
-    Municipio.create :id => 1, :nombre => 'Baruta', :estado_id => 1
-    Estado.create :id => 1, :nombre => 'Miranda'
+    miranda = Estado.create :nombre => 'Miranda'
+    baruta = Municipio.create :nombre => 'Baruta', :estado_id => miranda.id
+    sart = Parroquia.create:nombre => 'Sartenejas', :municipio_id => baruta.id
+
+    @con =   Usuario.create!({:username => 'conector', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})
     
-    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => 1, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
-    @cerrar = Centro.create :nombre => 'Nombre Centro Cerrar', :parroquia_id => 1, :votantes => 123, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
+    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => sart.id, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012', :usuario_id => @con.id
+    @cerrar = Centro.create :nombre => 'Nombre Centro Cerrar', :parroquia_id => sart.id, :votantes => 123, :abrio => 'Mon Jan 16 01:38:12 -0430 2012'
     @mesa1 = Mesa.create :centro_id => @cerrar.id, :numero => 1
     @mesa2 = Mesa.create :centro_id => @cerrar.id, :numero => 2
+    
     visit centros_path
-    fill_in 'usuario_email', :with => 'cead22@il.com'
-    fill_in 'usuario_password', :with => 'carlos'
+    fill_in 'Nombre de usuario', :with => @con.username
+    fill_in 'Password', :with => @con.password
     click_button 'Entrar'
-    # save_and_open_page
   end
-  
-  describe "GET /centros" do
-    it "show all centros" do
-      visit centros_path
-      # page.should have_content 'Centros'
-      page.should have_content 'COLEGIO SAN FRANCISCO DE SALES'
-      # save_and_open_page
-    end
-  
-  end
+
   
   describe "PUT /centros" do
     it "guarda la informacion de la primera llamada" do
+
       visit centros_path
+
       page.should have_content 'COLEGIO SAN FRANCISCO DE SALES'
-      # save_and_open_page
+
       click_link 'Primera Llamada'
       current_path.should == abrir_centro_path(@centro)
       
@@ -53,11 +47,10 @@ describe "Centros" do
       
       page.should have_content '¿Llegó el Plan República?'
       choose('centro_plan_republica_presente_true')
-      # save_and_open_page     
-      click_button 'Guardar'
       
+      click_button 'Guardar'
+
       current_path.should == centro_path(@centro)
-       # save_and_open_page
   
       page.should have_content '¿Abrió el centro?'
       find('#centro_abrio').text == 'Sí'
@@ -126,4 +119,5 @@ describe "Centros" do
       # save_and_open_page
     end
   end
+  
 end

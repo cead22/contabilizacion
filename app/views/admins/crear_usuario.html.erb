@@ -1,0 +1,12 @@
+<div class="row">
+	  	<div class="span7"><h1>Usuarios</h1></div>
+	<div class="span3 offset4">
+		<%= link_to 'Ver Usuarios', usuarios_path, :class => 'btn' %>
+	</div>
+</div>
+</div>
+<center><h2>Crear Usuario</h2></center>
+<br /><br />
+
+
+<%= render 'devise/registrations/new', :url => new_usuario_path %>

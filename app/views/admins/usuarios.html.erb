@@ -1,0 +1,31 @@
+<div class="row">
+  	<div class="span5"><h1>Usuarios</h1></div>
+		<div class="span3 offset6">
+			<%= link_to 'Crear Usuario', crear_usuario_path, :class => 'btn primary' %>
+		</div>
+</div>
+</div>
+
+<% [[@administradores, 'Administradores'], [@conectores, 'Conectores'], [@observadores,'Observadores']].each do |grupo, titulo| %>
+	<h2><%= titulo %></h2>
+	<table class="bordered-table zebra-striped">
+		<thead>
+			<tr>
+				<th>ID</td>
+				<th>Username</td>
+				<th>Email</td>
+				<th>Rol</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% for usuario in grupo %>
+			<tr>
+				<td class="span1"> <%= usuario.id %> </td>
+				<td class="span4"> <%= usuario.username %> </td>
+				<td class="span6"> <%= usuario.email %> </td>
+				<td class="span3"> <%= usuario.rol %> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Reasignar Centros</h1>
+<div class="row">
+		<div class ="span5">
+			<h6> Conector #<%= @centro.usuario.id %>: <em><%= @centro.usuario.username %></em> </h6>
+		</div>
+</div>
+</div>
+
+<%= form_for @centro, :url => {:controller => 'admins', :action => 'update_centro'} do |f| %>
+<div class="row">
+	<div class="span3">&nbsp;</div>
+	<div class="span9">
+		<h2> Seleccione el nuevo conector para el centro </h2><br/>
+		<div class="clearfix">
+			<%= f.label :usuario_id, 'Conector' %>
+			<div class="input small">
+				<%= f.collection_select(:usuario_id, Usuario.where("rol = 'conector'"), :id, :username) %>
+				<%= f.submit 'Asignar', :class => ['btn', 'primary'] %>
+			</div>
+		</div>
+
+	</div>
+</div>
+<% end %>

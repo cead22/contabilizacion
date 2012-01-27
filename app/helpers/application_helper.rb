@@ -15,4 +15,12 @@ module ApplicationHelper
   def javascript(*files)
     content_for(:head) { javascript_include_tag(*files) }
   end
+  
+  def add_disabled
+    current_usuario.rol == 'observador' ? ['disabled'] : []
+  end
+  
+  def es_observador?
+    current_usuario.rol == 'observador'
+  end
 end

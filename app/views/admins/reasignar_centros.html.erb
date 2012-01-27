@@ -1,0 +1,19 @@
+<h1>Reasignar Centros</h1>
+</div>
+
+<%= form_tag({:controller => 'admins', :action => 'reasignar_centros_del_conector'}, :method => 'get') %>
+<div class="row">
+	<div class="span3">&nbsp;</div>
+	<div class="span9">
+		<h2> Introduzca el n&uacute;mero del conector</h2><br/>
+		<div class="clearfix">
+			<%= label_tag :conector, 'Número del Conector' %>
+			<div class="input small">
+				<%= text_field_tag :id, '', :class => 'mini' %>
+				<%= submit_tag 'Ver centros del conector', :class => ['btn', 'primary'] %>
+			</div>
+		</div>
+
+	</div>
+</div>
+</form>

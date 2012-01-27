@@ -1,0 +1,29 @@
+<h1>Reasignar Centros</h1>
+<div class="row">
+		<div class ="span5">
+			<h6> Conector #<%= @conector.id %>: <em><%= @conector.username %></em> </h6>
+		</div>
+		<div class="span3 offset6">
+			<%= link_to '← Volver', reasignar_centros_path, :class => 'btn' %>
+		</div>
+</div>
+</div>
+
+
+	<h2><%=  %></h2>
+	<table class="bordered-table zebra-striped">
+		<thead>
+			<tr>
+				<th>Nombre</td>
+				<th>Reasignar</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% for centro in @conector.centros %>
+			<tr>
+				<td class="span10"> <%= centro.nombre %> </td>
+				<td class="span4"> <%= link_to 'Asignar a otro conector', asignar_centro_a_conector_path(centro.id), :class => ['btn', 'primary'] %> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
