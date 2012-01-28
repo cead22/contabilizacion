@@ -15,7 +15,7 @@
 		<div class="clearfix">
 			<%= f.label :email %>
 			<div class="input">
-				<%= f.email_field :email %>
+				<%= f.email_field :email, :placeholder => 'obligatorio (aunque sea inventado)'%>
 			</div>
 		</div>
 
@@ -62,7 +62,7 @@
 <div class="row">
 	<div class="span3">&nbsp;</div>
 	<div class="actions span5">
-		<%= f.submit "Crear Usuario", :disable_with => 'Espere...', :class => ['btn small primary'] %> <br/>
+		<%= f.submit "Crear Usuario", :disable_with => 'Espere...', :class => ['btn small primary'], :onclick => "if ($('#usuario_email').val() == '') {alert('El campo email es obligatorio'); return false;}" %> <br/>
 	</div>
 	<% end %>
 </div>	
