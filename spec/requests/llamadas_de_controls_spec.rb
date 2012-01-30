@@ -6,12 +6,13 @@ describe "LlamadasDeControls" do
     miranda = Estado.create :nombre => 'Miranda'
     baruta = Municipio.create :nombre => 'Baruta', :estado_id => miranda.id
     sart = Parroquia.create:nombre => 'Sartenejas', :municipio_id => baruta.id
-  
-    @con =   Usuario.create!({:username => 'conector', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})    
-    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => sart.id, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012', :usuario_id => @con.id
+
+    @coord  = Coordinador.create({:nombre => 'Nombre Coordinador', :telefono1 => '948272224'})
+    @con =   Usuario.create!({:email => 'conector@conector.com', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})    
+    @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => sart.id, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012', :usuario_id => @con.id, :coordinador_id => @coord.id
     
     visit centros_path
-    fill_in 'Nombre de usuario', :with => @con.username
+    fill_in 'Email', :with => @con.email
     fill_in 'Password', :with => @con.password
 
     click_button 'Entrar'

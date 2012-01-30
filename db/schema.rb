@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129231949) do
+ActiveRecord::Schema.define(:version => 20120130033411) do
 
   create_table "anomalia", :force => true do |t|
     t.string   "descripcion"
@@ -87,6 +87,9 @@ ActiveRecord::Schema.define(:version => 20120129231949) do
     t.integer  "votos_pm"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "votos_nulos"
+    t.integer  "votos_blancos"
+    t.integer  "votantes"
   end
 
   create_table "municipios", :force => true do |t|
@@ -124,8 +127,8 @@ ActiveRecord::Schema.define(:version => 20120129231949) do
     t.datetime "updated_at"
     t.string   "password_salt"
     t.string   "rol",                                   :default => "conector"
-    t.string   "username"
     t.boolean  "presente"
+    t.integer  "numero"
   end
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true

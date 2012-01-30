@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="span5"><h1><%= @titulo %></h1></div>
+	<div class="span3 offset6">
+		<%= link_to 'Crear Usuario', crear_usuario_path, :class => 'btn primary' %>
+	</div>
+</div>
+</div>
+
+<%= render 'pills' %>
+
+<%= paginate @usuarios %>
+
+<table class="bordered-table zebra-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<% if @numeros %>
+			<th>N&uacute;mero</th> 
+			<th>Presente</th> 
+			<% end %>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for usuario in @usuarios %>
+		<tr>
+			<td class="span1"> <%= link_to usuario.id, modificar_usuario_path(usuario) %> </td>
+			<% if @numeros %>
+			<td class="span1"> <%= usuario.numero %> </td> 
+			<td class="span1"> <%= usuario.presente ? 'Sí' : 'No' %> </td> 
+			<% end %>
+			<td class="span3"> <%= usuario.email %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= paginate @usuarios %>

@@ -1,31 +1,49 @@
 <div class="row">
-  	<div class="span5"><h1>Usuarios</h1></div>
-		<div class="span3 offset6">
-			<%= link_to 'Crear Usuario', crear_usuario_path, :class => 'btn primary' %>
-		</div>
+	<div class="span5"><h1>Usuarios</h1></div>
+	<div class="span3 offset6">
+		<%= link_to 'Crear Usuario', crear_usuario_path, :class => 'btn primary' %>
+	</div>
 </div>
 </div>
 
-<% [[@administradores, 'Administradores'], [@conectores, 'Conectores'], [@observadores,'Observadores']].each do |grupo, titulo| %>
-	<h2><%= titulo %></h2>
-	<table class="bordered-table zebra-striped">
-		<thead>
-			<tr>
-				<th>ID</td>
-				<th>Username</td>
-				<th>Email</td>
-				<th>Rol</td>
-			</tr>
-		</thead>
-		<tbody>
-			<% for usuario in grupo %>
-			<tr>
-				<td class="span1"> <%= usuario.id %> </td>
-				<td class="span4"> <%= usuario.username %> </td>
-				<td class="span6"> <%= usuario.email %> </td>
-				<td class="span3"> <%= usuario.rol %> </td>
-			</tr>
+<%= render 'pills' %>
+
+<form action="<%= usuarios_path %>" style="margin:0;padding:0;display:inline">
+<%= text_field_tag :search, params[:search], :placeholder => 'email' %> &nbsp;
+<%= submit_tag 'Buscar', :class => ['btn','small','primary'], :name => nil %>
+</form>
+<br/><br/>
+
+<% if @usuarios && @usuarios.count != 0 %>
+<%= paginate @usuarios %>
+<table class="bordered-table zebra-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<% if @numeros %>
+			<th>N&uacute;mero</th>
+			<th>Presente</th>
 			<% end %>
-		</tbody>
-	</table>
+			<th>Email</th>
+			<th>Rol</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for usuario in @usuarios %>
+		<tr>
+			<td class="span1"> <%= link_to usuario.id, modificar_usuario_path(usuario) %> </td>
+			<td class="span1"> <%= usuario.rol == 'conector' ? usuario.numero : '-' %> </td>
+			<td class="span1"> <%= usuario.presente ? 'Sí': 'No' %> </td>
+			<td> <%= usuario.email %> </td>
+			<td class="span3"> <%= usuario.rol %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @usuarios %>
+<% else %>
+
+<% if @usuarios %>
+<h6> No se encontraron resultados </h6>
+<% end %>
 <% end %>

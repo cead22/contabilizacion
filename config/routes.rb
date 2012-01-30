@@ -19,6 +19,10 @@ Contabilizacion::Application.routes.draw do
   post '/admin/edit_usuario' => 'admins#edit_usuario', :as => 'edit_usuario'
   get '/admin/usuarios' => 'admins#usuarios', :as => 'usuarios'
   
+  get 'admin/conectores' => 'admins#conectores', :as => 'conectores'
+  get 'admin/observadores' => 'admins#observadores', :as => 'observadores'
+  get 'admin/administradores' => 'admins#administradores', :as => 'administradores'
+  
   get '/admin/centros' => 'admin#centros', :as => 'admin_centros'
   get '/admin/reasignar_centros' => 'admins#reasignar_centros', :as => 'reasignar_centros'
   get '/admin/reasignar_centros_del_conector' => 'admins#reasignar_centros_del_conector', :as => 'reasignar_centros_del_conector'

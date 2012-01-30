@@ -1,0 +1,6 @@
+<ul class="pills">
+  <li class="<%= request.path == usuarios_path ? 'active' : '' %>"><%= link_to 'Buscar', request.path == usuarios_path ? '#' : usuarios_path %></li>
+  <li class="<%= request.path == conectores_path ? 'active' : '' %>"><%= link_to 'Conectores', request.path == conectores_path ? '#' : conectores_path %>
+  <li class="<%= request.path == observadores_path ? 'active' : '' %>"><%= link_to 'Observadores', request.path == observadores_path ? '#' : observadores_path %>
+  <li class="<%= request.path == administradores_path ? 'active' : '' %>"><%= link_to 'Administradores', request.path == administradores_path ? '#' : administradores_path %>
+</ul>

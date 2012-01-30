@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe "AdminCentros" do
   before :each do
-    @admin = Usuario.create!({:username => 'cead22', :password => 'carlos', :password_confirmation => 'carlos', :rol => 'admin', :email => 'carlos@carlos.com'})
-    @con =   Usuario.create!({:username => 'conector', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})
-    @con2 =  Usuario.create!({:username => 'conector2', :password => 'conector2', :password_confirmation => 'conector2', :rol => 'conector', :email => 'conector2@conector2.com'})
-    @obs =   Usuario.create!({:username => 'observador', :password => 'observador', :password_confirmation => 'observador', :rol => 'observador', :email => 'observador@observador.com'})
+    @admin = Usuario.create!({:email => 'cead22@cead22.com', :password => 'carlos', :password_confirmation => 'carlos', :rol => 'admin', :email => 'carlos@carlos.com'})
+    @con =   Usuario.create!({:email => 'conector@cead22.com', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})
+    @con2 =  Usuario.create!({:email => 'conector2@cead22.com', :password => 'conector2', :password_confirmation => 'conector2', :rol => 'conector', :email => 'conector2@conector2.com'})
+    @obs =   Usuario.create!({:email => 'observador@cead22.com', :password => 'observador', :password_confirmation => 'observador', :rol => 'observador', :email => 'observador@observador.com'})
     miranda = Estado.create :nombre => 'Miranda'
     baruta = Municipio.create :nombre => 'Baruta', :estado_id => miranda.id
     sart = Parroquia.create:nombre => 'Sartenejas', :municipio_id => baruta.id
@@ -19,7 +19,7 @@ describe "AdminCentros" do
 
       # login as admin
       visit centros_path
-      fill_in 'Nombre de usuario', :with => @admin.username
+      fill_in 'Email', :with => @admin.email
       fill_in 'Password', :with => @admin.password
       click_button 'Entrar'
       

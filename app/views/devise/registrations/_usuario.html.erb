@@ -7,12 +7,6 @@
 		<% if @usuario.id %>
 			<%= f.hidden_field :id %>
 		<% end %>
-		<div class="clearfix">
-			<%= f.label :username, 'Nombre de usuario' %>
-			<div class="input">
-				<%= f.text_field :username %>
-			</div>
-		</div>
 		
 		<div class="clearfix">
 			<%= f.label :email %>

@@ -3,9 +3,10 @@ class AdminsController < ApplicationController
   before_filter :admin
   
   def usuarios
-    @conectores = Usuario.where("rol = 'conector'")
-    @administradores = Usuario.where("rol = 'admin'")
-    @observadores = Usuario.where("rol = 'observador'")
+    if params[:search] && params[:search].strip != ''
+      @usuarios = Kaminari.paginate_array(Usuario.search(params[:search])).page(params[:page]).per(10)
+      @numeros = @usuarios || @usuarios.rol == 'conector'
+    end
   end
 
   def crear_usuario
@@ -13,9 +14,10 @@ class AdminsController < ApplicationController
   end
 
   def new_usuario
+    params[:usuario][:numero] = Usuario.numero_conector if params[:usuario][:rol] == 'conector'
     usuario = Usuario.new params[:usuario]
     if usuario.save
-      redirect_to usuarios_path, :flash => {:success => 'Usuario creado'}
+      redirect_to usuarios_path(:search => usuario.email), :flash => {:success => 'Usuario creado'}
     else
       redirect_to :back, :flash => {:error => 'Error al crear usuario'}
     end
@@ -34,7 +36,7 @@ class AdminsController < ApplicationController
     end
 
     if usuario.update_attributes params[:usuario]
-      redirect_to usuarios_path, :flash => {:success => 'Usuario modificado'}
+      redirect_to usuarios_path(:search => usuario.email), :flash => {:success => 'Usuario modificado'}
     else
       redirect_to :back, :flash => {:error => 'Error al modificar usuario'}
     end
@@ -61,5 +63,23 @@ class AdminsController < ApplicationController
     else
       redirect_to :back, :flash => {:error => 'Ocurrió un error al actualizar el centro'}
     end
+  end
+  
+  def conectores
+    @usuarios = Usuario.where("rol = 'conector'").order("numero ASC").page(params[:page]).per(50)
+    @numeros = true
+    @titulo = 'Conectores'
+  end
+  
+  def observadores
+    @usuarios = Usuario.where("rol = 'observador'").order("created_at ASC").page(params[:page]).per(10)
+    @numeros = false
+    @titulo = 'Observadores'
+  end
+  
+  def administradores
+    @usuarios = Usuario.where("rol = 'admin'").order("created_at ASC").page(params[:page]).per(10)
+    @numeros = false
+    @titulo = 'Administradores'
   end
 end

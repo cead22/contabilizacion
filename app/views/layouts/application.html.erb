@@ -22,8 +22,8 @@
 					<% if current_usuario.rol == 'admin' %>
 					<li class="dropdown" data-dropdown="dropdown"> <%= link_to 'Admin', '#', :class => 'dropdown-toggle'%>
 						<ul class="dropdown-menu">
-							<li><%= link_to 'Ver Usuarios', usuarios_path %></li>
-							<li><%= link_to 'Crear Usuario', crear_usuario_path %></li>
+							<li><%= link_to 'Usuarios', usuarios_path %></li>
+							<!-- <li><%= link_to 'Crear Usuario', crear_usuario_path %></li> -->
 							<li class="divider"></li>
 							<li><%= link_to 'Reasignar Centros', reasignar_centros_path %></li>
 						</ul>

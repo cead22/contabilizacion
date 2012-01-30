@@ -1,7 +1,7 @@
 <h1>Reasignar Centros</h1>
 <div class="row">
 		<div class ="span5">
-			<h6> Conector #<%= @centro.usuario.id %>: <em><%= @centro.usuario.username %></em> </h6>
+			<h6> Conector #<%= @centro.usuario.id %>: <em><%= @centro.usuario.email %></em> </h6>
 		</div>
 </div>
 </div>
@@ -14,7 +14,7 @@
 		<div class="clearfix">
 			<%= f.label :usuario_id, 'Conector' %>
 			<div class="input small">
-				<%= f.collection_select(:usuario_id, Usuario.where("rol = 'conector'"), :id, :username) %>
+				<%= f.collection_select(:usuario_id, Usuario.where("rol = 'conector'"), :id, :email) %>
 				<%= f.submit 'Asignar', :class => ['btn', 'primary'] %>
 			</div>
 		</div>

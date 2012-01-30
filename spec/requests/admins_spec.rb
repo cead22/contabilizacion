@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe "Admins" do
   before :each do
-    @admin = Usuario.create!({:username => 'cead22', :password => 'carlos', :password_confirmation => 'carlos', :rol => 'admin', :email => 'carlos@carlos.com'})
-    @con =   Usuario.create!({:username => 'conector', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})
-    @con2 =  Usuario.create!({:username => 'conector2', :password => 'conector2', :password_confirmation => 'conector2', :rol => 'conector', :email => 'conector2@conector2.com'})
-    @obs =   Usuario.create!({:username => 'observador', :password => 'observador', :password_confirmation => 'observador', :rol => 'observador', :email => 'observador@observador.com'})
+    @admin = Usuario.create!({:email => 'cead22@cead22.com', :password => 'carlos', :password_confirmation => 'carlos', :rol => 'admin', :email => 'carlos@carlos.com'})
+    @con =   Usuario.create!({:email => 'conector@cead22.com', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})
+    @con2 =  Usuario.create!({:email => 'conector2@cead22.com', :password => 'conector2', :password_confirmation => 'conector2', :rol => 'conector', :email => 'conector2@conector2.com'})
+    @obs =   Usuario.create!({:email => 'observador@cead22.com', :password => 'observador', :password_confirmation => 'observador', :rol => 'observador', :email => 'observador@observador.com'})
     
   end
   
@@ -13,17 +13,20 @@ describe "Admins" do
     it "agrega un conector nuevo" do
       # login as admin
       visit centros_path
-      fill_in 'Nombre de usuario', :with => @admin.username
+      fill_in 'Email', :with => @admin.email
       fill_in 'Password', :with => @admin.password
       click_button 'Entrar'
       
       # go to create usuario
       click_link 'Admin'
+      click_link 'Usuarios'
+      current_path.should == usuarios_path
+      
       click_link 'Crear Usuario'
       current_path.should == crear_usuario_path
       
       # fill out the form
-      fill_in 'Nombre de usuario', :with => 'newadmin'
+      # fill_in 'Nombre de usuario', :with => 'newadmin'
       fill_in 'Email', :with => 'newadmin@newadmin.com'
       fill_in 'Password', :with => 'newadmin'
       fill_in 'Password confirmation', :with => 'newadmin'
@@ -38,7 +41,7 @@ describe "Admins" do
     it "no permite acceso a observadores al area de admin" do
       # login as observador
       visit centros_path
-      fill_in 'Nombre de usuario', :with => @obs.username
+      fill_in 'Email', :with => @obs.email
       fill_in 'Password', :with => @obs.password
       click_button 'Entrar'
 
@@ -59,7 +62,7 @@ describe "Admins" do
     it "no permite acceso a conectores al area de admin" do
       # login as conector
       visit centros_path
-      fill_in 'Nombre de usuario', :with => @con.username
+      fill_in 'Email', :with => @con.email
       fill_in 'Password', :with => @con.password
       click_button 'Entrar'
 
