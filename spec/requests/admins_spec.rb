@@ -29,7 +29,7 @@ describe "Admins" do
       fill_in 'Password confirmation', :with => 'newadmin'
       choose 'Administrador'
 
-      click_button 'Crear Usuario'
+      click_button 'Guardar'
       
       current_path.should == usuarios_path
       page.should have_content 'Usuario creado'

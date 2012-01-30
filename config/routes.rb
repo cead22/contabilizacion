@@ -10,8 +10,13 @@ Contabilizacion::Application.routes.draw do
   get '/centros/:id/control' => 'centros#control', :as => 'centro_control'
   get '/llamada/:id/modificar' => 'llamadas#modificar', :as => 'modificar_llamada'
 
+  get 'centros/:id/modificar_incidencia' => 'centros#modificar_incidencia', :as => 'modificar_incidencia'
+  put 'centros/:id/edit_incidencia' => 'centros#edit_incidencia', :as => 'edit_incidencia'
+
   get '/admin/crear_usuario' => 'admins#crear_usuario', :as => 'crear_usuario'
   post '/admin/crear_usuario' => 'admins#new_usuario', :as => 'new_usuario'
+  get '/admin/:id/modificar_usuario' => 'admins#modificar_usuario', :as => 'modificar_usuario'
+  post '/admin/edit_usuario' => 'admins#edit_usuario', :as => 'edit_usuario'
   get '/admin/usuarios' => 'admins#usuarios', :as => 'usuarios'
   
   get '/admin/centros' => 'admin#centros', :as => 'admin_centros'

@@ -1,0 +1,83 @@
+  <h1>Llamada de Control<small> <%= @centro.nombre %> </small></h1>
+</div>
+
+<%= form_for @centro do |f| %>
+	<%= f.fields_for :llamadas, @llamada do |llamada| %>
+	<div class="row">
+		<div class="span1"> &nbsp; </div>
+		<div class="span6">
+			<fieldset>
+				<div class="clearfix">
+					<%= llamada.label :funcionando, '¿El centro está funcionando correctamente?' %>
+					<div class="input">
+						<ul class="inputs-list">
+							<li>
+								<label>
+									<%= llamada.radio_button :funcionando, true %>
+									<span><%= 'Sí' %></span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<%= llamada.radio_button :funcionando, false %>
+									<span><%= 'No' %></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+					<div class="clearfix"> <!-- link_to_add_fields "Nueva incidencia", f, :incidencias --> </div>
+				
+				<div class="clearfix">
+					<%= llamada.label :votos, '¿Cuántas personas han votado?' %>
+					<div class="input">
+						<%= llamada.text_field :votos, :class => 'mini'%>
+					</div>
+				</div>
+			
+				<div class="clearfix">
+					<%= llamada.label :cerrado_forzado, '¿Cerraron el centro de manera forzada?' %>
+					<div class="input">
+						<ul class="inputs-list">
+							<li>
+								<label>
+									<%= llamada.radio_button :cerrado_forzado, true %>
+									<span><%= 'Sí' %></span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<%= llamada.radio_button :cerrado_forzado, false %>
+									<span><%= 'No' %></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="actions">
+					<%= llamada.submit 'Guardar', :disable_with => 'Guardando...', :class => 'btn primary' %>
+					<button type="reset" class="btn"> Cancelar </button>
+				</div> -->
+			</fieldset>
+		</div> <!-- end span6 -->
+		<div class="span7">
+
+			<%= render :partial => @incidencia_form_path, :locals => {:f => f} %>
+			
+
+
+
+		</div>
+	</div><!-- end row -->
+	<div class="row">
+		<div class="span14">
+			<div class="actions">
+				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
+				<button type="reset" class="btn"> Resetear </button>
+			</div>
+		</div>
+	</div>
+	
+	<% end %>
+<% end %>

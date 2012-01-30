@@ -9,6 +9,7 @@ class AdminsController < ApplicationController
   end
 
   def crear_usuario
+    @usuario = Usuario.new
   end
 
   def new_usuario
@@ -17,6 +18,25 @@ class AdminsController < ApplicationController
       redirect_to usuarios_path, :flash => {:success => 'Usuario creado'}
     else
       redirect_to :back, :flash => {:error => 'Error al crear usuario'}
+    end
+  end
+
+  def modificar_usuario
+    @usuario = Usuario.find params[:id]
+  end
+  
+  def edit_usuario
+    usuario = Usuario.find params[:usuario][:id]
+    
+    if params[:usuario][:password] == '' || params[:usuario][:password_confirmation] == ''
+      params[:usuario][:password] = nil
+      params[:usuario][:password_confirmation] = nil
+    end
+
+    if usuario.update_attributes params[:usuario]
+      redirect_to usuarios_path, :flash => {:success => 'Usuario modificado'}
+    else
+      redirect_to :back, :flash => {:error => 'Error al modificar usuario'}
     end
   end
 

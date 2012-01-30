@@ -2,7 +2,9 @@ class LlamadasController < ApplicationController
   before_filter :get_llamada
   
   def modificar
-    # @llamada = Llamada.find params[:id]
+    @llamada = Llamada.find params[:id]
+    @centro = Centro.find @llamada.centro_id
+    @incidencia_form_path = 'centros/incidencia_form'
   end
   
   def update

@@ -6,13 +6,13 @@ class Usuario < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
 
-  validates_presence_of     :password
-  validates_confirmation_of :password
-  validates :password, :length => {:minimum => 6}
+  validates_presence_of     :password, :on => :create
+  validates_confirmation_of :password, :on => :create
+  validates :password, :length => {:minimum => 6}, :on => :create
 
   validates :rol, :inclusion => {:in => %w(admin conector observador)}
   
-  attr_accessible :username, :email, :password_confirmation, :remember_me, :encrypted_password, :password_salt, :rol, :password
+  attr_accessible :username, :email, :password_confirmation, :remember_me, :encrypted_password, :password_salt, :rol, :password, :presente
 
   has_many :centros
 end

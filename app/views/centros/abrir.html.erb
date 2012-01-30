@@ -11,13 +11,14 @@
 					<ul class="inputs-list">
 						<li>
 							<label>
-								<%= f.radio_button :abrio, Time.now, :id => 'centro_abrio' %>
+
+								<%= f.radio_button :abrio, true, :checked => @centro.abrio == nil ? false : true %>
 								<span><%= 'Sí' %></span>
 							</label>
 						</li>
 						<li>
 							<label>
-								<%= f.radio_button :abrio, false %>
+								<%= f.radio_button :abrio, false, :checked => @centro.abrio == nil ? true : false %>
 								<span><%= 'No' %></span>
 							</label>
 						</li>
@@ -119,15 +120,9 @@
 	<div class="span14">
 	<div class="actions">
 		<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
-		<button type="reset" class="btn"> Cancelar </button>
+		<button type="reset" class="btn"> Resetear </button>
 	</div>
 	</div>
 </div>
 
-<!-- <script type="text/javascript">
-  $(function(){
-    $.ajax({ url: '/javascripts/anomalias.js', type: 'get', dataType:'script' });
-  });
-</script> -->
-<!-- </div> -->
 <% end %>

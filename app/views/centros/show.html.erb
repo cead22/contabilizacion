@@ -20,12 +20,17 @@
 			<li id="centro_otros_testigos_presentes"> ¿Est&aacute;n los testigos de otros candidatos?: <strong><%= @centro.otros_testigos_presentes ? 'Sí' : 'No'  %></strong> </li>
 			<li id="centro_plan_republica_presente"> ¿Lleg&oacute; el Plan Rep&uacute;blica?: <strong><%= @centro.plan_republica_presente ? 'Sí' : 'No'  %></strong> </li>
 		</ul>
-
+		<p style="margin-top:-15px;"></p>
+		 <%= link_to 'Modificar', abrir_centro_path(@centro) %>
+<br/><br/>
 		<h3>&Uacute;ltima Llamada</h3>
 		<ul class="unstyled">
 			<li>¿Cerr&oacute; el centro?: <strong><%= @centro.cerro != nil ? 'Sí (' + @centro.cerro.strftime("%I:%M%p") + ')' : 'No' %></strong> </li>
 			<li>¿Se hizo el escrutinio?: <strong><%= @centro.escrutinio != nil ? 'Sí (' + @centro.escrutinio.strftime("%I:%M%p") + ')' : 'No' %></strong> </li>
 		</ul>
+		<p style="margin-top:-15px;"></p>
+		<%= link_to 'Modificar', cerrar_centro_path(@centro) %>
+		
 		<% for mesa in Mesa.where :centro_id => @centro.id %>
 		<h5>Mesa <%= mesa.numero %></h5>
 		<ul>
@@ -49,8 +54,8 @@
 				<li class="votos"> ¿Cu&aacute;ntas personas han votado?: <strong><%= llamada.votos %></strong> </li>
 				<li class="cerrado_forzado"> ¿Cerraron el centro de manera forzada? <strong><%= llamada.cerrado_forzado ? 'Sí' : 'No' %></strong> </li>
 			</ul>
-			<p></p>
-			<%= link_to 'Modificar', modificar_llamada_path(llamada), :class => 'secondary-nav' %>
+			<p style="margin-top:-7px;"></p>
+			<%= link_to 'Modificar', modificar_llamada_path(llamada) %>
 			</li>
 			<br/><br/>
 		<% end %>
@@ -63,6 +68,9 @@
 			<p class="hora"> <%= '(' + incidencia.updated_at.strftime("%I:%M%p") +') ' %> </p><br/>
 			<strong>	<%=  TipoAnomalia.find(anomalia.tipo_anomalia_id).descripcion + ' > ' + anomalia.descripcion %> </strong>
 			<p> <%= incidencia.descripcion %>  </p>
+			<p style="margin-top:7px;"></p>
+			<%= link_to 'Modificar', modificar_incidencia_path(incidencia) %>
+			
 		</div>
 		<% end %>
 	</div>

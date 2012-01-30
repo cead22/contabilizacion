@@ -1,0 +1,25 @@
+  <h1>Incidencia <small> <%= @centro.nombre %> </small></h1>
+</div>
+<%= form_for @incidencia, :url => edit_incidencia_path, :method => 'put' do |f| %>
+	<div class="well fields">
+		<fieldset>
+			<legend>Incidencia</legend>
+			<div class="clearfix">
+				<%= f.label :anomalia_id, 'Irregularidad - Causa' %>
+				<div class="input" id="causa">
+					<%= f.grouped_collection_select(:anomalia_id, TipoAnomalia.all, :anomalias, :descripcion, :id, :descripcion, :include_blank => 'Seleccione') %>
+				</div>
+			</div>
+			<div class="clearfix">
+				<%= f.label :descripcion, 'Descripción' %>
+				<div class="input">
+					<%= f.text_area :descripcion, :rows => 3, :class => 'descripcion_incidencia' %>
+				</div>
+			</div>
+			<div class="actions">
+				<%= f.submit 'Guardar', :class => ['btn','small','primary'] %>
+				<%= link_to 'Cancelar', :back, :class => ['btn','small'] %>
+			</div>
+		</fieldset>
+	</div>
+<% end %>

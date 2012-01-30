@@ -1,24 +1,20 @@
-<% javascript 'anomalias' %>
+ <% javascript 'anomalias' %>
 <div class="well fields">
 	<fieldset>
-		<legend>Nueva Incidencia</legend>
+		<%= f.fields_for :incidencias, Incidencia.new do |i| %>
+		<legend>Incidencia</legend>
 		<div class="clearfix">
-			<%= f.label :anomalia_id, 'Irregularidad - Causa' %>
+			<%= i.label :anomalia_id, 'Irregularidad - Causa' %>
 			<div class="input" id="causa">
-				<%= f.grouped_collection_select(:anomalia_id, TipoAnomalia.all, :anomalias, :descripcion, :id, :descripcion, :include_blank => 'Seleccione') %>
+				<%= i.grouped_collection_select(:anomalia_id, TipoAnomalia.all, :anomalias, :descripcion, :id, :descripcion, :include_blank => 'Seleccione') %>
 			</div>
 		</div>
 		<div class="clearfix">
-			<%= f.label :descripcion, 'Descripción' %>
+			<%= i.label :descripcion, 'Descripción' %>
 			<div class="input">
-				<%= f.text_area :descripcion, :rows => 3, :class => 'descripcion_incidencia' %>
+				<%= i.text_area :descripcion, :rows => 3, :class => 'descripcion_incidencia' %>
 			</div>
-		</div>
-		<div class="input">
-			<%= #link_to_function 'Guardar Incidencia', 'guardar_y_esconder(this.parentNode.parentNode.parentNode)', :class => ['btn', 'primary', 'small'] 
-			%>
-			<%= link_to_remove_fields 'Cancelar', f 
-			%>
 		</div>
 	</fieldset>
+	<% end %>
 </div>

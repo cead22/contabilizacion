@@ -405,3 +405,7 @@ p.hora {
 	margin-top:-10px;
 	margin-bottom:-15px;
 }
+.alert-message.block-message.warning a {
+	color:blue;
+	font-weight:normal;
+}

@@ -11,13 +11,13 @@
 					<ul class="inputs-list">
 						<li>
 							<label>
-								<%= f.radio_button :cerro, Time.now, :id => 'centro_cerro' %>
+								<%= f.radio_button :cerro, true, :checked => @centro.cerro == nil ? false : true %>
 								<span><%= 'Sí' %></span>
 							</label>
 						</li>
 						<li>
 							<label>
-								<%= f.radio_button :cerro, false %>
+								<%= f.radio_button :cerro, false, :checked => @centro.cerro == nil ? true : false %>
 								<span><%= 'No' %></span>
 							</label>
 						</li>
@@ -31,13 +31,13 @@
 					<ul class="inputs-list">
 						<li>
 							<label>
-								<%= f.radio_button :escrutinio, Time.now, :id => 'centro_escrutinio' %>
+								<%= f.radio_button :escrutinio, true, :checked => @centro.escrutinio == nil ? false : true %>
 								<span><%= 'Sí' %></span>
 							</label>
 						</li>
 						<li>
 							<label>
-								<%= f.radio_button :escrutinio, false %>
+								<%= f.radio_button :escrutinio, false, :checked => @centro.escrutinio == nil ? true : false %>
 								<span><%= 'No' %></span>
 							</label>
 						</li>

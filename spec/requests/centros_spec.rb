@@ -32,7 +32,7 @@ describe "Centros" do
       current_path.should == abrir_centro_path(@centro)
       
       page.should have_content '¿Abrió el centro?'
-      choose('centro_abrio')
+      choose('centro_abrio_true')
       # save_and_open_page
   
       page.should have_content '¿Se instaló el centro de forma correcta?'
@@ -87,8 +87,8 @@ describe "Centros" do
       page.should have_content 'Votos DA'
       page.should have_content 'Votos PM'
       
-      choose('centro_cerro')
-      choose('centro_escrutinio')
+      choose('centro_cerro_true')
+      choose('centro_escrutinio_false')
       # save_and_open_page
       fill_in 'centro_mesas_attributes_0_votos_hc', :with => 66
       fill_in 'centro_mesas_attributes_0_votos_ll', :with => 55
