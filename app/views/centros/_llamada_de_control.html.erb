@@ -1,5 +1,5 @@
   <h1>Llamada de Control<small> <%= @centro.nombre %> </small></h1>
-	<h3> <%= @centro.coordinador.nombre %>, Tlfs: <%= @centro.coordinador.telefono1 %>, <%= @centro.coordinador.telefono2 %></h3>
+	<h3> <%= @centro.coordinador.nombre %>, Tlfs: <%= @centro.coordinador.telefono1 %> <%= @centro.coordinador.telefono2 %></h3>
 </div>
 
 <%= form_for @centro do |f| %>
@@ -65,7 +65,7 @@
 		<div class="span7">
 
 			<%= render :partial => @incidencia_form_path, :locals => {:f => f} %>
-			
+			<p id="link_add" ><%= link_to_add_fields 'Agregar Nueva Incidencia', f, :incidencias %></p>
 
 
 

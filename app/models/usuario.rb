@@ -4,7 +4,7 @@ class Usuario < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable,:encryptable
 
-  validates :email, :presence => true
+  validates :email, :presence => true, :uniqueness => true
 
   validates_presence_of     :password, :on => :create
   validates_confirmation_of :password, :on => :create

@@ -15,7 +15,7 @@
 <br/><br/>
 
 <% if @usuarios && @usuarios.count != 0 %>
-<%= paginate @usuarios %>
+<%= paginate @usuarios, :window => 10 %>
 <table class="bordered-table zebra-striped">
 	<thead>
 		<tr>
@@ -40,7 +40,7 @@
 		<% end %>
 	</tbody>
 </table>
-<%= paginate @usuarios %>
+<%= paginate @usuarios, :window => 10 %>
 <% else %>
 
 <% if @usuarios %>
