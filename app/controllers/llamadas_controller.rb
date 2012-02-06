@@ -1,5 +1,6 @@
 class LlamadasController < ApplicationController
   before_filter :get_llamada
+  before_filter :admin_o_conector
   
   def modificar
     @llamada = Llamada.find params[:id]
@@ -11,7 +12,8 @@ class LlamadasController < ApplicationController
     if @llamada.update_attributes params[:llamada]
       redirect_to centro_path(@llamada.centro), :flash => {:success => 'Llamada actualizado'}
     else
-      redirect_to :back, :error => 'Error al actualizar llamada'
+      # redirect_to :back, :error => 'Error al actualizar llamada'
+      render :action => :modificar
     end
   end
 

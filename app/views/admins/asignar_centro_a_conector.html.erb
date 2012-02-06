@@ -14,7 +14,7 @@
 		<div class="clearfix">
 			<%= f.label :usuario_id, 'Conector' %>
 			<div class="input small">
-				<%= f.collection_select(:usuario_id, Usuario.where("rol = 'conector'"), :id, :email) %>
+				<%= f.collection_select(:usuario_id, Usuario.where("rol = 'conector'").order("numero ASC"), :id, :email) %>
 				<%= f.submit 'Asignar', :class => ['btn', 'primary'] %>
 			</div>
 		</div>

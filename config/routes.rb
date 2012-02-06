@@ -10,9 +10,15 @@ Contabilizacion::Application.routes.draw do
   get '/centros/:id/control' => 'centros#control', :as => 'centro_control'
   get '/llamada/:id/modificar' => 'llamadas#modificar', :as => 'modificar_llamada'
 
+
   get 'centros/:id/modificar_incidencia' => 'centros#modificar_incidencia', :as => 'modificar_incidencia'
   put 'centros/:id/edit_incidencia' => 'centros#edit_incidencia', :as => 'edit_incidencia'
-
+  get 'centros/:id/modificar_coordinador' => 'centros#modificar_coordinador', :as => 'modificar_coordinador'
+  put 'centros/:id/edit_coordinador' => 'centros#edit_coordinador', :as => 'edit_coordinador'
+  put 'centros/:id/abrir' => 'centros#abrir_centro'
+  put 'centros/:id/cerrar' => 'centros#cerrar_centro'
+  
+  
   get '/admin/crear_usuario' => 'admins#crear_usuario', :as => 'crear_usuario'
   post '/admin/crear_usuario' => 'admins#new_usuario', :as => 'new_usuario'
   get '/admin/:id/modificar_usuario' => 'admins#modificar_usuario', :as => 'modificar_usuario'
@@ -28,7 +34,7 @@ Contabilizacion::Application.routes.draw do
   get '/admin/reasignar_centros_del_conector' => 'admins#reasignar_centros_del_conector', :as => 'reasignar_centros_del_conector'
   get '/admin/:id/asignar_centro_a_conector' => 'admins#asignar_centro_a_conector', :as => 'asignar_centro_a_conector'
   put '/admin/:id/update_centro' => 'admins#update_centro', :as => 'update_centro'
-    
+  
   root :to => 'centros#index'
   
   # The priority is based upon order of creation:

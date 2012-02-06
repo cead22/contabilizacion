@@ -409,3 +409,6 @@ p.hora {
 	color:blue;
 	font-weight:normal;
 }
+.erroresval > li {
+	color:red;
+}

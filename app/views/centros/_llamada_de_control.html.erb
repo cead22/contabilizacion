@@ -3,6 +3,15 @@
 </div>
 
 <%= form_for @centro do |f| %>
+
+<% if @centro.errors.any? %>
+	<ul class="erroresval">
+		<% @centro.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 	<%= f.fields_for :llamadas, @llamada do |llamada| %>
 	<div class="row">
 		<div class="span1"> &nbsp; </div>

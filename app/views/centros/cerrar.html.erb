@@ -1,7 +1,23 @@
 	<h1 id="ultima_llamada">&Uacute;ltima Llamada <small> <%= @centro.nombre %> </small></h1>
-		<h3> <%= @centro.coordinador.nombre %>, Tlfs: <%= @centro.coordinador.telefono1 %> <%= @centro.coordinador.telefono2 %></h3>
+	<% if @centro.coordinador %>
+	<h3><%= link_to "#{@centro.coordinador.nombre}, Tlfs: #{@centro.coordinador.telefono1}  #{@centro.coordinador.telefono2}", modificar_coordinador_path(@centro) %></h3>
+	<% else  %>
+	<em>Este centro no tiene coordinador</em>
+	<% end  %>
 </div>
+
+
+
 <%= form_for @centro do |f| %>
+
+<% if @centro.errors.any? %>
+<ul class="erroresval">
+<% @centro.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+
 <div class="row">
 	<div class="span1"> &nbsp; </div>
 	<div class="span6">
@@ -54,10 +70,9 @@
 		</fieldset>
 	</div><!-- end span6 -->
 	<div class="span7">
-		<%= f.fields_for :incidencias, f.object.class.reflect_on_association(:incidencias).klass.new do |builder| %>
-		<%= render 'incidencia_form', :f => builder %>
-		<% end %>
-
+	
+	<%= render 'incidencia_form', :f => f %>
+	
 		<p id="link_add" ><%= link_to_add_fields 'Agregar Nueva Incidencia', f, :incidencias %></p>
 	</div>	
 </div><!-- end row -->

@@ -10,9 +10,9 @@ describe "Centros" do
     @con =   Usuario.create!({:email => 'conector@conector.com', :password => 'conector', :password_confirmation => 'conector', :rol => 'conector', :email => 'conector@conector.com'})
     @coord  = Coordinador.create({:nombre => 'Nombre Coordinador', :telefono1 => '948272224'})
     @centro = Centro.create :nombre => 'COLEGIO SAN FRANCISCO DE SALES', :parroquia_id => sart.id, :votantes => 345, :abrio => 'Mon Jan 16 01:38:12 -0430 2012', :usuario_id => @con.id, :coordinador_id => @coord.id
-    @cerrar = Centro.create :nombre => 'Nombre Centro Cerrar', :parroquia_id => sart.id, :votantes => 123, :abrio => 'Mon Jan 16 01:38:12 -0430 2012', :coordinador_id => @coord.id
-    @mesa1 = Mesa.create :centro_id => @cerrar.id, :numero => 1
-    @mesa2 = Mesa.create :centro_id => @cerrar.id, :numero => 2
+    @cerrar = Centro.create :nombre => 'Nombre Centro Cerrar', :parroquia_id => sart.id, :votantes => 123, :abrio => 'Mon Jan 16 01:38:12 -0430 2012', :usuario_id => @con.id, :coordinador_id => @coord.id
+    @mesa1 = Mesa.create :centro_id => @cerrar.id, :numero => 1, :votantes => 100
+    @mesa2 = Mesa.create :centro_id => @cerrar.id, :numero => 2, :votantes => 100
     
     visit centros_path
     fill_in 'Email', :with => @con.email
@@ -90,23 +90,27 @@ describe "Centros" do
       choose('centro_cerro_true')
       choose('centro_escrutinio_false')
       # save_and_open_page
-      fill_in 'centro_mesas_attributes_0_votos_hc', :with => 66
-      fill_in 'centro_mesas_attributes_0_votos_ll', :with => 55
-      fill_in 'centro_mesas_attributes_0_votos_pp', :with => 44
-      fill_in 'centro_mesas_attributes_0_votos_mc', :with => 33
-      fill_in 'centro_mesas_attributes_0_votos_da', :with => 22
+      fill_in 'centro_mesas_attributes_0_votos_hc', :with => 6
+      fill_in 'centro_mesas_attributes_0_votos_ll', :with => 5
+      fill_in 'centro_mesas_attributes_0_votos_pp', :with => 4
+      fill_in 'centro_mesas_attributes_0_votos_mc', :with => 3
+      fill_in 'centro_mesas_attributes_0_votos_da', :with => 2
       fill_in 'centro_mesas_attributes_0_votos_pm', :with => 11
+      fill_in 'centro_mesas_attributes_0_votos_blancos', :with => 2
+      fill_in 'centro_mesas_attributes_0_votos_nulos', :with => 1
       
-      fill_in 'centro_mesas_attributes_1_votos_hc', :with => 99
-      fill_in 'centro_mesas_attributes_1_votos_ll', :with => 88
-      fill_in 'centro_mesas_attributes_1_votos_pp', :with => 77
-      fill_in 'centro_mesas_attributes_1_votos_mc', :with => 77
-      fill_in 'centro_mesas_attributes_1_votos_da', :with => 88
-      fill_in 'centro_mesas_attributes_1_votos_pm', :with => 99
+      fill_in 'centro_mesas_attributes_1_votos_hc', :with => 9
+      fill_in 'centro_mesas_attributes_1_votos_ll', :with => 8
+      fill_in 'centro_mesas_attributes_1_votos_pp', :with => 7
+      fill_in 'centro_mesas_attributes_1_votos_mc', :with => 7
+      fill_in 'centro_mesas_attributes_1_votos_da', :with => 8
+      fill_in 'centro_mesas_attributes_1_votos_pm', :with => 9
+      fill_in 'centro_mesas_attributes_1_votos_blancos', :with => 2
+      fill_in 'centro_mesas_attributes_1_votos_nulos', :with => 1
       
       # save_and_open_page
       click_button 'Guardar'
-      # 
+      # save_and_open_page
       current_path.should == centro_path(@cerrar)
       page.should have_content '¿Cerró el centro?'
       page.should have_content '¿Se hizo el escrutinio?'

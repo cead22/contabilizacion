@@ -1,4 +1,9 @@
 	<h2 id="centro"><%= @centro.nombre %></h2>
+	<% if @centro.coordinador %>
+	<h3><%= link_to "#{@centro.coordinador.nombre}, Tlfs: #{@centro.coordinador.telefono1}  #{@centro.coordinador.telefono2}", modificar_coordinador_path(@centro) %></h3>
+	<% else  %>
+	<em>Este centro no tiene coordinador</em>
+	<% end  %>
 	<div class="row">
 		<div class="span7">
 			<h6><%= @centro.parroquia.municipio.estado.nombre %> > <%= @centro.parroquia.municipio.nombre %> > <%= @centro.parroquia.nombre %></h6>
@@ -6,6 +11,7 @@
 		<div class="span3 offset4">
 			<%= link_to '← Volver a Centros', centros_path, :class => 'btn' %>
 		</div>
+		
 	</div>
 </div>
 <div class="row">
@@ -48,7 +54,7 @@
 		<h3 id="llamadas"> Llamadas de control </h3>
 		<ol>
 		<% for llamada in Llamada.where :centro_id => @centro.id %>
-			<li>
+			<li>(<%= llamada.hora.strftime("%I:%M%p") %>)
 			<ul>
 				<li class="funcionando"> ¿El centro est&aacute; funcionando correctamente?: <strong><%= llamada.funcionando ? 'Sí' : 'No' %></strong> </li>
 				<li class="votos"> ¿Cu&aacute;ntas personas han votado?: <strong><%= llamada.votos %></strong> </li>
