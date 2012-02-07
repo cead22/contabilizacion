@@ -9,6 +9,8 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
+
+
 function agregar_incidencia_form () {
 	var descripcion = $('.descripcion_incidencia');
 	for (var i = descripcion.length - 1; i >= 0; i--){

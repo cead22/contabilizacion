@@ -6,7 +6,7 @@
 	<% end  %>
 	<div class="row">
 		<div class="span7">
-			<h6><%= @centro.parroquia.municipio.estado.nombre %> > <%= @centro.parroquia.municipio.nombre %> > <%= @centro.parroquia.nombre %></h6>
+			<em><%= @centro.parroquia.municipio.estado.nombre %> > <%= @centro.parroquia.municipio.nombre %> > <%= @centro.parroquia.nombre %></em>
 		</div>
 		<div class="span3 offset4">
 			<%= link_to '← Volver a Centros', centros_path, :class => 'btn' %>
@@ -53,7 +53,7 @@
 	<div class="span6">
 		<h3 id="llamadas"> Llamadas de control </h3>
 		<ol>
-		<% for llamada in Llamada.where :centro_id => @centro.id %>
+		<% for llamada in @centro.llamadas.order("hora ASC") %>
 			<li>(<%= llamada.hora.strftime("%I:%M%p") %>)
 			<ul>
 				<li class="funcionando"> ¿El centro est&aacute; funcionando correctamente?: <strong><%= llamada.funcionando ? 'Sí' : 'No' %></strong> </li>

@@ -1,5 +1,10 @@
   <h1>Llamada de Control<small> <%= @centro.nombre %> </small></h1>
+	<% if @centro.coordinador %>
 	<h3> <%= @centro.coordinador.nombre %>, Tlfs: <%= @centro.coordinador.telefono1 %> <%= @centro.coordinador.telefono2 %></h3>
+	<% else  %>
+	<em>Este centro no tiene coordinador</em>
+	<% end  %>
+	
 </div>
 
 <%= form_for @centro do |f| %>
@@ -79,15 +84,44 @@
 
 
 		</div>
+		<script type="text/javascript" charset="utf-8">
+			$("form").submit(function() {
+				// check_incidencia();
+				// return false;
+				submit = true;
+				if ($("#centro_llamadas_attributes_0_funcionando_false").attr("checked")) {
+					$("select").each(function () {
+						if ($(this).val() == "") {
+							alert("Debe agregar una incidencia si el centro no esta funcionando correctamente");
+							submit = false;
+						}
+					});
+					if (submit) {
+						$("form").unbind("submit");
+						$("form").submit();
+					}
+					else {
+						return false;
+					}
+				}
+				else {
+					$("form").unbind("submit");
+					$("form").submit();
+				}
+			});
+			function check_incidencia() {
+
+			}
+		</script>
 	</div><!-- end row -->
 	<div class="row">
 		<div class="span14">
 			<div class="actions">
+				<!-- <%= link_to "Guardar", "#", :onclick => "check_incidencia();", :class => 'btn primary'%> -->
 				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
 				<button type="reset" class="btn"> Resetear </button>
 			</div>
 		</div>
 	</div>
-	
 	<% end %>
 <% end %>

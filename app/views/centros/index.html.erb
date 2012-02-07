@@ -1,6 +1,6 @@
   <h1>Centros de Votaci&oacute;n</h1>
 </div>
-
+<%= paginate @centros, :window => 10 %>
 <table class="bordered-table zebra-striped">
 	<thead>
 		<tr>
@@ -27,3 +27,4 @@
 		<% end %>
 	</tbody>
 </table>
+<%= paginate @centros, :window => 10 %>

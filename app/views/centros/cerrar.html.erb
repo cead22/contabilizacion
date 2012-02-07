@@ -8,7 +8,7 @@
 
 
 
-<%= form_for @centro do |f| %>
+<%= form_for @centro, :url => {:action => "cerrar_centro"} do |f| %>
 
 <% if @centro.errors.any? %>
 <ul class="erroresval">

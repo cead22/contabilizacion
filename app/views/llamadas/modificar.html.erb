@@ -1,1 +1,98 @@
-<%= render 'centros/llamada_de_control' %>
+  <h1>Llamada de Control<small> <%= @centro.nombre %> </small></h1>
+	<% if @centro.coordinador %>
+	<h3> <%= @centro.coordinador.nombre %>, Tlfs: <%= @centro.coordinador.telefono1 %> <%= @centro.coordinador.telefono2 %></h3>
+	<% else  %>
+	<em>Este centro no tiene coordinador</em>
+	<% end  %>
+	
+</div>
+
+<%= form_for @centro, :url => {:controller => 'llamadas', :action => "update"} do |f| %>
+
+<% if @centro.errors.any? %>
+	<ul class="erroresval">
+		<% @centro.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+	<%= f.fields_for :llamadas, @llamada do |llamada| %>
+	<div class="row">
+		<div class="span1"> &nbsp; </div>
+		<div class="span6">
+			<fieldset>
+				<div class="clearfix">
+					<%= llamada.label :funcionando, '¿El centro está funcionando correctamente?' %>
+					<div class="input">
+						<ul class="inputs-list">
+							<li>
+								<label>
+									<%= llamada.radio_button :funcionando, true %>
+									<span><%= 'Sí' %></span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<%= llamada.radio_button :funcionando, false %>
+									<span><%= 'No' %></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+					<div class="clearfix"> <!-- link_to_add_fields "Nueva incidencia", f, :incidencias --> </div>
+				
+				<div class="clearfix">
+					<%= llamada.label :votos, '¿Cuántas personas han votado?' %>
+					<div class="input">
+						<%= llamada.text_field :votos, :class => 'mini'%>
+					</div>
+				</div>
+			
+				<div class="clearfix">
+					<%= llamada.label :cerrado_forzado, '¿Cerraron el centro de manera forzada?' %>
+					<div class="input">
+						<ul class="inputs-list">
+							<li>
+								<label>
+									<%= llamada.radio_button :cerrado_forzado, true %>
+									<span><%= 'Sí' %></span>
+								</label>
+							</li>
+							<li>
+								<label>
+									<%= llamada.radio_button :cerrado_forzado, false %>
+									<span><%= 'No' %></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="actions">
+					<%= llamada.submit 'Guardar', :disable_with => 'Guardando...', :class => 'btn primary' %>
+					<button type="reset" class="btn"> Cancelar </button>
+				</div> -->
+			</fieldset>
+		</div> <!-- end span6 -->
+		<div class="span7">
+
+			<%= render :partial => @incidencia_form_path, :locals => {:f => f} %>
+			<p id="link_add" ><%= link_to_add_fields 'Agregar Nueva Incidencia', f, :incidencias %></p>
+
+
+
+		</div>
+	</div><!-- end row -->
+	<div class="row">
+		<div class="span14">
+			<div class="actions">
+				<%= f.submit "Guardar", :disable_with => 'Guardando...', :class => 'btn primary'%>
+				<button type="reset" class="btn"> Resetear </button>
+			</div>
+		</div>
+	</div>
+	
+	<% end %>
+<% end %>

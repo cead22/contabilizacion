@@ -3,6 +3,9 @@ class Centro < ActiveRecord::Base
   validates :nombre, :presence => true
   validates :parroquia_id, :presence => true
   
+  
+  default_scope :order => "nombre ASC"
+  
   belongs_to :parroquia
   belongs_to :coordinador
   belongs_to :usuario

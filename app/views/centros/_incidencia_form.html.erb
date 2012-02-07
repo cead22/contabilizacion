@@ -1,7 +1,7 @@
-<% javascript 'anomalias' %>
+
 <div class="well fields">
 	<fieldset>
-		<%= f.fields_for :incidencias, Incidencia.new do |i| %>
+		<%= f.fields_for :incidencias, Incidencia.new, :child_index => "new_incidencias" do |i| %>
 		<legend>Incidencia</legend>
 		<div class="clearfix">
 			<%= i.label :anomalia_id, 'Irregularidad - Causa' %>

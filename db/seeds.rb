@@ -1,70 +1,560 @@
 # Tipo Anomalias, Anomalias
-retraso = TipoAnomalia.create :descripcion => 'Restraso en la apertura'
-['Falta de material', 'Falta de miembros de mesa','Equipos danados','Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional'  ].each do |a|
-  Anomalia.create :descripcion => a, :tipo_anomalia_id => retraso.id
-end
-   
-malfun = TipoAnomalia.create :descripcion => 'Mal funcionamiento del centro'
-['Falla de equipos', 'Falla electrica', 'Problemas logisticos', 'Paso a proceso manual'].each do |a|
-  Anomalia.create :descripcion => a, :tipo_anomalia_id => malfun.id
-end
-
-cierre = TipoAnomalia.create :descripcion => 'Cierre forzado del centro'
-['Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional'].each do |a|
-  Anomalia.create :descripcion => a, :tipo_anomalia_id => cierre.id
-end
-
-irreg = TipoAnomalia.create :descripcion => 'Irregularidades en la jornada'
-['Multiples votos por una sola persona', 'Papeletas que no corresponden con lo seleccionado en la maquina', 'Relativas a la propaganda', 'Retirada forzada de testigos de algun grupo'].each do |a|
-  Anomalia.create :descripcion => a, :tipo_anomalia_id => irreg.id
-end
-
-apertura = TipoAnomalia.create :descripcion => 'Apertura forzada del centro luego del cierre'
-['Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional'].each do |a|
-  Anomalia.create :descripcion => a, :tipo_anomalia_id => apertura.id
-end
+# retraso = TipoAnomalia.create :descripcion => 'Restraso en la apertura'
+# ['Falta de material', 'Falta de miembros de mesa','Equipos danados','Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional'  ].each do |a|
+#   Anomalia.create :descripcion => a, :tipo_anomalia_id => retraso.id
+# end
+#    
+# malfun = TipoAnomalia.create :descripcion => 'Mal funcionamiento del centro'
+# ['Falla de equipos', 'Falla electrica', 'Problemas logisticos', 'Paso a proceso manual'].each do |a|
+#   Anomalia.create :descripcion => a, :tipo_anomalia_id => malfun.id
+# end
+# 
+# cierre = TipoAnomalia.create :descripcion => 'Cierre forzado del centro'
+# ['Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional'].each do |a|
+#   Anomalia.create :descripcion => a, :tipo_anomalia_id => cierre.id
+# end
+# 
+# irreg = TipoAnomalia.create :descripcion => 'Irregularidades en la jornada'
+# ['Multiples votos por una sola persona', 'Papeletas que no corresponden con lo seleccionado en la maquina', 'Relativas a la propaganda', 'Retirada forzada de testigos de algun grupo'].each do |a|
+#   Anomalia.create :descripcion => a, :tipo_anomalia_id => irreg.id
+# end
+# 
+# apertura = TipoAnomalia.create :descripcion => 'Apertura forzada del centro luego del cierre'
+# ['Por los testigos de algun candidato','Por grupos armados','Por la Guardia Nacional'].each do |a|
+#   Anomalia.create :descripcion => a, :tipo_anomalia_id => apertura.id
+# end
 
 # Conectores
-["mana2657", "raer2237", "cero0319", "neto2663", "auto0143", "asas1106", "coda2638", "apio1948", "ibas0919", "cone1993", "azoe1650", "meca2267", "roca0951", "lave0031", "asis0261", "nada0751", "fase0935", "cree0886", "mato1036", "eden2025", "izan2320", "echa0583", "ruda2385", "boto1169", "mima2216", "jazz0224", "majo1167", "mece2902", "fumo2762", "mojo2749", "codo1612", "hada2943", "bode2622", "aman0508", "paso2026", "agil2746", "rego0377", "mate1759", "aros0794", "orla2960", "dial0336", "mame0727", "odre1927", "lavo1685", "aero1770", "neta0017", "ledo0465", "cole0023", "kilo0292", "neon1245", "rezo0626", "nuez0016", "pire1883", "ruge1484", "giro1806", "allo0958", "ardo1889", "nito1980", "sere1800", "baje0082", "afan0449", "opte2365", "iman0833", "balo1383", "alar1515", "faro0536", "leon2808", "mudo2085", "inca2874", "moda1648", "maca1869", "paca2506", "ceba1690", "pace0772", "mano2497", "dina1219", "lego0276", "gana0867", "iran1252", "irse0845", "gano2623", "nave2793", "opte0168", "doce1100", "mata2542", "abre2225", "mori2111", "mofa0967", "cita2570", "basa2181", "orna0977", "jaba1402", "huir1380", "mito0966", "file1089", "ames1094", "inri0635", "idea0483", "hubo2249", "oral0874", "rayo0764", "echo0768", "asan0905", "dude2671", "reos0713", "pena1318", "fijo0988", "bane1953", "cera2446", "cabe2091", "laso0251", "plus1062", "liso0813", "reza0964", "pelo0179", "apea0982", "clon0667", "goce1220", "asno1389", "cuba0197", "alfa2415", "arre0871", "casa1840", "abra2626", "coge2815", "lona2986", "mira2933", "erro1234", "acre0750", "cara0397", "liar2086", "ombu1703", "como0617", "gato2800", "poyo0492", "ande2139", "heno1630", "huso2103", "robe2177", "bese1746", "peco0542", "esta2568", "dedo2876", "mita1781", "ayos2513", "goza0098", "mina0890", "glub1381", "cite0529", "esta2758", "poro1827", "libo2763", "fajo1867", "loba2877", "cato2666", "baja0502", "dais0086", "pide0084", "bofe2670", "odio1886", "alia1149", "ateo0349", "mona2525", "pipi1241", "pota2515", "cora0902", "joya1898", "bote1529", "pata2286", "caen1787", "puas2816", "rito2030", "nabo1354", "royo0986", "posa2505", "diva2690", "ries0209", "ayer1988", "dana0130", "lana2965", "dote1556", "luge2307", "salo0743", "fije0432", "isla1035", "puta1595", "opio1850", "idas2703", "idus2169", "meza2982", "foca1565", "doto2903", "dama0001", "hago1119", "obus2278", "loma2193", "miga1857", "nula2206", "cabo2247", "hito1002", "lena1108", "folk2830", "avie1978", "hilo2461", "bazo1706", "pazo1372", "cuna2533", "raso2680", "rato0556", "baza1449", "pena1961", "rico1023", "reas0258", "rias1663", "alas1345", "orin1725", "hora2201", "duda1434", "laya0264", "dore1979", "rata2964", "gema2328", "dure0341", "oboe1542", "bits0516", "rine0467", "mudo0762", "romo0684", "aura1439", "loto2149", "misa0857", "mota2908", "reta0093", "cedi0259", "fofo1384", "loca0707", "hule1297", "rete2272", "dean2675", "lava2129", "cayo0499", "puso0291", "filo1161", "cucu2227", "buyo2202", "foco1716", "besa0835", "anal0163", "lies1809", "pesa0051", "heri0607", "flor2945", "mimo1054", "amen2757", "papa1566", "maza2730", "mena2654", "hija2162", "cafe1437", "more2923", "mera1001", "mias1166", "raya1760", "gays2841", "iban1024", "pies1061", "capa0947", "egos0025", "rula0705", "mete0969", "otra1202", "ende0430", "reis0402", "hete0042", "alza1904", "cene1066", "ridi2413", "calo0100", "judo2958", "pedi2166", "pita2105", "lapo2469", "dame0780", "frie1055", "otro1477", "ring0316", "piso2864", "rino2870", "daba1992", "bano1680", "muda1499", "meto2344", "hita0891", "kits0677", "indo0460", "paro1097", "rulo2739", "asar2979", "pase2436", "beso1873", "alce0139", "dije1941", "mema1526", "orbe0723", "oval1621", "pisa0590", "beis0050", "mino0436", "cani2502", "caes0484", "alea0565", "puna2720", "jure0765", "leis2483", "rele1168", "malo0473", "cito1362", "pera0956", "fija1162", "paja0351", "gozo0766", "agua2308", "bloc0166", "falo1069", "boda0114", "ayas0069", "bebe2329", "fiar1514", "rija2336", "rape1287", "oias0936", "dilo2354", "late2573", "plas2094", "down2934", "fofa1934", "idem2989", "rozo0525", "ella1429", "paga1063", "chas2821", "otea0244", "hoya1338", "delo2110", "caza1777", "celo1570", "libe0283", "dure0983", "irla2467", "jaco0999", "hado2925", "rota1127", "haga2930", "boas2969", "mono1073", "moro1845", "rosa2048", "muro0504", "huyo0381", "pico2839", "mano0416", "creo0897", "dano0543", "dudo2122", "ocas0773", "nino1352", "rusa1419", "ando2988", "odio2088", "izas0523", "pido1500", "nuca0088", "lave1949", "pava2620", "iras0724", "enea0431", "nona1249", "hice0665", "puno0380", "este1056", "maga0033", "rizo1541", "fijo1466", "cota2153", "arca0670", "rios0225", "rodo2627", "cura0744", "caro2185", "mamo2269", "nava2686", "lesa1829", "ropa1666", "buen2932", "bici2236", "dejo1709", "fino0776",
-"seso1638", "fono2368", "osea0814"].each_with_index do |i,pass|
-  Usuario.create :numero => i+1, :rol => 'conector', :email => "conector#{i+1}@contabilizacion.com", :password => pass, :password_confirmation = pass, :presente => false
-end
+# ["mana2657", "raer2237", "cero0319", "neto2663", "auto0143", "asas1106", "coda2638", "apio1948", "ibas0919", "cone1993", "azoe1650", "meca2267", "roca0951", "lave0031", "asis0261", "nada0751", "fase0935", "cree0886", "mato1036", "eden2025", "izan2320", "echa0583", "ruda2385", "boto1169", "mima2216", "jazz0224", "majo1167", "mece2902", "fumo2762", "mojo2749", "codo1612", "hada2943", "bode2622", "aman0508", "paso2026", "agil2746", "rego0377", "mate1759", "aros0794", "orla2960", "dial0336", "mame0727", "odre1927", "lavo1685", "aero1770", "neta0017", "ledo0465", "cole0023", "kilo0292", "neon1245", "rezo0626", "nuez0016", "pire1883", "ruge1484", "giro1806", "allo0958", "ardo1889", "nito1980", "sere1800", "baje0082", "afan0449", "opte2365", "iman0833", "balo1383", "alar1515", "faro0536", "leon2808", "mudo2085", "inca2874", "moda1648", "maca1869", "paca2506", "ceba1690", "pace0772", "mano2497", "dina1219", "lego0276", "gana0867", "iran1252", "irse0845", "gano2623", "nave2793", "opte0168", "doce1100", "mata2542", "abre2225", "mori2111", "mofa0967", "cita2570", "basa2181", "orna0977", "jaba1402", "huir1380", "mito0966", "file1089", "ames1094", "inri0635", "idea0483", "hubo2249", "oral0874", "rayo0764", "echo0768", "asan0905", "dude2671", "reos0713", "pena1318", "fijo0988", "bane1953", "cera2446", "cabe2091", "laso0251", "plus1062", "liso0813", "reza0964", "pelo0179", "apea0982", "clon0667", "goce1220", "asno1389", "cuba0197", "alfa2415", "arre0871", "casa1840", "abra2626", "coge2815", "lona2986", "mira2933", "erro1234", "acre0750", "cara0397", "liar2086", "ombu1703", "como0617", "gato2800", "poyo0492", "ande2139", "heno1630", "huso2103", "robe2177", "bese1746", "peco0542", "esta2568", "dedo2876", "mita1781", "ayos2513", "goza0098", "mina0890", "glub1381", "cite0529", "esta2758", "poro1827", "libo2763", "fajo1867", "loba2877", "cato2666", "baja0502", "dais0086", "pide0084", "bofe2670", "odio1886", "alia1149", "ateo0349", "mona2525", "pipi1241", "pota2515", "cora0902", "joya1898", "bote1529", "pata2286", "caen1787", "puas2816", "rito2030", "nabo1354", "royo0986", "posa2505", "diva2690", "ries0209", "ayer1988", "dana0130", "lana2965", "dote1556", "luge2307", "salo0743", "fije0432", "isla1035", "puta1595", "opio1850", "idas2703", "idus2169", "meza2982", "foca1565", "doto2903", "dama0001", "hago1119", "obus2278", "loma2193", "miga1857", "nula2206", "cabo2247", "hito1002", "lena1108", "folk2830", "avie1978", "hilo2461", "bazo1706", "pazo1372", "cuna2533", "raso2680", "rato0556", "baza1449", "pena1961", "rico1023", "reas0258", "rias1663", "alas1345", "orin1725", "hora2201", "duda1434", "laya0264", "dore1979", "rata2964", "gema2328", "dure0341", "oboe1542", "bits0516", "rine0467", "mudo0762", "romo0684", "aura1439", "loto2149", "misa0857", "mota2908", "reta0093", "cedi0259", "fofo1384", "loca0707", "hule1297", "rete2272", "dean2675", "lava2129", "cayo0499", "puso0291", "filo1161", "cucu2227", "buyo2202", "foco1716", "besa0835", "anal0163", "lies1809", "pesa0051", "heri0607", "flor2945", "mimo1054", "amen2757", "papa1566", "maza2730", "mena2654", "hija2162", "cafe1437", "more2923", "mera1001", "mias1166", "raya1760", "gays2841", "iban1024", "pies1061", "capa0947", "egos0025", "rula0705", "mete0969", "otra1202", "ende0430", "reis0402", "hete0042", "alza1904", "cene1066", "ridi2413", "calo0100", "judo2958", "pedi2166", "pita2105", "lapo2469", "dame0780", "frie1055", "otro1477", "ring0316", "piso2864", "rino2870", "daba1992", "bano1680", "muda1499", "meto2344", "hita0891", "kits0677", "indo0460", "paro1097", "rulo2739", "asar2979", "pase2436", "beso1873", "alce0139", "dije1941", "mema1526", "orbe0723", "oval1621", "pisa0590", "beis0050", "mino0436", "cani2502", "caes0484", "alea0565", "puna2720", "jure0765", "leis2483", "rele1168", "malo0473", "cito1362", "pera0956", "fija1162", "paja0351", "gozo0766", "agua2308", "bloc0166", "falo1069", "boda0114", "ayas0069", "bebe2329", "fiar1514", "rija2336", "rape1287", "oias0936", "dilo2354", "late2573", "plas2094", "down2934", "fofa1934", "idem2989", "rozo0525", "ella1429", "paga1063", "chas2821", "otea0244", "hoya1338", "delo2110", "caza1777", "celo1570", "libe0283", "dure0983", "irla2467", "jaco0999", "hado2925", "rota1127", "haga2930", "boas2969", "mono1073", "moro1845", "rosa2048", "muro0504", "huyo0381", "pico2839", "mano0416", "creo0897", "dano0543", "dudo2122", "ocas0773", "nino1352", "rusa1419", "ando2988", "odio2088", "izas0523", "pido1500", "nuca0088", "lave1949", "pava2620", "iras0724", "enea0431", "nona1249", "hice0665", "puno0380", "este1056", "maga0033", "rizo1541", "fijo1466", "cota2153", "arca0670", "rios0225", "rodo2627", "cura0744", "caro2185", "mamo2269", "nava2686", "lesa1829", "ropa1666", "buen2932", "bici2236", "dejo1709", "fino0776",
+# "seso1638", "fono2368", "osea0814"].each_with_index do |pass,i|
+#   Usuario.create :numero => i+1, :rol => 'conector', :email => "conector#{(i+1).to_s}@contabilizacion.com", :password => pass, :password_confirmation => pass, :presente => false
+# end
 
 # Estados 
-prr = [
-  {:id => 1,:nombre => "DTTO. CAPITAL"}
-,{:id => 2,:nombre => "EDO. ANZOATEGUI"}
-,{:id => 3,:nombre => "EDO. APURE"}
-,{:id => 4,:nombre => "EDO. ARAGUA"}
-,{:id => 5,:nombre => "EDO. BARINAS"}
-,{:id => 6,:nombre => "EDO. BOLIVAR"}
-,{:id => 7,:nombre => "EDO. CARABOBO"}
-,{:id => 8,:nombre => "EDO. COJEDES"}
-,{:id => 9,:nombre => "EDO. FALCON"}
-,{:id => 10,:nombre => "EDO. GUARICO"}
-,{:id => 11,:nombre => "EDO. LARA"}
-,{:id => 12,:nombre => "EDO. MERIDA"}
-,{:id => 13,:nombre => "EDO. MIRANDA"}
-,{:id => 14,:nombre => "EDO. MONAGAS"}
-,{:id => 15,:nombre => "EDO. NVA. ESPARTA"}
-,{:id => 16,:nombre => "EDO. PORTUGUESA"}
-,{:id => 17,:nombre => "EDO. SUCRE"}
-,{:id => 18,:nombre => "EDO. TACHIRA"}
-,{:id => 19,:nombre => "EDO. TRUJILLO"}
-,{:id => 20,:nombre => "EDO. YARACUY"}
-,{:id => 21,:nombre => "EDO. ZULIA"}
-,{:id => 22,:nombre => "EDO. AMAZONAS"}
-,{:id => 23,:nombre => "EDO. DELTA AMACURO"}
-,{:id => 24,:nombre => "EDO. VARGAS"}
-,{:id => 99,:nombre => "EMBAJADA"}].each do |estado|
-  Estado.create estado
-end
+estados = [
+{:id => 1,:nombre => "DTTO. CAPITAL"},
+{:id => 2,:nombre => "EDO. ANZOATEGUI"},
+{:id => 3,:nombre => "EDO. APURE"},
+{:id => 4,:nombre => "EDO. ARAGUA"},
+{:id => 5,:nombre => "EDO. BARINAS"},
+{:id => 6,:nombre => "EDO. BOLIVAR"},
+{:id => 7,:nombre => "EDO. CARABOBO"},
+{:id => 8,:nombre => "EDO. COJEDES"},
+{:id => 9,:nombre => "EDO. FALCON"},
+{:id => 10,:nombre => "EDO. GUARICO"},
+{:id => 11,:nombre => "EDO. LARA"},
+{:id => 12,:nombre => "EDO. MERIDA"},
+{:id => 13,:nombre => "EDO. MIRANDA"},
+{:id => 14,:nombre => "EDO. MONAGAS"},
+{:id => 15,:nombre => "EDO. NVA. ESPARTA"},
+{:id => 16,:nombre => "EDO. PORTUGUESA"},
+{:id => 17,:nombre => "EDO. SUCRE"},
+{:id => 18,:nombre => "EDO. TACHIRA"},
+{:id => 19,:nombre => "EDO. TRUJILLO"},
+{:id => 20,:nombre => "EDO. YARACUY"},
+{:id => 21,:nombre => "EDO. ZULIA"},
+{:id => 22,:nombre => "EDO. AMAZONAS"},
+{:id => 23,:nombre => "EDO. DELTA AMACURO"},
+{:id => 24,:nombre => "EDO. VARGAS"},
+{:id => 99,:nombre => "EMBAJADA"}
+]
+
+# estados.each do |estado|
+#   record = Estado.new
+#   record.nombre = estado[:nombre]
+#   record.id = estado[:id]
+#   record.save!
+# end
 
 # Municipios
-[[1,'CE. BLVNO LIBERTADOR',1],[2,'MP. ANACO',2],[3,'MP. ARAGUA',2],[4,'CE. BOLIVAR',2],[5,'MP. BRUZUAL',2],[6,'MP. CAJIGAL',2],[7,'MP. FREITES',2],[8,'MP. INDEPENDENCIA',2],[9,'MP. LIBERTAD',2],[10,'MP. MIRANDA',2],[11,'MP. MONAGAS',2],[12,'MP. PEÑALVER',2],[13,'MP. SIMON RODRIGUEZ',2],[14,'MP. SOTILLO',2],[15,'MP. GUANIPA',2],[16,'MP. GUANTA',2],[17,'MP. PIRITU',2],[18,'MP. L/DIEGO BAUTISTA',2],[19,'MP. CARVAJAL',2],[20,'MP. SANTA ANA',2],[21,'MP. MC GREGOR',2],[22,'MP.S JUAN CAPISTRANO',2],[23,'MP. ACHAGUAS',3],[24,'MP. MUÑOZ',3],[25,'MP. PAEZ',3],[26,'MP. PEDRO CAMEJO',3],[27,'MP. ROMULO GALLEGOS',3],[28,'CE. SAN FERNANDO',3],[29,'MP. BIRUACA',3],[30,'CE. GIRARDOT',4],[31,'MP. SANTIAGO MARIÑO',4],[32,'MP. JOSE FELIX RIVAS',4],[33,'MP. SAN CASIMIRO',4],[34,'MP. SAN SEBASTIAN',4],[35,'MP. SUCRE',4],[36,'MP. URDANETA',4],[37,'MP. ZAMORA',4],[38,'MP. LIBERTADOR',4],[39,'MP. JOSE ANGEL LAMAS',4],[40,'MP. BOLIVAR',4],[41,'MP. SANTOS MICHELENA',4],[42,'MP. MARIO B IRAGORRY',4],[43,'MP. TOVAR',4],[44,'MP. CAMATAGUA',4],[45,'MP. JOSE R REVENGA',4],[46,'MP.FRANCISCO LINARES',4],[47,'MP.OCUMARE D L COSTA',4],[48,'MP. ARISMENDI',5],[49,'CE. BARINAS',5],[50,'MP. BOLIVAR',5],[51,'MP. EZEQUIEL ZAMORA',5],[52,'MP. OBISPOS',5],[53,'MP. PEDRAZA',5],[54,'MP. ROJAS',5],[55,'MP. SOSA',5],[56,'MP. ALBERTO ARVELO T',5],[57,'MP. A JOSE DE SUCRE',5],[58,'MP. CRUZ PAREDES',5],[59,'MP. ANDRES E. BLANCO',5],[60,'MP. CARONI',6],[61,'MP. CEDEÑO',6],[62,'CE. HERES',6],[63,'MP. PIAR',6],[64,'MP. ROSCIO',6],[65,'MP. SUCRE',6],[66,'MP. SIFONTES',6],[67,'MP. BLVNO ANGOSTURA',6],[68,'MP. GRAN SABANA',6],[69,'MP. EL CALLAO',6],[70,'MP.PADRE PEDRO CHIEN',6],[71,'MP. BEJUMA',7],[72,'MP. CARLOS ARVELO',7],[73,'MP. DIEGO IBARRA',7],[74,'MP. GUACARA',7],[75,'MP. MONTALBAN',7],[76,'MP. JUAN JOSE MORA',7],[77,'MP. PUERTO CABELLO',7],[78,'MP. SAN JOAQUIN',7],[79,'CE. VALENCIA',7],[80,'MP. MIRANDA',7],[81,'MP. LOS GUAYOS',7],[82,'MP. NAGUANAGUA',7],[83,'MP. SAN DIEGO',7],[84,'MP. LIBERTADOR',7],[85,'MP. ANZOATEGUI',8],[86,'MP. FALCON',8],[87,'MP. GIRARDOT',8],[88,'MP. PAO S J BAUTISTA',8],[89,'MP. RICAURTE',8],[90,'CE. EZEQUIEL ZAMORA',8],[91,'MP. TINACO',8],[92,'MP. LIMA BLANCO',8],[93,'MP. ROMULO GALLEGOS',8],[94,'MP. ACOSTA',9],[95,'MP. BOLIVAR',9],[96,'MP. BUCHIVACOA',9],[97,'MP. CARIRUBANA',9],[98,'MP. COLINA',9],[99,'MP. DEMOCRACIA',9],[100,'MP. FALCON',9],[101,'MP. FEDERACION',9],[102,'MP. MAUROA',9],[103,'CE. MIRANDA',9],[104,'MP. PETIT',9],[105,'MP. SILVA',9],[106,'MP. ZAMORA',9],[107,'MP. DABAJURO',9],[108,'MP. MONS. ITURRIZA',9],[109,'MP. LOS TAQUES',9],[110,'MP. PIRITU',9],[111,'MP. UNION',9],[112,'MP. SAN FRANCISCO',9],[113,'MP. JACURA',9],[114,'MP. CACIQUE MANAURE',9],[115,'MP. PALMA SOLA',9],[116,'MP. SUCRE',9],[117,'MP. URUMACO',9],[118,'MP. TOCOPERO',9],[119,'MP. INFANTE',10],[120,'MP. MELLADO',10],[121,'MP. MIRANDA',10],[122,'MP. MONAGAS',10],[123,'MP. RIBAS',10],[124,'CE. ROSCIO',10],[125,'MP. ZARAZA',10],[126,'MP. CAMAGUAN',10],[127,'MP.S JOSE DE GUARIBE',10],[128,'MP. LAS MERCEDES',10],[129,'MP. EL SOCORRO',10],[130,'MP. ORTIZ',10],[131,'MP. S MARIA DE IPIRE',10],[132,'MP. CHAGUARAMAS',10],[133,'MP.SAN GERONIMO DE G',10],[134,'MP. CRESPO',11],[135,'CE. IRIBARREN',11],[136,'MP. JIMENEZ',11],[137,'MP. MORAN',11],[138,'MP. PALAVECINO',11],[139,'MP. TORRES',11],[140,'MP. URDANETA',11],[141,'MP. ANDRES E BLANCO',11],[142,'MP. SIMON PLANAS',11],[143,'MP. ALBERTO ADRIANI',12],[144,'MP. ANDRES BELLO',12],[145,'MP. ARZOBISPO CHACON',12],[146,'MP. CAMPO ELIAS',12],[147,'MP. GUARAQUE',12],[148,'MP.JULIO CESAR SALAS',12],[149,'MP. JUSTO BRICEÑO',12],[150,'CE. LIBERTADOR',12],[151,'MP. SANTOS MARQUINA',12],[152,'MP. MIRANDA',12],[153,'MP. ANTONIO PINTO S.',12],[154,'MP.OB. RAMOS DE LORA',12],[155,'MP. CARACCIOLO PARRA',12],[156,'MP.CARDENAL QUINTERO',12],[157,'MP. PUEBLO LLANO',12],[158,'MP. RANGEL',12],[159,'MP. RIVAS DAVILA',12],[160,'MP. SUCRE',12],[161,'MP. TOVAR',12],[162,'MP. TULIO F CORDERO',12],[163,'MP. PADRE NOGUERA',12],[164,'MP. ARICAGUA',12],[165,'MP. ZEA',12],[166,'MP. ACEVEDO',13],[167,'MP. BRION',13],[168,'CE. GUAICAIPURO',13],[169,'MP. INDEPENDENCIA',13],[170,'MP. LANDER',13],[171,'MP. PAEZ',13],[172,'MP. PAZ CASTILLO',13],[173,'MP. PLAZA',13],[174,'MP. SUCRE',13],[175,'MP. URDANETA',13],[176,'MP. ZAMORA',13],[177,'MP. CRISTOBAL ROJAS',13],[178,'MP. LOS SALIAS',13],[179,'MP. ANDRES BELLO',13],[180,'MP. SIMON BOLIVAR',13],[181,'MP. BARUTA',13],[182,'MP. CARRIZAL',13],[183,'MP. CHACAO',13],[184,'MP. EL HATILLO',13],[185,'MP. BUROZ',13],[186,'MP. PEDRO GUAL',13],[187,'MP. ACOSTA',14],[188,'MP. BOLIVAR',14],[189,'MP. CARIPE',14],[190,'MP. CEDEÑO',14],[191,'MP. EZEQUIEL ZAMORA',14],[192,'MP. LIBERTADOR',14],[193,'CE. MATURIN',14],[194,'MP. PIAR',14],[195,'MP. PUNCERES',14],[196,'MP. SOTILLO',14],[197,'MP. AGUASAY',14],[198,'MP. SANTA BARBARA',14],[199,'MP. URACOA',14],[200,'CE. ARISMENDI',15],[201,'MP. DIAZ',15],[202,'MP. GOMEZ',15],[203,'MP. MANEIRO',15],[204,'MP. MARCANO',15],[205,'MP. MARIÑO',15],[206,'MP.PENIN. DE MACANAO',15],[207,'MP.VILLALBA(I.COCHE)',15],[208,'MP. TUBORES',15],[209,'MP.ANTOLIN DEL CAMPO',15],[210,'MP. GARCIA',15],[211,'MP. ARAURE',16],[212,'MP. ESTELLER',16],[213,'CE. GUANARE',16],[214,'MP. GUANARITO',16],[215,'MP. OSPINO',16],[216,'MP. PAEZ',16],[217,'MP. SUCRE',16],[218,'MP. TUREN',16],[219,'MP. M.JOSE V DE UNDA',16],[220,'MP. AGUA BLANCA',16],[221,'MP. PAPELON',16],[222,'MP.GENARO BOCONOITO',16],[223,'MP.S RAFAEL DE ONOTO',16],[224,'MP. SANTA ROSALIA',16],[225,'MP. ARISMENDI',17],[226,'MP. BENITEZ',17],[227,'MP. BERMUDEZ',17],[228,'MP. CAJIGAL',17],[229,'MP. MARIÑO',17],[230,'MP. MEJIA',17],[231,'MP. MONTES',17],[232,'MP. RIBERO',17],[233,'CE. SUCRE',17],[234,'MP. VALDEZ',17],[235,'MP. ANDRES E BLANCO',17],[236,'MP. LIBERTADOR',17],[237,'MP. ANDRES MATA',17],[238,'MP. BOLIVAR',17],[239,'MP. CRUZ S ACOSTA',17],[240,'MP. AYACUCHO',18],[241,'MP. BOLIVAR',18],[242,'MP. INDEPENDENCIA',18],[243,'MP. CARDENAS',18],[244,'MP. JAUREGUI',18],[245,'MP. JUNIN',18],[246,'MP. LOBATERA',18],[247,'CE. SAN CRISTOBAL',18],[248,'MP. URIBANTE',18],[249,'MP. CORDOBA',18],[250,'MP. GARCIA DE HEVIA',18],[251,'MP. GUASIMOS',18],[252,'MP. MICHELENA',18],[253,'MP. LIBERTADOR',18],[254,'MP. PANAMERICANO',18],[255,'MP.PEDRO MARIA UREÑA',18],[256,'MP. SUCRE',18],[257,'MP. ANDRES BELLO',18],[258,'MP. FERNANDEZ FEO',18],[259,'MP. LIBERTAD',18],[260,'MP. SAMUEL MALDONADO',18],[261,'MP. SEBORUCO',18],[262,'MP. ANTONIO ROMULO C',18],[263,'MP. FCO DE MIRANDA',18],[264,'MP. JOSE MARIA VARGA',18],[265,'MP. RAFAEL URDANETA',18],[266,'MP. SIMON RODRIGUEZ',18],[267,'MP. TORBES',18],[268,'MP. SAN JUDAS TADEO',18],[269,'MP. RAFAEL RANGEL',19],[270,'MP. BOCONO',19],[271,'MP. CARACHE',19],[272,'MP. ESCUQUE',19],[273,'CE. TRUJILLO',19],[274,'MP. URDANETA',19],[275,'MP. VALERA',19],[276,'MP. CANDELARIA',19],[277,'MP. MIRANDA',19],[278,'MP. MONTE CARMELO',19],[279,'MP. MOTATAN',19],[280,'MP. PAMPAN',19],[281,'MP.S RAFAEL CARVAJAL',19],[282,'MP. SUCRE',19],[283,'MP. ANDRES BELLO',19],[284,'MP. BOLIVAR',19],[285,'MP. JOSE F M CAÑIZAL',19],[286,'MP. JUAN V CAMPO ELI',19],[287,'MP. LA CEIBA',19],[288,'MP. PAMPANITO',19],[289,'MP. BOLIVAR',20],[290,'MP. BRUZUAL',20],[291,'MP. NIRGUA',20],[292,'CE. SAN FELIPE',20],[293,'MP. SUCRE',20],[294,'MP. URACHICHE',20],[295,'MP. PEÑA',20],[296,'MP.JOSE ANTONIO PAEZ',20],[297,'MP. LA TRINIDAD',20],[298,'MP. COCOROTE',20],[299,'MP. INDEPENDENCIA',20],[300,'MP. ARISTIDES BASTID',20],[301,'MP. MANUEL MONGE',20],[302,'MP. VEROES',20],[303,'MP. BARALT',21],[304,'MP. SANTA RITA',21],[305,'MP. COLON',21],[306,'MP. MARA',21],[307,'CE. MARACAIBO',21],[308,'MP. MIRANDA',21],[309,'MP.IDJ BLVNO GUAJIRA',21],[310,'MP. MACHIQUES DE P',21],[311,'MP. SUCRE',21],[312,'MP. LA CAÑADA DE U.',21],[313,'MP. LAGUNILLAS',21],[314,'MP. CATATUMBO',21],[315,'MP.ROSARIO DE PERIJA',21],[316,'MP. CABIMAS',21],[317,'MP.VALMORE RODRIGUEZ',21],[318,'MP. JESUS E LOSSADA',21],[319,'MP. ALMIRANTE P',21],[320,'MP. SAN FRANCISCO',21],[321,'MP. JESUS M SEMPRUN',21],[322,'MP. FRANCISCO J PULG',21],[323,'MP. SIMON BOLIVAR',21],[324,'CE. ATURES',22],[325,'MP. ATABAPO',22],[326,'MP. MAROA',22],[327,'MP. RIO NEGRO',22],[328,'MP. AUTANA',22],[329,'MP. MANAPIARE',22],[330,'MP. ALTO ORINOCO',22],[331,'CE. TUCUPITA',23],[332,'MP. PEDERNALES',23],[333,'MP. ANTONIO DIAZ',23],[334,'MP. CASACOIMA',23],[335,'CE. VARGAS',24],[336,'ANTIGUA Y BARBUDA',99],[337,'ARABIA SAUDITA',99],[338,'ARGELIA',99],[339,'ARGENTINA',99],[340,'AUSTRALIA',99],[341,'AUSTRIA',99],[342,'BARBADOS',99],[343,'BELGICA',99],[344,'BELICE',99],[345,'BOLIVIA',99],[346,'BRASIL',99],[347,'BRASIL',99],[348,'BRASIL',99],[349,'BRASIL',99],[350,'BRASIL',99],[351,'BRASIL',99],[352,'BRASIL',99],[353,'BRASIL',99],[354,'BULGARIA',99],[355,'CANADA',99],[356,'CANADA',99],[357,'CANADA',99],[358,'CHECOLOVAQUIA',99],[359,'CHILE ',99],[360,'CHINA ',99],[361,'CHINA ',99],[362,'CHINA',99],[363,'COLOMBIA',99],[364,'COLOMBIA',99],[365,'COLOMBIA',99],[366,'COLOMBIA',99],[367,'COLOMBIA',99],[368,'COLOMBIA',99],[369,'COLOMBIA',99],[370,'COLOMBIA',99],[371,'COLOMBIA',99],[372,'COLOMBIA',99],[373,'COREA ',99],[374,'COSTA RICA',99],[375,'CUBA',99],[376,'CUBA',99],[377,'CUBA',99],[378,'CUBA',99],[379,'DINAMARCA',99],[380,'DOMINICA',99],[381,'ECUADOR',99],[382,'ECUADOR',99],[383,'EGIPTO',99],[384,'EL SALVADOR',99],[385,'ESPAÑA',99],[386,'ESPAÑA',99],[387,'ESPAÑA',99],[388,'ESPAÑA',99],[389,'ESPAÑA',99],[390,'USA',99],[391,'USA',99],[392,'USA',99],[393,'USA',99],[394,'USA',99],[395,'USA',99],[396,'USA',99],[397,'USA',99],[398,'USA',99],[399,'RUSIA ',99],[400,'FILIPINAS',99],[401,'FINLANDIA',99],[402,'FRANCIA',99],[403,'FRANCIA',99],[404,'GRAN BRETAÑA',99],[405,'GRECIA',99],[406,'GUATEMALA',99],[407,'GUAYANA ',99],[408,'HAITI ',99],[409,'HONDURAS',99],[410,'HUNGRIA',99],[411,'INDIA',99],[412,'INDONESIA',99],[413,'IRAK',99],[414,'ISRAEL',99],[415,'ITALIA',99],[416,'ITALIA',99],[417,'ITALIA',99],[418,'JAMAICA',99],[419,'JAPON',99],[420,'KENIA',99],[421,'KUWAIT',99],[422,'LIBANO',99],[423,'LIBIA ',99],[424,'MALASIA',99],[425,'MARRUECOS',99],[426,'MEXICO',99],[427,'NAMIBIA',99],[428,'NICARAGUA',99],[429,'NIGERIA',99],[430,'NORUEGA',99],[431,'PAISES BAJOS',99],[432,'PAISES BAJOS',99],[433,'PAISES BAJOS',99],[434,'PAISES BAJOS',99],[435,'PANAMA',99],[436,'PARAGUAY',99],[437,'PERU',99],[438,'POLONIA',99],[439,'PORTUGAL',99],[440,'PORTUGAL',99],[441,'REPUBLICA DOMINICANA',99],[442,'ALEMANIA',99],[443,'ALEMANIA',99],[444,'ALEMANIA',99],[445,'ALEMANIA',99],[446,'IRAN',99],[447,'RUMANIA',99],[448,'SAN KITTS Y NEVIS',99],[449,'SAN VICENTE Y LAS GR',99],[450,'SANTA LUCIA',99],[451,'SIRIA',99],[452,'SUDAFRICA',99],[453,'SUECIA',99],[454,'SUIZA',99],[455,'SURINAME',99],[456,'TRINIDAD Y TOBAGO',99],[457,'TURQUIA',99],[458,'URUGUAY',99],[459,'GRENADA',99],[460,'SANTA LUCIA',99],[461,'QATAR',99],[462,'PALESTINA',99],[463,'ETIOPIA',99],[464,'VIETNAM',99],[465,'SINGAPUR',99],[466,'SENEGAL',99],[467,'MALI',99],[468,'ANGOLA',99],[469,'BENIN',99],[470,'CONGO',99],[471,'GUINEA ECUATORIAL',99],[472,'GAMBIA',99],[473,'MOZAMBIQUE',99],[474,'SUDAN',99],[475,'EMIRATOS ARABES UNIDOS',99],[476,'CURAZAO',99],[4
-  77,'BIELORRUSIA',99]].each do |municipio|
-    Municipio.create :id => municipio[0], :nombre => municipio[1], :estado_id => municipio[2]
-  end
+
+municipios =[
+[1,'CE. BLVNO LIBERTADOR',1],
+[2,'MP. ANACO',2],
+[3,'MP. ARAGUA',2],
+[4,'CE. BOLIVAR',2],
+[5,'MP. BRUZUAL',2],
+[6,'MP. CAJIGAL',2],
+[7,'MP. FREITES',2],
+[8,'MP. INDEPENDENCIA',2],
+[9,'MP. LIBERTAD',2],
+[10,'MP. MIRANDA',2],
+[11,'MP. MONAGAS',2],
+[12,'MP. PEÑALVER',2],
+[13,'MP. SIMON RODRIGUEZ',2],
+[14,'MP. SOTILLO',2],
+[15,'MP. GUANIPA',2],
+[16,'MP. GUANTA',2],
+[17,'MP. PIRITU',2],
+[18,'MP. L/DIEGO BAUTISTA',2],
+[19,'MP. CARVAJAL',2],
+[20,'MP. SANTA ANA',2],
+[21,'MP. MC GREGOR',2],
+[22,'MP.S JUAN CAPISTRANO',2],
+[23,'MP. ACHAGUAS',3],
+[24,'MP. MUÑOZ',3],
+[25,'MP. PAEZ',3],
+[26,'MP. PEDRO CAMEJO',3],
+[27,'MP. ROMULO GALLEGOS',3],
+[28,'CE. SAN FERNANDO',3],
+[29,'MP. BIRUACA',3],
+[30,'CE. GIRARDOT',4],
+[31,'MP. SANTIAGO MARIÑO',4],
+[32,'MP. JOSE FELIX RIVAS',4],
+[33,'MP. SAN CASIMIRO',4],
+[34,'MP. SAN SEBASTIAN',4],
+[35,'MP. SUCRE',4],
+[36,'MP. URDANETA',4],
+[37,'MP. ZAMORA',4],
+[38,'MP. LIBERTADOR',4],
+[39,'MP. JOSE ANGEL LAMAS',4],
+[40,'MP. BOLIVAR',4],
+[41,'MP. SANTOS MICHELENA',4],
+[42,'MP. MARIO B IRAGORRY',4],
+[43,'MP. TOVAR',4],
+[44,'MP. CAMATAGUA',4],
+[45,'MP. JOSE R REVENGA',4],
+[46,'MP.FRANCISCO LINARES',4],
+[47,'MP.OCUMARE D L COSTA',4],
+[48,'MP. ARISMENDI',5],
+[49,'CE. BARINAS',5],
+[50,'MP. BOLIVAR',5],
+[51,'MP. EZEQUIEL ZAMORA',5],
+[52,'MP. OBISPOS',5],
+[53,'MP. PEDRAZA',5],
+[54,'MP. ROJAS',5],
+[55,'MP. SOSA',5],
+[56,'MP. ALBERTO ARVELO T',5],
+[57,'MP. A JOSE DE SUCRE',5],
+[58,'MP. CRUZ PAREDES',5],
+[59,'MP. ANDRES E. BLANCO',5],
+[60,'MP. CARONI',6],
+[61,'MP. CEDEÑO',6],
+[62,'CE. HERES',6],
+[63,'MP. PIAR',6],
+[64,'MP. ROSCIO',6],
+[65,'MP. SUCRE',6],
+[66,'MP. SIFONTES',6],
+[67,'MP. BLVNO ANGOSTURA',6],
+[68,'MP. GRAN SABANA',6],
+[69,'MP. EL CALLAO',6],
+[70,'MP.PADRE PEDRO CHIEN',6],
+[71,'MP. BEJUMA',7],
+[72,'MP. CARLOS ARVELO',7],
+[73,'MP. DIEGO IBARRA',7],
+[74,'MP. GUACARA',7],
+[75,'MP. MONTALBAN',7],
+[76,'MP. JUAN JOSE MORA',7],
+[77,'MP. PUERTO CABELLO',7],
+[78,'MP. SAN JOAQUIN',7],
+[79,'CE. VALENCIA',7],
+[80,'MP. MIRANDA',7],
+[81,'MP. LOS GUAYOS',7],
+[82,'MP. NAGUANAGUA',7],
+[83,'MP. SAN DIEGO',7],
+[84,'MP. LIBERTADOR',7],
+[85,'MP. ANZOATEGUI',8],
+[86,'MP. FALCON',8],
+[87,'MP. GIRARDOT',8],
+[88,'MP. PAO S J BAUTISTA',8],
+[89,'MP. RICAURTE',8],
+[90,'CE. EZEQUIEL ZAMORA',8],
+[91,'MP. TINACO',8],
+[92,'MP. LIMA BLANCO',8],
+[93,'MP. ROMULO GALLEGOS',8],
+[94,'MP. ACOSTA',9],
+[95,'MP. BOLIVAR',9],
+[96,'MP. BUCHIVACOA',9],
+[97,'MP. CARIRUBANA',9],
+[98,'MP. COLINA',9],
+[99,'MP. DEMOCRACIA',9],
+[100,'MP. FALCON',9],
+[101,'MP. FEDERACION',9],
+[102,'MP. MAUROA',9],
+[103,'CE. MIRANDA',9],
+[104,'MP. PETIT',9],
+[105,'MP. SILVA',9],
+[106,'MP. ZAMORA',9],
+[107,'MP. DABAJURO',9],
+[108,'MP. MONS. ITURRIZA',9],
+[109,'MP. LOS TAQUES',9],
+[110,'MP. PIRITU',9],
+[111,'MP. UNION',9],
+[112,'MP. SAN FRANCISCO',9],
+[113,'MP. JACURA',9],
+[114,'MP. CACIQUE MANAURE',9],
+[115,'MP. PALMA SOLA',9],
+[116,'MP. SUCRE',9],
+[117,'MP. URUMACO',9],
+[118,'MP. TOCOPERO',9],
+[119,'MP. INFANTE',10],
+[120,'MP. MELLADO',10],
+[121,'MP. MIRANDA',10],
+[122,'MP. MONAGAS',10],
+[123,'MP. RIBAS',10],
+[124,'CE. ROSCIO',10],
+[125,'MP. ZARAZA',10],
+[126,'MP. CAMAGUAN',10],
+[127,'MP.S JOSE DE GUARIBE',10],
+[128,'MP. LAS MERCEDES',10],
+[129,'MP. EL SOCORRO',10],
+[130,'MP. ORTIZ',10],
+[131,'MP. S MARIA DE IPIRE',10],
+[132,'MP. CHAGUARAMAS',10],
+[133,'MP.SAN GERONIMO DE G',10],
+[134,'MP. CRESPO',11],
+[135,'CE. IRIBARREN',11],
+[136,'MP. JIMENEZ',11],
+[137,'MP. MORAN',11],
+[138,'MP. PALAVECINO',11],
+[139,'MP. TORRES',11],
+[140,'MP. URDANETA',11],
+[141,'MP. ANDRES E BLANCO',11],
+[142,'MP. SIMON PLANAS',11],
+[143,'MP. ALBERTO ADRIANI',12],
+[144,'MP. ANDRES BELLO',12],
+[145,'MP. ARZOBISPO CHACON',12],
+[146,'MP. CAMPO ELIAS',12],
+[147,'MP. GUARAQUE',12],
+[148,'MP.JULIO CESAR SALAS',12],
+[149,'MP. JUSTO BRICEÑO',12],
+[150,'CE. LIBERTADOR',12],
+[151,'MP. SANTOS MARQUINA',12],
+[152,'MP. MIRANDA',12],
+[153,'MP. ANTONIO PINTO S.',12],
+[154,'MP.OB. RAMOS DE LORA',12],
+[155,'MP. CARACCIOLO PARRA',12],
+[156,'MP.CARDENAL QUINTERO',12],
+[157,'MP. PUEBLO LLANO',12],
+[158,'MP. RANGEL',12],
+[159,'MP. RIVAS DAVILA',12],
+[160,'MP. SUCRE',12],
+[161,'MP. TOVAR',12],
+[162,'MP. TULIO F CORDERO',12],
+[163,'MP. PADRE NOGUERA',12],
+[164,'MP. ARICAGUA',12],
+[165,'MP. ZEA',12],
+[166,'MP. ACEVEDO',13],
+[167,'MP. BRION',13],
+[168,'CE. GUAICAIPURO',13],
+[169,'MP. INDEPENDENCIA',13],
+[170,'MP. LANDER',13],
+[171,'MP. PAEZ',13],
+[172,'MP. PAZ CASTILLO',13],
+[173,'MP. PLAZA',13],
+[174,'MP. SUCRE',13],
+[175,'MP. URDANETA',13],
+[176,'MP. ZAMORA',13],
+[177,'MP. CRISTOBAL ROJAS',13],
+[178,'MP. LOS SALIAS',13],
+[179,'MP. ANDRES BELLO',13],
+[180,'MP. SIMON BOLIVAR',13],
+[181,'MP. BARUTA',13],
+[182,'MP. CARRIZAL',13],
+[183,'MP. CHACAO',13],
+[184,'MP. EL HATILLO',13],
+[185,'MP. BUROZ',13],
+[186,'MP. PEDRO GUAL',13],
+[187,'MP. ACOSTA',14],
+[188,'MP. BOLIVAR',14],
+[189,'MP. CARIPE',14],
+[190,'MP. CEDEÑO',14],
+[191,'MP. EZEQUIEL ZAMORA',14],
+[192,'MP. LIBERTADOR',14],
+[193,'CE. MATURIN',14],
+[194,'MP. PIAR',14],
+[195,'MP. PUNCERES',14],
+[196,'MP. SOTILLO',14],
+[197,'MP. AGUASAY',14],
+[198,'MP. SANTA BARBARA',14],
+[199,'MP. URACOA',14],
+[200,'CE. ARISMENDI',15],
+[201,'MP. DIAZ',15],
+[202,'MP. GOMEZ',15],
+[203,'MP. MANEIRO',15],
+[204,'MP. MARCANO',15],
+[205,'MP. MARIÑO',15],
+[206,'MP.PENIN. DE MACANAO',15],
+[207,'MP.VILLALBA(I.COCHE)',15],
+[208,'MP. TUBORES',15],
+[209,'MP.ANTOLIN DEL CAMPO',15],
+[210,'MP. GARCIA',15],
+[211,'MP. ARAURE',16],
+[212,'MP. ESTELLER',16],
+[213,'CE. GUANARE',16],
+[214,'MP. GUANARITO',16],
+[215,'MP. OSPINO',16],
+[216,'MP. PAEZ',16],
+[217,'MP. SUCRE',16],
+[218,'MP. TUREN',16],
+[219,'MP. M.JOSE V DE UNDA',16],
+[220,'MP. AGUA BLANCA',16],
+[221,'MP. PAPELON',16],
+[222,'MP.GENARO BOCONOITO',16],
+[223,'MP.S RAFAEL DE ONOTO',16],
+[224,'MP. SANTA ROSALIA',16],
+[225,'MP. ARISMENDI',17],
+[226,'MP. BENITEZ',17],
+[227,'MP. BERMUDEZ',17],
+[228,'MP. CAJIGAL',17],
+[229,'MP. MARIÑO',17],
+[230,'MP. MEJIA',17],
+[231,'MP. MONTES',17],
+[232,'MP. RIBERO',17],
+[233,'CE. SUCRE',17],
+[234,'MP. VALDEZ',17],
+[235,'MP. ANDRES E BLANCO',17],
+[236,'MP. LIBERTADOR',17],
+[237,'MP. ANDRES MATA',17],
+[238,'MP. BOLIVAR',17],
+[239,'MP. CRUZ S ACOSTA',17],
+[240,'MP. AYACUCHO',18],
+[241,'MP. BOLIVAR',18],
+[242,'MP. INDEPENDENCIA',18],
+[243,'MP. CARDENAS',18],
+[244,'MP. JAUREGUI',18],
+[245,'MP. JUNIN',18],
+[246,'MP. LOBATERA',18],
+[247,'CE. SAN CRISTOBAL',18],
+[248,'MP. URIBANTE',18],
+[249,'MP. CORDOBA',18],
+[250,'MP. GARCIA DE HEVIA',18],
+[251,'MP. GUASIMOS',18],
+[252,'MP. MICHELENA',18],
+[253,'MP. LIBERTADOR',18],
+[254,'MP. PANAMERICANO',18],
+[255,'MP.PEDRO MARIA UREÑA',18],
+[256,'MP. SUCRE',18],
+[257,'MP. ANDRES BELLO',18],
+[258,'MP. FERNANDEZ FEO',18],
+[259,'MP. LIBERTAD',18],
+[260,'MP. SAMUEL MALDONADO',18],
+[261,'MP. SEBORUCO',18],
+[262,'MP. ANTONIO ROMULO C',18],
+[263,'MP. FCO DE MIRANDA',18],
+[264,'MP. JOSE MARIA VARGA',18],
+[265,'MP. RAFAEL URDANETA',18],
+[266,'MP. SIMON RODRIGUEZ',18],
+[267,'MP. TORBES',18],
+[268,'MP. SAN JUDAS TADEO',18],
+[269,'MP. RAFAEL RANGEL',19],
+[270,'MP. BOCONO',19],
+[271,'MP. CARACHE',19],
+[272,'MP. ESCUQUE',19],
+[273,'CE. TRUJILLO',19],
+[274,'MP. URDANETA',19],
+[275,'MP. VALERA',19],
+[276,'MP. CANDELARIA',19],
+[277,'MP. MIRANDA',19],
+[278,'MP. MONTE CARMELO',19],
+[279,'MP. MOTATAN',19],
+[280,'MP. PAMPAN',19],
+[281,'MP.S RAFAEL CARVAJAL',19],
+[282,'MP. SUCRE',19],
+[283,'MP. ANDRES BELLO',19],
+[284,'MP. BOLIVAR',19],
+[285,'MP. JOSE F M CAÑIZAL',19],
+[286,'MP. JUAN V CAMPO ELI',19],
+[287,'MP. LA CEIBA',19],
+[288,'MP. PAMPANITO',19],
+[289,'MP. BOLIVAR',20],
+[290,'MP. BRUZUAL',20],
+[291,'MP. NIRGUA',20],
+[292,'CE. SAN FELIPE',20],
+[293,'MP. SUCRE',20],
+[294,'MP. URACHICHE',20],
+[295,'MP. PEÑA',20],
+[296,'MP.JOSE ANTONIO PAEZ',20],
+[297,'MP. LA TRINIDAD',20],
+[298,'MP. COCOROTE',20],
+[299,'MP. INDEPENDENCIA',20],
+[300,'MP. ARISTIDES BASTID',20],
+[301,'MP. MANUEL MONGE',20],
+[302,'MP. VEROES',20],
+[303,'MP. BARALT',21],
+[304,'MP. SANTA RITA',21],
+[305,'MP. COLON',21],
+[306,'MP. MARA',21],
+[307,'CE. MARACAIBO',21],
+[308,'MP. MIRANDA',21],
+[309,'MP.IDJ BLVNO GUAJIRA',21],
+[310,'MP. MACHIQUES DE P',21],
+[311,'MP. SUCRE',21],
+[312,'MP. LA CAÑADA DE U.',21],
+[313,'MP. LAGUNILLAS',21],
+[314,'MP. CATATUMBO',21],
+[315,'MP.ROSARIO DE PERIJA',21],
+[316,'MP. CABIMAS',21],
+[317,'MP.VALMORE RODRIGUEZ',21],
+[318,'MP. JESUS E LOSSADA',21],
+[319,'MP. ALMIRANTE P',21],
+[320,'MP. SAN FRANCISCO',21],
+[321,'MP. JESUS M SEMPRUN',21],
+[322,'MP. FRANCISCO J PULG',21],
+[323,'MP. SIMON BOLIVAR',21],
+[324,'CE. ATURES',22],
+[325,'MP. ATABAPO',22],
+[326,'MP. MAROA',22],
+[327,'MP. RIO NEGRO',22],
+[328,'MP. AUTANA',22],
+[329,'MP. MANAPIARE',22],
+[330,'MP. ALTO ORINOCO',22],
+[331,'CE. TUCUPITA',23],
+[332,'MP. PEDERNALES',23],
+[333,'MP. ANTONIO DIAZ',23],
+[334,'MP. CASACOIMA',23],
+[335,'CE. VARGAS',24],
+[336,'ANTIGUA Y BARBUDA',99],
+[337,'ARABIA SAUDITA',99],
+[338,'ARGELIA',99],
+[339,'ARGENTINA',99],
+[340,'AUSTRALIA',99],
+[341,'AUSTRIA',99],
+[342,'BARBADOS',99],
+[343,'BELGICA',99],
+[344,'BELICE',99],
+[345,'BOLIVIA',99],
+[346,'BRASIL',99],
+[347,'BRASIL',99],
+[348,'BRASIL',99],
+[349,'BRASIL',99],
+[350,'BRASIL',99],
+[351,'BRASIL',99],
+[352,'BRASIL',99],
+[353,'BRASIL',99],
+[354,'BULGARIA',99],
+[355,'CANADA',99],
+[356,'CANADA',99],
+[357,'CANADA',99],
+[358,'CHECOLOVAQUIA',99],
+[359,'CHILE ',99],
+[360,'CHINA ',99],
+[361,'CHINA ',99],
+[362,'CHINA',99],
+[363,'COLOMBIA',99],
+[364,'COLOMBIA',99],
+[365,'COLOMBIA',99],
+[366,'COLOMBIA',99],
+[367,'COLOMBIA',99],
+[368,'COLOMBIA',99],
+[369,'COLOMBIA',99],
+[370,'COLOMBIA',99],
+[371,'COLOMBIA',99],
+[372,'COLOMBIA',99],
+[373,'COREA ',99],
+[374,'COSTA RICA',99],
+[375,'CUBA',99],
+[376,'CUBA',99],
+[377,'CUBA',99],
+[378,'CUBA',99],
+[379,'DINAMARCA',99],
+[380,'DOMINICA',99],
+[381,'ECUADOR',99],
+[382,'ECUADOR',99],
+[383,'EGIPTO',99],
+[384,'EL SALVADOR',99],
+[385,'ESPAÑA',99],
+[386,'ESPAÑA',99],
+[387,'ESPAÑA',99],
+[388,'ESPAÑA',99],
+[389,'ESPAÑA',99],
+[390,'USA',99],
+[391,'USA',99],
+[392,'USA',99],
+[393,'USA',99],
+[394,'USA',99],
+[395,'USA',99],
+[396,'USA',99],
+[397,'USA',99],
+[398,'USA',99],
+[399,'RUSIA ',99],
+[400,'FILIPINAS',99],
+[401,'FINLANDIA',99],
+[402,'FRANCIA',99],
+[403,'FRANCIA',99],
+[404,'GRAN BRETAÑA',99],
+[405,'GRECIA',99],
+[406,'GUATEMALA',99],
+[407,'GUAYANA ',99],
+[408,'HAITI ',99],
+[409,'HONDURAS',99],
+[410,'HUNGRIA',99],
+[411,'INDIA',99],
+[412,'INDONESIA',99],
+[413,'IRAK',99],
+[414,'ISRAEL',99],
+[415,'ITALIA',99],
+[416,'ITALIA',99],
+[417,'ITALIA',99],
+[418,'JAMAICA',99],
+[419,'JAPON',99],
+[420,'KENIA',99],
+[421,'KUWAIT',99],
+[422,'LIBANO',99],
+[423,'LIBIA ',99],
+[424,'MALASIA',99],
+[425,'MARRUECOS',99],
+[426,'MEXICO',99],
+[427,'NAMIBIA',99],
+[428,'NICARAGUA',99],
+[429,'NIGERIA',99],
+[430,'NORUEGA',99],
+[431,'PAISES BAJOS',99],
+[432,'PAISES BAJOS',99],
+[433,'PAISES BAJOS',99],
+[434,'PAISES BAJOS',99],
+[435,'PANAMA',99],
+[436,'PARAGUAY',99],
+[437,'PERU',99],
+[438,'POLONIA',99],
+[439,'PORTUGAL',99],
+[440,'PORTUGAL',99],
+[441,'REPUBLICA DOMINICANA',99],
+[442,'ALEMANIA',99],
+[443,'ALEMANIA',99],
+[444,'ALEMANIA',99],
+[445,'ALEMANIA',99],
+[446,'IRAN',99],
+[447,'RUMANIA',99],
+[448,'SAN KITTS Y NEVIS',99],
+[449,'SAN VICENTE Y LAS GR',99],
+[450,'SANTA LUCIA',99],
+[451,'SIRIA',99],
+[452,'SUDAFRICA',99],
+[453,'SUECIA',99],
+[454,'SUIZA',99],
+[455,'SURINAME',99],
+[456,'TRINIDAD Y TOBAGO',99],
+[457,'TURQUIA',99],
+[458,'URUGUAY',99],
+[459,'GRENADA',99],
+[460,'SANTA LUCIA',99],
+[461,'QATAR',99],
+[462,'PALESTINA',99],
+[463,'ETIOPIA',99],
+[464,'VIETNAM',99],
+[465,'SINGAPUR',99],
+[466,'SENEGAL',99],
+[467,'MALI',99],
+[468,'ANGOLA',99],
+[469,'BENIN',99],
+[470,'CONGO',99],
+[471,'GUINEA ECUATORIAL',99],
+[472,'GAMBIA',99],
+[473,'MOZAMBIQUE',99],
+[474,'SUDAN',99],
+[475,'EMIRATOS ARABES UNIDOS',99],
+[476,'CURAZAO',99],
+[477,'BIELORRUSIA',99]
+]
+
+# municipios.each do |municipio|
+#   record = Municipio.new 
+#   record.id = municipio[0]
+#   record.nombre = municipio[1]
+#   record.estado_id = municipio[2]
+#   record.save!
+# end
   
 # Parroquia
 prr = [
@@ -1241,11420 +1731,11428 @@ prr = [
 [11497,'MINSK',477]
 ]
 
-prr.each do |parroquia|
-  Parroquia.create :id => parroquia[0], :nombre => parroquia[1], :municipio_id => parroquia[2]
-end
+# prr.each do |parroquia|
+#   record = Parroquia.new 
+#   record.id = parroquia[0]
+#   record.nombre = parroquia[1]
+#   record.municipio_id = parroquia[2]
+#   record.save!
+# end
 
 # Centros
 centros = [
-[40104013,'GRUPO ESCOLAR JESUS HERNANDEZ PRADO',107,6248]
-[40302001,'LICEO BOLIVARIANO ZUATA',118,16938]
-[40803002,'UNIDAD EDUCATIVA NACIONAL TACASURUMA',135,13070]
-[50211013,'ESCUELA BASICA MI JARDIN III',168,3459]
-[70904011,'ESCUELA BASICA ESTADAL BELLA VISTA II',278,5267]
-[91602002,'ESCUELA BÁSICA BOLIVARIANA RÓMULO GALLEGOS',371,9066]
-[92001004,'ESCUELA BOLIVARIANA PUEBLO NUEVO',378,4332]
-[110201044,'HOGAR CACHORRITOS 11 Y 12 EL JEBE',429,2868]
-[130401007,'GRUPO ESCOLAR EZEQUIEL ZAMORA',589,7656]
-[150601014,'UNIDAD EDUCATIVA BOLIVARIANA MANEIRO',682,3589]
-[170904013,'U.E. NUEVA TOLEDO',772,5353]
-[180301004,'UNIDAD EDUCATIVA ESTADAL PADRE CONTRERAS',797,9691]
-[180804001,'EDIFICIO NACIONAL',815,7042]
-[210509008,'COLEGIO SANTA MARIANA DE JESUS',1000,6725]
-[210515002,'ESCUELA BASICA NACIONAL LUIS GUILLERMO SANCHEZ',1006,7578]
-[210605007,'ESCUELA BASICA ESTADAL JOSE ANTONIO CHAVEZ',1014,17521]
-[21601007,'COMPLEJO EDUCACIONAL FRANCISCO FAJARDO',66,12064]
-[212101001,'UNIDAD EDUCATIVA LUIS BELTRAN PRIETO FIGUEROA',1073,10048]
-[130901096,'ESCUELA ESTADAL GRADUADA CONSUELO NAVAS TOVAR',601,28767]
-[100301016,'GRUPO ESCOLAR RAMON FRANCISCO FEO',392,24597]
-[100401003,'ESCUELA BASICA ABELARDO MENDEZ',396,23850]
-[130901012,'COLEGIO JOSE DE JESUS AROCHA',601,21568]
-[210404001,'ESCUELA BASICA ESTADAL SIXTO D` VICENTE',988,21522]
-[240104001,'UNIDAD EDUCATIVA ESTADAL EMILIO GIMON STERLING',1128,19930]
-[100701002,'LICEO EDUARDO DELFIN MENDEZ',408,19084]
-[210701001,'GRUPO ESCOLAR NACIONAL GUAJIRA',1015,18345]
-[140710030,'LICEO NACIONAL FRANCISCO ISNARDI',655,17837]
-[100101015,'GRUPO ESCOLAR RAFAEL GONZALEZ UDIS',388,17817]
-[130402011,'UNIDAD EDUCATIVA NACIONAL GUILLERMO COVA',590,17766]
-[40304001,'ESCUELA BASICA LUIS AUGUSTO MACHADO',120,17553]
-[181101003,'LICEO PEDRO ANTONIO RIO REINA',822,17526]
-[140706020,'ESCUELA PRIMARIA NACIONAL  MIGUEL EDUARDO TURMERO',651,17279]
-[130901074,'ESCUELA GRAN MARISCAL DE AYACUCHO',601,17254]
-[100301009,'ESCUELA BASICA CELINA ACOSTA DE VIANA',392,17082]
-[40105008,'ESCUELA BASICA LETICIA MUDARRA DE LOPEZ',108,16906]
-[210516002,'ESCUELA BASICA NACIONAL BACHILLER RAFAEL ESCANDELA',1007,16854]
-[100701006,'ESCUELA BASICA NACIONAL FRANCISCO SALIAS',408,16832]
-[80201008,'ESCUELA  BASICA  ANATOLIO VIVAS SALAMANCA',292,16797]
-[10116002,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANO CLAUDIO FELICIANO',16,16770]
-[60401015,'CICLO DIVERSIFICADO TAVERA ACOSTA',231,16768]
-[50210005,'UNIDAD  EDUCATIVA PADRE FELIPE  SALVADOR GILIJ',167,16582]
-[100201001,'GRUPO ESCOLAR JUAN JOSE TOVAR',390,16562]
-[130905001,'ESC BAS MARISCAL SUCRE',605,16492]
-[181801001,'ESCUELA BASICA NACIONAL DOCTOR VILLALOBOS',838,16337]
-[71402003,'UNIDAD EDUCATIVA ESTADAL JUANA GOMEZ',289,16183]
-[40301007,'ESCUELA TECNICA INDUSTRIAL',117,16158]
-[50902007,'ESCUELA BASICA ELIAS CORDERO UZCATEGUI',196,16017]
-[21101001,'UNIDAD EDUCATIVA NACIONAL CAYAURIMA',57,15857]
-[71401001,'ESCUELA NACIONAL SAN JOSE LOS CHORRITOS',288,15650]
-[40304006,'ESCUELA BASICA NACIONAL LA MORA (A.I)',120,15628]
-[40801010,'UNIDAD EDUCATIVA LEONCIO MARTINEZ',133,15446]
-[10110011,'UNIDAD EDUCATIVA NACIONAL INTEGRAL BOLIVARIANA AGUSTÍN AVELEDO',10,15367]
-[140601005,'UNIDAD EDUCATIVA RAMON PIERLUSSIS',642,15367]
-[60104004,'CICLO BASICO COMUN VISTA ALEGRE',209,15366]
-[140709001,'ESCUELA BASICA CARIPE',654,15366]
-[41601007,'ESCUELA BASICA ESTADAL SOCORRO ACOSTA DE SANCHEZ',149,15207]
-[20901004,'GRUPO ESCOLAR ROMUALDO GOMEZ',47,15146]
-[40801003,'ESCUELA BASICA ARISTIDES ROJAS',133,15120]
-[40106014,'UNIDAD EDUCATIVA NACIONAL AC CREACION CAMPO ALEGRE',109,15057]
-[70908022,'UNIDAD EDUCATIVA NACIONAL MERCEDES I DE CORRO',282,14973]
-[70904009,'ESCUELA BASICA ESTADAL JOSE REGINO PEÑA',278,14962]
-[40601007,'UNIDAD EDUCATIVA SANTISIMO SALVADOR',127,14890]
-[41701009,'UNIVERSIDAD DE CARABOBO MORITA II',150,14795]
-[10112011,'ESCUELA NACIONAL BOLIVARIANA ANTIMANO',12,14721]
-[10112019,'UNIVERSIDAD CATÓLICA ANDRÉS BELLO',12,14683]
-[131101025,'PRE-ESCOLAR UNIDAD EDUCATIVA MANUELITA SAENZ',608,14675]
-[240110001,'UNIDAD EDUCATIVA NACIONAL ARMANDO REVERON',1134,14600]
-[60105023,'COLEGIO FE Y ALEGRIA CARONI',210,14511]
-[60108014,'UNIDAD EDUCATIVA AUYANTEPUY',213,14505]
-[240104010,'UNIDAD EDUCATIVA ESTATAL DOCTOR ALFREDO MACHADO',1128,14492]
-[10110056,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL LA SAGRADA FAMILIA.',10,14469]
-[40201012,'UNIDAD EDUCATIVA PRIVADA BICENTENARIO DE LA INDEPENDENCIA',112,14404]
-[60108012,'ESCUELA BASICA GRAN SABANA FE Y ALEGRÍA',213,14345]
-[60401020,'ESCUELA NACIONAL BASICA SANTIAGO MARIÑO',231,14319]
-[40202001,'ESCUELA BASICA ROSA AMELIA FLORES',113,14313]
-[140401003,'ESCUELA BASICA BOLIVARIANA JOSE FRANCISCO BERMUDEZ',636,14154]
-[60102004,'ESCUELA NACIONAL BASICA GUEDEZ COLMENARES',207,14096]
-[60103002,'ESCUELA BASICA FE Y ALEGRIA NUEVA GUAYANA',208,14084]
-[211303001,'UNIDAD EDUCATIVA NACIONAL TIBALDO ALMARZA RINCON',1043,13996]
-[71401016,'ESCUELA JUAN ESCALONA',288,13985]
-[40301010,'ESCUELA BASICA NACIONAL CECILIO ACOSTA',117,13979]
-[51101002,'GRUPO ESCOLAR NACIONAL CRUZ PAREDES',200,13977]
-[181501001,'ESCUELA BOLIVARIANA PRIMARIA GRAL. JOSE MARIA CORDOBA',831,13866]
-[130901008,'CENTRO DE EDUCACION INICIAL NACIONAL EL LLANITO',601,13844]
-[10110021,'LICEO BOLIVARIANO MIGUEL ANTONIO CARO',10,13817]
-[60104016,'ESCUELA ESTADAL BASICA TERESA DE LA PARRA',209,13791]
-[41701004,'ESCUELA BASICA PARMANACAY',150,13687]
-[40201006,'ESCUELA BASICA JOSE RAFAEL REVENGA',112,13668]
-[140706015,'ESCUELA PRIMARIA NACIONAL ADRIANA RENGEL DE SEQUERA',651,13657]
-[21301028,'GRUPO ESCOLAR TEODORO QUIJADA WETTER',61,13630]
-[100101021,'COLEGIO NUESTRA SEÑORA DEL VALLE',388,13627]
-[10110086,'UNIDAD EDUCATIVA DISTRITAL CECILIA NUÑEZ SUCRE',10,13593]
-[240107011,'GRUPO ESCOLAR REPUBLICA DEL SALVADOR',1131,13578]
-[50210002,'UNIDAD  BASICA HERMINIO LEON COLMENARES',167,13550]
-[101001001,'UNIDAD EDUCATIVA NACIONAL RAFAEL PAREDES',414,13547]
-[140706025,'ESCUELA PRIMARIA  APOLINAR CANTOR',651,13450]
-[130901084,'ESCUELA MUNICIPAL COROMOTO',601,13448]
-[80201003,'PRE-ESCOLAR   LOS PICOS E PLATA',292,13423]
-[60501007,'UNIDAD EDUCATIVA DALLA ACOSTA',234,13351]
-[41201001,'ESCUELA BASICA JACOB PEREZ CARBALLO',142,13331]
-[40205003,'ESCUELA BASICA DOCTOR RAFAEL SEIJAS',116,13247]
-[211005002,'UNIDAD EDUCATIVA NACIONAL CARACCIOLO PARRA LEON',1033,13218]
-[40901001,'ESCUELA BASICA ESTADAL EL LIBERTADOR',138,13203]
-[171501002,'U.E. CRUZ SALMERON ACOSTA',787,13185]
-[40202013,'ESCUELA PEDRO VILLACASTIN',113,13184]
-[10110113,'COLEGIO PADRE POLICARPIO KRAUTLE',10,13160]
-[80701006,'ESCUELA  BASICA BOLIVARIANA  JOSE LAURENCIO SILVA',301,13147]
-[210517002,'UNIDAD EDUCATIVA NACIONAL ARQUIDIOCESANA MONSEÑOR OLEGARIO VILLALOBOS',1008,13002]
-[60701003,'ESCUELA NACIONAL BASICA VICENTE MARCANO',241,12984]
-[170801001,'LICEO BOLIVARIANO RAIMUNDO MARTÍNEZ CENTENO',764,12964]
-[60401011,'ESCUELA NACIONAL BASICA SANTO DOMINGO',231,12947]
-[60901006,'ESCUELA NACIONAL BASICA  DOCTOR JUAN DE HOLQUINST',248,12918]
-[110601023,'UNIDAD EDUCATIVA  COLEGIO CRISTO REY',458,12887]
-[40107008,'ESCUELA BASICA ESTADAL  JOSE RAMON GONZALEZ BAQUERO',110,12862]
-[131001010,'UNIDAD EDUCATIVA NACIONAL JOSE DE SAN MARTIN',606,12708]
-[41302012,'UNIDA EDUCATIVA NACIONAL  SANTOS MICHELENA',145,12680]
-[140706024,'ESCUELA BASICA VICTORIA R MOLINOS',651,12500]
-[40902007,'ESCUELA BASICA JOSE ANGEL LAMAS',139,12469]
-[40108014,'ESCUELA BASICA ELIODORO BETANCOURT',111,12345]
-[10112039,'COLEGIO REFUGIO DE LA INFANCIA ANA SAN JOSÉ DE TARBES',12,12295]
-[71401002,'CENTRO DE EDUCACION INICIAL NACIONAL CRISPIN PEREZ',288,12293]
-[211303008,'UNIDAD EDUCATIVA ESTADAL CARLOTA SUAREZ',1043,12263]
-[10118001,'UNIDAD EDUCATIVA NACIONAL LUÍS HURTADO HIGUERA',18,12256]
-[110701001,'ESCUELA BOLIVARIANA RICARDO OVIDIO LIMARDO',475,12219]
-[10107010,'ESCUELA NACIONAL BOLIVARIANA 19 DE ABRIL',7,12192]
-[210801001,'ESCUELA  SOCIAL DE AVANZADA  EDUARDO HEVIA',1019,12177]
-[210303012,'ESCUELA BASICA NACIONAL EL MORALITO',982,12172]
-[200201006,'UNIDAD EDUCATIVA COLEGIO SANTA MARIA',950,12150]
-[10121002,'UNIVERSIDAD NACIONAL ABIERTA U.N.A.',21,12099]
-[130401023,'UNIDAD EDUCATIVA PRIVADA AGUSTIN AVELEDO',589,12090]
-[50302003,'UNIDAD EDUCATIVA  JOSE VICENTE UNDA',173,12029]
-[131801011,'UNIDAD EDUCATIVA EL LIBERTADOR',621,11956]
-[41301007,'UNIDAD EDUCATIVA NACIONAL  EL LIMON',144,11930]
-[10102010,'LICEO ANDRES BELLO',2,11870]
-[70301012,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL CAMINO',258,11861]
-[40601003,'CICLO DIVERSIFICADO MARIANO FERNANDEZ FORTIQUE',127,11828]
-[110401009,'GRUPO ESCOLAR ROBERTO MONTESINOS',447,11799]
-[10110120,'ESCUELA BÁSICA NACIONAL NUEVO HORIZONTE',10,11785]
-[80401001,'ESCUELA  BASICA  BOLIVARIANA JOSE ANTONIO APONTE',295,11784]
-[100101017,'GRUPO ESCOLAR JUANA JOSEFA VARGAS',388,11770]
-[60105010,'ESCUELA NACIONAL BASICA NUEVO MUNDO',210,11729]
-[71401018,'ESCUELA BASICA ESTADAL CLEOPATRA CASANOVA',288,11650]
-[60103001,'ESCUELA NACIONAL BASICA VISTA AL SOL',208,11648]
-[40601014,'ESCUELA BASICA CESAR ZUMETA',127,11633]
-[40801005,'UNIDAD EDUCATIVA CARIDAD VILLASANA',133,11628]
-[40203003,'ESCUELA BASICA FRANCISCO LINARES ALCANTARA',114,11611]
-[211601001,'ESCUELA BASICA NACIONAL LA PAZ',1056,11574]
-[70401016,'UNIDAD EDUCATIVA NACIONAL EL TOQUITO',260,11518]
-[71101002,'ESCUELA BASICA LICENCIADA ELISA GUEVARA DE CACERES',285,11506]
-[40601010,'ESCUELA BASICA ANDRES BELLO',127,11503]
-[41302010,'UNIDAD EDUCATIVA  EDUARDO ASSEF RAIDI',145,11499]
-[10112018,'CENTRO DEL IVSS ARMANDO CASTILLO PLAZA',12,11452]
-[130801011,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MIGUEL OTERO SILVA',600,11438]
-[240107009,'ESCUELA. BASICA. ESTATAL JUAN GERMAN ROSCIO',1131,11430]
-[70904027,'UNIDAD ESCOLAR DOCTOR ENRIQUE TEJERA',278,11424]
-[110203001,'ESCUELA TECNICA COMERCIAL DOCTOR AMBROSIO PERERA',431,11415]
-[60304017,'ESCUELA BASICA EXPERIMENTAL LA PARAGUA',225,11410]
-[170901028,'PRE-ESCOLAR AÑO INTERNACIONAL DEL NIÑO',769,11399]
-[60108019,'ESCUELA BASICA JULIA RODRIGUEZ VIA',213,11386]
-[240104006,'UNIDAD EDUCATIVA NACIONAL GUSTAVO OLIVARES BOSQUES',1128,11341]
-[130904001,'CENTRO DE CAPACITACION INDUSTRIAL DON BOSCO',604,10418]
-[110207018,'ESCUELA BASICA LIBERTADOR',435,11329]
-[20601006,'UNIDAD EDUCATIVA PEDRO MARIA FREITES',38,11322]
-[20401002,'UNIDAD  EDUCATIVA NACIONAL DOCTOR JOSÉ DOMÍNGUEZ',33,11277]
-[70302001,'ESCUELA RAMON DIAZ SANCHEZ',259,11276]
-[41301002,'UNIDAD EDUCATIVA NACIONAL JULIO MORALES LARA',144,11264]
-[70401004,'ESCUELA JOSE CECILIO AVILA',260,11243]
-[110401032,'UNIDAD EDUCATIVA NACIONAL  AMERICA FERNANDEZ DE LEONI',447,11242]
-[41101004,'COLEGIO NTRA SE/ORA DE BELEN',141,11231]
-[60101022,'CICLO BASICO COMUN RAMON ANTONIO PEREZ',206,11204]
-[60108020,'ESCUELA BASICA UNARE II',213,11176]
-[10115021,'ESCUELA BASICA NACIONAL AMANDA DE SCHNELL',15,11156]
-[191203001,'UNIDAD EDUCATIVA JOSEFINA PIMENTEL',920,11151]
-[40301009,'UNIDAD EDUCATIVA NACIONAL RUBEN DARIO',117,11108]
-[210401001,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR ALVAREZ',985,11095]
-[60104001,'ESCUELA NACIONAL BASICA PRIMERO DE MAYO II',209,11094]
-[60105004,'ESCUELA NACIONAL BASICA ANDRES BELLO',210,11094]
-[130902024,'ESCUELA TECNICA POPULAR DON BOSCO',602,11091]
-[240101009,'ESCUELA NACIONAL CARABALLEDA',1125,11086]
-[130402009,'ESCUELA BASICA NACIONAL CARTANAL  VICENTE EMILIO  SOJO',590,11067]
-[132001002,'ESCUELA BASICA MAMPORAL',623,11053]
-[100301014,'CASA DE LA CULTURA FRANCISCO LAZO MARTÍ',392,11049]
-[71301008,'UNIDAD EDUCATIVA ESTADAL SANTIAGO MARIÑO',287,11033]
-[10112036,'GRUPO ESCOLAR MERCEDES LIMARDO',12,11020]
-[20302005,'ESCUELA BICENTENARIO DEL LIBERTADOR',28,10997]
-[211902002,'UNIDAD EDUCATIVA ESTADAL GENERAL RAFAEL URDANETA',1069,10985]
-[71301010,'COLEGIO UNIVERSITARIO MONSEÑOR DE TALAVERA',287,10970]
-[211202001,'UNIDAD EDUCATIVA ESTADAL DOCTOR. ALBERTO RONCAJOLO',1040,10939]
-[10106010,'ESCUELA TÉCNICA COMERCIAL ROBINSONIANA SANTOS MICHELENA',6,10938]
-[71201021,'ESCUELA BASICA  ESTADAL PROFESOR JESUS BERBIN LOPEZ',286,10915]
-[10110016,'UNIDAD EDUCATIVA NACIONAL LICEO BOLIVARIANO NICANOR BOLET PERAZA',10,10872]
-[140101001,'LICEO MANUEL SATURNINO PE/ALVER GOMEZ',627,9565]
-[50209002,'GRUPO ESCOLAR FRANCISCO RIVAS',166,10863]
-[210202001,'ESCUELA BASICA NACIONAL ANTONIO MARIA PIRELA',977,10861]
-[140710014,'ESCUELA PRIMARIA NACIONAL  FELIX ANTONIO CALDERON',655,10842]
-[160601040,'ESCUELA BASICA LUZ DE PEREIRA',707,10840]
-[211502001,'UNIDAD EDUCATIVA NACIONAL NESTOR LUIS NEGRON',1054,10821]
-[200201010,'UNIDAD EDUCATIVA DOCTOR RAUL RAMOS GIMENEZ',950,10805]
-[10107002,'UNIDAD EDUCATIVA NACIONAL ZOE XIQUES SILVA',7,10802]
-[210515001,'ESCUELA BASICA ESTADAL EL NACIONALISTA',1006,10782]
-[60103011,'ESCUELA MUNICIPAL AUGUSTO ARIDU',208,10776]
-[210703001,'ESCUELA BASICA ESTADAL SAN FRANCISCO DE ASIS',1017,10773]
-[140706004,'ESCUELA BASICA SAN SIMON',651,10752]
-[41703001,'ESCUELA BASICA REYNA DE VAZQUEZ',152,10736]
-[210304001,'UNIDAD EDUCATIVA ESTADAL CARMELITA ROLDAN PORTILLO (E.Z.A)',983,10732]
-[50209010,'ESCUELA BASICA HERLINDA DE VALERO',166,10712]
-[110901002,'UNIDAD EDUCATIVA MONSEÑOR SALVADOR MONTES DE OCA',482,10696]
-[110205001,'ESCUELA ESTADAL JOSE A GIRARDOT',433,10668]
-[140710022,'LICEO NACIONAL MIGUEL JOSE SANZ',655,10661]
-[141001001,'ESCUELA BASICA URIAPARA',665,10658]
-[100101013,'ESCUELA BASICA FRANCISCO LAZO MARTÍ',388,10656]
-[130801006,'COLEGIO SAN NICOLAS DE BARI',600,10643]
-[10117020,'UNIDAD EDUCATIVA BOLIVARIANA A. VALERO HOSTOS',17,10629]
-[130801004,'LICEO ALONSO ANDREA DE LEDEZMA',600,10628]
-[170301012,'LICEO JOSÉ FRANCISCO BERMÚDEZ',744,10602]
-[91201002,'ESCUELA PRIMARIA BOLIVARIANA FELIPE ESTEVES',359,10584]
-[240105009,'ESCUELA INTEGRAL BOLIVARIANA REPUBLICA DE PANAMA',1129,10582]
-[240111016,'ESCUELA MUNICIPAL ALBERTO RAVELL',1135,10571]
-[10110041,'UNIDAD EDUCATIVA COLEGIO LA SANTISIMA TRINIDAD',10,10542]
-[110207016,'UNIDAD ESCUELA NACIONAL CREACION BARRIOS DEL OESTE',435,10507]
-[110403001,'UNIDAD EDUCATIVA NACIONAL  SIMON CASTEJON',449,10496]
-[131001004,'ESCUELA ESTADAL CONSUELO HERNANDEZ',606,10495]
-[30301001,'ESCUELA PRIMARIA BOLIVARIANA ARAMENDI',89,10489]
-[130901080,'JARDIN DE INFANCIA AQUILES NAZOA',601,10489]
-[60302014,'ESCUELA BASICA NACIONAL EL PERU',223,10472]
-[100301012,'COLEGIO NUESTRA SEÑORA DE LA COROMOTO',392,10428]
-[70908009,'ESCUELA BASICA SANTA INES',282,10411]
-[40103005,'LICEO AGUSTIN CODAZZI',106,10411]
-[130901071,'ESCUELA MUNICIPAL FRANCISCO ESPEJO',601,10407]
-[100401009,'ESCUELA BASICA DR. JOSE FRANCISCO TORREALBA',396,10349]
-[131101017,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL CAMINO',608,10338]
-[60401007,'ESCUELA NACIONAL BASICA MORALES MARCANO',231,10322]
-[131601041,'COMPLEJO EDUCATIVO PRIVADO INSTITUTO ESCUELA',617,10302]
-[131201001,'UNNIDAD EDUCATIVA NACIONAL BOLIVARIANA CREACION CHARALLAVE',610,10293]
-[60110002,'ESCUELA BASICA ESTADAL CONCENTRADA SIMON RODRIGUEZ',215,10267]
-[210513012,'UNIDAD EDUCATIVA NACIONAL FE Y ALEGRIA LA CHINITA',1004,10260]
-[110301001,'ESC BAS NAC MATEO LISCANO T',439,10246]
-[140708018,'COMPLEJO EDUCATIVO  ANGEL DE LA GUARDA FE Y ALEGRIA',653,10231]
-[30603004,'ESCUELA BASICA EL RECREO',101,10225]
-[240111003,'ESCUELA. INTEGRAL BOLIVARIANA EUGENIA MARIA DE HOSTOS',1135,10206]
-[200701007,'ESCUELA BASICA CARMEN FERNANDEZ DE LEONI',960,10199]
-[10107021,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MIGUEL VILLAVICENCIO',7,10191]
-[131301017,'UNIDAD EDUCATIVA LUIS EDUARDO EGUI',612,10174]
-[60101021,'ESCUELA NACIONAL BASICA SAN FELIX',206,10164]
-[120107003,'ESC BAS ANDRES BELLO',491,10162]
-[110204013,'INSTITUTO POPULAR MARIA MAZZARELLO',432,10161]
-[170901013,'LICEO PEDRO ARNAL',769,10107]
-[100801001,'ESCUELA BOLIVARIANA JOAQUIN CRESPO',410,10101]
-[210605012,'ESCUELA BASICA NACIONAL PROFESOR ARMANDO CEPEDA',1014,10099]
-[91001019,'UNIDAD EDUCATIVA SIMON BOLIVAR',349,10093]
-[230106001,'GRUPO ESCOLAR TARCISIA DE ROMERO',1109,10076]
-[80601023,'ESCUELA BASICA BOLIVARIANA ANDRES ELOY BLANCO',298,10074]
-[20306004,'UNIDAD EDUCATIVA JESÚS RAFAEL ALBORNOZ',32,10057]
-[70703005,'CICLO BASICO AGUSTIN ARMARIO',268,10053]
-[10103001,'INSTITUTO CICLO DIVERSIFICADO FERMÍN TORO',3,10047]
-[60304007,'ESCUELA TECNICA COMERCIAL DALLA COSTA',225,10030]
-[130902007,'INSTITUTO DE NUEVAS PROFESIONES',602,10012]
-[40901004,'ESCUELA BASICA ESTADO GUARICO',138,10005]
-[71001002,'ESCUELA BASICA BOLIVARIANA DOCTOR SIMON AROCHA PINTO',284,9997]
-[210203001,'ESCUELA BASICA NACIONAL SANTIAGO AGUERREVERE',978,9993]
-[190701012,'ESCUELA BÁSICA BARRIO NUEVO',894,9959]
-[70904023,'UNIDAD EDUCACION INTEGRAL LOMAS DE FUNVAL',278,9955]
-[130701021,'ESCUELA BASICA NACIONAL LA CEIBA DEL ALTO',599,9936]
-[40105015,'ESCUELA BASICA ISABEL TERESA RANGEL',108,9934]
-[130801016,'UNIDAD EDUCATIVA MENCA DE LEONI I',600,9934]
-[130201003,'UNIDAD EDUCATIVA AREVALO GONZALEZ',579,9926]
-[131603001,'COLEGIO  SANTA ROSA DE LIMA',619,9926]
-[10114010,'LICEO BOLIVARIANO JOSÉ AVALOS',14,9873]
-[70904035,'ESCUELA BASICA ESTADAL DR. FRANCISCO ESPEJO',278,9856]
-[40106010,'CENTRO DE FORMACION INDUSTRIAL MARACAY INCE',109,9856]
-[41701001,'UNIDAD EDUCATIVA ESTADAL SANTIAGO MARI O',150,9831]
-[130903005,'LICEO NEGRO PRIMERO',603,9829]
-[110207048,'ESCUELA BASICA SIMON BOLIVAR',435,9814]
-[140501001,'ESCUELA BASICA ALBERTO RAVELL',640,9805]
-[21401009,'LICEO BOLIVARIANO GUANIPA',63,9783]
-[130301019,'COLEGIO UNIVERSITARIO DE LOS TEQUES CECILIO ACOSTA',582,9768]
-[10110051,'UNIDAD EDUCATIVA EUGENIO MENDOZA',10,9758]
-[21201006,'GRUPO ESCOLAR PEDRO HERNANDEZ PARES',60,9749]
-[101401001,'ESCUELA BASICA BOLIVARIANA CHAGUARAMAS',424,9747]
-[10118005,'ESCUELA BÁSICA DISTRITAL VICENTE EMILIO SOJO',18,9745]
-[140706001,'ESC. BASICA CACIQUE PARAMACONI',651,9697]
-[70703006,'UNIDAD EDUCATIVA NACIONAL SANTA CRUZ',268,9685]
-[60303003,'CICLO BASICO COMUN CARLOS EMILIANO SALOM',224,9679]
-[70705002,'ESCUELA BARRIO SAN ESTEBAN',270,9670]
-[210402002,'LICEO JOSE ANTONIO ALMARZA',986,9666]
-[230404005,'UNIDAD EDUCATIVA MARIA DEL JESUS ALMEIDA',1123,9650]
-[131603002,'UNIDAD EDUCATIVA ESTADAL  ADOLFO NAVAS  CORONADO',619,9625]
-[110207008,'ESCUELA BASICA RAFAEL MONASTERIOS',435,9608]
-[121101002,'GRUPO ESCOLAR CARLOS ZERPA',534,9605]
-[110210001,'UNIDAD EDUCATIVA BOYAURE',438,9604]
-[40108002,'ESCUELA BASICA JOSE MARIA BENITEZ',111,9590]
-[130901111,'UNIDAD EDUCATIVA SIMÓN BOLÍVAR',601,9567]
-[110601019,'UNIDAD EDUCATIVA NACIONAL  JUAN BAUTISTA FRANCO',458,9538]
-[40802001,'ESCUELA BASICA NACIONAL PANAQUIRE',134,9531]
-[131601025,'UNIDAD EDUCATIVA COLEGIO LA CONCEPCION',617,9522]
-[51001001,'ESCUELA BASICA ALBERTO ARVELO  TORREALBA',197,9504]
-[190202004,'GRUPO ESCOLAR BOLIVARIANO MÁXIMO SAAVEDRA',861,9495]
-[10117032,'COLEGIO SAN AGUSTIN',17,9489]
-[10111001,'UNIDAD EDUCATIVA INTEGRAL NACIONAL BOLIVARIANA MARTÍN JOSÉ SANABRIA',11,9486]
-[210406002,'UNIDAD EDUCATIVA ESTADAL TENIENTE PEDRO CAMEJO',990,9480]
-[131202005,'UNIDAD EDUCATIVA ESTADAL  ANDRES ELOY BLANCO',611,9475]
-[240102011,'ESCUELA. BASICA. NACIONAL. EL PARDILLO',1126,9454]
-[130904007,'COLEGIO GENERALISIMO FRANCISCO DE MIRANDA',604,9454]
-[210604005,'UNIDAD EDUCATIVA ESTADAL JOSE TRINIDAD JIMENEZ',1013,9452]
-[20201004,'UNIDAD EDUCATIVA DOMINGO GUZMÁN BASTARDO',25,9432]
-[70401001,'UNIDAD EDUCATIVA   NACIONAL   LUIS AUGUSTO MACHADO CISNEROS',260,9417]
-[40202009,'CICLO BASICO MARI/O',113,9412]
-[61001001,'ESCUELA NACIONAL BASICA NICOLAS ANTONIO FARRERA',250,9403]
-[10122005,'UNIDAD EDUCATIVA COLEGIO SAN JOSÉ DE TARBES',22,9397]
-[70203009,'ESCUELA NACIONAL ARTURO MICHELENA',257,9390]
-[170907002,'U.E.NUEVA CÓRDOBA',775,9385]
-[140708016,'ESCUELA BASICA CECILIO ACOSTA',653,9383]
-[10119005,'UNIDAD EDUCATIVA BOLIVARIANA CORONEL CARLOS DELGADO CHALBAUD',19,9373]
-[70906007,'COLEGIO JUAN XXIII',280,9369]
-[101301001,'ESCUELA BOLIVARIANA ANTONIO DÂ¿ ARMAS MATUTE',422,9356]
-[121001001,'GRUPO ESCOLAR CANONIGO UZCATEGUI',530,9340]
-[130501005,'CASA DE LA CULTURA JOSE FELIX RIBAS',591,9340]
-[131801019,'COLEGIO SCHONTHAL',621,9332]
-[131001001,'ESCUELA BASICA NACIONAL CRISTOBAL ROJAS',606,9321]
-[71101013,'GRUPO ESCOLAR YORACO',285,9320]
-[10122015,'INSTITUTO UNIVERSITARIO PEDAGÓGICO DE CARACAS',22,9302]
-[40501011,'UNIDAD EDUCATIVA NACIONAL WENCESLAO CASADO FONSECA',126,9297]
-[40902002,'PREESCOLAR MADRE DE JESUS',139,9296]
-[210802001,'UNIDAD EDUCATIVA NACIONAL DOCTOR EMILIO OSORIO BARROSO',1020,9282]
-[131501001,'ESCUELA BASICA NACIONAL CHACAO',615,9279]
-[130501021,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR RAFAEL PEREZ LEON',591,9272]
-[70401015,'ESCUELA VICENTE WALLIS',260,9268]
-[110503001,'UNIDAD EDUCATIVA AGUA VIVA',457,9266]
-[60305005,'ESCUELA BASICA BACHILLER FELIPE HERNANDEZ',226,9254]
-[230104001,'GRUPO ESCOLAR BACHILLER VIDAL',1107,9232]
-[80901002,'ESCUELA  BASICA  JUAN ANGEL BRAVO',304,9230]
-[100601015,'GRUPO ESCOLAR JOSE FELIX RIBAS',405,9224]
-[211501004,'UNIDAD EDUCATIVA  EL COROZO',1053,9216]
-[30303001,'ESCUELA TECNICA AGROPECUARIA FRANCISCO ARAMENDI',91,9193]
-[182801007,'ESCUELA BASICA SAN JOSECITO II',854,9187]
-[120105005,'ESCUELA BASICA PRIMERO DE MAYO',489,9171]
-[110207053,'ESUELA NACIONAL JUAN DE VILLEGAS',435,9169]
-[40104011,'LICEO JOSE LUIS RAMOS',107,9165]
-[60306005,'ESCUELA BASICA JOSE ANTONIO PAEZ',227,9156]
-[140710010,'ESCUELA PRIMARIA NACIONAL JUAN FRANCISCO MILA DE LA ROCA',655,9156]
-[71401006,'UNIDAD EDUCATIVA NACIONAL SEBASTIAN ECHEVERIA LOZANO',288,9155]
-[91001003,'ESCUELA BASICA BOLIVARIANA SIMON RODRIGUEZ',349,9152]
-[130901065,'COLEGIO FE Y ALEGRIA',601,9145]
-[10112010,'CAPILLA RUTA DE BELÉN',12,9128]
-[80201006,'ESCUELA  BASICA  LIGIA CADENA  DE ALVARADO',292,9118]
-[110301005,'UNIDAD EDUCATIVA NACIONAL RICARDO ARCADIO YEPEZ',439,9100]
-[70908021,'ESCUELA ITACA',282,9086]
-[71201016,'GRUPO ESCOLAR ATANACIO GIRARDOT',286,9074]
-[60101019,'FUNDACION LA SALLE',206,9072]
-[40103014,'CICLO BASICO  CARLOS ARRIETA',106,9071]
-[10102006,'COLEGIO SAN FRANCISCO DE SALES',2,9061]
-[131101014,'UNIDAD EDUCATIVA ESTADAL EUGENIO P` DE BELLARD',608,9057]
-[210516004,'UNIDAD EDUCATIVA NACIONAL JOSE FELIX RIVAS',1007,9051]
-[140201013,'ESCUELA BASICA CIUDAD DE LOS TEQUES',629,9048]
-[110502004,'GRUPO ESCOLAR CABUDARE',456,9028]
-[30304001,'ESCUELA PRIMARIA ESTADAL SIMON RODRIGUEZ',92,9004]
-[50801001,'UNIDAD BASICA SOSA',191,9000]
-[140707009,'ESCUELA BASICA LUISA BELTRANA DE FIGUEROA',652,8995]
-[40106004,'ESCUELA BASICA LUCAS GUILLERMO CASTILLO',109,8985]
-[100101012,'ESCUELA BASICA BOLIVARIANA CARLOS JOSE BELLO',388,8982]
-[130203001,'UNIDAD EDUCATIVA BARLOVENTO',581,8967]
-[182001001,'ESCUELA BOLIVARIANA LIBERTAD',842,8958]
-[30301010,'ESCUELA PRIMARIA BOLIVARIANA GUASDUALITO',89,8956]
-[51001005,'ESCUELA BASICA LINDOLFO MARTINEZ',197,8953]
-[100601013,'ESCUELA BASICA ANDRES BELLO',405,8913]
-[180501002,'ESCUELA BOLIVARIANA NACIONAL PADRE MAYA',803,8906]
-[80601013,'ESCUELA  BASICA  MARIA  DE  ALBORNOZ',298,8903]
-[110501014,'UNIDAD EDUCATIVA ESTADAL. LAS ACACIAS',455,8902]
-[20601002,'COLEGIO SANTA JOAQUINA DE VEDRUNA',38,8901]
-[120813004,'LICEO PRIVADO MONSEOR SILVA',526,8884]
-[70904016,'ESCUELA NACIONAL MANUEL ALCAZAR',278,8883]
-[60303010,'ESCUELA BASICA ESTADAL ANITA RAMIREZ',224,8875]
-[41302013,'ESCUELA BASICA MONSEOR FELICIANO GONZALEZ',145,8856]
-[60107010,'UNIDAD EDUCATIVA COLEGIO INTERNACIONAL MIGUEL OTERO SILVA',212,8853]
-[100501002,'GRUPO ESCOLAR FELIX ANTONIO SAA',403,8853]
-[70906016,'ESCUELA LISANDRO RAMIREZ',280,8852]
-[10114002,'ESCUELA BÁSICA BOLIVARIANA CARACCIOLO PARRA LEÓN',14,8848]
-[130402004,'LICEO BOLIVARIANO CARTANAL II',590,8846]
-[210502013,'ESCUELA BASICA NACIONAL RAUL CUENCA',993,8831]
-[10110002,'ESCUELA MUNICIPAL LORENZO HERRERA MENDOZA',10,8830]
-[101501001,'GRUPO ESCOLAR CARLOS DEL POZO',425,8823]
-[10111002,'ESCUELA BÁSICA NACIONAL LUIS ENRIQUE MARMOL',11,8806]
-[60108015,'ESCUELA TECNICA COMERCIAL ANDRES BELLO',213,8802]
-[130801039,'ESCUELA TECNICA COMERCIAL ROBINSONIANA NORBERTO PRADO',600,8800]
-[70201003,'GRUPO ESCOLAR LANCASTER',255,8794]
-[41702003,'ESCUELA BASICA 18 DE MAYO',151,8787]
-[240111011,'UNIDAD EDUCATIVA NACIONAL JOSE MARIA VARGAS',1135,8787]
-[191204001,'ESCUELA BOLIVARIANA FRANCISCO JAVIER URBINA',921,8780]
-[210803014,'GRUPO ESCOLAR FUNDA PERIJA',1021,8770]
-[130801023,'GRUPO ESCOLAR SIMON RODRIGUEZ',600,8762]
-[170903019,'ESCUELA BOLIVARIANA RÍO CARIBE',771,8759]
-[80701012,'UNIDAD  EDUCATIVA  DE EDUCACIÁ’N  ESPECIAL TINACO',301,8728]
-[70904025,'PREESCOLAR RICARDO URRIERA',278,8727]
-[10122021,'UNIDAD EDUCATIVA DISTRITAL  MATÍAS NÚÑEZ',22,8723]
-[70401005,'ESCUELA BASICA NUEVA GUACARA',260,8716]
-[160601022,'CICLO COMBINADO 5 DE DICIEMBRE',707,8713]
-[70801008,'ESCUELA GRADUADA ANTONIO JOSE DE SUCRE',274,8693]
-[20302033,'ESCUELA DE CAPACITACION DE ADULTOS',28,8674]
-[180601007,'ESCUELA BASICA LEONARDO RUIZ PINEDA',806,8673]
-[60102011,'ESCUELA NACIONAL BASICA CREACION 11 DE ABRIL',207,8667]
-[10114020,'ESCUELA BASICA NACIONAL CARMEN MAIZO DE BELLO',14,8667]
-[210405001,'ESCUELA BASICA NACIONAL LA  ENEITA',989,8657]
-[210701014,'ESCUELA BASICA NACIONAL  PREBISTERO FRANCISCO BABINE',1015,8654]
-[20601017,'ESCUELA CONCENTRADA MIXTA NUMERO 115-165-1747-216',38,8650]
-[60106015,'COLEGIO NAZARET',211,8648]
-[71101027,'UNIDAD EDUCATIVA LUISA TERESA DE MONTEMAYOR',285,8631]
-[120806001,'GRUPO ESCOLAR EL EDUCADOR',519,8614]
-[60104003,'ESCUELA BASICA SAN JOSE',209,8605]
-[41702001,'ESCUELA BASICA FRANCISCO DE MIRANDA',151,8597]
-[140708002,'ESCUELA BASICA GREGORIO RONDON',653,8571]
-[70901005,'GRUPO ESCOLAR REPUBLICA DEL PERU',275,8571]
-[40601017,'ESCUELA BASICA AMELIA MIRANDA',127,8565]
-[70904018,'ESCUELA BASICA ESTADAL RAUL VILLARROEL',278,8550]
-[131101016,'ESCUELA ESTADAL SANTA MARIA GORETTI',608,8547]
-[110601013,'ESCUELA NACIONAL MOREDE',458,8545]
-[150601030,'CASA DE LA CULTURA PUEBLO DE LA MAR RAMON VASQUEZ BRITO',682,8545]
-[70906001,'UNIDAD EDUCATIVA PRIVADO SAGRADO CORAZON',280,8544]
-[110308001,'UNIDAD EDUCATIVA ESTADAL EDILBERTO SANCHEZ CACERES',446,8540]
-[150202001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MIGUEL SUNIAGA',672,8520]
-[40601013,'ESCUELA BASICA LUIS ALEJANDRO ALVARADO',127,8515]
-[41501001,'ESCUELA BASICA ESTADAL CAMATAGUA',147,8253]
-[110704001,'UNIDAD EDUCATIVA DR FRANCISCO ANTONIO CARREÑO',478,8491]
-[80501001,'ESCUELA  BASICA  MIGUEL PALAO RICO',296,8490]
-[130901030,'COLEGIO SAN AGUSTIN',601,8487]
-[70601011,'ESCUELA BOLIVARIANA  ESTADAL MORON',264,8472]
-[181301002,'UNIDAD EDUCATIVA CAMILO PRADA',826,8465]
-[140301002,'ESCUELA BASICA ABRAHAM LINCOLN',630,8459]
-[191303002,'UNIDAD EDUCATIVA RAFAEL QUEVEDO URBINA',924,8439]
-[140501011,'ESCUELA BASICA BOLIVARIANA ILAPECA',640,8428]
-[21501004,'GRUPO ESCOLAR SANDALIO GÓMEZ',64,8423]
-[130501006,'GRUPO ESCOLAR DOCTOR  OBDULIO ALVAREZ',591,8419]
-[190202006,'ESCUELA BOLIVARIANA MONSEÑOR MEJIAS',861,8417]
-[210507001,'ESCUELA  BASICA MAESTRO LUIS BELTRAN PRIETO FIGUEROA',998,8417]
-[60301001,'ESCUELA ESTADAL TEODORA MENDEZ DE MONTES',222,8407]
-[130901059,'UNIDAD EDUCATIVA INSTITUTO SAN LUCAS',601,8387]
-[100601010,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA FEDERACION VENEZOLANA DE MAESTROS',405,8376]
-[70904010,'ESCUELA NACIONAL CONCENTRADA ANTONIO RICAURTE',278,8376]
-[220102001,'ESCUELA BASICA DON ROMULO BETANCOURT',1077,8369]
-[121902003,'ESCUELA BASICA CLAUDIO VIVAS',559,8350]
-[60303020,'ESCUELA ESTADAL NUESTRA SEÑORA DE COROMOTO',224,8349]
-[130902022,'COLEGIO FRANCIA',602,8348]
-[131301010,'LICEO JOSE MIGUEL SANZ',612,8343]
-[240106001,'ESCUELA INTEGRAL BOLIVARIANA GUAICAMACUTO',1130,8342]
-[71301001,'GRUPO ESCOLAR QUEIPA',287,8318]
-[110207061,'ESCUELA BASICA CERRITOS BLANCOS II',435,8304]
-[70203004,'UNIDAD  EDUCATIVA NACIONAL  FRANCISCO JOSE CISNEROS',257,8303]
-[10107013,'CENTRO DE FORMACIÓN COMERCIAL E INDUSTRIAL LUÍS BELTRÁN PRIETO FIGUEROA',7,8294]
-[10118002,'UNIDAD EDUCATIVA NACIONAL HIPÓLITO CISNEROS',18,8291]
-[210508001,'ESCUELA BASICA NACIONAL PANAMERICANA',999,8291]
-[20601003,'ESCUELA BASICA JESÚS MARIA PORRAS ALFARO',38,8289]
-[70403003,'GRUPO ESCOLAR CARLOS ARVELO',262,8287]
-[21201018,'CICLO BASICO JUAN PABLO ROJAS PAUL',60,8272]
-[71402009,'ESCUELA 24 DE JUNIO',289,8271]
-[130301021,'UNIDAD EDUCATIVA ESTADAL TOMAS RAFAEL JIMENEZ',582,8252]
-[20302001,'ESCUELA ESTADAL DOMINGO MAZA VELASQUEZ',28,8242]
-[212102001,'UNIDAD EDUCATIVA ESTADAL SARA MONTIEL DE URRIBARRI (EZA)',1074,8238]
-[110207019,'UNIDAD EDUCATIVA MARIA CONCEPCION PALACIOS',435,8231]
-[10110096,'ESCUELA BÁSICA MIGUEL ÁNGEL LÓPEZ CÁRDENAS',10,8231]
-[60108025,'UNIDAD EDUCATIVA NACIONAL DOCTOR LUIS BELTRAN PRIETO FIGUEROA',213,8227]
-[70908027,'ESCUELA BASICA ESTADAL JUANITA HERNANDEZ LEON',282,8226]
-[70904108,'UNIDAD EDUCATIVA FUNDACIÓN VALENCIA II',278,8220]
-[70302003,'ESCUELA JORGELINA GARAY SANCHEZ',259,8216]
-[71401013,'ESCUELA BASICA ESTADAL PROFESORA OFELIA MATUTE',288,8209]
-[40103012,'HOGAIN ATANACIO GIRARDOT PARQUE DE EXPOSICION DE FERIAS',106,8207]
-[110207041,'ESCUELA BASICA JUAN JOSE GUERRERO',435,8199]
-[61101001,'ESCUELA NACIONAL BASICA FEDERICO CHIRINOS',251,8189]
-[70801007,'ESCUELA GRADUADA PEDRO GUAL',274,8188]
-[240101012,'UNIDAD EDUCATIVA PRIVADA COLEGIO LA MERCED',1125,8184]
-[131401002,'JARDIN DE INFANCIA CARLOS HERNANDEZ BAEZ',613,8179]
-[10115009,'UNIDAD EDUCATIVA COLEGIO LA CONCEPCION',15,8174]
-[60107008,'UNIDAD EDUCATIVA ALTA VISTA SUR',212,8169]
-[180602001,'UNIDAD EDUCATIVA BOLIVARIANA LUIS BELISARIO DIAZ RANGEL',807,8163]
-[10119003,'LICEO BOLIVARIANO PEDRO EMILIO COLL',19,8162]
-[10110026,'UNIDAD EDUCATIVA DISTRITAL CECILIA PIMENTEL',10,8161]
-[40101006,'ESCUELA BASICA ANTONIO ARRAIZ',104,8159]
-[230103001,'GRUPO ESCOLAR CARLOS RAFAEL CONTRERAS',1106,8157]
-[30501001,'ESCUELA BASICA SIMON GARCIA ROSALES',97,8126]
-[40105010,'UNIDAD EDUCATIVA NACIONAL  LOS SAMANES',108,8124]
-[160901002,'CICLO COMBINADO RAMON PAREJO GOMEZ',721,8118]
-[10108016,'ASOCIACION CRISTIANA DE JOVENES DE CARACAS (YMCA)',8,8118]
-[30101001,'ESCUELA BASICA BOLIVARIANA TERESA HURTADO',78,8116]
-[20301030,'CASA DE LOS NINO GENERAL  JOSE ANTONIO ANZOATEGUI',27,8093]
-[140702001,'ESC BAS BOLIVARIANA DR JOSE MARIA VARGAS',647,8085]
-[240102005,'UNIDAD EDUCATIVA. PRIVADA PARROQUIAL SAN JOSE',1126,8085]
-[181101004,'UNIDAD EDUCATIVA GENARO MENDEZ MORENO',822,8076]
-[20801001,'ESCUELA BÁSICA BALTASAR VALLENILLA',44,8071]
-[210102001,'UNIDAD BASICA ESTADAL ANDRES BELLO',971,8070]
-[211603004,'ESCUELA  BASICA CAÑA FRESCA',1058,8060]
-[210503007,'ESCUELA BASICA ESTADAL LCDO LUIS ARRIETA ACOSTA',994,8051]
-[21401016,'NUCLEO DE APOYO FAMILIAR SAN JOSE.',63,8046]
-[40701002,'ESCUELA BASICA RAFAEL BOLIVAR CORONADO',129,8046]
-[131101032,'COLEGIO PACAIRIGUA',608,8034]
-[130801017,'GRUPO ESCOLAR MENCA DE LEONI II',600,8032]
-[211401001,'ESCUELA  BASICA PRIMARIA BOLIVARIANA BOMPLAND',1044,8022]
-[190301003,'LICEO BOLIVARIANO JUAN ANTONIO ROMÁN VALECILLOS',872,8022]
-[131601026,'ESCUELA BASICA NACIONAL SANTA CRUZ DEL ESTE',617,8021]
-[110601017,'UNIDAD EDUCATIVA ESTADAL RAIMUNDO PERNALETE',458,8014]
-[110207033,'ESCUELA CONCENTRADA EL TOSTAO',435,8011]
-[210515003,'JARDIN DE INFANCIA NACIONAL GENERAL JUAN BAUTISTA ARISMENDI',1006,8001]
-[70601009,'ESCUELA NACIONAL CONCENTRADA SANTA ANA',264,7994]
-[191101002,'LICEO BOLIVARIANO HILARIO PIZANI ANSELMI',915,7993]
-[210904001,'ESCUELA BASICA ESTADAL DON MARIO BRICEÑO IRAGORRY',1026,7987]
-[21401007,'ESCUELA BÁSICA CIUDAD DE LA ASUNCIÓN',63,7973]
-[130303001,'GRUPO ESCOLAR PARACOTOS',584,7961]
-[220102005,'UNIVERSIDAD PEDAGOGICA EXPERIMENTAL LIBERTADOR',1077,7956]
-[50211014,'UNIDAD EDUCATIVA ANDRES ELOY BLANCO',168,7955]
-[210513003,'UNIDAD EDUCATIVA NACIONAL MANUEL SEGUNDO SANCHEZ',1004,7948]
-[110207039,'ESCUELA BASICA SANTA ROSALIA',435,7945]
-[181903006,'UNIDAD EDUCATIVA BOLIVARIANA PUERTO TETEO',841,7929]
-[130501008,'COMPLEJO EDUCATIVO NACIONAL ALBERTO SMITH',591,7928]
-[220101005,'LICEO SANTIAGO AGUERREVERE',1076,7924]
-[131801010,'UNIDAD EDUCATIVA MUNICIPAL ANDRES BELLO',621,7921]
-[41601003,'CASA DE LA CULTURA POETA PEDRO BUZNEGO',149,7919]
-[140707008,'LICEO SIMON BOLIVAR',652,7919]
-[21301015,'ESCUELA VALLE LINDO',61,7917]
-[170401002,'U.E. DIEGO CARBONELL',749,7914]
-[110207058,'ESCUELA RUIZ PINEDA I',435,7907]
-[60201012,'UNIDAD EDUCATIVA MANUEL CEDEÑO',216,7906]
-[110204019,'UNIDAD EDUCATIVADEPARTAMENTO LIBERTADOR',432,7905]
-[160701006,'ESCUELA BASICA GUILLERMO GAMARRA MARRERO',711,7900]
-[10122030,'ESCUELA TÉCNICA INDUSTRIAL JOSÉ DE SAN MARTÍN',22,7896]
-[21301014,'ESCUELA NACIONAL CREACION LAS CHARAS',61,7894]
-[180601001,'UNIDAD EDUCATIVA NACIONAL ESTADO SUCRE',806,7893]
-[70908013,'ESCUELA BASICA LUIS SANOJO',282,7887]
-[170801002,'ESCUELA BASICA ETANISLAO RENDÓN',764,7872]
-[50503001,'ESCUELA  BASICA MANUEL PALACIOS',181,7868]
-[240104007,'UNIDAD EDUCATIVA ESTADAL LEON TRUJILLO',1128,7851]
-[130202002,'UNIDAD EDUCATIVA JUAN PABLO SOJO',580,7850]
-[100601022,'CICLO BASICO LUIS BARRIOS CRUZ',405,7830]
-[131901003,'UNIVERSIDAD NUEVA ESPARTA',622,7828]
-[50208004,'ESCUELA BASICA LOURDES RIVAS  DE TORRES',165,7822]
-[151102001,'UNIDAD EDUCATIVA ESTADAL MARIA ELVIRA DE FIGUEROA',691,7820]
-[30305002,'ESCUELA PRIMARIA BOLIVARIANA LA VICTORIA',93,7818]
-[41001006,'ESCUELA BASICA ANDRES ELOY BLANCO',140,7816]
-[100901001,'ESCUELA BASICA MONSEÑOR CRESPO',413,7814]
-[110401020,'UNIDAD EDUCATIVA JOSE NICOLAS SILVA CASTILLO',447,7812]
-[210402006,'ESCUELA BASICA BOLIVARIANA  FRANCISCO ARAUJO GARCIA',986,7811]
-[70401020,'ESCUELAS PROFESOR MANUEL AROCHA OJEDA',260,7802]
-[60101037,'ESCUELA NACIONAL BASICA CIUDAD PIAR',206,7802]
-[150601001,'UNIDAD EDUCATIVA ANTONIO MARIA MARTÍNEZ',682,7801]
-[150501002,'UNIDAD EDUCATIVA LICEO BOLIVARIANO ANTONIO DIAZ',680,7798]
-[211005003,'UNIDAD EDUCATIVA MAESTRO AUDIO URDANETA',1033,7780]
-[210502002,'ESCUELA BASICA ESTADAL  23 DE ENERO',993,7779]
-[70908025,'UNIDAD EDUCATIVA GRAN PODER DE DIOS',282,7777]
-[211602001,'ESCUELA BASICA ESTADAL MARIA ANDRADE',1057,7775]
-[110601009,'GRUPO ESCOLAR JOSE HERRERA OROPEZA',458,7753]
-[10117019,'UNIDAD EDUCATIVA NACIONAL CARICUAO',17,7739]
-[140708007,'LICEO RAFAEL MARIA PEÑA SAAVEDRA',653,7736]
-[71201007,'ESCUELA JOSE FELIX SOSA',286,7730]
-[10104014,'LICEO BOLIVARIANO LINO GALLARDO',4,7727]
-[210508010,'LICEO CARACCIOLO PARRA PEREZ',999,7722]
-[40902004,'ESCUELA BASICA LA OVALLERA',139,7720]
-[91002002,'LICEO BOLIVARIANO CESAR AUGUSTO AGREDA',350,7709]
-[110208002,'ESCUELA BASICA NACIONAL FRANCISCO DE MIRANDA',436,7704]
-[190501004,'ESCUELA BOLIVARIANA CARRILLO GUERRA',881,7704]
-[120104001,'UND BAS LA BLANCA',488,7700]
-[20701005,'GRUPO ESCOLAR JOSE ANTONIO ANZOATEGUI',42,7690]
-[131201008,'UNIDAD EDUCATIVA ESTADAL CARMEN RUIZ',610,7682]
-[70904033,'GRUPO ESCOLAR PADRE BERGERETTI',278,7676]
-[210101008,'UNIDAD EDUCATIVA ESTADAL DR.GUILLERMO QUINTERO LUZARDO',970,7675]
-[60109005,'ESCUELA ESTADAL BASICA 11 DE ABRIL',214,7672]
-[211004002,'ESCUELA  BASICA ESTADAL GIRALDOT',1032,7667]
-[170904012,'ESCUELA PRIMARIA BOLIVARIANA ESTADO NUEVA ESPARTA',772,7664]
-[170304002,'ESCUELA BOLIVARIANA PETRICA REYES DE QUILARQUE',747,7663]
-[130301005,'UNIDAD EDUCATIVA ESTADAL TALLER GENERAL RAFAEL URDANETA',582,7661]
-[210302001,'ESCUELA BOLIVARIANA LA CONCHA',981,7658]
-[160501001,'ESCUELA TECNICA AGROPECUARIA Y GRANJA OSPINO',704,7637]
-[110405001,'UNIDAD EDUCATIVA MANUEL RAMON YEPEZ',451,7628]
-[40106002,'ESCUELA BASICA RAFAEL URDANETA',109,7625]
-[110207059,'ESCUELA BASICA NACIONAL  ANDRES ELOY BLANCO',435,7624]
-[210506014,'UNIDAD EDUCATIVA NACIONAL UDON PEREZ',997,7618]
-[71101010,'GRUPO ESCOLAR BATALLA DE AYACUCHO',285,7595]
-[181901001,'UNIDAD EDUCATIVA ESTADAL INES LABRADOR DE LARA',839,7592]
-[10114026,'LICEO BOLIVARIANO DIEGO DE LOZADA',14,7589]
-[131901007,'COLEGIO CANIGUA',622,7588]
-[210509005,'ESCUELA BASICA CARDONAL GUAYU',1000,7580]
-[120812004,'GRUPO ESCOLAR HUMBERTO TEJERA',525,7573]
-[130901003,'UNIDAD EDUCATIVA COLEGIO SAN ANTONIO DE MACARACUAY',601,7572]
-[50209001,'UNIDA BASICA LA INMACULADA FE Y ALEGRIA',166,7571]
-[10107012,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA 25 DE JULIO.',7,7569]
-[131801013,'INST UNIV NUEVAS PROFESIONES',621,5357]
-[170901015,'LICEO BOLIVARIANO JOSÉ SILVERIO GONZÁLEZ',769,7568]
-[41101006,'ESCUELA BASICA NACIONAL 25 DE MARZO',141,7563]
-[100501001,'ESCUELA BASICA NARCISO LOPEZ CAMACHO',403,7561]
-[50302004,'ATENEO POPULAR DE BARINITAS',173,7558]
-[121801004,'ESC BASICA MANUEL GUAL',552,7555]
-[130401021,'ESCUELA BASICA NACIONAL 24 DE JUNIO',589,7549]
-[170903010,'U.E. NUEVA ANDALUCÍA',771,7546]
-[210509006,'ESCUELA BASICA NACIONAL JULIO GONZALEZ',1000,7540]
-[50702001,'ESCUELA BASICA LUIS UGUETO',188,7537]
-[60201005,'ESCUELA BASICA ROMULO GALLEGOS',216,7533]
-[10119012,'ESCUELA BÁSICA NACIONAL REPUBLICA DE VENEZUELA',19,7527]
-[130701026,'ESCUELA BASICA GENARO GOMEZ',599,7523]
-[91601001,'ESCUELA BÁSICA LOS TAQUES',370,7517]
-[40108009,'UNIDAD EDUCATIVA NACIONAL  ANTONIO GARCIA ROJO',111,7515]
-[110207015,'UNIDAD EDUCATVA BERNABE PLANAS',435,7496]
-[10119006,'ESCUELA BÁSICA BOLIVARIANA MADRE MARIA',19,7494]
-[110902001,'GRUPO ESCOLAR ATURES',483,7492]
-[190706001,'UNIDAD EDUCATIVA ESTADAL ROMULO GALLEGOS',899,7492]
-[130501015,'ESCUELA BASICA ESTADAL MERCEDEZ DE PEREZ',591,7486]
-[170302006,'U.E. MARIA REINA DE LÓPEZ',745,7484]
-[110101001,'UNIDAD EDUCATIVA JUAN MANUEL ALAMO',427,7482]
-[110207030,'UNIDAD EDUCATIVA POPULAR FE Y ALEGRIA SAN FRANCISCO',435,7477]
-[70904032,'LICEO ALEJO ZULOAGA',278,7476]
-[10114013,'UNIDAD EDUCATIVA DISTRITAL JUAN ESPAÑA',14,7465]
-[70904034,'LICEO PONCE BELLO',278,7462]
-[40801009,'UNIDAD EDUCATIVA NACIONAL ALBERTO SMITH',133,7453]
-[70203002,'UNIDAD EDUCATIVA ESTADAL GHERMINA BARRAGAN',257,7450]
-[110306007,'ESCUELA GRADUADA CAMPO LINDO',444,7446]
-[10117033,'LICEO SAN AGUSTIN**',17,7444]
-[30101006,'ESCUELA PRIMARIA BOLIVARIANA EL NAZARENO',78,7442]
-[90402010,'ESCUELA PRIMARIA NACIONAL ANDRÉS ELOY BLANCO',319,7441]
-[110307006,'ESCUELA RURAL EDUCACION BASICA LA VIGIA',445,7440]
-[70801001,'GRUPO ESCOLAR DR RAFAEL PEREZ',274,7437]
-[121804001,'ESC BASICA ESTADO PORTUGUESA',555,7437]
-[20501001,'ESCUELA BASICA JOSE DESIDERIO TRIAS',36,7429]
-[240105011,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA INDUSTRIAL RODOLFO LOERO ARISMENDI (IUTIRLA)',1129,7420]
-[20701002,'GRUPO ESCOLAR FRAY NICOLAS DE ODENA',42,7411]
-[200402002,'UNIDAD EDUCATIVA  YARACUY',956,7409]
-[181001004,'ESCUELA BOLIVARIANA DOCTOR FRANCISCO JAVIER GARCIA DE HEVIA',821,7407]
-[40201005,'CENTRO SUPERIOR EDUCACION ESPECIAL ARTURO SARCO VILLENA',112,7407]
-[60102015,'GRUPO ESCOLAR LOYD PETERSON',207,7387]
-[20101022,'UNIDAD EDUCATIVA  VIENTO FRESCO',23,7386]
-[101101001,'ESCUELA BASICA CARLOS IRAZABAL PEREZ',417,7382]
-[191403001,'UNIDAD EDUCATIVA VALMORE RODRIGUEZ',928,7382]
-[10114015,'UNIDAD EDUCATIVA MUNICIPAL ABIGAIL GONZALEZ',14,7377]
-[10106003,'ESCUELA NACIONAL PRIMARIA BERNARDO O HIGGINS',6,7377]
-[210407007,'ESCUELA NACIONAL ANA MARIA CAMPOS',991,7372]
-[211801001,'UNIDAD EDUCATIVA ESTADAL ARQUIDIOCESANA NUESTRA SEÑORA DEL CARMEN',1062,7371]
-[20101015,'ESCUELA  BÁSICA MERCEDES DE PÉREZ FREITES',23,7370]
-[121902001,'UNIDAD EDUCATIVA COLEGIO FE Y ALEGRIA',559,7369]
-[140501002,'ESCUELA BASICA CENTURION',640,7366]
-[141201001,'GPO ESC JUAN VICENTE BOLIVAR',668,7363]
-[240108002,'UNIDAD EDUCATIVA ESTATAL NAIGUATA',1132,7354]
-[10111008,'UNIDAD EDUCATIVA BOLIVARIANA GABRIELA MISTRAL',11,7344]
-[130901070,'ESCUELA NACIONAL BARTOLOME SALOM',601,7344]
-[160701003,'ESCUELA BASICA JAIME CAZORLA',711,7338]
-[130903003,'ESCUELA MUNICIPAL ANTONIO JOSE DE SUCRE',603,7326]
-[190901002,'ESCUELA BOLIVARIANA ENRIQUE FLORES',907,7321]
-[110501001,'CENTRO DE ESPECIALIZACION LUISA CACERES DE ARISMENDI',455,7317]
-[10117012,'ESCUELA TECNICA FRANCISCO FAJARDO',17,7288]
-[110203008,'ESCUELA BOLIVARIANA SANTA ISABEL',431,7286]
-[182201001,'UNIDAD EDUCATVA  BOLIVARIANA FRANCISCO ANTONIO GUERRERO',848,7284]
-[210506004,'UNIDAD EDUCATIVA NACIONAL PRIVADA NUESTRA SEÑORA DEL PILAR',997,7284]
-[192001002,'ESCUELA BOLIVARIANA JUAN IGNACIO MONTILLA',946,7282]
-[130901113,'CENTRO DE EDUCACIO INICIAL PRESCOLAR CINTHIA ROSEMBERG',601,7278]
-[121301001,'ESC BAS GRAD PASCUAL I VILLAZMIL',540,7271]
-[230105004,'GRUPO ESCOLAR JUAN VICENTE GONZALEZ',1108,7268]
-[211805009,'UNIDAD  EDUCATIVA  ARQUIDIOCESANA MADRE LAURA',1066,7265]
-[100301001,'ESCUELA BASICA DOCTOR FRANCISCO LAZO MARTI',392,7265]
-[10114029,'ESCUELA BASICA PADRE MENDOZA',14,7264]
-[110204017,'ESCUELA BASICA EZEQUIEL ZAMORA',432,7261]
-[180201009,'UNIDAD EDUCATIVA MUNICIPAL JUAN DE DIOS MUÑOZ',793,7259]
-[90403008,'ESCUELA BASICA SANTIAGO M. DAVALILLO',320,7258]
-[131801004,'UNIDAD EDUCATIVA POPULAR COLEGIO DON BOSCO',621,7258]
-[140502003,'UNIDAD EDUCATIVA LUIS BELTRAN PIETRO FIGUEROA',641,7257]
-[100501004,'LICEO BOLIVARIANO VICTOR MANUEL OVALLES',403,7254]
-[50302001,'ESCUELA BOLIVARIANA BARINITAS',173,7254]
-[210404004,'ESCUELA BASICA NACIONAL 25 DE AGOSTO',988,7254]
-[10110034,'UNIDAD EDUCATIVA RAMÓN ISIDRO MONTES',10,7251]
-[80601005,'LICEO ELOY GUILLERMO GONZALEZ',298,7249]
-[10122013,'UNIDAD EDUCATIVA COLEGIO SAN AGUSTÍN',22,7241]
-[50207002,'ESCUELA BASICA MARIA LA RIVA SALAS',164,7238]
-[131101031,'COLEGIO ROMULO BETANCOURT',608,7235]
-[210305008,'UNIDAD EDUCATIVA ESTADAL  MARISCAL ANTONIO JOSE DE SUCRE',984,7225]
-[20302041,'ESCUELA BOLIVARIANA MESONES',28,7223]
-[10104022,'UNIDAD EDUCATIVA SAN FRANCISCO JAVIER',4,7221]
-[91301001,'ESCUELA BÁSICA BOLIVARIANA PADRE ROMÁN',361,7220]
-[170101001,'ESCUELA BOLIVARIANA ROJAS PAÚL',733,7216]
-[131601015,'UNIDAD EDUCATIVA COLEGIO LAS CUMBRES',617,7214]
-[70101001,'ESCUELA BASICA  MIGUEL MARIN',252,7211]
-[70906013,'LICEO MANUEL FELIPE TOVAR',280,7210]
-[140501010,'GRUPO ESCOLAR RAFAEL VILLAVICENCIO',640,7206]
-[21302016,'COLEGIO SALESIANO PIO XII',62,7204]
-[131101024,'ESCUELA EL INGENIO',608,7200]
-[40104003,'GRUPO ESCOLAR MIGUEL JOSE SANZ',107,7198]
-[21301011,'GRUPO ESCOLAR INES MARIA DE POTENTINI',61,7196]
-[211303007,'ESCUELA BASICA NACIONAL ZIRUMA',1043,7189]
-[121701001,'CICLO COMBINADO DR GERONIMO MALDONADO',550,7188]
-[211805020,'ESCUELA BASICA NACIONAL LOS CORTIJOS',1066,7182]
-[10110090,'UNIDAD EDUCATIVA BOLIVARIANA SERGIO MEDINA',10,7175]
-[91003001,'COMPLEJO EDUCATIVO PESTALOZZI',351,7173]
-[180802002,'LICEO BOLIVARIANO SIMÓN BOLÍVAR',813,7172]
-[201001001,'ESCUELA BASICA TOVAR Y TOVAR',964,7171]
-[170701002,'UNIDAD EDUCATIVA JOSE LUIS RAMOS',758,7164]
-[150201005,'UNIDAD EDUCATIVA ESTADAL ANIBAL LAREZ',671,7163]
-[190701001,'ESCUELA BOLIVARIANA MONSEÑOR LUCAS GUILLERMO CASTILLO',894,7163]
-[210503002,'ESCUELA BASICA NACIONAL DR FRANCISCO OCHOA',994,7163]
-[130901098,'U EDUC ROMULO GALLEGOS',601,7162]
-[50101001,'ESCUELA BASICA LA UNION',154,7158]
-[120406004,'AULAS ANEXAS EDELMIRA LOBO',505,7156]
-[210103001,'UNIDAD BASICA SIMON BOLIVAR',972,7152]
-[110401002,'UNIDAD EDUCATIVA REPUBLICA DOMINICANA',447,7149]
-[110502007,'ESCUELA BOLIVARIANA DON SIMON RODRIGUEZ',456,7146]
-[10109004,'GRUPO ESCOLAR FRANCISCO PIMENTEL',9,7144]
-[210501003,'ESCUELA BASICA ESTADAL PRESBITERO JOAQUIN PIÑA',992,7139]
-[210605006,'GRUPO ESCOLAR NACIONAL ALEJANDRO FUENMAYOR',1014,7134]
-[240104015,'UNIDAD EDUCATIVA PRIVADA COLEGIO SAN JOSE DE CATIA LA MAR',1128,7131]
-[10116012,'SERVICIO DE ELABORACIONES FARMACEUTICAS SEFAR',16,7130]
-[191401001,'UNIDAD BÁSICA MERCEDEZ DIAZ',926,7129]
-[131002010,'UNIVERSIDAD SISO MARTINEZ',607,7125]
-[200301003,'ESCUELA INTEGRAL BOLIVARIANA  MIGUEL ANGEL GRANADO',952,7124]
-[80301001,'ESCUELA  PRIMARIA   BOLIVARIANA  NICOLAS DE CASTRO',293,7121]
-[71101023,'ESCUELA BOLIVARIANA LOS CERRITOS',285,7119]
-[211805001,'ESCUELA BASICA ESTADAL ABSALON BRACHO',1066,7103]
-[70501002,'ESCUELA BASICA BOLIVARIANA  ANTONIO HERRERA TORO',263,7102]
-[211602011,'UNIDAD EDUCATIVA ESTADAL EMETERIO RIVAS',1057,7102]
-[182501001,'ESCUELA NACIONAL BOLIVARIANA MONSEÑOR ACEVEDO',851,7101]
-[141301002,'ESCUELA BASICA BOLIVARIANA CHAIMA',669,7085]
-[210514007,'ESCUELA BASICA ESTADAL PROFESOR CONSUELO NAVAS TOVAR',1005,7084]
-[21201040,'GRUPO ESCUELA RAÚL LEONI',60,7082]
-[10110044,'ESCUELA BÁSICA LOS MAGALLANES',10,7070]
-[20901006,'LICEO PINTO SALINAS',47,7070]
-[120901001,'ESCUELA ESTADO APURE',529,7069]
-[211503002,'UNIDAD EDUCATIVA ESTADAL CRISTOBAL ROJAS (E.Z.A)',1055,7065]
-[211201004,'ESCUELA BASICA NACIONAL DOCTOR. RAUL CUENCA',1039,7061]
-[210513009,'ESCUELA BASICA ESTADAL FVM',1004,7057]
-[131601002,'UNIDAD EDUCATIVA COLEGIO FRAY LUIS AMIGO',617,7047]
-[121901001,'ESCUELA BASICA ANANIAS AVENDAÑO',558,7046]
-[10110114,'ESCUELA TÉCNICA  INDUSTRIAL ROBINSONIANA RAFAEL VEGAS',10,7046]
-[211302001,'ESCUELA  SOCIAL DE AVANZADA DON SIMON RODRIGUEZ',1042,7045]
-[70901003,'GRUPO ESCOLAR JUAN ANTONIO MICHELENA',275,7041]
-[70907016,'ESCUELA ANTONIO JOSE DE SUCRE SUR',281,7037]
-[10111015,'ESCUELA BÁSICA INSTITUTO TÉCNICO JESÚS OBRERO',11,7037]
-[160601028,'ESCUELA BASICA PALACIO FAJARDO',707,7027]
-[41302014,'UNIDAD EDUCATIVA NACIONAL PEDRO JOSE MUGUERZA',145,7023]
-[21301021,'GRUPO ESCOLAR TOMAS MOGNA',61,7022]
-[70906011,'GRUPO ESCOLAR PEDRO CASTILLO',280,7019]
-[91001022,'ESCUELA BASICA BOLIVARIANA MIGUEL LOPEZ GARCIA',349,7014]
-[211805021,'UNIDAD  EDUCATIVA  FE Y ALEGRIA NUEVA AMERICA',1066,7000]
-[30401001,'ESCUELA BASICA  BOLIVARIANA JUAN BAUTISTA ESTE',94,6998]
-[210508005,'ESCUELA BASICA ESTADAL DELIA HUERTA',999,6988]
-[131201013,'CENTRO DE  EDUCACION INICIAL ESTE NIÑO DON SIMON',610,6985]
-[120809002,'ESCUELA BASICA LOS CUROS',522,6983]
-[50211005,'TALLER DE EDUCACION  LABORAL ALTO BARINAS',168,6982]
-[160601015,'ESCUELA BASICA RAMON COLMENARES',707,6972]
-[20302028,'UNIDAD EDUCATIVA NACIONAL  MERCEDES DE PÉREZ FREITES',28,6966]
-[150401002,'UNIDAD EDUCATIVA ESTADAL LUISA ROSAS DE VELASQUEZ',678,6963]
-[200401010,'INSTITUTO NACIONAL DE TIERRAS',955,6947]
-[161001003,'ESCUELA ESTADAL 250 AÑOS DE AGUA BLANCA',723,6947]
-[80201009,'ESCUELA  BOLIVARIANA JOSE ANTONIO  ANZOATEGUI',292,6939]
-[110207056,'UNIDAD BASICA LA CARUCIEÑA',435,6939]
-[190201001,'UNIDAD EDUCATIVA JUAN BAUTISTA DALLA COSTA',860,6935]
-[10111013,'UNIDAD EDUCATIVA NACIONAL 23 DE ENERO',11,6933]
-[130901044,'UNIVERSIDAD METROPOLITANA',601,6933]
-[131101018,'COLEGIO SAN MARTIN DE PORRES',608,6930]
-[210507003,'GRUPO ESCOLAR  NACIONAL  DR MARCIAL HERNANDEZ',998,6926]
-[180802017,'UNIDAD EDUCATIVA DOCTOR ARISTIDES GARBIRAS',813,6907]
-[80102001,'ESCUELA PRIMARIA BOLIVARIANA NACIONAL MAURICIO PEREZ LAZO',291,6893]
-[110612003,'UNIDAD EDUCATIVA NACIONAL PALMARITO',469,6889]
-[131102001,'UNIDAD EDUCATIVA  NACIONAL BOLIVARIANA ARAIRA',609,6889]
-[10104004,'UNIDAD EDUCATIVA DISTRITAL BOLIVARIANA JUAN BAUTISTA ALBERDI',4,6889]
-[140201007,'PREESCOLAR BOLIVARIANO ADELAIDA NUEZ',629,6886]
-[131301012,'CENTRO EDUCATIVO INTEGRAL SIMONCITO LA ROSALEDA',612,6883]
-[90402004,'ESCUELA BÁSICA VICTOR LINO GÓMEZ',319,6882]
-[170904007,'ESCUELA TECNICA COMERCIAL MODESTO SILVA',772,6882]
-[70201006,'LICEO CARLOS ARVELO',255,6881]
-[150702001,'ESCUELA BASICA DOCTOR FRANCISCO ANTONIO GARCIA',684,6881]
-[131101007,'GRUPO ESCOLAR ELIAS CALIXTO POMPA',608,6869]
-[171101001,'U.E. MATÍAS PARRA ALCAÍ',780,6869]
-[10113011,'UNIDAD EDUCATIVA PRIVADA COLEGIO NUESTRA SEÑORA DE LA CONSOLACION',13,6864]
-[160501002,'ESCUELA GRADUADA BARRIO ARRIBA',704,6863]
-[130901043,'UNIVERSIDAD SANTA MARIA',601,6859]
-[211408001,'ESCUELA BASICA ESTADAL MARIA CHIQUINQUIRA BAEZ GUERRA',1051,6847]
-[20301018,'ESCUELA NACIONAL BARRIO UNIVERSITARIO',27,6841]
-[10112044,'ESCUELA NACIONAL BOLIVARIANA JESÚS GONZÁLEZ CABRERA',12,6839]
-[160503003,'ESCUELA BASICA COSPES',706,6835]
-[71201005,'ESCUELA ENRIQUE BARRIOS SANCHEZ',286,6834]
-[140801001,'GRUPO ESCOLAR CACIQUE TAGUAY',656,6831]
-[210504012,'COLEGIO LA EPIFANIA',995,6828]
-[120105003,'ESCUELA BASICA EL VIGIA',489,6826]
-[170902010,'U.E. ANDRÉS ELOY BLANCO',770,6821]
-[40103008,'ESCUELA BASICA VICTOR MANUEL PATIO',106,6818]
-[40107005,'ESCUELA BASICA EUTIMIO RIVAS',110,6815]
-[131001023,'UNIDAD EDUCATIVA NACIONAL RAFAEL URDANETA EXTENCION ATENEO',606,6814]
-[120405009,'ESCUELA BOLIVARIANA DOÑA EDELMIRA LOBO',504,6812]
-[70203010,'ESCUELA NACIONAL ALFREDO PIETRI',257,6810]
-[211105003,'ESCUELA BASICA NACIONAL GENERAL ISAIAS MEDINA ANGARITA',1038,6803]
-[151102002,'ESCUELA BÁSICA VILLA ROSA',691,6798]
-[70905001,'GRUPO ESCOLAR EDUARDO VISO',279,6795]
-[100601003,'ESCUELA BASICA LERMITH HERNANDEZ',405,6787]
-[10111004,'ESCUELA TÉCNICA COMERCIAL ROBINSONIANA MANUEL PALACIOS FAJARDO',11,6772]
-[41201003,'ESCUELA BASICA MADRE MARIA DE SAN JOSE',142,6771]
-[130801031,'ESCUELA BASICA NACIONAL LAUDELINO MEJIAS',600,6771]
-[210513002,'ESCUELA BASICA NACIONAL CUATRICENTENARIA',1004,6769]
-[20101010,'ESCUELA BÁSICA ARTESANAL URBANA ANACO',23,6769]
-[60102005,'ESCUELA NACIONAL BASICA BELLA VISTA',207,6760]
-[10115010,'UNIDAD EDUCATIVA BOLIVARIANA PEDRO FONTES',15,6758]
-[200501001,'ESCUELA BASICA BOLIVARIANA JOSE TOMAS GONZALEZ',958,6756]
-[160301037,'ESCUELA BASICA NACIONAL DOCTOR MELITON VARGAS',696,6748]
-[210513016,'ESCUELA BASICA NACIONAL MAXIMA ARTEAGA PEREZ',1004,6746]
-[20301029,'ESCUELA NACIONAL TRONCONAL II',27,6745]
-[210513010,'ESCUELA BASICA NACIONAL DR JESUS ENRIQUE LOSSADA',1004,6745]
-[150201011,'UNIDAD EDUCATIVA ESCOLAR FELICIANO HERNANDEZ',671,6734]
-[190502001,'ESCUELA BOLIVARIANA ESTADO CARABOBO',882,6733]
-[70904012,'ESCUELA BASICA RUIZ PINEDA II',278,6733]
-[41001002,'ESCUELA BASICA RAFAEL BRICEO ORTEGA',140,6731]
-[170301010,'U.E. MARIA RODRÍGUEZ DE VERA',744,6729]
-[190401001,'GRUPO ESCOLAR EDUARDO BLANCO',877,6728]
-[140807001,'ESCUELA TERESA CARREO',662,6725]
-[110202039,'U.E.COLEGIO MARIA AUXILIADORA',430,6725]
-[110207057,'ESCUELA BASICA DANIEL CANONICO',435,6724]
-[160801011,'ESCUELA BOLIVARIANA DOCTOR ANGEL RIVAS BALDWIN',717,6723]
-[110601003,'UNIDAD EDUCATIVA NACIONAL  RAMON POMPILIO OROPEZA',458,6722]
-[91001009,'ESCUELA TECNICA COMERCIAL PEDRO CURIEL RAMÍREZ',349,6722]
-[121501001,'ESC BAS FOCION F CORDERO',544,6714]
-[160101047,'ESCUELA BASICA YOLANDA RIVERA DE PIERUZZINI',692,6710]
-[182901001,'UNIDAD EDUCATIVA DOCTOR RAMON FERNANDEZ VELARDI',855,6708]
-[130501023,'COMPLEJO EDUCATIVO NACIONAL MERCEDES RASCO',591,6707]
-[210901003,'UNIDAD EDUCATIVA ESTADAL LAS VELITAS',1023,6703]
-[210517014,'UNIDAD EDUCATIVA DOCTOR LUIS HOMEZ',1008,6699]
-[150305002,'UNIDAD EDUCATIVA BOLIVARIANA JOSE CORTES DE MADARIAGA',677,6697]
-[160601008,'UNIDAD EDUCATIVA NACIONAL DURIGUA',707,6690]
-[41401002,'PRESCOLAR MARTIN TOVAR Y TOVAR',146,6683]
-[190701004,'LICEO BOLIVARIANO ANTONIO NICOÍS BRICEÑO',894,6682]
-[20302004,'ESCUELA RURAL  DE EDUCACION BASICA LA PONDEROSA',28,6681]
-[50202001,'GRUPO ESCOLAR ESTADO GUARICO',159,6681]
-[70801002,'ESCUELA PRIMARIA BOLIVARIANA LA PRADERA',274,6678]
-[210803011,'UNIDAD  EDUCATIVA  NACIONAL  MANUEL FELIPE RUGELES',1021,6676]
-[210704004,'ESCUELA BASICA ESTADAL COJORO',1018,6670]
-[180403002,'UNIDAD EDUCATIVA NACIONAL LICEO LIBERTADOR',802,6668]
-[51001002,'PREESCOLAR BOLIVARIANO ALBERTO ARVELO  TORREALBA',197,6665]
-[30701019,'ESCUELA PRIMARIA LA MORITA II VECINDARIO',103,6661]
-[101201001,'CICLO COMBINADO BEATRIZ DE RODRIGUEZ',418,6657]
-[70904014,'ESCUELA FE Y ALEGRIA DOCTOR LEOPOLDO YA EZ',278,6657]
-[10113035,'COLEGIO NUESTRA SEÑORA DE GUADALUPE',13,6655]
-[10120015,'ESCUELA BASICA FRANKLIN DELANO ROOSEVELT',20,6649]
-[200701001,'ESCUELA BASICA JUAN MIGUEL ROO',960,6642]
-[60304005,'COLEGIO MARIA MONTESSORI',225,6641]
-[210402001,'ESCUELA BASICA ESTADAL DR. PEDRO LUENGO',986,6641]
-[210506011,'ESCUELA BASICA ESTADAL LUCILA PALACIOS',997,6635]
-[211402002,'ESCUELA  SOCIAL DE AVANZADA  BELLO MONTE',1045,6632]
-[10108013,'UNIDAD EDUCATIVA DISTRITAL PASTORA LANDAEZ',8,6632]
-[130501018,'UNIDAD EDUCATIVA NACIONAL  ROSA PEÑA',591,6627]
-[10110052,'LICEO BOLIVARIANO JUAN DE GURRUCEAGA',10,6626]
-[60108018,'ESCUELA BASICA VIRGEN NIÑA',213,6626]
-[91003004,'UNIDAD EDUCATIVA LICEO CECILIO ACOSTA',351,6625]
-[130302007,'COLEGIO CECILIO ACOSTA DOS',583,6622]
-[40103003,'ESCUELA BASICA JUSTINA GUERRA',106,6621]
-[130801003,'COLEGIO PARROQUIAL  JESUS MARIA MARRERO',600,6614]
-[70906018,'LICEO CICLO DIVERSIFICADO PEDRO GUAL',280,6607]
-[150601026,'ESCUELA ESTADO ZULIA',682,6607]
-[131602011,'UNIDAD EDUCATIVA COLEGIO SAN LUIS DE CARACAS',618,6604]
-[10114039,'CENTRO DE EDUCACION INICIAL MENCA DE LEONI',14,6601]
-[60301005,'ESCUELA BASICA ESTADAL RAMON ANTONIO PEREZ',222,6593]
-[10110095,'UNIDAD EDUCATIVA VIRGINIA DE RUIZ',10,6592]
-[71301007,'UNIDAD EDUCATIVA PRIVADO VIRGEN DE COROMOTO',287,6591]
-[200301009,'ESCUELA BASICA FRANCISCO JAVIER USTARIZ',952,6590]
-[210702003,'ESCUELA BASICA NACIONAL EL MOLINETE',1016,6590]
-[130801027,'ESCUELA NACIONAL EL TAMARINDO',600,6585]
-[210512012,'LICEO JOSE MARIA ANTUNEZ',1003,6580]
-[21901002,'ESCUELA BÁSICA PEDRO EMILIO COLL',72,6579]
-[30601025,'ESCUELA BASICA SANTA TERESA',99,6579]
-[210803004,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO SAN PABLO',1021,6575]
-[200401020,'ESCUELA BASICA CARMEN DE RAMIREZ',955,6574]
-[70704003,'COLEGIO HERMANA DOLORES FE Y ALEGRIA',269,6571]
-[110603001,'GRUPO ESCOLAR RAFAEL TOBIAS MARQUIZ',460,6557]
-[131602015,'ESCUELA NACIONAL JESUS MARIA ALFARO ZAMORA',618,6557]
-[110203004,'COLEGIO PRIVADO LAS FUENTES',431,6554]
-[10104012,'UNIDAD EDUCATIVA PRIVADA COLEGIO AGUSTINIANO SAN JUDAS TADEO',4,6554]
-[181201001,'LICEO BOLIVARIANO MONSEÑOR ANTONIO IGNACIO CAMARGO ALVAREZ.',825,6553]
-[71301009,'LICEO HIPOLITO CISNEROS',287,6548]
-[120406001,'ESCUELA  BASICA CAMPO ELIAS',505,6547]
-[40103001,'CONSERVATORIO DE MUSICA',106,6545]
-[131101026,'COLEGIO PACARIGUA II',608,6544]
-[110204029,'UNIDAD EDUCATIVA NACIONAL LOS CREPUSCULOS',432,6539]
-[10101008,'UNIDAD EDUCATIVA NACIONL SIMÓN BOLÍVAR',1,6538]
-[70908023,'UNIDAD EDUCATIVA TEOTISTE DE GALLEGOS',282,6530]
-[210518001,'UNIDAD EDUCATIVA SILVESTRE  SANCHEZ',1009,6529]
-[110207032,'ESCUELA BASICA TENIENTE PEDRO CAMEJO',435,6529]
-[30601005,'LICEO BOLIVARIANO FRANCISCO LAZO MARTI',99,6523]
-[100601006,'ESCUELA BASICA JUAN ANTONIO PADILLA',405,6514]
-[130301062,'UNIDAD EDUCATIVA NACIONAL CARMEN ROSALES GOMEZ',582,6510]
-[110202009,'GRUPO ESCOLAR JOSE GREGORIO HERNANDEZ',430,6508]
-[100301013,'GRUPO ESCOLAR ESTADOS UNIDOS DE AMERICA',392,6507]
-[211803006,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO CRISTO REY',1064,6506]
-[10110110,'UNIDAD EDUCATIVA NACIONAL NUEVA CARACAS',10,6504]
-[140704002,'ESCUELA BASICA BOLIVARIANA ISMAEL SALAZAR',649,6500]
-[171001001,'U.E. DR. DOMINGO BADARRACO BERMÚDEZ',776,6497]
-[40108011,'ESCUELA BASICA CONCENTRADA SAN VICENTE',111,6496]
-[40205001,'ESCUELA GUARAUGUTA',116,6483]
-[130901048,'COLEGIO MADRE DEL DIVINO PASTOR',601,6482]
-[211805012,'ESCUELA BASICA NACIONAL SISO MARTINEZ',1066,6482]
-[170901018,'U.E. REBECA DE MEJIA',769,6480]
-[210506001,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO SAN VICENTE DE PAUL',997,6474]
-[41302009,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOCTOR ALBERTO JOSE FERNANDEZ',145,6473]
-[210305005,'ESCUELA ENCONTRADOS',984,6471]
-[10117015,'UNIDAD EDUCATIVA NACIOANL CIUDAD CUATRICENTERARIA',17,6465]
-[140707007,'ESCUELA BASICA LUISA TERESA SOSA',652,6463]
-[181201011,'UNIDAD EDUCATIVA GENERAL JOSE ANTONIO PAEZ',825,6463]
-[50704001,'ESCUELA BASICA  NICOLAS ANTONIO PULIDO',190,6458]
-[60201010,'ESCUELA BASICA MANUEL MANRIQUE',216,6457]
-[180501003,'UNIVERSIDAD SIMON RODRIGUEZ NUCLEO LA GRITA',803,6456]
-[21401002,'LICEO PROFESOR JESUS LOPEZ CASTRO',63,6455]
-[160602001,'ESCUELA BASICA PAYARA',708,6455]
-[50208002,'GRUPO ESCOLAR  RAFAEL IGNACIO MENDOZA',165,6452]
-[120106004,'LICEO DR ALBERTO ADRIANI',490,6449]
-[120406002,'ESCUELA  BASICA GRAN MARISCAL DE AYACUCHO',505,6445]
-[182301002,'UNIDAD EDUCATIVA ELEAZAR LOPEZ CONTRERAS',849,6442]
-[160601012,'CICLO COMBINADO EDUARDO CHOLET',707,6442]
-[120104002,'ESC. NAC. BAS. 12 DE OCTUBRE.',488,6433]
-[191302001,'ESCUELA INTEGRAL BOLIVARIANA JULIO SÁNCHEZ VIVAS',923,6431]
-[211804001,'ESCUELA BASICA NACIONAL CARMELA QUINTERO',1065,6430]
-[10120022,'COLEGIO CRISTO REY',20,6427]
-[10112016,'ESCUELA BÁSICA NACIONAL LA CUMBRE',12,6417]
-[230108009,'ESCUELA GUARA CARAPAL',1111,6416]
-[20101032,'ESCUELA BOLIVARIANA ENURUU TAPIJHA',23,6415]
-[90401006,'UNIDAD EDUCATIVA CARLOS DIEZ DEL CIERVO',318,6413]
-[130901093,'COLEGIO SAN JOSE',601,6412]
-[10122029,'ESCUELA TÉCNICA COMERCIAL LUÍS RAZETTI',22,6409]
-[71201009,'UNIDAD ESCOLAR SIMON BOLIVAR',286,6405]
-[130201002,'ESCUELA BASICA GABRIEL EMILIO MUÑOZ',579,6404]
-[201201001,'ESCUELA BASICA LUISA DE MORALES',966,6400]
-[131801002,'UNIDAD EDUCATIVA POPULAR COLEGIO MAS LUZ',621,6399]
-[140701001,'ESC BAS RAFAEL MARIA BARALT',646,6397]
-[212001001,'UNIDAD EDUCATIVA SANTA BARBARA',1070,6397]
-[130902021,'INSTITUTO MEJORAMIENTO PROFESIONAL DEL MAGISTERIO',602,6389]
-[230107003,'ESCUELA SIMON RODRIGUEZ',1110,6388]
-[110208003,'UNIDAD EDUCATIVA NACIONAL AGUEDO FELIPE ALVARADO',436,6384]
-[70904037,'ESCUELA ESTADAL JOSE ANTONIO PAEZ',278,6373]
-[140902004,'ESCUELA BASICA ANDRES ELOY BLANCO',664,6373]
-[110407007,'UNIDAD EDUCATIVA NACIONAL  ISABEL TERESA PEREIRA DE VALERA',453,6372]
-[211803015,'UNIDAD EDUCATIVA NACIONAL PRIVADA PEDRO CAMEJO',1064,6366]
-[70908016,'ESCUELA JUAN USLAR',282,6355]
-[10105013,'CENTRO DE MISIONES MANUEL FOMBONA PACHANO',5,6336]
-[50703001,'ESCUELA BASICA  ENRIQUETA ARVELO  LARRIVA',189,6330]
-[60101016,'ESCUELA BASICA NACIONAL BACHILLER FELIPE HERNANDEZ',206,6329]
-[210503009,'LICEO NACIONAL DR JESUS ENRIQUE LOSSADA',994,6323]
-[110401005,'UNIDAD EDUCATIVA PADRE PEREZ LIMARDO',447,6322]
-[60102016,'ESCUELA BASICA NACIONAL SAN JOSE DE CACAHUAL',207,6317]
-[71101011,'PRE-ESCOLAR BATALLA DE JUNIN',285,6317]
-[21301035,'ESCUELA GRADUADA RAFAEL FERNÁNDEZ PADILLA',61,6311]
-[91602001,'UNIDAD EDUCATIVA INSTITUTO JUDIBANA',371,6310]
-[150501006,'CENTRO DE EDUCACION INICIAL DOÑANA',680,6309]
-[120601001,'GRUPO ESCOLAR ROBERTO PICON LARES',510,6307]
-[211802014,'ESCUELA BASICA NACIONAL 19 DE ABRIL',1063,6304]
-[10101003,'UNIDAD EDUCATIVA PRIVADA COLEGIO LA SALLE',1,6302]
-[70907006,'CICLO BASICO RAFAEL GUERRA MENDEZ',281,6300]
-[210106001,'E.B. NAC. GALANDA ROJAS DE CONTRERAS',975,6296]
-[130101001,'UNIDAD EDUCATIVA ROSCIO',571,6296]
-[10115002,'UNIDAD EDUCATIVA DISTRITAL BERMUDEZ',15,6291]
-[200701003,'ESCUELA BASICA JESUS MILLAN',960,6291]
-[200701018,'ESCUELA BASICA MANUEL CEDEÑO',960,6287]
-[60105015,'ESCUELA NACIONAL BASICA LIBERTADOR BOLIVAR',210,6282]
-[211403008,'ESCUELA BASICA ESTADAL SALOMON GARCIA SIERRA',1046,6281]
-[20201001,'UNIDAD EDUCATIVA  DOCTOR ALIRIO ARREAZA',25,6280]
-[70201002,'ESCUELA CONCENTRADA 5 DE JULIO',255,6277]
-[10117008,'UNIDAD EDUCATIVA GUAYANA ESEQUIBA',17,6274]
-[60101007,'ESCUELA NACIONAL BASICA JUAN VICENTE CARDOZO',206,6274]
-[10102011,'ESCUELA BASICA NACIONAL JOSE ANGEL ALAMO',2,6271]
-[110207038,'ESCUELA BOLIVARIANA DE MEDIA JORNADA DILCIA MORENO DE BOSSA',435,6266]
-[10114021,'ESCUELA BASICA NACIONAL ELIAS TORO',14,6261]
-[210514008,'UNIDAD EDUCATIVA NACIONAL HERMANO IDELFONZO GUTIERREZ',1005,6260]
-[70302005,'ESCUELA BASICA LA GUARICHA',259,6259]
-[20301045,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA JUAN PABLO PEREZ ALFONZO',27,6257]
-[140901001,'ESCUELA BASICA BOLIVARIANA  BARQUISIMETO',663,6254]
-[40101001,'ESCUELA BASICA CRISTOBAL MENDOZA',104,6248]
-[50601007,'ESCUELA BASICA SEBASTIAN ARAUJO',183,6246]
-[70301003,'ESCUELA NACIONAL EL DIVIDIVE',258,6239]
-[141101002,'CENTRO CULTURAL',667,6230]
-[90402013,'UNIDAD EDUCATIVA SAN FRANCISCO JAVIER',319,6226]
-[200701005,'UNIDAD EDUCATIVA LAUREANO VILLANUEVA',960,6224]
-[40101009,'CICLO BASICO ANDRES BELLO',104,6224]
-[160601039,'ESCUELA BASICA BATALLA DE CARABOBO',707,6223]
-[230101001,'GRUPO ESCOLAR PETION',1104,6222]
-[10107028,'ESCUELA BÁSICA REPUBLICA DEL ECUADOR',7,6220]
-[211405001,'UNIDAD EDUCATIVA NACIONAL DOCTOR RAMON HERNANDEZ',1048,6219]
-[10122008,'UNIVERSIDAD SANTA MARIA EL PARAÍSO',22,6215]
-[60106005,'ESCUELA NACIONAL BASICA VILLA COLOMBIA',211,6215]
-[210506005,'UNIDAD EDUCATIVA NACIONAL ROMULO GALLEGOS',997,6215]
-[180401015,'ESCUELA ESTADAL RAFAEL ANGEL EUGENIO FUENTES',800,6213]
-[70704011,'ESCUELA ESTADAL CESAR AGREDA',269,6208]
-[130301032,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR ARIAS BLANCO',582,6205]
-[120405001,'ESC BAS MONSEOR JAUREGUI',504,6200]
-[40801015,'ESCUELA BASICA SALOMON MORALES',133,4000]
-[70707001,'GRUPO ESCOLAR CACHIRI',272,6200]
-[210507009,'ESCUELA BASICA NACIONAL LUISA CACERES DE ARISMENDI',998,6195]
-[110207060,'ESCUELA BASICA JOSE MIGUEL CONTRERAS',435,6195]
-[130901025,'LICEO BOLIVARIANO LINO DE CLEMENTE',601,6192]
-[210509017,'ESCUELA BASICA ESTADAL LAS PEONIAS N:34',1000,6192]
-[60105016,'ESCUELA NACIONAL BASICA LUCILA PALACIO',210,6191]
-[60302011,'ESCUELA BASICA NACIONAL LOS PROCERES II',223,6182]
-[210506012,'UNIDAD EDUCATIVA PRIVADA COLEGIO BELLAS ARTES',997,6172]
-[182003004,'GRUPO ESCOLAR DOCTOR JOSE GREGORIO HERNANDEZ',844,6171]
-[131002007,'ESCUELA BASICA NACIONAL NUEVA CUA',607,6166]
-[80601010,'ESCUELA  BASICA  ELOY GUILLERMO  GONZALEZ',298,6162]
-[10115026,'LICEO BOLIVARIANO ELBA HERNANDEZ DE YANEZ',15,6158]
-[131502010,'UNIDAD EDUCATIVA ESTADAL ARTURO USLAR PIETRI',616,6154]
-[40602001,'ESCUELA BASICA CIRO MALDONADO ZERPA',128,6148]
-[170902011,'LICEO LUIS GRATEROL BOLÍVAR',770,6147]
-[71201008,'ESCUELA DOCTOR LISANDRO LECUNA',286,6146]
-[60101005,'CICLO DIVERSIFIVADO MANUEL PIAR',206,6145]
-[110204001,'UNIDAD EDUCATIVA CORONEL GENARO VASQUEZ',432,6138]
-[130301022,'UNIADAD EDUCATIVA NACIONAL GUARENAS',582,6134]
-[130503002,'UNIDAD EDUCATIVA NACIONAL LILIA DE PIÑERO',593,6127]
-[130701006,'ESCUELA BASICA MANGUITO I',599,6124]
-[20101017,'UNIDAD EDUCATIVA DOCTOR AGUSTÍN RAFAEL HERNÁNDEZ',23,6122]
-[30701005,'COLEGIO FRAY BUENA VENTURA BENAUCAZ',103,6119]
-[91001002,'ESCUELA BÁSICA LOS MÉDANOS',349,6118]
-[90501004,'LICEO BOLIVARIANO ANTONIO DOLORES RAMONES',322,6117]
-[180601005,'UNIDAD EDUCATIVA BOLIVARIANA LA VICTORIA',806,6112]
-[71201013,'ESCUELA BOLIVARIANA MONTALBAN',286,6101]
-[10101006,'COLEGIO UNIVERSITARIO FRANCISCO DE MIRANDA',1,6090]
-[70908004,'LICEO NACIONAL ENRIQUE BERNARDO NUÑEZ',282,6090]
-[10110065,'ESCUELA TÉCNICA INDUSTRIAL JULIO CALCAÑO',10,6088]
-[210509015,'ESCUELA BASICA NACIONAL EVELIA DE PIMENTEL',1000,6088]
-[91503002,'UNIDAD EDUCATIVA JACINTO REGINO PACHANO',369,6085]
-[190201002,'ATENEO DE BOCONO',860,6083]
-[10101002,'UNIDAD EDUCATIVA SANTA BARBARA',1,6078]
-[170101004,'U.E. CARLOS FRANCISCO GRISANTI',733,6077]
-[110202004,'ESCUELA BASICA JUAN BAUTISTA RODRIGUEZ',430,6076]
-[170901012,'U.E. ASCANIO VEÍSQUEZ',769,6074]
-[210518002,'ESCUELA BOLIVARIANA OCTAVIO HERNANDEZ',1009,6070]
-[211403003,'UNIDAD EDUCATIVA ESTADAL MANUEL MARIA PADRON',1046,6070]
-[10116001,'UNIDAD EDUCATIVA NACIONAL ISAURA CORREA',16,6067]
-[40501001,'ESCUELA BASICA PEDRO ALDAO',126,6067]
-[140201019,'ESCUELA BASICA ROMULO GALLEGOS',629,6063]
-[51001006,'PREESCOLAR BOLIVARIANO LAS AMERICAS',197,6057]
-[10114040,'LICEO BOLIVARIANO FRAY PEDRO DE AGREDA',14,6051]
-[210502006,'UNIDAD EDUCATIVA NACIONAL COQUIVACOA',993,6051]
-[170501001,'U.E. JOSÉ MACHADO',752,6047]
-[110501013,'UNIDAD EDUCATIVA NACIONAL  JACINTO LARA',455,6047]
-[110404001,'UNIDAD EDUCATIVA GUAYAUTA',450,6047]
-[21501002,'UNIDAD EDUCATIVA MANUEL REYES BRAVO',64,6041]
-[10121008,'UNIDAD EDUCATIVA LICEO BOLIVARIANO CARLOS SOUBLETTE',21,6038]
-[210507007,'ESCUELA BASICA NACIONAL JUANA DE AVILA',998,6035]
-[181001014,'CENTRO DE EDUCACION INICIAL NACIONAL SIMONSITO SEDE II DOCTOR FRANCISCO GARCIA DE HEVIA',821,6034]
-[140709005,'ESCUELA BASICA SAN JAIME',654,6033]
-[191201001,'ESCUELA BOLIVARIANA FRANCISCO DE SALES PÉREZ',918,6032]
-[110601010,'UNIDAD EDUCATIVA NACIONAL  DR JULIO SEGUNDO ALVAREZ',458,6032]
-[91001007,'ESCUELA BÁSICA LUCAS ADAMES',349,6031]
-[200701006,'COLEGIO SANTA LUCIA',960,6028]
-[170901017,'U.E. GRAN MARISCAL',769,6027]
-[131901010,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CONOPOIMA',622,6027]
-[210514013,'ESCUELA  BASICA 15 DE ENERO',1005,6020]
-[131901018,'POLIDEPORTIVO LA BOYERA',622,6017]
-[210602002,'GRUPO ESCOLAR MIRANDA',1011,6016]
-[130901057,'ESCUELA MUNICIPAL SIMON BOLIVAR',601,6012]
-[210904005,'UNIDAD EDUCATIVA ESTADAL DON SIMON RODRIGUEZ',1026,6012]
-[200403006,'JARDIN DE INFANCIA BOLIVARIANO TIUNA',957,6010]
-[10122011,'ESCUELA BÁSICA NACIONAL JUAN RODRÍGUEZ SUÁREZ',22,6005]
-[130701019,'ESCUELA ESTADO YARACUY',599,6003]
-[120803001,'ESCUELA BASICA VICENTE DAVILA',516,6000]
-[210407005,'UNIDAD EDUCATIVA ESTADAL CECILIA  NUÑES  SUCRE',991,5998]
-[130501013,'UNIDAD EDUCATIVA ESTADAL ARAGUITA I',591,5998]
-[180201010,'ESCUELA BASICA NACIONAL BOLIVARIANA CAYETANO REDONDO',793,5993]
-[160502001,'ESCUELA GRADUADA LA CORTEZA',705,5991]
-[160801003,'ESCUELA BOLIVARIANA CIUDAD DE MERIDA',717,5989]
-[41801001,'ESCUELA BASICA DELUYAR',153,5987]
-[211805002,'CENTRO CULTURAL DALIA FERNANDEZ',1066,5985]
-[110301004,'U.E. MAESTRO ORLANDO RAMON JIMENEZ',439,5973]
-[10119017,'ESCUELA BÁSICA LAS MAYAS FE Y ALEGRÍA',19,5972]
-[170901023,'U.E. CRISTÓBAL DE QUEZADA',769,5971]
-[70704005,'ESCUELA MARIA CONCEPCION DE BOLIVAR',269,5971]
-[10116006,'UNIDAD EDUCATIVA NACIONAL CENTRO AMÉRICA',16,5968]
-[91401005,'ESCUELA BÁSICA GRADUADA SOUBLETTE',366,5961]
-[20302013,'GRUPO ESCOLAR REPUBLICA DE CHILE',28,5960]
-[41601004,'UNIDAD EDUCATIVA ESTADAL ELENA TORRES',149,5959]
-[50208001,'ESCUELA BASICA DON  LINO JIMENEZ',165,5959]
-[130501029,'ESCUELA BASICA ESTADAL TERRITORIO FEDERAL  AMAZONAS',591,5959]
-[131301009,'UNIDAD EDUCATIVA PROFESOR BORIS BOSSIO VIVAS',612,5959]
-[10103005,'UNIDAD EDUCATIVA SAN RAFAEL DE PAGUITA',3,5957]
-[150201001,'UNIDAD EDUCATIVA LICEO BOLIVARIANO FRANCISCO FAJARDO',671,5954]
-[30602001,'ESCUELA BASICA TAMANACO',100,5947]
-[120801001,'LICEO TULIO FEBRES CORDERO',514,5947]
-[170901020,'U.E. JOSÉ ANTONIO RAMOS SUCRE',769,5942]
-[60303016,'ESCUELA BASICA NACIONAL LIBERTADOR',224,5940]
-[70906012,'COLEGIO SAN GABRIEL ARCANGEL',280,5931]
-[70401012,'GRUPO ESCOLAR DIEGO IBARRA',260,5931]
-[211803017,'LICEO NACIONAL EDUARDO MATIAS LOSSADA',1064,5927]
-[110601018,'ESCUELA BASICA NACIONAL  PEDRO LEON TORRES',458,5926]
-[70701001,'ESCUELA BASICA BARTOLOME SALOM',266,5921]
-[60303018,'ESCUELA FE Y ALEGRIA LA INMACULADA',224,5919]
-[210514012,'UNIDAD EDUCATIVA ESTADAL DON OMAR LEON SALAS',1005,5919]
-[60106008,'ESCUELA NACIONAL BASICA WENCELAUS MONSERRATTE',211,5918]
-[10114036,'UNIDAD EDUCATIVA NACIONAL DOCTOR GUILLERMO PALACIOS',14,5918]
-[170302007,'U.E. REPÚBLICA DE HAITÍ',745,5915]
-[230301001,'ESCUELA PEDERNALES',1114,5910]
-[71201012,'UNIDAD EDUCATIVA PRIVADO COLEGIO PARROQUIAL PADRE SEIJAS',286,5910]
-[160101022,'ESCUELA BASICA MONSEÑOR OMAR RAMOS CORDERO',692,5906]
-[211001001,'UNIDAD EDUCATIVA ESTADAL BETHY RIOS',1029,5899]
-[180302001,'UNIDAD EDUCATIVA ESTADAL JUAN GERMAN ROSCIO',798,5898]
-[91002014,'ESCUELA TECNICA INDUSTRIAL ROBINSONIANA CORO  EXTENSION SAN JOSE',350,5897]
-[10114030,'ESCUELA BASICA NACIONAL ANTONIO CALCAÑO',14,5897]
-[80601007,'ESCUELA  BASICA  ELEAZAR ALMARAT',298,5896]
-[60402001,'ESCUELA AUTONOMA EL PAO',232,5887]
-[40401002,'UNIDAD EDUCATIVA LAS COCUIZAS',122,5886]
-[110801001,'ESCUELA BOLIVARIANA MANUEL ANTONIO CARREÑO',479,5885]
-[211003001,'UNIDAD EDUCATIVA NACIONAL ROBERTO GONZALEZ',1031,5878]
-[20302022,'ESCUELA DOCTOR JOSÉ TADEO ARREAZA CALATRAVA',28,5876]
-[71101018,'ESCUELA BASICA NACIONAL BOLIVARIANA LOS CERRITOS',285,5875]
-[20301012,'LICEO MONSEÑOR NICOLAS EUGENIO NAVARRO',27,5871]
-[210508006,'ESCUELA BASICA ESTADAL RAMON REINOSO NUÑEZ',999,5867]
-[120405003,'LICEO EJIDO',504,5866]
-[110611001,'ESCUELA BASICA TRINIDAD SAMUEL',468,5861]
-[30301008,'ESCUELA BASICA ESTADAL GRADUADA MARCOS DANIEL HERNANDEZ BRITO',89,5860]
-[120804002,'CICLO DIVERSIFICADO LIBERTADOR',517,5860]
-[70907013,'UNIDAD EDUCATIVA NACIONAL MANUEL RODRIGUEZ VASQUEZ',281,5858]
-[110202016,'GRUPO ESCOLAR CIUDAD BOLIVAR',430,5843]
-[211602009,'GRUPO ESCOLAR NACIONAL RAMON ESPINOZA',1057,5831]
-[180401007,'ESCUELA BOLIVARIANA GRACILIANO COLMENARES',800,5830]
-[70908012,'ESCUELA BASICA BARRIO LA TRINIDAD',282,5826]
-[60302008,'ESCUELA ESTADAL BASICA  AGUA SALADA',223,5821]
-[130701003,'ESCUELA BASICA NACIONAL DOCTOR FCO. ESPEJO',599,5820]
-[211805010,'ESCUELA BASICA NACIONAL CARMEN AMERICA DE LEONI',1066,5818]
-[10113006,'JARDIN DE INFANCIA MORALUZ',13,5816]
-[101003001,'ESCUELA BASICA ANGEL MORENO',416,5816]
-[10113024,'UNIDAD EDUCATIVA COLEGIO CERVANTES',13,5814]
-[210305001,'ESCUELA BASICA NACIONAL ALMIRANTE PADILLA',984,5811]
-[180101006,'ESCUELA BOLIVARIANA FRANCISCO DE PAULA REINA',790,5810]
-[50504001,'ESCUELA BASICA PEDRO ELIAS GUTIERREZ',182,5810]
-[210513006,'FE Y ALEGRIA RUTILIO GRANDE',1004,3596]
-[10106004,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA ARMANDO ZULOAGA BLANCO',6,5791]
-[71001009,'CENTRO EDUCATIVO INICIAL LAS NARANJITAS',284,5789]
-[70401011,'UNIDAD EDUCATIVA PRIVADA OSCAR FERNANDO BENEDETTI (FE Y ALEGRIA)',260,5788]
-[171101002,'U.E. JOSÉ MARÍA CARRERA',780,5783]
-[181401001,'ESCUELA BASICA ESTATAL FRANCISCO DE BORJAS Y MORA',827,5782]
-[10110057,'UNIDAD EDUCATIVA DISTRITAL JOSÉ ÁNGEL LAMAS',10,5780]
-[22101001,'ESCUELA BÁSICA TOMAS IGNACIO POTENTINI',76,5767]
-[40401001,'GRUPO ESCOLAR FRANCISCO ISNARDY',122,5767]
-[10111012,'UNIDAD EDUCATIVA NACIONAL FELIPE TEJERA',11,5766]
-[110801002,'UNIDAD EDUCATIVA NACIONAL SANARE',479,5759]
-[201001002,'ESCUELA BASICA DOCTOR LEON TRUJILLO',964,5756]
-[130301037,'UNIDAD ESTADAL EDUCATIVA CECILIO ACOSTA 1',582,5754]
-[10108010,'UNIDAD EDUCATIVA DISTRITAL SUCRE',8,5749]
-[21801004,'LICEO BOLIVARIANO SIMON RODRIGUEZ',70,5745]
-[210504006,'UNIDAD EDUCATIVA  NACIONAL DR CRISTOVAL MENDOZA',995,5740]
-[20302019,'GRUPO ESCOLAR JUAN MANUEL CAJIGAL',28,5728]
-[40104008,'ESCUELA BASICA ARAGUA',107,5727]
-[22001001,'UNIDAD EDUCATIVA AUGUSTO D´AUBETERRE',74,5719]
-[211402008,'ESCUELA BASICA NACIONAL LOS LAURELES',1045,5718]
-[60605002,'ESCUELA BASICA NACIONAL GUARATARO',240,5717]
-[120801005,'COLEGIO PRIVADO JARDIN FRANCISCANO',514,5716]
-[130901090,'CENTRO DE FORMACIÓN INDUSTRIAL DEL ESTE INCES',601,5716]
-[60801001,'UNIDAD EDUCATIVA GENERAL PIAR',244,5714]
-[131101010,'INSTITUTO DE CICLO BASICO JUAN JOSE ABREU',608,5714]
-[10120025,'ESCUELA BASICA NACIONAL JOSE GONZALO MENDEZ',20,5711]
-[122001002,'LICEO BOLIVARIANO JOSE MANUEL BRICEÑO MONZILLO',562,5709]
-[170201025,'U.E. BOLIVARIANA LUIS DANIEL BEAPERTHUY',738,5707]
-[60301009,'ESCUELA MEDICINA UNIVERSIDAD DE ORIENTE',222,5705]
-[192002005,'ESCUELA BOLIVARIANA VIVIENDA RURAL',947,5704]
-[10115025,'UNIDAD EDUCATIVA NACIONAL VICENTE EMILIO SOJO',15,5703]
-[180201012,'LICEO NACIONAL SAN ANTONIO',793,5703]
-[10117037,'ESCUELA BASICA COLEGIO NUESTRA SEÑORA DEL ROSARIO',17,5700]
-[220101002,'ESCUELA BASICA MONSEÑOR ENRIQUE DE FERRARI',1076,5698]
-[160301005,'ESCUELA BASICA AMADIO MARQUEZ',696,5695]
-[210516008,'ESCUELA BASICA ESTADAL DR. HUMBERTO FERNANDEZ MORAN',1007,5686]
-[131201009,'UNIDAD EDUCATIVA PRIVADA DOCTOR JOSE GREGORIO HERNANDEZ',610,5686]
-[151102004,'ESCUELA BASICA LICEO BOLIVARIANO PRESBISTERO MANUEL MONTANER SALAZAR',691,5682]
-[210301004,'ESCUELA BASICA ESTATAL EL REMOLINO',980,5680]
-[20101001,'ESCUELA BÁSICA NACIONAL BICENTENARIO SIMÓN BOLÍVAR',23,5679]
-[190702007,'ESCUELA BOLIVARIANA CIUDAD DE VALERA',895,5674]
-[130901006,'COLEGIO MANUEL PIAR',601,5668]
-[121801002,'LICEO BOLIVARIANO LUIS E MARQUEZ B',552,5668]
-[20301020,'ESCUELA NACIONAL ENRIQUE PEREZ VALENCIA',27,5662]
-[161202001,'ESCUELA BASICA SAN NICOLAS',727,5662]
-[171001003,'U.E. MARIA BLANDIN DE ALFONZO',776,5662]
-[70401023,'UNIDAD EDUCATIVA ESTADAL GRADUADA RAUL CALCAMO',260,5659]
-[21201011,'ESCUELA NACIONAL LA FLORIDA',60,5656]
-[180601015,'UNIDAD EDUCATIVA ESTADO MERIDA',806,5655]
-[210504009,'INSTITUTO UNIVERSITARIO TECNOLOGICO JUAN PABLO PEREZ ALFONZO',995,5645]
-[70302006,'ESCUELA BASICA MARISCAL SUCRE',259,5644]
-[30603002,'ESCUELA TECNICA INDUSTRIAL',101,5641]
-[70904098,'LICEO BOLIVARIANO ERNESTO CHE GUEVARA',278,5639]
-[181902002,'UNIDAD EDUCATIVA  BOLIVARIANA SAN LORENZO',840,5634]
-[140705001,'ESCUELA PRIMARIA ESTADAL FELIX ANGEL LOZADA',650,5632]
-[240108001,'ESCUELA INTEGRAL BOLIVARIANA NACIONAL NAIGUATA',1132,5631]
-[180803015,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA  ANA DOLORES FERNADEZ',814,5631]
-[211805013,'UNIDAD EDUCATIVA NACIONAL GONZALO RINCON GUTIERREZ',1066,5628]
-[170901016,'U.E. ALBERTO SANABRIA',769,5627]
-[60403001,'UNIDAD EDUCATIVA MORENO DE MENDOZA',233,5627]
-[70908010,'LICEO JOSE AUSTRIA',282,5621]
-[70203001,'ESCUELA GRADUADA MANUEL GODOY',257,5620]
-[60703002,'MISION JUAN XXIII',243,5614]
-[50207001,'ESCUELA BASICA DON MARIANO PICON  SALAS',164,5605]
-[120807002,'ESCUELA  BASICA RAFAEL ANTONIO GODOY',520,5598]
-[110201035,'UNIDAD EDUCATIVA ESTADAL SIMON BOLIVAR',429,5598]
-[122301001,'ESC BAS FELIX ROMAN DUQUE',569,5597]
-[130301010,'ESCUELA ESTADAL JOSE ANTONIO  RODRIGUEZ LOPEZ',582,5597]
-[20302036,'UNIDAD EDUCATIVA NACIONAL 29 DE MARZO',28,5591]
-[180802012,'UNIDAD EDUCATIVA MONSEÑOR SAN MIGUEL',813,5589]
-[110201034,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA ALI RAFAEL BRAVO',429,5589]
-[10104018,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CRUCITA DELGADO',4,5587]
-[40104001,'GRUPO ESCOLAR JESUS PACHECO ROJAS',107,5586]
-[210517005,'ESCUELA BASICA ESTADAL EL LIBERTADOR',1008,5586]
-[60803001,'UNIDAD EDUCATIVA NACIONAL IMATACA',246,5585]
-[70904024,'ESCUELA RUIZ PINEDA',278,5583]
-[210516012,'ESCUELA BASICA ESTADAL MAESTRO TOMAS  RAFAEL JIMENEZ',1007,5580]
-[210507010,'JARDIN DE INFANCIA NACIONAL MARIA MOÑITOS',998,5579]
-[40101012,'ESCUELA BASICA NACIONAL LAS DELICIAS',104,5575]
-[160801012,'ESCUELA BASICA PATIO GRANDE',717,5575]
-[160301031,'ESCUELA BASICA ANA DE ZAMBRANO ROA',696,5571]
-[140802003,'ESCUELA BASICA ELOY PALACIOS CABELLO',657,5571]
-[21201035,'ESCUELA BÁSICA RURAL LA ESPERANZA',60,5567]
-[211806001,'ESCUELA BASICA ESTADAL TERESA LOPEZ BUSTAMANTE (EZA)',1067,5555]
-[130901062,'ESCUELA BASICA NACIONAL JULIO CALCAÑO',601,5548]
-[70202001,'ESCUELA ESTADAL GRADUADA CARABOBO',256,5545]
-[130304002,'UNIDAD EDUCATIVA JUAN DE DIOS GUANCHEZ',585,5541]
-[130801015,'GRUPO ESCOLAR AMBROSIO PLAZA',600,5541]
-[50207006,'ESCUELA BASICA EZEQUIEL ZAMORA',164,5541]
-[10120008,'COLEGIO SAN PEDRO',20,5540]
-[240101002,'UNIDAD EDUCATIVA NACIONAL CORAPAL',1125,5531]
-[190702009,'ESCUELA TÉCNICA COMERCIAL SANTO TOMAS DE AQUINO (SALESIANOS)',895,5530]
-[70909001,'ESCUELA BASICA ESTADAL LUIS MARIA SUCRE',283,5527]
-[191202001,'ESCUELA BOLIVARIANA 27 DE NOVIEMBRE DE 1820',919,5526]
-[21301020,'GRUPO ESCOLAR CACIQUE PAISANA',61,5526]
-[120813005,'ESCUELA BASICA ELEAZAR LOPEZ CONTRERAS',526,5524]
-[120807006,'UNIDAD EDUCATIVA MARIA MOZZARELLO',520,5523]
-[30501005,'ESCUELA DE EDUCACIÓN INICIAL NUMERO 9 DE ELORZA',97,5522]
-[170906003,'LICEO BOLIVARIANA CREACION ARAPO',774,5521]
-[170902005,'ESCUELA BÁSICA LA TRINIDAD',770,5519]
-[60306004,'ESCUELA BASICA NACIONAL MARIA ZULIA DE MORALES',227,5515]
-[180901003,'UNIDAD EDUCATIVA COLEGIO SANTA MARIANA DE JESUS',817,5512]
-[220102004,'ESCUELA BASICA CECILIO ACOSTA',1077,5501]
-[40601016,'COLEGIO EL CARMELO',127,5500]
-[120805002,'CICLO BASICO CARACCIOLO PARRA OLMEDO',518,5497]
-[182101001,'UNIDAD EDUCATIVA MONSEÑOR ALEJANDRO FERNANDEZ FEO',845,5494]
-[210509004,'CENTRO CULTURAL DE CUJICITO CARLOS PARRA BERNAL',1000,5488]
-[120107001,'ESCUELA BASICA SUR AMERICA',491,5487]
-[121802002,'GRUPO ESCOLAR ESTADO NUEVA ESPARTA',553,5484]
-[160801004,'CICLO BASICO TUREN',717,5482]
-[10115004,'ESCUELA BASICA BOLIVARIANA LOS NARANJOS',15,5481]
-[210512004,'UNIDAD EDUCATIVA NACIONAL ALMIRANTE PADILLA',1003,5479]
-[200701029,'ESCUELA BASICA JOSE ATANACIO GONZALEZ',960,5478]
-[240110006,'UNIDAD EDUCATIVA PRIVADA COLEGIO JOSE ATANASIO GIRARDOT',1134,5475]
-[60305003,'ESCUELA BASICA VENEZUELA',226,5474]
-[131601019,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL ROSARIO',617,5473]
-[50202002,'CICLO  DIVERSIFICADO DANIEL FLORENCIO  OLEARY',159,5473]
-[70704009,'ESCUELA BOLIVARIANA TERESITA ROSALES',269,5471]
-[130801019,'UNIDAD BASICA EDUCATIVA ALBERTO SEQUIN VERA',600,5471]
-[110502009,'ESCUELA BOLIVARIANA FRANCISCO DE PAULA BRICEÑO',456,5471]
-[131801014,'UNIDAD EDUCATIVA  POPULAR COLEGIO SAN IGNACIO DE LOYOLA',621,5468]
-[150101007,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA FRANCISCO ESTEBAN GOMEZ',670,5468]
-[10105008,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA BICENTENERIA REPUBLICANO',5,5466]
-[60206007,'ESCUELA BASICA MIGUEL OTERO SILVA',221,5464]
-[91101001,'ESCUELA BASICA BOLIVARIANA MANUEL ANTONIO GARCIA',356,5462]
-[80601017,'ESCUELA  BASICA ALEJANDRO FEBRES',298,5460]
-[21302022,'GRUPO ESCOLAR RAFAEL MARCANO RODRIGUEZ',62,5457]
-[70201001,'ESCUELA FRANCISCO ARAMENDI',255,5457]
-[10110038,'UNIDAD EDUCATIVA NACIONAL ANTONIO JOSÉ DE SUCRE',10,5454]
-[10111014,'CICLO BASICO CREACION 23 DE ENERO, EDIFICIO B',11,5453]
-[190703001,'UNIDAD EDUCATIVA NUESTRA SEÑORA DE LA CANDELARIA',896,5452]
-[110201020,'CICLO BASICO FELIX GONZALEZ LAMEDA',429,5450]
-[210503018,'ESCUELA BASICA NACIONAL MARIA CAMARGO DE ALVAREZ',994,3557]
-[90401010,'ESCUELA BASICA CAJA DE AGUA',318,5440]
-[50901001,'ESCUELA BASICA  BOLIVARIANA BERNARDINO MOSQUERA',195,5425]
-[180602010,'UNIDAD EDUCATIVA ESTADAL DOCTOR RAUL LEONI',807,5424]
-[60107006,'CICLO DIVERSIFICADO LOS OLIVOS',212,5415]
-[10110062,'UNIDAD EDUCATIVA BOLIVARIANA JOSÉ GERVASIO ARTIGAS',10,5413]
-[180801006,'INSTITUTO UNIVERSITARIO TECNOLOGICO AGROPECUARIO',812,5410]
-[70904003,'GRUPO ESCOLAR NACIONAL SIMON RODRIGUEZ',278,5408]
-[21301057,'GRUPO ESCOLAR DOMINGO GUZMAN LANDER',61,5408]
-[50601001,'ESCUELA BASICA JOSE FRANCISCO JIMENEZ',183,5408]
-[180801018,'UNIDAD EDUCATIVA BOLIVARIANA ALIANZA',812,5406]
-[211602002,'UNIDAD EDUCATIVA  NACIONAL ANA MARIA CAMPOS',1057,5405]
-[170901031,'POLIDEPORTIVO FELIX LALITO VEÍSQUEZ',769,5404]
-[70705006,'UNIDAD EDUCATIVA MUNICIPAL CARLOS AUGUSTO CUBILLAN',270,5403]
-[130903001,'CENTRO MARITIMO DE VENEZUELA',603,5400]
-[171502001,'U.E. CRUZ SALMERON ACOSTA',788,5397]
-[10117018,'UNIDAD EDUCATIVA NACIOANL JOSE MANUEL NUÑEZ PONTE',17,5395]
-[70704007,'ESCUELA PRIMARIA BOLIVARIANA  JUANA GARCIA DE LADERA',269,5394]
-[10114023,'LICEO BOLIVARIANO LUIS CARDENAS SAAVEDRA',14,5392]
-[210510014,'ESCUELA BASICA NACIONAL NEPTALI RINCON URDANETA',1001,5391]
-[130901067,'UNIDAD EDUCATIVA ALBERTO RAVELL',601,5386]
-[220101011,'ESCUELA BASICA MENCA DE LEONI',1076,5381]
-[100101019,'INSTITUTO UNIVERSITARIO TECNOLOGICO DE LOS LLANOS',388,5380]
-[110201022,'UNIDAD EDUCATIVA PABLO ACOSTA ORTIZ',429,5379]
-[190701010,'LICEO CULTURAL BOLIVARIANO  MONSEÑOR JOSÉ HUMBERTO CONTRERAS',894,5378]
-[130501016,'UNIDAD EDUCATIVA FE Y ALEGRIA PAMPERO',591,5373]
-[210701002,'FE Y ALEGRIA',1015,5370]
-[181602002,'UNIDAD EDUCATIVA ESTADAL DOCTOR PATROCINIO PEÑUELA RUIZ',834,5369]
-[211102012,'ESCUELA BASICA. NACIONAL. BACHILLER. TORIBIO URDANETA',1035,5365]
-[21701003,'COLEGIO JUAN XXIII',68,5365]
-[71101001,'UNIDAD EDUCATIVA ESTADAL SANTISIMA TRINIDAD',285,5364]
-[210510003,'UNIDAD EDUCATIVA ESTADAL GABRIELA MISTRAL',1001,5361]
-[70201007,'ESCUELA ESTADAL CONCENTRADA FERNANDO FIGUEREDO',255,5360]
-[200601021,'GIMNACIO CUBIERTO URACHICHE',959,5352]
-[70701004,'GRUPO ESCOLAR TABORDA',266,5351]
-[10110032,'ESCUELA BÁSICA NACIONAL BOLIVARIANA JOSÉ FLORENCIO JIMÉNEZ',10,5348]
-[160802002,'ESCUELA BASICA LA MISION',718,5346]
-[10110100,'UNIDAD EDUCATIVA PRIVADA FEDERICO QUIROZ',10,5346]
-[170104002,'U.E. EL MORRO',736,5346]
-[130108002,'ESCUELA ESTADAL GRADUADA DOCTOR ARNALDO AROCHA VARGAS',578,5344]
-[10110031,'ESCUELA GRADUADA GRACIELA NAVAS TOVAR',10,5340]
-[70904008,'ESCUELA NACIONAL EL PRADO',278,5339]
-[211805011,'ESCUELA BASICA PRIVADA NACIONAL NUEVA VENEZUELA ( FE Y ALEGRIA)',1066,5333]
-[212002001,'UNIDAD EDUCATIVA NACIONAL NICOLAS ARAMBULO',1071,5331]
-[200302002,'ESCUELA INTEGRAL BOLIVARIANA PEDRO MARIA SOSA',953,5330]
-[41101001,'ESCUELA BASICA FELIX MARIA PAREDES',141,5330]
-[70907005,'GRUPO ESCOLAR BEJUMA',281,5329]
-[211406009,'UNIDAD EDUCATIVA MONSEÑOR GUILLERMO BRIÑEZ (E.Z.A)',1049,5326]
-[200702004,'ESCUELA INTEGRAL  BOLIVARIANA REINALDO REYES',961,5325]
-[131603009,'COMPLEJO EDUCATIVO COLEGIO AMERICANO',619,5323]
-[110207025,'ESCUELA ESTADAL GRADUADA GENERAL JOSE TRINIDAD MORAN',435,5321]
-[110204028,'ESCUELA BASICA EL CARMEN',432,5317]
-[160303005,'UNIDAD EDUCATIVA NACIONAL SAN JUAN DE GUANAGUANARE',698,5316]
-[21201021,'COLEGIO KALIL GIBRAN',60,5315]
-[131301002,'ESCUELA BASICA LOS SALIAS',612,5311]
-[210305006,'LICEO FRANCISCO JAVIER PULGAR',984,5308]
-[211105004,'CENTRO DE EDUCACION INICIAL MAMA ROSA',1038,5305]
-[110614001,'UNIDAD EDUCATIVA NACIONAL JUAN JOSE BRACHO',471,5302]
-[140708001,'ESCUELA BASICA FEDERICO HANS',653,5300]
-[101101003,'UNIDAD EDUCATIVA NACIONAL JOSE MELECIO CAMACHO',417,5299]
-[21201036,'COLEGIO DIVINO MAESTRO',60,5295]
-[140302002,'ESCUELA BASICA BOLIVARIANA CARIPITO',631,5295]
-[120813001,'ESCUELA BASICA EMIRO FUENMAYOR',526,5291]
-[210603003,'UNIDAD EDUCATIVA NACIONAL GENERAL FRANCISCO  DE MIRANDA',1012,5290]
-[160101005,'ESCUELA BASICA OMAR RAMOS CORDERO 3',692,5290]
-[191301002,'ESCUELA BOLIVARIANA LA LLANADA',922,5287]
-[50604001,'UNIDAD EDUCATIVA ENRIQUE  CASTRO',186,5285]
-[190701019,'UNIDAD EDUCATIVA NACIONAL PADRE BLANCO',894,5284]
-[160401003,'ESCUELA MUNICIPAL GUANARITO',701,5280]
-[41701002,'ESCUELA BASICA NACIONAL COROPO',150,5277]
-[160301026,'ESCUELA BASICA PROFESORA CELINDA ADAMS',696,5271]
-[211102019,'ESCUELA BASICA BOLIVARIANA DOCTOR. ALBERTO CARNAVALI',1035,5268]
-[110206006,'UNIDAD EDUCATIVA NACIONAL TAMACA',434,5265]
-[150502002,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA RAFAEL VALERY MAZA',681,5264]
-[190601001,'ESCUELA BOLIVARIANA TOSTA GARCIA',888,5264]
-[180701001,'UNIDAD EDUCATIVA DOCTOR. FRANCISCO JAVIER GARCIA DE HEVIA',810,5262]
-[70905006,'GRUPO ESCOLAR FERMIN TORO',279,5261]
-[20302032,'ESCUELA BÁSICA NACIONAL DOCTOR JULIO CAMEJO',28,5255]
-[10116009,'UNIDAD EDUCATIVA NACIONAL PARROQUIA MACARAO',16,5254]
-[160101062,'UNIVERSIDAD NACIONAL YACAMBU',692,5254]
-[171503002,'U.E. LORENZA ISAVA GUEVARA',789,5252]
-[150301001,'UNIDAD EDUCATIVA BOLIVARIANA MATASIETE',673,5252]
-[200402013,'UNIDAD EDUCATIVA TIUNA',956,5252]
-[150601019,'UNIDAD EDUCATIVA INSTITUTO VIRGEN DEL VALLE (ADULTO)',682,5249]
-[21201001,'GRUPO ESCOLAR DOCTOR RAFAEL  FERNÁNDEZ PADILLA',60,5246]
-[10108025,'UNIDAD EDUCATIVA COLEGIO GRAN COLOMBIA',8,5241]
-[80801001,'ESCUELA BÁSICA BOLIVARIANA MANAURE',302,5241]
-[210509013,'ESCUELA BASICA NACIONAL SAN JUAN',1000,5239]
-[160102001,'ESCUELA BASICA LISANDRO ALVARADO',693,5236]
-[91202002,'ESCUELA PRIMARIA BOLIVARIANA PRÓSPERO AGUSTÍN OCANDO',360,5234]
-[40101011,'UNIDAD EDUCATIVA ESTADAL DOLORES MENDOZA DE OSORIO',104,5233]
-[70906010,'INSTITUTO NACIONAL DE CAPACITACION Y EDUCACION SOCIALISTA (INCES)',280,5232]
-[60103006,'ESCUELA ESTADAL PABLO VICENTE BASTARDO',208,5230]
-[71101026,'UNIDAD EDUCATIVA ANTONIO JOSE DE SUCRE',285,5230]
-[70907004,'ESCUELA RAFAEL SATURNO GUERRA',281,5223]
-[210106002,'LICEO JUAN PABLO PEREZ ALFONZO',975,5222]
-[200701014,'LICEO COCOROTE',960,5222]
-[20101009,'ESCUELA  BÁSICA  23 DE ENERO',23,5207]
-[60304013,'ESCUELA BASICA CARMEN LUNA LEZAMA',225,5200]
-[121201001,'ESC BAS DR MARIANO UZCATEGUI',537,5200]
-[60302003,'UNIDAD EDUCATIVA LOS PROCERES',223,5198]
-[120201001,'UNIDAD EDUCATIVA RAFAEL MARIA TORRES',492,5191]
-[210508012,'ESCUELA BASICA NACIONAL ANGEL ALVAREZ DOMINGUEZ',999,5188]
-[10120019,'ESCUELA BASICA RAMON POMPILIO OROPEZA',20,5185]
-[210511001,'ESCUELA BASICA NACIONAL DIVINA PASTORA',1002,5185]
-[160201018,'UNIDAD CONCENTRADA JUAN ZABARCE',694,5170]
-[10110079,'INSTITUTO TÉCNICO JESÚS OBRERO',10,5167]
-[70102001,'ESCUELA BASICA PIMENTEL CORONEL',253,5166]
-[150402001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA VICTOR CEDENO',679,5165]
-[20402002,'GRUPO ESCOLAR DIEGO BAUTISTA URBANEJA',34,5165]
-[60301017,'ESCUELA BASICA NIÑOS PREGONEROS',222,5164]
-[200202002,'ESCUELA BASICA JUAN VICENTE GONZALEZ',951,5160]
-[140102001,'UNIDAD EDUCATIVA CREACION EL RINCON',628,5159]
-[40107014,'ESCUELA BASICA REPUBLICA DE MEJICO',110,5157]
-[10111019,'ESCUELA BÁSICA BOLÍVARIANA JOSÉ ENRIQUE RODO',11,5157]
-[180401004,'COLEGIO NUESTRA SEÑORA DE LA CONSOLACION DE TARIBA',800,5156]
-[70601005,'LICEO AMBROSIO PLAZA',264,5153]
-[120407004,'UNIDAD EDUCATIVA HIPOLITO E GONZALEZ',506,5150]
-[120802001,'ESCUELA ESTADAL BASICA COROMOTO',515,5149]
-[190504002,'UNIDAD EDUCATIVA MONSEÑOR ESTANISLAO CARRILLO',884,5148]
-[80601022,'ESCUELA BASICA NACIONAL BOLIVARIANA ROMULO GALLEGOS',298,5146]
-[211102016,'ESCUELA NACIONAL LOS SAMANES',1035,5146]
-[191001001,'LICEO ANTONIO ANSELMI BERTI',912,5144]
-[211403006,'ESCUELA BASICA NACIONAL DOCTOR. RAUL OSORIO LAZO',1046,5144]
-[90501003,'ESCUELA BASICA PRIMARIA EMILIA ROSA MOLINA',322,5141]
-[110201037,'GRUPO ESCOLAR JUAN TAMAYO RODRIGUEZ',429,5136]
-[230201001,'ESCUELA SAMUEL DARIO MALDONADO',1112,5136]
-[130602002,'ESCUELA BOLIVARIANA FELIPE NERI',595,5134]
-[10117022,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA TOMAS VICENTE GONZALEZ',17,5133]
-[70903001,'COLEGIO DON BOSCO',277,5131]
-[180804007,'ESCUELA ESTADAL GRADUADA DOCTORA BLANCA LOPEZ DE SANCHEZ',815,5130]
-[130801040,'ESCUELA BASICA BOLIVARIANA RICARDO MONTILLA',600,5128]
-[10115030,'ESCUELA BASICA NACIONAL JOSE VINICIO ADAMES PIÑERO',15,5127]
-[211803001,'ESCUELA BASICA NACIONAL DOCTOR JESUS MUÑOZ TEBAR',1064,5124]
-[60107004,'ESCUELA NACIONAL BASICA YOCOIMA',212,5121]
-[21502002,'ESCUELA CREACION CHORRERON',65,5121]
-[211401011,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA DE CABIMAS',1044,5117]
-[210505008,'ESCUELA BASICA PICHINCHA',996,5115]
-[60108007,'ESCUELA TECNICA INDUSTRIAL SIMON RODRIGUEZ',213,5112]
-[110302001,'LICEO NACIONAL BOLIVARIANO PEPE COLOMA',440,5105]
-[160201002,'CICLO COMBINADO PABLO HERRERA CAMPINS',694,5103]
-[211802005,'ESCUELA BASICA NACIONAL GENERAL RAFAEL URDANETA (FE Y ALEGRIA)',1063,5098]
-[190603001,'ESCUELA BOLIVARIANA FRANCISCO BRICEÑO ARAUJO',890,5098]
-[110704007,'ESCUELA BASICA NAC IOMNALMOROTURO',478,5095]
-[210507008,'LICEO LUIS BELTRAN RAMOS',998,5094]
-[50701001,'GRUPO ESCOLAR RAMON ESCOBAR',187,5092]
-[91001013,'ESCUELA BASICA BOLIVARIANA JUAN CRISOSTOMO FALCÁ’N',349,5089]
-[130902002,'UNIDAD  EDUCATIVA COLEGIO SANTA GEMA',602,5088]
-[20301025,'ESCUELA NACIONAL MIGUEL ANGEL PEREZ',27,5088]
-[160401001,'ESCUELA BASICA MONSEÑOR UNDA',701,5087]
-[210105001,'UNIDAD EDUCATIVA ESTADAL RAFAEL MARIA BARALT',974,5086]
-[140710005,'ESCUELA BASICA ISABEL PADRINO DE CAMPOS',655,5080]
-[10120006,'UNIDAD EDUCATIVA COLEGIO NUESTRA MADRE',20,5080]
-[60702001,'ESCUELA NACIONAL YURUARY',242,5078]
-[110202040,'U.E.N. JOSE GIL FORTOUL',430,5076]
-[120810001,'ESCUELA BASICA RAMON IGNACIO GUERRA.',523,5076]
-[211803013,'GRUPO ESCOLAR  SAN FRANCISCO',1064,5073]
-[131201006,'COMPLEJO EDUCATIVO ESTADAL JUAN GERMAN ROSCIO',610,5070]
-[10113028,'UNIDAD EDUCATIVA COLEGIO SAN ANTONIO DE LA FLORIDA',13,5068]
-[10115039,'UNIDAD EDUCATIVA FE Y ALEGRIA ANDY APARICIO',15,5066]
-[50212001,'ESCUELA BASICA ESTATAL VIRGINIA DE CONTRERAS',169,5050]
-[10120024,'UNIDAD EDUCATIVA COLEGIO SANTA ELVIRA',20,5049]
-[110209001,'GRUPO ESCOLAR CARUAO',437,5047]
-[41401016,'UNIDAD EDUCATIVA NACIONAL ELIZABET VONKELLER',146,5045]
-[130106001,'GRUPO ESCOLAR MARTIN HERNANDEZ BLANCO',576,5043]
-[110203009,'UNIDAD EDUCATIVA COLEGIO ANDRES BELLO',431,5041]
-[110205006,'UNIDAD EDUCATIVA ANDRES BELLO',433,5038]
-[170304003,'LICEO BOLIVARIANO JORGE ORDOSGOITI',747,5027]
-[161201008,'UNIDAD EDUCATIVA NACIONAL BOCONOITO',726,5027]
-[60202001,'ESCUELA NACIONAL BASICA CUYUNI',217,5026]
-[182601001,'UNIDA EDUCATIVA NACIONAL BOLIVARIANA GERVACIO RUBIO',852,5023]
-[50203001,'UNIDAD  BASICA  ALEJO FORTIQUE',160,5022]
-[30604001,'ESCUELA BASICA BOLIVARIANA MADARIAGA',102,5021]
-[110204004,'ESCUELA BASICA GRAN MARISCAL DE AYACUCHO',432,5019]
-[160301014,'ESCUELA BASICA ORLANDO GIL CASA DIEGO',696,5016]
-[10117029,'LICEO BOLIVARIANO BENITO JUAREZ',17,5015]
-[60301003,'JARDIN DE INFANCIA LOS COQUITOS',222,5013]
-[110101002,'UNIDAD EDUCATIVA  EFREN COLMENARES GIMENEZ',427,5011]
-[20101013,'UNIDAD EDUCATIVA NARCISO FRAGACHAN',23,5010]
-[20301001,'ESCUELA NACIONAL ANDRES ELOY BLANCO',27,5009]
-[180401003,'ESCUELA BOLIVARIANA RAFAEL ALVAREZ',800,5008]
-[181601002,'GRUPO ESCOLAR PEDRO MARIA UREÑA',833,5007]
-[71101005,'LICEO NACIONAL BOLIVARIANO ANDRES BELLO',285,5005]
-[121601001,'ESCUELA  BASICA ARTESANAL',545,5003]
-[160201006,'ESCUELA BASICA  ANTONIO RODRIGUEZ PICON',694,4996]
-[120107012,'COLEGIO PRIVADO ROMULO GALLEGOS',491,4994]
-[210512009,'UNIDAD EDUCATIVA SANTA MONICA',1003,4993]
-[211303005,'ESCUELA NACIONAL FELICITA DE ESPINOZA',1043,4990]
-[130301049,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA REPUBLICA DEL PARAGUAY',582,4988]
-[210513017,'CENTRO DE EDUCACION INFANTIL MIGUEL SUNIAGA',1004,4987]
-[170905001,'ESCUELA BOLIVARIANA ADELAIDA NÚÑEZ SUCRE',773,4987]
-[180801003,'LICEO NACIONAL PEDRO MARIA MORANTES',812,4987]
-[201101014,'ESCUELA BASICA  BOLIVARIANA INDEPENDENCIA',965,4982]
-[131601040,'UNIDAD EDUCATIVA JOSE TADEO MONAGAS',617,4982]
-[160901012,'ESCUELA ESTADAL CONCENTRADA MIXTA NUMERO 291',721,4978]
-[20302024,'LICEO BOLIVARIANO CORONEL JUAN BAUTISTA BIDEAUX',28,4976]
-[110205002,'UNIDAD EDUCATIVA DOCTOR ARGIMIRO BRACAMONTE',433,4975]
-[131701004,'LICEO J MARIA VILLALOBOS',620,4968]
-[200201014,'ESCUELA INTEGRAL BOLIVARIANA CECILIA BAZAN DE  SEGURA',950,4968]
-[240109005,'CENTRO MOVIL ESTACION DE BOMBEROS NUMERO : 4 HUMBERTO GERARDO OVALLES',1133,4967]
-[90403003,'LICEO BOLIVARIANO MAESTRO GALLEGOS',320,4966]
-[140707003,'ESCUELA BASICA ANDRES BELLO',652,4963]
-[210501002,'UNIDAD EDUCATIVA JORGE WASHINGTON',992,4963]
-[70904021,'UNIDAD EDUCATIVA DOMINGO SAVIO',278,4963]
-[210407009,'UNIDAD EDUCATIVA BOLIVARIANA BACHILLER JOSE MARIA OSORIO',991,4961]
-[210504002,'ESCUELA BASICA NACIONAL MONSEÑOR GODOY',995,4959]
-[211102002,'UNIDAD EDUCATIVA ESTADAL ANDRES BELLO (E.Z.A)',1035,4959]
-[70908014,'ESCUELA BASICA NACIONAL GENERAL RAFAEL URDANETA',282,4955]
-[131601007,'COLEGIO SANTO TOMAS DE VILLANUEVA',617,4954]
-[20302026,'UNIDAD EDUCATIVA DOCTOR JOSÉ GIL FORTOUL',28,4950]
-[50401004,'LICEO NACIONAL BOLIVARIANO CARLOS DEL POZO Y SUCRE',175,4948]
-[210509002,'ESCUELA BASICA NACIONAL OLGA MARIA ABREU',1000,4943]
-[10110101,'ESCUELA BASICA NACIONAL SUCRE',10,4943]
-[121202001,'UNIDAD EDUCATIVA DON PEDRO JESUS PINO',538,4940]
-[70301004,'ESCUELA NACIONAL MARIARA',258,4940]
-[50201001,'UNIDAD EDUCATIVA DOMINGA ORTIZ DE PAEZ',158,4934]
-[110201016,'UNIDAD EDUCATIVA VICENTE SALIAS',429,4932]
-[180201003,'ESCUELA BOLIVARIANA REPUBLICA DE CUBA',793,4932]
-[131201010,'UNIDAD EDUCATIVA PRIVADA NUESTRA SEÑORA DE LA COROMOTO',610,4931]
-[110203006,'COMEDOR ESCOLAR ANTONIO RAMIREZ',431,4930]
-[92101001,'ESCUELA BASICA BOLIVARIANA YARACAL',381,4925]
-[70705010,'UNIDAD EDUCATIVA MIS VECINOS',270,4924]
-[110202023,'UNIDAD EDUCATIVA VENEZUELA',430,4921]
-[90403009,'LICEO BOLIVARIANO ALEJANDRO PETION',320,4920]
-[182801003,'ESCUELA ESTADAL GRADUADA MARIA DEL ROSARIO MARQUEZ',854,4916]
-[191601001,'UNIDAD BÁSICA NACIONAL MARCELINO ZAMBRANO',934,4912]
-[100601005,'ESCUELA BASICA NACIONAL REPUBLICA DEL BRASIL',405,4910]
-[210504005,'UNIDAD EDUCATIVA NACIONAL RAFAEL MARIA BARALT',995,4908]
-[170805002,'BOLIVARIANA ELISO SILVA DÍAZ',768,4906]
-[130401015,'UNIDAD EDUCATIVA ESTADAL PEDRO RODRIGUEZ VALDIVIEZO',589,4903]
-[230102001,'GRUPO ESCOLAR LA FLORIDA',1105,4903]
-[131201011,'UNIDAD EDUCATIVA PRIVADA COLEGIO SAGRADO CORAZON DE JESUS',610,4903]
-[130901078,'ESCUELA MUNICIAPL ANDRES ELOY BLANCO',601,4899]
-[160101030,'ESCUELA GRADUADA TAPA DE PIEDRA',692,4891]
-[210512003,'ESCUELA BASICA NACIONAL JULIO CESAR BORGE',1003,4888]
-[50103001,'ESCUELA PRIMARIA YARURO',156,4887]
-[160301023,'GRUPO ESCOLAR NACIONAL DIEGO ANTONIO BRICEÑO',696,4883]
-[110204027,'UNIDAD EDUCATIVA COLEGIO FE Y ALEGRIA JUAN XXIII',432,4881]
-[131601035,'PRE-ESCOLAR NUESTRA SEÑORA DEL ROSARIO',617,4880]
-[160101007,'ESCUELA BASICA BOLIVARIANA DESARROLLO CAMBURITO',692,4878]
-[60802001,'ESCUELA BASICA NACIONAL SANTIAGO IZAGUIRRE',245,4876]
-[10115015,'UNIDAD EDUCATIVA NACIONAL APLICACIÓN',15,4876]
-[130901023,'UNIDAD EDUCATIVA COLEGIO JUAN PABLO II',601,4875]
-[51002001,'ESCUELA BASICA BOLIVARIANA  MIGUEL ANGEL GUILLEN',198,4871]
-[230304001,'ESCUELA SAN FRANCISCO DE GUAYO',1117,4861]
-[210511012,'UNIDAD EDUCATIVA NACIONAL GENERAL RAFAEL URDANETA',1002,4861]
-[170903022,'U.E. JAVIER ALCAÍ VÁSQUEZ',771,4861]
-[160301040,'CICLO BASICO COMBINADO DOCTOR FELIX SATURNINO ARISA',696,4860]
-[160101008,'ESCUELA BASICA BOLIVARIANA NUESTRA SEÑORA DEL PILAR',692,4858]
-[30202002,'CENTRO EDUCACION INICIAL BOLIVARIANO ANTONIO JOSE DE SUCRE',85,4857]
-[180801020,'ESCUELA BOLIVARIANA VILLAFAÑE',812,4857]
-[21201030,'GRUPO ESCOLAR ESTADO TRUJILLO',60,4855]
-[40205005,'UNIDAD EDUCATIVA ESTADAL RAFAEL TAYLHADAT',116,4849]
-[131201016,'ESCUELA PITAHAYA',610,4848]
-[190303002,'LICEO BOLIVARIANO ANTONIO JOSÉ SALDIVIA',874,4847]
-[70908019,'GRUPO ESCOLAR GUACARA',282,4842]
-[130301035,'UNIDAD EDUCATIVA NACIONAL GUAICAIPURO',582,4839]
-[10122003,'LICEO ANTONIO GUZMÁN BLANCO',22,4838]
-[71201015,'UNIDAD EDUCATIVA NACIONAL MANUEL ANTONIO MALPICA',286,4838]
-[140708014,'ESC BAS PABLO EMILIO CASTILLO',653,4838]
-[171401003,'UNIDAD EDUCATIVA JESÚS ALBERTO MARCANO ECHEZURIA',786,4835]
-[10108007,'UNIDAD EDUCATIVA DOCTOR MANUEL DIAZ RODRIGUEZ',8,4832]
-[211105002,'UNIDAD EDUCATIVA PRIVADA NACIONAL FRAY LUIS DE LEON',1038,4830]
-[151001001,'UNIDAD EDUCATIVA BOLIVARIANA ANTOLIN DEL CAMPO',689,4829]
-[190702001,'ESCUELA BOLIVARIANA LA PLATA III',895,4827]
-[70703004,'ESCUELA BASICA LA SALLE BALOCHE',268,4824]
-[41701015,'UNIDAD EDUCATIVA PRIVADA NUESTRA SEÑORA DE COROMOTO',150,4823]
-[70704015,'COLEGIO SAN JOSE LA SALLE',269,4822]
-[130901018,'COLEGIO DULCE NOMBRE DE JESUS',601,4820]
-[80201013,'UNIDAD EDUCATIVA SIMON BOLIVAR',292,4819]
-[130601001,'UNIDAD EDUCATIVA 13 DE JUNIO',594,4817]
-[21201028,'LICEO JOSE RAFAEL REVENGA',60,4814]
-[21302005,'PREESCOLAR EL PARAÍSO I',62,4811]
-[60201004,'ESCUELA BASICA LUCILA PALACIOS',216,4809]
-[210803001,'UNIDAD EDUCATIVA NACIONAL ANTONIO JOSE DE SUCRE',1021,4807]
-[10121004,'UNIDAD EDUCATIVA COLEGIO TIRSO DE MOLINA',21,4801]
-[120106002,'UND EDUC TOVAR',490,4801]
-[170304005,'U E ESTADO ANZOATEGUI',747,4801]
-[20301017,'LICEO JOSE ANTONIO ANZOATEGUI',27,4800]
-[211602003,'ESCUELA  BASICA  NACIONAL  BACHILLER FRANCISCO ARAUJO GARCIA',1057,4799]
-[110903002,'ESCUELA NACIONAL BOLIVARIANA PROFESOR OTILIO GALLARDO( MANZANITA)',484,4799]
-[21302010,'LICEO TOMAS ALFARO CALATRAVA',62,4798]
-[200401001,'ESCUELA BASICA REPUBLICA DE NICARAGUA',955,4797]
-[201401008,'ESCUELA  INTEGRAL BOLIVARIANA  MERCEDES MORO DE FUENTES',968,4795]
-[71301006,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA DE SEGURIDAD INDUSTRIAL',287,4794]
-[171001002,'U.E. ALEJANDRO VILLANUEVA',776,4793]
-[110202034,'ESCUELA BASICA EL OBELISCO',430,4792]
-[110206010,'ESCUELA NACIONAL RASTROJITOS',434,4785]
-[70704008,'ESCUELA BASICA BOLIVARIANA PROSPERO REVERON',269,4779]
-[110202050,'GRUPO ESCOLAR NACIONAL AYACUCHO',430,4779]
-[210502023,'ESCUELA BASICA NACIONAL DR JESUS MARIA PORTILLO',993,4778]
-[210510004,'UNIDAD EDUCATIVA NACIONAL DR VICENTE LECUNA',1001,4776]
-[210516022,'UND EDUC GNRAL CARLOS SOUBLETT',1007,4774]
-[10118006,'ESCUELA BÁSICA BOLIVARIANA SABANETA',18,4766]
-[170705001,'U.E. SAN FERNANDO DE QUEBRADA SECA',762,4766]
-[211102006,'ESCUELA BASICA NACIONAL NUEVA LAGUNILLAS',1035,4763]
-[20604002,'LICEO BOLIVARIANO FRANCISCO CARVAJAL',41,4761]
-[170601001,'U.E. LUISA AMALIA DE RAMÍREZ',757,4761]
-[70904019,'ESCUELA NACIONAL ISIDRO RAMIREZ',278,4760]
-[21201034,'INSTITUTO ALBERTO CARNEVALLI',60,4759]
-[110203015,'CENTRO EDUCACION INICIAL DOÑA MENCA DE LEONI',431,4756]
-[181301007,'UNIDAD EDUCATIVA PRESBITERO JOSE ARMANDO PEREZ',826,4326]
-[50401005,'UNIDAD EDUCATIVA PRIVADO COLEGIO CORAZON DE MARIA',175,4753]
-[131602001,'UNIDAD EDUCATIVA COLEGIO CHAMPAGNAT ASOCIACION CIVIL V.E.A.S.',618,4753]
-[110601011,'ESCUELA BASICA CREACION CALICANTO',458,4748]
-[130301014,'UNIDAD EDUCATIVA NACIONAL MANUEL CLEMENTE URBANEJA',582,4747]
-[170904004,'U.E. MADRE ALBERTA JIMENEZ',772,4746]
-[210514020,'CENTRO INFANTIL PRESBITERO LISANDRO PUCHE',1005,4744]
-[130801034,'ESCUELA TECNICA INDUSTRIAL ROBINSONIANA RUBEN GONZALEZ',600,4742]
-[210513011,'UNIDAD EDUCATIVA NACIONAL  FE Y ALEGRIA N 4 LA RINCONADA',1004,4739]
-[140601008,'ESCUELA BASICA INAVI',642,4735]
-[70904020,'ESCUELA BASICA MIGUEL ARTURO GONZALEZ  GRANADILLO',278,4733]
-[160301003,'ESCUELA BASICA ESTADAL HORTENCIA PERAZA',696,4731]
-[60102007,'ESCUELA NACIONAL BASICA GENERAL FRANCISCO CONDE',207,4731]
-[210507011,'JARDIN DE INFANCIA NACIONAL R-4 SAN JACINTO',998,4729]
-[180101016,'UNIDAD EDUCATIVA NACIONAL BARRIO LAS FLORES',790,4724]
-[201101004,'ESCUELA BASICA ANA ELISA LOPEZ',965,4722]
-[180801014,'CENTRO DE FORMACION TECNICA SOCIALISTA DOCTOR LUIS BELTRAN PRIETO FIGUEROA',812,4722]
-[70201011,'ESCUELA NACIONAL EL TROMPILLO',255,4722]
-[191501002,'UNIDAD BÁSICA PASCUAL IGNACIO VILLASMIL',930,4720]
-[212102004,'LICEO  BOLIVARIANO  CARACCIOLO PARRA LEON',1074,4719]
-[70906019,'COLEGIO CALASANZ',280,4719]
-[211102010,'ESCUELA BASICA NACIONAL CIUDAD OJEDA',1035,4718]
-[90801001,'ESCUELA BÁSICA BOLIVARIANA PADRE ALDANA',341,4714]
-[70906005,'COLEGIO NUESTRA SEÑORA DEL LOURDES',280,4706]
-[60301022,'ESCUELA BASICA ESTADO MERIDA',222,4706]
-[40108006,'ESCUELA BASICA AGUSTIN AVELEDO',111,4700]
-[210102004,'UNIDAD EDUCATIVA ESTADAL CIPRIANO BARRIOS',971,4698]
-[20702001,'ESCUELA NACIONAL BOLIVARIANA MAMO ARRIBA',43,4695]
-[91002001,'UNIDAD BASICA RAFAEL CALLES SIERRA',350,4695]
-[210502010,'ESCUELA BASICA NACIONAL MONSEÑOR FRANCISCO ANTONIO GRANADILLO',993,4690]
-[161401007,'ESCUELA BOLIVARIANA POBLADO II',731,4686]
-[210503022,'ESCUELA NACIONAL MARACAIBO',994,4686]
-[70801006,'LICEO ALFREDO PIETRI',274,4685]
-[21601005,'UNIDAD EDUCATIVA GUAYABAL',66,4258]
-[130902016,'COLEGIO AMERICO VESPUCIO',602,4681]
-[170702001,'U.E. ARENAS',759,4676]
-[30101002,'LICEO DIEGO EUGENIO CHACON',78,4671]
-[21301036,'ESCUELA  BÁSICA CREACIÓN SAN DIEGO',61,4668]
-[70901002,'GRUPO ESCOLAR EUTIMIO RIVAS',275,4663]
-[70602004,'ESCUELA BOLIVARIANA JOSEFINA GARCIA',265,4663]
-[210106008,'E.B. NAC. BR. MARCOS TULIO ANDRADE',975,4659]
-[130901035,'CENTROS DE ESTUDIOS CECILIO ACOSTA',601,4658]
-[10108040,'UNIDAD EDUCATIVA COLECIO NUESTRA SEÑORA DEL PILAR',8,4656]
-[190705001,'UNIDAD EDUCATIVA JOSÉ LUIS FAURET SABAUT',898,4654]
-[210515004,'ESCUELA BASICA NACIONAL CREACION LIBERTAD',1006,4651]
-[160601041,'ESCUELA BASICA TRINA DE MORENO',707,4651]
-[10102008,'ESCUELA EXPERIMENTAL VENEZUELA',2,4650]
-[30701008,'ESCUELA PRIMARIA BOLIVARIANA OLINDA FRANCO DE CASTRO',103,4649]
-[10114005,'PREESCOLAR ANTONIO JOSÉ DE SUCRE',14,4646]
-[10117040,'ESCUELA BASICA COLEGIO CARICUAO',17,4644]
-[210512006,'ESCUELA BASICA NACIONAL DR OCTAVIO HERNANDEZ',1003,4643]
-[170301008,'ESCUELA BOLIVARIANA PEDRO EÍAS ARISTIGUIETA',744,4639]
-[90701003,'ESCUELA BÁSICA BOLIVARIANA COTO PAUL',332,4634]
-[110207001,'CICLO BASICO PADRE DE LAS CASAS',435,4633]
-[150601027,'UNIDAD EDUCATIVA LICEO BOLIVARIANO LUISA CÁCERES DE ARISMENDI',682,4631]
-[210202004,'UNIDAD EDUCATIVA ESTADAL DR. ANTONIO JOSE URQUINAONA',977,4627]
-[70301007,'LICEO ANIBAL PARADISI',258,4622]
-[170903006,'U.E. GRAN MARISCAL DE AYACUCHO',771,4617]
-[240103004,'ESCUELA BASICA ESTATAL MARIA VILLALOBOS',1127,4616]
-[150101001,'UNIDAD EDUCATIVA BOLIVARIANA LUISA CACERES DE ARISMENDI',670,4616]
-[50502001,'ESCUELA BASICA GENERAL NICOLAS SILVA',180,4613]
-[190503004,'LICEO BOLIVARIANO RAMON IGNACIO MENDEZ',883,4611]
-[70906009,'UNIVERSIDAD ALEJANDRO HUMBOLDT',280,4607]
-[181601003,'UNIDAD EDUCATIVA ESTADAL PROFESOR MAXIMILIANO ZAMBRANO DUQUE',833,4607]
-[40107012,'CICLO BASICO JUAN VICENTE BOLIVAR',110,4602]
-[10105002,'COLEGIO CORAZON DE MARIA',5,4601]
-[30601022,'ESCUELA BASICA VICTOR LINO GOMEZ',99,4598]
-[131001019,'CONCENTRACION ESCOLAR RURAL NUMERO 17',606,4597]
-[110204023,'UNIDAD EDUCATIVA CIUDAD DE VALENCIA',432,4587]
-[10108019,'INSTITUTO VENEZOLANO DE EDUCACION',8,4587]
-[131601039,'LICEO NACIONAL ALEJO FORTIQUE',617,4586]
-[110202027,'UNIDAD EDUCATIVA PABLO MANZANO VELOZ',430,4586]
-[40305001,'ESCUELA GRADUADA RICARDO MONTILLA',121,4583]
-[21201025,'GRUPO ESCOLAR RIGOBERTO PARACO',60,4582]
-[151101001,'UNIDAD EDUCATIVA MONSEÑOR EDUARDO VÁSQUEZ',690,4582]
-[70907002,'ESCUELA FE Y ALEGRIA',281,4577]
-[132101001,'ESCUELA NACIONAL BASICA CUPIRA',625,4576]
-[211408008,'UNIDAD EDUCATIVA NACIONAL VICTOR CAPO',1051,4576]
-[110205004,'CICLO BASICO CARORITA ABAJO',433,4575]
-[130301057,'ESCUELA TECNICA INDUSTRIAL ROQUE PINTO',582,4574]
-[110102001,'UNIDAD EDUCATIVA NACIONAL EL ENEAL',428,4574]
-[70904029,'ANEXO DE RUIZ PINEDA 1',278,4573]
-[120811001,'ESCUELA BASICA FERMIN RUIZ VALERO',524,4572]
-[150401001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JOSE JOAQUIN DE OLMEDO',678,4565]
-[30701022,'ESCUELA BASICA BOLIVARIANA HECTOR VIDAL BENAUCO',103,4563]
-[131801022,'UNIDAD EDUCATIVA POPULAR MARIA AUXILIADORA',621,4549]
-[211403001,'ESCUELA BASICA ESTADAL MAESTRO DANIEL NAVEA',1046,4547]
-[20301054,'LICEO BOLIVARIANO DOCTOR LUIS RAZETTI',27,4547]
-[211403005,'ESCUELA BASICA NACIONAL JORGE  ROTHE',1046,4546]
-[110201036,'GRUPO ESCOLAR BOLIVIA TOVAR',429,4543]
-[60102012,'ESCUELA NACIONAL BASICA 25 DE MARZO',207,4541]
-[71201019,'ESCUELA NACIONAL BARBULA',286,4540]
-[180802006,'ESCUELA BOLIVARIANA JUAN ANTONIO ROMAN VALECILLOS',813,4538]
-[70201014,'CENTRO DE EDUCACION INICIAL NACIONAL BOLIVARIANO TENIENTE PEDRO CAMEJO',255,4537]
-[180803002,'ESCUELA BOLIVARIANA BUSTAMANTE',814,4531]
-[210510011,'ESCUELA BASICA NACIONAL BESARABIA',1001,4530]
-[10117036,'UNIDAD EDUCATIVA MIREYA VANEGAS',17,4530]
-[70501004,'CENTRO EDUCATIVO Y RECREACIONAL FUNDACION DEL NIÑO PEDRO CAMEJO',263,4529]
-[101502001,'UNIDAD EDUCATIVA LEONARDO INFANTE',426,4528]
-[170903012,'U.E. REPUBLICA ARGENTINA',771,4528]
-[10114011,'JARDIN DE INFANCIA TEOTISTE AROCHA DE GALLEGOS',14,4525]
-[10110028,'ESCUELA BÁSICA NACIONAL DIEGO RENATO MEJIAS',10,4524]
-[70402001,'GRUPO ESCOLAR ALONSO DIAZ MORENO',261,4523]
-[60104015,'NUCLEO RURAL NUMERO 211 ESCUELA ESTADAL CONCENTRADA 280',209,4520]
-[21301004,'LICEO CRISTOBAL COLON',61,4515]
-[110204005,'UNIDAD EDUCATIVA ANDRES ELOY BLANCO',432,4515]
-[160101041,'ESCUELA BASICA NEREIDA MORENO DE DUGARTE',692,4513]
-[181201019,'COLEGIO PARROQUIAL PADRE FRIAS',825,4513]
-[60303017,'ESCUELA BASICA SIMON RODRIGUEZ CENTRO EDUCACION ADULTOS ACEITICO II',224,4513]
-[20302016,'COMPLEJO EDUCATIVO NACIONAL MANUEL FARIAS LUCES',28,4512]
-[50211001,'UNIDAD  EDUCATIVA  BASICA  ALTO BARINAS SUR',168,4507]
-[10107011,'UNIDAD EDUCATIVA PARTICULAR SAN JUAN',7,4506]
-[150502001,'UNIDAD EDUCATIVA DOCTOR FRANCISCO ANTONIO RISQUEZ',681,4504]
-[50208007,'ESCUELA BASICA JUAN ANDRES VARELA',165,4503]
-[20301028,'ESCUELA NACIONAL CREACION BARCELONA',27,4502]
-[211803002,'UNIDAD  EDUCATIVA  ESTATAL SAN FRANCISCO',1064,4500]
-[60301023,'CICLO DIVERSIFICADO FERNANDO PEÑALVER',222,4500]
-[110207064,'ESCUELA BASICA MARIA ANGELICA LUSINCHI',435,4499]
-[131901009,'ESCUELA MUNICIPAL JUAN MANUEL CAJIGAL',622,4494]
-[210507006,'ESCUELA BASICA NACIONAL NORMAN PRIETO RAMOS',998,4491]
-[130105001,'GRUPO ESCOLAR NACIONAL JOSE NICOMEDES MARRERO',575,4487]
-[150601018,'UNIDAD EDUCATIVA BACHILLER SANTIAGO SALAZAR FERMIN',682,4487]
-[110206007,'UNIDAD EDUCATIVA JUAN BAUTISTA RODRIGUEZ',434,4485]
-[120811003,'ESCUELA. BASICA. ELOY PAREDES',524,4485]
-[180801004,'UNIDAD EDUCATIVA DOCTOR VICENTE DAVILA',812,4484]
-[91901002,'ESCUELA BÁSICA BOLIVARIANA DOMINGUEZ ACOSTA',377,4481]
-[71401014,'UNIDAD EDUCATIVA PRIVADO MARISCAL AYACUCHO',288,4480]
-[110202038,'CICLO BASICO EZEQUIEL BUJANDA',430,4470]
-[110102005,'UNIDAD EDUCATIVA PASO DE TACARIGUA',428,4470]
-[170706002,'ESCUELA BOLIVARIANA ISAÍAS RUIZ DE CORONADO',763,4466]
-[211806006,'ESCUELA BASICA NACIONAL ANGEL QUINTERO',1067,4463]
-[70904039,'ESCUELA BASICA EL SOCORRO',278,4463]
-[140708008,'COMPLEJO EDUCATIVO NACIONAL LEONARDO INFANTE',653,4462]
-[130101004,'COLEGIO LA ENCARNACION',571,4460]
-[210503013,'UNIDAD EDUCATIVA ESTADAL DR CARRACCIOLO PARRA LEON',994,4459]
-[10111026,'UNIDAD EDUCATIVA DISTRITAL JOSÉ GREGORIO HERNÁNDEZ',11,4458]
-[110101017,'UNIDAD EDUCATIVA HERMANAS JIMENEZ',427,4458]
-[180101001,'ESCUELA TECNICA   INDUSTRIAL AGROPECUARIA Y COMERCIAL TULIO FEBRES CORDERO',790,4457]
-[211406006,'UNIDAD EDUCATIVA ESTADAL JOSE ENRIQUE RODO',1049,4455]
-[210504004,'ESCUELA BASICA ESTADAL J A ROMAN VALECILLOS',995,4455]
-[131301015,'COLEGIO MASTER-DEY',612,4454]
-[210502019,'ESCUELA BASICA NACIONAL TEOTISTE DE GALLEGOS',993,4452]
-[211802009,'UNIDAD EDUCATIVA NACIONAL RAUL OSORIO',1063,4449]
-[80101001,'ESCUELA PRIMARIA  BOLIVARIANA NACIONAL AGUSTIN RAFAEL ANDRADES',290,4447]
-[210513007,'ESCUELA BASICAESTADAL EL ROSARIO',1004,4446]
-[10110067,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA EDUARDO ROHLL',10,4446]
-[210903004,'ESCUELA BASICA BOLIVARIANA LA CHIQUINQUIRA',1025,4445]
-[10107016,'ESCUELA BÁSICA NACIONAL GUZMÁN BLANCO',7,4445]
-[91901003,'LICEO BOLIVARIANO MIRIMIRE',377,4445]
-[170301005,'U.E. 1RO DE MAYO',744,4444]
-[211002001,'UNIDAD EDUCATIVA NACIONAL CACIQUE MARA',1030,4443]
-[50303001,'ESCUELA BASICA MIGUEL GUERRERO',174,4442]
-[211404002,'ESCUELA BASICA ESTADAL GUSTAVO FUENMAYOR',1047,4441]
-[130601003,'GRUPO ESCOLAR RAFAEL AREVALO GONZALEZ',594,4438]
-[40105016,'UNIDAD EDUCATIVA COOPERATIVA LAS NIEVES',108,4436]
-[110202003,'CICLO BASICO INDUSTRIAL LARA',430,4434]
-[90901004,'UNIDAD EDUCATIVA VIRGINIA GIL DE HERMOSO',346,4433]
-[10108006,'UNIDAD EDUCATIVA PRIVADA COLEGIO FRAY LUIS DE LEON',8,4431]
-[110201014,'CICLO BASICO FEDERICO CARMONA',429,4429]
-[130903002,'UNIDAD EDUCATIVA MUNICIPAL JOSE ANTONIO CALCAÑO',603,4426]
-[110702001,'GRUPO ESCOLAR PIO TAMAYO',476,4424]
-[211802001,'ESCUELA BASICA NACIONAL JOSEFINA DE ACOSTA',1063,4424]
-[120809003,'UNIDAD EDUCATIVA ROMULO BETANCOURT',522,4424]
-[131002008,'ESCUELA BASICA CREACION CUA',607,4421]
-[150601021,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CACIQUE CHARAIMA',682,4416]
-[10110064,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL SANTA TERESITA',10,4416]
-[211604002,'ESCUELA NACIONAL CONCENTRADA 234',1059,4413]
-[110615002,'ESCUELA BASICA MONSEÑOR SALVADOR MONTES DE OCA',472,4409]
-[211803007,'ESCUELA BOLIVARIANA EDUARDO EMIRO FERRER',1064,4409]
-[160301029,'CICLO DIVERCIFICADO CARLOS EMILIO MUÑOZ ORAA',696,4404]
-[181201004,'UNIDAD EDUCATIVA JHON  KENNEDY',825,4403]
-[120406007,'ESC BAS MIXTA LA RANCHERIA',505,4399]
-[20302038,'ESCUELA TECNICA ROBINSONIANA COMERCIAL DOCTOR  FELIPE GUEVARA ROJAS',28,4398]
-[210518003,'UNIDAD EDUCATIVA NACIONAL FE Y  ALEGRIA ABRAHAN REYES',1009,4391]
-[10120010,'LICEO URBANEJA ACHELPOHL',20,4390]
-[10115001,'UNIDAD EDUCATIVA DISTRITAL FRANCISCO JAVIER YANEZ',15,4388]
-[180403001,'ESCUELA BOLIVARIANA PALO GORDO',802,4380]
-[21201020,'ESCUELA BÁSICA  ESTADAL MENCA DE LEONI',60,4377]
-[131601050,'UNIVERSIDAD SIMON BOLIVAR',617,4373]
-[50401006,'LICEO BOLIVARIANO ELIAS ARAQUE MULLER',175,4370]
-[90402017,'ESCUELA BOLIVARIANA DELTA AMACURO',319,4369]
-[90804001,'ESCUELA BÁSICA BOLIVARIANA MAXIMILIANO ITURBE',344,4369]
-[171301003,'MEDICATURA RURAL',784,4368]
-[20301027,'ESCUELA NACIONAL PRIMARIA DOCTOR JOSÉ MARIA VARGAS',27,4367]
-[191904001,'UNIDAD EDUCATIVA TRES DE FEBRERO',945,4366]
-[140710060,'UNIVERSIDAD PEDAGOGICA EXPERIMENTAL LIBERTADOR- PEDAGOGICO DE MATURIN',655,4364]
-[10101009,'UNIDAD EDUCATIVA SANTA TERESA DEL NIÑO JESÚS',1,4361]
-[170201001,'GRUPO ESCOLAR PABLO MARIA FUENTES',738,4354]
-[40107001,'ESCUELA BASICA ESTADAL LA DEMOCRACIA',110,4353]
-[170905002,'ESCUELA BOLIVARIANA SIMÓN RODRÍGUEZ',773,4352]
-[90501008,'ESCUELA BÁSICA BOLIVARIANA SABANA LARGA',322,4350]
-[10110080,'UNIDAD EDUCATIVA NACIONAL 24 DE JULIO',10,4349]
-[130301045,'UNIDAD EDUCATIVA NACIONAL LUIS CORREA',582,4339]
-[131601021,'UNIDAD EDUCATIVA ESTADAL LINO DE CLEMENTE',617,4337]
-[200101013,'ESCUELA BASICA JOSE MANUEL SISO MARTINEZ',949,4336]
-[160601049,'UNIDAD EDUCATIVA LOS CORTIJOS',707,4334]
-[20301023,'ESCUELA ESTADAL CONSUELO NAVAS TOVAR',27,4334]
-[91401003,'ESCUELA BASICA BOLIVARIANA JACINTO R. PACHANO',366,4334]
-[110207042,'ESCUELA CONCENRADA SAN JOSE OBRERO',435,4332]
-[92401001,'ESCUELA BASICA BOLIVARIANA JOSE ENCARNACION LOPEZ',385,4329]
-[21201029,'COLEGIO SAN ANTONIO',60,4328]
-[110207004,'UNIDAD EDUCATIVA NACIONAL ANTONIO CARRILLO',435,4327]
-[170701004,'U.E. JUAN RANGEL DE ZERPA',758,4327]
-[210906001,'UNIDAD EDUCATIVA ESTADAL CECILIO ACOSTA',1028,4327]
-[210503026,'ESCUELA BASICA ESTADAL ORANGEL RODRIGUEZ',994,4326]
-[20302040,'UNIDAD EDUCATIVA GENERAL  JOSÉ ANTONIO PÁEZ',28,4325]
-[180101009,'UNIDAD EDUCATIVA ESTADAL ANDRES BELLO',790,4324]
-[131602009,'CENTRO ESCOLAR AULA NUEVA',618,4317]
-[182801006,'ESCUELA ESTADAL GRADUADA GENERAL CARLOS SOUBLETTE',854,4317]
-[150701001,'UNIDAD EDUCATIVA LICEO BOLIVARIANO LUIS CASTRO',683,4313]
-[170802004,'ESCUELA BASICA CECILIO ACOSTA',765,4312]
-[211602005,'ESCUELA BASICA NACIONAL DOCTOR CRISTOBAL MENDOZA',1057,4310]
-[40902005,'ESCUELA BASICA J M SISO MARTINEZ (PRIVADA)',139,4309]
-[201001010,'LICEO BOLIVARIANO DOCTOR RAFAEL CALDERA IZGUIRRE',964,4306]
-[160704003,'ESCUELA BASICA VICTOR RAMOS VALDERRAMA',714,4301]
-[151001003,'UNIDAD EDUCATIVA BOLIVARIANA DOCTOR LUIS ORTEGA',689,4298]
-[10104025,'UNIDAD EDUCATIVA PRIVADA COLEGIO MODERNO',4,4293]
-[211806007,'UNIDAD  EDUCATIVA  DOCTOR NERIO ADRIANZA GONZALEZ',1067,4286]
-[110204008,'GRUPO ESCOLAR CECILIO ZUBILLAGA PERERA',432,4285]
-[21201004,'ESCUELA NACIONAL JOSE ANTONIO ANZOATEGUI',60,4283]
-[160601034,'CICLO COMBINADO JOSE ANTONIO PAEZ',707,4283]
-[211406002,'ESCUELA BASICA NACIONAL ANDRES ELOY BLANCO',1049,4281]
-[10101010,'CENTRO DE EDUCACIÓN INICIAL RAFAEL MARIA BARALT',1,4277]
-[180801011,'ESCUELA BASICA JUAN BAUTISTA GARCIA ROA',812,4276]
-[10108027,'EDIFICIO ECUADOR COMPLEJO GRAN COLOMBIA',8,4275]
-[10117027,'LICEO BOLIVARIANO RAMON DIAZ SANCHEZ',17,4273]
-[90402006,'UNIDAD EDUCATIVA MARIANO DE TALAVERA',319,4272]
-[200401003,'LICEO BOLIVARIANO JUAN JOSE DE MAYA',955,4269]
-[41101003,'ESCUELA BASICA NACIONAL PRESIDENTE MEDINA ANGARITA',141,4268]
-[30403006,'LICEO BOLIVARIANO DON ROMULO GALLEGOS',96,4267]
-[90403001,'ESCUELA BÁSICA ALICIA TREMONT DE MEDINA',320,4266]
-[50207004,'JARDIN  DE INFANCIA DON ROMULO GALLEGOS',164,4261]
-[110202022,'UNIDAD EDUCATIVA VIRGINIA DE ANDRADE',430,4260]
-[70706001,'GRUPO ESCOLAR REPUBLICA DE HONDURAS',271,4260]
-[211407003,'UNIDAD EDUCATIVA ESTADAL VICTOR LINO GOMEZ (ANEXO 1)',1050,4259]
-[10104038,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA ESTEBAN GIL BORGES',4,4259]
-[10114018,'UNIDAD EDUCATIVA NACIONAL ANTONIO PINTO SALINAS',14,4257]
-[70703001,'UNIDAD EDUCATIVA PRIVADA MONSEÑOR ALI LEBRUN FE Y ALEGRIA',268,4256]
-[120102003,'ESC BAS SIMON RODRIGUEZ',486,4253]
-[110201023,'ESCUELA DE ADMINISTRACION UNIVERSIDAD CENTROOCCIDENTAL LISANDRO ALVARADO',429,4253]
-[180801013,'ESCUELA BASICA CORDOBA',812,4249]
-[70906017,'UNIDAD EDUCATIVA NACIONAL CIRILO ALBERTO',280,4248]
-[80901005,'ESCUELA  BASICA BOLIVARIANA ELBA MANZANO DE SANCHEZ. EL ESPINAL',304,4245]
-[91002009,'CENTRO DE EDUCACION INICIAL CIUDAD DE CORO',350,4244]
-[130302002,'GRUPO ESCOLAR SAN DIEGO DE ALCALA',583,4243]
-[30201001,'ESCUELA PRIMARIA BOLIVARIANA BRUZUAL',84,4242]
-[191002001,'UNIDAD EDUCATIVA ANA FUENMAYOR',913,4242]
-[10120002,'UNIDAD EDUCATIVA COLEGIO EL CARMELO',20,4240]
-[10104033,'UNIDAD EDUCATIVA LICEO BOLIVARIANO AGUSTÍN AVELEDO',4,4240]
-[180401017,'ESCUELA BOLIVARIANA SIMON CANDIALES',800,4234]
-[70705005,'ESCUELA FEDERAL JOSE RAMON PELAYO',270,4233]
-[170704002,'ESCUELA BOLIVARIANA MONSEÑOR ARIAS BLANCO',761,4230]
-[70101004,'ESCUELA ESTADAL GRADUADA JULIAN MELLADO',252,4230]
-[60302013,'ESCUELA BASICA SALTO ANGEL',223,4230]
-[110502012,'UNIDAD EDUCATIVA OMAIRA SEQUERA SALAS',456,4227]
-[180801025,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA RAMON BUENAHORA',812,4226]
-[210505012,'UNIDAD EDUCATIVA ESTADAL PRIVADA NUESTRA SEÑORA DE CHIQUINQUIRA',996,4223]
-[180802007,'ESCUELA TECNICA ROBINSONIANA DE CIENCIAS Y ARTES JUAN ANTONIO ROMAN VALECILLOS',813,4222]
-[170904006,'ESCUELA BÁSICA DON RÓMULO GALLEGOS',772,4219]
-[120806003,'ESC BAS JUAN DE ARCO',519,4216]
-[170901046,'LICEO BOLIVARIANO LUIS ANTONIO MORALES RAMIREZ',769,4216]
-[71201010,'UNIDAD EDUCATIVA DOCTOR JOSE MARIA GIL',286,4214]
-[70902001,'GRUPO ESCOLAR RAFAEL ARVELO',276,4212]
-[211103004,'UNIDAD EDUCATIVA NACIONAL ANTONIA ESTELLER',1036,4212]
-[211803008,'ESCUELA BASICA NACIONAL JOSE ANTONIO CALCAÑO',1064,4208]
-[201101007,'ESCUELA INTEGRAL BOLIVARIANA CASCABEL',965,4207]
-[90702001,'ESCUELA BASICA BOLIVARIANA ADICORA',333,4205]
-[210511005,'GRUPO ESCOLAR ESTADAL EDUARDO EMIRO FERRER',1002,4194]
-[160601006,'ESCUELA GRADUADA BENJAMIN MONTILLA',707,4194]
-[240107002,'UNIDAD EDUCATIVA PRIVADA COLEGIO SAN VICENTE DE PAUL',1131,4187]
-[50404002,'ESCUELA BASICA ESTATAL BOLIVARIANA CANDELARIA DE CABRITAS',178,4183]
-[10110083,'UNIDAD EDUCATIVA COLEGIO DE LA PRESENTACION',10,4180]
-[30601016,'ESC. PRIMARIA BOLIVARIANA ARNALDO REINA',99,4178]
-[70904004,'COLEGIO LUISA CACERES DE ARISMENDI',278,4177]
-[110203002,'UNIDAD EDUCATIVA MARIA LEDEZMA',431,4171]
-[71201002,'UNIDAD EDUCATIVA NACIONAL NUESTRA SEÑORA DE COROMOTO',286,4171]
-[10110035,'LICEO BOLIVARIANO JUAN LANDAETA',10,4170]
-[120803006,'LICEO ROMULO GALLEGOS',516,4170]
-[141101004,'ESCUELA BASICA BOLIVARIANA ALTAMIRA',667,4169]
-[20603001,'ESCUELA NACIONAL BOLIVARIANA TERESA DE LA PARRA',40,4168]
-[170703001,'ESCUELA BOLIVARIANA ROSARIO SUCRE DE RAUSSEO',760,4163]
-[110207035,'UNIDAD EDUCATIVA JUAN JACINTO LARA',435,4163]
-[91401001,'ESCUELA BASICA BOLIVARIANA GUILLERMO DE LEON',366,4160]
-[170305001,'ESCUELA BOLIVARIANA EUSTOQUIA SOLEDAD LUIGGI',748,4160]
-[131102002,'GRUPO ESCOLAR GUZMAN BLANCO',609,4159]
-[80201012,'UNIDAD EDUCATIVA  MONSEÑOR FRANCISCO MIGUEL SEIJAS',292,4158]
-[210508009,'ESCUELA BASICA NACIONAL DR JOSE MARIA VARGAS',999,4154]
-[230303001,'ESCUELA CONCENTRADA NUMERO 94',1116,4151]
-[10108028,'LICEO BOLIVARIANO SANTIAGO KEY AYALA',8,4150]
-[130901100,'ESCUELA MUNICIPAL FERMIN TORO',601,4149]
-[10107017,'INSTITUTO NACIONAL DE NUTRICIÓN',7,4147]
-[181201002,'ESCUELA BOLIVARIANA MONSEÑOR TOMAS ANTONIO SAN MIGUEL',825,4145]
-[210506006,'ESCUELA BASICA ESTADAL DR FRANCISCO EUGENIO BUSTAMANTE',997,4143]
-[150601008,'UNIDAD EDUCATIVA DOCTOR RAÚL LEONI',682,4143]
-[110206001,'UNIDAD EDUCATIVA ESTADAL ANTONIO JOSE PACHECO',434,4138]
-[10110004,'ESCUELA MANUEL MARÍA ECHANDÍA',10,4135]
-[131701009,'UNIDAD EDUCATIVA VICTOR PADILLA',620,4126]
-[170903014,'LICEO BOLIVARIANO ANTONIO JOSE DE SUCRE',771,4126]
-[150301005,'CENTRO DE EDUCACION INICIAL SIMONCITO MAESTRO JESUS MANUEL MARIN',673,4122]
-[140402001,'ESCUELA BASICA LUIS FELIPE TURMERO CORVO',637,4121]
-[200401015,'ESCUELA BASICA CECILIA MUJICA',955,4120]
-[170301004,'U.E. SANTA ROSA DE LIMA',744,4120]
-[130901091,'ESC. BAS. NAC. ANTONIO ORDOEZ',601,4118]
-[10105016,'ESCUELA BASICA NACIONAL MERIDA SISO DE VAZQUEZ',5,4118]
-[210902004,'UNIDAD EDUCATIVA NACIONAL PLAYA GRANDE',1024,4114]
-[210513001,'UNIDAD EDUCATIVA ESTADAL SIMON BOLIVAR',1004,4114]
-[210503020,'JARDIN DE INFANCIA LA FUNDACION',994,4114]
-[10104024,'UNIDAD EDUCATIVA DISTRITAL  ENRIQUE CHAUMER',4,4113]
-[10108038,'UNIDAD EDUCATIVA PRIVADA COLEGIO SANTA ANA',8,4110]
-[210601002,'UNIDAD EDUCATIVA NACIONAL LISANDRO FARIA',1010,4106]
-[131601009,'CENTRO VENEZOLANO AMERICANO',617,4103]
-[130401017,'LICEO NACIONAL  DOS LAGUNAS',589,4101]
-[10112037,'ESCUELA BÁSICA DISTRITAL BOLIVARIANA JUAN BAUTISTA ARISMENDI',12,4097]
-[40108013,'ESCUELA BASICA PADRE LOPEZ AVELEDO',111,4096]
-[51001004,'COMEDOR POPULAR',197,4096]
-[160301028,'ESCUELA BASICA CIUDAD DE GUANARE',696,4094]
-[180202001,'ESCUELA BOLIVARIANA EL PALOTAL',794,4093]
-[91801002,'UNIDAD EDUCATIVA 28 DE FEBRERO',374,4092]
-[60303005,'ESCUELA BASICA CRUZ DEL VALLE RODRIGUEZ',224,4089]
-[30301002,'LICEO BOLIVARIANO FERNANDO CALZADILLA VALDES',89,4086]
-[20101020,'ESCUELA  BÁSICA  PEDRO  HERRERA',23,4084]
-[211802010,'ESCUELA  SOCIAL DE AVANZADA 19 DE ABRIL',1063,4081]
-[211406004,'ESCUELA BASICA NACIONAL JULIA AÑEZ GABALDON',1049,4078]
-[130903007,'UNIDAD EDUCATIVA FE Y ALEGRIA PADRE JOAQUIN LOPEZ',603,4077]
-[20302053,'UNIDAD EDUCATIVA DOCTOR EDGAR CALATRAVA GAGO',28,4077]
-[160301046,'ESCUELA BASICA ESTADAL 530',696,4077]
-[21201019,'GRUPO ESCOLAR DIEGO BAUTISTA URBANEJA',60,4076]
-[10115024,'UNIDAD EDUCATIVA COLEGIO JOSEFA GOMEZ DE DELFINO',15,4074]
-[150402004,'UNIDAD EDUCATIVA COLEGIO MADRE GUADALUPE',679,4073]
-[30701021,'UNIDA EDUCATIVA AMANTINA DE SUCRE',103,4072]
-[70702001,'ESCUELA PRIMARIA BOLIVARIANA JUAN JOSE FLORES',267,4071]
-[150901001,'ESCUELA BÁSICA TUBORES',687,4068]
-[90701001,'ESCUELA BÁSICA BOLIVARIANA JUAN DE DIOS MONZÓN',332,4067]
-[230401001,'ESCUELA BASICA CASACOIMA',1120,4061]
-[180801008,'ESCUELA BASICA NACIONAL LA CONCORDIA',812,4059]
-[91002013,'UNIDAD EDUCATIVA LUCRECIA DE GUARDIA',350,4055]
-[60301025,'COLEGIO DIVINA PASTORA',222,4054]
-[220102002,'PREESCOLAR MADRE TERESA DE CALCUTA',1077,4052]
-[180803004,'ESCUELA BOLIVARIANA LOS ANDES',814,4051]
-[61001012,'CENTRO DE EDUCACION INICIAL NELLYS SANCHEZ DE ANDRADE (SIMONCITO)',250,4047]
-[160101027,'ESCUELA BASICA OSCAR MENDOZA',692,4039]
-[30601031,'ESCUELA ESTADAL BASICA BOLIVARIANA CRISTO REY',99,4038]
-[20403002,'GRUPO ESCOLAR LICENCIADO URBANEJA',35,4035]
-[211102005,'ESCUELA BASICA ESTADAL PEDRO JULIO MANINAT',1035,4034]
-[10113041,'UNIDAD EDUCATIVA BOLIVARIANA JOSE MARTI',13,4030]
-[90402015,'ESCUELA BASICA 23 DE ENERO',319,4029]
-[70904031,'REPUBLICA ARABE SAHARAMI DEMOCRATICA',278,4028]
-[211805022,'ESCUELA BASICA ESTADAL ARQUIDIOCESANA PABLO SEXTO',1066,4027]
-[130401001,'UNIDAD EDUCATIVA NACIONAL SAN JOSE DE RIO CHICO',589,4025]
-[120806004,'ESCUELA BASICA GRADUADA SIMON RODRIGUEZ',519,4024]
-[50210006,'PRE ESCOLAR PRADO DEL ESTE',167,4024]
-[10109006,'COLEGIO NUESTRA SEÑORA DE LOURDES',9,4024]
-[120901002,'ESCUELA BASICA 21 DE NOVIEMBRE',529,4024]
-[70906023,'UNIDAD EDUCATIVA CARABOBO',280,4022]
-[170402001,'U.E. TERESA DE LA PARRA',750,4022]
-[210512015,'UNIDAD EDUCATIVA SANTA VERONICA DE MILAN',1003,4021]
-[50603001,'UNIDAD EDUCATIVA SAN RAFAEL DE CANAGUA',185,4016]
-[80601001,'ESCUELA BASICA BOLIVARIANA ANGEL MARIA GARRIDO',298,4012]
-[10104002,'UNIDAD EDUCATIVA DISTRITAL JOSÉ GIL FORTUL',4,4008]
-[211407001,'ESCUELA BASICA NACIONAL ANDRES ELOY BLANCO',1050,4008]
-[182801002,'ESCUELA NACIONAL PALMAR NUEVO',854,4005]
-[110501007,'ESCUELA GRANJA HECTOR ROJAS MEZA',455,4002]
-[51201001,'UNIDAD EDUCATIVA BOLIVARIANA GENERAL  PEDRO BRICEÑO MENDEZ',203,4002]
-[211103015,'ESCUELA  BASICA  NACIONAL  BOLIVARIANA MARIA MORENO DE LOPEZ',1036,4002]
-[40805001,'ESCUELA BASICA JUAN BAUTISTA PLAZA',137,4002]
-[210905001,'ESCUELA BASICA NACIONAL BOBURES',1027,3998]
-[210804001,'ESCUELA  BASICA BOLIVARIANA RIO NEGRO',1022,3997]
-[90901002,'ESCUELA BÁSICA ELIAS DAVID CURIEL',346,3996]
-[170103001,'ESCUELA BOLIVARIANA CRUZ DE PUERTO SANTO',735,3995]
-[21201014,'GRUPO ESCOLAR SIMON RODRIGUEZ',60,3993]
-[80601009,'ESCUELA  BASICA BOLIVARIANA CARLOS VILORIO',298,3990]
-[201101013,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA DEL YARACUY IUTY',965,3989]
-[30701015,'ESCUELA BASICA JOSE GREGORIO HERNANDEZ',103,3988]
-[50211007,'UNIDA BASICA EDUCATIVA  BILINGUE NUESTRA  SEÑORA DE FATIMA',168,3988]
-[210517007,'ESCUELA BASICA NACIONAL FRANCISCO VALERA',1008,3988]
-[170902018,'ESCUELA BOLIVARIANA ELTACAL',770,3986]
-[201301002,'ESCUELA BASICA TOMAS GIMENEZ.',967,3985]
-[10119001,'UNIDAD NACIONAL EDUCATIVA BOLIVARIANA DOCTOR JESÚS MUÑOZ TEBAR',19,3980]
-[210511003,'ESCUELA BASICA NACIONAL  CARMEN ADELA PIRELA',1002,3978]
-[210204001,'UNIDAD EDUCATIVA NACIONAL JOSE CENOBIO URRIBARRI',979,3977]
-[20101019,'ESCUELA  RURAL B  KILÓMETRO 5',23,3974]
-[130301018,'UNIDAD EDUCATIVA NACIONAL DOCTOR SIMON BARRETO RAMOS',582,3974]
-[10118007,'LICEO BOLIVARIANO AUGUSTO RISUÑER',18,3971]
-[40108010,'UNIDAD EDUCATIVA GRAN MARISCAL DE AYACUCHO',111,3971]
-[91301004,'UNIDAD EDUCATIVA MANUEL VICENTE CUERVO',361,3969]
-[150801001,'ESCUELA BÁSICA BOLIVARIANA DOCTOR AGUSTÍN RAFAEL HERNÁNDEZ',685,3967]
-[211409006,'ESCUELA BASICA ESTADAL CURAZAITO',1052,3961]
-[210516005,'ESCUELA BASICA NACIONAL MORAL Y LUCES',1007,3960]
-[41301012,'UNIDA EDUCATIVA ESTADAL DOCTOR JOSE FRANCISCO TORREALBA',144,3959]
-[211802002,'UNIDAD EDUCATIVA NACIONAL PRIVADA SAN JOSE DE CALASANZ',1063,3958]
-[160601009,'ESCUELA BASICA ANA SUSANA DE OUSSET',707,3955]
-[170303001,'UNIDAD EDUCATIVA MANUEL MARIA URBANEJA',746,3952]
-[180401016,'ESCUELA BOLIVARIANA TUCAPE',800,3952]
-[110702007,'UNIDAD EDUCATIVA BASICA LA UNION',476,3951]
-[91002005,'ESCUELA BASICA BOLIVARIANA CARMEN DE TOVAR',350,3950]
-[130901036,'COLEGIO MANUEL MU/OZ TEBAR',601,3949]
-[60106003,'ESCUELA BASICA PRIVADA FE Y ALEGRIA NAZARET',211,3947]
-[51003002,'UNIDAD  EDUCATIVA  ANTONIO RAMON  CARDENAS',199,3944]
-[30601013,'ESCUELA BASICA MAC GREGOR',99,3943]
-[10122033,'UNIDAD EDUCATIVA DISTRITAL MANUEL ANTONIO CARREÑO',22,3940]
-[210502008,'UNIDAD EDUCATIVA NACIONAL COLEGIO ALTAMIRA',993,3937]
-[131601018,'COLEGIO DE MEDICOS DEL DISTRITO METROPOLITANO DE CARACAS',617,3937]
-[110701009,'ESCUELA NACIONAL SIQUISIQUE',475,3934]
-[110803009,'ECUELA BOLIVARIANA LAS BUCARITAS',481,3933]
-[70402002,'CICLO BASICO COMUN SANTIAGO F MACHADO',261,3932]
-[210510006,'UNIDAD EDUCATIVA NACIONAL ANA SANCHEZ COLINA',1001,3931]
-[151001005,'UNIDAD EDUCATIVA BOLIVARIANA BACHILLER LUIS NAVARRO RIVAS',689,3929]
-[40104015,'ESCUELA GRADUADA SANTOS MICHELENA',107,3928]
-[130301072,'CASA DE LA CULTURA DEL PASO ALI LANDAETA',582,3928]
-[131101038,'UNIDAD EDUCATIVA EZEQUIEL ZAMORA',608,3923]
-[60601002,'UNIDAD EDUCATIVA NACIONAL MARIPA',236,3922]
-[180801002,'ESCUELA BASICA ELBA BEATRIZ RAMIREZ DE ORTEGA',812,3919]
-[211102013,'ESCUELA BASICA NACIONAL FRANCISCO ANTONIO ZEA',1035,3918]
-[110606001,'ESCUELA BASICA BOLIVARIANA ANANIAS COTTE',463,3918]
-[210503012,'ESCUELA ESTADAL CRISTOBAL COLON',994,3917]
-[130601005,'ESCUELA ESTADAL ANDRES BELLO',594,3914]
-[10104036,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA 5 DE JULIO',4,3913]
-[190602001,'ESCUELA BOLIVARIANA PREBÍSTERO NICOLAS MATHEUS',889,3911]
-[160101035,'UNIDAD EDUCATIVA NACIONAL LA LUCIA',692,3907]
-[131001018,'CASA DE LA CULTURA PANCHO PRIN',606,3907]
-[121302002,'UNIDAD EDUCATIVA JOSE ANTONIO PAEZ',541,3906]
-[200301007,'LICEO BOLIVARIANO HERIBERTO NUÑEZ OLIVEROS',952,3906]
-[210504007,'UNIDAD EDUCATIVA ESTADAL DR JOAQUIN ESTEVA',995,3904]
-[130701023,'ESCUELA BASICA BOLIVARIANA LA CALCETA',599,3903]
-[110204016,'ESC NAC JUAN GUILLERMO IRIBARREN',432,3902]
-[50207008,'GRUPO ESCOLAR CARLOS SOUBLETTE',164,3901]
-[10110071,'UNIDAD EDUCATIVA  MADRE MARIA ROSA MOLAS FE Y ALEGRIA',10,3900]
-[131301001,'COLEGIO EL BUEN CONSEJO',612,3900]
-[130103002,'UNIDAD EDUCATIVA BOLIVARIANA PEDRO JOSE RODRIGUEZ',573,3898]
-[10111028,'UNIDAD EDUCATIVA COLEGIO SAN FRANCISCO SOLANO',11,3897]
-[30601017,'ESCUELA CAPACITACION FEMENINA TERESA HEREDIA',99,3892]
-[30601015,'LICEO BOLIVARIANO CLARISA ESTE DE TREJO',99,3887]
-[210510016,'GRUPO ESCOLAR ESTADAL MONSEÑOR HELIMENES AÑEZ',1001,3886]
-[120808003,'ESC BAS EST VITALIA GUTIERREZ DE R',521,3883]
-[80201011,'ESCUELA  BASICA BALMIRA VILLEGAS',292,3882]
-[110201012,'UNIDAD EDUCATIVA TOMAS RAFAEL GIMENEZ',429,3878]
-[180101008,'ESCUELA BOLIVARIANA NACIONAL DEBORA MEDINA VIVAS',790,3873]
-[100601007,'LICEO BOLIVARIANO VICENTE EMILIO SOJO',405,3870]
-[90304001,'ESCUELA BASICA ZAZARIDA',315,3867]
-[21302002,'ESCUELA GRADUADA MARIA GUZMÁN DE MARCANO',62,3865]
-[110202049,'U.E.I. LA SALLE',430,3863]
-[70908011,'UNIDAD EDUCATIVA BOLIVARIANA BERACIERTA',282,3862]
-[210506013,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO CLARET',997,3860]
-[160101012,'CAMARA DE COMERCIO E INDUSTRIA ACARIGUA ARAURE',692,3860]
-[91701001,'ESCUELA BÁSICA BOLIVARIANA JESÚS SEMPRUM',372,3860]
-[210510008,'UNIDAD EDUCATIVA NACIONAL COLEGIO GONZAGA',1001,3859]
-[150302001,'UNIDAD EDUCATIVA BOLIVARIANA NAPOLEON NARVAEZ',674,3858]
-[110203013,'ESCUELA BOLIVARIANA YACURAL',431,3854]
-[10106002,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JESÚS MARIA PÁEZ',6,3854]
-[90402019,'ESCUELA BOLIVARIANA LAS ADJUNTAS',319,3854]
-[110502021,'COLEGIO MARIA SANTISIMA',456,3850]
-[60303012,'ESCUELA BASICA SIMON BOLIVAR',224,3850]
-[210803010,'UNIDAD EDUCATIVA NACIONAL ANDRES BELLO',1021,3848]
-[130901107,'ESCUELA MUNICIPAL 5 DE JULIO',601,3847]
-[10102009,'PATRONATO SAN JOSE DE TARBES',2,3846]
-[180702001,'UNIDAD EDUCATIVA BOLIVARIANA BOROTA',811,3843]
-[181701001,'UNIDAD EDUCATIVA MONSEÑOR JUAN BAUTISTA CASTRO',835,3840]
-[210512008,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA',1003,3839]
-[10105015,'UNIDAD EDUCATIVA DISTRITAL JUAN LANDAETA',5,3838]
-[210512005,'PREESCOLAR ESTADAL LOS ANGELITOS',1003,3836]
-[20301026,'LICEO NACIONAL DOCTOR RAFAEL FERNÁNDEZ PADILLA',27,3833]
-[130104001,'CASA DE LA CULTURA',574,3832]
-[180803006,'ESCUELA BOLIVARIANA VIRGILIO PINZON',814,3832]
-[70704014,'ESCUELA JOSE RAFAEL POCATERRA',269,3828]
-[10110092,'INSTITUTO CECILIO ACOSTA',10,3827]
-[120106007,'UNIDAD EDUCATIVA BOLIVARIANA MANUELITA SAENZ',490,3826]
-[10113037,'UNIDAD EDUCATIVA NACIONAL JULIO BUSTAMANTE',13,3824]
-[140710007,'ESCUELA BASICA VICENTE SALIAS',655,3822]
-[20101006,'UNIDAD EDUCATIVA  LIBERTADOR SIMÓN BOLÍVAR',23,3822]
-[71201003,'UNIDAD EDUCATIVA ESTADAL AMBROSIO PLAZA',286,3817]
-[180803008,'ESCUELA ESTADAL PERPETUO SOCORRO',814,3814]
-[200901003,'ESCUELA BASICA JOSE ANTONIO PAEZ',963,3808]
-[212102002,'ESCUELA BASICA ANDRES BELLO',1074,3805]
-[160101017,'COLEGIO UNIVERSITARIO FERMÍN TORO',692,3804]
-[210803016,'UNIDAD EDUCATIVA NACIONAL JULIO ARRAGA',1021,3801]
-[190207004,'ESCUELA BOLIVARIANA VITISAY',866,3799]
-[180801001,'GRUPO ESCOLAR DOCTOR LEONARDO RUIZ PINEDA',812,3798]
-[90601001,'ESCUELA BASICA BOLIVARIANA FABIO MANUEL CHIRINOS',327,3792]
-[20301013,'ESCUELA ANTONIO JOSE DE SUCRE',27,3790]
-[21701001,'GRUPO ESCOLAR TOMAS ALFARO CALATRAVA',68,3789]
-[130401020,'ESCUELA BASICA NACIONAL CIUDAD LOZADA',589,3788]
-[160304002,'ESCUELA BASICA QUEBRADA DE LA VIRGEN',699,3785]
-[70202003,'ESCUELA BASICA MANAURE',256,3784]
-[190402001,'ESCUELA BOLIVARIANA NEPTAÍ VALERA HURTADO',878,3781]
-[70601001,'ESCUELA GRADUADA UDON PEREZ',264,3781]
-[10107022,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOCTOR LUÍS PADRINO',7,3781]
-[71201020,'UNIDAD EDUCATIVA NACIONAL ABDON CALDERON',286,3780]
-[21301001,'GRUPO ESCOLAR ANIBAL DOMINICCI',61,3777]
-[131701001,'UNIDAD EDUCATIVA PRIVADA VIRGEN DE LA CONSAGRACIÓN',620,3772]
-[130101019,'ESCUELA  BOLIVARIANA NACIONAL EL MARQUEZ',571,3771]
-[180401009,'LICEO BOLIVARIANO ANTONIO JOSE DE SUCRE',800,3771]
-[211901003,'ESCUELA BASICA NACIONAL EL CRUCE',1068,3770]
-[210511013,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO SANTA MARIA',1002,3766]
-[190209001,'ESCUELA BOLIVARIANA DOCTOR EUSEBIO BAPTISTA',868,3766]
-[131601054,'LICEO LOS ARCOS',617,3762]
-[110402001,'UNIDAD EDUCATIVA  BOLIVARIANA ZAZARABICOA',448,3761]
-[50401002,'GRUPO ESCOLAR MARQUEZ DEL PUMAR',175,3761]
-[30202003,'ESCUELA PRIMARIA BOLIVARIANA  JOSE ANTONIO PAEZ',85,3760]
-[212001002,'UNIDAD EDUCATIVA NACIONAL BERNARDO VILLASMIL',1070,3759]
-[210510010,'UNIDAD EDUCATIVA ESTADAL CARMELITA MORALES',1001,3755]
-[70403002,'ESCUELA BASICA HENRIQUE TEJERA',262,3755]
-[21302008,'GRUPO  ESCOLAR SEVERIANO HERNÁNDEZ',62,3753]
-[90403014,'UNIDAD EDUCATIVA AUTONOMO NICOLAS CURIEL COUTHINO',320,3751]
-[150902002,'UNIDAD EDUCATIVA JOSÉ VICENTE MARCANO',688,3750]
-[120501001,'UNIDAD EDUCATIVA BOLIVARIANA ESTADO ARAGUA',507,3747]
-[110202032,'U.E. COLEGIO EL SANTISIMO',430,3745]
-[161301008,'INSTITUTO DE EDUCACION ESPECIAL  MARIA BELEN DE SIVIRA',728,3735]
-[211401010,'ESCUELA BASICA NACIONAL PEDRO LUCAS URRIBARRI',1044,3733]
-[160804001,'ESCUELA TECNICA AGROPECUARIA LA COLONIA',720,3732]
-[181601001,'ESCUELA BOLIVARIANA NACIONAL LA FRONTERA',833,3724]
-[60304014,'ESCUELA NACIONAL BASICA VISTA HERMOSA',225,3724]
-[20304001,'ESCUELA BÁSICA JOSE ANTONIO MATA MEDINA',30,3723]
-[131201019,'COMPLEJO EDUCATIVO NACIONAL JUAN ESPANA',610,3719]
-[131701011,'CICLO BASICO CARLOS GAUNA',620,3719]
-[210502012,'GRUPO ESCOLAR NACIONAL BATALLA DE BOYACA',993,3717]
-[150901006,'UNIDAD EDUCATIVA LICEO BOLIVARIANO LAS HERNÁNDEZ',687,3716]
-[91001024,'ESCUELA BASICA REGINA PIA DE ANDARA',349,3716]
-[121401001,'ESCUELA BASICA MARTHA GONZALEZ',542,3715]
-[110501012,'ESCUELA BOLIVARIANA GENERAL NICOLAS PATIÑO SOSA',455,3712]
-[130107003,'UNIDAD EDUCATIVA ROSA HENRRIQUEZ DE BANDRES',577,3712]
-[10105017,'MUSEO DE LA ESTAMPA Y EL DISEÑO CARLOS CRUZ DIEZ',5,3711]
-[21401013,'GRUPO ESCOLAR DOCTOR JOSÉ COVA MAZA',63,3710]
-[180401002,'LICEO BOLIVARIANO LUIS LOPEZ MENDEZ',800,3709]
-[140703001,'UNIDAD EDUCATIVA JOSÉ GREGORIO MONAGAS',648,3709]
-[131001011,'ESCUELA BASICA ESTADAL CREACION BICENTENARIA',606,3706]
-[211103002,'ESCUELA ESTADAL MAESTRO PASCUAL IGNACIO VILLASMIL',1036,3706]
-[170901032,'LICEO ANTONIO LEMUS PÉREZ',769,3703]
-[30105001,'ESCUELA PRIMARIA BOLIVARIANA IGNACIA DE MAYOL',82,3702]
-[21003001,'ESCUELA NACIONAL CONCENTRADA NUMERO 16-190-27',53,3702]
-[70401014,'ESCUELA BASICA NACIONAL ADOLFO BLONVAL LOPEZ',260,3700]
-[131601003,'COLEGIO LA CONCORDIA',617,3700]
-[220102008,'ESCUELA BASICA SIMON RODRIGUEZ',1077,3700]
-[131603006,'COLEGIO INTERNACIONAL DE CARACAS',619,3700]
-[20302006,'ESCUELA BASICA LOS POTOCOS 371',28,3699]
-[41001003,'ESCUELA BASICA DOCTOR PATROCINIO P RUIZ',140,3699]
-[200801001,'ESCUELA INTEGRAL BOLIVARIANA MAYURUPI',962,3696]
-[131701005,'CENTRO DE EDUCACIÓN INICIAL MONTAÑA ALTA',620,3693]
-[50601004,'CASA DE LA CULTURA',183,3693]
-[21302003,'GRUPO ESCOLAR CREACION PARAISO',62,3692]
-[180401013,'ESCUELA BOLIVARIANA SAN RAFAEL',800,3692]
-[140201001,'ESCUELA BASICA BOLIVARIANA PEDRO GUAL',629,3692]
-[70103001,'GRUPO ESCOLAR PARAMACONI',254,3690]
-[170803001,'ESCUELA BASICA MARIA VILLEGAS',766,3690]
-[110206020,'ESCUELA BASICA ALI PRIMERA',434,3688]
-[160601020,'ESCUELA BASICA CIUDAD DE ACARIGUA',707,3688]
-[90401007,'ESCUELA BÁSICA ANTIGUO AEROPUERTO',318,3688]
-[141002001,'ESCUELA BASICA ALARICO GOMEZ',666,3687]
-[150201004,'ESCUELA BASICA BOLIVARIANA FRANCISCO BOADAS DIAZ',671,3686]
-[100601026,'LICEO JUAN GERMAN ROSCIO',405,3684]
-[171302001,'ESCUELA BOLIVARIANA RÍO CASANAY',785,3683]
-[140803001,'ESCUELA BASICA BARRANCAS',658,3680]
-[190302001,'UNIDAD EDUCATIVA NACIONAL GUADALUPE ROMÁN COLMENARES',873,3680]
-[130301033,'UNIDAD EDUCATIVA ESATADAL DOCTOR FRANCISCO ESPEJO',582,3679]
-[110201018,'UNIDAD EDUCATIVA JOSE MACARIO YEPEZ',429,3677]
-[182401001,'ESCUELA BASICA BOLIVARIANA REGINA DE VELAZQUEZ',850,3677]
-[170902004,'ESCUELA BÁSICA JUAN FREITES',770,3676]
-[21301032,'GRUPO  ESCOLAR CELESTINO GONZÁLEZ ORTIZ',61,3675]
-[171201001,'U.E. PEDRO EÍAS MARCANO',782,3674]
-[220101009,'ESCUELA BASICA TACHIRA',1076,3674]
-[110202010,'ESCUELA STELLA CECHINI',430,3671]
-[121203002,'ESCUELA BASICA SAN RAFAEL DE ALCANZAR',539,3670]
-[211803022,'UNIDAD EDUCATIVA ESTADAL EUGUENIO SANCHEZ GARCIA',1064,3667]
-[30701014,'ESCUELA PRIMARIA SANTA RUFINA',103,3665]
-[211802015,'UNIDAD EDUCATIVA NACIONAL PRIVADA NATALICIO DEL LIBERTADOR',1063,3664]
-[121301002,'LICEO BOLIVARIANO VICENTE CAMPO ELIAS',540,3663]
-[210604002,'ESCUELA BASICA NACIONAL ALIRIO REYES',1013,3663]
-[110202046,'CICLO BASICO CONCENTRADO RAFAEL MONASTERIOS',430,3662]
-[60108004,'FE Y ALEGRIA LA CONSOLACION',213,3660]
-[120804001,'UNIDAD EDUCATIVA LA SALLE',517,3657]
-[122002002,'UNIDAD EDUCATIVA MIGUEL M CANDALES',563,3657]
-[211104001,'ESCUELA  SOCIAL DE AVANZADA CAMPO LARA  (ANEXO)',1037,3655]
-[110203003,'UNIDAD EDUCATIVA NACIONAL EL UJANO',431,3649]
-[211105007,'GRUPO ESCOLAR MARIA DOLORES DE CASTRO',1038,3647]
-[10122006,'UNIDAD EDUCATIVA COLEGIO TERESIANO NUESTRA SEÑORA DE COROMOTO',22,3646]
-[90402001,'ESCUELA BÁSICA MANUELA AULAR DE HERNANDEZ',319,3646]
-[10117001,'UNIDA EDUCATIVA JOSE ALBERTO HERNANDEZ PARRA',17,3645]
-[181502002,'ESCUELA NACIONAL BASICA RURAL BOLIVARIANA LA PALMITA NORTE',832,3643]
-[160601042,'ESCUELA BASICA 5 DE DICIEMBRE',707,3642]
-[110202030,'CICLO BASICO JOSE MARIA DOMINGUEZ',430,3639]
-[161001014,'LICEO OSCAR PICON GIACOPPINI',723,3638]
-[180802010,'GRUPO ESCOLAR PABLO EMILIO GAMBOA PEÑALOZA',813,3637]
-[210505002,'ESCUELA BASICA ESTADAL NESTOR LUIS PEREZ',996,3626]
-[70907010,'COLEGIO NACIONAL DEL PERIODISTA',281,3624]
-[150303001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JUAN BAUTISTA ARISMENDI',675,3621]
-[50205001,'ESCUELA BASICA SANTA LUCIA',162,3620]
-[70907003,'ESCUELA FELIX MANUEL LUCES',281,3618]
-[210513013,'JARDIN DE INFANCIA GLADYS DE C',1004,3606]
-[170301002,'UNIDAD EDUCATIVA BOLIVARIANA JOSE ANTONIO RODRIGUEZ ABREU',744,3606]
-[50207009,'ESCUELA BASICA NACIONAL 24 DE JUNIO',164,3604]
-[90402024,'ESCUELA TÉCNICA ROBINSONIANA INDUSTRIAL GENERAÍSIMO FRANCISCO DE MIRANDA',319,3604]
-[110206003,'UNIDAD EDUCATIVA LAS SABILAS',434,3603]
-[160201023,'PARQUE DE RECREACION DIRIGIDA',694,3603]
-[131601012,'UNIDAD EDUCATIVA NACIONAL REPUBLICA DE INDONESIA',617,3602]
-[210502007,'UNIDAD EDUCATIVA NACIONAL LICEO LOS ROBLES',993,3600]
-[151001010,'ESCUELA BASICA DON ANDRES BELLO',689,3598]
-[110605001,'UNIDAD EDUCATIVA LARGIO JIMENEZ',462,3598]
-[160202006,'CICLO BASICO UVERAL',695,3597]
-[10119013,'UNIDAD EDUCATIVA FE Y ALEGRÍA LA RINCONADA',19,3596]
-[160601002,'ESCUELA BASICA HERMANAS PERAZAS',707,3595]
-[21301087,'GRUPO ESCOLAR ANTONIO JOSE SOTILLO',61,3593]
-[50209006,'UNIDAD EDUCATIVA  BOLIVARIANO SIMON  AGUSTIN JIMENEZ',166,3592]
-[210511008,'GRUPO ESCOLAR ESTADAL RICAUTER',1002,3591]
-[120406005,'COLEGIO SAN PIO X',505,3591]
-[110204039,'UNIDAD EDUCATIVA ANTONIO ARRAIZ',432,3590]
-[10122043,'UNIDAD EDUCATIVA PRIVADA SIMÓN RODRÍGUEZ',22,3590]
-[100102001,'ESCUELA BASICA ENRIQUE BENITO NUÑEZ',389,3589]
-[121201005,'ESC BAS CONC MIXTA',537,3589]
-[140710054,'COMPLEJO EDUCATIVO ANTONIO JOSE DE SUCRE',655,3589]
-[160604003,'ESCUELA RURAL BASICA LA EXTENSION MIJAGUITO',710,3585]
-[210503024,'UNIDAD EDUCATIVA NACIONAL LEONARDO RUIZ PINEDA',994,3585]
-[70906003,'COLEGIO LA SALLE',280,3584]
-[90402021,'ESCUELA BASICA PUNTO FIJO',319,3581]
-[70904036,'CENTRO DE EDUCACION INICIAL NACIONAL MONUMENTAL PRE ESCOLAR ALICIA FERRER',278,3579]
-[90201002,'ESCUELA BASICA BOLIVARIANA DIMAS SEGOVIA',309,3578]
-[71101017,'JARDIN DE INFANCIA CABRIALES',285,3576]
-[90505001,'ESCUELA  BOLIVARIANA DON RÓMULO GALLEGOS',326,3575]
-[70904002,'ESCUELA BASICA BOLIVARIANA JOSE RAFAEL POCATERRA',278,3573]
-[160601024,'ESCUELA BASICA ALBERTO LEVY MORA',707,3573]
-[210517006,'CENTRO DEPORTIVO CULTURAL PATRIA JOVEN',1008,3573]
-[180801016,'ESCUELA BOLIVARIANA NACIONAL JOSEFINA MEDINA DE DUQUE',812,3570]
-[90301001,'ESCUELA BASICA BOLIVARIANA LEONIDAS BERMUDEZ',312,3569]
-[90403011,'INSTITUTO CARDON',320,3568]
-[140706006,'ESCUELA BASICA ANTONIO JOSE DE SUCRE',651,3567]
-[230202001,'ESCUELA GRADUADA CAPURE',1113,3565]
-[170302004,'LICEO BÁSICO PEDRO JOSÉ SALAZAR',745,3564]
-[10120016,'ESCUELA BASICA OCTAVIO ANTONIO DIEZ.',20,3564]
-[130301015,'COLEGIO AMBROSIO PLAZA',582,3563]
-[220104001,'ESCUELA  BASICA DANIEL NAVEA',1079,3562]
-[190103001,'LICEO EMIRO FUENMAYOR',858,3562]
-[21302013,'GRUPO ESCOLAR GUARAGUAOS',62,3562]
-[21302017,'CENTRO JUVENIL DON BOSCO',62,3560]
-[120701001,'ESCUELA BASICA TORONDOY',512,3559]
-[30601004,'ESCUELA BASICA DANIEL OLEARY',99,3554]
-[110206013,'UNIDAD EDUCATIVA ESTADAL RETEN ABAJO',434,3552]
-[140604001,'ESCUELA BASICA CHAGUARAMAS',645,3551]
-[70904007,'ESCUELA BOLIVARIANA ISABEL FERNANDEZ DE ICHAZU',278,3551]
-[161102007,'ESCUELA ESTADAL BASICA NUMERO 29',725,3550]
-[211102009,'GRUPO ESCUELA NACIONAL VENEZUELA',1035,3549]
-[70908007,'INCE LA ISABELICA',282,3545]
-[20102001,'UNIDAD EDUCATIVA  PEDRO ANTONIO MEDINA',24,3545]
-[180803012,'LICEO NACIONAL RAMON JOSE VELAZQUEZ',814,3545]
-[131801009,'UNIDAD EDUCATIVA POPULAR SANTO TOMAS DE AQUINO',621,3544]
-[30205003,'ESCUELA PRIMARIA JUAN VICENTE TORRES DEL VALLE',88,3543]
-[30601009,'ESCUELA BASICA MARIO BRICEÑO IRAGORY',99,3543]
-[211401007,'ESCUELA BASICA NACIONAL MANUEL MENDEZ',1044,3540]
-[10113019,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOMINGO FAUSTINO SARMIENTO',13,3540]
-[10122027,'UNIDAD EDUCATIVA COLEGIO SANTA MARIA MICAELA',22,3539]
-[60701005,'ESCUELA LA MANGA',241,3537]
-[210514004,'ESCUELA ARTESANAL NACIONAL EL PILAR',1005,3535]
-[90401003,'ESCUELA BASICA BOLIVARIANA ESTEBAN SMITH MONZON',318,3532]
-[131701003,'UNIDAD  EDUCATIVA NACIONAL JOSE  MANUEL ALVAREZ',620,3531]
-[170901010,'U.E. FRANCISCO ARISTIGUIETA BADARACCO',769,3528]
-[110201010,'UNIDAD EDUCATIVA MANUELA MERCEDES DUIN',429,3527]
-[21401003,'GRUPO ESCOLAR RAFAEL MEDINA GARCIA',63,3527]
-[180401023,'CENTRO DE EDUCACION INICIAL SIMONCITO´´PENSAMIENTO BOLIVARIANO´´ BARRANCAS PARTE BAJA',800,3522]
-[101203001,'ESCUELA BASICA BOLIVARIANA SAN JOSE',420,3522]
-[10105010,'UNIDAD EDUCATIVA NACIONAL DOCTOR ELIAS RODRIGUEZ',5,3521]
-[160403004,'ESCUELA CONCENTRADA NACIONAL MIXTA Y ANEXA ESTADAL NUMERO 132',703,3521]
-[131201005,'GRUPO ESCOLAR TERESA DE BOLIVAR',610,3521]
-[20303001,'ESCUELA NACIONAL  NICOLAS LAREZ',29,3521]
-[70301020,'ESCUELA BOLIVARIANA GUAMACHO',258,3518]
-[70906004,'INSTITUTO MARIA MONTESSORI',280,3518]
-[90704001,'ESCUELA BÁSICA BOLIVARIANA MANUELA WEFFER DE ROMERO',335,3515]
-[20201008,'ESCUELA CONCENTRADA NUMERO 1882-2152',25,3515]
-[210202006,'ESCUELA NACIONAL SANTA RITA',977,3510]
-[182701001,'GRUPO ESCOLAR SIMÓN LEÓN',853,2196]
-[210508002,'ESCUELA BASICA NACIONAL ALONSO DE OJEDA',999,3508]
-[10108003,'LICEO INDEPENDENCIA',8,3502]
-[110204003,'UNIDAD EDUCATIVA LOLA ALAMO',432,3497]
-[90101001,'ESCUELA BASICA BOLIVARIANA PEDRO CASTRO UGARTE',305,3496]
-[200701024,'UNIDAD EDUCATIVA NIRGUA',960,3493]
-[140710045,'COMPLEJO EDUCATIVO NACIONAL EL SILENCIO DE MORICHAL LARGO',655,3491]
-[140710037,'ESCUELA BASICA NICOLAS LOPEZ',655,3489]
-[130701017,'ESCUELA BASICA CESAR ARMANDO CISNEROS',599,3483]
-[92201001,'ESCUELA BASICA BOLIVARIANA SUSANA MEDINA DE DORANTE',382,3480]
-[110202031,'U.E.N. HECTOR CASTILLO REYES',430,3478]
-[211402010,'UNIVERSIDAD NACIONAL EXPERIMENTAL RAFAEL MARIA BARALT',1045,3477]
-[131601044,'UNIDAD EDUCATIVA PRIVADA COLEGIO ALTO PRADO',617,3477]
-[200601009,'ESCUELA BASICA ELBA SALESSI',959,3476]
-[211301001,'UNIDAD EDUCATIVA NACIONAL DON JUAN VICENTE BOLIVAR',1041,3474]
-[211404008,'UNIDAD EDUCATIVA ESTADAL JESUS ENRIQUE LOSSADA',1047,3474]
-[180601004,'UNIDAD EDUCATIVA BOLIVARIANA ESTADO YARACUY',806,3474]
-[30601010,'ESC BASICA SAN JOSE',99,3473]
-[182801001,'ESCUELA RAFAEL ANTONIO UZCATEGUI',854,3471]
-[210513005,'UNIDAD EDUCATIVA ANA ELENA OSORIO',1004,3469]
-[210512002,'ESCUELA BASICA ESTADAL MARCO TULIO ANDRADES',1003,3466]
-[20301031,'LICEO BOLIVARIANO DOCTOR JESÚS MARIA BIANCO',27,3466]
-[132001007,'UNIDAD EDUCATIVA EULALIA SANCHEZ DE CHAMBERLAIN',623,3466]
-[90402023,'UNIDAD EDUCATIVA NAZARETH FE Y ALEGRIA',319,3461]
-[130901039,'JARDIN DE INFANCIA CADAFITO',601,3461]
-[210503005,'ESCUELA BASICA NACIONAL BARRIO EL PROGRESO',994,3461]
-[110802008,'ESCUELA BOLIVARIANA JORNADA COMPLETA EL BARRANCON DEL DEGREDO',480,3456]
-[100601021,'GRUPO ESCOLAR JOSE DE LOS SANTOS PEREIRA',405,3456]
-[110602001,'ESCUELA BOLIVARIANA LUIS HERIZE PONTE',459,3455]
-[191801001,'ESCUELA BOLIVARIANA PORTILLO Y VALERA',940,3452]
-[71301013,'ESCUELA BASICA NACIONALCLORINDA AZCUÑES',287,3449]
-[60302010,'KINDER LA PARAGUA',223,3447]
-[180401001,'ESCUELA BOLIVARIANA MONSEÑOR BRICEÑO PICON',800,3447]
-[10104030,'UNIDAD EDUCATIVA PRIVADA COLEGIO AGUSTINIANO LA DIVINA PASTORA',4,3444]
-[110207003,'UNIDAD EDUCATIVA PINTO SALINAS',435,3442]
-[140403001,'ESCUELA BASICA CONSUELO NAVAS TOVAR',638,3441]
-[140710019,'UNIDAD EDUCATIVA LUIS PADRINO',655,3440]
-[210506009,'E. NACIONAL DON BOSCO',997,3439]
-[210407011,'ESCUELA   BOLIVARIANA MARCELINO 2',991,3437]
-[210506003,'ESCUELA BASICA ESTADAL ANDRES ELOY BLANCO (EZA)',997,3437]
-[160603002,'ESCUELA BASICA PIMPINELA',709,3435]
-[30106001,'GRUPO ESCOLAR QUESERAS DEL MEDIO',83,3432]
-[211408007,'ESCUELA BASICA NACIONAL RAMON OCANDO PEREZ',1051,3431]
-[180803014,'UNIDAD EDUCATIVA COLEGIO PRIVADO SANTISIMO SALVADOR',814,3431]
-[120803005,'ESCUELA BASICA DOCTOR RAMON REINOSO NUEZ',516,3430]
-[180803007,'UNIDAD EDUCATIVA COLEGIO LA VILLA DE LOS NIÑOS',814,3429]
-[21302006,'ESCUELA NUESTRA SEÑORA DE LOURDES',62,3429]
-[140710026,'LICEO NACIONAL IDELFONSO NUÑEZ MARES',655,3428]
-[90402014,'ESCUELA BOLIVARIANA MENE GRANDE',319,3428]
-[131701007,'UNIDAD EDUCATIVA NACIONAL ANDRÉS BELLO',620,3425]
-[90801004,'ESCUELA BÁSICA BOLIVARIANA CHURUGUARA',341,3424]
-[130301001,'UNIDAD EDUCATIVA ESTADAL CRUZ DEL VALLE RODRIGUEZ',582,3424]
-[131601037,'ESCUELA MUNICIPAL NUMERO 05 MIGUEL JOSE SANZ',617,3422]
-[211102011,'LICEO NACIONAL DOCTOR. RAUL CUENCA',1035,3422]
-[211801003,'UNIDAD POLIVALENTE INCE SAN FRANCISCO',1062,3421]
-[90404006,'ESCUELA BOLIVARIANA VÍA SANTA ANA',321,3418]
-[130801001,'ESCUELA ESTADAL ROSENDO URPIANO ARMAS',600,3418]
-[160601035,'ESCUELA BASICA GOAJIRA I',707,3418]
-[10113004,'UNIDAD EDUCATIVA DISTRITAL SIMON RODRIGUEZ',13,3417]
-[190203001,'ESCUELA BOLIVARIANA RURAL DOCTOR CARLOS BARAZARTE',862,3416]
-[211803021,'UNIDAD  EDUCATIVA  COLEGIO SAN FRANCISCO (PADRE VILCHEZ)',1064,3416]
-[70907001,'ESCUELA BASICA ESTADAL MONSEÑOR BELLERA AROCHA',281,3415]
-[20101005,'ESCUELA BÁSICA CREACIÓN ANACO',23,3412]
-[160301049,'ESCUELA BASICA MIGUEL ANTONIO VASQUEZ',696,3411]
-[211803018,'PREESCOLAR ANA GRACIELA DE HINESTROZA',1064,3410]
-[30502003,'ESCUELA  BASICA LA TRINIDAD DE ORICHUNA',98,3410]
-[130801043,'ESCUELA NACIONAL GRADUADA JUDITH DALO SANDON',600,3404]
-[190401008,'LICEO BOLIVARIANO IGNACIO CARRASQUERO',877,3403]
-[60106013,'ESCUELA DIEGO DE ORDAZ',211,3402]
-[190507001,'UNIDAD EDUCATIVA DOCTOR ANDRÉS LOMELLI ROSARIO',887,3402]
-[30103001,'ESCUELA PRIMARIA BOLIVARIANA RAIMUNDO FONSECA',80,3398]
-[30601003,'ESCUELA BASICA LUIS FELIPE MARCANO HERNANDEZ',99,3395]
-[131801015,'INSTITUTO EINSTEIN',621,3393]
-[40201008,'UNIDAD EDUCATIVA LIBERTADOR',112,3393]
-[211806004,'ESCUELA  BOLIVARIANA  MACHIQUES DE PERIJA',1067,3391]
-[190801007,'UNIDAD EDUCATIVA FRANCISCO TORRES TORO',900,3391]
-[211406012,'INSTITUTO UNIVERSITARIO POLITECNICO SANTIAGO MARIÑO',1049,3389]
-[40106016,'ESCUELA BASICA JUAN LOVERA',109,3388]
-[211802003,'ESCUELA BASICA NACIONAL 12 DE OCTUBRE',1063,3387]
-[122001001,'UNIDAD EDUCATIVA NUEVA BOLIVIA',562,3387]
-[70904006,'ESCUELA 19 DE ABRIL',278,3386]
-[10102015,'INSTI TUTO UNITARIO DEL CENTRO',2,3386]
-[180601016,'LICEO BOLIVARIANO LAS AMERICAS',806,3383]
-[20301062,'INSTITUTO NACIONAL DE CAPACITACIÓN Y EDUCACIÓN SOCIALISTA',27,3382]
-[10117003,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANO LICEO CARICUAO',17,3381]
-[110502011,'PRE-ESCOLAR CREACION LAS MERCEDES',456,3377]
-[150701002,'ESCUELA BASICA MONSENOR NICOLAS EUGENIO NAVARRO',683,3377]
-[201301005,'ESCUELA INTEGRAL BOLIVARIANA SIMON BOLIVAR',967,3375]
-[91802005,'ESCUELA BASICA BOLIVARIANA EL CHARAL',375,3374]
-[181601011,'ESCUELA TÉCNICA INDUSTRIAL ROBINSONIANA SIMÓN BOLÍVAR',833,3373]
-[110207104,'INSTITUTO DE EDUCACION ESPECIAL BARQUISIMETO',435,3372]
-[150402003,'CASA DE LA CULTURA JUAN FERMIN MILLAN',679,3371]
-[200101001,'ESCUELA BASICA CARMELO FERNANDEZ',949,3371]
-[191901001,'ESCUELA BÁSICA SANTA APOLONIA',942,3370]
-[21701004,'UNIDAD EDUCATIVA MARIA AUXILIADORA',68,3367]
-[131401003,'ESCUELA BOLIVARIANA SAN JOSÉ',613,3365]
-[131701012,'UNIDAD EDUCATIVA ESTADAL FRANCISCO DE MIRANDA',620,3363]
-[210504011,'COLEGIO SANTA ANGELA',995,3363]
-[210514005,'ESCUELA BASICA ESTADAL AMANDA DE JESUS BRAVO',1005,3362]
-[131301004,'UNIDAD EDUCATIVA ESTADAL ESTADO ARAGUA',612,3361]
-[70908003,'ESCUELA JUAN JOSE RONDON',282,3359]
-[110501003,'GRUPO ESCOLAR GLADYS BRICEÑO MENDEZ',455,3358]
-[71201031,'ESCUELA  BOLIVARIANA  BARBULA II',286,3358]
-[20301032,'ESCUELA  BÁSICA RÓMULO GALLEGO',27,3357]
-[70906002,'UNIDAD ESCOLAR ALFREDO COLOMINE',280,3357]
-[210104003,'UNIDAD EDUCATIVA ESTADAL HILARION ALBERTO VILORIA',973,3357]
-[110201001,'ESCUELA NACIONAL BOLIVARIANA BARARIDA',429,3357]
-[211401004,'ESCUELA BASICA NACIONAL FRANCISCO LAZO MARTI',1044,3356]
-[110207045,'ESCUELA NACIONAL DIMAS ACOSTA ALVAREZ',435,3355]
-[80601020,'ESCUELA BASICA BOLIVARIANA IGINIO MORALES',298,3355]
-[130701015,'UNIDAD EDUCATIVA ESTADAL ESTADO MERIDA',599,3353]
-[210517003,'UNIDAD EDUCATIVA ESTADAL  MARISCAL ANTONIO JOSE DE SUCRE',1008,3352]
-[70101007,'ESCUELA ESTADAL JOSE IGNACIO PULIDO',252,3351]
-[190702004,'ESCUELA BOLIVARIANA PASCUAL IGNACIO VILLASMIL',895,3349]
-[121102001,'ESCUELA BOLIVARIANA RAFAEL ANTONIO GONZALEZ',535,3348]
-[171003001,'U.E. ANTONIO PINTO SALINAS',778,3347]
-[10114022,'ESCUELA BASICA DOCTOR ENRIQUE DELGADO PALACIOS',14,3347]
-[210803006,'UNIDAD EDUCATIVA NACIONAL PRIVADA SAN ANTONIO',1021,3347]
-[91501006,'CENTRO DE EDUCACIÓN INICIAL POLITA DE LIMA',367,3346]
-[180501004,'ESCUELA NACIONAL BOLIVARIANA JAUREGUI',803,3346]
-[180801021,'GRUPO ESCOLAR CRISTOBAL MENDOZA',812,3344]
-[10115006,'UNIDAD EDUCATIVA MARIA ANTONIA BOLIVAR',15,3341]
-[10115011,'UNIDAD EDUCATIVA INSTITUTO HUMANITAS',15,3337]
-[100601024,'UNIDAD EDUCATIVA NACIONAL RAFAEL CABRERA MALO',405,3335]
-[110206004,'UNIDAD EDUCATIVA ESTADAL FRANCISCO DE MIRANDA',434,3335]
-[131901011,'CLUB LA LAGUNITA',622,3335]
-[20301006,'GRUPO ESCOLAR BOYACA',27,3334]
-[150401004,'UNIDAD EDUCATIVA CASTA JOSEFINA SALAZAR DE LOPEZ',678,3334]
-[140708030,'CENTRO DE NIÑO Y FAMILIA AGUSTIN SALAZAR',653,3332]
-[100601002,'GRUPO ESCOLAR LIC. FRANCISCO ARANDA',405,3330]
-[70101002,'LICEO NACIONAL ARTURO MICHELENA',252,3330]
-[130402002,'ESCUELA BASICA NACIONAL PEDRO VICENTE NU EZ',590,3329]
-[10115007,'COLEGIO FUNDACION CARLOS DELFINO',15,3329]
-[100101011,'LICEO BOLIVARIANO JOSE GIL FORTOUL',388,3328]
-[21201024,'UNIDAD EDUCATIVA SANTELIZ PEÑA',60,3328]
-[50208009,'ESCUELA BASICA CIUDAD BARINAS',165,3327]
-[40202015,'ESCUELA BASICA ESTADAL  ABIGAIL LOZANO',113,3326]
-[140303001,'ESCUELA BASICA BOLIVARIANA EL GUACHARO',632,3326]
-[150101004,'UNIDAD EDUCATIVA ESTADAL DOCTOR ANDRES ELOY BLANCO',670,3325]
-[211801004,'UNIDAD EDUCATIVA NACIONAL PRIVADA MADRE MERCEDES MOLINA',1062,3320]
-[190904001,'ESCUELA BASICA ELISA PULGAR DE RAMIREZ',910,3320]
-[21301026,'CICLO BASICO FRANCISCO SALIAS',61,3319]
-[110201024,'LICEO BOLIVARIANO MARIO BRICEÑO IRAGORRY',429,3319]
-[151102005,'UNIDAD EDUCATIVA LUISA MERCEDES HERNANDEZ DE CARRILLO',691,3318]
-[211702001,'ESCUELA BASICA ESTADAL DOCTOR. LUIS OQUENDO',1061,3316]
-[41001005,'UNIDAD EDUCATIVA NACIONAL RESIDENCIAS SANTA CRUZ',140,3316]
-[211105005,'ESCUELA BASICA NACIONAL JOSE MARIA VARGAS',1038,3313]
-[180201001,'ESCUELA BOLIVARIANA MANUEL FELIPE RUGELES',793,3311]
-[21301003,'UNIDAD EDUCATIVA MIGUEL OTERO SILVA',61,3310]
-[10119016,'UNIDAD EDUCATIVA BOLIVARIANA MARI ISABEL MARQUEZ',19,3309]
-[210514015,'UNIDAD EDUCATIVA NACIONAL PRIVADA CORAZON DE JESUS',1005,3308]
-[10102013,'UNIDAD EDUCATIVA LICEO ALCAZAR',2,3308]
-[200201021,'ESCUELA BASICA  MARIA LEONOR DE SALAS',950,3307]
-[180803017,'ESCUELA BOLIVARIANA SIMON BOLIVAR',814,3307]
-[131201017,'UNIDAD EDUCATIVA ESTADAL CAUJARITO',610,3307]
-[70904030,'ESCUELA BASICA LOMAS DE FUNVAL',278,3306]
-[131601014,'UNIDAD EDUCATIVA COLEGIO EMIL FRIEDMAN',617,3305]
-[20101021,'UNIDAD EDUCATIVA DOCTOR CRUZ DEL VALLE RODRÍGUEZ',23,3304]
-[161401001,'ESCUELA BASICA EL PLAYON',731,3303]
-[170102002,'ESCUELA BOLIVARIANA DON ANDRÉS BELLO',734,3300]
-[110101006,'ESCUELA BASICA LICUA',427,3298]
-[110202026,'UNIDAD EDUCATIVA COLEGIO SAN PEDRO',430,3298]
-[90403016,'ESCUELA BOLIVARIANA AURA MEDINA DE VENTURA',320,3297]
-[211803011,'ESCUELA BASICA NACIONAL ELAUDIMIRA GUANIPA',1064,3296]
-[210502011,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO NUESTRA SEÑORA DE FATIMA',993,3296]
-[120807009,'ESCUELA TECNICA MANUEL ANTONIO PULIDO MENDEZ',520,3295]
-[191903002,'UNIDAD ESCOLAR ZONA RICA',944,3295]
-[131602010,'INSTITUTO CUMBRES DE CARACAS ASOCIACION CIVIL',618,3293]
-[180803009,'ESCUELA BASICA RURAL LA PROVIDENCIA',814,3292]
-[160301051,'ESCUELA BASICA GILBERTO OROPEZA',696,3291]
-[200301006,'ESCUELA BASICA LA CHAPA',952,3289]
-[110502014,'UNIDAD EDUCATIVA  BASICA PIEDRA AZUL',456,3287]
-[110201007,'UNIDAD EDUCATIVA ESTADAL CARMEN FERNANDEZ DE LEONI',429,3283]
-[190702003,'ESCUELA BOLIVARIANA ELOISA FONSECA',895,3278]
-[190801001,'ESCUELA BOLIVARIANA JOSE FELIPE MARQUEZ',900,3273]
-[210506007,'ESCUELA BASICA NACIONAL HERMAGORAS CHAVEZ',997,3273]
-[10107024,'UNIDAD EDUCATIVA COLEGIO SAN MARTÍN',7,3273]
-[30403001,'ESCUELA BASICA PEDRO CAMEJO',96,3270]
-[10108005,'ESCUELA BASICA NACIONAL BOLIVAR',8,3270]
-[200402009,'ESCUELA BASICA RAMON GUILLERMO ORELLANA',956,3268]
-[110207007,'UNIDAD EDUCATIVA ESTATAL MIGUEL ROMERO ANTONI',435,3268]
-[211102024,'LICEO NACIONAL BOLIVARIANO PROFESOR CESAR MARTINEZ VALERO',1035,3267]
-[160301017,'BIBLIOTECA PUBLICA DOCTOR ALIRIO UGARTE PELAYO',696,3263]
-[50601022,'UNIDAD EDUCATIVA  BICENTENARIA NATALICIO  DEL LIBERTADOR',183,3263]
-[40202007,'MODULO SOLID SAMAN DE GUERE NORTE',113,3262]
-[60107003,'ESCUELA BASICA JARDIN LEVANTE',212,3262]
-[211702003,'ESCUELA BASICA NACIONAL LAS PLAYITAS',1061,3262]
-[190704008,'LICEO BOLIVARIANO DOCTOR REGULO BURELLI RIVAS',897,3262]
-[201101008,'ESCUELA INTEGRAL BOLIVARIANA MARIA EVA DE LISCANO',965,3261]
-[130201006,'UNID. EDUC. FERMIN TORO',579,3260]
-[21001001,'GRUPO ESCOLAR DOCTOR RAFAEL VEÍSQUEZ MÁRQUEZ',51,3260]
-[210516013,'ESCUELA BASICA NACIONAL VALMORE RODRIGUEZ',1007,3257]
-[190201004,'UNIDAD EDUCATIVA  DOCTOR LEONARDO RUIZ PINEDA',860,3256]
-[230403004,'ESCUELA PEDRO EMILIO COLL',1122,3255]
-[210513008,'CENTRO PRESCOLAR MARACAIBO',1004,3255]
-[40202005,'ESCUELA BASICA IVON GONZALEZ MARCANO',113,3248]
-[170701005,'LICEO BOLIVARIANO LUIS BELTRAN SANABRIA',758,3247]
-[110202028,'COLEGIO DE INGENIEROS DEL ESTADO LARA',430,3246]
-[10113030,'UNIDAD EDUCATIVA COLEGIO MARISCAL SUCRE',13,3245]
-[71101020,'ESCUELA BASICA NACIONAL BOLIVARIANA LAS AGUITAS III',285,3245]
-[200301013,'UNIDAD EDUCATIVA BURIA',952,3242]
-[212103002,'ESCUELA BASICA NACIONAL DIOSELINA LUQUE DIAZ',1075,3242]
-[50206001,'UNIDAD BASICA TORUNOS',163,3240]
-[131901016,'COLEGIO CLARET',622,3236]
-[130101006,'GRUPO ESCOLAR PANTOJA',571,3236]
-[210517004,'UNIDAD EDUCATIVA  NACIONAL  FRANCISCO REINOSO NUÑEZ',1008,3232]
-[30104001,'ESCUELA PRIMARIA GUACHARA',81,3229]
-[171301012,'U.E. CAMPEARE',784,3226]
-[51202001,'ESCUELA BASICA SIMON BOLIVAR',204,3225]
-[30601024,'ESCUELA BASICA MANUEL ANTONIO NIEVE',99,3225]
-[40804001,'ESCUELA CONCENTRADA SIMONA ACACIO',136,3223]
-[201401004,'ESCUELA INTEGRAL BOLIVARIANA PALMAREJO',968,3223]
-[170903005,'ESCUELA BÁSICA LUIS BELTRÁN PRIETO FIGUEROA',771,3223]
-[10115028,'ESCUELA BASICA NACIONAL BOLIVARIANA CECILIO ACOSTA',15,3221]
-[190104001,'UNIDAD EDUCATIVA FRANCISCA ARÉVALO',859,3221]
-[131601064,'INSTITUTO LEOPARDI',617,3220]
-[210502016,'UNIDAD EDUCATIVA NACIONAL BATALLA DE CARABOBO',993,3212]
-[171302008,'ESCUELA BOLIVARIANA JUAN SÁNCHEZ',785,3209]
-[171201002,'U.E. BERNARDO BERMÚDEZ',782,3205]
-[10104028,'LICEO BOLIVARIANO PERÚ DE LA CROIX',4,3204]
-[40703001,'ESCUELA BASICA MAESTRO LUIS JOSE BRAVO',131,3203]
-[201201007,'ESCUELA INTEGRAL BOLIVARIANA RAFAEL ANTONIO MUJICA',966,3202]
-[211803020,'ESCUELA BASICA.NACIONAL EVARISTO FERNANDEZ',1064,3200]
-[10108020,'UNIDAD EDUCATIVA COLEGIO SANTA LUISA NÂº 76',8,3200]
-[211401008,'ESCUELA BASICA NACIONAL RAFAEL MARIA BARALT',1044,3193]
-[200202009,'ESCUELA CONCENTRADA SAN RAMON',951,3187]
-[210505007,'ESCUELA BASICA NACIONAL DR IDELFONSO VASQUEZ',996,3187]
-[100407001,'ESCUELA DOCTOR BENITO GUTIERREZ LOPEZ',402,3186]
-[190205003,'ESCUELA BOLIVARIANA ÁRBOL REDONDO',864,3186]
-[120810002,'ESC BAS RAMON PARRA PICON',523,3184]
-[120407001,'UNIDAD EDUCATIVA POZO HONDO',506,3183]
-[210201002,'ESCUELA BASICA BOLIVARIANA EL GUANABANO',976,3181]
-[180201004,'ESCUELA BASICA ESTADAL ANTONIO PINTO SALINAS',793,3179]
-[91006001,'ESCUELA BASICA BOLIVARIANA MIGUEL ARMAS ADAMES',354,3179]
-[201001003,'ESCUELA BASICA LEONOR BERNABO',964,3179]
-[181404001,'UNIDAD EDUCATIVA PREVOCACIONAL PUERTO NUEVO',830,3178]
-[110304005,'ESCUELA GRANJA BOLIVARIANA CUARA',442,3177]
-[210701018,'LICEO ORANGEL ABREU SEMPRUN',1015,3175]
-[210503027,'COLEGIO SANTA RITA',994,3175]
-[121101011,'UNIDAD EDUCATIVA EUTIMIO RIVAS',534,3174]
-[10120007,'COLEGIO NUESTRA SEÑORA DEL CARMEN',20,3171]
-[70601012,'UNIDAD EDUCATIVA ESTADAL ROMULO GALLEGOS',264,3167]
-[120101001,'ESCUELA BASICA LA PALMITA',485,3165]
-[10117023,'ESCUELA BASICA BOLIVARIANA MENCA DE LEONI',17,3164]
-[130301020,'UNIDAD EDUCATIVA NACIONAL LICEO FRANCISCO DE MIRANDA',582,3163]
-[130301053,'ESCUELA NACIONAL BOLIVARIANA EL VIGIA',582,3163]
-[30102001,'ESCUELA PRIMARIA BOLIVARIANA  COSME LOPEZ HURTADO',79,3161]
-[211402006,'ESCUELA BASICA NACIONAL DON SIMON RODRIGUEZ',1045,3161]
-[211803009,'ESCUELA BASICA BICENTENARIO JOSE ANTONIO PAEZ',1064,3153]
-[190604001,'ESCUELA BOLIVARIANA PADRE CANO',891,3148]
-[160803001,'ESCUELA BASICA ESTADAL ALIDA AGUILERA DE NOGUERA',719,3142]
-[10108011,'ESCUELA BASICA NACIONAL TOMAS AGUERREVERE',8,3140]
-[180501028,'INSTITUTO DE EDUCACION ESPECIAL BOLIVARIANO LA GRITA',803,3139]
-[20301011,'GRUPO ESCOLAR JOSÉ BERNARDO GOMEZ',27,3139]
-[211805016,'ESCUELA BASICA NACIONAL VICTOR SANDOVAL',1066,3133]
-[131801016,'UNIDAD EDUCATIVA COLEGIO SANTIAGO DE LEON CARACAS',621,3132]
-[40105012,'UNIDAD EDUCATIVA SANTA MARTA',108,3131]
-[130901051,'CENTRO DE EDUCACION INICIAL NACIONAL JACINTO LARA',601,3128]
-[121701003,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA PRESBISTERO DR EZEQUIEL ARELLANO',550,3126]
-[150901008,'UNIDAD EDUCATIVA ESTADAL DON SIMON RODRIGUEZ',687,3126]
-[60901018,'ESCUELA NACIONAL UNITARIA',248,3124]
-[92501001,'ESCUELA BOLIVARIANA ESTADAL SANTA ROSA',387,3124]
-[100405001,'GRUPO ESCOLAR LUISA ROJAS DE GONZALEZ',400,3121]
-[21201052,'LICEO JOSE CELESTINO HURTADO',60,3118]
-[21701007,'UNIDAD EDUCATIVA MENCA DE LEONI',68,3117]
-[71101004,'INSTITUTO DE EDUCACION ESPECIAL LAS AGUITAS',285,3116]
-[30402001,'ESCUELA GRANJA JOSE MANUEL SANCHEZ OSTOS',95,3111]
-[170301001,'INCE POLIVALENTE CARUPANO',744,3111]
-[130902012,'PREESCOLAR EUGENIA RABASCO',602,3109]
-[21201005,'JARDIN DE INFANCIA LA CHARNECA',60,3107]
-[110204030,'UNIDAD EDUCATIVA DOCTOR ALBERTO CARNEVALI',432,3107]
-[100402001,'UNIDAD EDUCATIVA JESUS BANDRES',397,3107]
-[130905006,'ESCUELA MUNICIPAL CARMEN BALVERDE',605,3104]
-[210503014,'ESCUELA BASICA ESTADAL DON ROMULO GALLEGOS (EZA)',994,3102]
-[41502001,'ESCUELA BASICA ESTADAL 15 DE ENERO',148,3101]
-[61101003,'UNIDAD EDUCATIVA NACIONAL GUASIPATI',251,3100]
-[180101003,'UNIDAD EDUCATIVA MUNICIPAL JUAN BAUTISTA GARCIA ROA',790,3098]
-[150601009,'UNIDAD EDUCATIVA INSTITUTO EDUCATIVO ARCOIRIS',682,3096]
-[180901002,'LICEO BOLIVARIANO FRANCISCO DE BORJA Y MORA',817,3095]
-[10110003,'ESCUELA BÁSICA DISTRITAL ELISA DE IZQUIERDO',10,3094]
-[131002001,'ESCUUELA NACIONAL BOLIVARIANA MANUELITA SAENZ',607,3092]
-[240111004,'ESCUELA MUNICIPAL HUGO DOMINGUEZ SANCHEZ',1135,3091]
-[90705001,'ESCUELA BASICA BOLIVARIANA JADACAQUIVA',336,3091]
-[40103016,'CICLO BASICO ARAGUA',106,3087]
-[110204015,'UNIDAD EDUCATIVA JOSE LEONARDO CHIRINOS',432,3086]
-[131701008,'INSTITUTO MADRE ISABEL',620,3084]
-[170201015,'ESCUELA BOLIVARIANA CAÑO DE AJÍES',738,3083]
-[190208001,'UNIDAD EDUCATIVA MÁXIMO SAAVEDRA',867,3082]
-[240106002,'ESCUELA BASICA ESTADAL CARMEN FELICIA COLON',1130,3080]
-[100304001,'GRUPO ESCOLAR FRANCISCO CONDE',395,3078]
-[70908024,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA  MERCEDES SANTANA',282,3075]
-[21302018,'ESCUELA ESTADAL MORENO HERNANDEZ',62,3074]
-[211102014,'ESCUELA BASICA NACIONAL CREACION BARRIO NUEVO',1035,3074]
-[50601023,'ESCUELA BASICA ROMULO GALLEGOS',183,3073]
-[110204007,'UNIDAD EDUCATIVA DOCTOR CECILIO ACOSTA',432,3073]
-[210305009,'ESCUELA BASICA NACIONAL LAS DELICIAS',984,3073]
-[191301003,'ESCUELA INTEGRAL BOLIVARIANA MARIA DOLORES ARAUJO',922,3071]
-[190304004,'UNIDAD EDUCATIVA CAMILO CAÑIZALES',875,1837]
-[180401011,'ESCUELA ESTADAL TOMAS ENRIQUE RIVERA CHAVEZ',800,3069]
-[91001029,'ESCUELA BASICA MIXTA EL JEBE VIEJO',349,3068]
-[30601007,'UNIDAD EDUCATIVA VUELVAN CARAS',99,3065]
-[210511002,'UNIDAD EDUCATIVA NACIONAL INSTITUTO NIÑOS CANTORES',1002,3062]
-[210511009,'ESCUELA BASICA ESTADAL EVELINA FERREIRA DE INCIARTE',1002,3062]
-[201402004,'ESCUELA  BASICA  GABRIEL MARIA  REYES ZUMETA.',969,3059]
-[180102001,'ESCUELA BOLIVARIANA SAN FELIX',791,3059]
-[131601022,'UNIDAD EDUCATIVA INSTITUTO ARTURO MICHELENA',617,3058]
-[200403005,'ESCUELA BASICA HORASIL HERNANDEZ',957,3055]
-[160301080,'UNIDAD EDUCATIVA JOSE DE LOS SANTOS URRIOLA',696,3054]
-[130301050,'UNIDAD EDUCATIVA ESTADAL JOSE MANUEL SISO MARTINEZ',582,3053]
-[90402018,'ESCUELA BOLIVARIANA PARAGUANÁ',319,3051]
-[70705007,'UNIDAD EDUCATIVA MUNICIPAL DR ADOLFO PRINCE LARA',270,3049]
-[210510002,'UNIDAD EDUCATIVA NACIONAL CARLOS RINCON LUBO',1001,3048]
-[90401005,'ESCUELA BASICA ALEJANDRO IBARRA',318,3047]
-[40101013,'UNIDAD EDUCATIVA PRIVADA INTERNACIONAL',104,3047]
-[160301013,'ESCUELA BASICA GIRALUNA',696,3046]
-[211805007,'UNIDAD  EDUCATIVA   ARQUIDIOCESANA MONSEÑOR  JUAN HILAR',1066,3045]
-[160101045,'GRUPO ESCOLAR BATALLA DE ARAURE',692,3044]
-[40106008,'CICLO BASICO MANUEL ANTONIO CARREÑO',109,3043]
-[140902006,'CLUB JUAN VICENTE GONZALEZ',664,3043]
-[150601024,'CENTRO DE EDUCACIÓN INICIAL BACHILLER JOSÉ JOAQUÍN DE LEÓN',682,3040]
-[160301016,'ESCUELA BASICA JOSE MARIA VARGAS',696,3040]
-[170502001,'U.E. BOLIVARIANA ROMÁN VALECILLO',753,3040]
-[160301066,'ESCUELA ESTADAL CONCENTRADA NUMERO 48',696,3039]
-[211401013,'GRUPO ESCOLAR NACIONAL JUAN IGNACIO VALBUENA',1044,3039]
-[130301059,'UNIDAD EDUCATIVA ESTADAL LUISA CACERES DE ARISMENDI',582,3038]
-[20101003,'ESCUELA BÁSICA NACIONAL FRAY NICOÍS DE ODENA',23,3037]
-[211103009,'ESCUELA NACIONAL TURIACA',1036,3036]
-[210509009,'JARDIN DE INFANCIA LA ESPERANZA',1000,3035]
-[220201003,'UNIDAD EDUCATIVA JOSE GUMILLAS',1080,3030]
-[160601026,'GRUPO ESCOLAR RAIMUNDO ANDUEZA PALACIO',707,3025]
-[70906014,'PRE-ESCOLAR JULIO CASTRO.',280,3025]
-[71201026,'LICEO BOLIVARIANO CAYAURIMA',286,3025]
-[70906008,'ESCUELA MINERVA',280,3024]
-[30601028,'PREESCOLAR. BOLIVARIANO AÑO INTERNACIONAL DEL NIÑO',99,3024]
-[180301001,'ESCUELA BOLIVARIANA ESTADO MIRANDA',797,3022]
-[210514006,'BACHILLER EGIDIO MONTESINOS',1005,3020]
-[70402003,'UNIDAD EDUCATIVA FELIX ROMAN DUQUE',261,3020]
-[180803029,'CASA COMUNAL SANTA TERESA',814,3019]
-[21302007,'GRUPO ESCOLAR RODOLFO MAURERA',62,3014]
-[120807010,'ESCUELA BASICA NACIONAL JUAN RUIZ FAJARDO',520,3012]
-[21301025,'GRUPO ESCOLAR ANDRES ELOY BLANCO',61,3011]
-[191303001,'UNIDAD EDUCATIVA  MANUEL MARIA CARRASQUERO',924,3011]
-[130603002,'ESCUELA ESTADAL GRADUADA JUAN FRANCISCO DE LEON',596,3011]
-[190210001,'GRUPO ESCOLAR ARMANDO MADRID',869,3010]
-[211303006,'PREESCOLAR NACIONAL MONSEÑOR OLEGARIO VILLALOBOS',1043,3007]
-[131601046,'PRE ESCOLAR LAS LOMITAS',617,3006]
-[110801005,'UNIDAD EDUCATIVA NACIONAL SABANA GRANDE',479,3005]
-[191602001,'UNIDAD EDUCATIVA RAFAEL ANTONIO RIVERO',935,3005]
-[50211006,'UNIDAD  EDUCATIVA  SIMON BOLIVAR C.A',168,3002]
-[121803001,'CONCENTRACION ESCOLAR ESTANQUEZ',554,2999]
-[191701001,'ESCUELA PRIMARIA BOLIVARIANA VIRGILIO GERMAN DÍAZ',937,2996]
-[210504003,'UNIDAD EDUCATIVA NACIONAL DR ADOLFO COLINA',995,2996]
-[50104003,'ESCUELA BASICA SAN ANTONIO LAS FLORES NUMERO 196',157,2996]
-[151101004,'UNIDAD EDUCATIVA COLEGIO AMERICO VESPUCIO',690,2995]
-[161001001,'ESCUELA BASICA ATAPAIMA',723,2995]
-[131801024,'UNIDAD EDUCATIVA  POPULAR  COLEGIO NUESTRA SEÑORA DE FATIMA',621,2994]
-[211402004,'UNIDAD EDUCATIVA ESTADAL JONH KENNEDY',1045,2994]
-[161201004,'ESCUELA BASICA CARLOS QUINTERO ALEGRIA',726,2994]
-[180802024,'CENTRO DE EDUCACION INICIAL SIMONCITO JUAN ANTONIO ROMAN VALECILLOS',813,2994]
-[190206001,'ESCUELA BOLIVARIANA ISABEL DE GONZÁLEZ',865,2992]
-[10108021,'AMBULATORIO ANGEL VICENTE OCHOA (SEGURO SOCIAL)',8,2990]
-[180801034,'CENTRO DE EDUCACION INICIAL SIMONCITO JUAN BAUTISTA GARCIA ROA',812,2988]
-[131602016,'BIBLIOTECA PUBLICA DOCTOR RAUL LEONI',618,2984]
-[60501011,'ESCUELA ESTADAL BASICA SIN NUMERO AGUA CLARA',234,462]
-[40101010,'UNIDAD EDUCATIVA NACIONAL  FRANCISCO GUEDEZ COLMENARES',104,2983]
-[90404002,'ESCUELA BOLIVARIANA POLITA D´ LIMA',321,2976]
-[190606001,'UNIDAD EDUCATIVA TUÑAME',893,2976]
-[210803015,'UNIDAD EDUCATIVA NACIONAL ISMAEL URDANETA',1021,2975]
-[70906006,'UNIDAD EDUCATIVA COLEGIO LA ESPERANZA',280,2974]
-[240106005,'UNIDAD EDUCATIVA NACIONAL LICEO BOLIVARIANO JOSE MARIA ESPAÑA',1130,2973]
-[170304004,'U.E. JOSÉ ANTONIO PÁEZ',747,2970]
-[21401001,'GRUPO ESCOLAR CARLOS FRAGACHAN',63,2969]
-[70901001,'GRUPO ESCOLAR JOSE GREGORIO PONCE BELLO',275,2969]
-[130801018,'ESCUELA BASICA EXPERIMENTAL CARMEN CABRILES',600,2968]
-[150202003,'UNIDAD EDUCATIVA PROFESOR  ASCANIO J. VELASQUEZ',672,2965]
-[90102001,'UNIDAD EDUCATIVA CAPADARE',306,2964]
-[171102001,'U.E. ORIENTE',781,2964]
-[121805001,'UNIDAD EDUCATIVA GENARINA DUGARTE C',556,2960]
-[181001009,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA DON ROMULO GALLEGO',821,2959]
-[192003002,'UNIDAD EDUCATIVA PROFESOR JOSÉ ALBERTO AZUAJE',948,2957]
-[211805017,'UNIDAD EDUCATIVA PRIVADA NACIONAL FRAY JUNIPERO DE ESCALADA',1066,2957]
-[130801024,'ESCUELA ESTADAL GRADUADA EULALIA BUROZ',600,2956]
-[190701016,'ESCUELA BOLIVARIANA CAJA DE AGUA',894,2954]
-[70907007,'ESCUELA GONZALEZ GUINAND',281,2954]
-[10110106,'ESCUELA NACIONAL FROILAN NORIEGA',10,2953]
-[130301027,'ATENEO LOS TEQUES ANTIGUA QUINTA SAN JOSE',582,2952]
-[131501006,'UNIDAD EDUCATIVA NACIONAL LIBERTADOR',615,2951]
-[170902019,'ESCUELA BOLIVARIANA PLAN DE LA MESA',770,2949]
-[200501002,'ESCUELA BASICA ALIDA CASULLO DE ZERPA',958,2949]
-[50207010,'ESCUELA BASICA JUAN ESCALONA',164,2947]
-[210511011,'ESCUELA BASICA NACIONAL JAMES FERGUNSSON',1002,2946]
-[21301027,'COLEGIO SANTA TERESITA',61,2945]
-[210509007,'ESCUELA BASICA NACIONAL JOSE DE LA ROSA FERNANDEZ',1000,2945]
-[110501011,'UNIDAD EDUCATIVA ESTADAL ROMULO BETANCOURT II',455,2942]
-[10113017,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JESUS ENRIQUE LOSSADA',13,2937]
-[211401005,'UNIDAD EDUCATIVA NACIONAL DR. RAMON REYNOSO NUÑEZ',1044,2936]
-[211802012,'ESCUELA BASICA NACIONAL BENILDA AVILA DE MORENO',1063,2934]
-[40805002,'CARCEL PUBLICA TOCORON',137,459]
-[110201011,'CENTRO DE DESARROLLO DESTREZAS COGNITIVAS TIERNO AMANECER',429,2932]
-[90402020,'ESCUELA TECNICA ROBINSONIANA COMERCIAL PUNTO FIJO',319,2931]
-[10113052,'INSTITUTO NACIONAL DE SERVICIOS SOCIALES INAGER',13,2930]
-[161301003,'CICLO COMBINADO JOSE DE LA CRUZ PAREDES',728,2929]
-[10110097,'UNIDAD EDUCATIVA PREESCOLAR VIANNEY',10,2929]
-[20803001,'ESCUELA BÁSICA MANUEL BUCK',46,2928]
-[80802001,'ESCUELA  BASICA  MONSEÑOR  SIXTO SOSA',303,2925]
-[10108039,'UNIDAD EDUCATIVA COLEGIO PAULO VI',8,2924]
-[50902004,'ESCUELA BASICA BOLIVARIANA  ZOILA  MELEAN DE ALVARADO',196,2921]
-[21701002,'UNIDAD EDUCATIVA LICENCIADO DIEGO BAUTISTA URBANEJA',68,2919]
-[110204010,'ESCUELA BASICA PEDRO RAFAEL CHACON',432,2918]
-[160301012,'COLEGIO UNIVERSITARIO FERMIN TORO',696,2916]
-[210516011,'ESCUELA BASICA ESTADAL IDELMA DE MORALES',1007,2913]
-[10109003,'LICEO TERESA CARRENO',9,2913]
-[131601042,'UNIDAD EDUCATIVA COLEGIO MADRE MATILDE',617,2911]
-[121402001,'ESCUELA  BASICA LAS PIEDRAS',543,2909]
-[210513018,'CENTRO DE EDUCACION INICIAL GENERAL RAFAEL URDANETA',1004,2907]
-[10104029,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA REPUBLICA DE BOLIVIA',4,2906]
-[71401008,'UNIDAD EDUCATIVA ESTADAL ISABEL TERESA DE BELLERA',288,2900]
-[200401007,'ESCUELA INTEGRAL BOLIVARIANA   ALBERTO RAVELL',955,2896]
-[130301030,'UNIDAD EDUCATIVA NACIONAL JESUS MARIA SIFONTES',582,2893]
-[150601020,'LICEO BOLIVARIANO NUEVA ESPARTA',682,2892]
-[210501001,'UNIDAD EDUCATIVA NACIONAL  IPE',992,2890]
-[240101005,'UNIDADAD EDUCATIVA PRIVADA TANAGUARENA',1125,2890]
-[110609001,'ESCUELA BOLIVARIANA SIMON PLANAS',466,2889]
-[200201003,'ESCUELA INTEGRAL BOLIVARIANA CATALINA DE BOLIVAR',950,2886]
-[110207021,'UNIDAD EDUCATIVA LAS TINAJITAS',435,2883]
-[200901002,'ESCUELA INTEGRAL BOLIVARIANA JOSE ANTONIO SOSA GUILLEN',963,2882]
-[70401010,'ESCUELA NACIONAL GRADUADA LOS NARANJILLOS',260,2881]
-[50503007,'ESCUELA BASICA JULIA ROSA  CASTILLO',181,2878]
-[171401006,'ESCUELA BOLIVARIANA SOTILLO',786,2877]
-[110201008,'ESCUELA TECNICA COMERCIAL CARLOS GIL YEPEZ',429,2875]
-[110202047,'GRUPO ESCOLAR REPUBLICA DE COSTA RICA',430,2871]
-[210510018,'UNIDAD EDUCATIVA NACIONAL CATATUMBO',1001,2868]
-[91601005,'ESCUELA BASICA GUANADITO',370,2867]
-[60104031,'ESCUELA CONCENTRADA MUNICIPAL LUIS HURTADO HIGUERA',209,2863]
-[21502001,'GRUPO ESCOLAR ANDRES BELLO',65,2856]
-[80603001,'GRUPO ESCOLAR COAHERI',300,2856]
-[211404006,'UNIDAD EDUCATIVA NACIONAL PRIVADA ADVENTISTA LIBERTADOR',1047,2854]
-[10109001,'COLEGIO MONSEÑOR CASTRO',9,2849]
-[170901009,'U.E. EUTIMIO RIVAS',769,2848]
-[211102015,'UNIDAD EDUCATIVA ESTADAL NEGRA MATEA',1035,2847]
-[41701013,'ESCUELA BASICA ESTADAL JULIAN LANDAETA ROBLES',150,2843]
-[21201002,'LICEO BRICEÑO MÉNDEZ',60,2842]
-[60801005,'UNIDAD EDUCATIVA BOLIVARIANA TOCOMA',244,2841]
-[130701001,'LICEO DOCTOR JOSE FRANCISCO TORREALBA',599,2841]
-[90402025,'ESCUELA BOLIVARIANA BENEDICTO MARMOL',319,2839]
-[160401014,'ESCUELA ESTADAL UNITARIA NUMERO 129',701,2836]
-[181403001,'UNIDAD EDUCATIVA ESTADAL PEDRO ALEJANDRO SANCHEZ',829,2834]
-[130305001,'UNIDAD EDUCATIVA NACIONAL CALAZAN HERRERA',586,2833]
-[20301015,'COMPLEJO EDUCATIVO ESTADAL ANZOATEGUI',27,2833]
-[91501007,'JARDIN DE INFANCIA CELESTE',367,2833]
-[211404003,'ESCUELA BASICA NACIONAL RAFAEL URDANETA',1047,2832]
-[130801051,'COLEGIO CIUDAD CASARAPA',600,2831]
-[40104016,'ESCUELA GRADUADA JACOB PEREZ CARBALLO',107,2830]
-[240102001,'UNIDAD EDUCATIVA ESTATAL RAFAEL RANGEL',1126,2828]
-[70201009,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR JESUS MARIA PELLIN',255,2827]
-[20301052,'UNIDAD EDUCATIVA NUESTRA SEÑORA DE LOURDES II',27,2823]
-[211103007,'ESCUELA BASICA NACIONAL CARLOS EMILIANO SALOM',1036,2822]
-[211803014,'JARDIN DE INFANCIA NACIONAL VILLA BOLIVARIANA',1064,2822]
-[110201026,'UNIDAD EDUCATIVA LUCRECIA GARCIA',429,2821]
-[71301012,'UNIDAD EDUCATIVA CREACION SAN DIEGO NORTE',287,2820]
-[10112001,'COMPLEJO HOSPITALARIO JOSÉ IGNACIA BALDO.',12,2817]
-[131801017,'UNIDAD EDUCATIVA BASICA MUNICIPAL JUAN DE DIOS GUANCHE',621,2816]
-[60301027,'COLEGIO NUESTRA SEÑORA DE LAS NIEVES',222,2816]
-[210515006,'ESCUELA  BASICA  NACIONAL JACINTO REGINO PACHANO MUÑOZ',1006,2816]
-[211401006,'ESCUELA BASICA NACIONAL JUAN ANTONIO PEREZ BONALDE',1044,2811]
-[51102002,'ESCUELA BASICA BOLIVARIANA LOIDA VASQUEZ DE CASTILLO',201,2810]
-[181601004,'UNIDAD EDUCATIVA MUNICIPAL DOCTOR SAMUEL DARIO MALDONADO',833,2810]
-[210503015,'UNIDAD EDUCATIVA NACIONAL VALERO TOLEDO',994,2810]
-[180201014,'LICEO BOLIVARIANO MANUEL DIAZ RODRIGUEZ',793,2810]
-[130902001,'UNIDAD EDUCATIVA NACIONAL MARTINEZ CENTENO',602,2806]
-[10116014,'UNIDAD EDUCATIVA BÁSICA ANDRÉS ELOY BLANCO',16,2803]
-[181001002,'LICEO BOLIVARIANO MONSEÑOR BERNABE VIVAS',821,2801]
-[210503006,'IVA ANTONIO HERRERA',994,2798]
-[131601004,'COLEGIO PROMESAS PATRIAS',617,2797]
-[91201011,'ESCUELA BOLIVARIANA LIZARDO NER 123',359,2795]
-[21301086,'CENTRO DE EDUCACION INICIAL SIMONCITO  LA FUNDACION',61,2788]
-[70601006,'ESCUELA BASICA NACIONAL LAS PARCELAS',264,2786]
-[10115017,'COLEGIO PARROQUIAL MONSEÑOR ARTURO CELESTINO ALVAREZ',15,2786]
-[90706001,'ESCUELA BASICA BOLIVARIANA MORUY',337,2785]
-[150601013,'UNIDAD EDUCATIVA JOSÉ JESÚS GARCÍA RODRÍGUEZ',682,2783]
-[211502004,'UNIDAD EDUCATIVA NACIONAL RAFAEL URDANETA',1054,2779]
-[90701002,'UNIDAD EDUCATIVA HECTOR M. PEÑA',332,2779]
-[131602005,'CAMARA DE INDUSTRIALES DEL ESTADO MIRANDA.',618,2778]
-[131603007,'ESCUELA BASICA NACIONAL  LAS MINITAS',619,2774]
-[70905008,'LICEO BOLIVARIANO NACIONAL MARTIN JOSE SANABRIA',279,2773]
-[131601048,'MODULO DE SERVICIO DE OJO DE AGUA',617,2773]
-[110201003,'UNIDAD EDUCATIVA BOLIVARIANA. MARIA PEREIRA DE DAZA',429,2773]
-[171102003,'ESCUELA RURAL BOLIVARIANA RÍO GRANDE',781,2772]
-[10113022,'LICEO BOLIVARIANO JOSE MANUEL NUÑEZ PONTE',13,2767]
-[60803005,'ESCUELA BASICA ESTADAL. EL CRISTO',246,2764]
-[91004001,'ESCUELA BASICA BOLIVARIANA LA NEGRITA',352,2764]
-[160601003,'ESCUELA TECNICA COMERCIAL PROFESOR ADEMAR VASQUEZ',707,2762]
-[150901002,'CENTRO DE EDUCACIÓN INICIAL TIO CONEJO',687,2762]
-[110608001,'ESCUELA BASICA ELMA SILVEIRA',465,2762]
-[210513024,'ESCUELA BASICA BOLIVARIANA LEONCIO QUINTANA',1004,2760]
-[181703001,'UNIDAD EDUCATIVA ESTADAL FELIX MARIA SALCEDO ZAMBRANO NER 580',837,455]
-[90404001,'ESCUELA BOLIVARIANA NARCISO ANTONIO GARCIA',321,2757]
-[211404004,'ESCUELA BASICA ESTADAL VALMORE RODRIGUEZ',1047,2751]
-[110801006,'ESCUELA BASICA PALO VERDE',479,2751]
-[30601011,'ESCUELA BASICA ANDRES ELOY BLANCO',99,2750]
-[70904026,'ESCUELA BASICA ESTADAL MONSEÑOR LUIS EDUARDO HENRIQUEZ',278,2748]
-[181103002,'UNIDAD EDUCATIVA ESTADAL ARTURO MICHELENA',824,2747]
-[190506001,'ESCUELA BOLIVARIANA RAFAEL MARIA ALTUVE',886,2746]
-[190702006,'LICEO BOLIVARIANO CIUDAD DE VALERA',895,2745]
-[70702004,'CICLO BASICO COMUN SIMON RODRIGUEZ',267,2744]
-[20101036,'UNIDAD EDUCATIVA JUAN PABLO SOJO',23,2744]
-[122201001,'ESCUELA BASICA FRANCISCO UZCATEGUI DAVILA',567,2736]
-[190204001,'ESCUELA BOLIVARIANA DOCTOR CARACCIOLO PARRA OLMEDO',863,2734]
-[110604003,'UNIDAD EDUCATIVA NACIONAL DON GIL ARTURO ZAMBRANO',461,2734]
-[91003008,'ESCUELA DE EDUCACION INICIAL SIMONCITO MONSEÑOR ITURRIZA',351,2733]
-[120812005,'ESCUELA DEPORTIVA',525,2729]
-[160702001,'ESCUELA ESTADAL CONCENTRADA NUMERO 218',712,2719]
-[90703001,'UNIDAD EDUCATIVA BARAIVED',334,2714]
-[191103001,'UNIDAD EDUCATIVA JALISCO',917,2711]
-[181901007,'LICEO BOLIVARIANO UNIDAD EDUCATIVA FRANCISCO TAMAYO',839,2707]
-[21701009,'CENTRO DE PROFESIONALES DE LECHERIA',68,2706]
-[150402006,'UNIDAD EDUCATIVA ESTADAL PROFESOR  JESUS MANUEL SUBERO',679,2705]
-[200301017,'ESCUELA INTEGRAL BOLIVARIANA LOS COGOLLOS',952,2705]
-[220103002,'UNIDAD EDUCATIVA INTEGRAL BOLIVARIANA FELIX RAMON RIVAS',1078,2701]
-[131601011,'UNIDAD EDUCATIVA CENTRO DE EDUCACION ACTIVA MARIA MONTESSORI',617,2699]
-[71201011,'UNIDAD EDUCATIVA  MARIBEL CABALLERO DE TIRADO',286,2699]
-[51203002,'ESCUELA  BASICA CONCENTRADA TRES ESQUINAS',205,2698]
-[140804002,'ESCUELA BASICA BOLIVARIANA MATIAS NUÑEZ',659,2697]
-[170301017,'U.E. JOSÉ JESÚS MARTÍNEZ MATA',744,2687]
-[70402004,'UNIDAD EDUCATIVA VIRGEN DE LAS NIEVES',261,2687]
-[211102004,'UNIDAD EDUCATIVA PRIVADA NACIONAL JUAN BOSCO',1035,2686]
-[210517011,'UNIDAD EDUCATIVA VECINAL III',1008,2685]
-[130701014,'UNIDAD EDUCATIVA BOLIVARIANA TERESA CARRENO',599,2683]
-[110703001,'GRUPO ESCOLAR JUAN SANTAELLA',477,2682]
-[201101006,'ESCUELA INTEGRAL BOLIVARIANA ADOLFO NAVAS CORONADO',965,2682]
-[170904015,'U.E. CREACION CAIGUIRE',772,2681]
-[211102007,'ESCUELA ESTADAL MAESTRO. ADALBERTO GUTIERREZ',1035,2679]
-[170902009,'U.E. CRUZ ALMANDOZ MORA',770,2677]
-[210511007,'ESCUELA BASICA NACIONAL DR ANDRES ELOY BLANCO',1002,2676]
-[110406002,'ESCUELA CONCENTRADA POTRERITO.',452,2676]
-[40107002,'ESCUELA BASICA ESTADAL TRINO CELIS RIOS',110,2674]
-[130501027,'UNIDAD EDUCATIVA ESTADAL ESTADO TACHIRA',591,2671]
-[91301002,'UNIDAD EDUCATIVA EZEQUIEL ZAMORA',361,2671]
-[90501002,'LICEO BOLIVARIANO JUAN CRISOSTOMO FALCÓN',322,2670]
-[170601003,'ESCUELA BOLIVARIANA PERICANTAR',757,2667]
-[211402009,'UNIDAD EDUCATIVA NACIONAL MANUEL BELLOSO',1045,2666]
-[71101006,'ESCUELA BASICA NACIONAL LAS AGUITAS I Y II JULIO GARMENDIA',285,2665]
-[170903007,'U.E. SAGRADO CORAZÓN DE JESÚS',771,2663]
-[10113029,'UNIDAD EDUCATIVA AGUSTIN CODAZZI',13,2658]
-[10108026,'EDIFICIO COLOMBIA COMPLEJO GRAN COLOMBIA',8,2655]
-[110207005,'INSTITUTO UNIVERSITARIO ANDRES ELOY BLANCO',435,2654]
-[70905002,'GRUPO ESCOLAR JESUS GRANADOS CASARES',279,2653]
-[41202003,'UNIDAD EDUCATIVA ESTADAL CONCENTRADA LA ESPERANZA',143,2649]
-[70708001,'UNIDAD EDUCATIVA BOLIVARIANA  JOSE LAURENCIO SILVA',273,2649]
-[140304001,'ESCUELA BASICA BOLIVARIANA DOCTOR RAFAEL MARSIGLIA',633,2648]
-[170403001,'ESCUELA BOLIVARIANA EL PAUJIL',751,2648]
-[10122026,'COLEGIO DEL AVE MARIA',22,2646]
-[180301003,'LICEO BOLIVARIANO ROMAN CARDENAS',797,2637]
-[40203001,'ESCUELA BASICA ROMULO BETANCOURT',114,2636]
-[210505005,'ESCUELA BASICA NACIONAL DOMINGO BRICEÑO',996,2633]
-[211103003,'UNIDAD EDUCATIVA NACIONAL AYACUCHO',1036,2633]
-[71101016,'ESCUELA NACIONAL PIRITAL',285,2633]
-[92501002,'ESCUELA BASICA BOLIVARIANA MANUELA LUGO DE REYES',387,2630]
-[160101057,'ESCUELA BASICA GENERAL JUAN GUILLERMO IRIBARREN',692,2628]
-[201101001,'ESCUELA BOLIVARIANA IGNACIO GREGORIO MENDEZ',965,2621]
-[130901029,'ESCUELA BASICA NACIONAL COSME DAMIAN PEÑA',601,2620]
-[10113015,'UNIDAD EDUCATIVA COLEGIO SAN JOSE DE TARBES',13,2617]
-[191503001,'ESCUELA PREVOCACIONAL LOS NEGROS',932,2614]
-[150601023,'UNIDAD EDUCATIVA RAFAEL SALAZAR BRITO',682,2610]
-[110201005,'UNIDAD EDUCATIVA BOLIVARIANA DR. RAMON E. GUALDRON',429,2609]
-[161301006,'ESCUELA ESTADAL CONCENTRADA NUMERO 166 TEJERIAS',728,2608]
-[160601023,'GRUPO ESCOLAR ESTADAL CURPA',707,2608]
-[10109002,'UNIVERSIDAD NUEVA ESPARTA',9,2608]
-[40101004,'UNIVERSIDAD PEDAGOGICA MARACAY',104,2607]
-[91102001,'ESCUELA BOLIVARIANA JOSE LEONARDO CHIRINOS',357,2607]
-[70904053,'ANEXO DOCTOR RAFAEL GUERRA MENDEZ',278,2606]
-[50601009,'ESCUELA BASICA ESTADAL EMILCE  DE CONTRERAS',183,2604]
-[70101009,'PRE ESCOLAR EL RINCON',252,2604]
-[180201007,'INSTITUTO UNIVERSITARIO DE LA FRONTERA',793,2599]
-[21801002,'ESCUELA BOLIVARIANA JOSE DE JESUS CUMACHE',70,2599]
-[50401023,'ESCUELA BASICA ESTADAL PADRE NOGUERA',175,2598]
-[161101003,'UNIDAD EDUCATIVA LUIS ANTONIO CASTILLO',724,2596]
-[50601006,'ESCUELA BOLIVARIANA EL SILENCIO',183,2596]
-[160201012,'ESCUELA BASICA PIRITU',694,2593]
-[131801007,'COLEGIO SANTO DOMINGO DE GUZMAN',621,2592]
-[211803025,'UNIDAD EDUCATIVA ESTADAL HERMOGENEZ MENDEZ',1064,2591]
-[171001009,'ESCUELA BOLIVARIANA MIGUEL LOPEZ ALCALA',776,2590]
-[181601010,'LICEO BOLIVARIANO VICTOR MANUEL OLIVARES',833,2589]
-[211102017,'ESCUELA BASICA NACIONAL LIBERTADOR',1035,2587]
-[210513029,'UNIDAD EDUCATIVA PROFESOR MISAEL VILCHEZ',1004,2586]
-[20302014,'COMPLEJO EDUCATIVO NUESTRA SEÑORA DEL VALLE',28,2584]
-[30302001,'GRUPO ESCOLAR NEPOMUCENA FIGUEREDO',90,2582]
-[110201021,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL COROMOTO',429,2582]
-[20102002,'UNIDAD EDUCATIVA DIEGO JIMÉNEZ SALAZAR',24,2580]
-[170202001,'UNIDAD EDUCATIVA JOSE RAFAEL PEREZ VALDIVIEZO',739,2580]
-[191402001,'UNIDAD BÁSICA 27 DE JUNIO DE 1870',927,2580]
-[60801008,'ESCUELA INTEGRAL BOLIBARIANA PUEBLO GURI',244,2580]
-[20902001,'ESCUELA CONCENTRADA ATAPIRIRE',48,2579]
-[140602002,'UNIDAD EDUCATIVA ISABEL DE VERDE ORTEGA',643,2579]
-[120503001,'UNIDAD EDUCATIVA BOLIVARIANA EL PUEBLITO',509,2578]
-[132101003,'ESCUELA GRADUADA JUAN VICENTE GONZALEZ',625,2578]
-[122003001,'UNIDAD EDUCATIVA DORLISA GUERRA',564,2577]
-[180803013,'ESCUELA MUNICIPAL LUISA CACERES DE ARISMENDI',814,2577]
-[40802007,'ASOCIACION CIVIL UNIDAD PRESBITERO RAFAEL GARCIA OSORIO',134,2574]
-[150601029,'UNIDAD EDUCATIVA DOCTOR LEONARDO RUIZ PINEDA',682,2570]
-[180802018,'UNIDAD EDUCATIVA ESTADAL VICTOR MORENO OROZCO',813,2568]
-[140710021,'ESCUELA DE ARTES PLASTICAS ELOY PALACIOS',655,2567]
-[160102002,'UNIDAD EDUCATIVA NACIONAL MANUEL BARRIOS FREITEZ',693,2565]
-[110204002,'ESCUELA GRADUADA GABRIELA MISTRAL',432,2563]
-[131601047,'UNIDAD EDUCATIVA FE Y ALEGRIA COLEGIO MONTERREY',617,2561]
-[182102003,'UNIDAD EDUCATIVA JOSE TRINIDAD COLMENARES',846,2556]
-[170302001,'U.E. CRISTÓBAL COLÓN',745,2555]
-[191304002,'UNIDAD EDUCATIVA NACIONAL SALOMÓN BRICEÑO GABALDON',925,2553]
-[131401004,'ESCUELA FRAY JOSE ZAPICO',613,2553]
-[21102001,'UNIDAD EDUCATIVA BOLIVARIANA  DIEGO ARREAZA MONAGAS',58,2551]
-[120107006,'ESC BAS CONC NO 148',491,2551]
-[90403005,'INSTITUTO JUAN XXIII LOS TURPIALES',320,2549]
-[191504003,'ESCUELA RURAL DE EDUCACIÓN BÁSICA LAS PALMAS',933,2549]
-[130301011,'UNIDAD EDUCATIVA  ESTADAL ANITA ESPINAL',582,2548]
-[220601001,'ESCUELA  BASICA MARIA AUXILIADORA',1095,2547]
-[151102003,'CENTRO DE EDUCACION INICIAL SANTIAGO MARINO',691,2544]
-[180803033,'LICEO BOLIVARIANO FRANCISCO ALVARADO',814,2544]
-[91001027,'ESCUELA BASICA 5 DE JULIO',349,2543]
-[160706004,'ESCUELA BASICA VILLA ROSA',716,2542]
-[211406003,'ESCUELA BASICA NACIONAL PEDRO JULIO MANINAT',1049,2542]
-[211103006,'UNIDAD EDUCATIVA PRIVADA NACIONAL SAN JOSE',1036,2541]
-[210501005,'ESCUELA BASICA NACIONAL RAFAEL  A. BELLOSO CHACIN',992,2540]
-[21201032,'UNIVERSIDAD NACIONAL ABIERTA',60,2539]
-[92301003,'ESCUELA BASICA BOLIVARIANA FELIX VALOIS LEAL',383,2538]
-[140710020,'UNIDAD EDUCATIVA DOCTORA LIA IMBER DE CORONIL ALBERGUE',655,2536]
-[40102001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CHORONI',105,2536]
-[110201025,'ESCUELA DE ARTES PLASTICAS MARTIN TOVAR Y TOVAR',429,2535]
-[50402001,'UNIDAD  EDUCATIVA  JOSE IGNACIO DEL PUMAR',176,2534]
-[110303001,'ESCUELA BOLIVARIANA JORNADA COMPLETA EL TURBIO',441,2533]
-[220104003,'ESCUELA BASICA PADRE LUIS ROTTMAYER',1079,2532]
-[121603001,'UNIDAD EDUCATIVA BOLIVARIANA LUIS ORLANDO MONSALVE',547,2532]
-[211102022,'UNIDAD EDUCATIVA PROFESOR MIGUEL ACOSTA SAIGNES',1035,2532]
-[131601008,'COLEGIO MATER SALVATORI',617,2531]
-[50602001,'ESCUELA BASICA AURA DE MARQUEZ',184,2529]
-[182002004,'UNIDAD EDUCATVA FELICIANO MONTENEGRO',843,2526]
-[180101007,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JUDITH VIVAS DE SUAREZ',790,2526]
-[21401010,'INSTITUTO PRIVADO JOSE GIL FORTOUL.',63,2525]
-[170904011,'TALLER MANZANARES',772,2520]
-[210403002,'ESCUELA  BOLIVARIANA CACHIRI',987,2519]
-[160301045,'PRE ESCOLAR MATILDE DE PIERLUISSI',696,2514]
-[92101004,'ESCUELA BASICA BOLIVARIANA MARIA EUGENIA TOYO',381,2513]
-[200901004,'ESCUELA BASICA ELBA ROSA SANTANA',963,2512]
-[30403010,'ESCUELA BASICA BOLIVARIANA LA MACANILLA',96,2512]
-[210510007,'ESCUELA BASICA NACIONAL  PROFESOR CONSUELO NAVA TOVAR',1001,2508]
-[130701005,'UNIDAD EDUCATIVA  JUANA TERESA HERRERA',599,2506]
-[50403001,'ESCUELA BASICA ESTADAL DANIEL NAVEA',177,2504]
-[50214001,'ESCUELA BOLIVARIANA CESAR MORA',171,2504]
-[211701001,'ESCUELA BASICA ESTADAL MAESTRA BLANCA GRANADILLO',1060,2500]
-[20904001,'GRUPO ESCOLAR CREACION EL PAO',50,2499]
-[171401002,'UNIDAD EDUCATIVA SAN FRANCISCO',786,2498]
-[190703003,'INSTITUTO DE EDUCACIÓN ESPECIAL BOLIVARIANO FRAY IGNACIO ALVAREZ',896,2497]
-[210502022,'ESCUELA BASICA NACIONAL JUAN PABLO PEREZ ALFONSO',993,2496]
-[160301059,'ESCUELA BASICA MARIA CONCEPCION PALACIOS',696,2495]
-[100502001,'ESCUELA TÉCNICA JOSE ANTONIO HURTADO ASCANIO',404,2494]
-[110202012,'ESCUELA ESTADAL GRADUADA SIMON RODRIGUEZ',430,2492]
-[110502008,'UNIDAD EDUCATIVA NACIONAL  LA PIEDAD',456,2491]
-[160301019,'CICLO COMBINADO JOSE VICENTE DE UNDA',696,2491]
-[180201002,'UNIDAD EDUCATIVA COLEGIO DIVINO NIÑO',793,2488]
-[121702001,'ESC NAC BAS FLOR DE MALDONADO',551,2488]
-[70601017,'CENTRO INTERNACIONAL EDUCACION Y DESARROLLO  MORON',264,2487]
-[210505001,'UNIDAD EDUCATIVA NACIONAL JOSE RAMON YEPEZ',996,2484]
-[130901002,'COLEGIO YALE',601,2483]
-[212003001,'UNIDAD EDUCATIVA ESTADAL LUISA CACERES DE ARISMENDI',1072,2482]
-[20601018,'ESCUELA BÁSICA  FE Y ALEGRÍA',38,2480]
-[21301002,'GRUPO ESCOLAR CUEVA DE GUANIRE',61,2478]
-[110201029,'INSTITUTO NACIONAL DE CAPACITACION Y EDUCACION SOCIALISTA',429,2477]
-[90101004,'UNIDAD EDUCATIVA HILARIA ARENAS',305,2475]
-[200401008,'ESCUELA TECNICA  ROBINSONIANA ROMULO GALLEGOS',955,2475]
-[131602006,'UNIDAD EDUCATIVA COLEGIO EL ANGEL',618,2474]
-[21702001,'COLEGIO HUMBOLT',69,2473]
-[161402002,'ESCUELA BASICA TUREN',732,2473]
-[120201015,'UNIDAD EDUCATIVA CAPAZ',492,2472]
-[130701011,'UNIDAD EDUCATIVA ESTADAL FRANCISCO DE MIRANDA',599,2472]
-[80601025,'ESCUELA BASICA  LA BLANQUERA',298,2471]
-[201001006,'ESCUELA BASICA BOLIVARIANA SAN GERONIMO',964,2470]
-[100602001,'GRUPO ESCOLAR BOLIVARIANO LUCIA ALVAREZ RIVERO',406,2469]
-[110801008,'ESCUELA UNITARIA DE SABANA REDONDA ABAJO',479,2469]
-[21702002,'INSTITUTO UNIVERSITARIO DE TECNOLOGÍA RODOLFO LOERO ARISMENDI (I.U.T.I.R.L.A.)',69,2467]
-[120301001,'ESCUELA BOLIVARIANA ESTADO BARINAS',493,2465]
-[210503017,'ESCUELA BASICA NACIONAL DR SEVERIANO RODRIGUEZ',994,2460]
-[210505011,'UNIDAD EDUCATIVA ESTADAL OCTAVIO HERNANDEZ',996,2458]
-[91601004,'ESCUELA BÁSICA BOLIVARIANA AMUAY',370,2455]
-[100802001,'ESCUELA BOLIVARIANA PUERTO MIRANDA',411,2450]
-[210502020,'UNIDAD EDUCATIVA NACIONAL PRIVADA ANTONIO ROSMINI',993,2448]
-[30601038,'UNIDAD EDUCATIVA DE DEFICIENCIAS AUDITIVAS CARLOS RAFAEL PEREZ',99,2446]
-[200401017,'UNIDAD EDUCATIVA  PADRE DELGADO',955,2443]
-[20301053,'INSTITUTO DE EDUCACION ESPECIAL BARCELONA',27,2441]
-[30601030,'ESCUELA BASICA SIMON BOLIVAR',99,2440]
-[90707002,'ESCUELA BASICA BOLIVARIANA CONSUELO NAVAS',338,2440]
-[210514009,'JARDIN DE INFANCIA NACIONAL GABRIELA MISTRAL',1005,2438]
-[210305018,'ESCUELA BASICA ARTESANAL CIRA VEGA',984,2436]
-[240102017,'UNIDAD EDUCATIVA BOLIVARIANA JOSEFA JOAQUINA SANCHEZ',1126,2436]
-[131501014,'ESCUELA BASICA BENITA RIVAS TORO',615,2435]
-[211802013,'ESCUELA BASICA NACIONAL BARRIO STHORMES',1063,2434]
-[30601012,'UNIVERSIDAD EZEQUIEL ZAMORA',99,2432]
-[10115016,'PREESCOLAR CARRUSEL',15,2431]
-[21401005,'UNIDAD EDUCATIVA MARIO BRICEÑO IRAGORRI',63,2431]
-[10113010,'UNIDAD EDUCATIVA COLEGIO LA SALLE LA COLINA',13,2430]
-[10113002,'UNIDAD EDUCATIVA PRIVADA SAN MARTIN DE PORRES',13,2428]
-[110202045,'LICEO LISANDRO ALVARADO',430,2428]
-[91702007,'ESCUELA ESTADAL EL YSIDRO',373,2427]
-[160401011,'ESCUELA BASICA PORTUGUESA',701,2425]
-[210503025,'ESCUELA BASICA NACIONAL EL BRILLANTE',994,2424]
-[210506015,'ESCUELA DE ARTES PLASTICAS NACIONAL JULIO ARRAGA',997,2422]
-[110502015,'UNIVERSIDAD YACAMBU',456,2419]
-[150601010,'UNIDAD EDUCATIVA MUNICIPAL MAESTRO GREGORIO ROMERO',682,2415]
-[130901005,'U EDUC COLEGIO MACARACUAY',601,2415]
-[130102001,'UNID EDUC JULIAN OJEDA',572,2413]
-[210803012,'UNIDAD EDUCATIVA NACIONAL LAS GUARDIAS',1021,2413]
-[60204002,'ESCUELA ESTADAL BASICA JOSE MIGUEL BIEROLD',219,2410]
-[131601020,'LICEO NACIONAL JOSE ALBERTO VELANDIA',617,2410]
-[170904020,'SALON USOS MULTIPLES FUNDACITE',772,2403]
-[200401005,'UNIDAD EDUCATIVA COLEGIO FRAY LUIS AMIGO',955,2403]
-[160301022,'CENTRO MATERNAL BLANCA R. PEREZ',696,2401]
-[121602001,'ESC BAS ESTADO ANZOATEGUI',546,2401]
-[210505006,'ESCUELA BASICA NACIONAL SIMON RODRIGUEZ',996,2401]
-[210516010,'UNIDAD EDUCATIVA ESTADAL ARMANDO REVERON',1007,2399]
-[30301017,'ESCUELA PRIMARIA GLADIS GONZALEZ',89,2398]
-[211102003,'UNIDAD EDUCATIVA MUNICIPAL VENEZUELA',1035,2397]
-[50401008,'CASA DE LA CULTURA JESUS DANIEL QUINTERO',175,2397]
-[60304016,'ESCUELA BASICA ISABEL SALOM',225,2397]
-[60604001,'UNIDAD EDUCATIVA NACIONAL FELIPE DE INCIARTE',239,2396]
-[91701009,'ESCUELA BÁSICA BOLIVARIANA MIGUEL ANGEL JORDAN',372,2396]
-[91002011,'CENTRO PRE-ESCOLAR ASISTENCIAL DIVINO NIÑO',350,2394]
-[90103001,'UNIDAD EDUCATIVA LA PASTORA',307,2393]
-[90401004,'ESCUELA BOLIVARIANA JOSEFA VICTORIANA RIERA',318,2392]
-[60106001,'ESCUELA BASICA NACIONAL TUMEREMO',211,2391]
-[50213001,'ESCUELA BASICA  RAFAEL MONTENEGRO',170,2391]
-[21301050,'CICLO BÁSICO PUERTO LA CRUZ',61,2388]
-[140707001,'ESC BAS ELSA BIONDI DE RIVERO',652,2388]
-[210509011,'UNIDAD EDUCATIVA NACIONAL  PROFESOR JOSE TRINIDAD MORILLO',1000,2385]
-[110201031,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA EGIDIO MONTESINOS',429,2382]
-[160101016,'ESCUELA BASICA GENERAL PAEZ',692,2381]
-[170902007,'U.E. FEDERAL SUCRE',770,2380]
-[180201008,'UNIDAD EDUCATIVA MUNICIPAL GRAN MARISCAL DE AYACUCHO',793,2261]
-[110201009,'UNIDAD EDUCATIVA NACIONAL MIGUEL JOSE SANZ',429,2380]
-[170101018,'ESCUELA BOLIVARIANA EL PUY PUY',733,2380]
-[120402001,'UNID EDUCTIVA JAJI',501,2380]
-[182103001,'ESCUELA BOLIVARIANA BASICA CIUDAD DE SAN CRISTOBAL',847,2376]
-[180902001,'UNIDAD EDUCATIVA LICEO BOLIVARIANO JOSEFA MOLINA DE DUQUE',818,2372]
-[160402001,'ESCUELA ESTADAL BASICA NUMERO 110',702,2372]
-[10106012,'HOSPITAL DOCTOR FRANCISCO ANTONIO RISQUEZ',6,2371]
-[110202052,'UNIDAD EDUCATIVA LARA',430,2370]
-[130301026,'CICLO BASICO COMUN JULIO ROSALES',582,2368]
-[160703003,'ESCUELA BASICA PALO ALSADO',713,2368]
-[200601013,'CENTRO DE EDUCACION INICIAL BOLIVARIANO CURAZAO I',959,2367]
-[91601003,'ESCUELA BÁSICA JOSÉ ANTONIO VELASCO',370,2364]
-[160902001,'ESCUELA NACIONAL CONCENTRADA NUMERO 189-1170-1184',722,2364]
-[180802013,'LICEO BOLIVARIANO JESUS MARIA PELLIN',813,2363]
-[90403006,'ESCUELA BÁSICA INES FUGUET DE PEÑA',320,2359]
-[91103001,'UNIDAD EDUCATIVA AGUSTIN GARCIA',358,2356]
-[190806001,'ESCUELA BOLIVARIANA FRANCISCA FERRINI VELAZCO',905,2351]
-[40401009,'ESCUELA COMPLETA NÂº 476-253',122,2351]
-[60401024,'ESCUELA NACIONAL GRADUADA LOS ROSOS',231,2350]
-[180803016,'UNIDAD EDUCATIVA BOLIVARIANA DE TALENTO DEPORTIVO TACHIRENSE',814,2348]
-[122101001,'ESC EST BAS JOSE VICENTE NUCETE',566,2347]
-[200601002,'CENTRO DE EDUCACION INCIAL URACHICHE',959,2345]
-[140710035,'UNIDAD EDUCATIVA MARIA TERESA RODRIGUEZ DEL TORO',655,2344]
-[90401014,'ESCUELA BOLIVARIANA EZEQUIEL ZAMORA',318,2341]
-[190101001,'GRUPO ESCOLAR DIEGO BUSTILLOS',856,2339]
-[70501006,'UNIDAD EDUCATIVA TAMARE',263,2339]
-[210502017,'UNIDAD EDUCATIVA NACIONAL MARIA MONTESSORI',993,2339]
-[40804002,'ESCUELA ESTADAL TEOTISTE DE GALLEGOS',136,2337]
-[130301039,'INSTITUTO UNIVERSITARIO TECNICO DE ADMINISTRACION IUTA',582,2336]
-[92003001,'ESCUELA BASICA BOLIVARIANA MARIANO PICON SALAS',380,2336]
-[10113014,'UNIDAD EDUCATIVA COLEGIO NUESTRA SE/ORA DE POMPEI',13,2335]
-[131901004,'CLUB URBANIZACION EL TREBOL',622,2331]
-[120803004,'ESCUELA BASICA CAMILO CONTRERAS',516,2330]
-[200501009,'ESCUELA BASICA NICANORA TRAVIEZO',958,2329]
-[240110004,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JUAN DE URPIN',1134,2327]
-[90401002,'ESCUELA BOLIVARIANA SIMÓN RODRÍGUEZ',318,2325]
-[211805015,'ESCUELA BASICA NACIONAL BATALLA NAVAL LAGO',1066,2321]
-[130301017,'COLEGIO ILUSTRE AMERICANO',582,2319]
-[100601025,'ESCUELA BASICA NACIONAL DOCTOR VICENTE PEÑA',405,2319]
-[91201008,'ESCUELA BASICA BOLIVARIANA FELIPITO NER 215',359,2317]
-[150101009,'UNIDAD EDUCATIVA RURAL NUMERO 30-31',670,2317]
-[210501004,'ESCUELA BASICANACIONAL ALONSO PACHECO',992,2315]
-[120805005,'GRUPO ESCOLAR ESTADO LARA',518,2310]
-[180803030,'UNIDAD EDUCATIVA COLEGIO DOCTOR. JOSE MARIA VARGAS',814,2310]
-[110202024,'LICEO BOLIVARIANO RAFAEL VILLAVICENCIO',430,2310]
-[190501001,'ESCUELA BOLIVARIANA AMÉRICO BRICEÑO VALERO',881,2306]
-[200401014,'CENTRO DE FORMACION SOCIAL  PABLO VI',955,2299]
-[210509023,'UNIDAD EDUCATIVA FE Y ALEGRIA SANTA BRIGIDA',1000,2298]
-[211803019,'ESCUELA  BASICA BOLIVARIANA  PADRE DELGADO',1064,2295]
-[140404001,'UNIDAD EDUCATIVA IDELFONSO NUÑEZ MARES',639,2289]
-[21006001,'GRUPO ESCOLAR DOCTOR PIÓ CEBALLOS',56,2289]
-[90902001,'ESCUELA BOLIVARIANA CASIGUA',347,2288]
-[181102001,'UNIDAD EDUCATIVA NACIONAL DOCTOR JOSE GREGORIO HERNANDEZ',823,2287]
-[200801004,'ESCUELA BASICA MIGUEL ANTONIO FLORES',962,2286]
-[50214003,'ESCUELA BASICA 10 DE DICIEMBRE',171,2283]
-[210516001,'CENTRO INFANTIL CARMELO URDANETA',1007,2283]
-[21301012,'ESCUELA FE Y ALEGRIA',61,2282]
-[200101005,'ESCUELA INTEGRAL BOLIVARIANA EL HACHA',949,2280]
-[190807003,'ESCUELA BOLIVARIANA MINAS DE MONAY',906,2276]
-[140901008,'GRUPO ESCOLAR MATURIN',663,2275]
-[181601009,'UNIDAD EDUCATIVA GENERAL CIPRIANO CASTRO',833,2275]
-[240104011,'ESCUELA TECNICA INDUSTRIAL ROBINSONIANA CARLOS FIOLL',1128,2274]
-[211804005,'ESCUELA BASICA NACIONAL FELIPE NERI SANDREA',1065,2273]
-[40103021,'ALDEA UNIVERSITARIA ANTONIO JOSE DE SUCRE',106,2272]
-[91301005,'ESCUELA BÁSICA BOLIVARIANA LA CAÑADA',361,2265]
-[190804001,'ESCUELA BOLIVARIANA BOLIVIA',903,2264]
-[201101012,'ESCUELA BASICA RAFAEL ANDRADE',965,2263]
-[90706002,'ESCUELA BASICA YABUQUIVA',337,2262]
-[90401009,'INSTITUTO DE PREVISIÓN Y ASISTENCIA SOCIAL DEL MINISTERIO DE EDUCACION. IPASME',318,2262]
-[70908015,'UNIDAD EDUCATIVA ESTADAL ANTONIO ALBERTO PEREZ ROMERO',282,2260]
-[211407005,'ESCUELA BASICA NACIONAL CABIMAS',1050,2259]
-[91001011,'COMPLEJO EDUCATIVO VIRGINIA GIL DE HERMOSO',349,2259]
-[20305001,'ESCUELA BOLIVARIANA DOCTOR PEDRO GARRONI NÚÑEZ',31,2258]
-[131901002,'CENTRO CIVICO MANUEL RAMOS MARCOS',622,2256]
-[131501005,'UNIDAD  EDUCATIVA ESTILITA DE ALZURU',615,2254]
-[140901005,'ESCUELA BOLIVARIANA AIDA DE LEONETT',663,2249]
-[211502006,'ESCUELA BASICA NACIONAL LAGUNILLAS',1054,2244]
-[130701010,'UNIDAD EDUCATIVA JOSE MANUEL DE LOS RIOS',599,2241]
-[90403020,'ESCUELA BASICA BOLIVARIANA ANDRES BELLO',320,2239]
-[40107004,'UNIDAD EDUCATIVA NACIONAL BASICA VALENTIN ESPINAL',110,2238]
-[10108037,'UNIDAD EDUCATIVA COLEGIO GUAICAIPURO',8,2236]
-[130902020,'ESCUELA MUNICIPAL FRANCISCO DE MIRANDA',602,2233]
-[21701005,'COLEGIO FRANCISCO LINARES ALCANTARA',68,2232]
-[50207005,'INCE CONSTRUCCION',164,2231]
-[90301004,'ESCUELA BASICA PEDRO MARIA ZAVALA G.',312,2229]
-[130306001,'UNIDAD EDUCATIVA ESTADAL EL JARILLO',587,2228]
-[140805001,'UNIDAD EDUCATIVA OLGA BETANCOURT DE PEREZ',660,2227]
-[110202062,'UNIDAD EDUCATIVA COLEGIO GENERAL JOSE TRINIDAD MORAN',430,2222]
-[211502002,'ESCUELA BASICA NACIONAL JOHN DEWEY',1054,2222]
-[170105003,'ESCUELA BOLIVARIANA LUIS FELIPE RAMÍREZ BLANCO',737,2220]
-[131101002,'INTERNADO JUDICIAL EL RODEO',608,2219]
-[160301001,'LICEO LA COMUNIDAD NUEVA',696,2218]
-[110204035,'ESCUELA BASICA NACIONAL NUEVO BARRIO',432,2216]
-[210503016,'ESCUELA BASICA NACIONAL JOSE IGNACIO NACIONAL',994,2215]
-[130901050,'COLEGIO CRUZ CARRILLO',601,2215]
-[211803003,'UNIDAD EDUCATIVA MUNICIPAL PRIVADA LUZ DEL SABER',1064,2214]
-[211101002,'ESCUELA  BOLIVARIANA PICA PICA',1034,2214]
-[10121007,'UNIDAD EDUCATIVA NACIONAL VICENTE LANDAETA',21,2212]
-[130605001,'GRUPO ESCOLAR NACIONAL PADRE SALDIVAR',598,2212]
-[50204001,'ESCUELA BOLIVARIANA ADONAY PARRA JIMENEZ',161,2211]
-[40107003,'LICEO DON ROMULO GALLEGOS',110,2209]
-[180803024,'ESCUELA BOLIVARIANA TECNICA DE COMERCIO ALBERTO ADRIANI',814,2205]
-[190505001,'ESCUELA BOLIVARIANA PADRE RASQUIN',885,2203]
-[90805001,'ESCUELA DOLORES ALVAREZ',345,2199]
-[10110121,'ESCUELA BÁSICA NACIONAL 12 DE OCTUBRE',10,2194]
-[130102002,'CONCENTRACION ESTADAL NUMERO 18 EL SOCORRO',572,2193]
-[70601019,'ESCUELA BASICA ESTADAL JULIO PEÑA',264,2191]
-[131102003,'CONCENTRACION ESTADAL NUMERO 11',609,2189]
-[101204002,'ESCUELA ESTADAL BOLIVARIANA AC-14 CHIRGUA',421,2188]
-[90901006,'ESCUELA BOLIVARIANA LOS TIGRESITOS',346,2188]
-[120403001,'UNIDAD ESCOLAR JULIO CESAR DAVILA',502,2179]
-[60901015,'ESCUELA BRISAS DE UAIREN',248,2176]
-[170601012,'ESCUELA BOLIVARIANA PARADERO',757,2176]
-[70601018,'UNIDAD EDUCATIVA CREACION PALMA SOLA',264,2171]
-[21302009,'LICEO ALIRIO ARREAZA ARREAZA',62,2169]
-[160304001,'UNIDAD EDUCATIVA NACIONAL TUCUPIDO',699,2164]
-[20301010,'GRUPO ESCOLAR ANGEL CELESTINO BELLO',27,2164]
-[50501001,'UNIDAD EDUCATIVA EL REAL',179,2164]
-[50209005,'UNIDAD EDUCATIVA RAMON REINOSO NUÑEZ',166,2161]
-[30601014,'LICEO BOLIVARIANO SAN FERNANDO',99,2161]
-[132101009,'CONCENTRACION ESTADAL SIN NUMERO ONOVA',625,2161]
-[21004001,'ESCUELA CONCENTRADA NUMERO 88-215-4',54,2159]
-[130901004,'UNIDAD EDUCATIVA INSTITUTO VENEZUELA NUEVA',601,2158]
-[210803005,'UNIDAD EDUCATIVA NACIONAL MONSEÑOR SANTIAGO PEREZ',1021,2158]
-[110202043,'ESCUELA NACIONAL INES LUCIA YEPEZ',430,2157]
-[131601030,'UNIDAD EDUCATIVA NACIONAL SOROCAIMA',617,2155]
-[100303001,'ESCUELA BOLIVARIANA FELIPE DAGER',394,2155]
-[100406001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOCTOR PEDRO MARÍA ARÉVALO',401,2152]
-[211404001,'ESCUELA BASICA NACIONAL R5',1047,2150]
-[190403001,'ESCUELA BOLIVARIANA ESTEBAN RASQUIN',879,2148]
-[40303001,'UNIDAD EDUCATIVA ESTADAL RURAL CRUZ GUEVARA',119,2146]
-[161101001,'ESCUELA BASICA CIUDAD DE SAN FELIPE',724,2146]
-[140806002,'UNIDAD EDUCATIVA MANUEL HERNANDEZ ROCA',661,2145]
-[70907014,'ESCUELA ESTADAL ANTONIO RANGEL',281,2141]
-[210514014,'LICEO NACIONAL COQUIVACOA',1005,2141]
-[210508011,'UNIDAD EDUCATIVA NACIONAL PRIVADA DR JOSE GREGORIO HERNANDEZ',999,2140]
-[20701007,'ESCUELA UNITARIA NACIONAL NUMERO 416',42,2137]
-[10122010,'COLEGIO PESTALOZZI',22,2136]
-[210503019,'UNIDAD EDUCATIVA NACIONAL FRANCISCO ESPARZA GARCIA',994,2135]
-[210407006,'ESCUELA   BOLIVARIANA JOSE LUGO RIVAS',991,2132]
-[211805018,'UNIDAD  EDUCATIVA  NACIONAL  JUAN RODRIGUEZ',1066,2132]
-[170101015,'ESCUELA BÁSICA CHACARACUAL',733,2131]
-[131602002,'UNIDAD EDUCATIVA COLEGIO  LOS ARAYANES',618,2129]
-[41801004,'ESCUELA BASICA ESTADAL JESUS IGNACIO ITURZAETA',153,2129]
-[101202001,'ESCUELA BOLIVARIANA LUISA CACERES DE ARISMENDI',419,2129]
-[10102014,'UNIDAD EDUCATIVA COLEGIO LUIS DE CAMOES',2,2124]
-[210515007,'UNIDAD EDUCATIVA FRANCISCO JOSE DELGADO',1006,2122]
-[201301004,'ESCUELA INTEGRAL BOLIVARIANA AROA',967,2117]
-[130301040,'UNIDAD EDUCATIVA EL ENCANTO',582,2116]
-[211602016,'UNIDAD EDUCATIVA MANUEL VICENTE ROMERO GARCIA',1057,2113]
-[211806003,'ESCUELA BOLIVARIANA VICTOR RAUL SOTO',1067,2112]
-[60604009,'ESCUELA ESTADAL CONCENTRADA MIXTA NUMERO 278-249-SIN NUMERO',239,2110]
-[130301013,'COLEGIO NUESTRA SEÑORA DE FATIMA',582,2108]
-[100702001,'ESCUELA BOLIVARIANA DOCTOR BENITO GUTIERREZ LOPEZ',409,2102]
-[160401010,'ESCUELA BASICA FRAY ANDRES GRAZALEMA',701,2102]
-[122004001,'ESCUELA BASICA ESTADO MONAGAS',565,2099]
-[110202017,'COLEGIO MADRE MARIA',430,2099]
-[210507012,'JARDIN DE INFANCIA NACIONAL LOMA LINDA',998,2098]
-[130104006,'UNIDAD  BASASICA  LA CARAMERA',574,2097]
-[70905004,'UNIDAD EDUCATIVA MUNICIPAL SANTA ANA',279,2093]
-[120805003,'COLEGIO N SRA DEL ROSARIO',518,2091]
-[200201017,'ESCUELA INTEGRAL BOLIVARIANA CUMARIPA',950,2090]
-[211803012,'ESCUELA BASICA ARQUIDIOCESANO DIVINO NIÑO',1064,2090]
-[150402002,'UNIDAD EDUCATIVA INSTITUTO SURAMERICANO LIBRE APRENDIZAJE (ISLA)',679,2089]
-[110616001,'ESCUELA BOLIVARIANA PARAPARA',473,2086]
-[130901049,'UNIDAD EDUCATIVA  COLEGIO  SIMON BOLIVAR Y GARIBALDI',601,2085]
-[210514019,'ESCUELA BASICA NACIONAL ZULIA',1005,2085]
-[90402022,'ESCUELA BOLIVARIANA VICTOR RAUL SOTO',319,2082]
-[170301006,'U.E. JUANITA SALINA DE GAMBOA',744,2082]
-[181402001,'ESCUELA BOLIVARIANA CONCENTRADA NUMERO 58 SAN JOAQUIN DE NAVAY',828,2076]
-[130301012,'CENTRO DE EDUCACION INICIAL NEGRA HIPOLITA',582,2075]
-[150201010,'UNIDAD EDUCATIVA ESTADAL MARIA AUXILIADORA ZABALA DE MILLAN',671,2073]
-[211403015,'ESCUELA BASICA NACIONAL DON ROMULO GALLEGOS',1046,2072]
-[70904005,'UNIDAD EDUCATIVA FELIPE NERY PULIDO',278,2067]
-[130301051,'UNIDAD EDUCATIVA ESTADAL OCUMARE DEL TUY',582,2065]
-[20502001,'GRUPO ESCOLAR SAN PABLO',37,2063]
-[70501011,'UNIDAD EDUCATIVA ESTADAL LAS MATAS',263,2062]
-[210402003,'JARDIN DE INFANCIA NACIONAL MARIA DEVIS DE FUENMAYOR',986,2059]
-[140305001,'ESCUELA BASICA RAMONA ROCCA DE LOPEZ',634,2057]
-[200101017,'CENTRO DE EDUCACION INICIAL AROA',949,2055]
-[180103002,'UNIDAD EDUCATIVA BOLIVARIANA GUSTAVO NIETO',792,2054]
-[50802002,'ESCUELA CONCENTRADA CACHICAMO LA ERIKA',192,2053]
-[211802017,'ESCUELA BASICA NACIONAL DOCTOR JUAN SABA RIVERO',1063,2053]
-[180801035,'JARDIN DE INFANCIA JOSEFINA MOLINA DE DUQUE',812,2051]
-[130902003,'INSTITUTO MARIA MICAELA',602,2050]
-[201402005,'ESCUELA INTEGRAL BOLIVARIANA BELLA VISTA',969,2048]
-[90305001,'ESCUELA PRIMARIA ALEXIS DELGADO',316,2047]
-[132101014,'ESCUELA  NACIONAL BOLIVARIANA BARTOLOME BLANDIN',625,2045]
-[61001007,'ESCUELA NACIONAL BASICA JOSE SOLANO',250,2040]
-[151001004,'UNIDAD EDUCATIVA DOCTOR CAYETANO GARCIA SALAZAR',689,2037]
-[201101018,'ESCUELA INTEGRAL BOLIVARIANA CAÑAVERAL',965,2037]
-[91001028,'MULTI HOGAR XIV NIÑO HOGAR FETRA FALCON',349,2036]
-[130901007,'UNIDAD EDUCATIVA LEONCIO MARTINEZ',601,2030]
-[110802002,'ESCUELA UNITARIA EL GUAICAL',480,2030]
-[70901004,'ESCUELA BASICA NACIONAL FERNANDO PEÑALVER',275,2029]
-[40108004,'ESCUELA TECNICA INDUSTRIAL JOAQUIN AVELLAN',111,2028]
-[21103001,'UNIDAD EDUCATIVA PIÓ CEBALLOS',59,2028]
-[100601017,'UNIDAD EDUCATIVA NACIONAL JOSE FELIX RIBAS',405,2027]
-[191603001,'ESCUELA BOLIVARIANA GRANADOS',936,2027]
-[180801012,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL JESUS OBRERO',812,2026]
-[220501001,'ESCUELA BASICA MIGUEL ANTONIO CARO',1090,2025]
-[150802001,'UNIDAD EDUCATIVA BOLIVARIANA VICTOR MANUEL SALAZAR',686,2025]
-[170205001,'ESCUELA BOLIVARIANA J.J ESCOBAR PACHECO',742,2023]
-[210503003,'CENTRO DE CULTURA VIDAL CALDERON',994,2022]
-[110206012,'ESCUELA CONCENTRADA TOROY',434,2019]
-[201201014,'ESCUELA CONCENTRADA LA PICA',966,2017]
-[170501005,'ESCUELA BOLIVARIANA RÍO GRANDE ARRIBA',752,2015]
-[10115012,'FUNDACION COMUNIDAD MADRE EMILIA',15,2012]
-[211806008,'ESCUELA BASICA ESTADAL JOBO BAJO',1067,2012]
-[110202035,'UNIDAD  NACIONAL SAN FRANCISCO JAVIER',430,2008]
-[211805008,'ESCUELA BASICA.ESTADAL GUANIPA MATOS',1066,2008]
-[91007001,'ESCUELA BOLIVARIANA YOLANDA FUGUET DE MEDINA',355,2007]
-[40104005,'ESCUELA BASICA JOSEFINA BRITO',107,1998]
-[140707015,'ESCUELA BASICA RURAL SANTA ELENA DE VIBORAL',652,1997]
-[100404001,'GRUPO ESCOLAR MACAIRA',399,1995]
-[200101007,'ESCUELA INTEGRAL BOLIVARIANA SAN JOSE',949,1995]
-[60107005,'ESCUELA MUNICIPAL LA ESPERANZA',212,1994]
-[190504001,'ESCUELA BOLIVARIANA MARIO BRICEÑO IRAGORRY',884,1992]
-[110501006,'UNIDAD EDUCATIVA COLEGIO MADRE CARMEN RENDILES',455,1992]
-[170903023,'U.E. CREACIÓN CANTARRANA',771,1992]
-[70906015,'ESCUELA BASICA NACIONAL ANTONIO HERRERA TORO',280,1991]
-[60804001,'ESCUELA BASICA SANTA BARBARA',247,1989]
-[131002006,'UNIDAD EDUCATIVA RURAL BOLIVARIANA QUEBRADA HONDA',607,1984]
-[190102002,'ESCUELA ESTADAL CONCENTRADA SAN PEDRO',857,1984]
-[10117028,'ESCUELA BASICA JOSE AGUSTIN MARQUIEGUI',17,1983]
-[90902005,'ESCUELA ESTADAL BOLIVARIANA CELSA DE AÑEZ',347,1983]
-[160801009,'ESCUELA BOLIVARIANA LAS CARAMAS NUMERO 422',717,1982]
-[200101015,'MULTIHOGAR ELOISA MASTRANGELO',949,1981]
-[211804004,'CICLO BASICO JOSE ANONIO CHAVEZ',1065,1981]
-[210510012,'UNIDAD EDUCATIVA ESTADAL DR JOSE ORTIZ RODRIGUEZ',1001,1980]
-[210402007,'UNIDAD EDUCATIVA GUAREIRA II',986,1979]
-[180303001,'ESCUELA BOLIVARIANA PERIBECA',799,1978]
-[90202001,'ESCUELA BASICA OLIMPIA LOPEZ DE MORON',310,1976]
-[10102017,'IPOSTEL',2,1976]
-[180803028,'INSTITUTO UNIVERSITARIO JUAN PABLO PEREZ ALFONZO',814,1973]
-[211404007,'ESCUELA BASICA NACIONAL LAS CUPULAS',1047,1970]
-[10106022,'CENTRO DE EDUCACION INICIAL MIS PRIMERAS LUCES',6,1967]
-[211805014,'ESCUELA BASICA.NACIONAL ABRAHAM BELLOSO',1066,1967]
-[120306001,'ESCUELA BOLIVARIANA MALDONADO LOPEZ',498,1967]
-[131301014,'UNIDAD EDUCUCATIVA LAS MINAS',612,1963]
-[190706002,'UNIDAD EDUCATIVA JOSE GREGORIO HERNANDEZ',899,1962]
-[131601036,'CASA DE TODOS Y JUSTICIA DE PAZ',617,1961]
-[170903003,'LICEO BASICO CORAZÓN DE JESÚS',771,1961]
-[210507002,'IPASME',998,1959]
-[210509021,'CENTRO DE EDUCACION INICIAL TEPICHI PALAJANA 4 AJONJOLI',1000,1954]
-[21301010,'INSTITUTO NACIONAL DE COOPERACIÓN EDUCATIVA',61,1951]
-[200801005,'ESCUELA INTEGRAL BOLIVARIANA COPA REDONDA',962,1950]
-[70908020,'ESCUELA GUIGUE',282,1946]
-[211407009,'ESCUELA BASICA CONCENTRADA FEDERACION',1050,1945]
-[130301034,'UNIDAD EDUCATIVA COLEGIO SAGRADA FAMILIA',582,1941]
-[20302011,'INTERNADO JUDICIAL BARCELONA',28,1940]
-[190404001,'UNIDAD EDUCATIVA RURAL LA MATA',880,1940]
-[110202015,'ESCUELA CONCENTRADA SANTO DOMINGO',430,1939]
-[190102001,'ESCUELA BOLIVARIANA SAMUEL DARIO MALDONADO',857,1939]
-[71301011,'UNIDAD EDUCATIVA SAN DIEGO DE ALCALA',287,1939]
-[191304001,'UNIDAD EDUCATIVA RAFAEL RANGEL',925,1938]
-[230402004,'ESCUELA GRANJA SANTA CATALINA',1121,1938]
-[200402015,'ESCUELA BASICA PABLO MENDOZA REYES',956,1937]
-[71101021,'UNIDAD BASICA RAMONA DE ROMERO',285,1937]
-[180803010,'CICLO DIVERSIFICADO ELEAZAR LOPEZ CONTRERAS',814,1936]
-[91001015,'LICEO BOLIVARIANO ESTEBAN SMITH MONSON',349,1932]
-[130901041,'UNIDAD EDUCATIVA MUNICIPAL SIMON RODRIGUEZ',601,1931]
-[200303002,'ESCUELA CONCENTRADA LAS VEGAS',954,1931]
-[210508023,'UNIDAD EDUCATIVA PRIVADA LA CHINITA',999,1930]
-[10108004,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA LUIS RAZZETTI',8,1929]
-[70907008,'UNIDAD EDUCATIVA PRIVADO ARTESANAL LA SALLE',281,1928]
-[150101005,'UNIDAD EDUCATIVA ESTADAL JUAN CANCIO RODRIGUEZ',670,1928]
-[130301016,'UNIDAD EDUCATIVA INSTITUTO PRIVADO BOYACA',582,1927]
-[30304004,'LICEO BOLIVARIANO EL NULA',92,1922]
-[160801022,'ESCUELA BASICA ESTADAL  NUMERO 409 TUREN VIEJO',717,1920]
-[210504001,'ESCUELA BASICA ESTADAL CARLOS LUIS RINCON LUBO',995,1918]
-[131602020,'UNIDAD EDUCATIVA NACIONAL JOSEFA IRAUSQUIN LOPEZ.',618,1917]
-[122302001,'CONCENTRACION ESCOLAR CA/O DE TIGRE',570,1916]
-[20903001,'ESCUELA SEBASTIAN FRANCISCO DE MIRANDA',49,1913]
-[21701006,'UNIDAD EDUCATIVA MANUEL GUAL',68,1911]
-[21301033,'ESCUELA TÉCNICA INDUSTRIAL',61,1909]
-[210514001,'UNIDAD EDUCATIVA NACIONAL GENERAL JUAN ANTONIO PAREDES',1005,1908]
-[90303001,'UNIDAD EDUCATIVA NACIONAL SAN JOSE DE SEQUE',314,1904]
-[91803006,'ESCUELA BASICA UNITARIA VILORIA',376,1903]
-[40702001,'UNIDAD EDUCATIVA NACIONAL SAN FRANCISCO DE CARA',130,1900]
-[131901012,'ESCUELA MUNICIPAL GRADUADA MARIA MAY',622,1896]
-[92402003,'ESCUELA  BOLIVARIANA MIDE',386,1892]
-[131901001,'UNIDAD EDUCATIVA COLEGIO ACADEMIA MERICI',622,1888]
-[131801018,'U E P SAN FRANCISCO DE ASIS',621,1888]
-[181602003,'LICEO NACIONAL EZEQUIEL ZAMORA',834,1888]
-[160601059,'CENTRO DE EDUCACION INICIAL VENEZUELA',707,1880]
-[21401008,'UNIDAD EDUCATIVA SAN JOSE',63,1880]
-[120805001,'ESCUELA BASICA CECILIO ACOSTA',518,1879]
-[140705006,'UNIDAD EDUC BOLIVARIANA VUELTA LARGA',650,1876]
-[60106011,'UNIVERSIDAD NACIONAL EXPERIMENTAL GUAYANA.',211,1874]
-[181702001,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA ANDRES ELOY BLANCO',836,1873]
-[220103001,'ESCUELA SANTIAGO AGUERREVERE',1078,1871]
-[70702003,'UNIDAD EDUCATIVA ESTADAL DOROTEO CENTENO',267,1866]
-[40101005,'CORPOSALUD',104,1864]
-[90601004,'ESCUELA BASICA BOLIVARIANA EL DERRAME',327,1861]
-[120602001,'UNIDAD EDUCATIVA PALMIRA',511,1860]
-[120102002,'UNIDAD EDUCATIVA FRANCISCO DE MIRANDA',486,1859]
-[131901006,'UNIDAD EDUCATIVA NACIONAL JUAN DE ESCALONA',622,1858]
-[60107007,'ESCUELA BASICA  PUERTO ORDAZ (TERCERA ETAPA)',212,1858]
-[171401004,'ESCUELA BOLIVARIANA CREACIÓN LA CHICA',786,1858]
-[170204001,'U.E. TUNAPUICITO',741,1855]
-[70906021,'UNIDAD EDUCATIVA INSTITUTO EXPERIMENTAL SIMON BOLIVAR (APUCITO)',280,1854]
-[160302001,'ESCUELA BASICA CORDOBA',697,1851]
-[150101010,'UNIDAD EDUCATIVA PROFESOR JOSE INOCENTE ALFARO',670,1846]
-[70908037,'PRE ESCOLAR MUNICIPAL BUCARAL SUR',282,1845]
-[160301036,'ESCUELA BASICA LIBERTADOR',696,1840]
-[30601029,'PREESCOLAR BOLIVARIANO AGROKINDER LOS COQUITOS',99,1836]
-[110502026,'ESCUELA BOLIVARIANA EUSTAQUIO YEPEZ',456,1836]
-[201402001,'LICEO BOLIVARIANO FRANCISCO HERRERA VEGA',969,1835]
-[91304001,'COMPLEJO EDUCATIVO HERCILIA HENRIQUEZ DE EIZAGA',364,1834]
-[210505003,'ESCUELA  BASICA  BOLIVARIANA ALONSO DE OJEDA',996,1833]
-[10113034,'OFICINA DE TELEGRAFOS (IPOSTEL) CENTRO COMERCIAL CEDIAZ',13,1832]
-[210502001,'UNIDAD GERONTOLOGICA DE MCBO',993,1831]
-[131603008,'REGISTRO CIVIL DE LA PARROQUIA LAS MINAS',619,1826]
-[211407002,'ESCUELA BASICA NACIONAL FEDERACION VENEZOLANA DE MAESTROS',1050,1821]
-[50802001,'ESCUELA ESTADAL CONCENTRADA',192,1819]
-[21005001,'GRUPO ESCOLAR ROMULO GALLEGOS',55,1818]
-[211802011,'ESCUELA TECNICA INDUSTRIAL NACIONAL ANSELMO BELLOSO',1063,1818]
-[170802001,'ESCUELA BOLIVARIANA CATUARO',765,1817]
-[20602001,'UNIDAD EDUCATIVA NACIONAL RAFAEL CABALLERO SARMIENTO',39,1815]
-[200101002,'ESCUELA .BASICA JOSE JOAQUIN VEROES',949,1814]
-[60602001,'ESCUELA ESTADAL CONCENTRADA NUMERO 1960-68-ARIPAO',237,1814]
-[131601005,'CENTRO EDUCATIVO ASOCIACION PROFESORES UNIVERSIDAD CENTRAL DE VENEZUELA  (CEAPUCV)',617,1810]
-[160101021,'CENTRO PRE ESCOLAR AÑO INTERNACIONAL DEL NIÑO',692,1810]
-[130301052,'SEDE ADMINISTRATIVA DEL COLEGIO UNIVERSITARIO DE LOS TEQUES CECILIO ACOSTA',582,1810]
-[140710024,'COLEGIO PRIVADO MARÍA AUXILIADORA',655,1807]
-[30204001,'ESCUELA PRIMARIA BOLIVARIANA FEDERICO SCHWARZEMBERG',87,1805]
-[91004007,'ESCUELA BASICA NACIONAL BOLIVARIANA. ARENALES',352,1804]
-[110502022,'ESCUELA BASICA NACIONAL LOS RASTROJOS',456,1803]
-[131301003,'COLEGIO ANTONIO ORDOEZ',612,1803]
-[50902006,'ESCUELA ESTADAL CONCENTRADA 01 02 004 NUCLEO ESCOLAR RURAL 573',196,1801]
-[50803001,'UNIDAD EDUCATIVA BOLIVARIANA  RODRIGUEZ DOMINGUEZ',193,1798]
-[10102012,'OFICINA DEL MINISTERIO DEL TRABAJO',2,1788]
-[20302021,'AUDITORIO JUAN MANUEL CAJIGAL',28,1787]
-[160303008,'ESCUELA BASICA ESTADAL SIMON BOLIVAR',698,1786]
-[211102020,'ESCUELA ELEAZAR LOPEZ CONTRERAS',1035,1784]
-[170601006,'UNIDAD EDUCATIVA LIMONAR AFUERA',757,1783]
-[190903001,'UNIDAD EDUCATIVA BICENTENARIO',909,1783]
-[60107001,'JARDIN DE INFANCIA YOCOIMA',212,1781]
-[70904015,'UNIDAD ESCOLAR SANTA MARIA DE CALATRAVA',278,1780]
-[160301020,'ESCUELA POPULAR CATOLICA FE Y ALEGRIA',696,1776]
-[120201012,'UNIDAD EDUCATIVA BOLIVARIANA HOLANDA',492,1775]
-[230305001,'ESCUELA NACIONAL NUMERO 95',1118,1774]
-[90102005,'ESCUELA BÁSICA BOLIVARIANA CAMACHIMA',306,1774]
-[160101015,'CICLO COMBINADO HILARION LOPEZ',692,1766]
-[180803005,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA REPUBLICA DEL ECUADOR',814,1764]
-[110203018,'UNIDAD EDUCATIVA COLEGIO SAN VICENTE DE PAUL',431,1764]
-[110102004,'ESCUELA BOLIVARIANA  AGUA SALADA',428,1762]
-[140705004,'COMPLEJO EDUCATIVO FANNY CENTENO',650,1762]
-[140710025,'UNIDAD EDUCATIVA PRIVADA CECILO ACOSTA',655,1761]
-[41301005,'ESCUELA BASICA NACIONAL 6 DE SEPTIEMBRE',144,1760]
-[180803011,'ESCUELA BASICA ESTADAL MARISCAL SUCRE',814,1759]
-[40107019,'INSTITUTO TECNOLOGICO CARLOS SOUBLETTE',110,1757]
-[180802008,'ESCUELA BASICA TACHIRA',813,1756]
-[160101014,'ESCUELA BASICA CIUDAD DE ARAURE',692,1753]
-[180802016,'ESCUELA BOLIVARIANA ANTONIO ROMAN SILVA',813,1752]
-[90801009,'ESCUELA BASICA LIBERTADOR SIMON BOLIVAR',341,1752]
-[121103002,'ESCUELA BOLIVARIANA MESAS DE LAS PALMAS',536,1749]
-[20101008,'BIBLIOTECA ANDRES BELLO. ATENEO DE ANACO',23,1745]
-[60304008,'JARDIN DE INFANCIA JOSEFA PASCAL',225,1744]
-[240109003,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA EL JUNKO',1133,1742]
-[131603003,'ESCUELA MUNICIPAL JERMAN UBALDO LIRA',619,1739]
-[21201027,'ESTADIO DE BEISBOL ALEJANDRO CARRASQUEL',60,1738]
-[200801007,'ESCUELA INTEGRAL BOLIVARIANA RAFAEL CALDERA',962,1733]
-[170903009,'ESCUELA BÁSICA ESTADO MONAGAS',771,1733]
-[71001005,'ESCUELA SANTO TOMAS',284,1732]
-[210506019,'UNIDAD EDUCATIVA COLEGIO NUESTRA SEÑORA DE LAS MERCEDES',997,1731]
-[170504001,'U.E. SAN ANTONIO',755,1731]
-[191802005,'UNIDAD EDUCATIVA ESTADAL CONCENTRADA NUMERO 26 TIERRA BLANCA',941,1731]
-[200901006,'ESCUELA BASICA BUENA VISTA',963,1730]
-[131601023,'UNIDAD EDUCATIVA COLEGIO LA COROMOTO',617,1728]
-[211806002,'ESCUELA  BASICA  NACIONAL SISOES FINOL',1067,1726]
-[180904002,'UNIDAD EDUCATIVA NACIONAL PROFESOR AMERICO ROA',820,1725]
-[180802014,'CASA DE LOS NIÑOS LOS PIRINEOS',813,1427]
-[40108017,'ESCUELA BASICA FEDERICO GARCIA ARIAS',111,1723]
-[190503001,'ESCUELA BOLIVARIANA EL RECREO',883,1719]
-[150601005,'UNIDAD EDUCATIVA INDEPENDENCIA',682,1715]
-[40107013,'ESCUELA BASICA PILAR PELGRON',110,1713]
-[121806003,'UNIDAD EDUC LA TRAMPA',557,1709]
-[10118010,'UNIDAD EDUCATIVA PRIVADA JUAN VICENTE BOLÍVAR',18,1709]
-[40108001,'ESCUELA BASICA CIRO MALDONADO ZERPA',111,1708]
-[130307004,'CONCENTRACION BOLIVARIANA EL CASCAJO',588,1708]
-[190305001,'UNIDAD EDUCATIVA ESTADAL AÑO INTERNACIONAL DEL NIÑO',876,1706]
-[90306001,'ESCUELA BOLIVARIANA EL GUAJIRO',317,1706]
-[121904001,'ESCUELA BASICA NACIONAL GRADUADA SAN FRANCISCO',561,1706]
-[90402009,'LICEO BOLIVARIANO RAFAEL SANCHEZ LOPEZ',319,1700]
-[130901031,'UNIDAD EDUCATIVA COLEGIO MARIA SANTISIMA',601,1698]
-[190704003,'UNIDAD EDUCATIVA RURAL JOSE FELIX RIBAS',897,1698]
-[92302001,'ESCUELA BASICA NICOLAS CURIEL COUTINHO',384,1696]
-[210511010,'UNIDAD EDUCATIVA ESTADAL JOSE FELIX RIVAS',1002,1696]
-[10120012,'UNIDAD EDUCATIVA HUMBERTO PARODI',20,1696]
-[131301008,'UNIDAD EDUCATIVA DON GUADALUPE HERNANDEZ',612,1693]
-[170903008,'UNIDAD EDUCATIVA PRIVADA SANTO ANGEL',771,1692]
-[210510001,'ESCUELA BASICA NACIONAL DR REGULO PACHANO AÑEZ',1001,1691]
-[140306001,'ESCUELA BASICA ARMANDO ZULOAGA BLANCO',635,1689]
-[180503001,'UNIDAD EDUCATIVA LA GRITA',805,1685]
-[210513021,'ESCUELA BASICA ESTADAL LICECIADO REINALDO MARTINEZ',1004,1685]
-[91801007,'ESCUELA BASICA BOLIVARIANA LA DANTA',374,1683]
-[230405004,'ESCUELA CONCENTRADA NUMERO 138',1124,1682]
-[180803021,'ESCUELA NACIONAL BOLIVARIANA MACHIRI',814,1679]
-[130801030,'ESCUELA BASICA ESTADAL LINO BRAVO',600,1679]
-[140710042,'UNIDAD EDUCATVA RAFAEL CELESTINO ARRIOJAS',655,1677]
-[60309001,'UNIDAD EDUCATIVA INTEGRAL BOLIVARIANA LA FLOR',230,1675]
-[110502024,'BIBLIOTECA PUBLICA LAS MERCEDES OTTO CIVIDANES LIRA',456,1675]
-[22002002,'ESCUELA CONCENTRADA NUMERO 1836-128',75,1673]
-[20301009,'SINDICATO VENEZOLANO DE MAESTROS DEL ESTADO ANZOATEGUI',27,1672]
-[60105003,'CICLO BASICO COMUN RAMON ISIDRO MONTES',210,1668]
-[60106006,'JARDIN DE INFANCIA ALFONZO ESCALONA',211,1667]
-[170505002,'ESCUELA BOLIVARIANA MARABAL',756,1663]
-[130301055,'UNIDAD EDUCATIVA ESTADAL RAMO VERDE',582,1662]
-[170804001,'ESCUELA BOLIVARIANA SANTA CRUZ',767,1659]
-[171301005,'U.E. JOSÉ MIGUEL HERNÁNDEZ',784,1658]
-[190801006,'ESCUELA BOLIVARIANA GUAMAS DE MONAY',900,1657]
-[80302001,'ESCUELA  ESTADAL  FRANCISCO VILLANUEVA',294,1657]
-[10113012,'UNIDAD EDUCATIVA COLEGIO SIETE ESTRELLAS',13,1654]
-[190802001,'ESCUELA BOLIVARIANA ANTONIO JOSÉ PACHECO',901,1653]
-[120601004,'UNIDAD EDUCATIVA EL QUINCE',510,1649]
-[220502001,'ESCUELA BASICA  SAN PEDRO ALEJANDRINO',1091,1649]
-[210505004,'ESCUELA  BASICA  NACIONAL BOLIVARIANA DR GUSTAVO RISQUEZ',996,1648]
-[131601016,'INSTITUTO DIDACTICO ANTONIO JOSE DE SUCRE',617,1648]
-[131602021,'INSTITUTO MADISON',618,1644]
-[180903003,'ESCUELA BOLIVARIANA NACIONAL RAIMUNDO BELANDRIA BELANDRIA',819,1643]
-[211402005,'ESCUELA BOLIVARIANA FRANCISCO DE MIRANDA',1045,1642]
-[211805037,'UNIDAD EDUCATINA NACIONAL MAGISTER. SERVANDO PEÑA',1066,1640]
-[60306006,'ESCUELA BASICA ESTADAL MANUEL CARLOS PIAR',227,1638]
-[120811004,'JARDIN DE INF ELOY PAREDES',524,1634]
-[150902005,'UNIDAD EDUCATIVA ESTADAL JESÚS RAMÓN GAMBOA',688,1633]
-[130901040,'LICEO SAN AGUSTIN',601,1633]
-[201101027,'ALDEA UNIVERSITARIA MISION SUCRE INDEPENDENCIA',965,1633]
-[91002003,'UNIDAD GERIATRICA DR JOSE D BEAUJON',350,1627]
-[201201013,'GUARDERIA INFANTIL MARIA ANGELICA LUSINCHI',966,1626]
-[161201001,'ESCUELA NACIONAL CONCENTRADA NUMERO 2882 Y ANEXA 85',726,1625]
-[40704002,'UNIDAD EDUCATIVA ESTADAL JUAN RAMOS',132,1625]
-[171004002,'ESCUELA BOLIVARIANA RIO SALADO',779,1623]
-[91002006,'ESCUELA DE EDUCACION INICIAL SAN BOSCO',350,1623]
-[70907009,'ESCUELA CARMEN NORTE',281,1621]
-[60308003,'UNIDAD EDUCATIVA BOLIVARIANA BONGO',229,1618]
-[150304001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA APOLINAR FIGUEROA CORONADO',676,1615]
-[130901010,'INSTITUTO EDUCATIVO SAN JUDAS TADEO',601,1615]
-[50301002,'ESCUELA BOLIVARIANA  LA SOLEDAD NUCLEO ESCOLAR RURAL  610',172,1613]
-[92301002,'UNIDAD EDUCATIVA ANGEL MIGUEL QUEREMEL',383,1611]
-[90709001,'ESCUELA BASICA ADAURE',340,1608]
-[20302027,'UNIDAD EDUCATIVA NACIONAL CELESTINO FARRERA',28,1607]
-[70601008,'CENTRO EDUCACION INICIAL  ESTADAL  TEODOSA BENITA FLORES',264,1604]
-[180802005,'UNIDAD EDUCATIVA PARROQUIAL COLEGIO COROMOTO',813,1600]
-[90403013,'UNIVERSIDAD NACIONAL ABIERTA U.N.A',320,1599]
-[160706005,'ESCUELA ESTADAL NUMERO 259',716,1599]
-[20802001,'ESCUELA  ESTADAL JOSÉ GREGORIO MONAGAS',45,1596]
-[160303001,'ESCUELA GRANJA OSCAR VILLANUEVA ANEXA NUMERO 390',698,1593]
-[100603001,'UNIDAD EDUCATIVA BOLIVARIANA ROGELIA MAYO TORREALBA',407,1591]
-[90302001,'ESCUELA  BOLIVARIANA JUAN A. MIQUILENA',313,1589]
-[131602014,'U EDUC COLEGIO CAURIMARE UNO',618,1585]
-[60303001,'ESCUELA BASICA NACIONAL LAS BEATRICES',224,1581]
-[210509025,'ESCUELA BASICA NACIONAL BARRIO INDIO MARA',1000,1580]
-[220401001,'GRUPO ESCOLAR ANTONIO JOSE DE SUCRE',1087,1580]
-[20301007,'UNIDAD EDUCATIVA NICOÍS ROLANDO MONTEVERDE',27,1578]
-[50102001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MARCELO RAMIREZ',155,1578]
-[180402001,'ESCUELA BOLIVARIANA URIBANTE',801,1572]
-[120804003,'UNIDAD EDUCATIVA NUESTRA SEÑORA  DE FATIMA',517,1571]
-[60106004,'ESCUELA BASICA NACIONAL GUAYANA',211,1566]
-[10113054,'ANEXO I COLEGIO SAN ANTONIO DE LA FLORIDA',13,1564]
-[180803019,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA FRANCISCO DE MIRANDA',814,1562]
-[210507019,'UNIDAD EDUCATIVA GENERAL EDUARDO PEREZ',998,1553]
-[121903001,'UNID EDUC JUAN PICON GONZALEZ',560,1551]
-[200801002,'ESCUELA INTEGRAL BOLIVARIANA PROFESORA REINA PARRA',962,1550]
-[10113020,'UNIDAD EDUCATIVA COLEGIO CASTELAO',13,1549]
-[130801026,'ESCUELA ESTADAL ANTONIO MARIA PIÑATE',600,1549]
-[20301040,'PRE ESCOLAR MENCA DE LEONI',27,1548]
-[161303001,'ESCUELA BASICA ALGARROBITO NUMERO 6',730,1547]
-[191303004,'UNIDAD EDUCATIVA MONSEÑOR ARIAS BLANCO',924,1541]
-[130304003,'CONCENTRACION RURAL BOLIVARIANA GARABATO',585,1538]
-[90708001,'ESCUELA BASICA BOLIVARIANA BATALLA DE JUNIN',339,1537]
-[161102010,'ESCUELA ESTADAL CONCENTRADA NUMERO 30',725,1534]
-[60101012,'ESCUELA NACIONAL BASICA JOSE TOMAS MACHADO',206,1530]
-[20301003,'UNIDAD EDUCATIVA PEDRO CENTENO VALLENILLA CRISTO DE JOSE',27,1530]
-[10113026,'UNIDAD EDUCATIVA COLEGIO LA INMACULADA CONCEPCION',13,1428]
-[131601032,'ASOCIACION DESARROLLO INTEGRAL COMUNITARIO',617,1526]
-[60101011,'UNIDAD EDUCATIVA NACIONAL JOSE GABRIEL MACHADO',206,1524]
-[210511004,'UNIDAD EDUCATIVA AGUSTIN AVELEDO TOVAR',1002,1522]
-[120805004,'ESCUELA  BASICA ZUMBA',518,1521]
-[121002001,'UNIDAD EDUCATIVA EMILIO MALDONADO',531,1517]
-[191502001,'UNIDAD EDUCATIVA EL ARAGUANEY',931,1516]
-[180802011,'GERIATRICO PADRE LIZARDO',813,1515]
-[170206001,'U.E. MIGUEL SÁNCHEZ PESQUERA',743,1514]
-[50401007,'ESCUELA BASICA NACIONAL CONCENTRADA EL CAMBUR',175,1513]
-[180502002,'GRUPO ESCOLAR ALBERTO ADRIANI',804,1512]
-[10113036,'UNIDAD EDUCATIVA NACIONAL PADRE SOJO',13,1512]
-[120307001,'UNIDAD EDUCATIVA BOLIVARIANA ESTADO COJEDES',499,1509]
-[171401009,'UNIDAD EDUCATIVA BOLIVARIANA ROBERTO MARTÍNEZ CENTENO',786,1504]
-[190101002,'ESCUELA BOLIVARIANA LA CANTARRANA',856,1502]
-[90203003,'UNIDAD EDUCATIVA LA PEÑA',311,1501]
-[120103002,'LICEO ESTADAL ANEXO CLAUDIO CORREDOR MULLER',487,1500]
-[110501017,'ESCUELA BOLIVARIANA JOSE APARICIO SALCEDO',455,1497]
-[201301011,'ESCUELA BASICA MONSEÑOR BALDOMERO CILLERO',967,1496]
-[121001007,'UNID EDUC LA JOYA',530,1490]
-[150901012,'UNIDAD EDUCATIVA BOLIVARIANA MAESTRA TRINA GUERRA DE GUERRA',687,1488]
-[220301001,'GRUPO ESCOLAR MARIO BRICE/O IRAGORRI',1084,1480]
-[60902001,'ESCUELA NACIONAL CONCENTRADA SIN  NUMERO 172',249,1474]
-[210513030,'PREESCOLAR SAN ISIDRO',1004,1471]
-[190805001,'UNIDAD EDUCATIVA DR AMILCAR FONSECA',904,1466]
-[120807008,'ESCUELA  BASICA GONZALO PICON FEBRES',520,1461]
-[201101021,'OFICINA DE TRANSPORTE BOLIVARIANO',965,1460]
-[210508004,'PREESCOLAR ESTADAL NAPUSHI TALATSI',999,1460]
-[140710040,'ESCUELA BASICA BOLIVARIANA LOS COROCITOS',655,1449]
-[130801052,'PRE-ESCOLAR TERRAZAS DEL ESTE',600,1447]
-[122002001,'ESCUELA BASICA PALMARITO',563,1440]
-[170503001,'U.E. ANDRÉS ELOY BLANCO',754,1440]
-[130301046,'UNIDAD EDUCATIVA NACIONAL PRESBITERO MANUEL CAÑIZALES',582,1434]
-[211802018,'JARD DE INFANCIA DOÑA JULIA RODRIGUEZ DE PEREZ',1063,1430]
-[170203001,'U.E. VALDIVIESO MONTAÑO',740,1426]
-[131601033,'ESCUELA  MUNICIPAL MONSEÑOR LUCAS GUILLERMO CASTILLO',617,1424]
-[10113013,'UNIDAD EDUCATIVA STELLA MATUTINA',13,1422]
-[170901035,'CENTRO DE EDUCACION INICIAL CUMANAGOTO',769,1414]
-[160301010,'JARDIN DE INFANCIA',696,1413]
-[110408001,'ESCUELA BOLIVARIANA JACINTO LARA',454,1408]
-[201402003,'ESCUELA BASICA GENERAL CRUZ CARRILLO',969,1404]
-[160705002,'ESCUELA CONCENTRADA MIXTA NUMERO 217-105-2174',715,1403]
-[160101033,'COLEGIO GRAN MARISCAL DE AYACUCHO',692,1398]
-[92002001,'ESCUELA BOLIVARIANA ESTADAL AGUA LINDA',379,1395]
-[210509016,'UNIDAD EDUCATIVA ESTADAL BALMIRO LEON',1000,1393]
-[91303002,'GRUPO ESCOLAR DOMINGO C COUTINHO',363,1387]
-[100803001,'ESCUELA BOLIVARIANA UVERITO',412,1386]
-[80502001,'CONCENTRACION ESCOLAR EL AMPARO',297,1383]
-[10113021,'INSTITUTO PROGRESO',13,1383]
-[101002001,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA DC-7 SANTA RITA',415,1380]
-[10113025,'UNIDAD EDUCATIVA COLEGIO RAMOS',13,1380]
-[120303003,'UNIDAD EDUCATIVA BOLIVARIANA CHACANTA',495,1378]
-[150702005,'UNIDAD EDUCATIVA ESTADAL DOCTOR JOSE MARIA VARGAS',684,1377]
-[60108023,'ESCUELA BASICA ESTADAL CAURA',213,1376]
-[191102001,'ESCUELA BOLIVARIANA EL BAÑO',916,1373]
-[20202001,'ESCUELA NACIONAL CONCENTRADA NUMERO 629-630-668-2168',26,1371]
-[201101003,'CENTRO DE EDUCACION INICIAL  CONVENCIONAL DOCTOR RUBEN VILLALBA',965,1368]
-[110617001,'ESCUELA BOLIVARIANA ALTAGRACIA',474,1364]
-[230306004,'GRUPO ESCOLAR ISLA DE GUASINA',1119,1364]
-[91502001,'ESCUELA BASICA MANUEL MOLINA HERNANDEZ',368,1363]
-[60307003,'ESCUELA INTEGRAL BOLIVARIANA MAYAGUA',228,1363]
-[160305002,'ESCUELA ESTADAL CONCENTRADA NUMERO 208',700,1362]
-[120814001,'GPO ESC JUAN DE DIOS DAVILA',527,1362]
-[131602019,'UNIDAD EDUCATIVA NACIONAL FRANCISCO ESPEJO',618,1361]
-[110502001,'CASA COMUNAL LA HACIENDA',456,1361]
-[40403001,'ESCUELA NACIONAL CONCENTRADA NÂº 227-3020',124,1354]
-[170302003,'UNIDAD EDUCATIVA ESTADAL EUSTOQUIA LUIGGI',745,1352]
-[90502003,'ESCUELA PRIMARIA BOLIVARIANA EL PASO DE ACURIGUA',323,1350]
-[70905007,'ESCUELA BASICA ESTADAL MARIA GORETTI',279,1341]
-[180204002,'UNIDAD EDUCATIVA BOLIVARIANA MAESTRO LUIS BELTRAN PIETRO FIGUEROA',796,1341]
-[51201003,'ESCUELA BASICA CONCENTRADA FUNDO BRAVO',203,1340]
-[160501011,'ESCUELA NACIONAL GRADUADA OSPINO',704,1339]
-[10113031,'UNIDAD EDUCATIVA PRIVADA NUESTRA SEÑORA DE LAS MERCEDES',13,1338]
-[130902013,'COLEGIO ELENA DE BUENO',602,1335]
-[170903021,'U.E. CANDIDO RAMÍREZ',771,1331]
-[131602018,'ESCUELA BASICA NACIONAL BOLIVARIANA EUTIMIO RIVAS',618,1326]
-[71201014,'ESCUELA BASICA GUERE',286,1326]
-[10113042,'ESCUELA BASICA SIMON RODRIGUEZ',13,1321]
-[50601017,'ESCUELA ESTADAL CONCENTRADA  MATARRALA  NÂº 592',183,1317]
-[220103004,'CENTRO MOVIL PROVINCIAL',1078,1316]
-[110201013,'UNIDAD EDUCATIVA ALIRIO UGARTE PELAYO',429,1315]
-[90903002,'ESCUELA ESTADAL CORRALITO',348,1313]
-[220201002,'ESCUELA JUNIN',1080,1310]
-[70103004,'ESCUELA ESTATAL TORCUATO MANZO NUÑEZ',254,1308]
-[160201013,'INSTITUTO COMERCIAL PADRE ESTELLER',694,1302]
-[200302007,'ESCUELA INTEGRAL BOLIVARIANA MURACHI',953,1299]
-[131402001,'UNIDAD EDUCATIVA COTO PAÚL',614,1298]
-[60502001,'ESCUELA CONCENTRADA RURAL 281-314-1282',235,1297]
-[10113003,'PREESCOLAR CENAIN III',13,1295]
-[200501004,'ESCUELA INTEGRAL BOLIVARIANA CONCEPCION DE CARVAJAL',958,1291]
-[130301054,'UNIDAD EDUCATIVA ANDRES ELOY BLANCO',582,1291]
-[121605001,'UNIDAD EDUCATIVA LA TOMA',549,1289]
-[120702001,'UNIDAD EDUCATIVA SAN CRISTOBAL',513,1282]
-[170703005,'ESCUELA BOLIVARIANA LAS LAGUNAAS',760,1281]
-[60301026,'CICLO BASICO COMUN TOMAS DE HERES',222,1272]
-[130502001,'CONCENTRACION ESCOLAR SIN NUMERO GUAYAMURAL',592,1272]
-[50209007,'ESCUELA INTERNADO JUDICIAL CONCENTRADA  21',166,1271]
-[10113040,'AMBULATORIO DOCTOR PASTOR OROPEZA',13,1269]
-[130801029,'ESCUELA ESTADAL NERY RANGEL DE LOPEZ',600,1269]
-[180401020,'UNIDAD EDUCATIVA COLEGIO VIRGEN DEL VALLE',800,1266]
-[91005001,'LICEO BOLIVARIANO MITARE',353,1253]
-[60203001,'ESCUELA CONCENTRADA NACIONAL NUMERO 260-3242 SIN NUMERO',218,1245]
-[171202001,'ESCUELA BOLIVARIANA GUAYANA',783,1019]
-[160501019,'UNIDAD EDUCATIVA GABRIEL PEREZ DE PAGOLA',704,1241]
-[90504001,'ESCUELA PRIMARIA BOLIVARIANA MARÍA ANASTASIA PERÓN',325,1238]
-[210506008,'ESCUELA BASICANACIONAL ANSELMA PULGAR',997,1238]
-[120304001,'ESC BAS EL MOLINO',496,1238]
-[131002009,'CASA DE LA CULTURA',607,1234]
-[30203001,'ESCUELA PRIMARIA JESUS MARIA HERRERA',86,1233]
-[10113016,'CENTRO MUNICIPAL DE ATENCION INTEGRAL (CEMAI) EL RECREO',13,1232]
-[131801001,'COLEGIO UNIVERSITARIO  MONSEÑOR DE TALAVERA',621,1230]
-[131701017,'UNIDAD EDUCATIVA COLEGIO VALLE ALTO',620,1229]
-[130104012,'CASA DE LOS ABUELOS FELIX EDMUNDO RONDON',574,1225]
-[50804003,'ESCUELA UNITARIA NUMERO 160',194,1222]
-[130902014,'COLEGIO RODRIGUEZ PAZ',602,1219]
-[200101021,'ESCUELA INTEGRAL BOLIVARIANA LOS ROSALES',949,1203]
-[121004001,'UNIDAD EDUCATIVA BOLIVARIANA LA VENTA',533,1199]
-[161102008,'ESCUELA BASICA DOCTOR RAFAEL QUINTERO SERRA',725,1191]
-[180604001,'UNIDAD EDUCATIVA DESIDERIO BOADA',809,1190]
-[211404010,'UNIDAD EDUCATIVA SANTA MARTA',1047,1186]
-[191404001,'UNIDAD EDUCATIVA EL PARAISO',929,1186]
-[200101010,'ESCUELA INTEGRAL BOLIVARIANA TIERRA FRIA',949,1171]
-[110101007,'ESCUELA BOLIVARIANA QUEBRADA DE ORO',427,1171]
-[120403002,'ESCUELA ESTADAL LAS GONZALEZ',502,1170]
-[40402001,'ESCUELA BASICA VALLE MORIN',123,1168]
-[211408003,'JARDIN DE INFANCIA LOS MEDANOS',1051,1163]
-[210512011,'ESCUELA BASICA IDELFONZO VASQUEZ',1003,1156]
-[190212001,'ESCUELA BOLIVARIANA VEGA DE GUARAMACAL',871,1150]
-[10110173,'CENTRO DE EDUCACIÓN INICIAL PRIVADO LLUVIA DE GRACIA',10,1147]
-[70602002,'ESCUELA BOLIVARIANA MANUEL MANRIQUE',265,1145]
-[50211016,'LICEO NACIONAL BOLIVARIANO LAS COLINAS DEL LLANO',168,1145]
-[201001009,'ESCUELA INTEGRAL BOLIVARIANA LAS FLORES',964,1143]
-[20302044,'UNIDAD EDUCATIVA RIO NEVERI',28,1141]
-[230302001,'GRUPO ESCOLAR DIVINA PASTORA',1115,1140]
-[120803007,'UNIDAD EDUCATIVA COLEGIO SAGRADA FAMILIA',516,1133]
-[21002001,'ESCUELA ESTADAL CONCENTRADA NUMERO 81-82-189',52,1131]
-[130905010,'ESCUELA MUNICIPAL PAZ CASTILLO',605,1131]
-[150901011,'UNIDAD EDUCATIVA ESTADAL JUAN RAMÓN AGUILERA',687,1122]
-[151102009,'CENTRO PENITENCIARIO REGIÓN INSULAR',691,1119]
-[100202001,'ESCUELA TECNICA AGROPECUARIA SOSA',391,1117]
-[190211002,'ESCUELA BOLIVARIANA CUCHILLA DE GUARAMACAL',870,1114]
-[90802003,'ESCUELA BASICA CIRO JOSE MALDONADO',342,1111]
-[171002001,'ESCUELA BOLIVARIANA MACURO',777,1109]
-[110607001,'ESCUELA BOLIVARIANA ROSENDO PERDOMO',464,1105]
-[171401005,'U.E. PETARE',786,1104]
-[40204001,'UNIDAD EDUCATIVA ESTADAL JOSE CASANOVA GODOY',115,1104]
-[220701001,'ESCUELA LA ESMERALDA',1099,1103]
-[131901013,'CONCENTRACION NACIONAL TURGUA',622,1101]
-[130901033,'UNIDAD EDUCATIVA PREESCOLAR AMALIVAC',601,1087]
-[110203016,'UNIDAD EDUCATIVA COLEGIO LISANDRO ALVARADO',431,1083]
-[190902001,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR ROJAS CHAPARRO',908,1083]
-[110202001,'ESCUELA EL ROBLE',430,1072]
-[211802007,'UNIDAD EDUCATIVA NACIONAL PRIVADA JOSE PIO TAMAYO',1063,1072]
-[180203002,'UNIDAD EDUCATIVA LA MULERA',795,1068]
-[50401011,'ESCUELA BOLIVARIANA EL YAURE',175,1067]
-[110305002,'ESCUELA BOLIVARIANA RAFAEL RAMÓN SUÁREZ',443,1063]
-[80602001,'ESCUELA CONCENTRADA ESCOLAR LA SIERRA',299,1062]
-[201001014,'LICEO BOLIVARIANO SANTA MARIA',964,1061]
-[190505002,'ESCUELA BOLIVARIANA TOBÍAS VALERA MARTÍNEZ',885,1058]
-[210513025,'ESCUELA BASICA NACIONAL RURAL LAS MERCEDES',1004,1057]
-[90605001,'ESCUELA BASICA BOLIVARIANA PURURECHE',331,1057]
-[100302001,'ESCUELA NACIONAL CONCENTRADA NUMERO 178-1778 EL CALVARIO',393,1050]
-[130901060,'UNIDAD EDUCATIVA NINO JESUS DE ESCUQUE',601,1050]
-[110610001,'GRUPO ESCOLAR FRANCISCO SUAREZ',467,1047]
-[200302006,'ESCUELA INTEGRAL BOLIVARIANA ARAGUATA',953,1042]
-[121003001,'UNIDAD EDUCATIVA BOLIVARIANA DR IGNACIO FERNANDEZ PENA',532,1042]
-[190704007,'ESCUELA CONCENTRADA SAN PABLO',897,1035]
-[210513034,'EBB LUIS HOMEZ',1004,1028]
-[191304003,'ESCUELA CONCENTRADA EL TURAGUAL',925,1025]
-[90404008,'ESCUELA BOLIVARIANA MAITIRUMA',321,1020]
-[121604001,'UNIDAD EDUCATIVA CACUTE',548,1013]
-[150802002,'UNIDAD EDUCATIVA ESTADAL FELIPA NERI DE NARVÁEZ',686,1009]
-[180805001,'ESCUELA ESTADAL CONCENTRADA  61',816,1009]
-[190701020,'UNIDAD EDUCATIVA BOLIVARIANA PRE-VOCACIONAL AGUA CLARA',894,1009]
-[10113018,'UNIDAD EDUCATIVA COLEGIO HUMBOLDT',13,1006]
-[91302001,'ESCUELA BASICA ALBERTO RAVELL',362,998]
-[161401006,'UNIDAD EDUCATIVA NACIONAL EL PLAYON',731,996]
-[130604001,'CONCENTRACION NACIONAL NUMERO 24',597,992]
-[190701017,'UNIDAD EDUCATIVA SAN JOSÉ',894,987]
-[191703001,'ESCUELA ESTADAL CONCENTRADA NÚMERO 642',939,980]
-[140603001,'GRUPO ESCOLAR YARUA',644,979]
-[60205001,'ESCUELA CONCENTRADA MIXTA LA SALVACION',220,978]
-[91305001,'ESCUELA ESTADAL ZAZÁRIDA',365,977]
-[190605002,'ESCUELA ESTADAL CONCENTRADA SIN NÚMERO VEGA ARRIBA',892,972]
-[151102007,'UNIDAD EDUCATIVA SANTIAGO MARIÑO',691,959]
-[131501007,'CONCENTRACION ESCOLAR SIN NUMERO CAMBAMBE',615,958]
-[40102002,'ESCUELA BASICA OSCAR ENRIQUE ORTEGA PALMA',105,951]
-[201101023,'ESCUELA INTEGRAL BOLIVARIANA EZEQUIEL ZAMORA',965,948]
-[21902001,'ESCUELA OFICIAL UNITARIA NUCLEO EDUCACION RURAL 144',73,948]
-[90802001,'UNIDAD EDUCATIVA RAFAELA P. DE SIERRA',342,948]
-[160101055,'ESCUELA ESTADAL CONCENTRADA NUMERO 160',692,935]
-[200302001,'ESCUELA INTEGRAL BOLIVARIANA MADERA',953,931]
-[21802001,'ESCUELA CONCENTRADA MIXTA NUMERO 229-1256-SIN NUMERO SANTA BARBARA',71,928]
-[191003001,'UNIDAD EDUCATIVA EL HORCÓN',914,921]
-[70703003,'UNIDAD EDUCATIVA MIQUIJA',268,918]
-[40404001,'ESCUELA CONCENTRADA NÂº 88-383-387-467-537',125,914]
-[132102001,'ESCUELA INTEGRAL BOLIVARIANA PEDRO GUAL',626,911]
-[141002002,'ESCUELA UNITARIA NUMERO 320-419 VARADERO DE LIMONES',666,901]
-[210513027,'ESCUELA BASICA NACIONAL CARDENAL JOSE ALI LEBRUN',1004,901]
-[120404001,'UNIDAD EDUCATIVA BOLIVARIANA SAN JOSE',503,900]
-[161302001,'ESCUELA CONCENTRADA SANTA FE',729,900]
-[132101007,'ESCUELA GOLFO RICO',625,899]
-[200801006,'ESCUELA INTEGRAL BOLIVARIANA LA BLANQUERA',962,896]
-[200301035,'ESCUELA RURAL NUARITO',952,890]
-[201001008,'ESCUELA BASICA GUAYUREBO NUCLEO ESCOLAR RURAL',964,888]
-[211806012,'UNIDAD EDUCATIVA ESTADAL RURAL BATALLA DE CARABOBO',1067,881]
-[120502001,'UNIDAD EDUCATIVA BOLIVARIANA LIGIA ESPERANZA MOLINA',508,879]
-[71001006,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA ANTONIA PEREZ DE FEATHERTON',284,869]
-[132001005,'GRUPO ESCOLAR SAN JUAN',623,868]
-[190803001,'ESCUELA BOLIVARIANA ROBERTO GABALDON IRRAGORRY',902,856]
-[50301001,'ESCUELA BOLIVARIANA ALFREDO ARVELO',172,840]
-[122202001,'ESC CONC NAC MIXTA',568,839]
-[130901114,'MINI DEPORTIVO CAMELIA DE REGGETTI',601,836]
-[220102012,'UNIDAD EDUCATIVA BOLIVARIANA LA INDEPENDENCIA',1077,832]
-[60701008,'UNIDAD EDUCATIVA BOLIVARIANA DOCTOR  JOSE MIGUEL NUÑEZ',241,830]
-[90604001,'ESCUELA RURAL EXPERIMENTAL BASICA PIEDRA GRANDE',330,830]
-[90603002,'ESCUELA BASICA ESTADAL LA CAMPANA',329,827]
-[22102001,'ESCUELA CONCENTRADA NUMERO 2069',77,824]
-[201401006,'ESCUELA INTEGRAL BOLIVARIANA LA HOYA',968,821]
-[10122035,'RETEN LA PLANTA',22,819]
-[200601015,'ESCUELA INTEGRAL BOLIVARIANA EL PICURE',959,815]
-[150702004,'UNIDAD EDUCATIVA ESTADAL FRANCISCO ROJAS GAMBOA',684,815]
-[101302002,'ESCUELA ESTADAL FC-45 ALTAMIRA',423,814]
-[120808001,'ESCUELA MUNICIPAL NRO 7',521,812]
-[130307003,'ESCUELA NACIONAL UNITARIA NO 2443',588,811]
-[190705003,'UNIDAD EDUCATIVA ADOLFO NAVAS CORONADO',898,807]
-[200301028,'ESCUELA RURAL SANTA ANA O LA JOSEFINA',952,799]
-[131801028,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL SAGRADO CORAZON DE JESUS',621,783]
-[190605001,'ESCUELA ESTADAL CONCENTRADA VEGA DE CABIMBÚ',892,778]
-[131202001,'CONCETRACION ESCOLAR RURAL SABANETA',611,774]
-[71401007,'CARCEL DE TOCUYITO',288,768]
-[191902001,'ESCUELA NACIONAL BOLIVARIANA LA CEIBA NER 388',943,759]
-[190705002,'ESCUELA ESTADAL CONCENTRADA CARMEN DELIA ARTIGAS DE VILORIA',898,750]
-[60603001,'ESCUELA CONCENTRADA MIXTA 183-184-229-340 LAS MAJADAS',238,746]
-[180603002,'UNIDAD EDUCATIVA CONCENTRADA 240 LA ALQUITRANA NER 08',808,733]
-[200302012,'ESCUELA INTEGRAL BOLIVARIANA CORUMBO',953,727]
-[160202011,'ESCUELA BASICA PAUJICITO',695,725]
-[90104001,'ESCUELA BASICA SAN LORENZO',308,724]
-[230104013,'CENTRO DE EDUCACION INICIAL ROMULO GALLEGOS',1107,724]
-[90803004,'ESCUELA ESTADAL GUARABAL',343,704]
-[190501007,'ESCUELA ESTADAL CONCENTRADA DOÑA ESTEFANÍA MORÓN DE RUMBOS',881,700]
-[160901017,'ESCUELA BASICA CONCENTRADA NUMERO 287 EL PUENTE',721,699]
-[210509001,'ESCUELA BASICA BOLIVARIANA ANCON BAJO',1000,692]
-[190301004,'ESCUELA NACIONAL GRADUADA LA PLAYA',872,687]
-[211404012,'UNIDAD EDUCATIVA JESUS SEMPRUN',1047,684]
-[21602001,'UNIDAD EDUCATIVA ESTADAL SAN FRANSISCO DE ASIS',67,676]
-[60501013,'ESCUELA UNITARIA MIXTA NUMERO 152',234,676]
-[120305001,'ESCUELA BASICA NO 234',497,674]
-[160801019,'ESCUELA BOLIVARIANA EL JOBAL',717,669]
-[120401001,'ESCUELA NACIONAL ACEQUIAS',500,662]
-[201301007,'ESCUELA INTEGRAL BOLIVARIANA CARRETERA 14',967,651]
-[170903025,'ESCUELA BOLIVARIANA RANCHERÍA',771,640]
-[190402004,'ESCUELA CONCENTRADA RETOÑITOS EL PENCIL',878,638]
-[201101016,'INTERNADO JUDICIAL',965,633]
-[100403002,'CONCENTRACION ESCOLAR G-42 SAMANITO',398,616]
-[90503001,'ESCUELA BÁSICA BOLIVARIANA GUAIBACOA',324,604]
-[70103002,'UNIDAD EDUCATIVA CARIAPRIMA',254,600]
-[120815001,'ESCUELA ESTADAL NO 152',528,592]
-[190905001,'ESCUELA ESTADAL CONCENTRADA NUMERO  9 SIN NUMERO',911,571]
-[120302001,'UNIDAD EDUCATIVA BOLIVARIANA LAS TIENDAS',494,567]
-[10121013,'COLEGIO PARROQUIAL SAN BERNARDINO',21,561]
-[190602005,'ESCUELA ESTADAL CONCENTRADA LLANO DE JARILLO',889,541]
-[191302003,'ESCUELA CONCENTRADA NACIONAL LA HOYADA',923,534]
-[180603001,'UNIDAD EDUCATIVA TORBES RIO CHIQUITO',808,525]
-[130301066,'UNIDAD EDUCATIVA INSTITUTO VICTEGUI',582,524]
-[170903018,'INTERNADO JUDICIAL DE CUMANA',771,504]
-[210513032,'UNIDAD EDUCATIVA LIC. JACOBO OCTAVIO MONTERO',1004,491]
-[201402016,'CENTRO DE EDUCACION INICIAL   LA GRUTA NER 036',969,489]
-[210513033,'UE PRIVADA FAVIO MOLERO ESPINOZA',1004,486]
-[50603003,'ESCUELA ESTADAL CONCENTRADA  SALOME NÂº 592',185,477]
-[51103003,'ESCUELA BASICA ESTADAL CONCENTRADA  POZO VERDE NUCLEO ESCOLAR RURAL NUMERO 015',202,468]
-[210513036,'DR. JOSE IGNACIO BALDO SOULES',1004,450]
-[210513035,'UE ROMULO BETANCOURT',1004,441]
-[190502006,'COLEGIO NUESTRA SEÑORA DE COROMOTO',882,433]
-[170302008,'INTERNADO JUDICIAL DE CARUPANO',745,429]
-[191702001,'ESCUELA ESTADAL LOS CAPRICHOS',938,427]
-[210512010,'ESC BAS BOLIVARIANA COSME GONZALEZ',1003,421]
-[210513042,'PREESCOLAR MI MUNDO INFANTIL',1004,385]
-[130902018,'UNIDAD EDUCATIVA EXPERIMENTAL NACIONAL LUIS BELTRAN PRIETO FIGUEROA',602,377]
-[160301043,'INTERNADO JUDICIAL',696,356]
-[110613001,'ESCUELA UNITARIA LOMA SECA',470,321]
-[90602001,'ESCUELA BASICA AGUA CLARA',328,286]
-[131101043,'C.E.I.N.  VICTORIA MACHADO DE PLAZA',608,261]
-[100601016,'PENITENCIARIA GENERAL DE VENEZUELA',405,217]
-[100601029,'INTERNADO JUDICIAL LOS PINOS',405,209]
-[130301068,'UNIDAD EDUCATIVA SAGRADO CORAZON DE JESUS II',582,176]
-[230104014,'MODULO NEGRO PRIMERO',1107,166]
-[90801013,'ESCUELA NACIONAL CONCENTRADA LA TUNITA',341,38]
+  [40104013,'GRUPO ESCOLAR JESUS HERNANDEZ PRADO',107,6248],
+  [40302001,'LICEO BOLIVARIANO ZUATA',118,16938],
+  [40803002,'UNIDAD EDUCATIVA NACIONAL TACASURUMA',135,13070],
+  [50211013,'ESCUELA BASICA MI JARDIN III',168,3459],
+  [70904011,'ESCUELA BASICA ESTADAL BELLA VISTA II',278,5267],
+  [91602002,'ESCUELA BÁSICA BOLIVARIANA RÓMULO GALLEGOS',371,9066],
+  [92001004,'ESCUELA BOLIVARIANA PUEBLO NUEVO',378,4332],
+  [110201044,'HOGAR CACHORRITOS 11 Y 12 EL JEBE',429,2868],
+  [130401007,'GRUPO ESCOLAR EZEQUIEL ZAMORA',589,7656],
+  [150601014,'UNIDAD EDUCATIVA BOLIVARIANA MANEIRO',682,3589],
+  [170904013,'U.E. NUEVA TOLEDO',772,5353],
+  [180301004,'UNIDAD EDUCATIVA ESTADAL PADRE CONTRERAS',797,9691],
+  [180804001,'EDIFICIO NACIONAL',815,7042],
+  [210509008,'COLEGIO SANTA MARIANA DE JESUS',1000,6725],
+  [210515002,'ESCUELA BASICA NACIONAL LUIS GUILLERMO SANCHEZ',1006,7578],
+  [210605007,'ESCUELA BASICA ESTADAL JOSE ANTONIO CHAVEZ',1014,17521],
+  [21601007,'COMPLEJO EDUCACIONAL FRANCISCO FAJARDO',66,12064],
+  [212101001,'UNIDAD EDUCATIVA LUIS BELTRAN PRIETO FIGUEROA',1073,10048],
+  [130901096,'ESCUELA ESTADAL GRADUADA CONSUELO NAVAS TOVAR',601,28767],
+  [100301016,'GRUPO ESCOLAR RAMON FRANCISCO FEO',392,24597],
+  [100401003,'ESCUELA BASICA ABELARDO MENDEZ',396,23850],
+  [130901012,'COLEGIO JOSE DE JESUS AROCHA',601,21568],
+  [210404001,'ESCUELA BASICA ESTADAL SIXTO D` VICENTE',988,21522],
+  [240104001,'UNIDAD EDUCATIVA ESTADAL EMILIO GIMON STERLING',1128,19930],
+  [100701002,'LICEO EDUARDO DELFIN MENDEZ',408,19084],
+  [210701001,'GRUPO ESCOLAR NACIONAL GUAJIRA',1015,18345],
+  [140710030,'LICEO NACIONAL FRANCISCO ISNARDI',655,17837],
+  [100101015,'GRUPO ESCOLAR RAFAEL GONZALEZ UDIS',388,17817],
+  [130402011,'UNIDAD EDUCATIVA NACIONAL GUILLERMO COVA',590,17766],
+  [40304001,'ESCUELA BASICA LUIS AUGUSTO MACHADO',120,17553],
+  [181101003,'LICEO PEDRO ANTONIO RIO REINA',822,17526],
+  [140706020,'ESCUELA PRIMARIA NACIONAL  MIGUEL EDUARDO TURMERO',651,17279],
+  [130901074,'ESCUELA GRAN MARISCAL DE AYACUCHO',601,17254],
+  [100301009,'ESCUELA BASICA CELINA ACOSTA DE VIANA',392,17082],
+  [40105008,'ESCUELA BASICA LETICIA MUDARRA DE LOPEZ',108,16906],
+  [210516002,'ESCUELA BASICA NACIONAL BACHILLER RAFAEL ESCANDELA',1007,16854],
+  [100701006,'ESCUELA BASICA NACIONAL FRANCISCO SALIAS',408,16832],
+  [80201008,'ESCUELA  BASICA  ANATOLIO VIVAS SALAMANCA',292,16797],
+  [10116002,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANO CLAUDIO FELICIANO',16,16770],
+  [60401015,'CICLO DIVERSIFICADO TAVERA ACOSTA',231,16768],
+  [50210005,'UNIDAD  EDUCATIVA PADRE FELIPE  SALVADOR GILIJ',167,16582],
+  [100201001,'GRUPO ESCOLAR JUAN JOSE TOVAR',390,16562],
+  [130905001,'ESC BAS MARISCAL SUCRE',605,16492],
+  [181801001,'ESCUELA BASICA NACIONAL DOCTOR VILLALOBOS',838,16337],
+  [71402003,'UNIDAD EDUCATIVA ESTADAL JUANA GOMEZ',289,16183],
+  [40301007,'ESCUELA TECNICA INDUSTRIAL',117,16158],
+  [50902007,'ESCUELA BASICA ELIAS CORDERO UZCATEGUI',196,16017],
+  [21101001,'UNIDAD EDUCATIVA NACIONAL CAYAURIMA',57,15857],
+  [71401001,'ESCUELA NACIONAL SAN JOSE LOS CHORRITOS',288,15650],
+  [40304006,'ESCUELA BASICA NACIONAL LA MORA (A.I)',120,15628],
+  [40801010,'UNIDAD EDUCATIVA LEONCIO MARTINEZ',133,15446],
+  [10110011,'UNIDAD EDUCATIVA NACIONAL INTEGRAL BOLIVARIANA AGUSTÍN AVELEDO',10,15367],
+  [140601005,'UNIDAD EDUCATIVA RAMON PIERLUSSIS',642,15367],
+  [60104004,'CICLO BASICO COMUN VISTA ALEGRE',209,15366],
+  [140709001,'ESCUELA BASICA CARIPE',654,15366],
+  [41601007,'ESCUELA BASICA ESTADAL SOCORRO ACOSTA DE SANCHEZ',149,15207],
+  [20901004,'GRUPO ESCOLAR ROMUALDO GOMEZ',47,15146],
+  [40801003,'ESCUELA BASICA ARISTIDES ROJAS',133,15120],
+  [40106014,'UNIDAD EDUCATIVA NACIONAL AC CREACION CAMPO ALEGRE',109,15057],
+  [70908022,'UNIDAD EDUCATIVA NACIONAL MERCEDES I DE CORRO',282,14973],
+  [70904009,'ESCUELA BASICA ESTADAL JOSE REGINO PEÑA',278,14962],
+  [40601007,'UNIDAD EDUCATIVA SANTISIMO SALVADOR',127,14890],
+  [41701009,'UNIVERSIDAD DE CARABOBO MORITA II',150,14795],
+  [10112011,'ESCUELA NACIONAL BOLIVARIANA ANTIMANO',12,14721],
+  [10112019,'UNIVERSIDAD CATÓLICA ANDRÉS BELLO',12,14683],
+  [131101025,'PRE-ESCOLAR UNIDAD EDUCATIVA MANUELITA SAENZ',608,14675],
+  [240110001,'UNIDAD EDUCATIVA NACIONAL ARMANDO REVERON',1134,14600],
+  [60105023,'COLEGIO FE Y ALEGRIA CARONI',210,14511],
+  [60108014,'UNIDAD EDUCATIVA AUYANTEPUY',213,14505],
+  [240104010,'UNIDAD EDUCATIVA ESTATAL DOCTOR ALFREDO MACHADO',1128,14492],
+  [10110056,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL LA SAGRADA FAMILIA.',10,14469],
+  [40201012,'UNIDAD EDUCATIVA PRIVADA BICENTENARIO DE LA INDEPENDENCIA',112,14404],
+  [60108012,'ESCUELA BASICA GRAN SABANA FE Y ALEGRÍA',213,14345],
+  [60401020,'ESCUELA NACIONAL BASICA SANTIAGO MARIÑO',231,14319],
+  [40202001,'ESCUELA BASICA ROSA AMELIA FLORES',113,14313],
+  [140401003,'ESCUELA BASICA BOLIVARIANA JOSE FRANCISCO BERMUDEZ',636,14154],
+  [60102004,'ESCUELA NACIONAL BASICA GUEDEZ COLMENARES',207,14096],
+  [60103002,'ESCUELA BASICA FE Y ALEGRIA NUEVA GUAYANA',208,14084],
+  [211303001,'UNIDAD EDUCATIVA NACIONAL TIBALDO ALMARZA RINCON',1043,13996],
+  [71401016,'ESCUELA JUAN ESCALONA',288,13985],
+  [40301010,'ESCUELA BASICA NACIONAL CECILIO ACOSTA',117,13979],
+  [51101002,'GRUPO ESCOLAR NACIONAL CRUZ PAREDES',200,13977],
+  [181501001,'ESCUELA BOLIVARIANA PRIMARIA GRAL. JOSE MARIA CORDOBA',831,13866],
+  [130901008,'CENTRO DE EDUCACION INICIAL NACIONAL EL LLANITO',601,13844],
+  [10110021,'LICEO BOLIVARIANO MIGUEL ANTONIO CARO',10,13817],
+  [60104016,'ESCUELA ESTADAL BASICA TERESA DE LA PARRA',209,13791],
+  [41701004,'ESCUELA BASICA PARMANACAY',150,13687],
+  [40201006,'ESCUELA BASICA JOSE RAFAEL REVENGA',112,13668],
+  [140706015,'ESCUELA PRIMARIA NACIONAL ADRIANA RENGEL DE SEQUERA',651,13657],
+  [21301028,'GRUPO ESCOLAR TEODORO QUIJADA WETTER',61,13630],
+  [100101021,'COLEGIO NUESTRA SEÑORA DEL VALLE',388,13627],
+  [10110086,'UNIDAD EDUCATIVA DISTRITAL CECILIA NUÑEZ SUCRE',10,13593],
+  [240107011,'GRUPO ESCOLAR REPUBLICA DEL SALVADOR',1131,13578],
+  [50210002,'UNIDAD  BASICA HERMINIO LEON COLMENARES',167,13550],
+  [101001001,'UNIDAD EDUCATIVA NACIONAL RAFAEL PAREDES',414,13547],
+  [140706025,'ESCUELA PRIMARIA  APOLINAR CANTOR',651,13450],
+  [130901084,'ESCUELA MUNICIPAL COROMOTO',601,13448],
+  [80201003,'PRE-ESCOLAR   LOS PICOS E PLATA',292,13423],
+  [60501007,'UNIDAD EDUCATIVA DALLA ACOSTA',234,13351],
+  [41201001,'ESCUELA BASICA JACOB PEREZ CARBALLO',142,13331],
+  [40205003,'ESCUELA BASICA DOCTOR RAFAEL SEIJAS',116,13247],
+  [211005002,'UNIDAD EDUCATIVA NACIONAL CARACCIOLO PARRA LEON',1033,13218],
+  [40901001,'ESCUELA BASICA ESTADAL EL LIBERTADOR',138,13203],
+  [171501002,'U.E. CRUZ SALMERON ACOSTA',787,13185],
+  [40202013,'ESCUELA PEDRO VILLACASTIN',113,13184],
+  [10110113,'COLEGIO PADRE POLICARPIO KRAUTLE',10,13160],
+  [80701006,'ESCUELA  BASICA BOLIVARIANA  JOSE LAURENCIO SILVA',301,13147],
+  [210517002,'UNIDAD EDUCATIVA NACIONAL ARQUIDIOCESANA MONSEÑOR OLEGARIO VILLALOBOS',1008,13002],
+  [60701003,'ESCUELA NACIONAL BASICA VICENTE MARCANO',241,12984],
+  [170801001,'LICEO BOLIVARIANO RAIMUNDO MARTÍNEZ CENTENO',764,12964],
+  [60401011,'ESCUELA NACIONAL BASICA SANTO DOMINGO',231,12947],
+  [60901006,'ESCUELA NACIONAL BASICA  DOCTOR JUAN DE HOLQUINST',248,12918],
+  [110601023,'UNIDAD EDUCATIVA  COLEGIO CRISTO REY',458,12887],
+  [40107008,'ESCUELA BASICA ESTADAL  JOSE RAMON GONZALEZ BAQUERO',110,12862],
+  [131001010,'UNIDAD EDUCATIVA NACIONAL JOSE DE SAN MARTIN',606,12708],
+  [41302012,'UNIDA EDUCATIVA NACIONAL  SANTOS MICHELENA',145,12680],
+  [140706024,'ESCUELA BASICA VICTORIA R MOLINOS',651,12500],
+  [40902007,'ESCUELA BASICA JOSE ANGEL LAMAS',139,12469],
+  [40108014,'ESCUELA BASICA ELIODORO BETANCOURT',111,12345],
+  [10112039,'COLEGIO REFUGIO DE LA INFANCIA ANA SAN JOSÉ DE TARBES',12,12295],
+  [71401002,'CENTRO DE EDUCACION INICIAL NACIONAL CRISPIN PEREZ',288,12293],
+  [211303008,'UNIDAD EDUCATIVA ESTADAL CARLOTA SUAREZ',1043,12263],
+  [10118001,'UNIDAD EDUCATIVA NACIONAL LUÍS HURTADO HIGUERA',18,12256],
+  [110701001,'ESCUELA BOLIVARIANA RICARDO OVIDIO LIMARDO',475,12219],
+  [10107010,'ESCUELA NACIONAL BOLIVARIANA 19 DE ABRIL',7,12192],
+  [210801001,'ESCUELA  SOCIAL DE AVANZADA  EDUARDO HEVIA',1019,12177],
+  [210303012,'ESCUELA BASICA NACIONAL EL MORALITO',982,12172],
+  [200201006,'UNIDAD EDUCATIVA COLEGIO SANTA MARIA',950,12150],
+  [10121002,'UNIVERSIDAD NACIONAL ABIERTA U.N.A.',21,12099],
+  [130401023,'UNIDAD EDUCATIVA PRIVADA AGUSTIN AVELEDO',589,12090],
+  [50302003,'UNIDAD EDUCATIVA  JOSE VICENTE UNDA',173,12029],
+  [131801011,'UNIDAD EDUCATIVA EL LIBERTADOR',621,11956],
+  [41301007,'UNIDAD EDUCATIVA NACIONAL  EL LIMON',144,11930],
+  [10102010,'LICEO ANDRES BELLO',2,11870],
+  [70301012,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL CAMINO',258,11861],
+  [40601003,'CICLO DIVERSIFICADO MARIANO FERNANDEZ FORTIQUE',127,11828],
+  [110401009,'GRUPO ESCOLAR ROBERTO MONTESINOS',447,11799],
+  [10110120,'ESCUELA BÁSICA NACIONAL NUEVO HORIZONTE',10,11785],
+  [80401001,'ESCUELA  BASICA  BOLIVARIANA JOSE ANTONIO APONTE',295,11784],
+  [100101017,'GRUPO ESCOLAR JUANA JOSEFA VARGAS',388,11770],
+  [60105010,'ESCUELA NACIONAL BASICA NUEVO MUNDO',210,11729],
+  [71401018,'ESCUELA BASICA ESTADAL CLEOPATRA CASANOVA',288,11650],
+  [60103001,'ESCUELA NACIONAL BASICA VISTA AL SOL',208,11648],
+  [40601014,'ESCUELA BASICA CESAR ZUMETA',127,11633],
+  [40801005,'UNIDAD EDUCATIVA CARIDAD VILLASANA',133,11628],
+  [40203003,'ESCUELA BASICA FRANCISCO LINARES ALCANTARA',114,11611],
+  [211601001,'ESCUELA BASICA NACIONAL LA PAZ',1056,11574],
+  [70401016,'UNIDAD EDUCATIVA NACIONAL EL TOQUITO',260,11518],
+  [71101002,'ESCUELA BASICA LICENCIADA ELISA GUEVARA DE CACERES',285,11506],
+  [40601010,'ESCUELA BASICA ANDRES BELLO',127,11503],
+  [41302010,'UNIDAD EDUCATIVA  EDUARDO ASSEF RAIDI',145,11499],
+  [10112018,'CENTRO DEL IVSS ARMANDO CASTILLO PLAZA',12,11452],
+  [130801011,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MIGUEL OTERO SILVA',600,11438],
+  [240107009,'ESCUELA. BASICA. ESTATAL JUAN GERMAN ROSCIO',1131,11430],
+  [70904027,'UNIDAD ESCOLAR DOCTOR ENRIQUE TEJERA',278,11424],
+  [110203001,'ESCUELA TECNICA COMERCIAL DOCTOR AMBROSIO PERERA',431,11415],
+  [60304017,'ESCUELA BASICA EXPERIMENTAL LA PARAGUA',225,11410],
+  [170901028,'PRE-ESCOLAR AÑO INTERNACIONAL DEL NIÑO',769,11399],
+  [60108019,'ESCUELA BASICA JULIA RODRIGUEZ VIA',213,11386],
+  [240104006,'UNIDAD EDUCATIVA NACIONAL GUSTAVO OLIVARES BOSQUES',1128,11341],
+  [130904001,'CENTRO DE CAPACITACION INDUSTRIAL DON BOSCO',604,10418],
+  [110207018,'ESCUELA BASICA LIBERTADOR',435,11329],
+  [20601006,'UNIDAD EDUCATIVA PEDRO MARIA FREITES',38,11322],
+  [20401002,'UNIDAD  EDUCATIVA NACIONAL DOCTOR JOSÉ DOMÍNGUEZ',33,11277],
+  [70302001,'ESCUELA RAMON DIAZ SANCHEZ',259,11276],
+  [41301002,'UNIDAD EDUCATIVA NACIONAL JULIO MORALES LARA',144,11264],
+  [70401004,'ESCUELA JOSE CECILIO AVILA',260,11243],
+  [110401032,'UNIDAD EDUCATIVA NACIONAL  AMERICA FERNANDEZ DE LEONI',447,11242],
+  [41101004,'COLEGIO NTRA SE/ORA DE BELEN',141,11231],
+  [60101022,'CICLO BASICO COMUN RAMON ANTONIO PEREZ',206,11204],
+  [60108020,'ESCUELA BASICA UNARE II',213,11176],
+  [10115021,'ESCUELA BASICA NACIONAL AMANDA DE SCHNELL',15,11156],
+  [191203001,'UNIDAD EDUCATIVA JOSEFINA PIMENTEL',920,11151],
+  [40301009,'UNIDAD EDUCATIVA NACIONAL RUBEN DARIO',117,11108],
+  [210401001,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR ALVAREZ',985,11095],
+  [60104001,'ESCUELA NACIONAL BASICA PRIMERO DE MAYO II',209,11094],
+  [60105004,'ESCUELA NACIONAL BASICA ANDRES BELLO',210,11094],
+  [130902024,'ESCUELA TECNICA POPULAR DON BOSCO',602,11091],
+  [240101009,'ESCUELA NACIONAL CARABALLEDA',1125,11086],
+  [130402009,'ESCUELA BASICA NACIONAL CARTANAL  VICENTE EMILIO  SOJO',590,11067],
+  [132001002,'ESCUELA BASICA MAMPORAL',623,11053],
+  [100301014,'CASA DE LA CULTURA FRANCISCO LAZO MARTÍ',392,11049],
+  [71301008,'UNIDAD EDUCATIVA ESTADAL SANTIAGO MARIÑO',287,11033],
+  [10112036,'GRUPO ESCOLAR MERCEDES LIMARDO',12,11020],
+  [20302005,'ESCUELA BICENTENARIO DEL LIBERTADOR',28,10997],
+  [211902002,'UNIDAD EDUCATIVA ESTADAL GENERAL RAFAEL URDANETA',1069,10985],
+  [71301010,'COLEGIO UNIVERSITARIO MONSEÑOR DE TALAVERA',287,10970],
+  [211202001,'UNIDAD EDUCATIVA ESTADAL DOCTOR. ALBERTO RONCAJOLO',1040,10939],
+  [10106010,'ESCUELA TÉCNICA COMERCIAL ROBINSONIANA SANTOS MICHELENA',6,10938],
+  [71201021,'ESCUELA BASICA  ESTADAL PROFESOR JESUS BERBIN LOPEZ',286,10915],
+  [10110016,'UNIDAD EDUCATIVA NACIONAL LICEO BOLIVARIANO NICANOR BOLET PERAZA',10,10872],
+  [140101001,'LICEO MANUEL SATURNINO PE/ALVER GOMEZ',627,9565],
+  [50209002,'GRUPO ESCOLAR FRANCISCO RIVAS',166,10863],
+  [210202001,'ESCUELA BASICA NACIONAL ANTONIO MARIA PIRELA',977,10861],
+  [140710014,'ESCUELA PRIMARIA NACIONAL  FELIX ANTONIO CALDERON',655,10842],
+  [160601040,'ESCUELA BASICA LUZ DE PEREIRA',707,10840],
+  [211502001,'UNIDAD EDUCATIVA NACIONAL NESTOR LUIS NEGRON',1054,10821],
+  [200201010,'UNIDAD EDUCATIVA DOCTOR RAUL RAMOS GIMENEZ',950,10805],
+  [10107002,'UNIDAD EDUCATIVA NACIONAL ZOE XIQUES SILVA',7,10802],
+  [210515001,'ESCUELA BASICA ESTADAL EL NACIONALISTA',1006,10782],
+  [60103011,'ESCUELA MUNICIPAL AUGUSTO ARIDU',208,10776],
+  [210703001,'ESCUELA BASICA ESTADAL SAN FRANCISCO DE ASIS',1017,10773],
+  [140706004,'ESCUELA BASICA SAN SIMON',651,10752],
+  [41703001,'ESCUELA BASICA REYNA DE VAZQUEZ',152,10736],
+  [210304001,'UNIDAD EDUCATIVA ESTADAL CARMELITA ROLDAN PORTILLO (E.Z.A)',983,10732],
+  [50209010,'ESCUELA BASICA HERLINDA DE VALERO',166,10712],
+  [110901002,'UNIDAD EDUCATIVA MONSEÑOR SALVADOR MONTES DE OCA',482,10696],
+  [110205001,'ESCUELA ESTADAL JOSE A GIRARDOT',433,10668],
+  [140710022,'LICEO NACIONAL MIGUEL JOSE SANZ',655,10661],
+  [141001001,'ESCUELA BASICA URIAPARA',665,10658],
+  [100101013,'ESCUELA BASICA FRANCISCO LAZO MARTÍ',388,10656],
+  [130801006,'COLEGIO SAN NICOLAS DE BARI',600,10643],
+  [10117020,'UNIDAD EDUCATIVA BOLIVARIANA A. VALERO HOSTOS',17,10629],
+  [130801004,'LICEO ALONSO ANDREA DE LEDEZMA',600,10628],
+  [170301012,'LICEO JOSÉ FRANCISCO BERMÚDEZ',744,10602],
+  [91201002,'ESCUELA PRIMARIA BOLIVARIANA FELIPE ESTEVES',359,10584],
+  [240105009,'ESCUELA INTEGRAL BOLIVARIANA REPUBLICA DE PANAMA',1129,10582],
+  [240111016,'ESCUELA MUNICIPAL ALBERTO RAVELL',1135,10571],
+  [10110041,'UNIDAD EDUCATIVA COLEGIO LA SANTISIMA TRINIDAD',10,10542],
+  [110207016,'UNIDAD ESCUELA NACIONAL CREACION BARRIOS DEL OESTE',435,10507],
+  [110403001,'UNIDAD EDUCATIVA NACIONAL  SIMON CASTEJON',449,10496],
+  [131001004,'ESCUELA ESTADAL CONSUELO HERNANDEZ',606,10495],
+  [30301001,'ESCUELA PRIMARIA BOLIVARIANA ARAMENDI',89,10489],
+  [130901080,'JARDIN DE INFANCIA AQUILES NAZOA',601,10489],
+  [60302014,'ESCUELA BASICA NACIONAL EL PERU',223,10472],
+  [100301012,'COLEGIO NUESTRA SEÑORA DE LA COROMOTO',392,10428],
+  [70908009,'ESCUELA BASICA SANTA INES',282,10411],
+  [40103005,'LICEO AGUSTIN CODAZZI',106,10411],
+  [130901071,'ESCUELA MUNICIPAL FRANCISCO ESPEJO',601,10407],
+  [100401009,'ESCUELA BASICA DR. JOSE FRANCISCO TORREALBA',396,10349],
+  [131101017,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL CAMINO',608,10338],
+  [60401007,'ESCUELA NACIONAL BASICA MORALES MARCANO',231,10322],
+  [131601041,'COMPLEJO EDUCATIVO PRIVADO INSTITUTO ESCUELA',617,10302],
+  [131201001,'UNNIDAD EDUCATIVA NACIONAL BOLIVARIANA CREACION CHARALLAVE',610,10293],
+  [60110002,'ESCUELA BASICA ESTADAL CONCENTRADA SIMON RODRIGUEZ',215,10267],
+  [210513012,'UNIDAD EDUCATIVA NACIONAL FE Y ALEGRIA LA CHINITA',1004,10260],
+  [110301001,'ESC BAS NAC MATEO LISCANO T',439,10246],
+  [140708018,'COMPLEJO EDUCATIVO  ANGEL DE LA GUARDA FE Y ALEGRIA',653,10231],
+  [30603004,'ESCUELA BASICA EL RECREO',101,10225],
+  [240111003,'ESCUELA. INTEGRAL BOLIVARIANA EUGENIA MARIA DE HOSTOS',1135,10206],
+  [200701007,'ESCUELA BASICA CARMEN FERNANDEZ DE LEONI',960,10199],
+  [10107021,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MIGUEL VILLAVICENCIO',7,10191],
+  [131301017,'UNIDAD EDUCATIVA LUIS EDUARDO EGUI',612,10174],
+  [60101021,'ESCUELA NACIONAL BASICA SAN FELIX',206,10164],
+  [120107003,'ESC BAS ANDRES BELLO',491,10162],
+  [110204013,'INSTITUTO POPULAR MARIA MAZZARELLO',432,10161],
+  [170901013,'LICEO PEDRO ARNAL',769,10107],
+  [100801001,'ESCUELA BOLIVARIANA JOAQUIN CRESPO',410,10101],
+  [210605012,'ESCUELA BASICA NACIONAL PROFESOR ARMANDO CEPEDA',1014,10099],
+  [91001019,'UNIDAD EDUCATIVA SIMON BOLIVAR',349,10093],
+  [230106001,'GRUPO ESCOLAR TARCISIA DE ROMERO',1109,10076],
+  [80601023,'ESCUELA BASICA BOLIVARIANA ANDRES ELOY BLANCO',298,10074],
+  [20306004,'UNIDAD EDUCATIVA JESÚS RAFAEL ALBORNOZ',32,10057],
+  [70703005,'CICLO BASICO AGUSTIN ARMARIO',268,10053],
+  [10103001,'INSTITUTO CICLO DIVERSIFICADO FERMÍN TORO',3,10047],
+  [60304007,'ESCUELA TECNICA COMERCIAL DALLA COSTA',225,10030],
+  [130902007,'INSTITUTO DE NUEVAS PROFESIONES',602,10012],
+  [40901004,'ESCUELA BASICA ESTADO GUARICO',138,10005],
+  [71001002,'ESCUELA BASICA BOLIVARIANA DOCTOR SIMON AROCHA PINTO',284,9997],
+  [210203001,'ESCUELA BASICA NACIONAL SANTIAGO AGUERREVERE',978,9993],
+  [190701012,'ESCUELA BÁSICA BARRIO NUEVO',894,9959],
+  [70904023,'UNIDAD EDUCACION INTEGRAL LOMAS DE FUNVAL',278,9955],
+  [130701021,'ESCUELA BASICA NACIONAL LA CEIBA DEL ALTO',599,9936],
+  [40105015,'ESCUELA BASICA ISABEL TERESA RANGEL',108,9934],
+  [130801016,'UNIDAD EDUCATIVA MENCA DE LEONI I',600,9934],
+  [130201003,'UNIDAD EDUCATIVA AREVALO GONZALEZ',579,9926],
+  [131603001,'COLEGIO  SANTA ROSA DE LIMA',619,9926],
+  [10114010,'LICEO BOLIVARIANO JOSÉ AVALOS',14,9873],
+  [70904035,'ESCUELA BASICA ESTADAL DR. FRANCISCO ESPEJO',278,9856],
+  [40106010,'CENTRO DE FORMACION INDUSTRIAL MARACAY INCE',109,9856],
+  [41701001,'UNIDAD EDUCATIVA ESTADAL SANTIAGO MARI O',150,9831],
+  [130903005,'LICEO NEGRO PRIMERO',603,9829],
+  [110207048,'ESCUELA BASICA SIMON BOLIVAR',435,9814],
+  [140501001,'ESCUELA BASICA ALBERTO RAVELL',640,9805],
+  [21401009,'LICEO BOLIVARIANO GUANIPA',63,9783],
+  [130301019,'COLEGIO UNIVERSITARIO DE LOS TEQUES CECILIO ACOSTA',582,9768],
+  [10110051,'UNIDAD EDUCATIVA EUGENIO MENDOZA',10,9758],
+  [21201006,'GRUPO ESCOLAR PEDRO HERNANDEZ PARES',60,9749],
+  [101401001,'ESCUELA BASICA BOLIVARIANA CHAGUARAMAS',424,9747],
+  [10118005,'ESCUELA BÁSICA DISTRITAL VICENTE EMILIO SOJO',18,9745],
+  [140706001,'ESC. BASICA CACIQUE PARAMACONI',651,9697],
+  [70703006,'UNIDAD EDUCATIVA NACIONAL SANTA CRUZ',268,9685],
+  [60303003,'CICLO BASICO COMUN CARLOS EMILIANO SALOM',224,9679],
+  [70705002,'ESCUELA BARRIO SAN ESTEBAN',270,9670],
+  [210402002,'LICEO JOSE ANTONIO ALMARZA',986,9666],
+  [230404005,'UNIDAD EDUCATIVA MARIA DEL JESUS ALMEIDA',1123,9650],
+  [131603002,'UNIDAD EDUCATIVA ESTADAL  ADOLFO NAVAS  CORONADO',619,9625],
+  [110207008,'ESCUELA BASICA RAFAEL MONASTERIOS',435,9608],
+  [121101002,'GRUPO ESCOLAR CARLOS ZERPA',534,9605],
+  [110210001,'UNIDAD EDUCATIVA BOYAURE',438,9604],
+  [40108002,'ESCUELA BASICA JOSE MARIA BENITEZ',111,9590],
+  [130901111,'UNIDAD EDUCATIVA SIMÓN BOLÍVAR',601,9567],
+  [110601019,'UNIDAD EDUCATIVA NACIONAL  JUAN BAUTISTA FRANCO',458,9538],
+  [40802001,'ESCUELA BASICA NACIONAL PANAQUIRE',134,9531],
+  [131601025,'UNIDAD EDUCATIVA COLEGIO LA CONCEPCION',617,9522],
+  [51001001,'ESCUELA BASICA ALBERTO ARVELO  TORREALBA',197,9504],
+  [190202004,'GRUPO ESCOLAR BOLIVARIANO MÁXIMO SAAVEDRA',861,9495],
+  [10117032,'COLEGIO SAN AGUSTIN',17,9489],
+  [10111001,'UNIDAD EDUCATIVA INTEGRAL NACIONAL BOLIVARIANA MARTÍN JOSÉ SANABRIA',11,9486],
+  [210406002,'UNIDAD EDUCATIVA ESTADAL TENIENTE PEDRO CAMEJO',990,9480],
+  [131202005,'UNIDAD EDUCATIVA ESTADAL  ANDRES ELOY BLANCO',611,9475],
+  [240102011,'ESCUELA. BASICA. NACIONAL. EL PARDILLO',1126,9454],
+  [130904007,'COLEGIO GENERALISIMO FRANCISCO DE MIRANDA',604,9454],
+  [210604005,'UNIDAD EDUCATIVA ESTADAL JOSE TRINIDAD JIMENEZ',1013,9452],
+  [20201004,'UNIDAD EDUCATIVA DOMINGO GUZMÁN BASTARDO',25,9432],
+  [70401001,'UNIDAD EDUCATIVA   NACIONAL   LUIS AUGUSTO MACHADO CISNEROS',260,9417],
+  [40202009,'CICLO BASICO MARI/O',113,9412],
+  [61001001,'ESCUELA NACIONAL BASICA NICOLAS ANTONIO FARRERA',250,9403],
+  [10122005,'UNIDAD EDUCATIVA COLEGIO SAN JOSÉ DE TARBES',22,9397],
+  [70203009,'ESCUELA NACIONAL ARTURO MICHELENA',257,9390],
+  [170907002,'U.E.NUEVA CÓRDOBA',775,9385],
+  [140708016,'ESCUELA BASICA CECILIO ACOSTA',653,9383],
+  [10119005,'UNIDAD EDUCATIVA BOLIVARIANA CORONEL CARLOS DELGADO CHALBAUD',19,9373],
+  [70906007,'COLEGIO JUAN XXIII',280,9369],
+  [101301001,'ESCUELA BOLIVARIANA ANTONIO DÂ¿ ARMAS MATUTE',422,9356],
+  [121001001,'GRUPO ESCOLAR CANONIGO UZCATEGUI',530,9340],
+  [130501005,'CASA DE LA CULTURA JOSE FELIX RIBAS',591,9340],
+  [131801019,'COLEGIO SCHONTHAL',621,9332],
+  [131001001,'ESCUELA BASICA NACIONAL CRISTOBAL ROJAS',606,9321],
+  [71101013,'GRUPO ESCOLAR YORACO',285,9320],
+  [10122015,'INSTITUTO UNIVERSITARIO PEDAGÓGICO DE CARACAS',22,9302],
+  [40501011,'UNIDAD EDUCATIVA NACIONAL WENCESLAO CASADO FONSECA',126,9297],
+  [40902002,'PREESCOLAR MADRE DE JESUS',139,9296],
+  [210802001,'UNIDAD EDUCATIVA NACIONAL DOCTOR EMILIO OSORIO BARROSO',1020,9282],
+  [131501001,'ESCUELA BASICA NACIONAL CHACAO',615,9279],
+  [130501021,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR RAFAEL PEREZ LEON',591,9272],
+  [70401015,'ESCUELA VICENTE WALLIS',260,9268],
+  [110503001,'UNIDAD EDUCATIVA AGUA VIVA',457,9266],
+  [60305005,'ESCUELA BASICA BACHILLER FELIPE HERNANDEZ',226,9254],
+  [230104001,'GRUPO ESCOLAR BACHILLER VIDAL',1107,9232],
+  [80901002,'ESCUELA  BASICA  JUAN ANGEL BRAVO',304,9230],
+  [100601015,'GRUPO ESCOLAR JOSE FELIX RIBAS',405,9224],
+  [211501004,'UNIDAD EDUCATIVA  EL COROZO',1053,9216],
+  [30303001,'ESCUELA TECNICA AGROPECUARIA FRANCISCO ARAMENDI',91,9193],
+  [182801007,'ESCUELA BASICA SAN JOSECITO II',854,9187],
+  [120105005,'ESCUELA BASICA PRIMERO DE MAYO',489,9171],
+  [110207053,'ESUELA NACIONAL JUAN DE VILLEGAS',435,9169],
+  [40104011,'LICEO JOSE LUIS RAMOS',107,9165],
+  [60306005,'ESCUELA BASICA JOSE ANTONIO PAEZ',227,9156],
+  [140710010,'ESCUELA PRIMARIA NACIONAL JUAN FRANCISCO MILA DE LA ROCA',655,9156],
+  [71401006,'UNIDAD EDUCATIVA NACIONAL SEBASTIAN ECHEVERIA LOZANO',288,9155],
+  [91001003,'ESCUELA BASICA BOLIVARIANA SIMON RODRIGUEZ',349,9152],
+  [130901065,'COLEGIO FE Y ALEGRIA',601,9145],
+  [10112010,'CAPILLA RUTA DE BELÉN',12,9128],
+  [80201006,'ESCUELA  BASICA  LIGIA CADENA  DE ALVARADO',292,9118],
+  [110301005,'UNIDAD EDUCATIVA NACIONAL RICARDO ARCADIO YEPEZ',439,9100],
+  [70908021,'ESCUELA ITACA',282,9086],
+  [71201016,'GRUPO ESCOLAR ATANACIO GIRARDOT',286,9074],
+  [60101019,'FUNDACION LA SALLE',206,9072],
+  [40103014,'CICLO BASICO  CARLOS ARRIETA',106,9071],
+  [10102006,'COLEGIO SAN FRANCISCO DE SALES',2,9061],
+  [131101014,'UNIDAD EDUCATIVA ESTADAL EUGENIO P` DE BELLARD',608,9057],
+  [210516004,'UNIDAD EDUCATIVA NACIONAL JOSE FELIX RIVAS',1007,9051],
+  [140201013,'ESCUELA BASICA CIUDAD DE LOS TEQUES',629,9048],
+  [110502004,'GRUPO ESCOLAR CABUDARE',456,9028],
+  [30304001,'ESCUELA PRIMARIA ESTADAL SIMON RODRIGUEZ',92,9004],
+  [50801001,'UNIDAD BASICA SOSA',191,9000],
+  [140707009,'ESCUELA BASICA LUISA BELTRANA DE FIGUEROA',652,8995],
+  [40106004,'ESCUELA BASICA LUCAS GUILLERMO CASTILLO',109,8985],
+  [100101012,'ESCUELA BASICA BOLIVARIANA CARLOS JOSE BELLO',388,8982],
+  [130203001,'UNIDAD EDUCATIVA BARLOVENTO',581,8967],
+  [182001001,'ESCUELA BOLIVARIANA LIBERTAD',842,8958],
+  [30301010,'ESCUELA PRIMARIA BOLIVARIANA GUASDUALITO',89,8956],
+  [51001005,'ESCUELA BASICA LINDOLFO MARTINEZ',197,8953],
+  [100601013,'ESCUELA BASICA ANDRES BELLO',405,8913],
+  [180501002,'ESCUELA BOLIVARIANA NACIONAL PADRE MAYA',803,8906],
+  [80601013,'ESCUELA  BASICA  MARIA  DE  ALBORNOZ',298,8903],
+  [110501014,'UNIDAD EDUCATIVA ESTADAL. LAS ACACIAS',455,8902],
+  [20601002,'COLEGIO SANTA JOAQUINA DE VEDRUNA',38,8901],
+  [120813004,'LICEO PRIVADO MONSEOR SILVA',526,8884],
+  [70904016,'ESCUELA NACIONAL MANUEL ALCAZAR',278,8883],
+  [60303010,'ESCUELA BASICA ESTADAL ANITA RAMIREZ',224,8875],
+  [41302013,'ESCUELA BASICA MONSEOR FELICIANO GONZALEZ',145,8856],
+  [60107010,'UNIDAD EDUCATIVA COLEGIO INTERNACIONAL MIGUEL OTERO SILVA',212,8853],
+  [100501002,'GRUPO ESCOLAR FELIX ANTONIO SAA',403,8853],
+  [70906016,'ESCUELA LISANDRO RAMIREZ',280,8852],
+  [10114002,'ESCUELA BÁSICA BOLIVARIANA CARACCIOLO PARRA LEÓN',14,8848],
+  [130402004,'LICEO BOLIVARIANO CARTANAL II',590,8846],
+  [210502013,'ESCUELA BASICA NACIONAL RAUL CUENCA',993,8831],
+  [10110002,'ESCUELA MUNICIPAL LORENZO HERRERA MENDOZA',10,8830],
+  [101501001,'GRUPO ESCOLAR CARLOS DEL POZO',425,8823],
+  [10111002,'ESCUELA BÁSICA NACIONAL LUIS ENRIQUE MARMOL',11,8806],
+  [60108015,'ESCUELA TECNICA COMERCIAL ANDRES BELLO',213,8802],
+  [130801039,'ESCUELA TECNICA COMERCIAL ROBINSONIANA NORBERTO PRADO',600,8800],
+  [70201003,'GRUPO ESCOLAR LANCASTER',255,8794],
+  [41702003,'ESCUELA BASICA 18 DE MAYO',151,8787],
+  [240111011,'UNIDAD EDUCATIVA NACIONAL JOSE MARIA VARGAS',1135,8787],
+  [191204001,'ESCUELA BOLIVARIANA FRANCISCO JAVIER URBINA',921,8780],
+  [210803014,'GRUPO ESCOLAR FUNDA PERIJA',1021,8770],
+  [130801023,'GRUPO ESCOLAR SIMON RODRIGUEZ',600,8762],
+  [170903019,'ESCUELA BOLIVARIANA RÍO CARIBE',771,8759],
+  [80701012,'UNIDAD  EDUCATIVA  DE EDUCACIÁ’N  ESPECIAL TINACO',301,8728],
+  [70904025,'PREESCOLAR RICARDO URRIERA',278,8727],
+  [10122021,'UNIDAD EDUCATIVA DISTRITAL  MATÍAS NÚÑEZ',22,8723],
+  [70401005,'ESCUELA BASICA NUEVA GUACARA',260,8716],
+  [160601022,'CICLO COMBINADO 5 DE DICIEMBRE',707,8713],
+  [70801008,'ESCUELA GRADUADA ANTONIO JOSE DE SUCRE',274,8693],
+  [20302033,'ESCUELA DE CAPACITACION DE ADULTOS',28,8674],
+  [180601007,'ESCUELA BASICA LEONARDO RUIZ PINEDA',806,8673],
+  [60102011,'ESCUELA NACIONAL BASICA CREACION 11 DE ABRIL',207,8667],
+  [10114020,'ESCUELA BASICA NACIONAL CARMEN MAIZO DE BELLO',14,8667],
+  [210405001,'ESCUELA BASICA NACIONAL LA  ENEITA',989,8657],
+  [210701014,'ESCUELA BASICA NACIONAL  PREBISTERO FRANCISCO BABINE',1015,8654],
+  [20601017,'ESCUELA CONCENTRADA MIXTA NUMERO 115-165-1747-216',38,8650],
+  [60106015,'COLEGIO NAZARET',211,8648],
+  [71101027,'UNIDAD EDUCATIVA LUISA TERESA DE MONTEMAYOR',285,8631],
+  [120806001,'GRUPO ESCOLAR EL EDUCADOR',519,8614],
+  [60104003,'ESCUELA BASICA SAN JOSE',209,8605],
+  [41702001,'ESCUELA BASICA FRANCISCO DE MIRANDA',151,8597],
+  [140708002,'ESCUELA BASICA GREGORIO RONDON',653,8571],
+  [70901005,'GRUPO ESCOLAR REPUBLICA DEL PERU',275,8571],
+  [40601017,'ESCUELA BASICA AMELIA MIRANDA',127,8565],
+  [70904018,'ESCUELA BASICA ESTADAL RAUL VILLARROEL',278,8550],
+  [131101016,'ESCUELA ESTADAL SANTA MARIA GORETTI',608,8547],
+  [110601013,'ESCUELA NACIONAL MOREDE',458,8545],
+  [150601030,'CASA DE LA CULTURA PUEBLO DE LA MAR RAMON VASQUEZ BRITO',682,8545],
+  [70906001,'UNIDAD EDUCATIVA PRIVADO SAGRADO CORAZON',280,8544],
+  [110308001,'UNIDAD EDUCATIVA ESTADAL EDILBERTO SANCHEZ CACERES',446,8540],
+  [150202001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MIGUEL SUNIAGA',672,8520],
+  [40601013,'ESCUELA BASICA LUIS ALEJANDRO ALVARADO',127,8515],
+  [41501001,'ESCUELA BASICA ESTADAL CAMATAGUA',147,8253],
+  [110704001,'UNIDAD EDUCATIVA DR FRANCISCO ANTONIO CARREÑO',478,8491],
+  [80501001,'ESCUELA  BASICA  MIGUEL PALAO RICO',296,8490],
+  [130901030,'COLEGIO SAN AGUSTIN',601,8487],
+  [70601011,'ESCUELA BOLIVARIANA  ESTADAL MORON',264,8472],
+  [181301002,'UNIDAD EDUCATIVA CAMILO PRADA',826,8465],
+  [140301002,'ESCUELA BASICA ABRAHAM LINCOLN',630,8459],
+  [191303002,'UNIDAD EDUCATIVA RAFAEL QUEVEDO URBINA',924,8439],
+  [140501011,'ESCUELA BASICA BOLIVARIANA ILAPECA',640,8428],
+  [21501004,'GRUPO ESCOLAR SANDALIO GÓMEZ',64,8423],
+  [130501006,'GRUPO ESCOLAR DOCTOR  OBDULIO ALVAREZ',591,8419],
+  [190202006,'ESCUELA BOLIVARIANA MONSEÑOR MEJIAS',861,8417],
+  [210507001,'ESCUELA  BASICA MAESTRO LUIS BELTRAN PRIETO FIGUEROA',998,8417],
+  [60301001,'ESCUELA ESTADAL TEODORA MENDEZ DE MONTES',222,8407],
+  [130901059,'UNIDAD EDUCATIVA INSTITUTO SAN LUCAS',601,8387],
+  [100601010,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA FEDERACION VENEZOLANA DE MAESTROS',405,8376],
+  [70904010,'ESCUELA NACIONAL CONCENTRADA ANTONIO RICAURTE',278,8376],
+  [220102001,'ESCUELA BASICA DON ROMULO BETANCOURT',1077,8369],
+  [121902003,'ESCUELA BASICA CLAUDIO VIVAS',559,8350],
+  [60303020,'ESCUELA ESTADAL NUESTRA SEÑORA DE COROMOTO',224,8349],
+  [130902022,'COLEGIO FRANCIA',602,8348],
+  [131301010,'LICEO JOSE MIGUEL SANZ',612,8343],
+  [240106001,'ESCUELA INTEGRAL BOLIVARIANA GUAICAMACUTO',1130,8342],
+  [71301001,'GRUPO ESCOLAR QUEIPA',287,8318],
+  [110207061,'ESCUELA BASICA CERRITOS BLANCOS II',435,8304],
+  [70203004,'UNIDAD  EDUCATIVA NACIONAL  FRANCISCO JOSE CISNEROS',257,8303],
+  [10107013,'CENTRO DE FORMACIÓN COMERCIAL E INDUSTRIAL LUÍS BELTRÁN PRIETO FIGUEROA',7,8294],
+  [10118002,'UNIDAD EDUCATIVA NACIONAL HIPÓLITO CISNEROS',18,8291],
+  [210508001,'ESCUELA BASICA NACIONAL PANAMERICANA',999,8291],
+  [20601003,'ESCUELA BASICA JESÚS MARIA PORRAS ALFARO',38,8289],
+  [70403003,'GRUPO ESCOLAR CARLOS ARVELO',262,8287],
+  [21201018,'CICLO BASICO JUAN PABLO ROJAS PAUL',60,8272],
+  [71402009,'ESCUELA 24 DE JUNIO',289,8271],
+  [130301021,'UNIDAD EDUCATIVA ESTADAL TOMAS RAFAEL JIMENEZ',582,8252],
+  [20302001,'ESCUELA ESTADAL DOMINGO MAZA VELASQUEZ',28,8242],
+  [212102001,'UNIDAD EDUCATIVA ESTADAL SARA MONTIEL DE URRIBARRI (EZA)',1074,8238],
+  [110207019,'UNIDAD EDUCATIVA MARIA CONCEPCION PALACIOS',435,8231],
+  [10110096,'ESCUELA BÁSICA MIGUEL ÁNGEL LÓPEZ CÁRDENAS',10,8231],
+  [60108025,'UNIDAD EDUCATIVA NACIONAL DOCTOR LUIS BELTRAN PRIETO FIGUEROA',213,8227],
+  [70908027,'ESCUELA BASICA ESTADAL JUANITA HERNANDEZ LEON',282,8226],
+  [70904108,'UNIDAD EDUCATIVA FUNDACIÓN VALENCIA II',278,8220],
+  [70302003,'ESCUELA JORGELINA GARAY SANCHEZ',259,8216],
+  [71401013,'ESCUELA BASICA ESTADAL PROFESORA OFELIA MATUTE',288,8209],
+  [40103012,'HOGAIN ATANACIO GIRARDOT PARQUE DE EXPOSICION DE FERIAS',106,8207],
+  [110207041,'ESCUELA BASICA JUAN JOSE GUERRERO',435,8199],
+  [61101001,'ESCUELA NACIONAL BASICA FEDERICO CHIRINOS',251,8189],
+  [70801007,'ESCUELA GRADUADA PEDRO GUAL',274,8188],
+  [240101012,'UNIDAD EDUCATIVA PRIVADA COLEGIO LA MERCED',1125,8184],
+  [131401002,'JARDIN DE INFANCIA CARLOS HERNANDEZ BAEZ',613,8179],
+  [10115009,'UNIDAD EDUCATIVA COLEGIO LA CONCEPCION',15,8174],
+  [60107008,'UNIDAD EDUCATIVA ALTA VISTA SUR',212,8169],
+  [180602001,'UNIDAD EDUCATIVA BOLIVARIANA LUIS BELISARIO DIAZ RANGEL',807,8163],
+  [10119003,'LICEO BOLIVARIANO PEDRO EMILIO COLL',19,8162],
+  [10110026,'UNIDAD EDUCATIVA DISTRITAL CECILIA PIMENTEL',10,8161],
+  [40101006,'ESCUELA BASICA ANTONIO ARRAIZ',104,8159],
+  [230103001,'GRUPO ESCOLAR CARLOS RAFAEL CONTRERAS',1106,8157],
+  [30501001,'ESCUELA BASICA SIMON GARCIA ROSALES',97,8126],
+  [40105010,'UNIDAD EDUCATIVA NACIONAL  LOS SAMANES',108,8124],
+  [160901002,'CICLO COMBINADO RAMON PAREJO GOMEZ',721,8118],
+  [10108016,'ASOCIACION CRISTIANA DE JOVENES DE CARACAS (YMCA)',8,8118],
+  [30101001,'ESCUELA BASICA BOLIVARIANA TERESA HURTADO',78,8116],
+  [20301030,'CASA DE LOS NINO GENERAL  JOSE ANTONIO ANZOATEGUI',27,8093],
+  [140702001,'ESC BAS BOLIVARIANA DR JOSE MARIA VARGAS',647,8085],
+  [240102005,'UNIDAD EDUCATIVA. PRIVADA PARROQUIAL SAN JOSE',1126,8085],
+  [181101004,'UNIDAD EDUCATIVA GENARO MENDEZ MORENO',822,8076],
+  [20801001,'ESCUELA BÁSICA BALTASAR VALLENILLA',44,8071],
+  [210102001,'UNIDAD BASICA ESTADAL ANDRES BELLO',971,8070],
+  [211603004,'ESCUELA  BASICA CAÑA FRESCA',1058,8060],
+  [210503007,'ESCUELA BASICA ESTADAL LCDO LUIS ARRIETA ACOSTA',994,8051],
+  [21401016,'NUCLEO DE APOYO FAMILIAR SAN JOSE.',63,8046],
+  [40701002,'ESCUELA BASICA RAFAEL BOLIVAR CORONADO',129,8046],
+  [131101032,'COLEGIO PACAIRIGUA',608,8034],
+  [130801017,'GRUPO ESCOLAR MENCA DE LEONI II',600,8032],
+  [211401001,'ESCUELA  BASICA PRIMARIA BOLIVARIANA BOMPLAND',1044,8022],
+  [190301003,'LICEO BOLIVARIANO JUAN ANTONIO ROMÁN VALECILLOS',872,8022],
+  [131601026,'ESCUELA BASICA NACIONAL SANTA CRUZ DEL ESTE',617,8021],
+  [110601017,'UNIDAD EDUCATIVA ESTADAL RAIMUNDO PERNALETE',458,8014],
+  [110207033,'ESCUELA CONCENTRADA EL TOSTAO',435,8011],
+  [210515003,'JARDIN DE INFANCIA NACIONAL GENERAL JUAN BAUTISTA ARISMENDI',1006,8001],
+  [70601009,'ESCUELA NACIONAL CONCENTRADA SANTA ANA',264,7994],
+  [191101002,'LICEO BOLIVARIANO HILARIO PIZANI ANSELMI',915,7993],
+  [210904001,'ESCUELA BASICA ESTADAL DON MARIO BRICEÑO IRAGORRY',1026,7987],
+  [21401007,'ESCUELA BÁSICA CIUDAD DE LA ASUNCIÓN',63,7973],
+  [130303001,'GRUPO ESCOLAR PARACOTOS',584,7961],
+  [220102005,'UNIVERSIDAD PEDAGOGICA EXPERIMENTAL LIBERTADOR',1077,7956],
+  [50211014,'UNIDAD EDUCATIVA ANDRES ELOY BLANCO',168,7955],
+  [210513003,'UNIDAD EDUCATIVA NACIONAL MANUEL SEGUNDO SANCHEZ',1004,7948],
+  [110207039,'ESCUELA BASICA SANTA ROSALIA',435,7945],
+  [181903006,'UNIDAD EDUCATIVA BOLIVARIANA PUERTO TETEO',841,7929],
+  [130501008,'COMPLEJO EDUCATIVO NACIONAL ALBERTO SMITH',591,7928],
+  [220101005,'LICEO SANTIAGO AGUERREVERE',1076,7924],
+  [131801010,'UNIDAD EDUCATIVA MUNICIPAL ANDRES BELLO',621,7921],
+  [41601003,'CASA DE LA CULTURA POETA PEDRO BUZNEGO',149,7919],
+  [140707008,'LICEO SIMON BOLIVAR',652,7919],
+  [21301015,'ESCUELA VALLE LINDO',61,7917],
+  [170401002,'U.E. DIEGO CARBONELL',749,7914],
+  [110207058,'ESCUELA RUIZ PINEDA I',435,7907],
+  [60201012,'UNIDAD EDUCATIVA MANUEL CEDEÑO',216,7906],
+  [110204019,'UNIDAD EDUCATIVADEPARTAMENTO LIBERTADOR',432,7905],
+  [160701006,'ESCUELA BASICA GUILLERMO GAMARRA MARRERO',711,7900],
+  [10122030,'ESCUELA TÉCNICA INDUSTRIAL JOSÉ DE SAN MARTÍN',22,7896],
+  [21301014,'ESCUELA NACIONAL CREACION LAS CHARAS',61,7894],
+  [180601001,'UNIDAD EDUCATIVA NACIONAL ESTADO SUCRE',806,7893],
+  [70908013,'ESCUELA BASICA LUIS SANOJO',282,7887],
+  [170801002,'ESCUELA BASICA ETANISLAO RENDÓN',764,7872],
+  [50503001,'ESCUELA  BASICA MANUEL PALACIOS',181,7868],
+  [240104007,'UNIDAD EDUCATIVA ESTADAL LEON TRUJILLO',1128,7851],
+  [130202002,'UNIDAD EDUCATIVA JUAN PABLO SOJO',580,7850],
+  [100601022,'CICLO BASICO LUIS BARRIOS CRUZ',405,7830],
+  [131901003,'UNIVERSIDAD NUEVA ESPARTA',622,7828],
+  [50208004,'ESCUELA BASICA LOURDES RIVAS  DE TORRES',165,7822],
+  [151102001,'UNIDAD EDUCATIVA ESTADAL MARIA ELVIRA DE FIGUEROA',691,7820],
+  [30305002,'ESCUELA PRIMARIA BOLIVARIANA LA VICTORIA',93,7818],
+  [41001006,'ESCUELA BASICA ANDRES ELOY BLANCO',140,7816],
+  [100901001,'ESCUELA BASICA MONSEÑOR CRESPO',413,7814],
+  [110401020,'UNIDAD EDUCATIVA JOSE NICOLAS SILVA CASTILLO',447,7812],
+  [210402006,'ESCUELA BASICA BOLIVARIANA  FRANCISCO ARAUJO GARCIA',986,7811],
+  [70401020,'ESCUELAS PROFESOR MANUEL AROCHA OJEDA',260,7802],
+  [60101037,'ESCUELA NACIONAL BASICA CIUDAD PIAR',206,7802],
+  [150601001,'UNIDAD EDUCATIVA ANTONIO MARIA MARTÍNEZ',682,7801],
+  [150501002,'UNIDAD EDUCATIVA LICEO BOLIVARIANO ANTONIO DIAZ',680,7798],
+  [211005003,'UNIDAD EDUCATIVA MAESTRO AUDIO URDANETA',1033,7780],
+  [210502002,'ESCUELA BASICA ESTADAL  23 DE ENERO',993,7779],
+  [70908025,'UNIDAD EDUCATIVA GRAN PODER DE DIOS',282,7777],
+  [211602001,'ESCUELA BASICA ESTADAL MARIA ANDRADE',1057,7775],
+  [110601009,'GRUPO ESCOLAR JOSE HERRERA OROPEZA',458,7753],
+  [10117019,'UNIDAD EDUCATIVA NACIONAL CARICUAO',17,7739],
+  [140708007,'LICEO RAFAEL MARIA PEÑA SAAVEDRA',653,7736],
+  [71201007,'ESCUELA JOSE FELIX SOSA',286,7730],
+  [10104014,'LICEO BOLIVARIANO LINO GALLARDO',4,7727],
+  [210508010,'LICEO CARACCIOLO PARRA PEREZ',999,7722],
+  [40902004,'ESCUELA BASICA LA OVALLERA',139,7720],
+  [91002002,'LICEO BOLIVARIANO CESAR AUGUSTO AGREDA',350,7709],
+  [110208002,'ESCUELA BASICA NACIONAL FRANCISCO DE MIRANDA',436,7704],
+  [190501004,'ESCUELA BOLIVARIANA CARRILLO GUERRA',881,7704],
+  [120104001,'UND BAS LA BLANCA',488,7700],
+  [20701005,'GRUPO ESCOLAR JOSE ANTONIO ANZOATEGUI',42,7690],
+  [131201008,'UNIDAD EDUCATIVA ESTADAL CARMEN RUIZ',610,7682],
+  [70904033,'GRUPO ESCOLAR PADRE BERGERETTI',278,7676],
+  [210101008,'UNIDAD EDUCATIVA ESTADAL DR.GUILLERMO QUINTERO LUZARDO',970,7675],
+  [60109005,'ESCUELA ESTADAL BASICA 11 DE ABRIL',214,7672],
+  [211004002,'ESCUELA  BASICA ESTADAL GIRALDOT',1032,7667],
+  [170904012,'ESCUELA PRIMARIA BOLIVARIANA ESTADO NUEVA ESPARTA',772,7664],
+  [170304002,'ESCUELA BOLIVARIANA PETRICA REYES DE QUILARQUE',747,7663],
+  [130301005,'UNIDAD EDUCATIVA ESTADAL TALLER GENERAL RAFAEL URDANETA',582,7661],
+  [210302001,'ESCUELA BOLIVARIANA LA CONCHA',981,7658],
+  [160501001,'ESCUELA TECNICA AGROPECUARIA Y GRANJA OSPINO',704,7637],
+  [110405001,'UNIDAD EDUCATIVA MANUEL RAMON YEPEZ',451,7628],
+  [40106002,'ESCUELA BASICA RAFAEL URDANETA',109,7625],
+  [110207059,'ESCUELA BASICA NACIONAL  ANDRES ELOY BLANCO',435,7624],
+  [210506014,'UNIDAD EDUCATIVA NACIONAL UDON PEREZ',997,7618],
+  [71101010,'GRUPO ESCOLAR BATALLA DE AYACUCHO',285,7595],
+  [181901001,'UNIDAD EDUCATIVA ESTADAL INES LABRADOR DE LARA',839,7592],
+  [10114026,'LICEO BOLIVARIANO DIEGO DE LOZADA',14,7589],
+  [131901007,'COLEGIO CANIGUA',622,7588],
+  [210509005,'ESCUELA BASICA CARDONAL GUAYU',1000,7580],
+  [120812004,'GRUPO ESCOLAR HUMBERTO TEJERA',525,7573],
+  [130901003,'UNIDAD EDUCATIVA COLEGIO SAN ANTONIO DE MACARACUAY',601,7572],
+  [50209001,'UNIDA BASICA LA INMACULADA FE Y ALEGRIA',166,7571],
+  [10107012,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA 25 DE JULIO.',7,7569],
+  [131801013,'INST UNIV NUEVAS PROFESIONES',621,5357],
+  [170901015,'LICEO BOLIVARIANO JOSÉ SILVERIO GONZÁLEZ',769,7568],
+  [41101006,'ESCUELA BASICA NACIONAL 25 DE MARZO',141,7563],
+  [100501001,'ESCUELA BASICA NARCISO LOPEZ CAMACHO',403,7561],
+  [50302004,'ATENEO POPULAR DE BARINITAS',173,7558],
+  [121801004,'ESC BASICA MANUEL GUAL',552,7555],
+  [130401021,'ESCUELA BASICA NACIONAL 24 DE JUNIO',589,7549],
+  [170903010,'U.E. NUEVA ANDALUCÍA',771,7546],
+  [210509006,'ESCUELA BASICA NACIONAL JULIO GONZALEZ',1000,7540],
+  [50702001,'ESCUELA BASICA LUIS UGUETO',188,7537],
+  [60201005,'ESCUELA BASICA ROMULO GALLEGOS',216,7533],
+  [10119012,'ESCUELA BÁSICA NACIONAL REPUBLICA DE VENEZUELA',19,7527],
+  [130701026,'ESCUELA BASICA GENARO GOMEZ',599,7523],
+  [91601001,'ESCUELA BÁSICA LOS TAQUES',370,7517],
+  [40108009,'UNIDAD EDUCATIVA NACIONAL  ANTONIO GARCIA ROJO',111,7515],
+  [110207015,'UNIDAD EDUCATVA BERNABE PLANAS',435,7496],
+  [10119006,'ESCUELA BÁSICA BOLIVARIANA MADRE MARIA',19,7494],
+  [110902001,'GRUPO ESCOLAR ATURES',483,7492],
+  [190706001,'UNIDAD EDUCATIVA ESTADAL ROMULO GALLEGOS',899,7492],
+  [130501015,'ESCUELA BASICA ESTADAL MERCEDEZ DE PEREZ',591,7486],
+  [170302006,'U.E. MARIA REINA DE LÓPEZ',745,7484],
+  [110101001,'UNIDAD EDUCATIVA JUAN MANUEL ALAMO',427,7482],
+  [110207030,'UNIDAD EDUCATIVA POPULAR FE Y ALEGRIA SAN FRANCISCO',435,7477],
+  [70904032,'LICEO ALEJO ZULOAGA',278,7476],
+  [10114013,'UNIDAD EDUCATIVA DISTRITAL JUAN ESPAÑA',14,7465],
+  [70904034,'LICEO PONCE BELLO',278,7462],
+  [40801009,'UNIDAD EDUCATIVA NACIONAL ALBERTO SMITH',133,7453],
+  [70203002,'UNIDAD EDUCATIVA ESTADAL GHERMINA BARRAGAN',257,7450],
+  [110306007,'ESCUELA GRADUADA CAMPO LINDO',444,7446],
+  [10117033,'LICEO SAN AGUSTIN**',17,7444],
+  [30101006,'ESCUELA PRIMARIA BOLIVARIANA EL NAZARENO',78,7442],
+  [90402010,'ESCUELA PRIMARIA NACIONAL ANDRÉS ELOY BLANCO',319,7441],
+  [110307006,'ESCUELA RURAL EDUCACION BASICA LA VIGIA',445,7440],
+  [70801001,'GRUPO ESCOLAR DR RAFAEL PEREZ',274,7437],
+  [121804001,'ESC BASICA ESTADO PORTUGUESA',555,7437],
+  [20501001,'ESCUELA BASICA JOSE DESIDERIO TRIAS',36,7429],
+  [240105011,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA INDUSTRIAL RODOLFO LOERO ARISMENDI (IUTIRLA)',1129,7420],
+  [20701002,'GRUPO ESCOLAR FRAY NICOLAS DE ODENA',42,7411],
+  [200402002,'UNIDAD EDUCATIVA  YARACUY',956,7409],
+  [181001004,'ESCUELA BOLIVARIANA DOCTOR FRANCISCO JAVIER GARCIA DE HEVIA',821,7407],
+  [40201005,'CENTRO SUPERIOR EDUCACION ESPECIAL ARTURO SARCO VILLENA',112,7407],
+  [60102015,'GRUPO ESCOLAR LOYD PETERSON',207,7387],
+  [20101022,'UNIDAD EDUCATIVA  VIENTO FRESCO',23,7386],
+  [101101001,'ESCUELA BASICA CARLOS IRAZABAL PEREZ',417,7382],
+  [191403001,'UNIDAD EDUCATIVA VALMORE RODRIGUEZ',928,7382],
+  [10114015,'UNIDAD EDUCATIVA MUNICIPAL ABIGAIL GONZALEZ',14,7377],
+  [10106003,'ESCUELA NACIONAL PRIMARIA BERNARDO O HIGGINS',6,7377],
+  [210407007,'ESCUELA NACIONAL ANA MARIA CAMPOS',991,7372],
+  [211801001,'UNIDAD EDUCATIVA ESTADAL ARQUIDIOCESANA NUESTRA SEÑORA DEL CARMEN',1062,7371],
+  [20101015,'ESCUELA  BÁSICA MERCEDES DE PÉREZ FREITES',23,7370],
+  [121902001,'UNIDAD EDUCATIVA COLEGIO FE Y ALEGRIA',559,7369],
+  [140501002,'ESCUELA BASICA CENTURION',640,7366],
+  [141201001,'GPO ESC JUAN VICENTE BOLIVAR',668,7363],
+  [240108002,'UNIDAD EDUCATIVA ESTATAL NAIGUATA',1132,7354],
+  [10111008,'UNIDAD EDUCATIVA BOLIVARIANA GABRIELA MISTRAL',11,7344],
+  [130901070,'ESCUELA NACIONAL BARTOLOME SALOM',601,7344],
+  [160701003,'ESCUELA BASICA JAIME CAZORLA',711,7338],
+  [130903003,'ESCUELA MUNICIPAL ANTONIO JOSE DE SUCRE',603,7326],
+  [190901002,'ESCUELA BOLIVARIANA ENRIQUE FLORES',907,7321],
+  [110501001,'CENTRO DE ESPECIALIZACION LUISA CACERES DE ARISMENDI',455,7317],
+  [10117012,'ESCUELA TECNICA FRANCISCO FAJARDO',17,7288],
+  [110203008,'ESCUELA BOLIVARIANA SANTA ISABEL',431,7286],
+  [182201001,'UNIDAD EDUCATVA  BOLIVARIANA FRANCISCO ANTONIO GUERRERO',848,7284],
+  [210506004,'UNIDAD EDUCATIVA NACIONAL PRIVADA NUESTRA SEÑORA DEL PILAR',997,7284],
+  [192001002,'ESCUELA BOLIVARIANA JUAN IGNACIO MONTILLA',946,7282],
+  [130901113,'CENTRO DE EDUCACIO INICIAL PRESCOLAR CINTHIA ROSEMBERG',601,7278],
+  [121301001,'ESC BAS GRAD PASCUAL I VILLAZMIL',540,7271],
+  [230105004,'GRUPO ESCOLAR JUAN VICENTE GONZALEZ',1108,7268],
+  [211805009,'UNIDAD  EDUCATIVA  ARQUIDIOCESANA MADRE LAURA',1066,7265],
+  [100301001,'ESCUELA BASICA DOCTOR FRANCISCO LAZO MARTI',392,7265],
+  [10114029,'ESCUELA BASICA PADRE MENDOZA',14,7264],
+  [110204017,'ESCUELA BASICA EZEQUIEL ZAMORA',432,7261],
+  [180201009,'UNIDAD EDUCATIVA MUNICIPAL JUAN DE DIOS MUÑOZ',793,7259],
+  [90403008,'ESCUELA BASICA SANTIAGO M. DAVALILLO',320,7258],
+  [131801004,'UNIDAD EDUCATIVA POPULAR COLEGIO DON BOSCO',621,7258],
+  [140502003,'UNIDAD EDUCATIVA LUIS BELTRAN PIETRO FIGUEROA',641,7257],
+  [100501004,'LICEO BOLIVARIANO VICTOR MANUEL OVALLES',403,7254],
+  [50302001,'ESCUELA BOLIVARIANA BARINITAS',173,7254],
+  [210404004,'ESCUELA BASICA NACIONAL 25 DE AGOSTO',988,7254],
+  [10110034,'UNIDAD EDUCATIVA RAMÓN ISIDRO MONTES',10,7251],
+  [80601005,'LICEO ELOY GUILLERMO GONZALEZ',298,7249],
+  [10122013,'UNIDAD EDUCATIVA COLEGIO SAN AGUSTÍN',22,7241],
+  [50207002,'ESCUELA BASICA MARIA LA RIVA SALAS',164,7238],
+  [131101031,'COLEGIO ROMULO BETANCOURT',608,7235],
+  [210305008,'UNIDAD EDUCATIVA ESTADAL  MARISCAL ANTONIO JOSE DE SUCRE',984,7225],
+  [20302041,'ESCUELA BOLIVARIANA MESONES',28,7223],
+  [10104022,'UNIDAD EDUCATIVA SAN FRANCISCO JAVIER',4,7221],
+  [91301001,'ESCUELA BÁSICA BOLIVARIANA PADRE ROMÁN',361,7220],
+  [170101001,'ESCUELA BOLIVARIANA ROJAS PAÚL',733,7216],
+  [131601015,'UNIDAD EDUCATIVA COLEGIO LAS CUMBRES',617,7214],
+  [70101001,'ESCUELA BASICA  MIGUEL MARIN',252,7211],
+  [70906013,'LICEO MANUEL FELIPE TOVAR',280,7210],
+  [140501010,'GRUPO ESCOLAR RAFAEL VILLAVICENCIO',640,7206],
+  [21302016,'COLEGIO SALESIANO PIO XII',62,7204],
+  [131101024,'ESCUELA EL INGENIO',608,7200],
+  [40104003,'GRUPO ESCOLAR MIGUEL JOSE SANZ',107,7198],
+  [21301011,'GRUPO ESCOLAR INES MARIA DE POTENTINI',61,7196],
+  [211303007,'ESCUELA BASICA NACIONAL ZIRUMA',1043,7189],
+  [121701001,'CICLO COMBINADO DR GERONIMO MALDONADO',550,7188],
+  [211805020,'ESCUELA BASICA NACIONAL LOS CORTIJOS',1066,7182],
+  [10110090,'UNIDAD EDUCATIVA BOLIVARIANA SERGIO MEDINA',10,7175],
+  [91003001,'COMPLEJO EDUCATIVO PESTALOZZI',351,7173],
+  [180802002,'LICEO BOLIVARIANO SIMÓN BOLÍVAR',813,7172],
+  [201001001,'ESCUELA BASICA TOVAR Y TOVAR',964,7171],
+  [170701002,'UNIDAD EDUCATIVA JOSE LUIS RAMOS',758,7164],
+  [150201005,'UNIDAD EDUCATIVA ESTADAL ANIBAL LAREZ',671,7163],
+  [190701001,'ESCUELA BOLIVARIANA MONSEÑOR LUCAS GUILLERMO CASTILLO',894,7163],
+  [210503002,'ESCUELA BASICA NACIONAL DR FRANCISCO OCHOA',994,7163],
+  [130901098,'U EDUC ROMULO GALLEGOS',601,7162],
+  [50101001,'ESCUELA BASICA LA UNION',154,7158],
+  [120406004,'AULAS ANEXAS EDELMIRA LOBO',505,7156],
+  [210103001,'UNIDAD BASICA SIMON BOLIVAR',972,7152],
+  [110401002,'UNIDAD EDUCATIVA REPUBLICA DOMINICANA',447,7149],
+  [110502007,'ESCUELA BOLIVARIANA DON SIMON RODRIGUEZ',456,7146],
+  [10109004,'GRUPO ESCOLAR FRANCISCO PIMENTEL',9,7144],
+  [210501003,'ESCUELA BASICA ESTADAL PRESBITERO JOAQUIN PIÑA',992,7139],
+  [210605006,'GRUPO ESCOLAR NACIONAL ALEJANDRO FUENMAYOR',1014,7134],
+  [240104015,'UNIDAD EDUCATIVA PRIVADA COLEGIO SAN JOSE DE CATIA LA MAR',1128,7131],
+  [10116012,'SERVICIO DE ELABORACIONES FARMACEUTICAS SEFAR',16,7130],
+  [191401001,'UNIDAD BÁSICA MERCEDEZ DIAZ',926,7129],
+  [131002010,'UNIVERSIDAD SISO MARTINEZ',607,7125],
+  [200301003,'ESCUELA INTEGRAL BOLIVARIANA  MIGUEL ANGEL GRANADO',952,7124],
+  [80301001,'ESCUELA  PRIMARIA   BOLIVARIANA  NICOLAS DE CASTRO',293,7121],
+  [71101023,'ESCUELA BOLIVARIANA LOS CERRITOS',285,7119],
+  [211805001,'ESCUELA BASICA ESTADAL ABSALON BRACHO',1066,7103],
+  [70501002,'ESCUELA BASICA BOLIVARIANA  ANTONIO HERRERA TORO',263,7102],
+  [211602011,'UNIDAD EDUCATIVA ESTADAL EMETERIO RIVAS',1057,7102],
+  [182501001,'ESCUELA NACIONAL BOLIVARIANA MONSEÑOR ACEVEDO',851,7101],
+  [141301002,'ESCUELA BASICA BOLIVARIANA CHAIMA',669,7085],
+  [210514007,'ESCUELA BASICA ESTADAL PROFESOR CONSUELO NAVAS TOVAR',1005,7084],
+  [21201040,'GRUPO ESCUELA RAÚL LEONI',60,7082],
+  [10110044,'ESCUELA BÁSICA LOS MAGALLANES',10,7070],
+  [20901006,'LICEO PINTO SALINAS',47,7070],
+  [120901001,'ESCUELA ESTADO APURE',529,7069],
+  [211503002,'UNIDAD EDUCATIVA ESTADAL CRISTOBAL ROJAS (E.Z.A)',1055,7065],
+  [211201004,'ESCUELA BASICA NACIONAL DOCTOR. RAUL CUENCA',1039,7061],
+  [210513009,'ESCUELA BASICA ESTADAL FVM',1004,7057],
+  [131601002,'UNIDAD EDUCATIVA COLEGIO FRAY LUIS AMIGO',617,7047],
+  [121901001,'ESCUELA BASICA ANANIAS AVENDAÑO',558,7046],
+  [10110114,'ESCUELA TÉCNICA  INDUSTRIAL ROBINSONIANA RAFAEL VEGAS',10,7046],
+  [211302001,'ESCUELA  SOCIAL DE AVANZADA DON SIMON RODRIGUEZ',1042,7045],
+  [70901003,'GRUPO ESCOLAR JUAN ANTONIO MICHELENA',275,7041],
+  [70907016,'ESCUELA ANTONIO JOSE DE SUCRE SUR',281,7037],
+  [10111015,'ESCUELA BÁSICA INSTITUTO TÉCNICO JESÚS OBRERO',11,7037],
+  [160601028,'ESCUELA BASICA PALACIO FAJARDO',707,7027],
+  [41302014,'UNIDAD EDUCATIVA NACIONAL PEDRO JOSE MUGUERZA',145,7023],
+  [21301021,'GRUPO ESCOLAR TOMAS MOGNA',61,7022],
+  [70906011,'GRUPO ESCOLAR PEDRO CASTILLO',280,7019],
+  [91001022,'ESCUELA BASICA BOLIVARIANA MIGUEL LOPEZ GARCIA',349,7014],
+  [211805021,'UNIDAD  EDUCATIVA  FE Y ALEGRIA NUEVA AMERICA',1066,7000],
+  [30401001,'ESCUELA BASICA  BOLIVARIANA JUAN BAUTISTA ESTE',94,6998],
+  [210508005,'ESCUELA BASICA ESTADAL DELIA HUERTA',999,6988],
+  [131201013,'CENTRO DE  EDUCACION INICIAL ESTE NIÑO DON SIMON',610,6985],
+  [120809002,'ESCUELA BASICA LOS CUROS',522,6983],
+  [50211005,'TALLER DE EDUCACION  LABORAL ALTO BARINAS',168,6982],
+  [160601015,'ESCUELA BASICA RAMON COLMENARES',707,6972],
+  [20302028,'UNIDAD EDUCATIVA NACIONAL  MERCEDES DE PÉREZ FREITES',28,6966],
+  [150401002,'UNIDAD EDUCATIVA ESTADAL LUISA ROSAS DE VELASQUEZ',678,6963],
+  [200401010,'INSTITUTO NACIONAL DE TIERRAS',955,6947],
+  [161001003,'ESCUELA ESTADAL 250 AÑOS DE AGUA BLANCA',723,6947],
+  [80201009,'ESCUELA  BOLIVARIANA JOSE ANTONIO  ANZOATEGUI',292,6939],
+  [110207056,'UNIDAD BASICA LA CARUCIEÑA',435,6939],
+  [190201001,'UNIDAD EDUCATIVA JUAN BAUTISTA DALLA COSTA',860,6935],
+  [10111013,'UNIDAD EDUCATIVA NACIONAL 23 DE ENERO',11,6933],
+  [130901044,'UNIVERSIDAD METROPOLITANA',601,6933],
+  [131101018,'COLEGIO SAN MARTIN DE PORRES',608,6930],
+  [210507003,'GRUPO ESCOLAR  NACIONAL  DR MARCIAL HERNANDEZ',998,6926],
+  [180802017,'UNIDAD EDUCATIVA DOCTOR ARISTIDES GARBIRAS',813,6907],
+  [80102001,'ESCUELA PRIMARIA BOLIVARIANA NACIONAL MAURICIO PEREZ LAZO',291,6893],
+  [110612003,'UNIDAD EDUCATIVA NACIONAL PALMARITO',469,6889],
+  [131102001,'UNIDAD EDUCATIVA  NACIONAL BOLIVARIANA ARAIRA',609,6889],
+  [10104004,'UNIDAD EDUCATIVA DISTRITAL BOLIVARIANA JUAN BAUTISTA ALBERDI',4,6889],
+  [140201007,'PREESCOLAR BOLIVARIANO ADELAIDA NUEZ',629,6886],
+  [131301012,'CENTRO EDUCATIVO INTEGRAL SIMONCITO LA ROSALEDA',612,6883],
+  [90402004,'ESCUELA BÁSICA VICTOR LINO GÓMEZ',319,6882],
+  [170904007,'ESCUELA TECNICA COMERCIAL MODESTO SILVA',772,6882],
+  [70201006,'LICEO CARLOS ARVELO',255,6881],
+  [150702001,'ESCUELA BASICA DOCTOR FRANCISCO ANTONIO GARCIA',684,6881],
+  [131101007,'GRUPO ESCOLAR ELIAS CALIXTO POMPA',608,6869],
+  [171101001,'U.E. MATÍAS PARRA ALCAÍ',780,6869],
+  [10113011,'UNIDAD EDUCATIVA PRIVADA COLEGIO NUESTRA SEÑORA DE LA CONSOLACION',13,6864],
+  [160501002,'ESCUELA GRADUADA BARRIO ARRIBA',704,6863],
+  [130901043,'UNIVERSIDAD SANTA MARIA',601,6859],
+  [211408001,'ESCUELA BASICA ESTADAL MARIA CHIQUINQUIRA BAEZ GUERRA',1051,6847],
+  [20301018,'ESCUELA NACIONAL BARRIO UNIVERSITARIO',27,6841],
+  [10112044,'ESCUELA NACIONAL BOLIVARIANA JESÚS GONZÁLEZ CABRERA',12,6839],
+  [160503003,'ESCUELA BASICA COSPES',706,6835],
+  [71201005,'ESCUELA ENRIQUE BARRIOS SANCHEZ',286,6834],
+  [140801001,'GRUPO ESCOLAR CACIQUE TAGUAY',656,6831],
+  [210504012,'COLEGIO LA EPIFANIA',995,6828],
+  [120105003,'ESCUELA BASICA EL VIGIA',489,6826],
+  [170902010,'U.E. ANDRÉS ELOY BLANCO',770,6821],
+  [40103008,'ESCUELA BASICA VICTOR MANUEL PATIO',106,6818],
+  [40107005,'ESCUELA BASICA EUTIMIO RIVAS',110,6815],
+  [131001023,'UNIDAD EDUCATIVA NACIONAL RAFAEL URDANETA EXTENCION ATENEO',606,6814],
+  [120405009,'ESCUELA BOLIVARIANA DOÑA EDELMIRA LOBO',504,6812],
+  [70203010,'ESCUELA NACIONAL ALFREDO PIETRI',257,6810],
+  [211105003,'ESCUELA BASICA NACIONAL GENERAL ISAIAS MEDINA ANGARITA',1038,6803],
+  [151102002,'ESCUELA BÁSICA VILLA ROSA',691,6798],
+  [70905001,'GRUPO ESCOLAR EDUARDO VISO',279,6795],
+  [100601003,'ESCUELA BASICA LERMITH HERNANDEZ',405,6787],
+  [10111004,'ESCUELA TÉCNICA COMERCIAL ROBINSONIANA MANUEL PALACIOS FAJARDO',11,6772],
+  [41201003,'ESCUELA BASICA MADRE MARIA DE SAN JOSE',142,6771],
+  [130801031,'ESCUELA BASICA NACIONAL LAUDELINO MEJIAS',600,6771],
+  [210513002,'ESCUELA BASICA NACIONAL CUATRICENTENARIA',1004,6769],
+  [20101010,'ESCUELA BÁSICA ARTESANAL URBANA ANACO',23,6769],
+  [60102005,'ESCUELA NACIONAL BASICA BELLA VISTA',207,6760],
+  [10115010,'UNIDAD EDUCATIVA BOLIVARIANA PEDRO FONTES',15,6758],
+  [200501001,'ESCUELA BASICA BOLIVARIANA JOSE TOMAS GONZALEZ',958,6756],
+  [160301037,'ESCUELA BASICA NACIONAL DOCTOR MELITON VARGAS',696,6748],
+  [210513016,'ESCUELA BASICA NACIONAL MAXIMA ARTEAGA PEREZ',1004,6746],
+  [20301029,'ESCUELA NACIONAL TRONCONAL II',27,6745],
+  [210513010,'ESCUELA BASICA NACIONAL DR JESUS ENRIQUE LOSSADA',1004,6745],
+  [150201011,'UNIDAD EDUCATIVA ESCOLAR FELICIANO HERNANDEZ',671,6734],
+  [190502001,'ESCUELA BOLIVARIANA ESTADO CARABOBO',882,6733],
+  [70904012,'ESCUELA BASICA RUIZ PINEDA II',278,6733],
+  [41001002,'ESCUELA BASICA RAFAEL BRICEO ORTEGA',140,6731],
+  [170301010,'U.E. MARIA RODRÍGUEZ DE VERA',744,6729],
+  [190401001,'GRUPO ESCOLAR EDUARDO BLANCO',877,6728],
+  [140807001,'ESCUELA TERESA CARREO',662,6725],
+  [110202039,'U.E.COLEGIO MARIA AUXILIADORA',430,6725],
+  [110207057,'ESCUELA BASICA DANIEL CANONICO',435,6724],
+  [160801011,'ESCUELA BOLIVARIANA DOCTOR ANGEL RIVAS BALDWIN',717,6723],
+  [110601003,'UNIDAD EDUCATIVA NACIONAL  RAMON POMPILIO OROPEZA',458,6722],
+  [91001009,'ESCUELA TECNICA COMERCIAL PEDRO CURIEL RAMÍREZ',349,6722],
+  [121501001,'ESC BAS FOCION F CORDERO',544,6714],
+  [160101047,'ESCUELA BASICA YOLANDA RIVERA DE PIERUZZINI',692,6710],
+  [182901001,'UNIDAD EDUCATIVA DOCTOR RAMON FERNANDEZ VELARDI',855,6708],
+  [130501023,'COMPLEJO EDUCATIVO NACIONAL MERCEDES RASCO',591,6707],
+  [210901003,'UNIDAD EDUCATIVA ESTADAL LAS VELITAS',1023,6703],
+  [210517014,'UNIDAD EDUCATIVA DOCTOR LUIS HOMEZ',1008,6699],
+  [150305002,'UNIDAD EDUCATIVA BOLIVARIANA JOSE CORTES DE MADARIAGA',677,6697],
+  [160601008,'UNIDAD EDUCATIVA NACIONAL DURIGUA',707,6690],
+  [41401002,'PRESCOLAR MARTIN TOVAR Y TOVAR',146,6683],
+  [190701004,'LICEO BOLIVARIANO ANTONIO NICOÍS BRICEÑO',894,6682],
+  [20302004,'ESCUELA RURAL  DE EDUCACION BASICA LA PONDEROSA',28,6681],
+  [50202001,'GRUPO ESCOLAR ESTADO GUARICO',159,6681],
+  [70801002,'ESCUELA PRIMARIA BOLIVARIANA LA PRADERA',274,6678],
+  [210803011,'UNIDAD  EDUCATIVA  NACIONAL  MANUEL FELIPE RUGELES',1021,6676],
+  [210704004,'ESCUELA BASICA ESTADAL COJORO',1018,6670],
+  [180403002,'UNIDAD EDUCATIVA NACIONAL LICEO LIBERTADOR',802,6668],
+  [51001002,'PREESCOLAR BOLIVARIANO ALBERTO ARVELO  TORREALBA',197,6665],
+  [30701019,'ESCUELA PRIMARIA LA MORITA II VECINDARIO',103,6661],
+  [101201001,'CICLO COMBINADO BEATRIZ DE RODRIGUEZ',418,6657],
+  [70904014,'ESCUELA FE Y ALEGRIA DOCTOR LEOPOLDO YA EZ',278,6657],
+  [10113035,'COLEGIO NUESTRA SEÑORA DE GUADALUPE',13,6655],
+  [10120015,'ESCUELA BASICA FRANKLIN DELANO ROOSEVELT',20,6649],
+  [200701001,'ESCUELA BASICA JUAN MIGUEL ROO',960,6642],
+  [60304005,'COLEGIO MARIA MONTESSORI',225,6641],
+  [210402001,'ESCUELA BASICA ESTADAL DR. PEDRO LUENGO',986,6641],
+  [210506011,'ESCUELA BASICA ESTADAL LUCILA PALACIOS',997,6635],
+  [211402002,'ESCUELA  SOCIAL DE AVANZADA  BELLO MONTE',1045,6632],
+  [10108013,'UNIDAD EDUCATIVA DISTRITAL PASTORA LANDAEZ',8,6632],
+  [130501018,'UNIDAD EDUCATIVA NACIONAL  ROSA PEÑA',591,6627],
+  [10110052,'LICEO BOLIVARIANO JUAN DE GURRUCEAGA',10,6626],
+  [60108018,'ESCUELA BASICA VIRGEN NIÑA',213,6626],
+  [91003004,'UNIDAD EDUCATIVA LICEO CECILIO ACOSTA',351,6625],
+  [130302007,'COLEGIO CECILIO ACOSTA DOS',583,6622],
+  [40103003,'ESCUELA BASICA JUSTINA GUERRA',106,6621],
+  [130801003,'COLEGIO PARROQUIAL  JESUS MARIA MARRERO',600,6614],
+  [70906018,'LICEO CICLO DIVERSIFICADO PEDRO GUAL',280,6607],
+  [150601026,'ESCUELA ESTADO ZULIA',682,6607],
+  [131602011,'UNIDAD EDUCATIVA COLEGIO SAN LUIS DE CARACAS',618,6604],
+  [10114039,'CENTRO DE EDUCACION INICIAL MENCA DE LEONI',14,6601],
+  [60301005,'ESCUELA BASICA ESTADAL RAMON ANTONIO PEREZ',222,6593],
+  [10110095,'UNIDAD EDUCATIVA VIRGINIA DE RUIZ',10,6592],
+  [71301007,'UNIDAD EDUCATIVA PRIVADO VIRGEN DE COROMOTO',287,6591],
+  [200301009,'ESCUELA BASICA FRANCISCO JAVIER USTARIZ',952,6590],
+  [210702003,'ESCUELA BASICA NACIONAL EL MOLINETE',1016,6590],
+  [130801027,'ESCUELA NACIONAL EL TAMARINDO',600,6585],
+  [210512012,'LICEO JOSE MARIA ANTUNEZ',1003,6580],
+  [21901002,'ESCUELA BÁSICA PEDRO EMILIO COLL',72,6579],
+  [30601025,'ESCUELA BASICA SANTA TERESA',99,6579],
+  [210803004,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO SAN PABLO',1021,6575],
+  [200401020,'ESCUELA BASICA CARMEN DE RAMIREZ',955,6574],
+  [70704003,'COLEGIO HERMANA DOLORES FE Y ALEGRIA',269,6571],
+  [110603001,'GRUPO ESCOLAR RAFAEL TOBIAS MARQUIZ',460,6557],
+  [131602015,'ESCUELA NACIONAL JESUS MARIA ALFARO ZAMORA',618,6557],
+  [110203004,'COLEGIO PRIVADO LAS FUENTES',431,6554],
+  [10104012,'UNIDAD EDUCATIVA PRIVADA COLEGIO AGUSTINIANO SAN JUDAS TADEO',4,6554],
+  [181201001,'LICEO BOLIVARIANO MONSEÑOR ANTONIO IGNACIO CAMARGO ALVAREZ.',825,6553],
+  [71301009,'LICEO HIPOLITO CISNEROS',287,6548],
+  [120406001,'ESCUELA  BASICA CAMPO ELIAS',505,6547],
+  [40103001,'CONSERVATORIO DE MUSICA',106,6545],
+  [131101026,'COLEGIO PACARIGUA II',608,6544],
+  [110204029,'UNIDAD EDUCATIVA NACIONAL LOS CREPUSCULOS',432,6539],
+  [10101008,'UNIDAD EDUCATIVA NACIONL SIMÓN BOLÍVAR',1,6538],
+  [70908023,'UNIDAD EDUCATIVA TEOTISTE DE GALLEGOS',282,6530],
+  [210518001,'UNIDAD EDUCATIVA SILVESTRE  SANCHEZ',1009,6529],
+  [110207032,'ESCUELA BASICA TENIENTE PEDRO CAMEJO',435,6529],
+  [30601005,'LICEO BOLIVARIANO FRANCISCO LAZO MARTI',99,6523],
+  [100601006,'ESCUELA BASICA JUAN ANTONIO PADILLA',405,6514],
+  [130301062,'UNIDAD EDUCATIVA NACIONAL CARMEN ROSALES GOMEZ',582,6510],
+  [110202009,'GRUPO ESCOLAR JOSE GREGORIO HERNANDEZ',430,6508],
+  [100301013,'GRUPO ESCOLAR ESTADOS UNIDOS DE AMERICA',392,6507],
+  [211803006,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO CRISTO REY',1064,6506],
+  [10110110,'UNIDAD EDUCATIVA NACIONAL NUEVA CARACAS',10,6504],
+  [140704002,'ESCUELA BASICA BOLIVARIANA ISMAEL SALAZAR',649,6500],
+  [171001001,'U.E. DR. DOMINGO BADARRACO BERMÚDEZ',776,6497],
+  [40108011,'ESCUELA BASICA CONCENTRADA SAN VICENTE',111,6496],
+  [40205001,'ESCUELA GUARAUGUTA',116,6483],
+  [130901048,'COLEGIO MADRE DEL DIVINO PASTOR',601,6482],
+  [211805012,'ESCUELA BASICA NACIONAL SISO MARTINEZ',1066,6482],
+  [170901018,'U.E. REBECA DE MEJIA',769,6480],
+  [210506001,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO SAN VICENTE DE PAUL',997,6474],
+  [41302009,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOCTOR ALBERTO JOSE FERNANDEZ',145,6473],
+  [210305005,'ESCUELA ENCONTRADOS',984,6471],
+  [10117015,'UNIDAD EDUCATIVA NACIOANL CIUDAD CUATRICENTERARIA',17,6465],
+  [140707007,'ESCUELA BASICA LUISA TERESA SOSA',652,6463],
+  [181201011,'UNIDAD EDUCATIVA GENERAL JOSE ANTONIO PAEZ',825,6463],
+  [50704001,'ESCUELA BASICA  NICOLAS ANTONIO PULIDO',190,6458],
+  [60201010,'ESCUELA BASICA MANUEL MANRIQUE',216,6457],
+  [180501003,'UNIVERSIDAD SIMON RODRIGUEZ NUCLEO LA GRITA',803,6456],
+  [21401002,'LICEO PROFESOR JESUS LOPEZ CASTRO',63,6455],
+  [160602001,'ESCUELA BASICA PAYARA',708,6455],
+  [50208002,'GRUPO ESCOLAR  RAFAEL IGNACIO MENDOZA',165,6452],
+  [120106004,'LICEO DR ALBERTO ADRIANI',490,6449],
+  [120406002,'ESCUELA  BASICA GRAN MARISCAL DE AYACUCHO',505,6445],
+  [182301002,'UNIDAD EDUCATIVA ELEAZAR LOPEZ CONTRERAS',849,6442],
+  [160601012,'CICLO COMBINADO EDUARDO CHOLET',707,6442],
+  [120104002,'ESC. NAC. BAS. 12 DE OCTUBRE.',488,6433],
+  [191302001,'ESCUELA INTEGRAL BOLIVARIANA JULIO SÁNCHEZ VIVAS',923,6431],
+  [211804001,'ESCUELA BASICA NACIONAL CARMELA QUINTERO',1065,6430],
+  [10120022,'COLEGIO CRISTO REY',20,6427],
+  [10112016,'ESCUELA BÁSICA NACIONAL LA CUMBRE',12,6417],
+  [230108009,'ESCUELA GUARA CARAPAL',1111,6416],
+  [20101032,'ESCUELA BOLIVARIANA ENURUU TAPIJHA',23,6415],
+  [90401006,'UNIDAD EDUCATIVA CARLOS DIEZ DEL CIERVO',318,6413],
+  [130901093,'COLEGIO SAN JOSE',601,6412],
+  [10122029,'ESCUELA TÉCNICA COMERCIAL LUÍS RAZETTI',22,6409],
+  [71201009,'UNIDAD ESCOLAR SIMON BOLIVAR',286,6405],
+  [130201002,'ESCUELA BASICA GABRIEL EMILIO MUÑOZ',579,6404],
+  [201201001,'ESCUELA BASICA LUISA DE MORALES',966,6400],
+  [131801002,'UNIDAD EDUCATIVA POPULAR COLEGIO MAS LUZ',621,6399],
+  [140701001,'ESC BAS RAFAEL MARIA BARALT',646,6397],
+  [212001001,'UNIDAD EDUCATIVA SANTA BARBARA',1070,6397],
+  [130902021,'INSTITUTO MEJORAMIENTO PROFESIONAL DEL MAGISTERIO',602,6389],
+  [230107003,'ESCUELA SIMON RODRIGUEZ',1110,6388],
+  [110208003,'UNIDAD EDUCATIVA NACIONAL AGUEDO FELIPE ALVARADO',436,6384],
+  [70904037,'ESCUELA ESTADAL JOSE ANTONIO PAEZ',278,6373],
+  [140902004,'ESCUELA BASICA ANDRES ELOY BLANCO',664,6373],
+  [110407007,'UNIDAD EDUCATIVA NACIONAL  ISABEL TERESA PEREIRA DE VALERA',453,6372],
+  [211803015,'UNIDAD EDUCATIVA NACIONAL PRIVADA PEDRO CAMEJO',1064,6366],
+  [70908016,'ESCUELA JUAN USLAR',282,6355],
+  [10105013,'CENTRO DE MISIONES MANUEL FOMBONA PACHANO',5,6336],
+  [50703001,'ESCUELA BASICA  ENRIQUETA ARVELO  LARRIVA',189,6330],
+  [60101016,'ESCUELA BASICA NACIONAL BACHILLER FELIPE HERNANDEZ',206,6329],
+  [210503009,'LICEO NACIONAL DR JESUS ENRIQUE LOSSADA',994,6323],
+  [110401005,'UNIDAD EDUCATIVA PADRE PEREZ LIMARDO',447,6322],
+  [60102016,'ESCUELA BASICA NACIONAL SAN JOSE DE CACAHUAL',207,6317],
+  [71101011,'PRE-ESCOLAR BATALLA DE JUNIN',285,6317],
+  [21301035,'ESCUELA GRADUADA RAFAEL FERNÁNDEZ PADILLA',61,6311],
+  [91602001,'UNIDAD EDUCATIVA INSTITUTO JUDIBANA',371,6310],
+  [150501006,'CENTRO DE EDUCACION INICIAL DOÑANA',680,6309],
+  [120601001,'GRUPO ESCOLAR ROBERTO PICON LARES',510,6307],
+  [211802014,'ESCUELA BASICA NACIONAL 19 DE ABRIL',1063,6304],
+  [10101003,'UNIDAD EDUCATIVA PRIVADA COLEGIO LA SALLE',1,6302],
+  [70907006,'CICLO BASICO RAFAEL GUERRA MENDEZ',281,6300],
+  [210106001,'E.B. NAC. GALANDA ROJAS DE CONTRERAS',975,6296],
+  [130101001,'UNIDAD EDUCATIVA ROSCIO',571,6296],
+  [10115002,'UNIDAD EDUCATIVA DISTRITAL BERMUDEZ',15,6291],
+  [200701003,'ESCUELA BASICA JESUS MILLAN',960,6291],
+  [200701018,'ESCUELA BASICA MANUEL CEDEÑO',960,6287],
+  [60105015,'ESCUELA NACIONAL BASICA LIBERTADOR BOLIVAR',210,6282],
+  [211403008,'ESCUELA BASICA ESTADAL SALOMON GARCIA SIERRA',1046,6281],
+  [20201001,'UNIDAD EDUCATIVA  DOCTOR ALIRIO ARREAZA',25,6280],
+  [70201002,'ESCUELA CONCENTRADA 5 DE JULIO',255,6277],
+  [10117008,'UNIDAD EDUCATIVA GUAYANA ESEQUIBA',17,6274],
+  [60101007,'ESCUELA NACIONAL BASICA JUAN VICENTE CARDOZO',206,6274],
+  [10102011,'ESCUELA BASICA NACIONAL JOSE ANGEL ALAMO',2,6271],
+  [110207038,'ESCUELA BOLIVARIANA DE MEDIA JORNADA DILCIA MORENO DE BOSSA',435,6266],
+  [10114021,'ESCUELA BASICA NACIONAL ELIAS TORO',14,6261],
+  [210514008,'UNIDAD EDUCATIVA NACIONAL HERMANO IDELFONZO GUTIERREZ',1005,6260],
+  [70302005,'ESCUELA BASICA LA GUARICHA',259,6259],
+  [20301045,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA JUAN PABLO PEREZ ALFONZO',27,6257],
+  [140901001,'ESCUELA BASICA BOLIVARIANA  BARQUISIMETO',663,6254],
+  [40101001,'ESCUELA BASICA CRISTOBAL MENDOZA',104,6248],
+  [50601007,'ESCUELA BASICA SEBASTIAN ARAUJO',183,6246],
+  [70301003,'ESCUELA NACIONAL EL DIVIDIVE',258,6239],
+  [141101002,'CENTRO CULTURAL',667,6230],
+  [90402013,'UNIDAD EDUCATIVA SAN FRANCISCO JAVIER',319,6226],
+  [200701005,'UNIDAD EDUCATIVA LAUREANO VILLANUEVA',960,6224],
+  [40101009,'CICLO BASICO ANDRES BELLO',104,6224],
+  [160601039,'ESCUELA BASICA BATALLA DE CARABOBO',707,6223],
+  [230101001,'GRUPO ESCOLAR PETION',1104,6222],
+  [10107028,'ESCUELA BÁSICA REPUBLICA DEL ECUADOR',7,6220],
+  [211405001,'UNIDAD EDUCATIVA NACIONAL DOCTOR RAMON HERNANDEZ',1048,6219],
+  [10122008,'UNIVERSIDAD SANTA MARIA EL PARAÍSO',22,6215],
+  [60106005,'ESCUELA NACIONAL BASICA VILLA COLOMBIA',211,6215],
+  [210506005,'UNIDAD EDUCATIVA NACIONAL ROMULO GALLEGOS',997,6215],
+  [180401015,'ESCUELA ESTADAL RAFAEL ANGEL EUGENIO FUENTES',800,6213],
+  [70704011,'ESCUELA ESTADAL CESAR AGREDA',269,6208],
+  [130301032,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR ARIAS BLANCO',582,6205],
+  [120405001,'ESC BAS MONSEOR JAUREGUI',504,6200],
+  [40801015,'ESCUELA BASICA SALOMON MORALES',133,4000],
+  [70707001,'GRUPO ESCOLAR CACHIRI',272,6200],
+  [210507009,'ESCUELA BASICA NACIONAL LUISA CACERES DE ARISMENDI',998,6195],
+  [110207060,'ESCUELA BASICA JOSE MIGUEL CONTRERAS',435,6195],
+  [130901025,'LICEO BOLIVARIANO LINO DE CLEMENTE',601,6192],
+  [210509017,'ESCUELA BASICA ESTADAL LAS PEONIAS N:34',1000,6192],
+  [60105016,'ESCUELA NACIONAL BASICA LUCILA PALACIO',210,6191],
+  [60302011,'ESCUELA BASICA NACIONAL LOS PROCERES II',223,6182],
+  [210506012,'UNIDAD EDUCATIVA PRIVADA COLEGIO BELLAS ARTES',997,6172],
+  [182003004,'GRUPO ESCOLAR DOCTOR JOSE GREGORIO HERNANDEZ',844,6171],
+  [131002007,'ESCUELA BASICA NACIONAL NUEVA CUA',607,6166],
+  [80601010,'ESCUELA  BASICA  ELOY GUILLERMO  GONZALEZ',298,6162],
+  [10115026,'LICEO BOLIVARIANO ELBA HERNANDEZ DE YANEZ',15,6158],
+  [131502010,'UNIDAD EDUCATIVA ESTADAL ARTURO USLAR PIETRI',616,6154],
+  [40602001,'ESCUELA BASICA CIRO MALDONADO ZERPA',128,6148],
+  [170902011,'LICEO LUIS GRATEROL BOLÍVAR',770,6147],
+  [71201008,'ESCUELA DOCTOR LISANDRO LECUNA',286,6146],
+  [60101005,'CICLO DIVERSIFIVADO MANUEL PIAR',206,6145],
+  [110204001,'UNIDAD EDUCATIVA CORONEL GENARO VASQUEZ',432,6138],
+  [130301022,'UNIADAD EDUCATIVA NACIONAL GUARENAS',582,6134],
+  [130503002,'UNIDAD EDUCATIVA NACIONAL LILIA DE PIÑERO',593,6127],
+  [130701006,'ESCUELA BASICA MANGUITO I',599,6124],
+  [20101017,'UNIDAD EDUCATIVA DOCTOR AGUSTÍN RAFAEL HERNÁNDEZ',23,6122],
+  [30701005,'COLEGIO FRAY BUENA VENTURA BENAUCAZ',103,6119],
+  [91001002,'ESCUELA BÁSICA LOS MÉDANOS',349,6118],
+  [90501004,'LICEO BOLIVARIANO ANTONIO DOLORES RAMONES',322,6117],
+  [180601005,'UNIDAD EDUCATIVA BOLIVARIANA LA VICTORIA',806,6112],
+  [71201013,'ESCUELA BOLIVARIANA MONTALBAN',286,6101],
+  [10101006,'COLEGIO UNIVERSITARIO FRANCISCO DE MIRANDA',1,6090],
+  [70908004,'LICEO NACIONAL ENRIQUE BERNARDO NUÑEZ',282,6090],
+  [10110065,'ESCUELA TÉCNICA INDUSTRIAL JULIO CALCAÑO',10,6088],
+  [210509015,'ESCUELA BASICA NACIONAL EVELIA DE PIMENTEL',1000,6088],
+  [91503002,'UNIDAD EDUCATIVA JACINTO REGINO PACHANO',369,6085],
+  [190201002,'ATENEO DE BOCONO',860,6083],
+  [10101002,'UNIDAD EDUCATIVA SANTA BARBARA',1,6078],
+  [170101004,'U.E. CARLOS FRANCISCO GRISANTI',733,6077],
+  [110202004,'ESCUELA BASICA JUAN BAUTISTA RODRIGUEZ',430,6076],
+  [170901012,'U.E. ASCANIO VEÍSQUEZ',769,6074],
+  [210518002,'ESCUELA BOLIVARIANA OCTAVIO HERNANDEZ',1009,6070],
+  [211403003,'UNIDAD EDUCATIVA ESTADAL MANUEL MARIA PADRON',1046,6070],
+  [10116001,'UNIDAD EDUCATIVA NACIONAL ISAURA CORREA',16,6067],
+  [40501001,'ESCUELA BASICA PEDRO ALDAO',126,6067],
+  [140201019,'ESCUELA BASICA ROMULO GALLEGOS',629,6063],
+  [51001006,'PREESCOLAR BOLIVARIANO LAS AMERICAS',197,6057],
+  [10114040,'LICEO BOLIVARIANO FRAY PEDRO DE AGREDA',14,6051],
+  [210502006,'UNIDAD EDUCATIVA NACIONAL COQUIVACOA',993,6051],
+  [170501001,'U.E. JOSÉ MACHADO',752,6047],
+  [110501013,'UNIDAD EDUCATIVA NACIONAL  JACINTO LARA',455,6047],
+  [110404001,'UNIDAD EDUCATIVA GUAYAUTA',450,6047],
+  [21501002,'UNIDAD EDUCATIVA MANUEL REYES BRAVO',64,6041],
+  [10121008,'UNIDAD EDUCATIVA LICEO BOLIVARIANO CARLOS SOUBLETTE',21,6038],
+  [210507007,'ESCUELA BASICA NACIONAL JUANA DE AVILA',998,6035],
+  [181001014,'CENTRO DE EDUCACION INICIAL NACIONAL SIMONSITO SEDE II DOCTOR FRANCISCO GARCIA DE HEVIA',821,6034],
+  [140709005,'ESCUELA BASICA SAN JAIME',654,6033],
+  [191201001,'ESCUELA BOLIVARIANA FRANCISCO DE SALES PÉREZ',918,6032],
+  [110601010,'UNIDAD EDUCATIVA NACIONAL  DR JULIO SEGUNDO ALVAREZ',458,6032],
+  [91001007,'ESCUELA BÁSICA LUCAS ADAMES',349,6031],
+  [200701006,'COLEGIO SANTA LUCIA',960,6028],
+  [170901017,'U.E. GRAN MARISCAL',769,6027],
+  [131901010,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CONOPOIMA',622,6027],
+  [210514013,'ESCUELA  BASICA 15 DE ENERO',1005,6020],
+  [131901018,'POLIDEPORTIVO LA BOYERA',622,6017],
+  [210602002,'GRUPO ESCOLAR MIRANDA',1011,6016],
+  [130901057,'ESCUELA MUNICIPAL SIMON BOLIVAR',601,6012],
+  [210904005,'UNIDAD EDUCATIVA ESTADAL DON SIMON RODRIGUEZ',1026,6012],
+  [200403006,'JARDIN DE INFANCIA BOLIVARIANO TIUNA',957,6010],
+  [10122011,'ESCUELA BÁSICA NACIONAL JUAN RODRÍGUEZ SUÁREZ',22,6005],
+  [130701019,'ESCUELA ESTADO YARACUY',599,6003],
+  [120803001,'ESCUELA BASICA VICENTE DAVILA',516,6000],
+  [210407005,'UNIDAD EDUCATIVA ESTADAL CECILIA  NUÑES  SUCRE',991,5998],
+  [130501013,'UNIDAD EDUCATIVA ESTADAL ARAGUITA I',591,5998],
+  [180201010,'ESCUELA BASICA NACIONAL BOLIVARIANA CAYETANO REDONDO',793,5993],
+  [160502001,'ESCUELA GRADUADA LA CORTEZA',705,5991],
+  [160801003,'ESCUELA BOLIVARIANA CIUDAD DE MERIDA',717,5989],
+  [41801001,'ESCUELA BASICA DELUYAR',153,5987],
+  [211805002,'CENTRO CULTURAL DALIA FERNANDEZ',1066,5985],
+  [110301004,'U.E. MAESTRO ORLANDO RAMON JIMENEZ',439,5973],
+  [10119017,'ESCUELA BÁSICA LAS MAYAS FE Y ALEGRÍA',19,5972],
+  [170901023,'U.E. CRISTÓBAL DE QUEZADA',769,5971],
+  [70704005,'ESCUELA MARIA CONCEPCION DE BOLIVAR',269,5971],
+  [10116006,'UNIDAD EDUCATIVA NACIONAL CENTRO AMÉRICA',16,5968],
+  [91401005,'ESCUELA BÁSICA GRADUADA SOUBLETTE',366,5961],
+  [20302013,'GRUPO ESCOLAR REPUBLICA DE CHILE',28,5960],
+  [41601004,'UNIDAD EDUCATIVA ESTADAL ELENA TORRES',149,5959],
+  [50208001,'ESCUELA BASICA DON  LINO JIMENEZ',165,5959],
+  [130501029,'ESCUELA BASICA ESTADAL TERRITORIO FEDERAL  AMAZONAS',591,5959],
+  [131301009,'UNIDAD EDUCATIVA PROFESOR BORIS BOSSIO VIVAS',612,5959],
+  [10103005,'UNIDAD EDUCATIVA SAN RAFAEL DE PAGUITA',3,5957],
+  [150201001,'UNIDAD EDUCATIVA LICEO BOLIVARIANO FRANCISCO FAJARDO',671,5954],
+  [30602001,'ESCUELA BASICA TAMANACO',100,5947],
+  [120801001,'LICEO TULIO FEBRES CORDERO',514,5947],
+  [170901020,'U.E. JOSÉ ANTONIO RAMOS SUCRE',769,5942],
+  [60303016,'ESCUELA BASICA NACIONAL LIBERTADOR',224,5940],
+  [70906012,'COLEGIO SAN GABRIEL ARCANGEL',280,5931],
+  [70401012,'GRUPO ESCOLAR DIEGO IBARRA',260,5931],
+  [211803017,'LICEO NACIONAL EDUARDO MATIAS LOSSADA',1064,5927],
+  [110601018,'ESCUELA BASICA NACIONAL  PEDRO LEON TORRES',458,5926],
+  [70701001,'ESCUELA BASICA BARTOLOME SALOM',266,5921],
+  [60303018,'ESCUELA FE Y ALEGRIA LA INMACULADA',224,5919],
+  [210514012,'UNIDAD EDUCATIVA ESTADAL DON OMAR LEON SALAS',1005,5919],
+  [60106008,'ESCUELA NACIONAL BASICA WENCELAUS MONSERRATTE',211,5918],
+  [10114036,'UNIDAD EDUCATIVA NACIONAL DOCTOR GUILLERMO PALACIOS',14,5918],
+  [170302007,'U.E. REPÚBLICA DE HAITÍ',745,5915],
+  [230301001,'ESCUELA PEDERNALES',1114,5910],
+  [71201012,'UNIDAD EDUCATIVA PRIVADO COLEGIO PARROQUIAL PADRE SEIJAS',286,5910],
+  [160101022,'ESCUELA BASICA MONSEÑOR OMAR RAMOS CORDERO',692,5906],
+  [211001001,'UNIDAD EDUCATIVA ESTADAL BETHY RIOS',1029,5899],
+  [180302001,'UNIDAD EDUCATIVA ESTADAL JUAN GERMAN ROSCIO',798,5898],
+  [91002014,'ESCUELA TECNICA INDUSTRIAL ROBINSONIANA CORO  EXTENSION SAN JOSE',350,5897],
+  [10114030,'ESCUELA BASICA NACIONAL ANTONIO CALCAÑO',14,5897],
+  [80601007,'ESCUELA  BASICA  ELEAZAR ALMARAT',298,5896],
+  [60402001,'ESCUELA AUTONOMA EL PAO',232,5887],
+  [40401002,'UNIDAD EDUCATIVA LAS COCUIZAS',122,5886],
+  [110801001,'ESCUELA BOLIVARIANA MANUEL ANTONIO CARREÑO',479,5885],
+  [211003001,'UNIDAD EDUCATIVA NACIONAL ROBERTO GONZALEZ',1031,5878],
+  [20302022,'ESCUELA DOCTOR JOSÉ TADEO ARREAZA CALATRAVA',28,5876],
+  [71101018,'ESCUELA BASICA NACIONAL BOLIVARIANA LOS CERRITOS',285,5875],
+  [20301012,'LICEO MONSEÑOR NICOLAS EUGENIO NAVARRO',27,5871],
+  [210508006,'ESCUELA BASICA ESTADAL RAMON REINOSO NUÑEZ',999,5867],
+  [120405003,'LICEO EJIDO',504,5866],
+  [110611001,'ESCUELA BASICA TRINIDAD SAMUEL',468,5861],
+  [30301008,'ESCUELA BASICA ESTADAL GRADUADA MARCOS DANIEL HERNANDEZ BRITO',89,5860],
+  [120804002,'CICLO DIVERSIFICADO LIBERTADOR',517,5860],
+  [70907013,'UNIDAD EDUCATIVA NACIONAL MANUEL RODRIGUEZ VASQUEZ',281,5858],
+  [110202016,'GRUPO ESCOLAR CIUDAD BOLIVAR',430,5843],
+  [211602009,'GRUPO ESCOLAR NACIONAL RAMON ESPINOZA',1057,5831],
+  [180401007,'ESCUELA BOLIVARIANA GRACILIANO COLMENARES',800,5830],
+  [70908012,'ESCUELA BASICA BARRIO LA TRINIDAD',282,5826],
+  [60302008,'ESCUELA ESTADAL BASICA  AGUA SALADA',223,5821],
+  [130701003,'ESCUELA BASICA NACIONAL DOCTOR FCO. ESPEJO',599,5820],
+  [211805010,'ESCUELA BASICA NACIONAL CARMEN AMERICA DE LEONI',1066,5818],
+  [10113006,'JARDIN DE INFANCIA MORALUZ',13,5816],
+  [101003001,'ESCUELA BASICA ANGEL MORENO',416,5816],
+  [10113024,'UNIDAD EDUCATIVA COLEGIO CERVANTES',13,5814],
+  [210305001,'ESCUELA BASICA NACIONAL ALMIRANTE PADILLA',984,5811],
+  [180101006,'ESCUELA BOLIVARIANA FRANCISCO DE PAULA REINA',790,5810],
+  [50504001,'ESCUELA BASICA PEDRO ELIAS GUTIERREZ',182,5810],
+  [210513006,'FE Y ALEGRIA RUTILIO GRANDE',1004,3596],
+  [10106004,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA ARMANDO ZULOAGA BLANCO',6,5791],
+  [71001009,'CENTRO EDUCATIVO INICIAL LAS NARANJITAS',284,5789],
+  [70401011,'UNIDAD EDUCATIVA PRIVADA OSCAR FERNANDO BENEDETTI (FE Y ALEGRIA)',260,5788],
+  [171101002,'U.E. JOSÉ MARÍA CARRERA',780,5783],
+  [181401001,'ESCUELA BASICA ESTATAL FRANCISCO DE BORJAS Y MORA',827,5782],
+  [10110057,'UNIDAD EDUCATIVA DISTRITAL JOSÉ ÁNGEL LAMAS',10,5780],
+  [22101001,'ESCUELA BÁSICA TOMAS IGNACIO POTENTINI',76,5767],
+  [40401001,'GRUPO ESCOLAR FRANCISCO ISNARDY',122,5767],
+  [10111012,'UNIDAD EDUCATIVA NACIONAL FELIPE TEJERA',11,5766],
+  [110801002,'UNIDAD EDUCATIVA NACIONAL SANARE',479,5759],
+  [201001002,'ESCUELA BASICA DOCTOR LEON TRUJILLO',964,5756],
+  [130301037,'UNIDAD ESTADAL EDUCATIVA CECILIO ACOSTA 1',582,5754],
+  [10108010,'UNIDAD EDUCATIVA DISTRITAL SUCRE',8,5749],
+  [21801004,'LICEO BOLIVARIANO SIMON RODRIGUEZ',70,5745],
+  [210504006,'UNIDAD EDUCATIVA  NACIONAL DR CRISTOVAL MENDOZA',995,5740],
+  [20302019,'GRUPO ESCOLAR JUAN MANUEL CAJIGAL',28,5728],
+  [40104008,'ESCUELA BASICA ARAGUA',107,5727],
+  [22001001,'UNIDAD EDUCATIVA AUGUSTO D´AUBETERRE',74,5719],
+  [211402008,'ESCUELA BASICA NACIONAL LOS LAURELES',1045,5718],
+  [60605002,'ESCUELA BASICA NACIONAL GUARATARO',240,5717],
+  [120801005,'COLEGIO PRIVADO JARDIN FRANCISCANO',514,5716],
+  [130901090,'CENTRO DE FORMACIÓN INDUSTRIAL DEL ESTE INCES',601,5716],
+  [60801001,'UNIDAD EDUCATIVA GENERAL PIAR',244,5714],
+  [131101010,'INSTITUTO DE CICLO BASICO JUAN JOSE ABREU',608,5714],
+  [10120025,'ESCUELA BASICA NACIONAL JOSE GONZALO MENDEZ',20,5711],
+  [122001002,'LICEO BOLIVARIANO JOSE MANUEL BRICEÑO MONZILLO',562,5709],
+  [170201025,'U.E. BOLIVARIANA LUIS DANIEL BEAPERTHUY',738,5707],
+  [60301009,'ESCUELA MEDICINA UNIVERSIDAD DE ORIENTE',222,5705],
+  [192002005,'ESCUELA BOLIVARIANA VIVIENDA RURAL',947,5704],
+  [10115025,'UNIDAD EDUCATIVA NACIONAL VICENTE EMILIO SOJO',15,5703],
+  [180201012,'LICEO NACIONAL SAN ANTONIO',793,5703],
+  [10117037,'ESCUELA BASICA COLEGIO NUESTRA SEÑORA DEL ROSARIO',17,5700],
+  [220101002,'ESCUELA BASICA MONSEÑOR ENRIQUE DE FERRARI',1076,5698],
+  [160301005,'ESCUELA BASICA AMADIO MARQUEZ',696,5695],
+  [210516008,'ESCUELA BASICA ESTADAL DR. HUMBERTO FERNANDEZ MORAN',1007,5686],
+  [131201009,'UNIDAD EDUCATIVA PRIVADA DOCTOR JOSE GREGORIO HERNANDEZ',610,5686],
+  [151102004,'ESCUELA BASICA LICEO BOLIVARIANO PRESBISTERO MANUEL MONTANER SALAZAR',691,5682],
+  [210301004,'ESCUELA BASICA ESTATAL EL REMOLINO',980,5680],
+  [20101001,'ESCUELA BÁSICA NACIONAL BICENTENARIO SIMÓN BOLÍVAR',23,5679],
+  [190702007,'ESCUELA BOLIVARIANA CIUDAD DE VALERA',895,5674],
+  [130901006,'COLEGIO MANUEL PIAR',601,5668],
+  [121801002,'LICEO BOLIVARIANO LUIS E MARQUEZ B',552,5668],
+  [20301020,'ESCUELA NACIONAL ENRIQUE PEREZ VALENCIA',27,5662],
+  [161202001,'ESCUELA BASICA SAN NICOLAS',727,5662],
+  [171001003,'U.E. MARIA BLANDIN DE ALFONZO',776,5662],
+  [70401023,'UNIDAD EDUCATIVA ESTADAL GRADUADA RAUL CALCAMO',260,5659],
+  [21201011,'ESCUELA NACIONAL LA FLORIDA',60,5656],
+  [180601015,'UNIDAD EDUCATIVA ESTADO MERIDA',806,5655],
+  [210504009,'INSTITUTO UNIVERSITARIO TECNOLOGICO JUAN PABLO PEREZ ALFONZO',995,5645],
+  [70302006,'ESCUELA BASICA MARISCAL SUCRE',259,5644],
+  [30603002,'ESCUELA TECNICA INDUSTRIAL',101,5641],
+  [70904098,'LICEO BOLIVARIANO ERNESTO CHE GUEVARA',278,5639],
+  [181902002,'UNIDAD EDUCATIVA  BOLIVARIANA SAN LORENZO',840,5634],
+  [140705001,'ESCUELA PRIMARIA ESTADAL FELIX ANGEL LOZADA',650,5632],
+  [240108001,'ESCUELA INTEGRAL BOLIVARIANA NACIONAL NAIGUATA',1132,5631],
+  [180803015,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA  ANA DOLORES FERNADEZ',814,5631],
+  [211805013,'UNIDAD EDUCATIVA NACIONAL GONZALO RINCON GUTIERREZ',1066,5628],
+  [170901016,'U.E. ALBERTO SANABRIA',769,5627],
+  [60403001,'UNIDAD EDUCATIVA MORENO DE MENDOZA',233,5627],
+  [70908010,'LICEO JOSE AUSTRIA',282,5621],
+  [70203001,'ESCUELA GRADUADA MANUEL GODOY',257,5620],
+  [60703002,'MISION JUAN XXIII',243,5614],
+  [50207001,'ESCUELA BASICA DON MARIANO PICON  SALAS',164,5605],
+  [120807002,'ESCUELA  BASICA RAFAEL ANTONIO GODOY',520,5598],
+  [110201035,'UNIDAD EDUCATIVA ESTADAL SIMON BOLIVAR',429,5598],
+  [122301001,'ESC BAS FELIX ROMAN DUQUE',569,5597],
+  [130301010,'ESCUELA ESTADAL JOSE ANTONIO  RODRIGUEZ LOPEZ',582,5597],
+  [20302036,'UNIDAD EDUCATIVA NACIONAL 29 DE MARZO',28,5591],
+  [180802012,'UNIDAD EDUCATIVA MONSEÑOR SAN MIGUEL',813,5589],
+  [110201034,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA ALI RAFAEL BRAVO',429,5589],
+  [10104018,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CRUCITA DELGADO',4,5587],
+  [40104001,'GRUPO ESCOLAR JESUS PACHECO ROJAS',107,5586],
+  [210517005,'ESCUELA BASICA ESTADAL EL LIBERTADOR',1008,5586],
+  [60803001,'UNIDAD EDUCATIVA NACIONAL IMATACA',246,5585],
+  [70904024,'ESCUELA RUIZ PINEDA',278,5583],
+  [210516012,'ESCUELA BASICA ESTADAL MAESTRO TOMAS  RAFAEL JIMENEZ',1007,5580],
+  [210507010,'JARDIN DE INFANCIA NACIONAL MARIA MOÑITOS',998,5579],
+  [40101012,'ESCUELA BASICA NACIONAL LAS DELICIAS',104,5575],
+  [160801012,'ESCUELA BASICA PATIO GRANDE',717,5575],
+  [160301031,'ESCUELA BASICA ANA DE ZAMBRANO ROA',696,5571],
+  [140802003,'ESCUELA BASICA ELOY PALACIOS CABELLO',657,5571],
+  [21201035,'ESCUELA BÁSICA RURAL LA ESPERANZA',60,5567],
+  [211806001,'ESCUELA BASICA ESTADAL TERESA LOPEZ BUSTAMANTE (EZA)',1067,5555],
+  [130901062,'ESCUELA BASICA NACIONAL JULIO CALCAÑO',601,5548],
+  [70202001,'ESCUELA ESTADAL GRADUADA CARABOBO',256,5545],
+  [130304002,'UNIDAD EDUCATIVA JUAN DE DIOS GUANCHEZ',585,5541],
+  [130801015,'GRUPO ESCOLAR AMBROSIO PLAZA',600,5541],
+  [50207006,'ESCUELA BASICA EZEQUIEL ZAMORA',164,5541],
+  [10120008,'COLEGIO SAN PEDRO',20,5540],
+  [240101002,'UNIDAD EDUCATIVA NACIONAL CORAPAL',1125,5531],
+  [190702009,'ESCUELA TÉCNICA COMERCIAL SANTO TOMAS DE AQUINO (SALESIANOS)',895,5530],
+  [70909001,'ESCUELA BASICA ESTADAL LUIS MARIA SUCRE',283,5527],
+  [191202001,'ESCUELA BOLIVARIANA 27 DE NOVIEMBRE DE 1820',919,5526],
+  [21301020,'GRUPO ESCOLAR CACIQUE PAISANA',61,5526],
+  [120813005,'ESCUELA BASICA ELEAZAR LOPEZ CONTRERAS',526,5524],
+  [120807006,'UNIDAD EDUCATIVA MARIA MOZZARELLO',520,5523],
+  [30501005,'ESCUELA DE EDUCACIÓN INICIAL NUMERO 9 DE ELORZA',97,5522],
+  [170906003,'LICEO BOLIVARIANA CREACION ARAPO',774,5521],
+  [170902005,'ESCUELA BÁSICA LA TRINIDAD',770,5519],
+  [60306004,'ESCUELA BASICA NACIONAL MARIA ZULIA DE MORALES',227,5515],
+  [180901003,'UNIDAD EDUCATIVA COLEGIO SANTA MARIANA DE JESUS',817,5512],
+  [220102004,'ESCUELA BASICA CECILIO ACOSTA',1077,5501],
+  [40601016,'COLEGIO EL CARMELO',127,5500],
+  [120805002,'CICLO BASICO CARACCIOLO PARRA OLMEDO',518,5497],
+  [182101001,'UNIDAD EDUCATIVA MONSEÑOR ALEJANDRO FERNANDEZ FEO',845,5494],
+  [210509004,'CENTRO CULTURAL DE CUJICITO CARLOS PARRA BERNAL',1000,5488],
+  [120107001,'ESCUELA BASICA SUR AMERICA',491,5487],
+  [121802002,'GRUPO ESCOLAR ESTADO NUEVA ESPARTA',553,5484],
+  [160801004,'CICLO BASICO TUREN',717,5482],
+  [10115004,'ESCUELA BASICA BOLIVARIANA LOS NARANJOS',15,5481],
+  [210512004,'UNIDAD EDUCATIVA NACIONAL ALMIRANTE PADILLA',1003,5479],
+  [200701029,'ESCUELA BASICA JOSE ATANACIO GONZALEZ',960,5478],
+  [240110006,'UNIDAD EDUCATIVA PRIVADA COLEGIO JOSE ATANASIO GIRARDOT',1134,5475],
+  [60305003,'ESCUELA BASICA VENEZUELA',226,5474],
+  [131601019,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL ROSARIO',617,5473],
+  [50202002,'CICLO  DIVERSIFICADO DANIEL FLORENCIO  OLEARY',159,5473],
+  [70704009,'ESCUELA BOLIVARIANA TERESITA ROSALES',269,5471],
+  [130801019,'UNIDAD BASICA EDUCATIVA ALBERTO SEQUIN VERA',600,5471],
+  [110502009,'ESCUELA BOLIVARIANA FRANCISCO DE PAULA BRICEÑO',456,5471],
+  [131801014,'UNIDAD EDUCATIVA  POPULAR COLEGIO SAN IGNACIO DE LOYOLA',621,5468],
+  [150101007,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA FRANCISCO ESTEBAN GOMEZ',670,5468],
+  [10105008,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA BICENTENERIA REPUBLICANO',5,5466],
+  [60206007,'ESCUELA BASICA MIGUEL OTERO SILVA',221,5464],
+  [91101001,'ESCUELA BASICA BOLIVARIANA MANUEL ANTONIO GARCIA',356,5462],
+  [80601017,'ESCUELA  BASICA ALEJANDRO FEBRES',298,5460],
+  [21302022,'GRUPO ESCOLAR RAFAEL MARCANO RODRIGUEZ',62,5457],
+  [70201001,'ESCUELA FRANCISCO ARAMENDI',255,5457],
+  [10110038,'UNIDAD EDUCATIVA NACIONAL ANTONIO JOSÉ DE SUCRE',10,5454],
+  [10111014,'CICLO BASICO CREACION 23 DE ENERO, EDIFICIO B',11,5453],
+  [190703001,'UNIDAD EDUCATIVA NUESTRA SEÑORA DE LA CANDELARIA',896,5452],
+  [110201020,'CICLO BASICO FELIX GONZALEZ LAMEDA',429,5450],
+  [210503018,'ESCUELA BASICA NACIONAL MARIA CAMARGO DE ALVAREZ',994,3557],
+  [90401010,'ESCUELA BASICA CAJA DE AGUA',318,5440],
+  [50901001,'ESCUELA BASICA  BOLIVARIANA BERNARDINO MOSQUERA',195,5425],
+  [180602010,'UNIDAD EDUCATIVA ESTADAL DOCTOR RAUL LEONI',807,5424],
+  [60107006,'CICLO DIVERSIFICADO LOS OLIVOS',212,5415],
+  [10110062,'UNIDAD EDUCATIVA BOLIVARIANA JOSÉ GERVASIO ARTIGAS',10,5413],
+  [180801006,'INSTITUTO UNIVERSITARIO TECNOLOGICO AGROPECUARIO',812,5410],
+  [70904003,'GRUPO ESCOLAR NACIONAL SIMON RODRIGUEZ',278,5408],
+  [21301057,'GRUPO ESCOLAR DOMINGO GUZMAN LANDER',61,5408],
+  [50601001,'ESCUELA BASICA JOSE FRANCISCO JIMENEZ',183,5408],
+  [180801018,'UNIDAD EDUCATIVA BOLIVARIANA ALIANZA',812,5406],
+  [211602002,'UNIDAD EDUCATIVA  NACIONAL ANA MARIA CAMPOS',1057,5405],
+  [170901031,'POLIDEPORTIVO FELIX LALITO VEÍSQUEZ',769,5404],
+  [70705006,'UNIDAD EDUCATIVA MUNICIPAL CARLOS AUGUSTO CUBILLAN',270,5403],
+  [130903001,'CENTRO MARITIMO DE VENEZUELA',603,5400],
+  [171502001,'U.E. CRUZ SALMERON ACOSTA',788,5397],
+  [10117018,'UNIDAD EDUCATIVA NACIOANL JOSE MANUEL NUÑEZ PONTE',17,5395],
+  [70704007,'ESCUELA PRIMARIA BOLIVARIANA  JUANA GARCIA DE LADERA',269,5394],
+  [10114023,'LICEO BOLIVARIANO LUIS CARDENAS SAAVEDRA',14,5392],
+  [210510014,'ESCUELA BASICA NACIONAL NEPTALI RINCON URDANETA',1001,5391],
+  [130901067,'UNIDAD EDUCATIVA ALBERTO RAVELL',601,5386],
+  [220101011,'ESCUELA BASICA MENCA DE LEONI',1076,5381],
+  [100101019,'INSTITUTO UNIVERSITARIO TECNOLOGICO DE LOS LLANOS',388,5380],
+  [110201022,'UNIDAD EDUCATIVA PABLO ACOSTA ORTIZ',429,5379],
+  [190701010,'LICEO CULTURAL BOLIVARIANO  MONSEÑOR JOSÉ HUMBERTO CONTRERAS',894,5378],
+  [130501016,'UNIDAD EDUCATIVA FE Y ALEGRIA PAMPERO',591,5373],
+  [210701002,'FE Y ALEGRIA',1015,5370],
+  [181602002,'UNIDAD EDUCATIVA ESTADAL DOCTOR PATROCINIO PEÑUELA RUIZ',834,5369],
+  [211102012,'ESCUELA BASICA. NACIONAL. BACHILLER. TORIBIO URDANETA',1035,5365],
+  [21701003,'COLEGIO JUAN XXIII',68,5365],
+  [71101001,'UNIDAD EDUCATIVA ESTADAL SANTISIMA TRINIDAD',285,5364],
+  [210510003,'UNIDAD EDUCATIVA ESTADAL GABRIELA MISTRAL',1001,5361],
+  [70201007,'ESCUELA ESTADAL CONCENTRADA FERNANDO FIGUEREDO',255,5360],
+  [200601021,'GIMNACIO CUBIERTO URACHICHE',959,5352],
+  [70701004,'GRUPO ESCOLAR TABORDA',266,5351],
+  [10110032,'ESCUELA BÁSICA NACIONAL BOLIVARIANA JOSÉ FLORENCIO JIMÉNEZ',10,5348],
+  [160802002,'ESCUELA BASICA LA MISION',718,5346],
+  [10110100,'UNIDAD EDUCATIVA PRIVADA FEDERICO QUIROZ',10,5346],
+  [170104002,'U.E. EL MORRO',736,5346],
+  [130108002,'ESCUELA ESTADAL GRADUADA DOCTOR ARNALDO AROCHA VARGAS',578,5344],
+  [10110031,'ESCUELA GRADUADA GRACIELA NAVAS TOVAR',10,5340],
+  [70904008,'ESCUELA NACIONAL EL PRADO',278,5339],
+  [211805011,'ESCUELA BASICA PRIVADA NACIONAL NUEVA VENEZUELA ( FE Y ALEGRIA)',1066,5333],
+  [212002001,'UNIDAD EDUCATIVA NACIONAL NICOLAS ARAMBULO',1071,5331],
+  [200302002,'ESCUELA INTEGRAL BOLIVARIANA PEDRO MARIA SOSA',953,5330],
+  [41101001,'ESCUELA BASICA FELIX MARIA PAREDES',141,5330],
+  [70907005,'GRUPO ESCOLAR BEJUMA',281,5329],
+  [211406009,'UNIDAD EDUCATIVA MONSEÑOR GUILLERMO BRIÑEZ (E.Z.A)',1049,5326],
+  [200702004,'ESCUELA INTEGRAL  BOLIVARIANA REINALDO REYES',961,5325],
+  [131603009,'COMPLEJO EDUCATIVO COLEGIO AMERICANO',619,5323],
+  [110207025,'ESCUELA ESTADAL GRADUADA GENERAL JOSE TRINIDAD MORAN',435,5321],
+  [110204028,'ESCUELA BASICA EL CARMEN',432,5317],
+  [160303005,'UNIDAD EDUCATIVA NACIONAL SAN JUAN DE GUANAGUANARE',698,5316],
+  [21201021,'COLEGIO KALIL GIBRAN',60,5315],
+  [131301002,'ESCUELA BASICA LOS SALIAS',612,5311],
+  [210305006,'LICEO FRANCISCO JAVIER PULGAR',984,5308],
+  [211105004,'CENTRO DE EDUCACION INICIAL MAMA ROSA',1038,5305],
+  [110614001,'UNIDAD EDUCATIVA NACIONAL JUAN JOSE BRACHO',471,5302],
+  [140708001,'ESCUELA BASICA FEDERICO HANS',653,5300],
+  [101101003,'UNIDAD EDUCATIVA NACIONAL JOSE MELECIO CAMACHO',417,5299],
+  [21201036,'COLEGIO DIVINO MAESTRO',60,5295],
+  [140302002,'ESCUELA BASICA BOLIVARIANA CARIPITO',631,5295],
+  [120813001,'ESCUELA BASICA EMIRO FUENMAYOR',526,5291],
+  [210603003,'UNIDAD EDUCATIVA NACIONAL GENERAL FRANCISCO  DE MIRANDA',1012,5290],
+  [160101005,'ESCUELA BASICA OMAR RAMOS CORDERO 3',692,5290],
+  [191301002,'ESCUELA BOLIVARIANA LA LLANADA',922,5287],
+  [50604001,'UNIDAD EDUCATIVA ENRIQUE  CASTRO',186,5285],
+  [190701019,'UNIDAD EDUCATIVA NACIONAL PADRE BLANCO',894,5284],
+  [160401003,'ESCUELA MUNICIPAL GUANARITO',701,5280],
+  [41701002,'ESCUELA BASICA NACIONAL COROPO',150,5277],
+  [160301026,'ESCUELA BASICA PROFESORA CELINDA ADAMS',696,5271],
+  [211102019,'ESCUELA BASICA BOLIVARIANA DOCTOR. ALBERTO CARNAVALI',1035,5268],
+  [110206006,'UNIDAD EDUCATIVA NACIONAL TAMACA',434,5265],
+  [150502002,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA RAFAEL VALERY MAZA',681,5264],
+  [190601001,'ESCUELA BOLIVARIANA TOSTA GARCIA',888,5264],
+  [180701001,'UNIDAD EDUCATIVA DOCTOR. FRANCISCO JAVIER GARCIA DE HEVIA',810,5262],
+  [70905006,'GRUPO ESCOLAR FERMIN TORO',279,5261],
+  [20302032,'ESCUELA BÁSICA NACIONAL DOCTOR JULIO CAMEJO',28,5255],
+  [10116009,'UNIDAD EDUCATIVA NACIONAL PARROQUIA MACARAO',16,5254],
+  [160101062,'UNIVERSIDAD NACIONAL YACAMBU',692,5254],
+  [171503002,'U.E. LORENZA ISAVA GUEVARA',789,5252],
+  [150301001,'UNIDAD EDUCATIVA BOLIVARIANA MATASIETE',673,5252],
+  [200402013,'UNIDAD EDUCATIVA TIUNA',956,5252],
+  [150601019,'UNIDAD EDUCATIVA INSTITUTO VIRGEN DEL VALLE (ADULTO)',682,5249],
+  [21201001,'GRUPO ESCOLAR DOCTOR RAFAEL  FERNÁNDEZ PADILLA',60,5246],
+  [10108025,'UNIDAD EDUCATIVA COLEGIO GRAN COLOMBIA',8,5241],
+  [80801001,'ESCUELA BÁSICA BOLIVARIANA MANAURE',302,5241],
+  [210509013,'ESCUELA BASICA NACIONAL SAN JUAN',1000,5239],
+  [160102001,'ESCUELA BASICA LISANDRO ALVARADO',693,5236],
+  [91202002,'ESCUELA PRIMARIA BOLIVARIANA PRÓSPERO AGUSTÍN OCANDO',360,5234],
+  [40101011,'UNIDAD EDUCATIVA ESTADAL DOLORES MENDOZA DE OSORIO',104,5233],
+  [70906010,'INSTITUTO NACIONAL DE CAPACITACION Y EDUCACION SOCIALISTA (INCES)',280,5232],
+  [60103006,'ESCUELA ESTADAL PABLO VICENTE BASTARDO',208,5230],
+  [71101026,'UNIDAD EDUCATIVA ANTONIO JOSE DE SUCRE',285,5230],
+  [70907004,'ESCUELA RAFAEL SATURNO GUERRA',281,5223],
+  [210106002,'LICEO JUAN PABLO PEREZ ALFONZO',975,5222],
+  [200701014,'LICEO COCOROTE',960,5222],
+  [20101009,'ESCUELA  BÁSICA  23 DE ENERO',23,5207],
+  [60304013,'ESCUELA BASICA CARMEN LUNA LEZAMA',225,5200],
+  [121201001,'ESC BAS DR MARIANO UZCATEGUI',537,5200],
+  [60302003,'UNIDAD EDUCATIVA LOS PROCERES',223,5198],
+  [120201001,'UNIDAD EDUCATIVA RAFAEL MARIA TORRES',492,5191],
+  [210508012,'ESCUELA BASICA NACIONAL ANGEL ALVAREZ DOMINGUEZ',999,5188],
+  [10120019,'ESCUELA BASICA RAMON POMPILIO OROPEZA',20,5185],
+  [210511001,'ESCUELA BASICA NACIONAL DIVINA PASTORA',1002,5185],
+  [160201018,'UNIDAD CONCENTRADA JUAN ZABARCE',694,5170],
+  [10110079,'INSTITUTO TÉCNICO JESÚS OBRERO',10,5167],
+  [70102001,'ESCUELA BASICA PIMENTEL CORONEL',253,5166],
+  [150402001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA VICTOR CEDENO',679,5165],
+  [20402002,'GRUPO ESCOLAR DIEGO BAUTISTA URBANEJA',34,5165],
+  [60301017,'ESCUELA BASICA NIÑOS PREGONEROS',222,5164],
+  [200202002,'ESCUELA BASICA JUAN VICENTE GONZALEZ',951,5160],
+  [140102001,'UNIDAD EDUCATIVA CREACION EL RINCON',628,5159],
+  [40107014,'ESCUELA BASICA REPUBLICA DE MEJICO',110,5157],
+  [10111019,'ESCUELA BÁSICA BOLÍVARIANA JOSÉ ENRIQUE RODO',11,5157],
+  [180401004,'COLEGIO NUESTRA SEÑORA DE LA CONSOLACION DE TARIBA',800,5156],
+  [70601005,'LICEO AMBROSIO PLAZA',264,5153],
+  [120407004,'UNIDAD EDUCATIVA HIPOLITO E GONZALEZ',506,5150],
+  [120802001,'ESCUELA ESTADAL BASICA COROMOTO',515,5149],
+  [190504002,'UNIDAD EDUCATIVA MONSEÑOR ESTANISLAO CARRILLO',884,5148],
+  [80601022,'ESCUELA BASICA NACIONAL BOLIVARIANA ROMULO GALLEGOS',298,5146],
+  [211102016,'ESCUELA NACIONAL LOS SAMANES',1035,5146],
+  [191001001,'LICEO ANTONIO ANSELMI BERTI',912,5144],
+  [211403006,'ESCUELA BASICA NACIONAL DOCTOR. RAUL OSORIO LAZO',1046,5144],
+  [90501003,'ESCUELA BASICA PRIMARIA EMILIA ROSA MOLINA',322,5141],
+  [110201037,'GRUPO ESCOLAR JUAN TAMAYO RODRIGUEZ',429,5136],
+  [230201001,'ESCUELA SAMUEL DARIO MALDONADO',1112,5136],
+  [130602002,'ESCUELA BOLIVARIANA FELIPE NERI',595,5134],
+  [10117022,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA TOMAS VICENTE GONZALEZ',17,5133],
+  [70903001,'COLEGIO DON BOSCO',277,5131],
+  [180804007,'ESCUELA ESTADAL GRADUADA DOCTORA BLANCA LOPEZ DE SANCHEZ',815,5130],
+  [130801040,'ESCUELA BASICA BOLIVARIANA RICARDO MONTILLA',600,5128],
+  [10115030,'ESCUELA BASICA NACIONAL JOSE VINICIO ADAMES PIÑERO',15,5127],
+  [211803001,'ESCUELA BASICA NACIONAL DOCTOR JESUS MUÑOZ TEBAR',1064,5124],
+  [60107004,'ESCUELA NACIONAL BASICA YOCOIMA',212,5121],
+  [21502002,'ESCUELA CREACION CHORRERON',65,5121],
+  [211401011,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA DE CABIMAS',1044,5117],
+  [210505008,'ESCUELA BASICA PICHINCHA',996,5115],
+  [60108007,'ESCUELA TECNICA INDUSTRIAL SIMON RODRIGUEZ',213,5112],
+  [110302001,'LICEO NACIONAL BOLIVARIANO PEPE COLOMA',440,5105],
+  [160201002,'CICLO COMBINADO PABLO HERRERA CAMPINS',694,5103],
+  [211802005,'ESCUELA BASICA NACIONAL GENERAL RAFAEL URDANETA (FE Y ALEGRIA)',1063,5098],
+  [190603001,'ESCUELA BOLIVARIANA FRANCISCO BRICEÑO ARAUJO',890,5098],
+  [110704007,'ESCUELA BASICA NAC IOMNALMOROTURO',478,5095],
+  [210507008,'LICEO LUIS BELTRAN RAMOS',998,5094],
+  [50701001,'GRUPO ESCOLAR RAMON ESCOBAR',187,5092],
+  [91001013,'ESCUELA BASICA BOLIVARIANA JUAN CRISOSTOMO FALCÁ’N',349,5089],
+  [130902002,'UNIDAD  EDUCATIVA COLEGIO SANTA GEMA',602,5088],
+  [20301025,'ESCUELA NACIONAL MIGUEL ANGEL PEREZ',27,5088],
+  [160401001,'ESCUELA BASICA MONSEÑOR UNDA',701,5087],
+  [210105001,'UNIDAD EDUCATIVA ESTADAL RAFAEL MARIA BARALT',974,5086],
+  [140710005,'ESCUELA BASICA ISABEL PADRINO DE CAMPOS',655,5080],
+  [10120006,'UNIDAD EDUCATIVA COLEGIO NUESTRA MADRE',20,5080],
+  [60702001,'ESCUELA NACIONAL YURUARY',242,5078],
+  [110202040,'U.E.N. JOSE GIL FORTOUL',430,5076],
+  [120810001,'ESCUELA BASICA RAMON IGNACIO GUERRA.',523,5076],
+  [211803013,'GRUPO ESCOLAR  SAN FRANCISCO',1064,5073],
+  [131201006,'COMPLEJO EDUCATIVO ESTADAL JUAN GERMAN ROSCIO',610,5070],
+  [10113028,'UNIDAD EDUCATIVA COLEGIO SAN ANTONIO DE LA FLORIDA',13,5068],
+  [10115039,'UNIDAD EDUCATIVA FE Y ALEGRIA ANDY APARICIO',15,5066],
+  [50212001,'ESCUELA BASICA ESTATAL VIRGINIA DE CONTRERAS',169,5050],
+  [10120024,'UNIDAD EDUCATIVA COLEGIO SANTA ELVIRA',20,5049],
+  [110209001,'GRUPO ESCOLAR CARUAO',437,5047],
+  [41401016,'UNIDAD EDUCATIVA NACIONAL ELIZABET VONKELLER',146,5045],
+  [130106001,'GRUPO ESCOLAR MARTIN HERNANDEZ BLANCO',576,5043],
+  [110203009,'UNIDAD EDUCATIVA COLEGIO ANDRES BELLO',431,5041],
+  [110205006,'UNIDAD EDUCATIVA ANDRES BELLO',433,5038],
+  [170304003,'LICEO BOLIVARIANO JORGE ORDOSGOITI',747,5027],
+  [161201008,'UNIDAD EDUCATIVA NACIONAL BOCONOITO',726,5027],
+  [60202001,'ESCUELA NACIONAL BASICA CUYUNI',217,5026],
+  [182601001,'UNIDA EDUCATIVA NACIONAL BOLIVARIANA GERVACIO RUBIO',852,5023],
+  [50203001,'UNIDAD  BASICA  ALEJO FORTIQUE',160,5022],
+  [30604001,'ESCUELA BASICA BOLIVARIANA MADARIAGA',102,5021],
+  [110204004,'ESCUELA BASICA GRAN MARISCAL DE AYACUCHO',432,5019],
+  [160301014,'ESCUELA BASICA ORLANDO GIL CASA DIEGO',696,5016],
+  [10117029,'LICEO BOLIVARIANO BENITO JUAREZ',17,5015],
+  [60301003,'JARDIN DE INFANCIA LOS COQUITOS',222,5013],
+  [110101002,'UNIDAD EDUCATIVA  EFREN COLMENARES GIMENEZ',427,5011],
+  [20101013,'UNIDAD EDUCATIVA NARCISO FRAGACHAN',23,5010],
+  [20301001,'ESCUELA NACIONAL ANDRES ELOY BLANCO',27,5009],
+  [180401003,'ESCUELA BOLIVARIANA RAFAEL ALVAREZ',800,5008],
+  [181601002,'GRUPO ESCOLAR PEDRO MARIA UREÑA',833,5007],
+  [71101005,'LICEO NACIONAL BOLIVARIANO ANDRES BELLO',285,5005],
+  [121601001,'ESCUELA  BASICA ARTESANAL',545,5003],
+  [160201006,'ESCUELA BASICA  ANTONIO RODRIGUEZ PICON',694,4996],
+  [120107012,'COLEGIO PRIVADO ROMULO GALLEGOS',491,4994],
+  [210512009,'UNIDAD EDUCATIVA SANTA MONICA',1003,4993],
+  [211303005,'ESCUELA NACIONAL FELICITA DE ESPINOZA',1043,4990],
+  [130301049,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA REPUBLICA DEL PARAGUAY',582,4988],
+  [210513017,'CENTRO DE EDUCACION INFANTIL MIGUEL SUNIAGA',1004,4987],
+  [170905001,'ESCUELA BOLIVARIANA ADELAIDA NÚÑEZ SUCRE',773,4987],
+  [180801003,'LICEO NACIONAL PEDRO MARIA MORANTES',812,4987],
+  [201101014,'ESCUELA BASICA  BOLIVARIANA INDEPENDENCIA',965,4982],
+  [131601040,'UNIDAD EDUCATIVA JOSE TADEO MONAGAS',617,4982],
+  [160901012,'ESCUELA ESTADAL CONCENTRADA MIXTA NUMERO 291',721,4978],
+  [20302024,'LICEO BOLIVARIANO CORONEL JUAN BAUTISTA BIDEAUX',28,4976],
+  [110205002,'UNIDAD EDUCATIVA DOCTOR ARGIMIRO BRACAMONTE',433,4975],
+  [131701004,'LICEO J MARIA VILLALOBOS',620,4968],
+  [200201014,'ESCUELA INTEGRAL BOLIVARIANA CECILIA BAZAN DE  SEGURA',950,4968],
+  [240109005,'CENTRO MOVIL ESTACION DE BOMBEROS NUMERO : 4 HUMBERTO GERARDO OVALLES',1133,4967],
+  [90403003,'LICEO BOLIVARIANO MAESTRO GALLEGOS',320,4966],
+  [140707003,'ESCUELA BASICA ANDRES BELLO',652,4963],
+  [210501002,'UNIDAD EDUCATIVA JORGE WASHINGTON',992,4963],
+  [70904021,'UNIDAD EDUCATIVA DOMINGO SAVIO',278,4963],
+  [210407009,'UNIDAD EDUCATIVA BOLIVARIANA BACHILLER JOSE MARIA OSORIO',991,4961],
+  [210504002,'ESCUELA BASICA NACIONAL MONSEÑOR GODOY',995,4959],
+  [211102002,'UNIDAD EDUCATIVA ESTADAL ANDRES BELLO (E.Z.A)',1035,4959],
+  [70908014,'ESCUELA BASICA NACIONAL GENERAL RAFAEL URDANETA',282,4955],
+  [131601007,'COLEGIO SANTO TOMAS DE VILLANUEVA',617,4954],
+  [20302026,'UNIDAD EDUCATIVA DOCTOR JOSÉ GIL FORTOUL',28,4950],
+  [50401004,'LICEO NACIONAL BOLIVARIANO CARLOS DEL POZO Y SUCRE',175,4948],
+  [210509002,'ESCUELA BASICA NACIONAL OLGA MARIA ABREU',1000,4943],
+  [10110101,'ESCUELA BASICA NACIONAL SUCRE',10,4943],
+  [121202001,'UNIDAD EDUCATIVA DON PEDRO JESUS PINO',538,4940],
+  [70301004,'ESCUELA NACIONAL MARIARA',258,4940],
+  [50201001,'UNIDAD EDUCATIVA DOMINGA ORTIZ DE PAEZ',158,4934],
+  [110201016,'UNIDAD EDUCATIVA VICENTE SALIAS',429,4932],
+  [180201003,'ESCUELA BOLIVARIANA REPUBLICA DE CUBA',793,4932],
+  [131201010,'UNIDAD EDUCATIVA PRIVADA NUESTRA SEÑORA DE LA COROMOTO',610,4931],
+  [110203006,'COMEDOR ESCOLAR ANTONIO RAMIREZ',431,4930],
+  [92101001,'ESCUELA BASICA BOLIVARIANA YARACAL',381,4925],
+  [70705010,'UNIDAD EDUCATIVA MIS VECINOS',270,4924],
+  [110202023,'UNIDAD EDUCATIVA VENEZUELA',430,4921],
+  [90403009,'LICEO BOLIVARIANO ALEJANDRO PETION',320,4920],
+  [182801003,'ESCUELA ESTADAL GRADUADA MARIA DEL ROSARIO MARQUEZ',854,4916],
+  [191601001,'UNIDAD BÁSICA NACIONAL MARCELINO ZAMBRANO',934,4912],
+  [100601005,'ESCUELA BASICA NACIONAL REPUBLICA DEL BRASIL',405,4910],
+  [210504005,'UNIDAD EDUCATIVA NACIONAL RAFAEL MARIA BARALT',995,4908],
+  [170805002,'BOLIVARIANA ELISO SILVA DÍAZ',768,4906],
+  [130401015,'UNIDAD EDUCATIVA ESTADAL PEDRO RODRIGUEZ VALDIVIEZO',589,4903],
+  [230102001,'GRUPO ESCOLAR LA FLORIDA',1105,4903],
+  [131201011,'UNIDAD EDUCATIVA PRIVADA COLEGIO SAGRADO CORAZON DE JESUS',610,4903],
+  [130901078,'ESCUELA MUNICIAPL ANDRES ELOY BLANCO',601,4899],
+  [160101030,'ESCUELA GRADUADA TAPA DE PIEDRA',692,4891],
+  [210512003,'ESCUELA BASICA NACIONAL JULIO CESAR BORGE',1003,4888],
+  [50103001,'ESCUELA PRIMARIA YARURO',156,4887],
+  [160301023,'GRUPO ESCOLAR NACIONAL DIEGO ANTONIO BRICEÑO',696,4883],
+  [110204027,'UNIDAD EDUCATIVA COLEGIO FE Y ALEGRIA JUAN XXIII',432,4881],
+  [131601035,'PRE-ESCOLAR NUESTRA SEÑORA DEL ROSARIO',617,4880],
+  [160101007,'ESCUELA BASICA BOLIVARIANA DESARROLLO CAMBURITO',692,4878],
+  [60802001,'ESCUELA BASICA NACIONAL SANTIAGO IZAGUIRRE',245,4876],
+  [10115015,'UNIDAD EDUCATIVA NACIONAL APLICACIÓN',15,4876],
+  [130901023,'UNIDAD EDUCATIVA COLEGIO JUAN PABLO II',601,4875],
+  [51002001,'ESCUELA BASICA BOLIVARIANA  MIGUEL ANGEL GUILLEN',198,4871],
+  [230304001,'ESCUELA SAN FRANCISCO DE GUAYO',1117,4861],
+  [210511012,'UNIDAD EDUCATIVA NACIONAL GENERAL RAFAEL URDANETA',1002,4861],
+  [170903022,'U.E. JAVIER ALCAÍ VÁSQUEZ',771,4861],
+  [160301040,'CICLO BASICO COMBINADO DOCTOR FELIX SATURNINO ARISA',696,4860],
+  [160101008,'ESCUELA BASICA BOLIVARIANA NUESTRA SEÑORA DEL PILAR',692,4858],
+  [30202002,'CENTRO EDUCACION INICIAL BOLIVARIANO ANTONIO JOSE DE SUCRE',85,4857],
+  [180801020,'ESCUELA BOLIVARIANA VILLAFAÑE',812,4857],
+  [21201030,'GRUPO ESCOLAR ESTADO TRUJILLO',60,4855],
+  [40205005,'UNIDAD EDUCATIVA ESTADAL RAFAEL TAYLHADAT',116,4849],
+  [131201016,'ESCUELA PITAHAYA',610,4848],
+  [190303002,'LICEO BOLIVARIANO ANTONIO JOSÉ SALDIVIA',874,4847],
+  [70908019,'GRUPO ESCOLAR GUACARA',282,4842],
+  [130301035,'UNIDAD EDUCATIVA NACIONAL GUAICAIPURO',582,4839],
+  [10122003,'LICEO ANTONIO GUZMÁN BLANCO',22,4838],
+  [71201015,'UNIDAD EDUCATIVA NACIONAL MANUEL ANTONIO MALPICA',286,4838],
+  [140708014,'ESC BAS PABLO EMILIO CASTILLO',653,4838],
+  [171401003,'UNIDAD EDUCATIVA JESÚS ALBERTO MARCANO ECHEZURIA',786,4835],
+  [10108007,'UNIDAD EDUCATIVA DOCTOR MANUEL DIAZ RODRIGUEZ',8,4832],
+  [211105002,'UNIDAD EDUCATIVA PRIVADA NACIONAL FRAY LUIS DE LEON',1038,4830],
+  [151001001,'UNIDAD EDUCATIVA BOLIVARIANA ANTOLIN DEL CAMPO',689,4829],
+  [190702001,'ESCUELA BOLIVARIANA LA PLATA III',895,4827],
+  [70703004,'ESCUELA BASICA LA SALLE BALOCHE',268,4824],
+  [41701015,'UNIDAD EDUCATIVA PRIVADA NUESTRA SEÑORA DE COROMOTO',150,4823],
+  [70704015,'COLEGIO SAN JOSE LA SALLE',269,4822],
+  [130901018,'COLEGIO DULCE NOMBRE DE JESUS',601,4820],
+  [80201013,'UNIDAD EDUCATIVA SIMON BOLIVAR',292,4819],
+  [130601001,'UNIDAD EDUCATIVA 13 DE JUNIO',594,4817],
+  [21201028,'LICEO JOSE RAFAEL REVENGA',60,4814],
+  [21302005,'PREESCOLAR EL PARAÍSO I',62,4811],
+  [60201004,'ESCUELA BASICA LUCILA PALACIOS',216,4809],
+  [210803001,'UNIDAD EDUCATIVA NACIONAL ANTONIO JOSE DE SUCRE',1021,4807],
+  [10121004,'UNIDAD EDUCATIVA COLEGIO TIRSO DE MOLINA',21,4801],
+  [120106002,'UND EDUC TOVAR',490,4801],
+  [170304005,'U E ESTADO ANZOATEGUI',747,4801],
+  [20301017,'LICEO JOSE ANTONIO ANZOATEGUI',27,4800],
+  [211602003,'ESCUELA  BASICA  NACIONAL  BACHILLER FRANCISCO ARAUJO GARCIA',1057,4799],
+  [110903002,'ESCUELA NACIONAL BOLIVARIANA PROFESOR OTILIO GALLARDO( MANZANITA)',484,4799],
+  [21302010,'LICEO TOMAS ALFARO CALATRAVA',62,4798],
+  [200401001,'ESCUELA BASICA REPUBLICA DE NICARAGUA',955,4797],
+  [201401008,'ESCUELA  INTEGRAL BOLIVARIANA  MERCEDES MORO DE FUENTES',968,4795],
+  [71301006,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA DE SEGURIDAD INDUSTRIAL',287,4794],
+  [171001002,'U.E. ALEJANDRO VILLANUEVA',776,4793],
+  [110202034,'ESCUELA BASICA EL OBELISCO',430,4792],
+  [110206010,'ESCUELA NACIONAL RASTROJITOS',434,4785],
+  [70704008,'ESCUELA BASICA BOLIVARIANA PROSPERO REVERON',269,4779],
+  [110202050,'GRUPO ESCOLAR NACIONAL AYACUCHO',430,4779],
+  [210502023,'ESCUELA BASICA NACIONAL DR JESUS MARIA PORTILLO',993,4778],
+  [210510004,'UNIDAD EDUCATIVA NACIONAL DR VICENTE LECUNA',1001,4776],
+  [210516022,'UND EDUC GNRAL CARLOS SOUBLETT',1007,4774],
+  [10118006,'ESCUELA BÁSICA BOLIVARIANA SABANETA',18,4766],
+  [170705001,'U.E. SAN FERNANDO DE QUEBRADA SECA',762,4766],
+  [211102006,'ESCUELA BASICA NACIONAL NUEVA LAGUNILLAS',1035,4763],
+  [20604002,'LICEO BOLIVARIANO FRANCISCO CARVAJAL',41,4761],
+  [170601001,'U.E. LUISA AMALIA DE RAMÍREZ',757,4761],
+  [70904019,'ESCUELA NACIONAL ISIDRO RAMIREZ',278,4760],
+  [21201034,'INSTITUTO ALBERTO CARNEVALLI',60,4759],
+  [110203015,'CENTRO EDUCACION INICIAL DOÑA MENCA DE LEONI',431,4756],
+  [181301007,'UNIDAD EDUCATIVA PRESBITERO JOSE ARMANDO PEREZ',826,4326],
+  [50401005,'UNIDAD EDUCATIVA PRIVADO COLEGIO CORAZON DE MARIA',175,4753],
+  [131602001,'UNIDAD EDUCATIVA COLEGIO CHAMPAGNAT ASOCIACION CIVIL V.E.A.S.',618,4753],
+  [110601011,'ESCUELA BASICA CREACION CALICANTO',458,4748],
+  [130301014,'UNIDAD EDUCATIVA NACIONAL MANUEL CLEMENTE URBANEJA',582,4747],
+  [170904004,'U.E. MADRE ALBERTA JIMENEZ',772,4746],
+  [210514020,'CENTRO INFANTIL PRESBITERO LISANDRO PUCHE',1005,4744],
+  [130801034,'ESCUELA TECNICA INDUSTRIAL ROBINSONIANA RUBEN GONZALEZ',600,4742],
+  [210513011,'UNIDAD EDUCATIVA NACIONAL  FE Y ALEGRIA N 4 LA RINCONADA',1004,4739],
+  [140601008,'ESCUELA BASICA INAVI',642,4735],
+  [70904020,'ESCUELA BASICA MIGUEL ARTURO GONZALEZ  GRANADILLO',278,4733],
+  [160301003,'ESCUELA BASICA ESTADAL HORTENCIA PERAZA',696,4731],
+  [60102007,'ESCUELA NACIONAL BASICA GENERAL FRANCISCO CONDE',207,4731],
+  [210507011,'JARDIN DE INFANCIA NACIONAL R-4 SAN JACINTO',998,4729],
+  [180101016,'UNIDAD EDUCATIVA NACIONAL BARRIO LAS FLORES',790,4724],
+  [201101004,'ESCUELA BASICA ANA ELISA LOPEZ',965,4722],
+  [180801014,'CENTRO DE FORMACION TECNICA SOCIALISTA DOCTOR LUIS BELTRAN PRIETO FIGUEROA',812,4722],
+  [70201011,'ESCUELA NACIONAL EL TROMPILLO',255,4722],
+  [191501002,'UNIDAD BÁSICA PASCUAL IGNACIO VILLASMIL',930,4720],
+  [212102004,'LICEO  BOLIVARIANO  CARACCIOLO PARRA LEON',1074,4719],
+  [70906019,'COLEGIO CALASANZ',280,4719],
+  [211102010,'ESCUELA BASICA NACIONAL CIUDAD OJEDA',1035,4718],
+  [90801001,'ESCUELA BÁSICA BOLIVARIANA PADRE ALDANA',341,4714],
+  [70906005,'COLEGIO NUESTRA SEÑORA DEL LOURDES',280,4706],
+  [60301022,'ESCUELA BASICA ESTADO MERIDA',222,4706],
+  [40108006,'ESCUELA BASICA AGUSTIN AVELEDO',111,4700],
+  [210102004,'UNIDAD EDUCATIVA ESTADAL CIPRIANO BARRIOS',971,4698],
+  [20702001,'ESCUELA NACIONAL BOLIVARIANA MAMO ARRIBA',43,4695],
+  [91002001,'UNIDAD BASICA RAFAEL CALLES SIERRA',350,4695],
+  [210502010,'ESCUELA BASICA NACIONAL MONSEÑOR FRANCISCO ANTONIO GRANADILLO',993,4690],
+  [161401007,'ESCUELA BOLIVARIANA POBLADO II',731,4686],
+  [210503022,'ESCUELA NACIONAL MARACAIBO',994,4686],
+  [70801006,'LICEO ALFREDO PIETRI',274,4685],
+  [21601005,'UNIDAD EDUCATIVA GUAYABAL',66,4258],
+  [130902016,'COLEGIO AMERICO VESPUCIO',602,4681],
+  [170702001,'U.E. ARENAS',759,4676],
+  [30101002,'LICEO DIEGO EUGENIO CHACON',78,4671],
+  [21301036,'ESCUELA  BÁSICA CREACIÓN SAN DIEGO',61,4668],
+  [70901002,'GRUPO ESCOLAR EUTIMIO RIVAS',275,4663],
+  [70602004,'ESCUELA BOLIVARIANA JOSEFINA GARCIA',265,4663],
+  [210106008,'E.B. NAC. BR. MARCOS TULIO ANDRADE',975,4659],
+  [130901035,'CENTROS DE ESTUDIOS CECILIO ACOSTA',601,4658],
+  [10108040,'UNIDAD EDUCATIVA COLECIO NUESTRA SEÑORA DEL PILAR',8,4656],
+  [190705001,'UNIDAD EDUCATIVA JOSÉ LUIS FAURET SABAUT',898,4654],
+  [210515004,'ESCUELA BASICA NACIONAL CREACION LIBERTAD',1006,4651],
+  [160601041,'ESCUELA BASICA TRINA DE MORENO',707,4651],
+  [10102008,'ESCUELA EXPERIMENTAL VENEZUELA',2,4650],
+  [30701008,'ESCUELA PRIMARIA BOLIVARIANA OLINDA FRANCO DE CASTRO',103,4649],
+  [10114005,'PREESCOLAR ANTONIO JOSÉ DE SUCRE',14,4646],
+  [10117040,'ESCUELA BASICA COLEGIO CARICUAO',17,4644],
+  [210512006,'ESCUELA BASICA NACIONAL DR OCTAVIO HERNANDEZ',1003,4643],
+  [170301008,'ESCUELA BOLIVARIANA PEDRO EÍAS ARISTIGUIETA',744,4639],
+  [90701003,'ESCUELA BÁSICA BOLIVARIANA COTO PAUL',332,4634],
+  [110207001,'CICLO BASICO PADRE DE LAS CASAS',435,4633],
+  [150601027,'UNIDAD EDUCATIVA LICEO BOLIVARIANO LUISA CÁCERES DE ARISMENDI',682,4631],
+  [210202004,'UNIDAD EDUCATIVA ESTADAL DR. ANTONIO JOSE URQUINAONA',977,4627],
+  [70301007,'LICEO ANIBAL PARADISI',258,4622],
+  [170903006,'U.E. GRAN MARISCAL DE AYACUCHO',771,4617],
+  [240103004,'ESCUELA BASICA ESTATAL MARIA VILLALOBOS',1127,4616],
+  [150101001,'UNIDAD EDUCATIVA BOLIVARIANA LUISA CACERES DE ARISMENDI',670,4616],
+  [50502001,'ESCUELA BASICA GENERAL NICOLAS SILVA',180,4613],
+  [190503004,'LICEO BOLIVARIANO RAMON IGNACIO MENDEZ',883,4611],
+  [70906009,'UNIVERSIDAD ALEJANDRO HUMBOLDT',280,4607],
+  [181601003,'UNIDAD EDUCATIVA ESTADAL PROFESOR MAXIMILIANO ZAMBRANO DUQUE',833,4607],
+  [40107012,'CICLO BASICO JUAN VICENTE BOLIVAR',110,4602],
+  [10105002,'COLEGIO CORAZON DE MARIA',5,4601],
+  [30601022,'ESCUELA BASICA VICTOR LINO GOMEZ',99,4598],
+  [131001019,'CONCENTRACION ESCOLAR RURAL NUMERO 17',606,4597],
+  [110204023,'UNIDAD EDUCATIVA CIUDAD DE VALENCIA',432,4587],
+  [10108019,'INSTITUTO VENEZOLANO DE EDUCACION',8,4587],
+  [131601039,'LICEO NACIONAL ALEJO FORTIQUE',617,4586],
+  [110202027,'UNIDAD EDUCATIVA PABLO MANZANO VELOZ',430,4586],
+  [40305001,'ESCUELA GRADUADA RICARDO MONTILLA',121,4583],
+  [21201025,'GRUPO ESCOLAR RIGOBERTO PARACO',60,4582],
+  [151101001,'UNIDAD EDUCATIVA MONSEÑOR EDUARDO VÁSQUEZ',690,4582],
+  [70907002,'ESCUELA FE Y ALEGRIA',281,4577],
+  [132101001,'ESCUELA NACIONAL BASICA CUPIRA',625,4576],
+  [211408008,'UNIDAD EDUCATIVA NACIONAL VICTOR CAPO',1051,4576],
+  [110205004,'CICLO BASICO CARORITA ABAJO',433,4575],
+  [130301057,'ESCUELA TECNICA INDUSTRIAL ROQUE PINTO',582,4574],
+  [110102001,'UNIDAD EDUCATIVA NACIONAL EL ENEAL',428,4574],
+  [70904029,'ANEXO DE RUIZ PINEDA 1',278,4573],
+  [120811001,'ESCUELA BASICA FERMIN RUIZ VALERO',524,4572],
+  [150401001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JOSE JOAQUIN DE OLMEDO',678,4565],
+  [30701022,'ESCUELA BASICA BOLIVARIANA HECTOR VIDAL BENAUCO',103,4563],
+  [131801022,'UNIDAD EDUCATIVA POPULAR MARIA AUXILIADORA',621,4549],
+  [211403001,'ESCUELA BASICA ESTADAL MAESTRO DANIEL NAVEA',1046,4547],
+  [20301054,'LICEO BOLIVARIANO DOCTOR LUIS RAZETTI',27,4547],
+  [211403005,'ESCUELA BASICA NACIONAL JORGE  ROTHE',1046,4546],
+  [110201036,'GRUPO ESCOLAR BOLIVIA TOVAR',429,4543],
+  [60102012,'ESCUELA NACIONAL BASICA 25 DE MARZO',207,4541],
+  [71201019,'ESCUELA NACIONAL BARBULA',286,4540],
+  [180802006,'ESCUELA BOLIVARIANA JUAN ANTONIO ROMAN VALECILLOS',813,4538],
+  [70201014,'CENTRO DE EDUCACION INICIAL NACIONAL BOLIVARIANO TENIENTE PEDRO CAMEJO',255,4537],
+  [180803002,'ESCUELA BOLIVARIANA BUSTAMANTE',814,4531],
+  [210510011,'ESCUELA BASICA NACIONAL BESARABIA',1001,4530],
+  [10117036,'UNIDAD EDUCATIVA MIREYA VANEGAS',17,4530],
+  [70501004,'CENTRO EDUCATIVO Y RECREACIONAL FUNDACION DEL NIÑO PEDRO CAMEJO',263,4529],
+  [101502001,'UNIDAD EDUCATIVA LEONARDO INFANTE',426,4528],
+  [170903012,'U.E. REPUBLICA ARGENTINA',771,4528],
+  [10114011,'JARDIN DE INFANCIA TEOTISTE AROCHA DE GALLEGOS',14,4525],
+  [10110028,'ESCUELA BÁSICA NACIONAL DIEGO RENATO MEJIAS',10,4524],
+  [70402001,'GRUPO ESCOLAR ALONSO DIAZ MORENO',261,4523],
+  [60104015,'NUCLEO RURAL NUMERO 211 ESCUELA ESTADAL CONCENTRADA 280',209,4520],
+  [21301004,'LICEO CRISTOBAL COLON',61,4515],
+  [110204005,'UNIDAD EDUCATIVA ANDRES ELOY BLANCO',432,4515],
+  [160101041,'ESCUELA BASICA NEREIDA MORENO DE DUGARTE',692,4513],
+  [181201019,'COLEGIO PARROQUIAL PADRE FRIAS',825,4513],
+  [60303017,'ESCUELA BASICA SIMON RODRIGUEZ CENTRO EDUCACION ADULTOS ACEITICO II',224,4513],
+  [20302016,'COMPLEJO EDUCATIVO NACIONAL MANUEL FARIAS LUCES',28,4512],
+  [50211001,'UNIDAD  EDUCATIVA  BASICA  ALTO BARINAS SUR',168,4507],
+  [10107011,'UNIDAD EDUCATIVA PARTICULAR SAN JUAN',7,4506],
+  [150502001,'UNIDAD EDUCATIVA DOCTOR FRANCISCO ANTONIO RISQUEZ',681,4504],
+  [50208007,'ESCUELA BASICA JUAN ANDRES VARELA',165,4503],
+  [20301028,'ESCUELA NACIONAL CREACION BARCELONA',27,4502],
+  [211803002,'UNIDAD  EDUCATIVA  ESTATAL SAN FRANCISCO',1064,4500],
+  [60301023,'CICLO DIVERSIFICADO FERNANDO PEÑALVER',222,4500],
+  [110207064,'ESCUELA BASICA MARIA ANGELICA LUSINCHI',435,4499],
+  [131901009,'ESCUELA MUNICIPAL JUAN MANUEL CAJIGAL',622,4494],
+  [210507006,'ESCUELA BASICA NACIONAL NORMAN PRIETO RAMOS',998,4491],
+  [130105001,'GRUPO ESCOLAR NACIONAL JOSE NICOMEDES MARRERO',575,4487],
+  [150601018,'UNIDAD EDUCATIVA BACHILLER SANTIAGO SALAZAR FERMIN',682,4487],
+  [110206007,'UNIDAD EDUCATIVA JUAN BAUTISTA RODRIGUEZ',434,4485],
+  [120811003,'ESCUELA. BASICA. ELOY PAREDES',524,4485],
+  [180801004,'UNIDAD EDUCATIVA DOCTOR VICENTE DAVILA',812,4484],
+  [91901002,'ESCUELA BÁSICA BOLIVARIANA DOMINGUEZ ACOSTA',377,4481],
+  [71401014,'UNIDAD EDUCATIVA PRIVADO MARISCAL AYACUCHO',288,4480],
+  [110202038,'CICLO BASICO EZEQUIEL BUJANDA',430,4470],
+  [110102005,'UNIDAD EDUCATIVA PASO DE TACARIGUA',428,4470],
+  [170706002,'ESCUELA BOLIVARIANA ISAÍAS RUIZ DE CORONADO',763,4466],
+  [211806006,'ESCUELA BASICA NACIONAL ANGEL QUINTERO',1067,4463],
+  [70904039,'ESCUELA BASICA EL SOCORRO',278,4463],
+  [140708008,'COMPLEJO EDUCATIVO NACIONAL LEONARDO INFANTE',653,4462],
+  [130101004,'COLEGIO LA ENCARNACION',571,4460],
+  [210503013,'UNIDAD EDUCATIVA ESTADAL DR CARRACCIOLO PARRA LEON',994,4459],
+  [10111026,'UNIDAD EDUCATIVA DISTRITAL JOSÉ GREGORIO HERNÁNDEZ',11,4458],
+  [110101017,'UNIDAD EDUCATIVA HERMANAS JIMENEZ',427,4458],
+  [180101001,'ESCUELA TECNICA   INDUSTRIAL AGROPECUARIA Y COMERCIAL TULIO FEBRES CORDERO',790,4457],
+  [211406006,'UNIDAD EDUCATIVA ESTADAL JOSE ENRIQUE RODO',1049,4455],
+  [210504004,'ESCUELA BASICA ESTADAL J A ROMAN VALECILLOS',995,4455],
+  [131301015,'COLEGIO MASTER-DEY',612,4454],
+  [210502019,'ESCUELA BASICA NACIONAL TEOTISTE DE GALLEGOS',993,4452],
+  [211802009,'UNIDAD EDUCATIVA NACIONAL RAUL OSORIO',1063,4449],
+  [80101001,'ESCUELA PRIMARIA  BOLIVARIANA NACIONAL AGUSTIN RAFAEL ANDRADES',290,4447],
+  [210513007,'ESCUELA BASICAESTADAL EL ROSARIO',1004,4446],
+  [10110067,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA EDUARDO ROHLL',10,4446],
+  [210903004,'ESCUELA BASICA BOLIVARIANA LA CHIQUINQUIRA',1025,4445],
+  [10107016,'ESCUELA BÁSICA NACIONAL GUZMÁN BLANCO',7,4445],
+  [91901003,'LICEO BOLIVARIANO MIRIMIRE',377,4445],
+  [170301005,'U.E. 1RO DE MAYO',744,4444],
+  [211002001,'UNIDAD EDUCATIVA NACIONAL CACIQUE MARA',1030,4443],
+  [50303001,'ESCUELA BASICA MIGUEL GUERRERO',174,4442],
+  [211404002,'ESCUELA BASICA ESTADAL GUSTAVO FUENMAYOR',1047,4441],
+  [130601003,'GRUPO ESCOLAR RAFAEL AREVALO GONZALEZ',594,4438],
+  [40105016,'UNIDAD EDUCATIVA COOPERATIVA LAS NIEVES',108,4436],
+  [110202003,'CICLO BASICO INDUSTRIAL LARA',430,4434],
+  [90901004,'UNIDAD EDUCATIVA VIRGINIA GIL DE HERMOSO',346,4433],
+  [10108006,'UNIDAD EDUCATIVA PRIVADA COLEGIO FRAY LUIS DE LEON',8,4431],
+  [110201014,'CICLO BASICO FEDERICO CARMONA',429,4429],
+  [130903002,'UNIDAD EDUCATIVA MUNICIPAL JOSE ANTONIO CALCAÑO',603,4426],
+  [110702001,'GRUPO ESCOLAR PIO TAMAYO',476,4424],
+  [211802001,'ESCUELA BASICA NACIONAL JOSEFINA DE ACOSTA',1063,4424],
+  [120809003,'UNIDAD EDUCATIVA ROMULO BETANCOURT',522,4424],
+  [131002008,'ESCUELA BASICA CREACION CUA',607,4421],
+  [150601021,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CACIQUE CHARAIMA',682,4416],
+  [10110064,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL SANTA TERESITA',10,4416],
+  [211604002,'ESCUELA NACIONAL CONCENTRADA 234',1059,4413],
+  [110615002,'ESCUELA BASICA MONSEÑOR SALVADOR MONTES DE OCA',472,4409],
+  [211803007,'ESCUELA BOLIVARIANA EDUARDO EMIRO FERRER',1064,4409],
+  [160301029,'CICLO DIVERCIFICADO CARLOS EMILIO MUÑOZ ORAA',696,4404],
+  [181201004,'UNIDAD EDUCATIVA JHON  KENNEDY',825,4403],
+  [120406007,'ESC BAS MIXTA LA RANCHERIA',505,4399],
+  [20302038,'ESCUELA TECNICA ROBINSONIANA COMERCIAL DOCTOR  FELIPE GUEVARA ROJAS',28,4398],
+  [210518003,'UNIDAD EDUCATIVA NACIONAL FE Y  ALEGRIA ABRAHAN REYES',1009,4391],
+  [10120010,'LICEO URBANEJA ACHELPOHL',20,4390],
+  [10115001,'UNIDAD EDUCATIVA DISTRITAL FRANCISCO JAVIER YANEZ',15,4388],
+  [180403001,'ESCUELA BOLIVARIANA PALO GORDO',802,4380],
+  [21201020,'ESCUELA BÁSICA  ESTADAL MENCA DE LEONI',60,4377],
+  [131601050,'UNIVERSIDAD SIMON BOLIVAR',617,4373],
+  [50401006,'LICEO BOLIVARIANO ELIAS ARAQUE MULLER',175,4370],
+  [90402017,'ESCUELA BOLIVARIANA DELTA AMACURO',319,4369],
+  [90804001,'ESCUELA BÁSICA BOLIVARIANA MAXIMILIANO ITURBE',344,4369],
+  [171301003,'MEDICATURA RURAL',784,4368],
+  [20301027,'ESCUELA NACIONAL PRIMARIA DOCTOR JOSÉ MARIA VARGAS',27,4367],
+  [191904001,'UNIDAD EDUCATIVA TRES DE FEBRERO',945,4366],
+  [140710060,'UNIVERSIDAD PEDAGOGICA EXPERIMENTAL LIBERTADOR- PEDAGOGICO DE MATURIN',655,4364],
+  [10101009,'UNIDAD EDUCATIVA SANTA TERESA DEL NIÑO JESÚS',1,4361],
+  [170201001,'GRUPO ESCOLAR PABLO MARIA FUENTES',738,4354],
+  [40107001,'ESCUELA BASICA ESTADAL LA DEMOCRACIA',110,4353],
+  [170905002,'ESCUELA BOLIVARIANA SIMÓN RODRÍGUEZ',773,4352],
+  [90501008,'ESCUELA BÁSICA BOLIVARIANA SABANA LARGA',322,4350],
+  [10110080,'UNIDAD EDUCATIVA NACIONAL 24 DE JULIO',10,4349],
+  [130301045,'UNIDAD EDUCATIVA NACIONAL LUIS CORREA',582,4339],
+  [131601021,'UNIDAD EDUCATIVA ESTADAL LINO DE CLEMENTE',617,4337],
+  [200101013,'ESCUELA BASICA JOSE MANUEL SISO MARTINEZ',949,4336],
+  [160601049,'UNIDAD EDUCATIVA LOS CORTIJOS',707,4334],
+  [20301023,'ESCUELA ESTADAL CONSUELO NAVAS TOVAR',27,4334],
+  [91401003,'ESCUELA BASICA BOLIVARIANA JACINTO R. PACHANO',366,4334],
+  [110207042,'ESCUELA CONCENRADA SAN JOSE OBRERO',435,4332],
+  [92401001,'ESCUELA BASICA BOLIVARIANA JOSE ENCARNACION LOPEZ',385,4329],
+  [21201029,'COLEGIO SAN ANTONIO',60,4328],
+  [110207004,'UNIDAD EDUCATIVA NACIONAL ANTONIO CARRILLO',435,4327],
+  [170701004,'U.E. JUAN RANGEL DE ZERPA',758,4327],
+  [210906001,'UNIDAD EDUCATIVA ESTADAL CECILIO ACOSTA',1028,4327],
+  [210503026,'ESCUELA BASICA ESTADAL ORANGEL RODRIGUEZ',994,4326],
+  [20302040,'UNIDAD EDUCATIVA GENERAL  JOSÉ ANTONIO PÁEZ',28,4325],
+  [180101009,'UNIDAD EDUCATIVA ESTADAL ANDRES BELLO',790,4324],
+  [131602009,'CENTRO ESCOLAR AULA NUEVA',618,4317],
+  [182801006,'ESCUELA ESTADAL GRADUADA GENERAL CARLOS SOUBLETTE',854,4317],
+  [150701001,'UNIDAD EDUCATIVA LICEO BOLIVARIANO LUIS CASTRO',683,4313],
+  [170802004,'ESCUELA BASICA CECILIO ACOSTA',765,4312],
+  [211602005,'ESCUELA BASICA NACIONAL DOCTOR CRISTOBAL MENDOZA',1057,4310],
+  [40902005,'ESCUELA BASICA J M SISO MARTINEZ (PRIVADA)',139,4309],
+  [201001010,'LICEO BOLIVARIANO DOCTOR RAFAEL CALDERA IZGUIRRE',964,4306],
+  [160704003,'ESCUELA BASICA VICTOR RAMOS VALDERRAMA',714,4301],
+  [151001003,'UNIDAD EDUCATIVA BOLIVARIANA DOCTOR LUIS ORTEGA',689,4298],
+  [10104025,'UNIDAD EDUCATIVA PRIVADA COLEGIO MODERNO',4,4293],
+  [211806007,'UNIDAD  EDUCATIVA  DOCTOR NERIO ADRIANZA GONZALEZ',1067,4286],
+  [110204008,'GRUPO ESCOLAR CECILIO ZUBILLAGA PERERA',432,4285],
+  [21201004,'ESCUELA NACIONAL JOSE ANTONIO ANZOATEGUI',60,4283],
+  [160601034,'CICLO COMBINADO JOSE ANTONIO PAEZ',707,4283],
+  [211406002,'ESCUELA BASICA NACIONAL ANDRES ELOY BLANCO',1049,4281],
+  [10101010,'CENTRO DE EDUCACIÓN INICIAL RAFAEL MARIA BARALT',1,4277],
+  [180801011,'ESCUELA BASICA JUAN BAUTISTA GARCIA ROA',812,4276],
+  [10108027,'EDIFICIO ECUADOR COMPLEJO GRAN COLOMBIA',8,4275],
+  [10117027,'LICEO BOLIVARIANO RAMON DIAZ SANCHEZ',17,4273],
+  [90402006,'UNIDAD EDUCATIVA MARIANO DE TALAVERA',319,4272],
+  [200401003,'LICEO BOLIVARIANO JUAN JOSE DE MAYA',955,4269],
+  [41101003,'ESCUELA BASICA NACIONAL PRESIDENTE MEDINA ANGARITA',141,4268],
+  [30403006,'LICEO BOLIVARIANO DON ROMULO GALLEGOS',96,4267],
+  [90403001,'ESCUELA BÁSICA ALICIA TREMONT DE MEDINA',320,4266],
+  [50207004,'JARDIN  DE INFANCIA DON ROMULO GALLEGOS',164,4261],
+  [110202022,'UNIDAD EDUCATIVA VIRGINIA DE ANDRADE',430,4260],
+  [70706001,'GRUPO ESCOLAR REPUBLICA DE HONDURAS',271,4260],
+  [211407003,'UNIDAD EDUCATIVA ESTADAL VICTOR LINO GOMEZ (ANEXO 1)',1050,4259],
+  [10104038,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA ESTEBAN GIL BORGES',4,4259],
+  [10114018,'UNIDAD EDUCATIVA NACIONAL ANTONIO PINTO SALINAS',14,4257],
+  [70703001,'UNIDAD EDUCATIVA PRIVADA MONSEÑOR ALI LEBRUN FE Y ALEGRIA',268,4256],
+  [120102003,'ESC BAS SIMON RODRIGUEZ',486,4253],
+  [110201023,'ESCUELA DE ADMINISTRACION UNIVERSIDAD CENTROOCCIDENTAL LISANDRO ALVARADO',429,4253],
+  [180801013,'ESCUELA BASICA CORDOBA',812,4249],
+  [70906017,'UNIDAD EDUCATIVA NACIONAL CIRILO ALBERTO',280,4248],
+  [80901005,'ESCUELA  BASICA BOLIVARIANA ELBA MANZANO DE SANCHEZ. EL ESPINAL',304,4245],
+  [91002009,'CENTRO DE EDUCACION INICIAL CIUDAD DE CORO',350,4244],
+  [130302002,'GRUPO ESCOLAR SAN DIEGO DE ALCALA',583,4243],
+  [30201001,'ESCUELA PRIMARIA BOLIVARIANA BRUZUAL',84,4242],
+  [191002001,'UNIDAD EDUCATIVA ANA FUENMAYOR',913,4242],
+  [10120002,'UNIDAD EDUCATIVA COLEGIO EL CARMELO',20,4240],
+  [10104033,'UNIDAD EDUCATIVA LICEO BOLIVARIANO AGUSTÍN AVELEDO',4,4240],
+  [180401017,'ESCUELA BOLIVARIANA SIMON CANDIALES',800,4234],
+  [70705005,'ESCUELA FEDERAL JOSE RAMON PELAYO',270,4233],
+  [170704002,'ESCUELA BOLIVARIANA MONSEÑOR ARIAS BLANCO',761,4230],
+  [70101004,'ESCUELA ESTADAL GRADUADA JULIAN MELLADO',252,4230],
+  [60302013,'ESCUELA BASICA SALTO ANGEL',223,4230],
+  [110502012,'UNIDAD EDUCATIVA OMAIRA SEQUERA SALAS',456,4227],
+  [180801025,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA RAMON BUENAHORA',812,4226],
+  [210505012,'UNIDAD EDUCATIVA ESTADAL PRIVADA NUESTRA SEÑORA DE CHIQUINQUIRA',996,4223],
+  [180802007,'ESCUELA TECNICA ROBINSONIANA DE CIENCIAS Y ARTES JUAN ANTONIO ROMAN VALECILLOS',813,4222],
+  [170904006,'ESCUELA BÁSICA DON RÓMULO GALLEGOS',772,4219],
+  [120806003,'ESC BAS JUAN DE ARCO',519,4216],
+  [170901046,'LICEO BOLIVARIANO LUIS ANTONIO MORALES RAMIREZ',769,4216],
+  [71201010,'UNIDAD EDUCATIVA DOCTOR JOSE MARIA GIL',286,4214],
+  [70902001,'GRUPO ESCOLAR RAFAEL ARVELO',276,4212],
+  [211103004,'UNIDAD EDUCATIVA NACIONAL ANTONIA ESTELLER',1036,4212],
+  [211803008,'ESCUELA BASICA NACIONAL JOSE ANTONIO CALCAÑO',1064,4208],
+  [201101007,'ESCUELA INTEGRAL BOLIVARIANA CASCABEL',965,4207],
+  [90702001,'ESCUELA BASICA BOLIVARIANA ADICORA',333,4205],
+  [210511005,'GRUPO ESCOLAR ESTADAL EDUARDO EMIRO FERRER',1002,4194],
+  [160601006,'ESCUELA GRADUADA BENJAMIN MONTILLA',707,4194],
+  [240107002,'UNIDAD EDUCATIVA PRIVADA COLEGIO SAN VICENTE DE PAUL',1131,4187],
+  [50404002,'ESCUELA BASICA ESTATAL BOLIVARIANA CANDELARIA DE CABRITAS',178,4183],
+  [10110083,'UNIDAD EDUCATIVA COLEGIO DE LA PRESENTACION',10,4180],
+  [30601016,'ESC. PRIMARIA BOLIVARIANA ARNALDO REINA',99,4178],
+  [70904004,'COLEGIO LUISA CACERES DE ARISMENDI',278,4177],
+  [110203002,'UNIDAD EDUCATIVA MARIA LEDEZMA',431,4171],
+  [71201002,'UNIDAD EDUCATIVA NACIONAL NUESTRA SEÑORA DE COROMOTO',286,4171],
+  [10110035,'LICEO BOLIVARIANO JUAN LANDAETA',10,4170],
+  [120803006,'LICEO ROMULO GALLEGOS',516,4170],
+  [141101004,'ESCUELA BASICA BOLIVARIANA ALTAMIRA',667,4169],
+  [20603001,'ESCUELA NACIONAL BOLIVARIANA TERESA DE LA PARRA',40,4168],
+  [170703001,'ESCUELA BOLIVARIANA ROSARIO SUCRE DE RAUSSEO',760,4163],
+  [110207035,'UNIDAD EDUCATIVA JUAN JACINTO LARA',435,4163],
+  [91401001,'ESCUELA BASICA BOLIVARIANA GUILLERMO DE LEON',366,4160],
+  [170305001,'ESCUELA BOLIVARIANA EUSTOQUIA SOLEDAD LUIGGI',748,4160],
+  [131102002,'GRUPO ESCOLAR GUZMAN BLANCO',609,4159],
+  [80201012,'UNIDAD EDUCATIVA  MONSEÑOR FRANCISCO MIGUEL SEIJAS',292,4158],
+  [210508009,'ESCUELA BASICA NACIONAL DR JOSE MARIA VARGAS',999,4154],
+  [230303001,'ESCUELA CONCENTRADA NUMERO 94',1116,4151],
+  [10108028,'LICEO BOLIVARIANO SANTIAGO KEY AYALA',8,4150],
+  [130901100,'ESCUELA MUNICIPAL FERMIN TORO',601,4149],
+  [10107017,'INSTITUTO NACIONAL DE NUTRICIÓN',7,4147],
+  [181201002,'ESCUELA BOLIVARIANA MONSEÑOR TOMAS ANTONIO SAN MIGUEL',825,4145],
+  [210506006,'ESCUELA BASICA ESTADAL DR FRANCISCO EUGENIO BUSTAMANTE',997,4143],
+  [150601008,'UNIDAD EDUCATIVA DOCTOR RAÚL LEONI',682,4143],
+  [110206001,'UNIDAD EDUCATIVA ESTADAL ANTONIO JOSE PACHECO',434,4138],
+  [10110004,'ESCUELA MANUEL MARÍA ECHANDÍA',10,4135],
+  [131701009,'UNIDAD EDUCATIVA VICTOR PADILLA',620,4126],
+  [170903014,'LICEO BOLIVARIANO ANTONIO JOSE DE SUCRE',771,4126],
+  [150301005,'CENTRO DE EDUCACION INICIAL SIMONCITO MAESTRO JESUS MANUEL MARIN',673,4122],
+  [140402001,'ESCUELA BASICA LUIS FELIPE TURMERO CORVO',637,4121],
+  [200401015,'ESCUELA BASICA CECILIA MUJICA',955,4120],
+  [170301004,'U.E. SANTA ROSA DE LIMA',744,4120],
+  [130901091,'ESC. BAS. NAC. ANTONIO ORDOEZ',601,4118],
+  [10105016,'ESCUELA BASICA NACIONAL MERIDA SISO DE VAZQUEZ',5,4118],
+  [210902004,'UNIDAD EDUCATIVA NACIONAL PLAYA GRANDE',1024,4114],
+  [210513001,'UNIDAD EDUCATIVA ESTADAL SIMON BOLIVAR',1004,4114],
+  [210503020,'JARDIN DE INFANCIA LA FUNDACION',994,4114],
+  [10104024,'UNIDAD EDUCATIVA DISTRITAL  ENRIQUE CHAUMER',4,4113],
+  [10108038,'UNIDAD EDUCATIVA PRIVADA COLEGIO SANTA ANA',8,4110],
+  [210601002,'UNIDAD EDUCATIVA NACIONAL LISANDRO FARIA',1010,4106],
+  [131601009,'CENTRO VENEZOLANO AMERICANO',617,4103],
+  [130401017,'LICEO NACIONAL  DOS LAGUNAS',589,4101],
+  [10112037,'ESCUELA BÁSICA DISTRITAL BOLIVARIANA JUAN BAUTISTA ARISMENDI',12,4097],
+  [40108013,'ESCUELA BASICA PADRE LOPEZ AVELEDO',111,4096],
+  [51001004,'COMEDOR POPULAR',197,4096],
+  [160301028,'ESCUELA BASICA CIUDAD DE GUANARE',696,4094],
+  [180202001,'ESCUELA BOLIVARIANA EL PALOTAL',794,4093],
+  [91801002,'UNIDAD EDUCATIVA 28 DE FEBRERO',374,4092],
+  [60303005,'ESCUELA BASICA CRUZ DEL VALLE RODRIGUEZ',224,4089],
+  [30301002,'LICEO BOLIVARIANO FERNANDO CALZADILLA VALDES',89,4086],
+  [20101020,'ESCUELA  BÁSICA  PEDRO  HERRERA',23,4084],
+  [211802010,'ESCUELA  SOCIAL DE AVANZADA 19 DE ABRIL',1063,4081],
+  [211406004,'ESCUELA BASICA NACIONAL JULIA AÑEZ GABALDON',1049,4078],
+  [130903007,'UNIDAD EDUCATIVA FE Y ALEGRIA PADRE JOAQUIN LOPEZ',603,4077],
+  [20302053,'UNIDAD EDUCATIVA DOCTOR EDGAR CALATRAVA GAGO',28,4077],
+  [160301046,'ESCUELA BASICA ESTADAL 530',696,4077],
+  [21201019,'GRUPO ESCOLAR DIEGO BAUTISTA URBANEJA',60,4076],
+  [10115024,'UNIDAD EDUCATIVA COLEGIO JOSEFA GOMEZ DE DELFINO',15,4074],
+  [150402004,'UNIDAD EDUCATIVA COLEGIO MADRE GUADALUPE',679,4073],
+  [30701021,'UNIDA EDUCATIVA AMANTINA DE SUCRE',103,4072],
+  [70702001,'ESCUELA PRIMARIA BOLIVARIANA JUAN JOSE FLORES',267,4071],
+  [150901001,'ESCUELA BÁSICA TUBORES',687,4068],
+  [90701001,'ESCUELA BÁSICA BOLIVARIANA JUAN DE DIOS MONZÓN',332,4067],
+  [230401001,'ESCUELA BASICA CASACOIMA',1120,4061],
+  [180801008,'ESCUELA BASICA NACIONAL LA CONCORDIA',812,4059],
+  [91002013,'UNIDAD EDUCATIVA LUCRECIA DE GUARDIA',350,4055],
+  [60301025,'COLEGIO DIVINA PASTORA',222,4054],
+  [220102002,'PREESCOLAR MADRE TERESA DE CALCUTA',1077,4052],
+  [180803004,'ESCUELA BOLIVARIANA LOS ANDES',814,4051],
+  [61001012,'CENTRO DE EDUCACION INICIAL NELLYS SANCHEZ DE ANDRADE (SIMONCITO)',250,4047],
+  [160101027,'ESCUELA BASICA OSCAR MENDOZA',692,4039],
+  [30601031,'ESCUELA ESTADAL BASICA BOLIVARIANA CRISTO REY',99,4038],
+  [20403002,'GRUPO ESCOLAR LICENCIADO URBANEJA',35,4035],
+  [211102005,'ESCUELA BASICA ESTADAL PEDRO JULIO MANINAT',1035,4034],
+  [10113041,'UNIDAD EDUCATIVA BOLIVARIANA JOSE MARTI',13,4030],
+  [90402015,'ESCUELA BASICA 23 DE ENERO',319,4029],
+  [70904031,'REPUBLICA ARABE SAHARAMI DEMOCRATICA',278,4028],
+  [211805022,'ESCUELA BASICA ESTADAL ARQUIDIOCESANA PABLO SEXTO',1066,4027],
+  [130401001,'UNIDAD EDUCATIVA NACIONAL SAN JOSE DE RIO CHICO',589,4025],
+  [120806004,'ESCUELA BASICA GRADUADA SIMON RODRIGUEZ',519,4024],
+  [50210006,'PRE ESCOLAR PRADO DEL ESTE',167,4024],
+  [10109006,'COLEGIO NUESTRA SEÑORA DE LOURDES',9,4024],
+  [120901002,'ESCUELA BASICA 21 DE NOVIEMBRE',529,4024],
+  [70906023,'UNIDAD EDUCATIVA CARABOBO',280,4022],
+  [170402001,'U.E. TERESA DE LA PARRA',750,4022],
+  [210512015,'UNIDAD EDUCATIVA SANTA VERONICA DE MILAN',1003,4021],
+  [50603001,'UNIDAD EDUCATIVA SAN RAFAEL DE CANAGUA',185,4016],
+  [80601001,'ESCUELA BASICA BOLIVARIANA ANGEL MARIA GARRIDO',298,4012],
+  [10104002,'UNIDAD EDUCATIVA DISTRITAL JOSÉ GIL FORTUL',4,4008],
+  [211407001,'ESCUELA BASICA NACIONAL ANDRES ELOY BLANCO',1050,4008],
+  [182801002,'ESCUELA NACIONAL PALMAR NUEVO',854,4005],
+  [110501007,'ESCUELA GRANJA HECTOR ROJAS MEZA',455,4002],
+  [51201001,'UNIDAD EDUCATIVA BOLIVARIANA GENERAL  PEDRO BRICEÑO MENDEZ',203,4002],
+  [211103015,'ESCUELA  BASICA  NACIONAL  BOLIVARIANA MARIA MORENO DE LOPEZ',1036,4002],
+  [40805001,'ESCUELA BASICA JUAN BAUTISTA PLAZA',137,4002],
+  [210905001,'ESCUELA BASICA NACIONAL BOBURES',1027,3998],
+  [210804001,'ESCUELA  BASICA BOLIVARIANA RIO NEGRO',1022,3997],
+  [90901002,'ESCUELA BÁSICA ELIAS DAVID CURIEL',346,3996],
+  [170103001,'ESCUELA BOLIVARIANA CRUZ DE PUERTO SANTO',735,3995],
+  [21201014,'GRUPO ESCOLAR SIMON RODRIGUEZ',60,3993],
+  [80601009,'ESCUELA  BASICA BOLIVARIANA CARLOS VILORIO',298,3990],
+  [201101013,'INSTITUTO UNIVERSITARIO DE TECNOLOGIA DEL YARACUY IUTY',965,3989],
+  [30701015,'ESCUELA BASICA JOSE GREGORIO HERNANDEZ',103,3988],
+  [50211007,'UNIDA BASICA EDUCATIVA  BILINGUE NUESTRA  SEÑORA DE FATIMA',168,3988],
+  [210517007,'ESCUELA BASICA NACIONAL FRANCISCO VALERA',1008,3988],
+  [170902018,'ESCUELA BOLIVARIANA ELTACAL',770,3986],
+  [201301002,'ESCUELA BASICA TOMAS GIMENEZ.',967,3985],
+  [10119001,'UNIDAD NACIONAL EDUCATIVA BOLIVARIANA DOCTOR JESÚS MUÑOZ TEBAR',19,3980],
+  [210511003,'ESCUELA BASICA NACIONAL  CARMEN ADELA PIRELA',1002,3978],
+  [210204001,'UNIDAD EDUCATIVA NACIONAL JOSE CENOBIO URRIBARRI',979,3977],
+  [20101019,'ESCUELA  RURAL B  KILÓMETRO 5',23,3974],
+  [130301018,'UNIDAD EDUCATIVA NACIONAL DOCTOR SIMON BARRETO RAMOS',582,3974],
+  [10118007,'LICEO BOLIVARIANO AUGUSTO RISUÑER',18,3971],
+  [40108010,'UNIDAD EDUCATIVA GRAN MARISCAL DE AYACUCHO',111,3971],
+  [91301004,'UNIDAD EDUCATIVA MANUEL VICENTE CUERVO',361,3969],
+  [150801001,'ESCUELA BÁSICA BOLIVARIANA DOCTOR AGUSTÍN RAFAEL HERNÁNDEZ',685,3967],
+  [211409006,'ESCUELA BASICA ESTADAL CURAZAITO',1052,3961],
+  [210516005,'ESCUELA BASICA NACIONAL MORAL Y LUCES',1007,3960],
+  [41301012,'UNIDA EDUCATIVA ESTADAL DOCTOR JOSE FRANCISCO TORREALBA',144,3959],
+  [211802002,'UNIDAD EDUCATIVA NACIONAL PRIVADA SAN JOSE DE CALASANZ',1063,3958],
+  [160601009,'ESCUELA BASICA ANA SUSANA DE OUSSET',707,3955],
+  [170303001,'UNIDAD EDUCATIVA MANUEL MARIA URBANEJA',746,3952],
+  [180401016,'ESCUELA BOLIVARIANA TUCAPE',800,3952],
+  [110702007,'UNIDAD EDUCATIVA BASICA LA UNION',476,3951],
+  [91002005,'ESCUELA BASICA BOLIVARIANA CARMEN DE TOVAR',350,3950],
+  [130901036,'COLEGIO MANUEL MU/OZ TEBAR',601,3949],
+  [60106003,'ESCUELA BASICA PRIVADA FE Y ALEGRIA NAZARET',211,3947],
+  [51003002,'UNIDAD  EDUCATIVA  ANTONIO RAMON  CARDENAS',199,3944],
+  [30601013,'ESCUELA BASICA MAC GREGOR',99,3943],
+  [10122033,'UNIDAD EDUCATIVA DISTRITAL MANUEL ANTONIO CARREÑO',22,3940],
+  [210502008,'UNIDAD EDUCATIVA NACIONAL COLEGIO ALTAMIRA',993,3937],
+  [131601018,'COLEGIO DE MEDICOS DEL DISTRITO METROPOLITANO DE CARACAS',617,3937],
+  [110701009,'ESCUELA NACIONAL SIQUISIQUE',475,3934],
+  [110803009,'ECUELA BOLIVARIANA LAS BUCARITAS',481,3933],
+  [70402002,'CICLO BASICO COMUN SANTIAGO F MACHADO',261,3932],
+  [210510006,'UNIDAD EDUCATIVA NACIONAL ANA SANCHEZ COLINA',1001,3931],
+  [151001005,'UNIDAD EDUCATIVA BOLIVARIANA BACHILLER LUIS NAVARRO RIVAS',689,3929],
+  [40104015,'ESCUELA GRADUADA SANTOS MICHELENA',107,3928],
+  [130301072,'CASA DE LA CULTURA DEL PASO ALI LANDAETA',582,3928],
+  [131101038,'UNIDAD EDUCATIVA EZEQUIEL ZAMORA',608,3923],
+  [60601002,'UNIDAD EDUCATIVA NACIONAL MARIPA',236,3922],
+  [180801002,'ESCUELA BASICA ELBA BEATRIZ RAMIREZ DE ORTEGA',812,3919],
+  [211102013,'ESCUELA BASICA NACIONAL FRANCISCO ANTONIO ZEA',1035,3918],
+  [110606001,'ESCUELA BASICA BOLIVARIANA ANANIAS COTTE',463,3918],
+  [210503012,'ESCUELA ESTADAL CRISTOBAL COLON',994,3917],
+  [130601005,'ESCUELA ESTADAL ANDRES BELLO',594,3914],
+  [10104036,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA 5 DE JULIO',4,3913],
+  [190602001,'ESCUELA BOLIVARIANA PREBÍSTERO NICOLAS MATHEUS',889,3911],
+  [160101035,'UNIDAD EDUCATIVA NACIONAL LA LUCIA',692,3907],
+  [131001018,'CASA DE LA CULTURA PANCHO PRIN',606,3907],
+  [121302002,'UNIDAD EDUCATIVA JOSE ANTONIO PAEZ',541,3906],
+  [200301007,'LICEO BOLIVARIANO HERIBERTO NUÑEZ OLIVEROS',952,3906],
+  [210504007,'UNIDAD EDUCATIVA ESTADAL DR JOAQUIN ESTEVA',995,3904],
+  [130701023,'ESCUELA BASICA BOLIVARIANA LA CALCETA',599,3903],
+  [110204016,'ESC NAC JUAN GUILLERMO IRIBARREN',432,3902],
+  [50207008,'GRUPO ESCOLAR CARLOS SOUBLETTE',164,3901],
+  [10110071,'UNIDAD EDUCATIVA  MADRE MARIA ROSA MOLAS FE Y ALEGRIA',10,3900],
+  [131301001,'COLEGIO EL BUEN CONSEJO',612,3900],
+  [130103002,'UNIDAD EDUCATIVA BOLIVARIANA PEDRO JOSE RODRIGUEZ',573,3898],
+  [10111028,'UNIDAD EDUCATIVA COLEGIO SAN FRANCISCO SOLANO',11,3897],
+  [30601017,'ESCUELA CAPACITACION FEMENINA TERESA HEREDIA',99,3892],
+  [30601015,'LICEO BOLIVARIANO CLARISA ESTE DE TREJO',99,3887],
+  [210510016,'GRUPO ESCOLAR ESTADAL MONSEÑOR HELIMENES AÑEZ',1001,3886],
+  [120808003,'ESC BAS EST VITALIA GUTIERREZ DE R',521,3883],
+  [80201011,'ESCUELA  BASICA BALMIRA VILLEGAS',292,3882],
+  [110201012,'UNIDAD EDUCATIVA TOMAS RAFAEL GIMENEZ',429,3878],
+  [180101008,'ESCUELA BOLIVARIANA NACIONAL DEBORA MEDINA VIVAS',790,3873],
+  [100601007,'LICEO BOLIVARIANO VICENTE EMILIO SOJO',405,3870],
+  [90304001,'ESCUELA BASICA ZAZARIDA',315,3867],
+  [21302002,'ESCUELA GRADUADA MARIA GUZMÁN DE MARCANO',62,3865],
+  [110202049,'U.E.I. LA SALLE',430,3863],
+  [70908011,'UNIDAD EDUCATIVA BOLIVARIANA BERACIERTA',282,3862],
+  [210506013,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO CLARET',997,3860],
+  [160101012,'CAMARA DE COMERCIO E INDUSTRIA ACARIGUA ARAURE',692,3860],
+  [91701001,'ESCUELA BÁSICA BOLIVARIANA JESÚS SEMPRUM',372,3860],
+  [210510008,'UNIDAD EDUCATIVA NACIONAL COLEGIO GONZAGA',1001,3859],
+  [150302001,'UNIDAD EDUCATIVA BOLIVARIANA NAPOLEON NARVAEZ',674,3858],
+  [110203013,'ESCUELA BOLIVARIANA YACURAL',431,3854],
+  [10106002,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JESÚS MARIA PÁEZ',6,3854],
+  [90402019,'ESCUELA BOLIVARIANA LAS ADJUNTAS',319,3854],
+  [110502021,'COLEGIO MARIA SANTISIMA',456,3850],
+  [60303012,'ESCUELA BASICA SIMON BOLIVAR',224,3850],
+  [210803010,'UNIDAD EDUCATIVA NACIONAL ANDRES BELLO',1021,3848],
+  [130901107,'ESCUELA MUNICIPAL 5 DE JULIO',601,3847],
+  [10102009,'PATRONATO SAN JOSE DE TARBES',2,3846],
+  [180702001,'UNIDAD EDUCATIVA BOLIVARIANA BOROTA',811,3843],
+  [181701001,'UNIDAD EDUCATIVA MONSEÑOR JUAN BAUTISTA CASTRO',835,3840],
+  [210512008,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA',1003,3839],
+  [10105015,'UNIDAD EDUCATIVA DISTRITAL JUAN LANDAETA',5,3838],
+  [210512005,'PREESCOLAR ESTADAL LOS ANGELITOS',1003,3836],
+  [20301026,'LICEO NACIONAL DOCTOR RAFAEL FERNÁNDEZ PADILLA',27,3833],
+  [130104001,'CASA DE LA CULTURA',574,3832],
+  [180803006,'ESCUELA BOLIVARIANA VIRGILIO PINZON',814,3832],
+  [70704014,'ESCUELA JOSE RAFAEL POCATERRA',269,3828],
+  [10110092,'INSTITUTO CECILIO ACOSTA',10,3827],
+  [120106007,'UNIDAD EDUCATIVA BOLIVARIANA MANUELITA SAENZ',490,3826],
+  [10113037,'UNIDAD EDUCATIVA NACIONAL JULIO BUSTAMANTE',13,3824],
+  [140710007,'ESCUELA BASICA VICENTE SALIAS',655,3822],
+  [20101006,'UNIDAD EDUCATIVA  LIBERTADOR SIMÓN BOLÍVAR',23,3822],
+  [71201003,'UNIDAD EDUCATIVA ESTADAL AMBROSIO PLAZA',286,3817],
+  [180803008,'ESCUELA ESTADAL PERPETUO SOCORRO',814,3814],
+  [200901003,'ESCUELA BASICA JOSE ANTONIO PAEZ',963,3808],
+  [212102002,'ESCUELA BASICA ANDRES BELLO',1074,3805],
+  [160101017,'COLEGIO UNIVERSITARIO FERMÍN TORO',692,3804],
+  [210803016,'UNIDAD EDUCATIVA NACIONAL JULIO ARRAGA',1021,3801],
+  [190207004,'ESCUELA BOLIVARIANA VITISAY',866,3799],
+  [180801001,'GRUPO ESCOLAR DOCTOR LEONARDO RUIZ PINEDA',812,3798],
+  [90601001,'ESCUELA BASICA BOLIVARIANA FABIO MANUEL CHIRINOS',327,3792],
+  [20301013,'ESCUELA ANTONIO JOSE DE SUCRE',27,3790],
+  [21701001,'GRUPO ESCOLAR TOMAS ALFARO CALATRAVA',68,3789],
+  [130401020,'ESCUELA BASICA NACIONAL CIUDAD LOZADA',589,3788],
+  [160304002,'ESCUELA BASICA QUEBRADA DE LA VIRGEN',699,3785],
+  [70202003,'ESCUELA BASICA MANAURE',256,3784],
+  [190402001,'ESCUELA BOLIVARIANA NEPTAÍ VALERA HURTADO',878,3781],
+  [70601001,'ESCUELA GRADUADA UDON PEREZ',264,3781],
+  [10107022,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOCTOR LUÍS PADRINO',7,3781],
+  [71201020,'UNIDAD EDUCATIVA NACIONAL ABDON CALDERON',286,3780],
+  [21301001,'GRUPO ESCOLAR ANIBAL DOMINICCI',61,3777],
+  [131701001,'UNIDAD EDUCATIVA PRIVADA VIRGEN DE LA CONSAGRACIÓN',620,3772],
+  [130101019,'ESCUELA  BOLIVARIANA NACIONAL EL MARQUEZ',571,3771],
+  [180401009,'LICEO BOLIVARIANO ANTONIO JOSE DE SUCRE',800,3771],
+  [211901003,'ESCUELA BASICA NACIONAL EL CRUCE',1068,3770],
+  [210511013,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO SANTA MARIA',1002,3766],
+  [190209001,'ESCUELA BOLIVARIANA DOCTOR EUSEBIO BAPTISTA',868,3766],
+  [131601054,'LICEO LOS ARCOS',617,3762],
+  [110402001,'UNIDAD EDUCATIVA  BOLIVARIANA ZAZARABICOA',448,3761],
+  [50401002,'GRUPO ESCOLAR MARQUEZ DEL PUMAR',175,3761],
+  [30202003,'ESCUELA PRIMARIA BOLIVARIANA  JOSE ANTONIO PAEZ',85,3760],
+  [212001002,'UNIDAD EDUCATIVA NACIONAL BERNARDO VILLASMIL',1070,3759],
+  [210510010,'UNIDAD EDUCATIVA ESTADAL CARMELITA MORALES',1001,3755],
+  [70403002,'ESCUELA BASICA HENRIQUE TEJERA',262,3755],
+  [21302008,'GRUPO  ESCOLAR SEVERIANO HERNÁNDEZ',62,3753],
+  [90403014,'UNIDAD EDUCATIVA AUTONOMO NICOLAS CURIEL COUTHINO',320,3751],
+  [150902002,'UNIDAD EDUCATIVA JOSÉ VICENTE MARCANO',688,3750],
+  [120501001,'UNIDAD EDUCATIVA BOLIVARIANA ESTADO ARAGUA',507,3747],
+  [110202032,'U.E. COLEGIO EL SANTISIMO',430,3745],
+  [161301008,'INSTITUTO DE EDUCACION ESPECIAL  MARIA BELEN DE SIVIRA',728,3735],
+  [211401010,'ESCUELA BASICA NACIONAL PEDRO LUCAS URRIBARRI',1044,3733],
+  [160804001,'ESCUELA TECNICA AGROPECUARIA LA COLONIA',720,3732],
+  [181601001,'ESCUELA BOLIVARIANA NACIONAL LA FRONTERA',833,3724],
+  [60304014,'ESCUELA NACIONAL BASICA VISTA HERMOSA',225,3724],
+  [20304001,'ESCUELA BÁSICA JOSE ANTONIO MATA MEDINA',30,3723],
+  [131201019,'COMPLEJO EDUCATIVO NACIONAL JUAN ESPANA',610,3719],
+  [131701011,'CICLO BASICO CARLOS GAUNA',620,3719],
+  [210502012,'GRUPO ESCOLAR NACIONAL BATALLA DE BOYACA',993,3717],
+  [150901006,'UNIDAD EDUCATIVA LICEO BOLIVARIANO LAS HERNÁNDEZ',687,3716],
+  [91001024,'ESCUELA BASICA REGINA PIA DE ANDARA',349,3716],
+  [121401001,'ESCUELA BASICA MARTHA GONZALEZ',542,3715],
+  [110501012,'ESCUELA BOLIVARIANA GENERAL NICOLAS PATIÑO SOSA',455,3712],
+  [130107003,'UNIDAD EDUCATIVA ROSA HENRRIQUEZ DE BANDRES',577,3712],
+  [10105017,'MUSEO DE LA ESTAMPA Y EL DISEÑO CARLOS CRUZ DIEZ',5,3711],
+  [21401013,'GRUPO ESCOLAR DOCTOR JOSÉ COVA MAZA',63,3710],
+  [180401002,'LICEO BOLIVARIANO LUIS LOPEZ MENDEZ',800,3709],
+  [140703001,'UNIDAD EDUCATIVA JOSÉ GREGORIO MONAGAS',648,3709],
+  [131001011,'ESCUELA BASICA ESTADAL CREACION BICENTENARIA',606,3706],
+  [211103002,'ESCUELA ESTADAL MAESTRO PASCUAL IGNACIO VILLASMIL',1036,3706],
+  [170901032,'LICEO ANTONIO LEMUS PÉREZ',769,3703],
+  [30105001,'ESCUELA PRIMARIA BOLIVARIANA IGNACIA DE MAYOL',82,3702],
+  [21003001,'ESCUELA NACIONAL CONCENTRADA NUMERO 16-190-27',53,3702],
+  [70401014,'ESCUELA BASICA NACIONAL ADOLFO BLONVAL LOPEZ',260,3700],
+  [131601003,'COLEGIO LA CONCORDIA',617,3700],
+  [220102008,'ESCUELA BASICA SIMON RODRIGUEZ',1077,3700],
+  [131603006,'COLEGIO INTERNACIONAL DE CARACAS',619,3700],
+  [20302006,'ESCUELA BASICA LOS POTOCOS 371',28,3699],
+  [41001003,'ESCUELA BASICA DOCTOR PATROCINIO P RUIZ',140,3699],
+  [200801001,'ESCUELA INTEGRAL BOLIVARIANA MAYURUPI',962,3696],
+  [131701005,'CENTRO DE EDUCACIÓN INICIAL MONTAÑA ALTA',620,3693],
+  [50601004,'CASA DE LA CULTURA',183,3693],
+  [21302003,'GRUPO ESCOLAR CREACION PARAISO',62,3692],
+  [180401013,'ESCUELA BOLIVARIANA SAN RAFAEL',800,3692],
+  [140201001,'ESCUELA BASICA BOLIVARIANA PEDRO GUAL',629,3692],
+  [70103001,'GRUPO ESCOLAR PARAMACONI',254,3690],
+  [170803001,'ESCUELA BASICA MARIA VILLEGAS',766,3690],
+  [110206020,'ESCUELA BASICA ALI PRIMERA',434,3688],
+  [160601020,'ESCUELA BASICA CIUDAD DE ACARIGUA',707,3688],
+  [90401007,'ESCUELA BÁSICA ANTIGUO AEROPUERTO',318,3688],
+  [141002001,'ESCUELA BASICA ALARICO GOMEZ',666,3687],
+  [150201004,'ESCUELA BASICA BOLIVARIANA FRANCISCO BOADAS DIAZ',671,3686],
+  [100601026,'LICEO JUAN GERMAN ROSCIO',405,3684],
+  [171302001,'ESCUELA BOLIVARIANA RÍO CASANAY',785,3683],
+  [140803001,'ESCUELA BASICA BARRANCAS',658,3680],
+  [190302001,'UNIDAD EDUCATIVA NACIONAL GUADALUPE ROMÁN COLMENARES',873,3680],
+  [130301033,'UNIDAD EDUCATIVA ESATADAL DOCTOR FRANCISCO ESPEJO',582,3679],
+  [110201018,'UNIDAD EDUCATIVA JOSE MACARIO YEPEZ',429,3677],
+  [182401001,'ESCUELA BASICA BOLIVARIANA REGINA DE VELAZQUEZ',850,3677],
+  [170902004,'ESCUELA BÁSICA JUAN FREITES',770,3676],
+  [21301032,'GRUPO  ESCOLAR CELESTINO GONZÁLEZ ORTIZ',61,3675],
+  [171201001,'U.E. PEDRO EÍAS MARCANO',782,3674],
+  [220101009,'ESCUELA BASICA TACHIRA',1076,3674],
+  [110202010,'ESCUELA STELLA CECHINI',430,3671],
+  [121203002,'ESCUELA BASICA SAN RAFAEL DE ALCANZAR',539,3670],
+  [211803022,'UNIDAD EDUCATIVA ESTADAL EUGUENIO SANCHEZ GARCIA',1064,3667],
+  [30701014,'ESCUELA PRIMARIA SANTA RUFINA',103,3665],
+  [211802015,'UNIDAD EDUCATIVA NACIONAL PRIVADA NATALICIO DEL LIBERTADOR',1063,3664],
+  [121301002,'LICEO BOLIVARIANO VICENTE CAMPO ELIAS',540,3663],
+  [210604002,'ESCUELA BASICA NACIONAL ALIRIO REYES',1013,3663],
+  [110202046,'CICLO BASICO CONCENTRADO RAFAEL MONASTERIOS',430,3662],
+  [60108004,'FE Y ALEGRIA LA CONSOLACION',213,3660],
+  [120804001,'UNIDAD EDUCATIVA LA SALLE',517,3657],
+  [122002002,'UNIDAD EDUCATIVA MIGUEL M CANDALES',563,3657],
+  [211104001,'ESCUELA  SOCIAL DE AVANZADA CAMPO LARA  (ANEXO)',1037,3655],
+  [110203003,'UNIDAD EDUCATIVA NACIONAL EL UJANO',431,3649],
+  [211105007,'GRUPO ESCOLAR MARIA DOLORES DE CASTRO',1038,3647],
+  [10122006,'UNIDAD EDUCATIVA COLEGIO TERESIANO NUESTRA SEÑORA DE COROMOTO',22,3646],
+  [90402001,'ESCUELA BÁSICA MANUELA AULAR DE HERNANDEZ',319,3646],
+  [10117001,'UNIDA EDUCATIVA JOSE ALBERTO HERNANDEZ PARRA',17,3645],
+  [181502002,'ESCUELA NACIONAL BASICA RURAL BOLIVARIANA LA PALMITA NORTE',832,3643],
+  [160601042,'ESCUELA BASICA 5 DE DICIEMBRE',707,3642],
+  [110202030,'CICLO BASICO JOSE MARIA DOMINGUEZ',430,3639],
+  [161001014,'LICEO OSCAR PICON GIACOPPINI',723,3638],
+  [180802010,'GRUPO ESCOLAR PABLO EMILIO GAMBOA PEÑALOZA',813,3637],
+  [210505002,'ESCUELA BASICA ESTADAL NESTOR LUIS PEREZ',996,3626],
+  [70907010,'COLEGIO NACIONAL DEL PERIODISTA',281,3624],
+  [150303001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JUAN BAUTISTA ARISMENDI',675,3621],
+  [50205001,'ESCUELA BASICA SANTA LUCIA',162,3620],
+  [70907003,'ESCUELA FELIX MANUEL LUCES',281,3618],
+  [210513013,'JARDIN DE INFANCIA GLADYS DE C',1004,3606],
+  [170301002,'UNIDAD EDUCATIVA BOLIVARIANA JOSE ANTONIO RODRIGUEZ ABREU',744,3606],
+  [50207009,'ESCUELA BASICA NACIONAL 24 DE JUNIO',164,3604],
+  [90402024,'ESCUELA TÉCNICA ROBINSONIANA INDUSTRIAL GENERAÍSIMO FRANCISCO DE MIRANDA',319,3604],
+  [110206003,'UNIDAD EDUCATIVA LAS SABILAS',434,3603],
+  [160201023,'PARQUE DE RECREACION DIRIGIDA',694,3603],
+  [131601012,'UNIDAD EDUCATIVA NACIONAL REPUBLICA DE INDONESIA',617,3602],
+  [210502007,'UNIDAD EDUCATIVA NACIONAL LICEO LOS ROBLES',993,3600],
+  [151001010,'ESCUELA BASICA DON ANDRES BELLO',689,3598],
+  [110605001,'UNIDAD EDUCATIVA LARGIO JIMENEZ',462,3598],
+  [160202006,'CICLO BASICO UVERAL',695,3597],
+  [10119013,'UNIDAD EDUCATIVA FE Y ALEGRÍA LA RINCONADA',19,3596],
+  [160601002,'ESCUELA BASICA HERMANAS PERAZAS',707,3595],
+  [21301087,'GRUPO ESCOLAR ANTONIO JOSE SOTILLO',61,3593],
+  [50209006,'UNIDAD EDUCATIVA  BOLIVARIANO SIMON  AGUSTIN JIMENEZ',166,3592],
+  [210511008,'GRUPO ESCOLAR ESTADAL RICAUTER',1002,3591],
+  [120406005,'COLEGIO SAN PIO X',505,3591],
+  [110204039,'UNIDAD EDUCATIVA ANTONIO ARRAIZ',432,3590],
+  [10122043,'UNIDAD EDUCATIVA PRIVADA SIMÓN RODRÍGUEZ',22,3590],
+  [100102001,'ESCUELA BASICA ENRIQUE BENITO NUÑEZ',389,3589],
+  [121201005,'ESC BAS CONC MIXTA',537,3589],
+  [140710054,'COMPLEJO EDUCATIVO ANTONIO JOSE DE SUCRE',655,3589],
+  [160604003,'ESCUELA RURAL BASICA LA EXTENSION MIJAGUITO',710,3585],
+  [210503024,'UNIDAD EDUCATIVA NACIONAL LEONARDO RUIZ PINEDA',994,3585],
+  [70906003,'COLEGIO LA SALLE',280,3584],
+  [90402021,'ESCUELA BASICA PUNTO FIJO',319,3581],
+  [70904036,'CENTRO DE EDUCACION INICIAL NACIONAL MONUMENTAL PRE ESCOLAR ALICIA FERRER',278,3579],
+  [90201002,'ESCUELA BASICA BOLIVARIANA DIMAS SEGOVIA',309,3578],
+  [71101017,'JARDIN DE INFANCIA CABRIALES',285,3576],
+  [90505001,'ESCUELA  BOLIVARIANA DON RÓMULO GALLEGOS',326,3575],
+  [70904002,'ESCUELA BASICA BOLIVARIANA JOSE RAFAEL POCATERRA',278,3573],
+  [160601024,'ESCUELA BASICA ALBERTO LEVY MORA',707,3573],
+  [210517006,'CENTRO DEPORTIVO CULTURAL PATRIA JOVEN',1008,3573],
+  [180801016,'ESCUELA BOLIVARIANA NACIONAL JOSEFINA MEDINA DE DUQUE',812,3570],
+  [90301001,'ESCUELA BASICA BOLIVARIANA LEONIDAS BERMUDEZ',312,3569],
+  [90403011,'INSTITUTO CARDON',320,3568],
+  [140706006,'ESCUELA BASICA ANTONIO JOSE DE SUCRE',651,3567],
+  [230202001,'ESCUELA GRADUADA CAPURE',1113,3565],
+  [170302004,'LICEO BÁSICO PEDRO JOSÉ SALAZAR',745,3564],
+  [10120016,'ESCUELA BASICA OCTAVIO ANTONIO DIEZ.',20,3564],
+  [130301015,'COLEGIO AMBROSIO PLAZA',582,3563],
+  [220104001,'ESCUELA  BASICA DANIEL NAVEA',1079,3562],
+  [190103001,'LICEO EMIRO FUENMAYOR',858,3562],
+  [21302013,'GRUPO ESCOLAR GUARAGUAOS',62,3562],
+  [21302017,'CENTRO JUVENIL DON BOSCO',62,3560],
+  [120701001,'ESCUELA BASICA TORONDOY',512,3559],
+  [30601004,'ESCUELA BASICA DANIEL OLEARY',99,3554],
+  [110206013,'UNIDAD EDUCATIVA ESTADAL RETEN ABAJO',434,3552],
+  [140604001,'ESCUELA BASICA CHAGUARAMAS',645,3551],
+  [70904007,'ESCUELA BOLIVARIANA ISABEL FERNANDEZ DE ICHAZU',278,3551],
+  [161102007,'ESCUELA ESTADAL BASICA NUMERO 29',725,3550],
+  [211102009,'GRUPO ESCUELA NACIONAL VENEZUELA',1035,3549],
+  [70908007,'INCE LA ISABELICA',282,3545],
+  [20102001,'UNIDAD EDUCATIVA  PEDRO ANTONIO MEDINA',24,3545],
+  [180803012,'LICEO NACIONAL RAMON JOSE VELAZQUEZ',814,3545],
+  [131801009,'UNIDAD EDUCATIVA POPULAR SANTO TOMAS DE AQUINO',621,3544],
+  [30205003,'ESCUELA PRIMARIA JUAN VICENTE TORRES DEL VALLE',88,3543],
+  [30601009,'ESCUELA BASICA MARIO BRICEÑO IRAGORY',99,3543],
+  [211401007,'ESCUELA BASICA NACIONAL MANUEL MENDEZ',1044,3540],
+  [10113019,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOMINGO FAUSTINO SARMIENTO',13,3540],
+  [10122027,'UNIDAD EDUCATIVA COLEGIO SANTA MARIA MICAELA',22,3539],
+  [60701005,'ESCUELA LA MANGA',241,3537],
+  [210514004,'ESCUELA ARTESANAL NACIONAL EL PILAR',1005,3535],
+  [90401003,'ESCUELA BASICA BOLIVARIANA ESTEBAN SMITH MONZON',318,3532],
+  [131701003,'UNIDAD  EDUCATIVA NACIONAL JOSE  MANUEL ALVAREZ',620,3531],
+  [170901010,'U.E. FRANCISCO ARISTIGUIETA BADARACCO',769,3528],
+  [110201010,'UNIDAD EDUCATIVA MANUELA MERCEDES DUIN',429,3527],
+  [21401003,'GRUPO ESCOLAR RAFAEL MEDINA GARCIA',63,3527],
+  [180401023,'CENTRO DE EDUCACION INICIAL SIMONCITO´´PENSAMIENTO BOLIVARIANO´´ BARRANCAS PARTE BAJA',800,3522],
+  [101203001,'ESCUELA BASICA BOLIVARIANA SAN JOSE',420,3522],
+  [10105010,'UNIDAD EDUCATIVA NACIONAL DOCTOR ELIAS RODRIGUEZ',5,3521],
+  [160403004,'ESCUELA CONCENTRADA NACIONAL MIXTA Y ANEXA ESTADAL NUMERO 132',703,3521],
+  [131201005,'GRUPO ESCOLAR TERESA DE BOLIVAR',610,3521],
+  [20303001,'ESCUELA NACIONAL  NICOLAS LAREZ',29,3521],
+  [70301020,'ESCUELA BOLIVARIANA GUAMACHO',258,3518],
+  [70906004,'INSTITUTO MARIA MONTESSORI',280,3518],
+  [90704001,'ESCUELA BÁSICA BOLIVARIANA MANUELA WEFFER DE ROMERO',335,3515],
+  [20201008,'ESCUELA CONCENTRADA NUMERO 1882-2152',25,3515],
+  [210202006,'ESCUELA NACIONAL SANTA RITA',977,3510],
+  [182701001,'GRUPO ESCOLAR SIMÓN LEÓN',853,2196],
+  [210508002,'ESCUELA BASICA NACIONAL ALONSO DE OJEDA',999,3508],
+  [10108003,'LICEO INDEPENDENCIA',8,3502],
+  [110204003,'UNIDAD EDUCATIVA LOLA ALAMO',432,3497],
+  [90101001,'ESCUELA BASICA BOLIVARIANA PEDRO CASTRO UGARTE',305,3496],
+  [200701024,'UNIDAD EDUCATIVA NIRGUA',960,3493],
+  [140710045,'COMPLEJO EDUCATIVO NACIONAL EL SILENCIO DE MORICHAL LARGO',655,3491],
+  [140710037,'ESCUELA BASICA NICOLAS LOPEZ',655,3489],
+  [130701017,'ESCUELA BASICA CESAR ARMANDO CISNEROS',599,3483],
+  [92201001,'ESCUELA BASICA BOLIVARIANA SUSANA MEDINA DE DORANTE',382,3480],
+  [110202031,'U.E.N. HECTOR CASTILLO REYES',430,3478],
+  [211402010,'UNIVERSIDAD NACIONAL EXPERIMENTAL RAFAEL MARIA BARALT',1045,3477],
+  [131601044,'UNIDAD EDUCATIVA PRIVADA COLEGIO ALTO PRADO',617,3477],
+  [200601009,'ESCUELA BASICA ELBA SALESSI',959,3476],
+  [211301001,'UNIDAD EDUCATIVA NACIONAL DON JUAN VICENTE BOLIVAR',1041,3474],
+  [211404008,'UNIDAD EDUCATIVA ESTADAL JESUS ENRIQUE LOSSADA',1047,3474],
+  [180601004,'UNIDAD EDUCATIVA BOLIVARIANA ESTADO YARACUY',806,3474],
+  [30601010,'ESC BASICA SAN JOSE',99,3473],
+  [182801001,'ESCUELA RAFAEL ANTONIO UZCATEGUI',854,3471],
+  [210513005,'UNIDAD EDUCATIVA ANA ELENA OSORIO',1004,3469],
+  [210512002,'ESCUELA BASICA ESTADAL MARCO TULIO ANDRADES',1003,3466],
+  [20301031,'LICEO BOLIVARIANO DOCTOR JESÚS MARIA BIANCO',27,3466],
+  [132001007,'UNIDAD EDUCATIVA EULALIA SANCHEZ DE CHAMBERLAIN',623,3466],
+  [90402023,'UNIDAD EDUCATIVA NAZARETH FE Y ALEGRIA',319,3461],
+  [130901039,'JARDIN DE INFANCIA CADAFITO',601,3461],
+  [210503005,'ESCUELA BASICA NACIONAL BARRIO EL PROGRESO',994,3461],
+  [110802008,'ESCUELA BOLIVARIANA JORNADA COMPLETA EL BARRANCON DEL DEGREDO',480,3456],
+  [100601021,'GRUPO ESCOLAR JOSE DE LOS SANTOS PEREIRA',405,3456],
+  [110602001,'ESCUELA BOLIVARIANA LUIS HERIZE PONTE',459,3455],
+  [191801001,'ESCUELA BOLIVARIANA PORTILLO Y VALERA',940,3452],
+  [71301013,'ESCUELA BASICA NACIONALCLORINDA AZCUÑES',287,3449],
+  [60302010,'KINDER LA PARAGUA',223,3447],
+  [180401001,'ESCUELA BOLIVARIANA MONSEÑOR BRICEÑO PICON',800,3447],
+  [10104030,'UNIDAD EDUCATIVA PRIVADA COLEGIO AGUSTINIANO LA DIVINA PASTORA',4,3444],
+  [110207003,'UNIDAD EDUCATIVA PINTO SALINAS',435,3442],
+  [140403001,'ESCUELA BASICA CONSUELO NAVAS TOVAR',638,3441],
+  [140710019,'UNIDAD EDUCATIVA LUIS PADRINO',655,3440],
+  [210506009,'E. NACIONAL DON BOSCO',997,3439],
+  [210407011,'ESCUELA   BOLIVARIANA MARCELINO 2',991,3437],
+  [210506003,'ESCUELA BASICA ESTADAL ANDRES ELOY BLANCO (EZA)',997,3437],
+  [160603002,'ESCUELA BASICA PIMPINELA',709,3435],
+  [30106001,'GRUPO ESCOLAR QUESERAS DEL MEDIO',83,3432],
+  [211408007,'ESCUELA BASICA NACIONAL RAMON OCANDO PEREZ',1051,3431],
+  [180803014,'UNIDAD EDUCATIVA COLEGIO PRIVADO SANTISIMO SALVADOR',814,3431],
+  [120803005,'ESCUELA BASICA DOCTOR RAMON REINOSO NUEZ',516,3430],
+  [180803007,'UNIDAD EDUCATIVA COLEGIO LA VILLA DE LOS NIÑOS',814,3429],
+  [21302006,'ESCUELA NUESTRA SEÑORA DE LOURDES',62,3429],
+  [140710026,'LICEO NACIONAL IDELFONSO NUÑEZ MARES',655,3428],
+  [90402014,'ESCUELA BOLIVARIANA MENE GRANDE',319,3428],
+  [131701007,'UNIDAD EDUCATIVA NACIONAL ANDRÉS BELLO',620,3425],
+  [90801004,'ESCUELA BÁSICA BOLIVARIANA CHURUGUARA',341,3424],
+  [130301001,'UNIDAD EDUCATIVA ESTADAL CRUZ DEL VALLE RODRIGUEZ',582,3424],
+  [131601037,'ESCUELA MUNICIPAL NUMERO 05 MIGUEL JOSE SANZ',617,3422],
+  [211102011,'LICEO NACIONAL DOCTOR. RAUL CUENCA',1035,3422],
+  [211801003,'UNIDAD POLIVALENTE INCE SAN FRANCISCO',1062,3421],
+  [90404006,'ESCUELA BOLIVARIANA VÍA SANTA ANA',321,3418],
+  [130801001,'ESCUELA ESTADAL ROSENDO URPIANO ARMAS',600,3418],
+  [160601035,'ESCUELA BASICA GOAJIRA I',707,3418],
+  [10113004,'UNIDAD EDUCATIVA DISTRITAL SIMON RODRIGUEZ',13,3417],
+  [190203001,'ESCUELA BOLIVARIANA RURAL DOCTOR CARLOS BARAZARTE',862,3416],
+  [211803021,'UNIDAD  EDUCATIVA  COLEGIO SAN FRANCISCO (PADRE VILCHEZ)',1064,3416],
+  [70907001,'ESCUELA BASICA ESTADAL MONSEÑOR BELLERA AROCHA',281,3415],
+  [20101005,'ESCUELA BÁSICA CREACIÓN ANACO',23,3412],
+  [160301049,'ESCUELA BASICA MIGUEL ANTONIO VASQUEZ',696,3411],
+  [211803018,'PREESCOLAR ANA GRACIELA DE HINESTROZA',1064,3410],
+  [30502003,'ESCUELA  BASICA LA TRINIDAD DE ORICHUNA',98,3410],
+  [130801043,'ESCUELA NACIONAL GRADUADA JUDITH DALO SANDON',600,3404],
+  [190401008,'LICEO BOLIVARIANO IGNACIO CARRASQUERO',877,3403],
+  [60106013,'ESCUELA DIEGO DE ORDAZ',211,3402],
+  [190507001,'UNIDAD EDUCATIVA DOCTOR ANDRÉS LOMELLI ROSARIO',887,3402],
+  [30103001,'ESCUELA PRIMARIA BOLIVARIANA RAIMUNDO FONSECA',80,3398],
+  [30601003,'ESCUELA BASICA LUIS FELIPE MARCANO HERNANDEZ',99,3395],
+  [131801015,'INSTITUTO EINSTEIN',621,3393],
+  [40201008,'UNIDAD EDUCATIVA LIBERTADOR',112,3393],
+  [211806004,'ESCUELA  BOLIVARIANA  MACHIQUES DE PERIJA',1067,3391],
+  [190801007,'UNIDAD EDUCATIVA FRANCISCO TORRES TORO',900,3391],
+  [211406012,'INSTITUTO UNIVERSITARIO POLITECNICO SANTIAGO MARIÑO',1049,3389],
+  [40106016,'ESCUELA BASICA JUAN LOVERA',109,3388],
+  [211802003,'ESCUELA BASICA NACIONAL 12 DE OCTUBRE',1063,3387],
+  [122001001,'UNIDAD EDUCATIVA NUEVA BOLIVIA',562,3387],
+  [70904006,'ESCUELA 19 DE ABRIL',278,3386],
+  [10102015,'INSTI TUTO UNITARIO DEL CENTRO',2,3386],
+  [180601016,'LICEO BOLIVARIANO LAS AMERICAS',806,3383],
+  [20301062,'INSTITUTO NACIONAL DE CAPACITACIÓN Y EDUCACIÓN SOCIALISTA',27,3382],
+  [10117003,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANO LICEO CARICUAO',17,3381],
+  [110502011,'PRE-ESCOLAR CREACION LAS MERCEDES',456,3377],
+  [150701002,'ESCUELA BASICA MONSENOR NICOLAS EUGENIO NAVARRO',683,3377],
+  [201301005,'ESCUELA INTEGRAL BOLIVARIANA SIMON BOLIVAR',967,3375],
+  [91802005,'ESCUELA BASICA BOLIVARIANA EL CHARAL',375,3374],
+  [181601011,'ESCUELA TÉCNICA INDUSTRIAL ROBINSONIANA SIMÓN BOLÍVAR',833,3373],
+  [110207104,'INSTITUTO DE EDUCACION ESPECIAL BARQUISIMETO',435,3372],
+  [150402003,'CASA DE LA CULTURA JUAN FERMIN MILLAN',679,3371],
+  [200101001,'ESCUELA BASICA CARMELO FERNANDEZ',949,3371],
+  [191901001,'ESCUELA BÁSICA SANTA APOLONIA',942,3370],
+  [21701004,'UNIDAD EDUCATIVA MARIA AUXILIADORA',68,3367],
+  [131401003,'ESCUELA BOLIVARIANA SAN JOSÉ',613,3365],
+  [131701012,'UNIDAD EDUCATIVA ESTADAL FRANCISCO DE MIRANDA',620,3363],
+  [210504011,'COLEGIO SANTA ANGELA',995,3363],
+  [210514005,'ESCUELA BASICA ESTADAL AMANDA DE JESUS BRAVO',1005,3362],
+  [131301004,'UNIDAD EDUCATIVA ESTADAL ESTADO ARAGUA',612,3361],
+  [70908003,'ESCUELA JUAN JOSE RONDON',282,3359],
+  [110501003,'GRUPO ESCOLAR GLADYS BRICEÑO MENDEZ',455,3358],
+  [71201031,'ESCUELA  BOLIVARIANA  BARBULA II',286,3358],
+  [20301032,'ESCUELA  BÁSICA RÓMULO GALLEGO',27,3357],
+  [70906002,'UNIDAD ESCOLAR ALFREDO COLOMINE',280,3357],
+  [210104003,'UNIDAD EDUCATIVA ESTADAL HILARION ALBERTO VILORIA',973,3357],
+  [110201001,'ESCUELA NACIONAL BOLIVARIANA BARARIDA',429,3357],
+  [211401004,'ESCUELA BASICA NACIONAL FRANCISCO LAZO MARTI',1044,3356],
+  [110207045,'ESCUELA NACIONAL DIMAS ACOSTA ALVAREZ',435,3355],
+  [80601020,'ESCUELA BASICA BOLIVARIANA IGINIO MORALES',298,3355],
+  [130701015,'UNIDAD EDUCATIVA ESTADAL ESTADO MERIDA',599,3353],
+  [210517003,'UNIDAD EDUCATIVA ESTADAL  MARISCAL ANTONIO JOSE DE SUCRE',1008,3352],
+  [70101007,'ESCUELA ESTADAL JOSE IGNACIO PULIDO',252,3351],
+  [190702004,'ESCUELA BOLIVARIANA PASCUAL IGNACIO VILLASMIL',895,3349],
+  [121102001,'ESCUELA BOLIVARIANA RAFAEL ANTONIO GONZALEZ',535,3348],
+  [171003001,'U.E. ANTONIO PINTO SALINAS',778,3347],
+  [10114022,'ESCUELA BASICA DOCTOR ENRIQUE DELGADO PALACIOS',14,3347],
+  [210803006,'UNIDAD EDUCATIVA NACIONAL PRIVADA SAN ANTONIO',1021,3347],
+  [91501006,'CENTRO DE EDUCACIÓN INICIAL POLITA DE LIMA',367,3346],
+  [180501004,'ESCUELA NACIONAL BOLIVARIANA JAUREGUI',803,3346],
+  [180801021,'GRUPO ESCOLAR CRISTOBAL MENDOZA',812,3344],
+  [10115006,'UNIDAD EDUCATIVA MARIA ANTONIA BOLIVAR',15,3341],
+  [10115011,'UNIDAD EDUCATIVA INSTITUTO HUMANITAS',15,3337],
+  [100601024,'UNIDAD EDUCATIVA NACIONAL RAFAEL CABRERA MALO',405,3335],
+  [110206004,'UNIDAD EDUCATIVA ESTADAL FRANCISCO DE MIRANDA',434,3335],
+  [131901011,'CLUB LA LAGUNITA',622,3335],
+  [20301006,'GRUPO ESCOLAR BOYACA',27,3334],
+  [150401004,'UNIDAD EDUCATIVA CASTA JOSEFINA SALAZAR DE LOPEZ',678,3334],
+  [140708030,'CENTRO DE NIÑO Y FAMILIA AGUSTIN SALAZAR',653,3332],
+  [100601002,'GRUPO ESCOLAR LIC. FRANCISCO ARANDA',405,3330],
+  [70101002,'LICEO NACIONAL ARTURO MICHELENA',252,3330],
+  [130402002,'ESCUELA BASICA NACIONAL PEDRO VICENTE NU EZ',590,3329],
+  [10115007,'COLEGIO FUNDACION CARLOS DELFINO',15,3329],
+  [100101011,'LICEO BOLIVARIANO JOSE GIL FORTOUL',388,3328],
+  [21201024,'UNIDAD EDUCATIVA SANTELIZ PEÑA',60,3328],
+  [50208009,'ESCUELA BASICA CIUDAD BARINAS',165,3327],
+  [40202015,'ESCUELA BASICA ESTADAL  ABIGAIL LOZANO',113,3326],
+  [140303001,'ESCUELA BASICA BOLIVARIANA EL GUACHARO',632,3326],
+  [150101004,'UNIDAD EDUCATIVA ESTADAL DOCTOR ANDRES ELOY BLANCO',670,3325],
+  [211801004,'UNIDAD EDUCATIVA NACIONAL PRIVADA MADRE MERCEDES MOLINA',1062,3320],
+  [190904001,'ESCUELA BASICA ELISA PULGAR DE RAMIREZ',910,3320],
+  [21301026,'CICLO BASICO FRANCISCO SALIAS',61,3319],
+  [110201024,'LICEO BOLIVARIANO MARIO BRICEÑO IRAGORRY',429,3319],
+  [151102005,'UNIDAD EDUCATIVA LUISA MERCEDES HERNANDEZ DE CARRILLO',691,3318],
+  [211702001,'ESCUELA BASICA ESTADAL DOCTOR. LUIS OQUENDO',1061,3316],
+  [41001005,'UNIDAD EDUCATIVA NACIONAL RESIDENCIAS SANTA CRUZ',140,3316],
+  [211105005,'ESCUELA BASICA NACIONAL JOSE MARIA VARGAS',1038,3313],
+  [180201001,'ESCUELA BOLIVARIANA MANUEL FELIPE RUGELES',793,3311],
+  [21301003,'UNIDAD EDUCATIVA MIGUEL OTERO SILVA',61,3310],
+  [10119016,'UNIDAD EDUCATIVA BOLIVARIANA MARI ISABEL MARQUEZ',19,3309],
+  [210514015,'UNIDAD EDUCATIVA NACIONAL PRIVADA CORAZON DE JESUS',1005,3308],
+  [10102013,'UNIDAD EDUCATIVA LICEO ALCAZAR',2,3308],
+  [200201021,'ESCUELA BASICA  MARIA LEONOR DE SALAS',950,3307],
+  [180803017,'ESCUELA BOLIVARIANA SIMON BOLIVAR',814,3307],
+  [131201017,'UNIDAD EDUCATIVA ESTADAL CAUJARITO',610,3307],
+  [70904030,'ESCUELA BASICA LOMAS DE FUNVAL',278,3306],
+  [131601014,'UNIDAD EDUCATIVA COLEGIO EMIL FRIEDMAN',617,3305],
+  [20101021,'UNIDAD EDUCATIVA DOCTOR CRUZ DEL VALLE RODRÍGUEZ',23,3304],
+  [161401001,'ESCUELA BASICA EL PLAYON',731,3303],
+  [170102002,'ESCUELA BOLIVARIANA DON ANDRÉS BELLO',734,3300],
+  [110101006,'ESCUELA BASICA LICUA',427,3298],
+  [110202026,'UNIDAD EDUCATIVA COLEGIO SAN PEDRO',430,3298],
+  [90403016,'ESCUELA BOLIVARIANA AURA MEDINA DE VENTURA',320,3297],
+  [211803011,'ESCUELA BASICA NACIONAL ELAUDIMIRA GUANIPA',1064,3296],
+  [210502011,'UNIDAD EDUCATIVA NACIONAL PRIVADA COLEGIO NUESTRA SEÑORA DE FATIMA',993,3296],
+  [120807009,'ESCUELA TECNICA MANUEL ANTONIO PULIDO MENDEZ',520,3295],
+  [191903002,'UNIDAD ESCOLAR ZONA RICA',944,3295],
+  [131602010,'INSTITUTO CUMBRES DE CARACAS ASOCIACION CIVIL',618,3293],
+  [180803009,'ESCUELA BASICA RURAL LA PROVIDENCIA',814,3292],
+  [160301051,'ESCUELA BASICA GILBERTO OROPEZA',696,3291],
+  [200301006,'ESCUELA BASICA LA CHAPA',952,3289],
+  [110502014,'UNIDAD EDUCATIVA  BASICA PIEDRA AZUL',456,3287],
+  [110201007,'UNIDAD EDUCATIVA ESTADAL CARMEN FERNANDEZ DE LEONI',429,3283],
+  [190702003,'ESCUELA BOLIVARIANA ELOISA FONSECA',895,3278],
+  [190801001,'ESCUELA BOLIVARIANA JOSE FELIPE MARQUEZ',900,3273],
+  [210506007,'ESCUELA BASICA NACIONAL HERMAGORAS CHAVEZ',997,3273],
+  [10107024,'UNIDAD EDUCATIVA COLEGIO SAN MARTÍN',7,3273],
+  [30403001,'ESCUELA BASICA PEDRO CAMEJO',96,3270],
+  [10108005,'ESCUELA BASICA NACIONAL BOLIVAR',8,3270],
+  [200402009,'ESCUELA BASICA RAMON GUILLERMO ORELLANA',956,3268],
+  [110207007,'UNIDAD EDUCATIVA ESTATAL MIGUEL ROMERO ANTONI',435,3268],
+  [211102024,'LICEO NACIONAL BOLIVARIANO PROFESOR CESAR MARTINEZ VALERO',1035,3267],
+  [160301017,'BIBLIOTECA PUBLICA DOCTOR ALIRIO UGARTE PELAYO',696,3263],
+  [50601022,'UNIDAD EDUCATIVA  BICENTENARIA NATALICIO  DEL LIBERTADOR',183,3263],
+  [40202007,'MODULO SOLID SAMAN DE GUERE NORTE',113,3262],
+  [60107003,'ESCUELA BASICA JARDIN LEVANTE',212,3262],
+  [211702003,'ESCUELA BASICA NACIONAL LAS PLAYITAS',1061,3262],
+  [190704008,'LICEO BOLIVARIANO DOCTOR REGULO BURELLI RIVAS',897,3262],
+  [201101008,'ESCUELA INTEGRAL BOLIVARIANA MARIA EVA DE LISCANO',965,3261],
+  [130201006,'UNID. EDUC. FERMIN TORO',579,3260],
+  [21001001,'GRUPO ESCOLAR DOCTOR RAFAEL VEÍSQUEZ MÁRQUEZ',51,3260],
+  [210516013,'ESCUELA BASICA NACIONAL VALMORE RODRIGUEZ',1007,3257],
+  [190201004,'UNIDAD EDUCATIVA  DOCTOR LEONARDO RUIZ PINEDA',860,3256],
+  [230403004,'ESCUELA PEDRO EMILIO COLL',1122,3255],
+  [210513008,'CENTRO PRESCOLAR MARACAIBO',1004,3255],
+  [40202005,'ESCUELA BASICA IVON GONZALEZ MARCANO',113,3248],
+  [170701005,'LICEO BOLIVARIANO LUIS BELTRAN SANABRIA',758,3247],
+  [110202028,'COLEGIO DE INGENIEROS DEL ESTADO LARA',430,3246],
+  [10113030,'UNIDAD EDUCATIVA COLEGIO MARISCAL SUCRE',13,3245],
+  [71101020,'ESCUELA BASICA NACIONAL BOLIVARIANA LAS AGUITAS III',285,3245],
+  [200301013,'UNIDAD EDUCATIVA BURIA',952,3242],
+  [212103002,'ESCUELA BASICA NACIONAL DIOSELINA LUQUE DIAZ',1075,3242],
+  [50206001,'UNIDAD BASICA TORUNOS',163,3240],
+  [131901016,'COLEGIO CLARET',622,3236],
+  [130101006,'GRUPO ESCOLAR PANTOJA',571,3236],
+  [210517004,'UNIDAD EDUCATIVA  NACIONAL  FRANCISCO REINOSO NUÑEZ',1008,3232],
+  [30104001,'ESCUELA PRIMARIA GUACHARA',81,3229],
+  [171301012,'U.E. CAMPEARE',784,3226],
+  [51202001,'ESCUELA BASICA SIMON BOLIVAR',204,3225],
+  [30601024,'ESCUELA BASICA MANUEL ANTONIO NIEVE',99,3225],
+  [40804001,'ESCUELA CONCENTRADA SIMONA ACACIO',136,3223],
+  [201401004,'ESCUELA INTEGRAL BOLIVARIANA PALMAREJO',968,3223],
+  [170903005,'ESCUELA BÁSICA LUIS BELTRÁN PRIETO FIGUEROA',771,3223],
+  [10115028,'ESCUELA BASICA NACIONAL BOLIVARIANA CECILIO ACOSTA',15,3221],
+  [190104001,'UNIDAD EDUCATIVA FRANCISCA ARÉVALO',859,3221],
+  [131601064,'INSTITUTO LEOPARDI',617,3220],
+  [210502016,'UNIDAD EDUCATIVA NACIONAL BATALLA DE CARABOBO',993,3212],
+  [171302008,'ESCUELA BOLIVARIANA JUAN SÁNCHEZ',785,3209],
+  [171201002,'U.E. BERNARDO BERMÚDEZ',782,3205],
+  [10104028,'LICEO BOLIVARIANO PERÚ DE LA CROIX',4,3204],
+  [40703001,'ESCUELA BASICA MAESTRO LUIS JOSE BRAVO',131,3203],
+  [201201007,'ESCUELA INTEGRAL BOLIVARIANA RAFAEL ANTONIO MUJICA',966,3202],
+  [211803020,'ESCUELA BASICA.NACIONAL EVARISTO FERNANDEZ',1064,3200],
+  [10108020,'UNIDAD EDUCATIVA COLEGIO SANTA LUISA NÂº 76',8,3200],
+  [211401008,'ESCUELA BASICA NACIONAL RAFAEL MARIA BARALT',1044,3193],
+  [200202009,'ESCUELA CONCENTRADA SAN RAMON',951,3187],
+  [210505007,'ESCUELA BASICA NACIONAL DR IDELFONSO VASQUEZ',996,3187],
+  [100407001,'ESCUELA DOCTOR BENITO GUTIERREZ LOPEZ',402,3186],
+  [190205003,'ESCUELA BOLIVARIANA ÁRBOL REDONDO',864,3186],
+  [120810002,'ESC BAS RAMON PARRA PICON',523,3184],
+  [120407001,'UNIDAD EDUCATIVA POZO HONDO',506,3183],
+  [210201002,'ESCUELA BASICA BOLIVARIANA EL GUANABANO',976,3181],
+  [180201004,'ESCUELA BASICA ESTADAL ANTONIO PINTO SALINAS',793,3179],
+  [91006001,'ESCUELA BASICA BOLIVARIANA MIGUEL ARMAS ADAMES',354,3179],
+  [201001003,'ESCUELA BASICA LEONOR BERNABO',964,3179],
+  [181404001,'UNIDAD EDUCATIVA PREVOCACIONAL PUERTO NUEVO',830,3178],
+  [110304005,'ESCUELA GRANJA BOLIVARIANA CUARA',442,3177],
+  [210701018,'LICEO ORANGEL ABREU SEMPRUN',1015,3175],
+  [210503027,'COLEGIO SANTA RITA',994,3175],
+  [121101011,'UNIDAD EDUCATIVA EUTIMIO RIVAS',534,3174],
+  [10120007,'COLEGIO NUESTRA SEÑORA DEL CARMEN',20,3171],
+  [70601012,'UNIDAD EDUCATIVA ESTADAL ROMULO GALLEGOS',264,3167],
+  [120101001,'ESCUELA BASICA LA PALMITA',485,3165],
+  [10117023,'ESCUELA BASICA BOLIVARIANA MENCA DE LEONI',17,3164],
+  [130301020,'UNIDAD EDUCATIVA NACIONAL LICEO FRANCISCO DE MIRANDA',582,3163],
+  [130301053,'ESCUELA NACIONAL BOLIVARIANA EL VIGIA',582,3163],
+  [30102001,'ESCUELA PRIMARIA BOLIVARIANA  COSME LOPEZ HURTADO',79,3161],
+  [211402006,'ESCUELA BASICA NACIONAL DON SIMON RODRIGUEZ',1045,3161],
+  [211803009,'ESCUELA BASICA BICENTENARIO JOSE ANTONIO PAEZ',1064,3153],
+  [190604001,'ESCUELA BOLIVARIANA PADRE CANO',891,3148],
+  [160803001,'ESCUELA BASICA ESTADAL ALIDA AGUILERA DE NOGUERA',719,3142],
+  [10108011,'ESCUELA BASICA NACIONAL TOMAS AGUERREVERE',8,3140],
+  [180501028,'INSTITUTO DE EDUCACION ESPECIAL BOLIVARIANO LA GRITA',803,3139],
+  [20301011,'GRUPO ESCOLAR JOSÉ BERNARDO GOMEZ',27,3139],
+  [211805016,'ESCUELA BASICA NACIONAL VICTOR SANDOVAL',1066,3133],
+  [131801016,'UNIDAD EDUCATIVA COLEGIO SANTIAGO DE LEON CARACAS',621,3132],
+  [40105012,'UNIDAD EDUCATIVA SANTA MARTA',108,3131],
+  [130901051,'CENTRO DE EDUCACION INICIAL NACIONAL JACINTO LARA',601,3128],
+  [121701003,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA PRESBISTERO DR EZEQUIEL ARELLANO',550,3126],
+  [150901008,'UNIDAD EDUCATIVA ESTADAL DON SIMON RODRIGUEZ',687,3126],
+  [60901018,'ESCUELA NACIONAL UNITARIA',248,3124],
+  [92501001,'ESCUELA BOLIVARIANA ESTADAL SANTA ROSA',387,3124],
+  [100405001,'GRUPO ESCOLAR LUISA ROJAS DE GONZALEZ',400,3121],
+  [21201052,'LICEO JOSE CELESTINO HURTADO',60,3118],
+  [21701007,'UNIDAD EDUCATIVA MENCA DE LEONI',68,3117],
+  [71101004,'INSTITUTO DE EDUCACION ESPECIAL LAS AGUITAS',285,3116],
+  [30402001,'ESCUELA GRANJA JOSE MANUEL SANCHEZ OSTOS',95,3111],
+  [170301001,'INCE POLIVALENTE CARUPANO',744,3111],
+  [130902012,'PREESCOLAR EUGENIA RABASCO',602,3109],
+  [21201005,'JARDIN DE INFANCIA LA CHARNECA',60,3107],
+  [110204030,'UNIDAD EDUCATIVA DOCTOR ALBERTO CARNEVALI',432,3107],
+  [100402001,'UNIDAD EDUCATIVA JESUS BANDRES',397,3107],
+  [130905006,'ESCUELA MUNICIPAL CARMEN BALVERDE',605,3104],
+  [210503014,'ESCUELA BASICA ESTADAL DON ROMULO GALLEGOS (EZA)',994,3102],
+  [41502001,'ESCUELA BASICA ESTADAL 15 DE ENERO',148,3101],
+  [61101003,'UNIDAD EDUCATIVA NACIONAL GUASIPATI',251,3100],
+  [180101003,'UNIDAD EDUCATIVA MUNICIPAL JUAN BAUTISTA GARCIA ROA',790,3098],
+  [150601009,'UNIDAD EDUCATIVA INSTITUTO EDUCATIVO ARCOIRIS',682,3096],
+  [180901002,'LICEO BOLIVARIANO FRANCISCO DE BORJA Y MORA',817,3095],
+  [10110003,'ESCUELA BÁSICA DISTRITAL ELISA DE IZQUIERDO',10,3094],
+  [131002001,'ESCUUELA NACIONAL BOLIVARIANA MANUELITA SAENZ',607,3092],
+  [240111004,'ESCUELA MUNICIPAL HUGO DOMINGUEZ SANCHEZ',1135,3091],
+  [90705001,'ESCUELA BASICA BOLIVARIANA JADACAQUIVA',336,3091],
+  [40103016,'CICLO BASICO ARAGUA',106,3087],
+  [110204015,'UNIDAD EDUCATIVA JOSE LEONARDO CHIRINOS',432,3086],
+  [131701008,'INSTITUTO MADRE ISABEL',620,3084],
+  [170201015,'ESCUELA BOLIVARIANA CAÑO DE AJÍES',738,3083],
+  [190208001,'UNIDAD EDUCATIVA MÁXIMO SAAVEDRA',867,3082],
+  [240106002,'ESCUELA BASICA ESTADAL CARMEN FELICIA COLON',1130,3080],
+  [100304001,'GRUPO ESCOLAR FRANCISCO CONDE',395,3078],
+  [70908024,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA  MERCEDES SANTANA',282,3075],
+  [21302018,'ESCUELA ESTADAL MORENO HERNANDEZ',62,3074],
+  [211102014,'ESCUELA BASICA NACIONAL CREACION BARRIO NUEVO',1035,3074],
+  [50601023,'ESCUELA BASICA ROMULO GALLEGOS',183,3073],
+  [110204007,'UNIDAD EDUCATIVA DOCTOR CECILIO ACOSTA',432,3073],
+  [210305009,'ESCUELA BASICA NACIONAL LAS DELICIAS',984,3073],
+  [191301003,'ESCUELA INTEGRAL BOLIVARIANA MARIA DOLORES ARAUJO',922,3071],
+  [190304004,'UNIDAD EDUCATIVA CAMILO CAÑIZALES',875,1837],
+  [180401011,'ESCUELA ESTADAL TOMAS ENRIQUE RIVERA CHAVEZ',800,3069],
+  [91001029,'ESCUELA BASICA MIXTA EL JEBE VIEJO',349,3068],
+  [30601007,'UNIDAD EDUCATIVA VUELVAN CARAS',99,3065],
+  [210511002,'UNIDAD EDUCATIVA NACIONAL INSTITUTO NIÑOS CANTORES',1002,3062],
+  [210511009,'ESCUELA BASICA ESTADAL EVELINA FERREIRA DE INCIARTE',1002,3062],
+  [201402004,'ESCUELA  BASICA  GABRIEL MARIA  REYES ZUMETA.',969,3059],
+  [180102001,'ESCUELA BOLIVARIANA SAN FELIX',791,3059],
+  [131601022,'UNIDAD EDUCATIVA INSTITUTO ARTURO MICHELENA',617,3058],
+  [200403005,'ESCUELA BASICA HORASIL HERNANDEZ',957,3055],
+  [160301080,'UNIDAD EDUCATIVA JOSE DE LOS SANTOS URRIOLA',696,3054],
+  [130301050,'UNIDAD EDUCATIVA ESTADAL JOSE MANUEL SISO MARTINEZ',582,3053],
+  [90402018,'ESCUELA BOLIVARIANA PARAGUANÁ',319,3051],
+  [70705007,'UNIDAD EDUCATIVA MUNICIPAL DR ADOLFO PRINCE LARA',270,3049],
+  [210510002,'UNIDAD EDUCATIVA NACIONAL CARLOS RINCON LUBO',1001,3048],
+  [90401005,'ESCUELA BASICA ALEJANDRO IBARRA',318,3047],
+  [40101013,'UNIDAD EDUCATIVA PRIVADA INTERNACIONAL',104,3047],
+  [160301013,'ESCUELA BASICA GIRALUNA',696,3046],
+  [211805007,'UNIDAD  EDUCATIVA   ARQUIDIOCESANA MONSEÑOR  JUAN HILAR',1066,3045],
+  [160101045,'GRUPO ESCOLAR BATALLA DE ARAURE',692,3044],
+  [40106008,'CICLO BASICO MANUEL ANTONIO CARREÑO',109,3043],
+  [140902006,'CLUB JUAN VICENTE GONZALEZ',664,3043],
+  [150601024,'CENTRO DE EDUCACIÓN INICIAL BACHILLER JOSÉ JOAQUÍN DE LEÓN',682,3040],
+  [160301016,'ESCUELA BASICA JOSE MARIA VARGAS',696,3040],
+  [170502001,'U.E. BOLIVARIANA ROMÁN VALECILLO',753,3040],
+  [160301066,'ESCUELA ESTADAL CONCENTRADA NUMERO 48',696,3039],
+  [211401013,'GRUPO ESCOLAR NACIONAL JUAN IGNACIO VALBUENA',1044,3039],
+  [130301059,'UNIDAD EDUCATIVA ESTADAL LUISA CACERES DE ARISMENDI',582,3038],
+  [20101003,'ESCUELA BÁSICA NACIONAL FRAY NICOÍS DE ODENA',23,3037],
+  [211103009,'ESCUELA NACIONAL TURIACA',1036,3036],
+  [210509009,'JARDIN DE INFANCIA LA ESPERANZA',1000,3035],
+  [220201003,'UNIDAD EDUCATIVA JOSE GUMILLAS',1080,3030],
+  [160601026,'GRUPO ESCOLAR RAIMUNDO ANDUEZA PALACIO',707,3025],
+  [70906014,'PRE-ESCOLAR JULIO CASTRO.',280,3025],
+  [71201026,'LICEO BOLIVARIANO CAYAURIMA',286,3025],
+  [70906008,'ESCUELA MINERVA',280,3024],
+  [30601028,'PREESCOLAR. BOLIVARIANO AÑO INTERNACIONAL DEL NIÑO',99,3024],
+  [180301001,'ESCUELA BOLIVARIANA ESTADO MIRANDA',797,3022],
+  [210514006,'BACHILLER EGIDIO MONTESINOS',1005,3020],
+  [70402003,'UNIDAD EDUCATIVA FELIX ROMAN DUQUE',261,3020],
+  [180803029,'CASA COMUNAL SANTA TERESA',814,3019],
+  [21302007,'GRUPO ESCOLAR RODOLFO MAURERA',62,3014],
+  [120807010,'ESCUELA BASICA NACIONAL JUAN RUIZ FAJARDO',520,3012],
+  [21301025,'GRUPO ESCOLAR ANDRES ELOY BLANCO',61,3011],
+  [191303001,'UNIDAD EDUCATIVA  MANUEL MARIA CARRASQUERO',924,3011],
+  [130603002,'ESCUELA ESTADAL GRADUADA JUAN FRANCISCO DE LEON',596,3011],
+  [190210001,'GRUPO ESCOLAR ARMANDO MADRID',869,3010],
+  [211303006,'PREESCOLAR NACIONAL MONSEÑOR OLEGARIO VILLALOBOS',1043,3007],
+  [131601046,'PRE ESCOLAR LAS LOMITAS',617,3006],
+  [110801005,'UNIDAD EDUCATIVA NACIONAL SABANA GRANDE',479,3005],
+  [191602001,'UNIDAD EDUCATIVA RAFAEL ANTONIO RIVERO',935,3005],
+  [50211006,'UNIDAD  EDUCATIVA  SIMON BOLIVAR C.A',168,3002],
+  [121803001,'CONCENTRACION ESCOLAR ESTANQUEZ',554,2999],
+  [191701001,'ESCUELA PRIMARIA BOLIVARIANA VIRGILIO GERMAN DÍAZ',937,2996],
+  [210504003,'UNIDAD EDUCATIVA NACIONAL DR ADOLFO COLINA',995,2996],
+  [50104003,'ESCUELA BASICA SAN ANTONIO LAS FLORES NUMERO 196',157,2996],
+  [151101004,'UNIDAD EDUCATIVA COLEGIO AMERICO VESPUCIO',690,2995],
+  [161001001,'ESCUELA BASICA ATAPAIMA',723,2995],
+  [131801024,'UNIDAD EDUCATIVA  POPULAR  COLEGIO NUESTRA SEÑORA DE FATIMA',621,2994],
+  [211402004,'UNIDAD EDUCATIVA ESTADAL JONH KENNEDY',1045,2994],
+  [161201004,'ESCUELA BASICA CARLOS QUINTERO ALEGRIA',726,2994],
+  [180802024,'CENTRO DE EDUCACION INICIAL SIMONCITO JUAN ANTONIO ROMAN VALECILLOS',813,2994],
+  [190206001,'ESCUELA BOLIVARIANA ISABEL DE GONZÁLEZ',865,2992],
+  [10108021,'AMBULATORIO ANGEL VICENTE OCHOA (SEGURO SOCIAL)',8,2990],
+  [180801034,'CENTRO DE EDUCACION INICIAL SIMONCITO JUAN BAUTISTA GARCIA ROA',812,2988],
+  [131602016,'BIBLIOTECA PUBLICA DOCTOR RAUL LEONI',618,2984],
+  [60501011,'ESCUELA ESTADAL BASICA SIN NUMERO AGUA CLARA',234,462],
+  [40101010,'UNIDAD EDUCATIVA NACIONAL  FRANCISCO GUEDEZ COLMENARES',104,2983],
+  [90404002,'ESCUELA BOLIVARIANA POLITA D´ LIMA',321,2976],
+  [190606001,'UNIDAD EDUCATIVA TUÑAME',893,2976],
+  [210803015,'UNIDAD EDUCATIVA NACIONAL ISMAEL URDANETA',1021,2975],
+  [70906006,'UNIDAD EDUCATIVA COLEGIO LA ESPERANZA',280,2974],
+  [240106005,'UNIDAD EDUCATIVA NACIONAL LICEO BOLIVARIANO JOSE MARIA ESPAÑA',1130,2973],
+  [170304004,'U.E. JOSÉ ANTONIO PÁEZ',747,2970],
+  [21401001,'GRUPO ESCOLAR CARLOS FRAGACHAN',63,2969],
+  [70901001,'GRUPO ESCOLAR JOSE GREGORIO PONCE BELLO',275,2969],
+  [130801018,'ESCUELA BASICA EXPERIMENTAL CARMEN CABRILES',600,2968],
+  [150202003,'UNIDAD EDUCATIVA PROFESOR  ASCANIO J. VELASQUEZ',672,2965],
+  [90102001,'UNIDAD EDUCATIVA CAPADARE',306,2964],
+  [171102001,'U.E. ORIENTE',781,2964],
+  [121805001,'UNIDAD EDUCATIVA GENARINA DUGARTE C',556,2960],
+  [181001009,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA DON ROMULO GALLEGO',821,2959],
+  [192003002,'UNIDAD EDUCATIVA PROFESOR JOSÉ ALBERTO AZUAJE',948,2957],
+  [211805017,'UNIDAD EDUCATIVA PRIVADA NACIONAL FRAY JUNIPERO DE ESCALADA',1066,2957],
+  [130801024,'ESCUELA ESTADAL GRADUADA EULALIA BUROZ',600,2956],
+  [190701016,'ESCUELA BOLIVARIANA CAJA DE AGUA',894,2954],
+  [70907007,'ESCUELA GONZALEZ GUINAND',281,2954],
+  [10110106,'ESCUELA NACIONAL FROILAN NORIEGA',10,2953],
+  [130301027,'ATENEO LOS TEQUES ANTIGUA QUINTA SAN JOSE',582,2952],
+  [131501006,'UNIDAD EDUCATIVA NACIONAL LIBERTADOR',615,2951],
+  [170902019,'ESCUELA BOLIVARIANA PLAN DE LA MESA',770,2949],
+  [200501002,'ESCUELA BASICA ALIDA CASULLO DE ZERPA',958,2949],
+  [50207010,'ESCUELA BASICA JUAN ESCALONA',164,2947],
+  [210511011,'ESCUELA BASICA NACIONAL JAMES FERGUNSSON',1002,2946],
+  [21301027,'COLEGIO SANTA TERESITA',61,2945],
+  [210509007,'ESCUELA BASICA NACIONAL JOSE DE LA ROSA FERNANDEZ',1000,2945],
+  [110501011,'UNIDAD EDUCATIVA ESTADAL ROMULO BETANCOURT II',455,2942],
+  [10113017,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JESUS ENRIQUE LOSSADA',13,2937],
+  [211401005,'UNIDAD EDUCATIVA NACIONAL DR. RAMON REYNOSO NUÑEZ',1044,2936],
+  [211802012,'ESCUELA BASICA NACIONAL BENILDA AVILA DE MORENO',1063,2934],
+  [40805002,'CARCEL PUBLICA TOCORON',137,459],
+  [110201011,'CENTRO DE DESARROLLO DESTREZAS COGNITIVAS TIERNO AMANECER',429,2932],
+  [90402020,'ESCUELA TECNICA ROBINSONIANA COMERCIAL PUNTO FIJO',319,2931],
+  [10113052,'INSTITUTO NACIONAL DE SERVICIOS SOCIALES INAGER',13,2930],
+  [161301003,'CICLO COMBINADO JOSE DE LA CRUZ PAREDES',728,2929],
+  [10110097,'UNIDAD EDUCATIVA PREESCOLAR VIANNEY',10,2929],
+  [20803001,'ESCUELA BÁSICA MANUEL BUCK',46,2928],
+  [80802001,'ESCUELA  BASICA  MONSEÑOR  SIXTO SOSA',303,2925],
+  [10108039,'UNIDAD EDUCATIVA COLEGIO PAULO VI',8,2924],
+  [50902004,'ESCUELA BASICA BOLIVARIANA  ZOILA  MELEAN DE ALVARADO',196,2921],
+  [21701002,'UNIDAD EDUCATIVA LICENCIADO DIEGO BAUTISTA URBANEJA',68,2919],
+  [110204010,'ESCUELA BASICA PEDRO RAFAEL CHACON',432,2918],
+  [160301012,'COLEGIO UNIVERSITARIO FERMIN TORO',696,2916],
+  [210516011,'ESCUELA BASICA ESTADAL IDELMA DE MORALES',1007,2913],
+  [10109003,'LICEO TERESA CARRENO',9,2913],
+  [131601042,'UNIDAD EDUCATIVA COLEGIO MADRE MATILDE',617,2911],
+  [121402001,'ESCUELA  BASICA LAS PIEDRAS',543,2909],
+  [210513018,'CENTRO DE EDUCACION INICIAL GENERAL RAFAEL URDANETA',1004,2907],
+  [10104029,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA REPUBLICA DE BOLIVIA',4,2906],
+  [71401008,'UNIDAD EDUCATIVA ESTADAL ISABEL TERESA DE BELLERA',288,2900],
+  [200401007,'ESCUELA INTEGRAL BOLIVARIANA   ALBERTO RAVELL',955,2896],
+  [130301030,'UNIDAD EDUCATIVA NACIONAL JESUS MARIA SIFONTES',582,2893],
+  [150601020,'LICEO BOLIVARIANO NUEVA ESPARTA',682,2892],
+  [210501001,'UNIDAD EDUCATIVA NACIONAL  IPE',992,2890],
+  [240101005,'UNIDADAD EDUCATIVA PRIVADA TANAGUARENA',1125,2890],
+  [110609001,'ESCUELA BOLIVARIANA SIMON PLANAS',466,2889],
+  [200201003,'ESCUELA INTEGRAL BOLIVARIANA CATALINA DE BOLIVAR',950,2886],
+  [110207021,'UNIDAD EDUCATIVA LAS TINAJITAS',435,2883],
+  [200901002,'ESCUELA INTEGRAL BOLIVARIANA JOSE ANTONIO SOSA GUILLEN',963,2882],
+  [70401010,'ESCUELA NACIONAL GRADUADA LOS NARANJILLOS',260,2881],
+  [50503007,'ESCUELA BASICA JULIA ROSA  CASTILLO',181,2878],
+  [171401006,'ESCUELA BOLIVARIANA SOTILLO',786,2877],
+  [110201008,'ESCUELA TECNICA COMERCIAL CARLOS GIL YEPEZ',429,2875],
+  [110202047,'GRUPO ESCOLAR REPUBLICA DE COSTA RICA',430,2871],
+  [210510018,'UNIDAD EDUCATIVA NACIONAL CATATUMBO',1001,2868],
+  [91601005,'ESCUELA BASICA GUANADITO',370,2867],
+  [60104031,'ESCUELA CONCENTRADA MUNICIPAL LUIS HURTADO HIGUERA',209,2863],
+  [21502001,'GRUPO ESCOLAR ANDRES BELLO',65,2856],
+  [80603001,'GRUPO ESCOLAR COAHERI',300,2856],
+  [211404006,'UNIDAD EDUCATIVA NACIONAL PRIVADA ADVENTISTA LIBERTADOR',1047,2854],
+  [10109001,'COLEGIO MONSEÑOR CASTRO',9,2849],
+  [170901009,'U.E. EUTIMIO RIVAS',769,2848],
+  [211102015,'UNIDAD EDUCATIVA ESTADAL NEGRA MATEA',1035,2847],
+  [41701013,'ESCUELA BASICA ESTADAL JULIAN LANDAETA ROBLES',150,2843],
+  [21201002,'LICEO BRICEÑO MÉNDEZ',60,2842],
+  [60801005,'UNIDAD EDUCATIVA BOLIVARIANA TOCOMA',244,2841],
+  [130701001,'LICEO DOCTOR JOSE FRANCISCO TORREALBA',599,2841],
+  [90402025,'ESCUELA BOLIVARIANA BENEDICTO MARMOL',319,2839],
+  [160401014,'ESCUELA ESTADAL UNITARIA NUMERO 129',701,2836],
+  [181403001,'UNIDAD EDUCATIVA ESTADAL PEDRO ALEJANDRO SANCHEZ',829,2834],
+  [130305001,'UNIDAD EDUCATIVA NACIONAL CALAZAN HERRERA',586,2833],
+  [20301015,'COMPLEJO EDUCATIVO ESTADAL ANZOATEGUI',27,2833],
+  [91501007,'JARDIN DE INFANCIA CELESTE',367,2833],
+  [211404003,'ESCUELA BASICA NACIONAL RAFAEL URDANETA',1047,2832],
+  [130801051,'COLEGIO CIUDAD CASARAPA',600,2831],
+  [40104016,'ESCUELA GRADUADA JACOB PEREZ CARBALLO',107,2830],
+  [240102001,'UNIDAD EDUCATIVA ESTATAL RAFAEL RANGEL',1126,2828],
+  [70201009,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR JESUS MARIA PELLIN',255,2827],
+  [20301052,'UNIDAD EDUCATIVA NUESTRA SEÑORA DE LOURDES II',27,2823],
+  [211103007,'ESCUELA BASICA NACIONAL CARLOS EMILIANO SALOM',1036,2822],
+  [211803014,'JARDIN DE INFANCIA NACIONAL VILLA BOLIVARIANA',1064,2822],
+  [110201026,'UNIDAD EDUCATIVA LUCRECIA GARCIA',429,2821],
+  [71301012,'UNIDAD EDUCATIVA CREACION SAN DIEGO NORTE',287,2820],
+  [10112001,'COMPLEJO HOSPITALARIO JOSÉ IGNACIA BALDO.',12,2817],
+  [131801017,'UNIDAD EDUCATIVA BASICA MUNICIPAL JUAN DE DIOS GUANCHE',621,2816],
+  [60301027,'COLEGIO NUESTRA SEÑORA DE LAS NIEVES',222,2816],
+  [210515006,'ESCUELA  BASICA  NACIONAL JACINTO REGINO PACHANO MUÑOZ',1006,2816],
+  [211401006,'ESCUELA BASICA NACIONAL JUAN ANTONIO PEREZ BONALDE',1044,2811],
+  [51102002,'ESCUELA BASICA BOLIVARIANA LOIDA VASQUEZ DE CASTILLO',201,2810],
+  [181601004,'UNIDAD EDUCATIVA MUNICIPAL DOCTOR SAMUEL DARIO MALDONADO',833,2810],
+  [210503015,'UNIDAD EDUCATIVA NACIONAL VALERO TOLEDO',994,2810],
+  [180201014,'LICEO BOLIVARIANO MANUEL DIAZ RODRIGUEZ',793,2810],
+  [130902001,'UNIDAD EDUCATIVA NACIONAL MARTINEZ CENTENO',602,2806],
+  [10116014,'UNIDAD EDUCATIVA BÁSICA ANDRÉS ELOY BLANCO',16,2803],
+  [181001002,'LICEO BOLIVARIANO MONSEÑOR BERNABE VIVAS',821,2801],
+  [210503006,'IVA ANTONIO HERRERA',994,2798],
+  [131601004,'COLEGIO PROMESAS PATRIAS',617,2797],
+  [91201011,'ESCUELA BOLIVARIANA LIZARDO NER 123',359,2795],
+  [21301086,'CENTRO DE EDUCACION INICIAL SIMONCITO  LA FUNDACION',61,2788],
+  [70601006,'ESCUELA BASICA NACIONAL LAS PARCELAS',264,2786],
+  [10115017,'COLEGIO PARROQUIAL MONSEÑOR ARTURO CELESTINO ALVAREZ',15,2786],
+  [90706001,'ESCUELA BASICA BOLIVARIANA MORUY',337,2785],
+  [150601013,'UNIDAD EDUCATIVA JOSÉ JESÚS GARCÍA RODRÍGUEZ',682,2783],
+  [211502004,'UNIDAD EDUCATIVA NACIONAL RAFAEL URDANETA',1054,2779],
+  [90701002,'UNIDAD EDUCATIVA HECTOR M. PEÑA',332,2779],
+  [131602005,'CAMARA DE INDUSTRIALES DEL ESTADO MIRANDA.',618,2778],
+  [131603007,'ESCUELA BASICA NACIONAL  LAS MINITAS',619,2774],
+  [70905008,'LICEO BOLIVARIANO NACIONAL MARTIN JOSE SANABRIA',279,2773],
+  [131601048,'MODULO DE SERVICIO DE OJO DE AGUA',617,2773],
+  [110201003,'UNIDAD EDUCATIVA BOLIVARIANA. MARIA PEREIRA DE DAZA',429,2773],
+  [171102003,'ESCUELA RURAL BOLIVARIANA RÍO GRANDE',781,2772],
+  [10113022,'LICEO BOLIVARIANO JOSE MANUEL NUÑEZ PONTE',13,2767],
+  [60803005,'ESCUELA BASICA ESTADAL. EL CRISTO',246,2764],
+  [91004001,'ESCUELA BASICA BOLIVARIANA LA NEGRITA',352,2764],
+  [160601003,'ESCUELA TECNICA COMERCIAL PROFESOR ADEMAR VASQUEZ',707,2762],
+  [150901002,'CENTRO DE EDUCACIÓN INICIAL TIO CONEJO',687,2762],
+  [110608001,'ESCUELA BASICA ELMA SILVEIRA',465,2762],
+  [210513024,'ESCUELA BASICA BOLIVARIANA LEONCIO QUINTANA',1004,2760],
+  [181703001,'UNIDAD EDUCATIVA ESTADAL FELIX MARIA SALCEDO ZAMBRANO NER 580',837,455],
+  [90404001,'ESCUELA BOLIVARIANA NARCISO ANTONIO GARCIA',321,2757],
+  [211404004,'ESCUELA BASICA ESTADAL VALMORE RODRIGUEZ',1047,2751],
+  [110801006,'ESCUELA BASICA PALO VERDE',479,2751],
+  [30601011,'ESCUELA BASICA ANDRES ELOY BLANCO',99,2750],
+  [70904026,'ESCUELA BASICA ESTADAL MONSEÑOR LUIS EDUARDO HENRIQUEZ',278,2748],
+  [181103002,'UNIDAD EDUCATIVA ESTADAL ARTURO MICHELENA',824,2747],
+  [190506001,'ESCUELA BOLIVARIANA RAFAEL MARIA ALTUVE',886,2746],
+  [190702006,'LICEO BOLIVARIANO CIUDAD DE VALERA',895,2745],
+  [70702004,'CICLO BASICO COMUN SIMON RODRIGUEZ',267,2744],
+  [20101036,'UNIDAD EDUCATIVA JUAN PABLO SOJO',23,2744],
+  [122201001,'ESCUELA BASICA FRANCISCO UZCATEGUI DAVILA',567,2736],
+  [190204001,'ESCUELA BOLIVARIANA DOCTOR CARACCIOLO PARRA OLMEDO',863,2734],
+  [110604003,'UNIDAD EDUCATIVA NACIONAL DON GIL ARTURO ZAMBRANO',461,2734],
+  [91003008,'ESCUELA DE EDUCACION INICIAL SIMONCITO MONSEÑOR ITURRIZA',351,2733],
+  [120812005,'ESCUELA DEPORTIVA',525,2729],
+  [160702001,'ESCUELA ESTADAL CONCENTRADA NUMERO 218',712,2719],
+  [90703001,'UNIDAD EDUCATIVA BARAIVED',334,2714],
+  [191103001,'UNIDAD EDUCATIVA JALISCO',917,2711],
+  [181901007,'LICEO BOLIVARIANO UNIDAD EDUCATIVA FRANCISCO TAMAYO',839,2707],
+  [21701009,'CENTRO DE PROFESIONALES DE LECHERIA',68,2706],
+  [150402006,'UNIDAD EDUCATIVA ESTADAL PROFESOR  JESUS MANUEL SUBERO',679,2705],
+  [200301017,'ESCUELA INTEGRAL BOLIVARIANA LOS COGOLLOS',952,2705],
+  [220103002,'UNIDAD EDUCATIVA INTEGRAL BOLIVARIANA FELIX RAMON RIVAS',1078,2701],
+  [131601011,'UNIDAD EDUCATIVA CENTRO DE EDUCACION ACTIVA MARIA MONTESSORI',617,2699],
+  [71201011,'UNIDAD EDUCATIVA  MARIBEL CABALLERO DE TIRADO',286,2699],
+  [51203002,'ESCUELA  BASICA CONCENTRADA TRES ESQUINAS',205,2698],
+  [140804002,'ESCUELA BASICA BOLIVARIANA MATIAS NUÑEZ',659,2697],
+  [170301017,'U.E. JOSÉ JESÚS MARTÍNEZ MATA',744,2687],
+  [70402004,'UNIDAD EDUCATIVA VIRGEN DE LAS NIEVES',261,2687],
+  [211102004,'UNIDAD EDUCATIVA PRIVADA NACIONAL JUAN BOSCO',1035,2686],
+  [210517011,'UNIDAD EDUCATIVA VECINAL III',1008,2685],
+  [130701014,'UNIDAD EDUCATIVA BOLIVARIANA TERESA CARRENO',599,2683],
+  [110703001,'GRUPO ESCOLAR JUAN SANTAELLA',477,2682],
+  [201101006,'ESCUELA INTEGRAL BOLIVARIANA ADOLFO NAVAS CORONADO',965,2682],
+  [170904015,'U.E. CREACION CAIGUIRE',772,2681],
+  [211102007,'ESCUELA ESTADAL MAESTRO. ADALBERTO GUTIERREZ',1035,2679],
+  [170902009,'U.E. CRUZ ALMANDOZ MORA',770,2677],
+  [210511007,'ESCUELA BASICA NACIONAL DR ANDRES ELOY BLANCO',1002,2676],
+  [110406002,'ESCUELA CONCENTRADA POTRERITO.',452,2676],
+  [40107002,'ESCUELA BASICA ESTADAL TRINO CELIS RIOS',110,2674],
+  [130501027,'UNIDAD EDUCATIVA ESTADAL ESTADO TACHIRA',591,2671],
+  [91301002,'UNIDAD EDUCATIVA EZEQUIEL ZAMORA',361,2671],
+  [90501002,'LICEO BOLIVARIANO JUAN CRISOSTOMO FALCÓN',322,2670],
+  [170601003,'ESCUELA BOLIVARIANA PERICANTAR',757,2667],
+  [211402009,'UNIDAD EDUCATIVA NACIONAL MANUEL BELLOSO',1045,2666],
+  [71101006,'ESCUELA BASICA NACIONAL LAS AGUITAS I Y II JULIO GARMENDIA',285,2665],
+  [170903007,'U.E. SAGRADO CORAZÓN DE JESÚS',771,2663],
+  [10113029,'UNIDAD EDUCATIVA AGUSTIN CODAZZI',13,2658],
+  [10108026,'EDIFICIO COLOMBIA COMPLEJO GRAN COLOMBIA',8,2655],
+  [110207005,'INSTITUTO UNIVERSITARIO ANDRES ELOY BLANCO',435,2654],
+  [70905002,'GRUPO ESCOLAR JESUS GRANADOS CASARES',279,2653],
+  [41202003,'UNIDAD EDUCATIVA ESTADAL CONCENTRADA LA ESPERANZA',143,2649],
+  [70708001,'UNIDAD EDUCATIVA BOLIVARIANA  JOSE LAURENCIO SILVA',273,2649],
+  [140304001,'ESCUELA BASICA BOLIVARIANA DOCTOR RAFAEL MARSIGLIA',633,2648],
+  [170403001,'ESCUELA BOLIVARIANA EL PAUJIL',751,2648],
+  [10122026,'COLEGIO DEL AVE MARIA',22,2646],
+  [180301003,'LICEO BOLIVARIANO ROMAN CARDENAS',797,2637],
+  [40203001,'ESCUELA BASICA ROMULO BETANCOURT',114,2636],
+  [210505005,'ESCUELA BASICA NACIONAL DOMINGO BRICEÑO',996,2633],
+  [211103003,'UNIDAD EDUCATIVA NACIONAL AYACUCHO',1036,2633],
+  [71101016,'ESCUELA NACIONAL PIRITAL',285,2633],
+  [92501002,'ESCUELA BASICA BOLIVARIANA MANUELA LUGO DE REYES',387,2630],
+  [160101057,'ESCUELA BASICA GENERAL JUAN GUILLERMO IRIBARREN',692,2628],
+  [201101001,'ESCUELA BOLIVARIANA IGNACIO GREGORIO MENDEZ',965,2621],
+  [130901029,'ESCUELA BASICA NACIONAL COSME DAMIAN PEÑA',601,2620],
+  [10113015,'UNIDAD EDUCATIVA COLEGIO SAN JOSE DE TARBES',13,2617],
+  [191503001,'ESCUELA PREVOCACIONAL LOS NEGROS',932,2614],
+  [150601023,'UNIDAD EDUCATIVA RAFAEL SALAZAR BRITO',682,2610],
+  [110201005,'UNIDAD EDUCATIVA BOLIVARIANA DR. RAMON E. GUALDRON',429,2609],
+  [161301006,'ESCUELA ESTADAL CONCENTRADA NUMERO 166 TEJERIAS',728,2608],
+  [160601023,'GRUPO ESCOLAR ESTADAL CURPA',707,2608],
+  [10109002,'UNIVERSIDAD NUEVA ESPARTA',9,2608],
+  [40101004,'UNIVERSIDAD PEDAGOGICA MARACAY',104,2607],
+  [91102001,'ESCUELA BOLIVARIANA JOSE LEONARDO CHIRINOS',357,2607],
+  [70904053,'ANEXO DOCTOR RAFAEL GUERRA MENDEZ',278,2606],
+  [50601009,'ESCUELA BASICA ESTADAL EMILCE  DE CONTRERAS',183,2604],
+  [70101009,'PRE ESCOLAR EL RINCON',252,2604],
+  [180201007,'INSTITUTO UNIVERSITARIO DE LA FRONTERA',793,2599],
+  [21801002,'ESCUELA BOLIVARIANA JOSE DE JESUS CUMACHE',70,2599],
+  [50401023,'ESCUELA BASICA ESTADAL PADRE NOGUERA',175,2598],
+  [161101003,'UNIDAD EDUCATIVA LUIS ANTONIO CASTILLO',724,2596],
+  [50601006,'ESCUELA BOLIVARIANA EL SILENCIO',183,2596],
+  [160201012,'ESCUELA BASICA PIRITU',694,2593],
+  [131801007,'COLEGIO SANTO DOMINGO DE GUZMAN',621,2592],
+  [211803025,'UNIDAD EDUCATIVA ESTADAL HERMOGENEZ MENDEZ',1064,2591],
+  [171001009,'ESCUELA BOLIVARIANA MIGUEL LOPEZ ALCALA',776,2590],
+  [181601010,'LICEO BOLIVARIANO VICTOR MANUEL OLIVARES',833,2589],
+  [211102017,'ESCUELA BASICA NACIONAL LIBERTADOR',1035,2587],
+  [210513029,'UNIDAD EDUCATIVA PROFESOR MISAEL VILCHEZ',1004,2586],
+  [20302014,'COMPLEJO EDUCATIVO NUESTRA SEÑORA DEL VALLE',28,2584],
+  [30302001,'GRUPO ESCOLAR NEPOMUCENA FIGUEREDO',90,2582],
+  [110201021,'UNIDAD EDUCATIVA NUESTRA SEÑORA DEL COROMOTO',429,2582],
+  [20102002,'UNIDAD EDUCATIVA DIEGO JIMÉNEZ SALAZAR',24,2580],
+  [170202001,'UNIDAD EDUCATIVA JOSE RAFAEL PEREZ VALDIVIEZO',739,2580],
+  [191402001,'UNIDAD BÁSICA 27 DE JUNIO DE 1870',927,2580],
+  [60801008,'ESCUELA INTEGRAL BOLIBARIANA PUEBLO GURI',244,2580],
+  [20902001,'ESCUELA CONCENTRADA ATAPIRIRE',48,2579],
+  [140602002,'UNIDAD EDUCATIVA ISABEL DE VERDE ORTEGA',643,2579],
+  [120503001,'UNIDAD EDUCATIVA BOLIVARIANA EL PUEBLITO',509,2578],
+  [132101003,'ESCUELA GRADUADA JUAN VICENTE GONZALEZ',625,2578],
+  [122003001,'UNIDAD EDUCATIVA DORLISA GUERRA',564,2577],
+  [180803013,'ESCUELA MUNICIPAL LUISA CACERES DE ARISMENDI',814,2577],
+  [40802007,'ASOCIACION CIVIL UNIDAD PRESBITERO RAFAEL GARCIA OSORIO',134,2574],
+  [150601029,'UNIDAD EDUCATIVA DOCTOR LEONARDO RUIZ PINEDA',682,2570],
+  [180802018,'UNIDAD EDUCATIVA ESTADAL VICTOR MORENO OROZCO',813,2568],
+  [140710021,'ESCUELA DE ARTES PLASTICAS ELOY PALACIOS',655,2567],
+  [160102002,'UNIDAD EDUCATIVA NACIONAL MANUEL BARRIOS FREITEZ',693,2565],
+  [110204002,'ESCUELA GRADUADA GABRIELA MISTRAL',432,2563],
+  [131601047,'UNIDAD EDUCATIVA FE Y ALEGRIA COLEGIO MONTERREY',617,2561],
+  [182102003,'UNIDAD EDUCATIVA JOSE TRINIDAD COLMENARES',846,2556],
+  [170302001,'U.E. CRISTÓBAL COLÓN',745,2555],
+  [191304002,'UNIDAD EDUCATIVA NACIONAL SALOMÓN BRICEÑO GABALDON',925,2553],
+  [131401004,'ESCUELA FRAY JOSE ZAPICO',613,2553],
+  [21102001,'UNIDAD EDUCATIVA BOLIVARIANA  DIEGO ARREAZA MONAGAS',58,2551],
+  [120107006,'ESC BAS CONC NO 148',491,2551],
+  [90403005,'INSTITUTO JUAN XXIII LOS TURPIALES',320,2549],
+  [191504003,'ESCUELA RURAL DE EDUCACIÓN BÁSICA LAS PALMAS',933,2549],
+  [130301011,'UNIDAD EDUCATIVA  ESTADAL ANITA ESPINAL',582,2548],
+  [220601001,'ESCUELA  BASICA MARIA AUXILIADORA',1095,2547],
+  [151102003,'CENTRO DE EDUCACION INICIAL SANTIAGO MARINO',691,2544],
+  [180803033,'LICEO BOLIVARIANO FRANCISCO ALVARADO',814,2544],
+  [91001027,'ESCUELA BASICA 5 DE JULIO',349,2543],
+  [160706004,'ESCUELA BASICA VILLA ROSA',716,2542],
+  [211406003,'ESCUELA BASICA NACIONAL PEDRO JULIO MANINAT',1049,2542],
+  [211103006,'UNIDAD EDUCATIVA PRIVADA NACIONAL SAN JOSE',1036,2541],
+  [210501005,'ESCUELA BASICA NACIONAL RAFAEL  A. BELLOSO CHACIN',992,2540],
+  [21201032,'UNIVERSIDAD NACIONAL ABIERTA',60,2539],
+  [92301003,'ESCUELA BASICA BOLIVARIANA FELIX VALOIS LEAL',383,2538],
+  [140710020,'UNIDAD EDUCATIVA DOCTORA LIA IMBER DE CORONIL ALBERGUE',655,2536],
+  [40102001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA CHORONI',105,2536],
+  [110201025,'ESCUELA DE ARTES PLASTICAS MARTIN TOVAR Y TOVAR',429,2535],
+  [50402001,'UNIDAD  EDUCATIVA  JOSE IGNACIO DEL PUMAR',176,2534],
+  [110303001,'ESCUELA BOLIVARIANA JORNADA COMPLETA EL TURBIO',441,2533],
+  [220104003,'ESCUELA BASICA PADRE LUIS ROTTMAYER',1079,2532],
+  [121603001,'UNIDAD EDUCATIVA BOLIVARIANA LUIS ORLANDO MONSALVE',547,2532],
+  [211102022,'UNIDAD EDUCATIVA PROFESOR MIGUEL ACOSTA SAIGNES',1035,2532],
+  [131601008,'COLEGIO MATER SALVATORI',617,2531],
+  [50602001,'ESCUELA BASICA AURA DE MARQUEZ',184,2529],
+  [182002004,'UNIDAD EDUCATVA FELICIANO MONTENEGRO',843,2526],
+  [180101007,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JUDITH VIVAS DE SUAREZ',790,2526],
+  [21401010,'INSTITUTO PRIVADO JOSE GIL FORTOUL.',63,2525],
+  [170904011,'TALLER MANZANARES',772,2520],
+  [210403002,'ESCUELA  BOLIVARIANA CACHIRI',987,2519],
+  [160301045,'PRE ESCOLAR MATILDE DE PIERLUISSI',696,2514],
+  [92101004,'ESCUELA BASICA BOLIVARIANA MARIA EUGENIA TOYO',381,2513],
+  [200901004,'ESCUELA BASICA ELBA ROSA SANTANA',963,2512],
+  [30403010,'ESCUELA BASICA BOLIVARIANA LA MACANILLA',96,2512],
+  [210510007,'ESCUELA BASICA NACIONAL  PROFESOR CONSUELO NAVA TOVAR',1001,2508],
+  [130701005,'UNIDAD EDUCATIVA  JUANA TERESA HERRERA',599,2506],
+  [50403001,'ESCUELA BASICA ESTADAL DANIEL NAVEA',177,2504],
+  [50214001,'ESCUELA BOLIVARIANA CESAR MORA',171,2504],
+  [211701001,'ESCUELA BASICA ESTADAL MAESTRA BLANCA GRANADILLO',1060,2500],
+  [20904001,'GRUPO ESCOLAR CREACION EL PAO',50,2499],
+  [171401002,'UNIDAD EDUCATIVA SAN FRANCISCO',786,2498],
+  [190703003,'INSTITUTO DE EDUCACIÓN ESPECIAL BOLIVARIANO FRAY IGNACIO ALVAREZ',896,2497],
+  [210502022,'ESCUELA BASICA NACIONAL JUAN PABLO PEREZ ALFONSO',993,2496],
+  [160301059,'ESCUELA BASICA MARIA CONCEPCION PALACIOS',696,2495],
+  [100502001,'ESCUELA TÉCNICA JOSE ANTONIO HURTADO ASCANIO',404,2494],
+  [110202012,'ESCUELA ESTADAL GRADUADA SIMON RODRIGUEZ',430,2492],
+  [110502008,'UNIDAD EDUCATIVA NACIONAL  LA PIEDAD',456,2491],
+  [160301019,'CICLO COMBINADO JOSE VICENTE DE UNDA',696,2491],
+  [180201002,'UNIDAD EDUCATIVA COLEGIO DIVINO NIÑO',793,2488],
+  [121702001,'ESC NAC BAS FLOR DE MALDONADO',551,2488],
+  [70601017,'CENTRO INTERNACIONAL EDUCACION Y DESARROLLO  MORON',264,2487],
+  [210505001,'UNIDAD EDUCATIVA NACIONAL JOSE RAMON YEPEZ',996,2484],
+  [130901002,'COLEGIO YALE',601,2483],
+  [212003001,'UNIDAD EDUCATIVA ESTADAL LUISA CACERES DE ARISMENDI',1072,2482],
+  [20601018,'ESCUELA BÁSICA  FE Y ALEGRÍA',38,2480],
+  [21301002,'GRUPO ESCOLAR CUEVA DE GUANIRE',61,2478],
+  [110201029,'INSTITUTO NACIONAL DE CAPACITACION Y EDUCACION SOCIALISTA',429,2477],
+  [90101004,'UNIDAD EDUCATIVA HILARIA ARENAS',305,2475],
+  [200401008,'ESCUELA TECNICA  ROBINSONIANA ROMULO GALLEGOS',955,2475],
+  [131602006,'UNIDAD EDUCATIVA COLEGIO EL ANGEL',618,2474],
+  [21702001,'COLEGIO HUMBOLT',69,2473],
+  [161402002,'ESCUELA BASICA TUREN',732,2473],
+  [120201015,'UNIDAD EDUCATIVA CAPAZ',492,2472],
+  [130701011,'UNIDAD EDUCATIVA ESTADAL FRANCISCO DE MIRANDA',599,2472],
+  [80601025,'ESCUELA BASICA  LA BLANQUERA',298,2471],
+  [201001006,'ESCUELA BASICA BOLIVARIANA SAN GERONIMO',964,2470],
+  [100602001,'GRUPO ESCOLAR BOLIVARIANO LUCIA ALVAREZ RIVERO',406,2469],
+  [110801008,'ESCUELA UNITARIA DE SABANA REDONDA ABAJO',479,2469],
+  [21702002,'INSTITUTO UNIVERSITARIO DE TECNOLOGÍA RODOLFO LOERO ARISMENDI (I.U.T.I.R.L.A.)',69,2467],
+  [120301001,'ESCUELA BOLIVARIANA ESTADO BARINAS',493,2465],
+  [210503017,'ESCUELA BASICA NACIONAL DR SEVERIANO RODRIGUEZ',994,2460],
+  [210505011,'UNIDAD EDUCATIVA ESTADAL OCTAVIO HERNANDEZ',996,2458],
+  [91601004,'ESCUELA BÁSICA BOLIVARIANA AMUAY',370,2455],
+  [100802001,'ESCUELA BOLIVARIANA PUERTO MIRANDA',411,2450],
+  [210502020,'UNIDAD EDUCATIVA NACIONAL PRIVADA ANTONIO ROSMINI',993,2448],
+  [30601038,'UNIDAD EDUCATIVA DE DEFICIENCIAS AUDITIVAS CARLOS RAFAEL PEREZ',99,2446],
+  [200401017,'UNIDAD EDUCATIVA  PADRE DELGADO',955,2443],
+  [20301053,'INSTITUTO DE EDUCACION ESPECIAL BARCELONA',27,2441],
+  [30601030,'ESCUELA BASICA SIMON BOLIVAR',99,2440],
+  [90707002,'ESCUELA BASICA BOLIVARIANA CONSUELO NAVAS',338,2440],
+  [210514009,'JARDIN DE INFANCIA NACIONAL GABRIELA MISTRAL',1005,2438],
+  [210305018,'ESCUELA BASICA ARTESANAL CIRA VEGA',984,2436],
+  [240102017,'UNIDAD EDUCATIVA BOLIVARIANA JOSEFA JOAQUINA SANCHEZ',1126,2436],
+  [131501014,'ESCUELA BASICA BENITA RIVAS TORO',615,2435],
+  [211802013,'ESCUELA BASICA NACIONAL BARRIO STHORMES',1063,2434],
+  [30601012,'UNIVERSIDAD EZEQUIEL ZAMORA',99,2432],
+  [10115016,'PREESCOLAR CARRUSEL',15,2431],
+  [21401005,'UNIDAD EDUCATIVA MARIO BRICEÑO IRAGORRI',63,2431],
+  [10113010,'UNIDAD EDUCATIVA COLEGIO LA SALLE LA COLINA',13,2430],
+  [10113002,'UNIDAD EDUCATIVA PRIVADA SAN MARTIN DE PORRES',13,2428],
+  [110202045,'LICEO LISANDRO ALVARADO',430,2428],
+  [91702007,'ESCUELA ESTADAL EL YSIDRO',373,2427],
+  [160401011,'ESCUELA BASICA PORTUGUESA',701,2425],
+  [210503025,'ESCUELA BASICA NACIONAL EL BRILLANTE',994,2424],
+  [210506015,'ESCUELA DE ARTES PLASTICAS NACIONAL JULIO ARRAGA',997,2422],
+  [110502015,'UNIVERSIDAD YACAMBU',456,2419],
+  [150601010,'UNIDAD EDUCATIVA MUNICIPAL MAESTRO GREGORIO ROMERO',682,2415],
+  [130901005,'U EDUC COLEGIO MACARACUAY',601,2415],
+  [130102001,'UNID EDUC JULIAN OJEDA',572,2413],
+  [210803012,'UNIDAD EDUCATIVA NACIONAL LAS GUARDIAS',1021,2413],
+  [60204002,'ESCUELA ESTADAL BASICA JOSE MIGUEL BIEROLD',219,2410],
+  [131601020,'LICEO NACIONAL JOSE ALBERTO VELANDIA',617,2410],
+  [170904020,'SALON USOS MULTIPLES FUNDACITE',772,2403],
+  [200401005,'UNIDAD EDUCATIVA COLEGIO FRAY LUIS AMIGO',955,2403],
+  [160301022,'CENTRO MATERNAL BLANCA R. PEREZ',696,2401],
+  [121602001,'ESC BAS ESTADO ANZOATEGUI',546,2401],
+  [210505006,'ESCUELA BASICA NACIONAL SIMON RODRIGUEZ',996,2401],
+  [210516010,'UNIDAD EDUCATIVA ESTADAL ARMANDO REVERON',1007,2399],
+  [30301017,'ESCUELA PRIMARIA GLADIS GONZALEZ',89,2398],
+  [211102003,'UNIDAD EDUCATIVA MUNICIPAL VENEZUELA',1035,2397],
+  [50401008,'CASA DE LA CULTURA JESUS DANIEL QUINTERO',175,2397],
+  [60304016,'ESCUELA BASICA ISABEL SALOM',225,2397],
+  [60604001,'UNIDAD EDUCATIVA NACIONAL FELIPE DE INCIARTE',239,2396],
+  [91701009,'ESCUELA BÁSICA BOLIVARIANA MIGUEL ANGEL JORDAN',372,2396],
+  [91002011,'CENTRO PRE-ESCOLAR ASISTENCIAL DIVINO NIÑO',350,2394],
+  [90103001,'UNIDAD EDUCATIVA LA PASTORA',307,2393],
+  [90401004,'ESCUELA BOLIVARIANA JOSEFA VICTORIANA RIERA',318,2392],
+  [60106001,'ESCUELA BASICA NACIONAL TUMEREMO',211,2391],
+  [50213001,'ESCUELA BASICA  RAFAEL MONTENEGRO',170,2391],
+  [21301050,'CICLO BÁSICO PUERTO LA CRUZ',61,2388],
+  [140707001,'ESC BAS ELSA BIONDI DE RIVERO',652,2388],
+  [210509011,'UNIDAD EDUCATIVA NACIONAL  PROFESOR JOSE TRINIDAD MORILLO',1000,2385],
+  [110201031,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA EGIDIO MONTESINOS',429,2382],
+  [160101016,'ESCUELA BASICA GENERAL PAEZ',692,2381],
+  [170902007,'U.E. FEDERAL SUCRE',770,2380],
+  [180201008,'UNIDAD EDUCATIVA MUNICIPAL GRAN MARISCAL DE AYACUCHO',793,2261],
+  [110201009,'UNIDAD EDUCATIVA NACIONAL MIGUEL JOSE SANZ',429,2380],
+  [170101018,'ESCUELA BOLIVARIANA EL PUY PUY',733,2380],
+  [120402001,'UNID EDUCTIVA JAJI',501,2380],
+  [182103001,'ESCUELA BOLIVARIANA BASICA CIUDAD DE SAN CRISTOBAL',847,2376],
+  [180902001,'UNIDAD EDUCATIVA LICEO BOLIVARIANO JOSEFA MOLINA DE DUQUE',818,2372],
+  [160402001,'ESCUELA ESTADAL BASICA NUMERO 110',702,2372],
+  [10106012,'HOSPITAL DOCTOR FRANCISCO ANTONIO RISQUEZ',6,2371],
+  [110202052,'UNIDAD EDUCATIVA LARA',430,2370],
+  [130301026,'CICLO BASICO COMUN JULIO ROSALES',582,2368],
+  [160703003,'ESCUELA BASICA PALO ALSADO',713,2368],
+  [200601013,'CENTRO DE EDUCACION INICIAL BOLIVARIANO CURAZAO I',959,2367],
+  [91601003,'ESCUELA BÁSICA JOSÉ ANTONIO VELASCO',370,2364],
+  [160902001,'ESCUELA NACIONAL CONCENTRADA NUMERO 189-1170-1184',722,2364],
+  [180802013,'LICEO BOLIVARIANO JESUS MARIA PELLIN',813,2363],
+  [90403006,'ESCUELA BÁSICA INES FUGUET DE PEÑA',320,2359],
+  [91103001,'UNIDAD EDUCATIVA AGUSTIN GARCIA',358,2356],
+  [190806001,'ESCUELA BOLIVARIANA FRANCISCA FERRINI VELAZCO',905,2351],
+  [40401009,'ESCUELA COMPLETA NÂº 476-253',122,2351],
+  [60401024,'ESCUELA NACIONAL GRADUADA LOS ROSOS',231,2350],
+  [180803016,'UNIDAD EDUCATIVA BOLIVARIANA DE TALENTO DEPORTIVO TACHIRENSE',814,2348],
+  [122101001,'ESC EST BAS JOSE VICENTE NUCETE',566,2347],
+  [200601002,'CENTRO DE EDUCACION INCIAL URACHICHE',959,2345],
+  [140710035,'UNIDAD EDUCATIVA MARIA TERESA RODRIGUEZ DEL TORO',655,2344],
+  [90401014,'ESCUELA BOLIVARIANA EZEQUIEL ZAMORA',318,2341],
+  [190101001,'GRUPO ESCOLAR DIEGO BUSTILLOS',856,2339],
+  [70501006,'UNIDAD EDUCATIVA TAMARE',263,2339],
+  [210502017,'UNIDAD EDUCATIVA NACIONAL MARIA MONTESSORI',993,2339],
+  [40804002,'ESCUELA ESTADAL TEOTISTE DE GALLEGOS',136,2337],
+  [130301039,'INSTITUTO UNIVERSITARIO TECNICO DE ADMINISTRACION IUTA',582,2336],
+  [92003001,'ESCUELA BASICA BOLIVARIANA MARIANO PICON SALAS',380,2336],
+  [10113014,'UNIDAD EDUCATIVA COLEGIO NUESTRA SE/ORA DE POMPEI',13,2335],
+  [131901004,'CLUB URBANIZACION EL TREBOL',622,2331],
+  [120803004,'ESCUELA BASICA CAMILO CONTRERAS',516,2330],
+  [200501009,'ESCUELA BASICA NICANORA TRAVIEZO',958,2329],
+  [240110004,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA JUAN DE URPIN',1134,2327],
+  [90401002,'ESCUELA BOLIVARIANA SIMÓN RODRÍGUEZ',318,2325],
+  [211805015,'ESCUELA BASICA NACIONAL BATALLA NAVAL LAGO',1066,2321],
+  [130301017,'COLEGIO ILUSTRE AMERICANO',582,2319],
+  [100601025,'ESCUELA BASICA NACIONAL DOCTOR VICENTE PEÑA',405,2319],
+  [91201008,'ESCUELA BASICA BOLIVARIANA FELIPITO NER 215',359,2317],
+  [150101009,'UNIDAD EDUCATIVA RURAL NUMERO 30-31',670,2317],
+  [210501004,'ESCUELA BASICANACIONAL ALONSO PACHECO',992,2315],
+  [120805005,'GRUPO ESCOLAR ESTADO LARA',518,2310],
+  [180803030,'UNIDAD EDUCATIVA COLEGIO DOCTOR. JOSE MARIA VARGAS',814,2310],
+  [110202024,'LICEO BOLIVARIANO RAFAEL VILLAVICENCIO',430,2310],
+  [190501001,'ESCUELA BOLIVARIANA AMÉRICO BRICEÑO VALERO',881,2306],
+  [200401014,'CENTRO DE FORMACION SOCIAL  PABLO VI',955,2299],
+  [210509023,'UNIDAD EDUCATIVA FE Y ALEGRIA SANTA BRIGIDA',1000,2298],
+  [211803019,'ESCUELA  BASICA BOLIVARIANA  PADRE DELGADO',1064,2295],
+  [140404001,'UNIDAD EDUCATIVA IDELFONSO NUÑEZ MARES',639,2289],
+  [21006001,'GRUPO ESCOLAR DOCTOR PIÓ CEBALLOS',56,2289],
+  [90902001,'ESCUELA BOLIVARIANA CASIGUA',347,2288],
+  [181102001,'UNIDAD EDUCATIVA NACIONAL DOCTOR JOSE GREGORIO HERNANDEZ',823,2287],
+  [200801004,'ESCUELA BASICA MIGUEL ANTONIO FLORES',962,2286],
+  [50214003,'ESCUELA BASICA 10 DE DICIEMBRE',171,2283],
+  [210516001,'CENTRO INFANTIL CARMELO URDANETA',1007,2283],
+  [21301012,'ESCUELA FE Y ALEGRIA',61,2282],
+  [200101005,'ESCUELA INTEGRAL BOLIVARIANA EL HACHA',949,2280],
+  [190807003,'ESCUELA BOLIVARIANA MINAS DE MONAY',906,2276],
+  [140901008,'GRUPO ESCOLAR MATURIN',663,2275],
+  [181601009,'UNIDAD EDUCATIVA GENERAL CIPRIANO CASTRO',833,2275],
+  [240104011,'ESCUELA TECNICA INDUSTRIAL ROBINSONIANA CARLOS FIOLL',1128,2274],
+  [211804005,'ESCUELA BASICA NACIONAL FELIPE NERI SANDREA',1065,2273],
+  [40103021,'ALDEA UNIVERSITARIA ANTONIO JOSE DE SUCRE',106,2272],
+  [91301005,'ESCUELA BÁSICA BOLIVARIANA LA CAÑADA',361,2265],
+  [190804001,'ESCUELA BOLIVARIANA BOLIVIA',903,2264],
+  [201101012,'ESCUELA BASICA RAFAEL ANDRADE',965,2263],
+  [90706002,'ESCUELA BASICA YABUQUIVA',337,2262],
+  [90401009,'INSTITUTO DE PREVISIÓN Y ASISTENCIA SOCIAL DEL MINISTERIO DE EDUCACION. IPASME',318,2262],
+  [70908015,'UNIDAD EDUCATIVA ESTADAL ANTONIO ALBERTO PEREZ ROMERO',282,2260],
+  [211407005,'ESCUELA BASICA NACIONAL CABIMAS',1050,2259],
+  [91001011,'COMPLEJO EDUCATIVO VIRGINIA GIL DE HERMOSO',349,2259],
+  [20305001,'ESCUELA BOLIVARIANA DOCTOR PEDRO GARRONI NÚÑEZ',31,2258],
+  [131901002,'CENTRO CIVICO MANUEL RAMOS MARCOS',622,2256],
+  [131501005,'UNIDAD  EDUCATIVA ESTILITA DE ALZURU',615,2254],
+  [140901005,'ESCUELA BOLIVARIANA AIDA DE LEONETT',663,2249],
+  [211502006,'ESCUELA BASICA NACIONAL LAGUNILLAS',1054,2244],
+  [130701010,'UNIDAD EDUCATIVA JOSE MANUEL DE LOS RIOS',599,2241],
+  [90403020,'ESCUELA BASICA BOLIVARIANA ANDRES BELLO',320,2239],
+  [40107004,'UNIDAD EDUCATIVA NACIONAL BASICA VALENTIN ESPINAL',110,2238],
+  [10108037,'UNIDAD EDUCATIVA COLEGIO GUAICAIPURO',8,2236],
+  [130902020,'ESCUELA MUNICIPAL FRANCISCO DE MIRANDA',602,2233],
+  [21701005,'COLEGIO FRANCISCO LINARES ALCANTARA',68,2232],
+  [50207005,'INCE CONSTRUCCION',164,2231],
+  [90301004,'ESCUELA BASICA PEDRO MARIA ZAVALA G.',312,2229],
+  [130306001,'UNIDAD EDUCATIVA ESTADAL EL JARILLO',587,2228],
+  [140805001,'UNIDAD EDUCATIVA OLGA BETANCOURT DE PEREZ',660,2227],
+  [110202062,'UNIDAD EDUCATIVA COLEGIO GENERAL JOSE TRINIDAD MORAN',430,2222],
+  [211502002,'ESCUELA BASICA NACIONAL JOHN DEWEY',1054,2222],
+  [170105003,'ESCUELA BOLIVARIANA LUIS FELIPE RAMÍREZ BLANCO',737,2220],
+  [131101002,'INTERNADO JUDICIAL EL RODEO',608,2219],
+  [160301001,'LICEO LA COMUNIDAD NUEVA',696,2218],
+  [110204035,'ESCUELA BASICA NACIONAL NUEVO BARRIO',432,2216],
+  [210503016,'ESCUELA BASICA NACIONAL JOSE IGNACIO NACIONAL',994,2215],
+  [130901050,'COLEGIO CRUZ CARRILLO',601,2215],
+  [211803003,'UNIDAD EDUCATIVA MUNICIPAL PRIVADA LUZ DEL SABER',1064,2214],
+  [211101002,'ESCUELA  BOLIVARIANA PICA PICA',1034,2214],
+  [10121007,'UNIDAD EDUCATIVA NACIONAL VICENTE LANDAETA',21,2212],
+  [130605001,'GRUPO ESCOLAR NACIONAL PADRE SALDIVAR',598,2212],
+  [50204001,'ESCUELA BOLIVARIANA ADONAY PARRA JIMENEZ',161,2211],
+  [40107003,'LICEO DON ROMULO GALLEGOS',110,2209],
+  [180803024,'ESCUELA BOLIVARIANA TECNICA DE COMERCIO ALBERTO ADRIANI',814,2205],
+  [190505001,'ESCUELA BOLIVARIANA PADRE RASQUIN',885,2203],
+  [90805001,'ESCUELA DOLORES ALVAREZ',345,2199],
+  [10110121,'ESCUELA BÁSICA NACIONAL 12 DE OCTUBRE',10,2194],
+  [130102002,'CONCENTRACION ESTADAL NUMERO 18 EL SOCORRO',572,2193],
+  [70601019,'ESCUELA BASICA ESTADAL JULIO PEÑA',264,2191],
+  [131102003,'CONCENTRACION ESTADAL NUMERO 11',609,2189],
+  [101204002,'ESCUELA ESTADAL BOLIVARIANA AC-14 CHIRGUA',421,2188],
+  [90901006,'ESCUELA BOLIVARIANA LOS TIGRESITOS',346,2188],
+  [120403001,'UNIDAD ESCOLAR JULIO CESAR DAVILA',502,2179],
+  [60901015,'ESCUELA BRISAS DE UAIREN',248,2176],
+  [170601012,'ESCUELA BOLIVARIANA PARADERO',757,2176],
+  [70601018,'UNIDAD EDUCATIVA CREACION PALMA SOLA',264,2171],
+  [21302009,'LICEO ALIRIO ARREAZA ARREAZA',62,2169],
+  [160304001,'UNIDAD EDUCATIVA NACIONAL TUCUPIDO',699,2164],
+  [20301010,'GRUPO ESCOLAR ANGEL CELESTINO BELLO',27,2164],
+  [50501001,'UNIDAD EDUCATIVA EL REAL',179,2164],
+  [50209005,'UNIDAD EDUCATIVA RAMON REINOSO NUÑEZ',166,2161],
+  [30601014,'LICEO BOLIVARIANO SAN FERNANDO',99,2161],
+  [132101009,'CONCENTRACION ESTADAL SIN NUMERO ONOVA',625,2161],
+  [21004001,'ESCUELA CONCENTRADA NUMERO 88-215-4',54,2159],
+  [130901004,'UNIDAD EDUCATIVA INSTITUTO VENEZUELA NUEVA',601,2158],
+  [210803005,'UNIDAD EDUCATIVA NACIONAL MONSEÑOR SANTIAGO PEREZ',1021,2158],
+  [110202043,'ESCUELA NACIONAL INES LUCIA YEPEZ',430,2157],
+  [131601030,'UNIDAD EDUCATIVA NACIONAL SOROCAIMA',617,2155],
+  [100303001,'ESCUELA BOLIVARIANA FELIPE DAGER',394,2155],
+  [100406001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA DOCTOR PEDRO MARÍA ARÉVALO',401,2152],
+  [211404001,'ESCUELA BASICA NACIONAL R5',1047,2150],
+  [190403001,'ESCUELA BOLIVARIANA ESTEBAN RASQUIN',879,2148],
+  [40303001,'UNIDAD EDUCATIVA ESTADAL RURAL CRUZ GUEVARA',119,2146],
+  [161101001,'ESCUELA BASICA CIUDAD DE SAN FELIPE',724,2146],
+  [140806002,'UNIDAD EDUCATIVA MANUEL HERNANDEZ ROCA',661,2145],
+  [70907014,'ESCUELA ESTADAL ANTONIO RANGEL',281,2141],
+  [210514014,'LICEO NACIONAL COQUIVACOA',1005,2141],
+  [210508011,'UNIDAD EDUCATIVA NACIONAL PRIVADA DR JOSE GREGORIO HERNANDEZ',999,2140],
+  [20701007,'ESCUELA UNITARIA NACIONAL NUMERO 416',42,2137],
+  [10122010,'COLEGIO PESTALOZZI',22,2136],
+  [210503019,'UNIDAD EDUCATIVA NACIONAL FRANCISCO ESPARZA GARCIA',994,2135],
+  [210407006,'ESCUELA   BOLIVARIANA JOSE LUGO RIVAS',991,2132],
+  [211805018,'UNIDAD  EDUCATIVA  NACIONAL  JUAN RODRIGUEZ',1066,2132],
+  [170101015,'ESCUELA BÁSICA CHACARACUAL',733,2131],
+  [131602002,'UNIDAD EDUCATIVA COLEGIO  LOS ARAYANES',618,2129],
+  [41801004,'ESCUELA BASICA ESTADAL JESUS IGNACIO ITURZAETA',153,2129],
+  [101202001,'ESCUELA BOLIVARIANA LUISA CACERES DE ARISMENDI',419,2129],
+  [10102014,'UNIDAD EDUCATIVA COLEGIO LUIS DE CAMOES',2,2124],
+  [210515007,'UNIDAD EDUCATIVA FRANCISCO JOSE DELGADO',1006,2122],
+  [201301004,'ESCUELA INTEGRAL BOLIVARIANA AROA',967,2117],
+  [130301040,'UNIDAD EDUCATIVA EL ENCANTO',582,2116],
+  [211602016,'UNIDAD EDUCATIVA MANUEL VICENTE ROMERO GARCIA',1057,2113],
+  [211806003,'ESCUELA BOLIVARIANA VICTOR RAUL SOTO',1067,2112],
+  [60604009,'ESCUELA ESTADAL CONCENTRADA MIXTA NUMERO 278-249-SIN NUMERO',239,2110],
+  [130301013,'COLEGIO NUESTRA SEÑORA DE FATIMA',582,2108],
+  [100702001,'ESCUELA BOLIVARIANA DOCTOR BENITO GUTIERREZ LOPEZ',409,2102],
+  [160401010,'ESCUELA BASICA FRAY ANDRES GRAZALEMA',701,2102],
+  [122004001,'ESCUELA BASICA ESTADO MONAGAS',565,2099],
+  [110202017,'COLEGIO MADRE MARIA',430,2099],
+  [210507012,'JARDIN DE INFANCIA NACIONAL LOMA LINDA',998,2098],
+  [130104006,'UNIDAD  BASASICA  LA CARAMERA',574,2097],
+  [70905004,'UNIDAD EDUCATIVA MUNICIPAL SANTA ANA',279,2093],
+  [120805003,'COLEGIO N SRA DEL ROSARIO',518,2091],
+  [200201017,'ESCUELA INTEGRAL BOLIVARIANA CUMARIPA',950,2090],
+  [211803012,'ESCUELA BASICA ARQUIDIOCESANO DIVINO NIÑO',1064,2090],
+  [150402002,'UNIDAD EDUCATIVA INSTITUTO SURAMERICANO LIBRE APRENDIZAJE (ISLA)',679,2089],
+  [110616001,'ESCUELA BOLIVARIANA PARAPARA',473,2086],
+  [130901049,'UNIDAD EDUCATIVA  COLEGIO  SIMON BOLIVAR Y GARIBALDI',601,2085],
+  [210514019,'ESCUELA BASICA NACIONAL ZULIA',1005,2085],
+  [90402022,'ESCUELA BOLIVARIANA VICTOR RAUL SOTO',319,2082],
+  [170301006,'U.E. JUANITA SALINA DE GAMBOA',744,2082],
+  [181402001,'ESCUELA BOLIVARIANA CONCENTRADA NUMERO 58 SAN JOAQUIN DE NAVAY',828,2076],
+  [130301012,'CENTRO DE EDUCACION INICIAL NEGRA HIPOLITA',582,2075],
+  [150201010,'UNIDAD EDUCATIVA ESTADAL MARIA AUXILIADORA ZABALA DE MILLAN',671,2073],
+  [211403015,'ESCUELA BASICA NACIONAL DON ROMULO GALLEGOS',1046,2072],
+  [70904005,'UNIDAD EDUCATIVA FELIPE NERY PULIDO',278,2067],
+  [130301051,'UNIDAD EDUCATIVA ESTADAL OCUMARE DEL TUY',582,2065],
+  [20502001,'GRUPO ESCOLAR SAN PABLO',37,2063],
+  [70501011,'UNIDAD EDUCATIVA ESTADAL LAS MATAS',263,2062],
+  [210402003,'JARDIN DE INFANCIA NACIONAL MARIA DEVIS DE FUENMAYOR',986,2059],
+  [140305001,'ESCUELA BASICA RAMONA ROCCA DE LOPEZ',634,2057],
+  [200101017,'CENTRO DE EDUCACION INICIAL AROA',949,2055],
+  [180103002,'UNIDAD EDUCATIVA BOLIVARIANA GUSTAVO NIETO',792,2054],
+  [50802002,'ESCUELA CONCENTRADA CACHICAMO LA ERIKA',192,2053],
+  [211802017,'ESCUELA BASICA NACIONAL DOCTOR JUAN SABA RIVERO',1063,2053],
+  [180801035,'JARDIN DE INFANCIA JOSEFINA MOLINA DE DUQUE',812,2051],
+  [130902003,'INSTITUTO MARIA MICAELA',602,2050],
+  [201402005,'ESCUELA INTEGRAL BOLIVARIANA BELLA VISTA',969,2048],
+  [90305001,'ESCUELA PRIMARIA ALEXIS DELGADO',316,2047],
+  [132101014,'ESCUELA  NACIONAL BOLIVARIANA BARTOLOME BLANDIN',625,2045],
+  [61001007,'ESCUELA NACIONAL BASICA JOSE SOLANO',250,2040],
+  [151001004,'UNIDAD EDUCATIVA DOCTOR CAYETANO GARCIA SALAZAR',689,2037],
+  [201101018,'ESCUELA INTEGRAL BOLIVARIANA CAÑAVERAL',965,2037],
+  [91001028,'MULTI HOGAR XIV NIÑO HOGAR FETRA FALCON',349,2036],
+  [130901007,'UNIDAD EDUCATIVA LEONCIO MARTINEZ',601,2030],
+  [110802002,'ESCUELA UNITARIA EL GUAICAL',480,2030],
+  [70901004,'ESCUELA BASICA NACIONAL FERNANDO PEÑALVER',275,2029],
+  [40108004,'ESCUELA TECNICA INDUSTRIAL JOAQUIN AVELLAN',111,2028],
+  [21103001,'UNIDAD EDUCATIVA PIÓ CEBALLOS',59,2028],
+  [100601017,'UNIDAD EDUCATIVA NACIONAL JOSE FELIX RIBAS',405,2027],
+  [191603001,'ESCUELA BOLIVARIANA GRANADOS',936,2027],
+  [180801012,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL JESUS OBRERO',812,2026],
+  [220501001,'ESCUELA BASICA MIGUEL ANTONIO CARO',1090,2025],
+  [150802001,'UNIDAD EDUCATIVA BOLIVARIANA VICTOR MANUEL SALAZAR',686,2025],
+  [170205001,'ESCUELA BOLIVARIANA J.J ESCOBAR PACHECO',742,2023],
+  [210503003,'CENTRO DE CULTURA VIDAL CALDERON',994,2022],
+  [110206012,'ESCUELA CONCENTRADA TOROY',434,2019],
+  [201201014,'ESCUELA CONCENTRADA LA PICA',966,2017],
+  [170501005,'ESCUELA BOLIVARIANA RÍO GRANDE ARRIBA',752,2015],
+  [10115012,'FUNDACION COMUNIDAD MADRE EMILIA',15,2012],
+  [211806008,'ESCUELA BASICA ESTADAL JOBO BAJO',1067,2012],
+  [110202035,'UNIDAD  NACIONAL SAN FRANCISCO JAVIER',430,2008],
+  [211805008,'ESCUELA BASICA.ESTADAL GUANIPA MATOS',1066,2008],
+  [91007001,'ESCUELA BOLIVARIANA YOLANDA FUGUET DE MEDINA',355,2007],
+  [40104005,'ESCUELA BASICA JOSEFINA BRITO',107,1998],
+  [140707015,'ESCUELA BASICA RURAL SANTA ELENA DE VIBORAL',652,1997],
+  [100404001,'GRUPO ESCOLAR MACAIRA',399,1995],
+  [200101007,'ESCUELA INTEGRAL BOLIVARIANA SAN JOSE',949,1995],
+  [60107005,'ESCUELA MUNICIPAL LA ESPERANZA',212,1994],
+  [190504001,'ESCUELA BOLIVARIANA MARIO BRICEÑO IRAGORRY',884,1992],
+  [110501006,'UNIDAD EDUCATIVA COLEGIO MADRE CARMEN RENDILES',455,1992],
+  [170903023,'U.E. CREACIÓN CANTARRANA',771,1992],
+  [70906015,'ESCUELA BASICA NACIONAL ANTONIO HERRERA TORO',280,1991],
+  [60804001,'ESCUELA BASICA SANTA BARBARA',247,1989],
+  [131002006,'UNIDAD EDUCATIVA RURAL BOLIVARIANA QUEBRADA HONDA',607,1984],
+  [190102002,'ESCUELA ESTADAL CONCENTRADA SAN PEDRO',857,1984],
+  [10117028,'ESCUELA BASICA JOSE AGUSTIN MARQUIEGUI',17,1983],
+  [90902005,'ESCUELA ESTADAL BOLIVARIANA CELSA DE AÑEZ',347,1983],
+  [160801009,'ESCUELA BOLIVARIANA LAS CARAMAS NUMERO 422',717,1982],
+  [200101015,'MULTIHOGAR ELOISA MASTRANGELO',949,1981],
+  [211804004,'CICLO BASICO JOSE ANONIO CHAVEZ',1065,1981],
+  [210510012,'UNIDAD EDUCATIVA ESTADAL DR JOSE ORTIZ RODRIGUEZ',1001,1980],
+  [210402007,'UNIDAD EDUCATIVA GUAREIRA II',986,1979],
+  [180303001,'ESCUELA BOLIVARIANA PERIBECA',799,1978],
+  [90202001,'ESCUELA BASICA OLIMPIA LOPEZ DE MORON',310,1976],
+  [10102017,'IPOSTEL',2,1976],
+  [180803028,'INSTITUTO UNIVERSITARIO JUAN PABLO PEREZ ALFONZO',814,1973],
+  [211404007,'ESCUELA BASICA NACIONAL LAS CUPULAS',1047,1970],
+  [10106022,'CENTRO DE EDUCACION INICIAL MIS PRIMERAS LUCES',6,1967],
+  [211805014,'ESCUELA BASICA.NACIONAL ABRAHAM BELLOSO',1066,1967],
+  [120306001,'ESCUELA BOLIVARIANA MALDONADO LOPEZ',498,1967],
+  [131301014,'UNIDAD EDUCUCATIVA LAS MINAS',612,1963],
+  [190706002,'UNIDAD EDUCATIVA JOSE GREGORIO HERNANDEZ',899,1962],
+  [131601036,'CASA DE TODOS Y JUSTICIA DE PAZ',617,1961],
+  [170903003,'LICEO BASICO CORAZÓN DE JESÚS',771,1961],
+  [210507002,'IPASME',998,1959],
+  [210509021,'CENTRO DE EDUCACION INICIAL TEPICHI PALAJANA 4 AJONJOLI',1000,1954],
+  [21301010,'INSTITUTO NACIONAL DE COOPERACIÓN EDUCATIVA',61,1951],
+  [200801005,'ESCUELA INTEGRAL BOLIVARIANA COPA REDONDA',962,1950],
+  [70908020,'ESCUELA GUIGUE',282,1946],
+  [211407009,'ESCUELA BASICA CONCENTRADA FEDERACION',1050,1945],
+  [130301034,'UNIDAD EDUCATIVA COLEGIO SAGRADA FAMILIA',582,1941],
+  [20302011,'INTERNADO JUDICIAL BARCELONA',28,1940],
+  [190404001,'UNIDAD EDUCATIVA RURAL LA MATA',880,1940],
+  [110202015,'ESCUELA CONCENTRADA SANTO DOMINGO',430,1939],
+  [190102001,'ESCUELA BOLIVARIANA SAMUEL DARIO MALDONADO',857,1939],
+  [71301011,'UNIDAD EDUCATIVA SAN DIEGO DE ALCALA',287,1939],
+  [191304001,'UNIDAD EDUCATIVA RAFAEL RANGEL',925,1938],
+  [230402004,'ESCUELA GRANJA SANTA CATALINA',1121,1938],
+  [200402015,'ESCUELA BASICA PABLO MENDOZA REYES',956,1937],
+  [71101021,'UNIDAD BASICA RAMONA DE ROMERO',285,1937],
+  [180803010,'CICLO DIVERSIFICADO ELEAZAR LOPEZ CONTRERAS',814,1936],
+  [91001015,'LICEO BOLIVARIANO ESTEBAN SMITH MONSON',349,1932],
+  [130901041,'UNIDAD EDUCATIVA MUNICIPAL SIMON RODRIGUEZ',601,1931],
+  [200303002,'ESCUELA CONCENTRADA LAS VEGAS',954,1931],
+  [210508023,'UNIDAD EDUCATIVA PRIVADA LA CHINITA',999,1930],
+  [10108004,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA LUIS RAZZETTI',8,1929],
+  [70907008,'UNIDAD EDUCATIVA PRIVADO ARTESANAL LA SALLE',281,1928],
+  [150101005,'UNIDAD EDUCATIVA ESTADAL JUAN CANCIO RODRIGUEZ',670,1928],
+  [130301016,'UNIDAD EDUCATIVA INSTITUTO PRIVADO BOYACA',582,1927],
+  [30304004,'LICEO BOLIVARIANO EL NULA',92,1922],
+  [160801022,'ESCUELA BASICA ESTADAL  NUMERO 409 TUREN VIEJO',717,1920],
+  [210504001,'ESCUELA BASICA ESTADAL CARLOS LUIS RINCON LUBO',995,1918],
+  [131602020,'UNIDAD EDUCATIVA NACIONAL JOSEFA IRAUSQUIN LOPEZ.',618,1917],
+  [122302001,'CONCENTRACION ESCOLAR CA/O DE TIGRE',570,1916],
+  [20903001,'ESCUELA SEBASTIAN FRANCISCO DE MIRANDA',49,1913],
+  [21701006,'UNIDAD EDUCATIVA MANUEL GUAL',68,1911],
+  [21301033,'ESCUELA TÉCNICA INDUSTRIAL',61,1909],
+  [210514001,'UNIDAD EDUCATIVA NACIONAL GENERAL JUAN ANTONIO PAREDES',1005,1908],
+  [90303001,'UNIDAD EDUCATIVA NACIONAL SAN JOSE DE SEQUE',314,1904],
+  [91803006,'ESCUELA BASICA UNITARIA VILORIA',376,1903],
+  [40702001,'UNIDAD EDUCATIVA NACIONAL SAN FRANCISCO DE CARA',130,1900],
+  [131901012,'ESCUELA MUNICIPAL GRADUADA MARIA MAY',622,1896],
+  [92402003,'ESCUELA  BOLIVARIANA MIDE',386,1892],
+  [131901001,'UNIDAD EDUCATIVA COLEGIO ACADEMIA MERICI',622,1888],
+  [131801018,'U E P SAN FRANCISCO DE ASIS',621,1888],
+  [181602003,'LICEO NACIONAL EZEQUIEL ZAMORA',834,1888],
+  [160601059,'CENTRO DE EDUCACION INICIAL VENEZUELA',707,1880],
+  [21401008,'UNIDAD EDUCATIVA SAN JOSE',63,1880],
+  [120805001,'ESCUELA BASICA CECILIO ACOSTA',518,1879],
+  [140705006,'UNIDAD EDUC BOLIVARIANA VUELTA LARGA',650,1876],
+  [60106011,'UNIVERSIDAD NACIONAL EXPERIMENTAL GUAYANA.',211,1874],
+  [181702001,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA ANDRES ELOY BLANCO',836,1873],
+  [220103001,'ESCUELA SANTIAGO AGUERREVERE',1078,1871],
+  [70702003,'UNIDAD EDUCATIVA ESTADAL DOROTEO CENTENO',267,1866],
+  [40101005,'CORPOSALUD',104,1864],
+  [90601004,'ESCUELA BASICA BOLIVARIANA EL DERRAME',327,1861],
+  [120602001,'UNIDAD EDUCATIVA PALMIRA',511,1860],
+  [120102002,'UNIDAD EDUCATIVA FRANCISCO DE MIRANDA',486,1859],
+  [131901006,'UNIDAD EDUCATIVA NACIONAL JUAN DE ESCALONA',622,1858],
+  [60107007,'ESCUELA BASICA  PUERTO ORDAZ (TERCERA ETAPA)',212,1858],
+  [171401004,'ESCUELA BOLIVARIANA CREACIÓN LA CHICA',786,1858],
+  [170204001,'U.E. TUNAPUICITO',741,1855],
+  [70906021,'UNIDAD EDUCATIVA INSTITUTO EXPERIMENTAL SIMON BOLIVAR (APUCITO)',280,1854],
+  [160302001,'ESCUELA BASICA CORDOBA',697,1851],
+  [150101010,'UNIDAD EDUCATIVA PROFESOR JOSE INOCENTE ALFARO',670,1846],
+  [70908037,'PRE ESCOLAR MUNICIPAL BUCARAL SUR',282,1845],
+  [160301036,'ESCUELA BASICA LIBERTADOR',696,1840],
+  [30601029,'PREESCOLAR BOLIVARIANO AGROKINDER LOS COQUITOS',99,1836],
+  [110502026,'ESCUELA BOLIVARIANA EUSTAQUIO YEPEZ',456,1836],
+  [201402001,'LICEO BOLIVARIANO FRANCISCO HERRERA VEGA',969,1835],
+  [91304001,'COMPLEJO EDUCATIVO HERCILIA HENRIQUEZ DE EIZAGA',364,1834],
+  [210505003,'ESCUELA  BASICA  BOLIVARIANA ALONSO DE OJEDA',996,1833],
+  [10113034,'OFICINA DE TELEGRAFOS (IPOSTEL) CENTRO COMERCIAL CEDIAZ',13,1832],
+  [210502001,'UNIDAD GERONTOLOGICA DE MCBO',993,1831],
+  [131603008,'REGISTRO CIVIL DE LA PARROQUIA LAS MINAS',619,1826],
+  [211407002,'ESCUELA BASICA NACIONAL FEDERACION VENEZOLANA DE MAESTROS',1050,1821],
+  [50802001,'ESCUELA ESTADAL CONCENTRADA',192,1819],
+  [21005001,'GRUPO ESCOLAR ROMULO GALLEGOS',55,1818],
+  [211802011,'ESCUELA TECNICA INDUSTRIAL NACIONAL ANSELMO BELLOSO',1063,1818],
+  [170802001,'ESCUELA BOLIVARIANA CATUARO',765,1817],
+  [20602001,'UNIDAD EDUCATIVA NACIONAL RAFAEL CABALLERO SARMIENTO',39,1815],
+  [200101002,'ESCUELA .BASICA JOSE JOAQUIN VEROES',949,1814],
+  [60602001,'ESCUELA ESTADAL CONCENTRADA NUMERO 1960-68-ARIPAO',237,1814],
+  [131601005,'CENTRO EDUCATIVO ASOCIACION PROFESORES UNIVERSIDAD CENTRAL DE VENEZUELA  (CEAPUCV)',617,1810],
+  [160101021,'CENTRO PRE ESCOLAR AÑO INTERNACIONAL DEL NIÑO',692,1810],
+  [130301052,'SEDE ADMINISTRATIVA DEL COLEGIO UNIVERSITARIO DE LOS TEQUES CECILIO ACOSTA',582,1810],
+  [140710024,'COLEGIO PRIVADO MARÍA AUXILIADORA',655,1807],
+  [30204001,'ESCUELA PRIMARIA BOLIVARIANA FEDERICO SCHWARZEMBERG',87,1805],
+  [91004007,'ESCUELA BASICA NACIONAL BOLIVARIANA. ARENALES',352,1804],
+  [110502022,'ESCUELA BASICA NACIONAL LOS RASTROJOS',456,1803],
+  [131301003,'COLEGIO ANTONIO ORDOEZ',612,1803],
+  [50902006,'ESCUELA ESTADAL CONCENTRADA 01 02 004 NUCLEO ESCOLAR RURAL 573',196,1801],
+  [50803001,'UNIDAD EDUCATIVA BOLIVARIANA  RODRIGUEZ DOMINGUEZ',193,1798],
+  [10102012,'OFICINA DEL MINISTERIO DEL TRABAJO',2,1788],
+  [20302021,'AUDITORIO JUAN MANUEL CAJIGAL',28,1787],
+  [160303008,'ESCUELA BASICA ESTADAL SIMON BOLIVAR',698,1786],
+  [211102020,'ESCUELA ELEAZAR LOPEZ CONTRERAS',1035,1784],
+  [170601006,'UNIDAD EDUCATIVA LIMONAR AFUERA',757,1783],
+  [190903001,'UNIDAD EDUCATIVA BICENTENARIO',909,1783],
+  [60107001,'JARDIN DE INFANCIA YOCOIMA',212,1781],
+  [70904015,'UNIDAD ESCOLAR SANTA MARIA DE CALATRAVA',278,1780],
+  [160301020,'ESCUELA POPULAR CATOLICA FE Y ALEGRIA',696,1776],
+  [120201012,'UNIDAD EDUCATIVA BOLIVARIANA HOLANDA',492,1775],
+  [230305001,'ESCUELA NACIONAL NUMERO 95',1118,1774],
+  [90102005,'ESCUELA BÁSICA BOLIVARIANA CAMACHIMA',306,1774],
+  [160101015,'CICLO COMBINADO HILARION LOPEZ',692,1766],
+  [180803005,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA REPUBLICA DEL ECUADOR',814,1764],
+  [110203018,'UNIDAD EDUCATIVA COLEGIO SAN VICENTE DE PAUL',431,1764],
+  [110102004,'ESCUELA BOLIVARIANA  AGUA SALADA',428,1762],
+  [140705004,'COMPLEJO EDUCATIVO FANNY CENTENO',650,1762],
+  [140710025,'UNIDAD EDUCATIVA PRIVADA CECILO ACOSTA',655,1761],
+  [41301005,'ESCUELA BASICA NACIONAL 6 DE SEPTIEMBRE',144,1760],
+  [180803011,'ESCUELA BASICA ESTADAL MARISCAL SUCRE',814,1759],
+  [40107019,'INSTITUTO TECNOLOGICO CARLOS SOUBLETTE',110,1757],
+  [180802008,'ESCUELA BASICA TACHIRA',813,1756],
+  [160101014,'ESCUELA BASICA CIUDAD DE ARAURE',692,1753],
+  [180802016,'ESCUELA BOLIVARIANA ANTONIO ROMAN SILVA',813,1752],
+  [90801009,'ESCUELA BASICA LIBERTADOR SIMON BOLIVAR',341,1752],
+  [121103002,'ESCUELA BOLIVARIANA MESAS DE LAS PALMAS',536,1749],
+  [20101008,'BIBLIOTECA ANDRES BELLO. ATENEO DE ANACO',23,1745],
+  [60304008,'JARDIN DE INFANCIA JOSEFA PASCAL',225,1744],
+  [240109003,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA EL JUNKO',1133,1742],
+  [131603003,'ESCUELA MUNICIPAL JERMAN UBALDO LIRA',619,1739],
+  [21201027,'ESTADIO DE BEISBOL ALEJANDRO CARRASQUEL',60,1738],
+  [200801007,'ESCUELA INTEGRAL BOLIVARIANA RAFAEL CALDERA',962,1733],
+  [170903009,'ESCUELA BÁSICA ESTADO MONAGAS',771,1733],
+  [71001005,'ESCUELA SANTO TOMAS',284,1732],
+  [210506019,'UNIDAD EDUCATIVA COLEGIO NUESTRA SEÑORA DE LAS MERCEDES',997,1731],
+  [170504001,'U.E. SAN ANTONIO',755,1731],
+  [191802005,'UNIDAD EDUCATIVA ESTADAL CONCENTRADA NUMERO 26 TIERRA BLANCA',941,1731],
+  [200901006,'ESCUELA BASICA BUENA VISTA',963,1730],
+  [131601023,'UNIDAD EDUCATIVA COLEGIO LA COROMOTO',617,1728],
+  [211806002,'ESCUELA  BASICA  NACIONAL SISOES FINOL',1067,1726],
+  [180904002,'UNIDAD EDUCATIVA NACIONAL PROFESOR AMERICO ROA',820,1725],
+  [180802014,'CASA DE LOS NIÑOS LOS PIRINEOS',813,1427],
+  [40108017,'ESCUELA BASICA FEDERICO GARCIA ARIAS',111,1723],
+  [190503001,'ESCUELA BOLIVARIANA EL RECREO',883,1719],
+  [150601005,'UNIDAD EDUCATIVA INDEPENDENCIA',682,1715],
+  [40107013,'ESCUELA BASICA PILAR PELGRON',110,1713],
+  [121806003,'UNIDAD EDUC LA TRAMPA',557,1709],
+  [10118010,'UNIDAD EDUCATIVA PRIVADA JUAN VICENTE BOLÍVAR',18,1709],
+  [40108001,'ESCUELA BASICA CIRO MALDONADO ZERPA',111,1708],
+  [130307004,'CONCENTRACION BOLIVARIANA EL CASCAJO',588,1708],
+  [190305001,'UNIDAD EDUCATIVA ESTADAL AÑO INTERNACIONAL DEL NIÑO',876,1706],
+  [90306001,'ESCUELA BOLIVARIANA EL GUAJIRO',317,1706],
+  [121904001,'ESCUELA BASICA NACIONAL GRADUADA SAN FRANCISCO',561,1706],
+  [90402009,'LICEO BOLIVARIANO RAFAEL SANCHEZ LOPEZ',319,1700],
+  [130901031,'UNIDAD EDUCATIVA COLEGIO MARIA SANTISIMA',601,1698],
+  [190704003,'UNIDAD EDUCATIVA RURAL JOSE FELIX RIBAS',897,1698],
+  [92302001,'ESCUELA BASICA NICOLAS CURIEL COUTINHO',384,1696],
+  [210511010,'UNIDAD EDUCATIVA ESTADAL JOSE FELIX RIVAS',1002,1696],
+  [10120012,'UNIDAD EDUCATIVA HUMBERTO PARODI',20,1696],
+  [131301008,'UNIDAD EDUCATIVA DON GUADALUPE HERNANDEZ',612,1693],
+  [170903008,'UNIDAD EDUCATIVA PRIVADA SANTO ANGEL',771,1692],
+  [210510001,'ESCUELA BASICA NACIONAL DR REGULO PACHANO AÑEZ',1001,1691],
+  [140306001,'ESCUELA BASICA ARMANDO ZULOAGA BLANCO',635,1689],
+  [180503001,'UNIDAD EDUCATIVA LA GRITA',805,1685],
+  [210513021,'ESCUELA BASICA ESTADAL LICECIADO REINALDO MARTINEZ',1004,1685],
+  [91801007,'ESCUELA BASICA BOLIVARIANA LA DANTA',374,1683],
+  [230405004,'ESCUELA CONCENTRADA NUMERO 138',1124,1682],
+  [180803021,'ESCUELA NACIONAL BOLIVARIANA MACHIRI',814,1679],
+  [130801030,'ESCUELA BASICA ESTADAL LINO BRAVO',600,1679],
+  [140710042,'UNIDAD EDUCATVA RAFAEL CELESTINO ARRIOJAS',655,1677],
+  [60309001,'UNIDAD EDUCATIVA INTEGRAL BOLIVARIANA LA FLOR',230,1675],
+  [110502024,'BIBLIOTECA PUBLICA LAS MERCEDES OTTO CIVIDANES LIRA',456,1675],
+  [22002002,'ESCUELA CONCENTRADA NUMERO 1836-128',75,1673],
+  [20301009,'SINDICATO VENEZOLANO DE MAESTROS DEL ESTADO ANZOATEGUI',27,1672],
+  [60105003,'CICLO BASICO COMUN RAMON ISIDRO MONTES',210,1668],
+  [60106006,'JARDIN DE INFANCIA ALFONZO ESCALONA',211,1667],
+  [170505002,'ESCUELA BOLIVARIANA MARABAL',756,1663],
+  [130301055,'UNIDAD EDUCATIVA ESTADAL RAMO VERDE',582,1662],
+  [170804001,'ESCUELA BOLIVARIANA SANTA CRUZ',767,1659],
+  [171301005,'U.E. JOSÉ MIGUEL HERNÁNDEZ',784,1658],
+  [190801006,'ESCUELA BOLIVARIANA GUAMAS DE MONAY',900,1657],
+  [80302001,'ESCUELA  ESTADAL  FRANCISCO VILLANUEVA',294,1657],
+  [10113012,'UNIDAD EDUCATIVA COLEGIO SIETE ESTRELLAS',13,1654],
+  [190802001,'ESCUELA BOLIVARIANA ANTONIO JOSÉ PACHECO',901,1653],
+  [120601004,'UNIDAD EDUCATIVA EL QUINCE',510,1649],
+  [220502001,'ESCUELA BASICA  SAN PEDRO ALEJANDRINO',1091,1649],
+  [210505004,'ESCUELA  BASICA  NACIONAL BOLIVARIANA DR GUSTAVO RISQUEZ',996,1648],
+  [131601016,'INSTITUTO DIDACTICO ANTONIO JOSE DE SUCRE',617,1648],
+  [131602021,'INSTITUTO MADISON',618,1644],
+  [180903003,'ESCUELA BOLIVARIANA NACIONAL RAIMUNDO BELANDRIA BELANDRIA',819,1643],
+  [211402005,'ESCUELA BOLIVARIANA FRANCISCO DE MIRANDA',1045,1642],
+  [211805037,'UNIDAD EDUCATINA NACIONAL MAGISTER. SERVANDO PEÑA',1066,1640],
+  [60306006,'ESCUELA BASICA ESTADAL MANUEL CARLOS PIAR',227,1638],
+  [120811004,'JARDIN DE INF ELOY PAREDES',524,1634],
+  [150902005,'UNIDAD EDUCATIVA ESTADAL JESÚS RAMÓN GAMBOA',688,1633],
+  [130901040,'LICEO SAN AGUSTIN',601,1633],
+  [201101027,'ALDEA UNIVERSITARIA MISION SUCRE INDEPENDENCIA',965,1633],
+  [91002003,'UNIDAD GERIATRICA DR JOSE D BEAUJON',350,1627],
+  [201201013,'GUARDERIA INFANTIL MARIA ANGELICA LUSINCHI',966,1626],
+  [161201001,'ESCUELA NACIONAL CONCENTRADA NUMERO 2882 Y ANEXA 85',726,1625],
+  [40704002,'UNIDAD EDUCATIVA ESTADAL JUAN RAMOS',132,1625],
+  [171004002,'ESCUELA BOLIVARIANA RIO SALADO',779,1623],
+  [91002006,'ESCUELA DE EDUCACION INICIAL SAN BOSCO',350,1623],
+  [70907009,'ESCUELA CARMEN NORTE',281,1621],
+  [60308003,'UNIDAD EDUCATIVA BOLIVARIANA BONGO',229,1618],
+  [150304001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA APOLINAR FIGUEROA CORONADO',676,1615],
+  [130901010,'INSTITUTO EDUCATIVO SAN JUDAS TADEO',601,1615],
+  [50301002,'ESCUELA BOLIVARIANA  LA SOLEDAD NUCLEO ESCOLAR RURAL  610',172,1613],
+  [92301002,'UNIDAD EDUCATIVA ANGEL MIGUEL QUEREMEL',383,1611],
+  [90709001,'ESCUELA BASICA ADAURE',340,1608],
+  [20302027,'UNIDAD EDUCATIVA NACIONAL CELESTINO FARRERA',28,1607],
+  [70601008,'CENTRO EDUCACION INICIAL  ESTADAL  TEODOSA BENITA FLORES',264,1604],
+  [180802005,'UNIDAD EDUCATIVA PARROQUIAL COLEGIO COROMOTO',813,1600],
+  [90403013,'UNIVERSIDAD NACIONAL ABIERTA U.N.A',320,1599],
+  [160706005,'ESCUELA ESTADAL NUMERO 259',716,1599],
+  [20802001,'ESCUELA  ESTADAL JOSÉ GREGORIO MONAGAS',45,1596],
+  [160303001,'ESCUELA GRANJA OSCAR VILLANUEVA ANEXA NUMERO 390',698,1593],
+  [100603001,'UNIDAD EDUCATIVA BOLIVARIANA ROGELIA MAYO TORREALBA',407,1591],
+  [90302001,'ESCUELA  BOLIVARIANA JUAN A. MIQUILENA',313,1589],
+  [131602014,'U EDUC COLEGIO CAURIMARE UNO',618,1585],
+  [60303001,'ESCUELA BASICA NACIONAL LAS BEATRICES',224,1581],
+  [210509025,'ESCUELA BASICA NACIONAL BARRIO INDIO MARA',1000,1580],
+  [220401001,'GRUPO ESCOLAR ANTONIO JOSE DE SUCRE',1087,1580],
+  [20301007,'UNIDAD EDUCATIVA NICOÍS ROLANDO MONTEVERDE',27,1578],
+  [50102001,'UNIDAD EDUCATIVA NACIONAL BOLIVARIANA MARCELO RAMIREZ',155,1578],
+  [180402001,'ESCUELA BOLIVARIANA URIBANTE',801,1572],
+  [120804003,'UNIDAD EDUCATIVA NUESTRA SEÑORA  DE FATIMA',517,1571],
+  [60106004,'ESCUELA BASICA NACIONAL GUAYANA',211,1566],
+  [10113054,'ANEXO I COLEGIO SAN ANTONIO DE LA FLORIDA',13,1564],
+  [180803019,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA FRANCISCO DE MIRANDA',814,1562],
+  [210507019,'UNIDAD EDUCATIVA GENERAL EDUARDO PEREZ',998,1553],
+  [121903001,'UNID EDUC JUAN PICON GONZALEZ',560,1551],
+  [200801002,'ESCUELA INTEGRAL BOLIVARIANA PROFESORA REINA PARRA',962,1550],
+  [10113020,'UNIDAD EDUCATIVA COLEGIO CASTELAO',13,1549],
+  [130801026,'ESCUELA ESTADAL ANTONIO MARIA PIÑATE',600,1549],
+  [20301040,'PRE ESCOLAR MENCA DE LEONI',27,1548],
+  [161303001,'ESCUELA BASICA ALGARROBITO NUMERO 6',730,1547],
+  [191303004,'UNIDAD EDUCATIVA MONSEÑOR ARIAS BLANCO',924,1541],
+  [130304003,'CONCENTRACION RURAL BOLIVARIANA GARABATO',585,1538],
+  [90708001,'ESCUELA BASICA BOLIVARIANA BATALLA DE JUNIN',339,1537],
+  [161102010,'ESCUELA ESTADAL CONCENTRADA NUMERO 30',725,1534],
+  [60101012,'ESCUELA NACIONAL BASICA JOSE TOMAS MACHADO',206,1530],
+  [20301003,'UNIDAD EDUCATIVA PEDRO CENTENO VALLENILLA CRISTO DE JOSE',27,1530],
+  [10113026,'UNIDAD EDUCATIVA COLEGIO LA INMACULADA CONCEPCION',13,1428],
+  [131601032,'ASOCIACION DESARROLLO INTEGRAL COMUNITARIO',617,1526],
+  [60101011,'UNIDAD EDUCATIVA NACIONAL JOSE GABRIEL MACHADO',206,1524],
+  [210511004,'UNIDAD EDUCATIVA AGUSTIN AVELEDO TOVAR',1002,1522],
+  [120805004,'ESCUELA  BASICA ZUMBA',518,1521],
+  [121002001,'UNIDAD EDUCATIVA EMILIO MALDONADO',531,1517],
+  [191502001,'UNIDAD EDUCATIVA EL ARAGUANEY',931,1516],
+  [180802011,'GERIATRICO PADRE LIZARDO',813,1515],
+  [170206001,'U.E. MIGUEL SÁNCHEZ PESQUERA',743,1514],
+  [50401007,'ESCUELA BASICA NACIONAL CONCENTRADA EL CAMBUR',175,1513],
+  [180502002,'GRUPO ESCOLAR ALBERTO ADRIANI',804,1512],
+  [10113036,'UNIDAD EDUCATIVA NACIONAL PADRE SOJO',13,1512],
+  [120307001,'UNIDAD EDUCATIVA BOLIVARIANA ESTADO COJEDES',499,1509],
+  [171401009,'UNIDAD EDUCATIVA BOLIVARIANA ROBERTO MARTÍNEZ CENTENO',786,1504],
+  [190101002,'ESCUELA BOLIVARIANA LA CANTARRANA',856,1502],
+  [90203003,'UNIDAD EDUCATIVA LA PEÑA',311,1501],
+  [120103002,'LICEO ESTADAL ANEXO CLAUDIO CORREDOR MULLER',487,1500],
+  [110501017,'ESCUELA BOLIVARIANA JOSE APARICIO SALCEDO',455,1497],
+  [201301011,'ESCUELA BASICA MONSEÑOR BALDOMERO CILLERO',967,1496],
+  [121001007,'UNID EDUC LA JOYA',530,1490],
+  [150901012,'UNIDAD EDUCATIVA BOLIVARIANA MAESTRA TRINA GUERRA DE GUERRA',687,1488],
+  [220301001,'GRUPO ESCOLAR MARIO BRICE/O IRAGORRI',1084,1480],
+  [60902001,'ESCUELA NACIONAL CONCENTRADA SIN  NUMERO 172',249,1474],
+  [210513030,'PREESCOLAR SAN ISIDRO',1004,1471],
+  [190805001,'UNIDAD EDUCATIVA DR AMILCAR FONSECA',904,1466],
+  [120807008,'ESCUELA  BASICA GONZALO PICON FEBRES',520,1461],
+  [201101021,'OFICINA DE TRANSPORTE BOLIVARIANO',965,1460],
+  [210508004,'PREESCOLAR ESTADAL NAPUSHI TALATSI',999,1460],
+  [140710040,'ESCUELA BASICA BOLIVARIANA LOS COROCITOS',655,1449],
+  [130801052,'PRE-ESCOLAR TERRAZAS DEL ESTE',600,1447],
+  [122002001,'ESCUELA BASICA PALMARITO',563,1440],
+  [170503001,'U.E. ANDRÉS ELOY BLANCO',754,1440],
+  [130301046,'UNIDAD EDUCATIVA NACIONAL PRESBITERO MANUEL CAÑIZALES',582,1434],
+  [211802018,'JARD DE INFANCIA DOÑA JULIA RODRIGUEZ DE PEREZ',1063,1430],
+  [170203001,'U.E. VALDIVIESO MONTAÑO',740,1426],
+  [131601033,'ESCUELA  MUNICIPAL MONSEÑOR LUCAS GUILLERMO CASTILLO',617,1424],
+  [10113013,'UNIDAD EDUCATIVA STELLA MATUTINA',13,1422],
+  [170901035,'CENTRO DE EDUCACION INICIAL CUMANAGOTO',769,1414],
+  [160301010,'JARDIN DE INFANCIA',696,1413],
+  [110408001,'ESCUELA BOLIVARIANA JACINTO LARA',454,1408],
+  [201402003,'ESCUELA BASICA GENERAL CRUZ CARRILLO',969,1404],
+  [160705002,'ESCUELA CONCENTRADA MIXTA NUMERO 217-105-2174',715,1403],
+  [160101033,'COLEGIO GRAN MARISCAL DE AYACUCHO',692,1398],
+  [92002001,'ESCUELA BOLIVARIANA ESTADAL AGUA LINDA',379,1395],
+  [210509016,'UNIDAD EDUCATIVA ESTADAL BALMIRO LEON',1000,1393],
+  [91303002,'GRUPO ESCOLAR DOMINGO C COUTINHO',363,1387],
+  [100803001,'ESCUELA BOLIVARIANA UVERITO',412,1386],
+  [80502001,'CONCENTRACION ESCOLAR EL AMPARO',297,1383],
+  [10113021,'INSTITUTO PROGRESO',13,1383],
+  [101002001,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA DC-7 SANTA RITA',415,1380],
+  [10113025,'UNIDAD EDUCATIVA COLEGIO RAMOS',13,1380],
+  [120303003,'UNIDAD EDUCATIVA BOLIVARIANA CHACANTA',495,1378],
+  [150702005,'UNIDAD EDUCATIVA ESTADAL DOCTOR JOSE MARIA VARGAS',684,1377],
+  [60108023,'ESCUELA BASICA ESTADAL CAURA',213,1376],
+  [191102001,'ESCUELA BOLIVARIANA EL BAÑO',916,1373],
+  [20202001,'ESCUELA NACIONAL CONCENTRADA NUMERO 629-630-668-2168',26,1371],
+  [201101003,'CENTRO DE EDUCACION INICIAL  CONVENCIONAL DOCTOR RUBEN VILLALBA',965,1368],
+  [110617001,'ESCUELA BOLIVARIANA ALTAGRACIA',474,1364],
+  [230306004,'GRUPO ESCOLAR ISLA DE GUASINA',1119,1364],
+  [91502001,'ESCUELA BASICA MANUEL MOLINA HERNANDEZ',368,1363],
+  [60307003,'ESCUELA INTEGRAL BOLIVARIANA MAYAGUA',228,1363],
+  [160305002,'ESCUELA ESTADAL CONCENTRADA NUMERO 208',700,1362],
+  [120814001,'GPO ESC JUAN DE DIOS DAVILA',527,1362],
+  [131602019,'UNIDAD EDUCATIVA NACIONAL FRANCISCO ESPEJO',618,1361],
+  [110502001,'CASA COMUNAL LA HACIENDA',456,1361],
+  [40403001,'ESCUELA NACIONAL CONCENTRADA NÂº 227-3020',124,1354],
+  [170302003,'UNIDAD EDUCATIVA ESTADAL EUSTOQUIA LUIGGI',745,1352],
+  [90502003,'ESCUELA PRIMARIA BOLIVARIANA EL PASO DE ACURIGUA',323,1350],
+  [70905007,'ESCUELA BASICA ESTADAL MARIA GORETTI',279,1341],
+  [180204002,'UNIDAD EDUCATIVA BOLIVARIANA MAESTRO LUIS BELTRAN PIETRO FIGUEROA',796,1341],
+  [51201003,'ESCUELA BASICA CONCENTRADA FUNDO BRAVO',203,1340],
+  [160501011,'ESCUELA NACIONAL GRADUADA OSPINO',704,1339],
+  [10113031,'UNIDAD EDUCATIVA PRIVADA NUESTRA SEÑORA DE LAS MERCEDES',13,1338],
+  [130902013,'COLEGIO ELENA DE BUENO',602,1335],
+  [170903021,'U.E. CANDIDO RAMÍREZ',771,1331],
+  [131602018,'ESCUELA BASICA NACIONAL BOLIVARIANA EUTIMIO RIVAS',618,1326],
+  [71201014,'ESCUELA BASICA GUERE',286,1326],
+  [10113042,'ESCUELA BASICA SIMON RODRIGUEZ',13,1321],
+  [50601017,'ESCUELA ESTADAL CONCENTRADA  MATARRALA  NÂº 592',183,1317],
+  [220103004,'CENTRO MOVIL PROVINCIAL',1078,1316],
+  [110201013,'UNIDAD EDUCATIVA ALIRIO UGARTE PELAYO',429,1315],
+  [90903002,'ESCUELA ESTADAL CORRALITO',348,1313],
+  [220201002,'ESCUELA JUNIN',1080,1310],
+  [70103004,'ESCUELA ESTATAL TORCUATO MANZO NUÑEZ',254,1308],
+  [160201013,'INSTITUTO COMERCIAL PADRE ESTELLER',694,1302],
+  [200302007,'ESCUELA INTEGRAL BOLIVARIANA MURACHI',953,1299],
+  [131402001,'UNIDAD EDUCATIVA COTO PAÚL',614,1298],
+  [60502001,'ESCUELA CONCENTRADA RURAL 281-314-1282',235,1297],
+  [10113003,'PREESCOLAR CENAIN III',13,1295],
+  [200501004,'ESCUELA INTEGRAL BOLIVARIANA CONCEPCION DE CARVAJAL',958,1291],
+  [130301054,'UNIDAD EDUCATIVA ANDRES ELOY BLANCO',582,1291],
+  [121605001,'UNIDAD EDUCATIVA LA TOMA',549,1289],
+  [120702001,'UNIDAD EDUCATIVA SAN CRISTOBAL',513,1282],
+  [170703005,'ESCUELA BOLIVARIANA LAS LAGUNAAS',760,1281],
+  [60301026,'CICLO BASICO COMUN TOMAS DE HERES',222,1272],
+  [130502001,'CONCENTRACION ESCOLAR SIN NUMERO GUAYAMURAL',592,1272],
+  [50209007,'ESCUELA INTERNADO JUDICIAL CONCENTRADA  21',166,1271],
+  [10113040,'AMBULATORIO DOCTOR PASTOR OROPEZA',13,1269],
+  [130801029,'ESCUELA ESTADAL NERY RANGEL DE LOPEZ',600,1269],
+  [180401020,'UNIDAD EDUCATIVA COLEGIO VIRGEN DEL VALLE',800,1266],
+  [91005001,'LICEO BOLIVARIANO MITARE',353,1253],
+  [60203001,'ESCUELA CONCENTRADA NACIONAL NUMERO 260-3242 SIN NUMERO',218,1245],
+  [171202001,'ESCUELA BOLIVARIANA GUAYANA',783,1019],
+  [160501019,'UNIDAD EDUCATIVA GABRIEL PEREZ DE PAGOLA',704,1241],
+  [90504001,'ESCUELA PRIMARIA BOLIVARIANA MARÍA ANASTASIA PERÓN',325,1238],
+  [210506008,'ESCUELA BASICANACIONAL ANSELMA PULGAR',997,1238],
+  [120304001,'ESC BAS EL MOLINO',496,1238],
+  [131002009,'CASA DE LA CULTURA',607,1234],
+  [30203001,'ESCUELA PRIMARIA JESUS MARIA HERRERA',86,1233],
+  [10113016,'CENTRO MUNICIPAL DE ATENCION INTEGRAL (CEMAI) EL RECREO',13,1232],
+  [131801001,'COLEGIO UNIVERSITARIO  MONSEÑOR DE TALAVERA',621,1230],
+  [131701017,'UNIDAD EDUCATIVA COLEGIO VALLE ALTO',620,1229],
+  [130104012,'CASA DE LOS ABUELOS FELIX EDMUNDO RONDON',574,1225],
+  [50804003,'ESCUELA UNITARIA NUMERO 160',194,1222],
+  [130902014,'COLEGIO RODRIGUEZ PAZ',602,1219],
+  [200101021,'ESCUELA INTEGRAL BOLIVARIANA LOS ROSALES',949,1203],
+  [121004001,'UNIDAD EDUCATIVA BOLIVARIANA LA VENTA',533,1199],
+  [161102008,'ESCUELA BASICA DOCTOR RAFAEL QUINTERO SERRA',725,1191],
+  [180604001,'UNIDAD EDUCATIVA DESIDERIO BOADA',809,1190],
+  [211404010,'UNIDAD EDUCATIVA SANTA MARTA',1047,1186],
+  [191404001,'UNIDAD EDUCATIVA EL PARAISO',929,1186],
+  [200101010,'ESCUELA INTEGRAL BOLIVARIANA TIERRA FRIA',949,1171],
+  [110101007,'ESCUELA BOLIVARIANA QUEBRADA DE ORO',427,1171],
+  [120403002,'ESCUELA ESTADAL LAS GONZALEZ',502,1170],
+  [40402001,'ESCUELA BASICA VALLE MORIN',123,1168],
+  [211408003,'JARDIN DE INFANCIA LOS MEDANOS',1051,1163],
+  [210512011,'ESCUELA BASICA IDELFONZO VASQUEZ',1003,1156],
+  [190212001,'ESCUELA BOLIVARIANA VEGA DE GUARAMACAL',871,1150],
+  [10110173,'CENTRO DE EDUCACIÓN INICIAL PRIVADO LLUVIA DE GRACIA',10,1147],
+  [70602002,'ESCUELA BOLIVARIANA MANUEL MANRIQUE',265,1145],
+  [50211016,'LICEO NACIONAL BOLIVARIANO LAS COLINAS DEL LLANO',168,1145],
+  [201001009,'ESCUELA INTEGRAL BOLIVARIANA LAS FLORES',964,1143],
+  [20302044,'UNIDAD EDUCATIVA RIO NEVERI',28,1141],
+  [230302001,'GRUPO ESCOLAR DIVINA PASTORA',1115,1140],
+  [120803007,'UNIDAD EDUCATIVA COLEGIO SAGRADA FAMILIA',516,1133],
+  [21002001,'ESCUELA ESTADAL CONCENTRADA NUMERO 81-82-189',52,1131],
+  [130905010,'ESCUELA MUNICIPAL PAZ CASTILLO',605,1131],
+  [150901011,'UNIDAD EDUCATIVA ESTADAL JUAN RAMÓN AGUILERA',687,1122],
+  [151102009,'CENTRO PENITENCIARIO REGIÓN INSULAR',691,1119],
+  [100202001,'ESCUELA TECNICA AGROPECUARIA SOSA',391,1117],
+  [190211002,'ESCUELA BOLIVARIANA CUCHILLA DE GUARAMACAL',870,1114],
+  [90802003,'ESCUELA BASICA CIRO JOSE MALDONADO',342,1111],
+  [171002001,'ESCUELA BOLIVARIANA MACURO',777,1109],
+  [110607001,'ESCUELA BOLIVARIANA ROSENDO PERDOMO',464,1105],
+  [171401005,'U.E. PETARE',786,1104],
+  [40204001,'UNIDAD EDUCATIVA ESTADAL JOSE CASANOVA GODOY',115,1104],
+  [220701001,'ESCUELA LA ESMERALDA',1099,1103],
+  [131901013,'CONCENTRACION NACIONAL TURGUA',622,1101],
+  [130901033,'UNIDAD EDUCATIVA PREESCOLAR AMALIVAC',601,1087],
+  [110203016,'UNIDAD EDUCATIVA COLEGIO LISANDRO ALVARADO',431,1083],
+  [190902001,'UNIDAD EDUCATIVA ESTADAL MONSEÑOR ROJAS CHAPARRO',908,1083],
+  [110202001,'ESCUELA EL ROBLE',430,1072],
+  [211802007,'UNIDAD EDUCATIVA NACIONAL PRIVADA JOSE PIO TAMAYO',1063,1072],
+  [180203002,'UNIDAD EDUCATIVA LA MULERA',795,1068],
+  [50401011,'ESCUELA BOLIVARIANA EL YAURE',175,1067],
+  [110305002,'ESCUELA BOLIVARIANA RAFAEL RAMÓN SUÁREZ',443,1063],
+  [80602001,'ESCUELA CONCENTRADA ESCOLAR LA SIERRA',299,1062],
+  [201001014,'LICEO BOLIVARIANO SANTA MARIA',964,1061],
+  [190505002,'ESCUELA BOLIVARIANA TOBÍAS VALERA MARTÍNEZ',885,1058],
+  [210513025,'ESCUELA BASICA NACIONAL RURAL LAS MERCEDES',1004,1057],
+  [90605001,'ESCUELA BASICA BOLIVARIANA PURURECHE',331,1057],
+  [100302001,'ESCUELA NACIONAL CONCENTRADA NUMERO 178-1778 EL CALVARIO',393,1050],
+  [130901060,'UNIDAD EDUCATIVA NINO JESUS DE ESCUQUE',601,1050],
+  [110610001,'GRUPO ESCOLAR FRANCISCO SUAREZ',467,1047],
+  [200302006,'ESCUELA INTEGRAL BOLIVARIANA ARAGUATA',953,1042],
+  [121003001,'UNIDAD EDUCATIVA BOLIVARIANA DR IGNACIO FERNANDEZ PENA',532,1042],
+  [190704007,'ESCUELA CONCENTRADA SAN PABLO',897,1035],
+  [210513034,'EBB LUIS HOMEZ',1004,1028],
+  [191304003,'ESCUELA CONCENTRADA EL TURAGUAL',925,1025],
+  [90404008,'ESCUELA BOLIVARIANA MAITIRUMA',321,1020],
+  [121604001,'UNIDAD EDUCATIVA CACUTE',548,1013],
+  [150802002,'UNIDAD EDUCATIVA ESTADAL FELIPA NERI DE NARVÁEZ',686,1009],
+  [180805001,'ESCUELA ESTADAL CONCENTRADA  61',816,1009],
+  [190701020,'UNIDAD EDUCATIVA BOLIVARIANA PRE-VOCACIONAL AGUA CLARA',894,1009],
+  [10113018,'UNIDAD EDUCATIVA COLEGIO HUMBOLDT',13,1006],
+  [91302001,'ESCUELA BASICA ALBERTO RAVELL',362,998],
+  [161401006,'UNIDAD EDUCATIVA NACIONAL EL PLAYON',731,996],
+  [130604001,'CONCENTRACION NACIONAL NUMERO 24',597,992],
+  [190701017,'UNIDAD EDUCATIVA SAN JOSÉ',894,987],
+  [191703001,'ESCUELA ESTADAL CONCENTRADA NÚMERO 642',939,980],
+  [140603001,'GRUPO ESCOLAR YARUA',644,979],
+  [60205001,'ESCUELA CONCENTRADA MIXTA LA SALVACION',220,978],
+  [91305001,'ESCUELA ESTADAL ZAZÁRIDA',365,977],
+  [190605002,'ESCUELA ESTADAL CONCENTRADA SIN NÚMERO VEGA ARRIBA',892,972],
+  [151102007,'UNIDAD EDUCATIVA SANTIAGO MARIÑO',691,959],
+  [131501007,'CONCENTRACION ESCOLAR SIN NUMERO CAMBAMBE',615,958],
+  [40102002,'ESCUELA BASICA OSCAR ENRIQUE ORTEGA PALMA',105,951],
+  [201101023,'ESCUELA INTEGRAL BOLIVARIANA EZEQUIEL ZAMORA',965,948],
+  [21902001,'ESCUELA OFICIAL UNITARIA NUCLEO EDUCACION RURAL 144',73,948],
+  [90802001,'UNIDAD EDUCATIVA RAFAELA P. DE SIERRA',342,948],
+  [160101055,'ESCUELA ESTADAL CONCENTRADA NUMERO 160',692,935],
+  [200302001,'ESCUELA INTEGRAL BOLIVARIANA MADERA',953,931],
+  [21802001,'ESCUELA CONCENTRADA MIXTA NUMERO 229-1256-SIN NUMERO SANTA BARBARA',71,928],
+  [191003001,'UNIDAD EDUCATIVA EL HORCÓN',914,921],
+  [70703003,'UNIDAD EDUCATIVA MIQUIJA',268,918],
+  [40404001,'ESCUELA CONCENTRADA NÂº 88-383-387-467-537',125,914],
+  [132102001,'ESCUELA INTEGRAL BOLIVARIANA PEDRO GUAL',626,911],
+  [141002002,'ESCUELA UNITARIA NUMERO 320-419 VARADERO DE LIMONES',666,901],
+  [210513027,'ESCUELA BASICA NACIONAL CARDENAL JOSE ALI LEBRUN',1004,901],
+  [120404001,'UNIDAD EDUCATIVA BOLIVARIANA SAN JOSE',503,900],
+  [161302001,'ESCUELA CONCENTRADA SANTA FE',729,900],
+  [132101007,'ESCUELA GOLFO RICO',625,899],
+  [200801006,'ESCUELA INTEGRAL BOLIVARIANA LA BLANQUERA',962,896],
+  [200301035,'ESCUELA RURAL NUARITO',952,890],
+  [201001008,'ESCUELA BASICA GUAYUREBO NUCLEO ESCOLAR RURAL',964,888],
+  [211806012,'UNIDAD EDUCATIVA ESTADAL RURAL BATALLA DE CARABOBO',1067,881],
+  [120502001,'UNIDAD EDUCATIVA BOLIVARIANA LIGIA ESPERANZA MOLINA',508,879],
+  [71001006,'UNIDAD EDUCATIVA ESTADAL BOLIVARIANA ANTONIA PEREZ DE FEATHERTON',284,869],
+  [132001005,'GRUPO ESCOLAR SAN JUAN',623,868],
+  [190803001,'ESCUELA BOLIVARIANA ROBERTO GABALDON IRRAGORRY',902,856],
+  [50301001,'ESCUELA BOLIVARIANA ALFREDO ARVELO',172,840],
+  [122202001,'ESC CONC NAC MIXTA',568,839],
+  [130901114,'MINI DEPORTIVO CAMELIA DE REGGETTI',601,836],
+  [220102012,'UNIDAD EDUCATIVA BOLIVARIANA LA INDEPENDENCIA',1077,832],
+  [60701008,'UNIDAD EDUCATIVA BOLIVARIANA DOCTOR  JOSE MIGUEL NUÑEZ',241,830],
+  [90604001,'ESCUELA RURAL EXPERIMENTAL BASICA PIEDRA GRANDE',330,830],
+  [90603002,'ESCUELA BASICA ESTADAL LA CAMPANA',329,827],
+  [22102001,'ESCUELA CONCENTRADA NUMERO 2069',77,824],
+  [201401006,'ESCUELA INTEGRAL BOLIVARIANA LA HOYA',968,821],
+  [10122035,'RETEN LA PLANTA',22,819],
+  [200601015,'ESCUELA INTEGRAL BOLIVARIANA EL PICURE',959,815],
+  [150702004,'UNIDAD EDUCATIVA ESTADAL FRANCISCO ROJAS GAMBOA',684,815],
+  [101302002,'ESCUELA ESTADAL FC-45 ALTAMIRA',423,814],
+  [120808001,'ESCUELA MUNICIPAL NRO 7',521,812],
+  [130307003,'ESCUELA NACIONAL UNITARIA NO 2443',588,811],
+  [190705003,'UNIDAD EDUCATIVA ADOLFO NAVAS CORONADO',898,807],
+  [200301028,'ESCUELA RURAL SANTA ANA O LA JOSEFINA',952,799],
+  [131801028,'UNIDAD EDUCATIVA COLEGIO PARROQUIAL SAGRADO CORAZON DE JESUS',621,783],
+  [190605001,'ESCUELA ESTADAL CONCENTRADA VEGA DE CABIMBÚ',892,778],
+  [131202001,'CONCETRACION ESCOLAR RURAL SABANETA',611,774],
+  [71401007,'CARCEL DE TOCUYITO',288,768],
+  [191902001,'ESCUELA NACIONAL BOLIVARIANA LA CEIBA NER 388',943,759],
+  [190705002,'ESCUELA ESTADAL CONCENTRADA CARMEN DELIA ARTIGAS DE VILORIA',898,750],
+  [60603001,'ESCUELA CONCENTRADA MIXTA 183-184-229-340 LAS MAJADAS',238,746],
+  [180603002,'UNIDAD EDUCATIVA CONCENTRADA 240 LA ALQUITRANA NER 08',808,733],
+  [200302012,'ESCUELA INTEGRAL BOLIVARIANA CORUMBO',953,727],
+  [160202011,'ESCUELA BASICA PAUJICITO',695,725],
+  [90104001,'ESCUELA BASICA SAN LORENZO',308,724],
+  [230104013,'CENTRO DE EDUCACION INICIAL ROMULO GALLEGOS',1107,724],
+  [90803004,'ESCUELA ESTADAL GUARABAL',343,704],
+  [190501007,'ESCUELA ESTADAL CONCENTRADA DOÑA ESTEFANÍA MORÓN DE RUMBOS',881,700],
+  [160901017,'ESCUELA BASICA CONCENTRADA NUMERO 287 EL PUENTE',721,699],
+  [210509001,'ESCUELA BASICA BOLIVARIANA ANCON BAJO',1000,692],
+  [190301004,'ESCUELA NACIONAL GRADUADA LA PLAYA',872,687],
+  [211404012,'UNIDAD EDUCATIVA JESUS SEMPRUN',1047,684],
+  [21602001,'UNIDAD EDUCATIVA ESTADAL SAN FRANSISCO DE ASIS',67,676],
+  [60501013,'ESCUELA UNITARIA MIXTA NUMERO 152',234,676],
+  [120305001,'ESCUELA BASICA NO 234',497,674],
+  [160801019,'ESCUELA BOLIVARIANA EL JOBAL',717,669],
+  [120401001,'ESCUELA NACIONAL ACEQUIAS',500,662],
+  [201301007,'ESCUELA INTEGRAL BOLIVARIANA CARRETERA 14',967,651],
+  [170903025,'ESCUELA BOLIVARIANA RANCHERÍA',771,640],
+  [190402004,'ESCUELA CONCENTRADA RETOÑITOS EL PENCIL',878,638],
+  [201101016,'INTERNADO JUDICIAL',965,633],
+  [100403002,'CONCENTRACION ESCOLAR G-42 SAMANITO',398,616],
+  [90503001,'ESCUELA BÁSICA BOLIVARIANA GUAIBACOA',324,604],
+  [70103002,'UNIDAD EDUCATIVA CARIAPRIMA',254,600],
+  [120815001,'ESCUELA ESTADAL NO 152',528,592],
+  [190905001,'ESCUELA ESTADAL CONCENTRADA NUMERO  9 SIN NUMERO',911,571],
+  [120302001,'UNIDAD EDUCATIVA BOLIVARIANA LAS TIENDAS',494,567],
+  [10121013,'COLEGIO PARROQUIAL SAN BERNARDINO',21,561],
+  [190602005,'ESCUELA ESTADAL CONCENTRADA LLANO DE JARILLO',889,541],
+  [191302003,'ESCUELA CONCENTRADA NACIONAL LA HOYADA',923,534],
+  [180603001,'UNIDAD EDUCATIVA TORBES RIO CHIQUITO',808,525],
+  [130301066,'UNIDAD EDUCATIVA INSTITUTO VICTEGUI',582,524],
+  [170903018,'INTERNADO JUDICIAL DE CUMANA',771,504],
+  [210513032,'UNIDAD EDUCATIVA LIC. JACOBO OCTAVIO MONTERO',1004,491],
+  [201402016,'CENTRO DE EDUCACION INICIAL   LA GRUTA NER 036',969,489],
+  [210513033,'UE PRIVADA FAVIO MOLERO ESPINOZA',1004,486],
+  [50603003,'ESCUELA ESTADAL CONCENTRADA  SALOME NÂº 592',185,477],
+  [51103003,'ESCUELA BASICA ESTADAL CONCENTRADA  POZO VERDE NUCLEO ESCOLAR RURAL NUMERO 015',202,468],
+  [210513036,'DR. JOSE IGNACIO BALDO SOULES',1004,450],
+  [210513035,'UE ROMULO BETANCOURT',1004,441],
+  [190502006,'COLEGIO NUESTRA SEÑORA DE COROMOTO',882,433],
+  [170302008,'INTERNADO JUDICIAL DE CARUPANO',745,429],
+  [191702001,'ESCUELA ESTADAL LOS CAPRICHOS',938,427],
+  [210512010,'ESC BAS BOLIVARIANA COSME GONZALEZ',1003,421],
+  [210513042,'PREESCOLAR MI MUNDO INFANTIL',1004,385],
+  [130902018,'UNIDAD EDUCATIVA EXPERIMENTAL NACIONAL LUIS BELTRAN PRIETO FIGUEROA',602,377],
+  [160301043,'INTERNADO JUDICIAL',696,356],
+  [110613001,'ESCUELA UNITARIA LOMA SECA',470,321],
+  [90602001,'ESCUELA BASICA AGUA CLARA',328,286],
+  [131101043,'C.E.I.N.  VICTORIA MACHADO DE PLAZA',608,261],
+  [100601016,'PENITENCIARIA GENERAL DE VENEZUELA',405,217],
+  [100601029,'INTERNADO JUDICIAL LOS PINOS',405,209],
+  [130301068,'UNIDAD EDUCATIVA SAGRADO CORAZON DE JESUS II',582,176],
+  [230104014,'MODULO NEGRO PRIMERO',1107,166],
+  [90801013,'ESCUELA NACIONAL CONCENTRADA LA TUNITA',341,38]
 ]
 
 centros.each do |centro|
-  Centro.create :id => centro[0], :nombre => centro[1], :parroquia_id => centro[2], :votantes => centro[3]
+  record = Centro.new
+  record.id = centro[0]
+  record.nombre = centro[1]
+  record.parroquia_id = centro[2]
+  record.votantes = centro[3]
+  record.save!
 end
 
 # Mesas
 mesas = [
-[10101002,1,2050]
-[10101002,2,2010]
-[10101002,3,2018]
-[10101003,1,2107]
-[10101003,2,2079]
-[10101003,3,2116]
-[10101006,1,2040]
-[10101006,2,2052]
-[10101006,3,1998]
-[10101008,1,2205]
-[10101008,2,2164]
-[10101008,3,2169]
-[10101009,1,2189]
-[10101009,2,2172]
-[10101010,1,2137]
-[10101010,2,2140]
-[10102006,1,2349]
-[10102006,2,2261]
-[10102006,3,2234]
-[10102006,4,2217]
-[10102008,1,2331]
-[10102008,2,2319]
-[10102009,1,1273]
-[10102009,2,1292]
-[10102009,3,1281]
-[10102010,1,1952]
-[10102010,2,2027]
-[10102010,3,2036]
-[10102010,4,1984]
-[10102010,5,1991]
-[10102010,6,1880]
-[10102011,1,2104]
-[10102011,2,2066]
-[10102011,3,2101]
-[10102012,1,1788]
-[10102013,1,1649]
-[10102013,2,1659]
-[10102014,1,1057]
-[10102014,2,1067]
-[10102015,1,1680]
-[10102015,2,1706]
-[10102017,1,1976]
-[10103001,1,3404]
-[10103001,2,3323]
-[10103001,3,3320]
-[10103005,1,2956]
-[10103005,2,3001]
-[10104002,1,2018]
-[10104002,2,1990]
-[10104004,1,3434]
-[10104004,2,3455]
-[10104012,1,2180]
-[10104012,2,2200]
-[10104012,3,2174]
-[10104014,1,2549]
-[10104014,2,2589]
-[10104014,3,2589]
-[10104018,1,2770]
-[10104018,2,2817]
-[10104022,1,2442]
-[10104022,2,2385]
-[10104022,3,2394]
-[10104024,1,2069]
-[10104024,2,2044]
-[10104025,1,2156]
-[10104025,2,2137]
-[10104028,1,3204]
-[10104029,1,2906]
-[10104030,1,1720]
-[10104030,2,1724]
-[10104033,1,2135]
-[10104033,2,2105]
-[10104036,1,1958]
-[10104036,2,1955]
-[10104038,1,2122]
-[10104038,2,2137]
-[10105002,1,2317]
-[10105002,2,2284]
-[10105008,1,1847]
-[10105008,2,1820]
-[10105008,3,1799]
-[10105010,1,3521]
-[10105013,1,3181]
-[10105013,2,3155]
-[10105015,1,3838]
-[10105016,1,2064]
-[10105016,2,2054]
-[10105017,1,1847]
-[10105017,2,1864]
-[10106002,1,3854]
-[10106003,1,2465]
-[10106003,2,2444]
-[10106003,3,2468]
-[10106004,1,1976]
-[10106004,2,1981]
-[10106004,3,1834]
-[10106010,1,2203]
-[10106010,2,2185]
-[10106010,3,2230]
-[10106010,4,2186]
-[10106010,5,2134]
-[10106012,1,2371]
-[10106022,1,1967]
-[10107002,1,3666]
-[10107002,2,3557]
-[10107002,3,3579]
-[10107010,1,2065]
-[10107010,2,2045]
-[10107010,3,1982]
-[10107010,4,2098]
-[10107010,5,2048]
-[10107010,6,1954]
-[10107011,1,2302]
-[10107011,2,2204]
-[10107012,1,2515]
-[10107012,2,2541]
-[10107012,3,2513]
-[10107013,1,2744]
-[10107013,2,2744]
-[10107013,3,2806]
-[10107016,1,2243]
-[10107016,2,2202]
-[10107017,1,2088]
-[10107017,2,2059]
-[10107021,1,1996]
-[10107021,2,2058]
-[10107021,3,2074]
-[10107021,4,2014]
-[10107021,5,2049]
-[10107022,1,1887]
-[10107022,2,1894]
-[10107024,1,1650]
-[10107024,2,1623]
-[10107028,1,2112]
-[10107028,2,2075]
-[10107028,3,2033]
-[10108003,1,1760]
-[10108003,2,1742]
-[10108004,1,1929]
-[10108005,1,1651]
-[10108005,2,1619]
-[10108006,1,2228]
-[10108006,2,2203]
-[10108007,1,2408]
-[10108007,2,2424]
-[10108010,1,2905]
-[10108010,2,2844]
-[10108011,1,3140]
-[10108013,1,2261]
-[10108013,2,2192]
-[10108013,3,2179]
-[10108016,1,2044]
-[10108016,2,2038]
-[10108016,3,2002]
-[10108016,4,2034]
-[10108019,1,2311]
-[10108019,2,2276]
-[10108020,1,1614]
-[10108020,2,1586]
-[10108021,1,2990]
-[10108025,1,2645]
-[10108025,2,2596]
-[10108026,1,2655]
-[10108027,1,2125]
-[10108027,2,2150]
-[10108028,1,2063]
-[10108028,2,2087]
-[10108037,1,2236]
-[10108038,1,2051]
-[10108038,2,2059]
-[10108039,1,2924]
-[10108040,1,2319]
-[10108040,2,2337]
-[10109001,1,1437]
-[10109001,2,1412]
-[10109002,1,2608]
-[10109003,1,2913]
-[10109004,1,2384]
-[10109004,2,2414]
-[10109004,3,2346]
-[10109006,1,1997]
-[10109006,2,2027]
-[10110002,1,2949]
-[10110002,2,2967]
-[10110002,3,2914]
-[10110003,1,3094]
-[10110004,1,2058]
-[10110004,2,2077]
-[10110011,1,2603]
-[10110011,2,2495]
-[10110011,3,2585]
-[10110011,4,2631]
-[10110011,5,2594]
-[10110011,6,2459]
-[10110016,1,2149]
-[10110016,2,2182]
-[10110016,3,2167]
-[10110016,4,2180]
-[10110016,5,2194]
-[10110021,1,2288]
-[10110021,2,2306]
-[10110021,3,2365]
-[10110021,4,2349]
-[10110021,5,2332]
-[10110021,6,2177]
-[10110026,1,2095]
-[10110026,2,2039]
-[10110026,3,2008]
-[10110026,4,2019]
-[10110028,1,2293]
-[10110028,2,2231]
-[10110031,1,2660]
-[10110031,2,2680]
-[10110032,1,2678]
-[10110032,2,2670]
-[10110034,1,2393]
-[10110034,2,2449]
-[10110034,3,2409]
-[10110035,1,2088]
-[10110035,2,2082]
-[10110038,1,2714]
-[10110038,2,2740]
-[10110041,1,2103]
-[10110041,2,2139]
-[10110041,3,2153]
-[10110041,4,2166]
-[10110041,5,1981]
-[10110044,1,2368]
-[10110044,2,2374]
-[10110044,3,2328]
-[10110051,1,3212]
-[10110051,2,3260]
-[10110051,3,3286]
-[10110052,1,3300]
-[10110052,2,3326]
-[10110056,1,2388]
-[10110056,2,2455]
-[10110056,3,2453]
-[10110056,4,2364]
-[10110056,5,2351]
-[10110056,6,2458]
-[10110057,1,2894]
-[10110057,2,2886]
-[10110062,1,2727]
-[10110062,2,2686]
-[10110064,1,2197]
-[10110064,2,2219]
-[10110065,1,2012]
-[10110065,2,2046]
-[10110065,3,2030]
-[10110067,1,2215]
-[10110067,2,2231]
-[10110071,1,1934]
-[10110071,2,1966]
-[10110079,1,2583]
-[10110079,2,2584]
-[10110080,1,2177]
-[10110080,2,2172]
-[10110083,1,2081]
-[10110083,2,2099]
-[10110086,1,3450]
-[10110086,2,3461]
-[10110086,3,3433]
-[10110086,4,3249]
-[10110090,1,2400]
-[10110090,2,2379]
-[10110090,3,2396]
-[10110092,1,1916]
-[10110092,2,1911]
-[10110095,1,3285]
-[10110095,2,3307]
-[10110096,1,2721]
-[10110096,2,2760]
-[10110096,3,2750]
-[10110097,1,2929]
-[10110100,1,2675]
-[10110100,2,2671]
-[10110101,1,2464]
-[10110101,2,2479]
-[10110106,1,2953]
-[10110110,1,3247]
-[10110110,2,3257]
-[10110113,1,3332]
-[10110113,2,3242]
-[10110113,3,3351]
-[10110113,4,3235]
-[10110114,1,3536]
-[10110114,2,3510]
-[10110120,1,2933]
-[10110120,2,2968]
-[10110120,3,2913]
-[10110120,4,2971]
-[10110121,1,2194]
-[10110173,1,1147]
-[10111001,1,2440]
-[10111001,2,2354]
-[10111001,3,2335]
-[10111001,4,2357]
-[10111002,1,2952]
-[10111002,2,2983]
-[10111002,3,2871]
-[10111004,1,3369]
-[10111004,2,3403]
-[10111008,1,3639]
-[10111008,2,3705]
-[10111012,1,2896]
-[10111012,2,2870]
-[10111013,1,3483]
-[10111013,2,3450]
-[10111014,1,2737]
-[10111014,2,2716]
-[10111015,1,3542]
-[10111015,2,3495]
-[10111019,1,2582]
-[10111019,2,2575]
-[10111026,1,2222]
-[10111026,2,2236]
-[10111028,1,3897]
-[10112001,1,2817]
-[10112010,1,3054]
-[10112010,2,3058]
-[10112010,3,3016]
-[10112011,1,3737]
-[10112011,2,3665]
-[10112011,3,3638]
-[10112011,4,3681]
-[10112016,1,3237]
-[10112016,2,3180]
-[10112018,1,3795]
-[10112018,2,3825]
-[10112018,3,3832]
-[10112019,1,3721]
-[10112019,2,3601]
-[10112019,3,3725]
-[10112019,4,3636]
-[10112036,1,3706]
-[10112036,2,3734]
-[10112036,3,3580]
-[10112037,1,2068]
-[10112037,2,2029]
-[10112039,1,3089]
-[10112039,2,3078]
-[10112039,3,3045]
-[10112039,4,3083]
-[10112044,1,3449]
-[10112044,2,3390]
-[10113002,1,2428]
-[10113003,1,1295]
-[10113004,1,3417]
-[10113006,1,2883]
-[10113006,2,2933]
-[10113010,1,1204]
-[10113010,2,1226]
-[10113011,1,1748]
-[10113011,2,1703]
-[10113011,3,1705]
-[10113011,4,1708]
-[10113012,1,1654]
-[10113013,1,1422]
-[10113014,1,1163]
-[10113014,2,1172]
-[10113015,1,1305]
-[10113015,2,1312]
-[10113016,1,1232]
-[10113017,1,2937]
-[10113018,1,1006]
-[10113019,1,1756]
-[10113019,2,1784]
-[10113020,1,1549]
-[10113021,1,1383]
-[10113022,1,2767]
-[10113024,1,1921]
-[10113024,2,1933]
-[10113024,3,1960]
-[10113025,1,1380]
-[10113026,1,1428]
-[10113028,1,1702]
-[10113028,2,1712]
-[10113028,3,1654]
-[10113029,1,1320]
-[10113029,2,1338]
-[10113030,1,1623]
-[10113030,2,1622]
-[10113031,1,1338]
-[10113034,1,1832]
-[10113035,1,1674]
-[10113035,2,1653]
-[10113035,3,1690]
-[10113035,4,1638]
-[10113036,1,1512]
-[10113037,1,1915]
-[10113037,2,1909]
-[10113040,1,1269]
-[10113041,1,2012]
-[10113041,2,2018]
-[10113042,1,1321]
-[10113052,1,1469]
-[10113052,2,1461]
-[10113054,1,1564]
-[10114002,1,2193]
-[10114002,2,2245]
-[10114002,3,2216]
-[10114002,4,2194]
-[10114005,1,2331]
-[10114005,2,2315]
-[10114010,1,3298]
-[10114010,2,3326]
-[10114010,3,3249]
-[10114011,1,2278]
-[10114011,2,2247]
-[10114013,1,2465]
-[10114013,2,2492]
-[10114013,3,2508]
-[10114015,1,3722]
-[10114015,2,3655]
-[10114018,1,2125]
-[10114018,2,2132]
-[10114020,1,2180]
-[10114020,2,2137]
-[10114020,3,2172]
-[10114020,4,2178]
-[10114021,1,2107]
-[10114021,2,2083]
-[10114021,3,2071]
-[10114022,1,1690]
-[10114022,2,1657]
-[10114023,1,2686]
-[10114023,2,2706]
-[10114026,1,2523]
-[10114026,2,2523]
-[10114026,3,2543]
-[10114029,1,2450]
-[10114029,2,2406]
-[10114029,3,2408]
-[10114030,1,2930]
-[10114030,2,2967]
-[10114036,1,2973]
-[10114036,2,2945]
-[10114039,1,2199]
-[10114039,2,2189]
-[10114039,3,2213]
-[10114040,1,3037]
-[10114040,2,3014]
-[10115001,1,2200]
-[10115001,2,2188]
-[10115002,1,3116]
-[10115002,2,3175]
-[10115004,1,2747]
-[10115004,2,2734]
-[10115006,1,3341]
-[10115007,1,3329]
-[10115009,1,1323]
-[10115009,2,1329]
-[10115009,3,1402]
-[10115009,4,1360]
-[10115009,5,1395]
-[10115009,6,1365]
-[10115010,1,2247]
-[10115010,2,2260]
-[10115010,3,2251]
-[10115011,1,1115]
-[10115011,2,1115]
-[10115011,3,1107]
-[10115012,1,2012]
-[10115015,1,1230]
-[10115015,2,1220]
-[10115015,3,1216]
-[10115015,4,1210]
-[10115016,1,1212]
-[10115016,2,1219]
-[10115017,1,2786]
-[10115021,1,3747]
-[10115021,2,3739]
-[10115021,3,3670]
-[10115024,1,2051]
-[10115024,2,2023]
-[10115025,1,2871]
-[10115025,2,2832]
-[10115026,1,3069]
-[10115026,2,3089]
-[10115028,1,3221]
-[10115030,1,2564]
-[10115030,2,2563]
-[10115039,1,2547]
-[10115039,2,2519]
-[10116001,1,3015]
-[10116001,2,3052]
-[10116002,1,3324]
-[10116002,2,3429]
-[10116002,3,3309]
-[10116002,4,3323]
-[10116002,5,3385]
-[10116006,1,3007]
-[10116006,2,2961]
-[10116009,1,2635]
-[10116009,2,2619]
-[10116012,1,3604]
-[10116012,2,3526]
-[10116014,1,2803]
-[10117001,1,1822]
-[10117001,2,1823]
-[10117003,1,1704]
-[10117003,2,1677]
-[10117008,1,2102]
-[10117008,2,2103]
-[10117008,3,2069]
-[10117012,1,3622]
-[10117012,2,3666]
-[10117015,1,2158]
-[10117015,2,2132]
-[10117015,3,2175]
-[10117018,1,2683]
-[10117018,2,2712]
-[10117019,1,3856]
-[10117019,2,3883]
-[10117020,1,3570]
-[10117020,2,3574]
-[10117020,3,3485]
-[10117022,1,2586]
-[10117022,2,2547]
-[10117023,1,3164]
-[10117027,1,2130]
-[10117027,2,2143]
-[10117028,1,1983]
-[10117029,1,2493]
-[10117029,2,2522]
-[10117032,1,2415]
-[10117032,2,2341]
-[10117032,3,2405]
-[10117032,4,2328]
-[10117033,1,1848]
-[10117033,2,1837]
-[10117033,3,1879]
-[10117033,4,1880]
-[10117036,1,2249]
-[10117036,2,2281]
-[10117037,1,1911]
-[10117037,2,1925]
-[10117037,3,1864]
-[10117040,1,2339]
-[10117040,2,2305]
-[10118001,1,2472]
-[10118001,2,2446]
-[10118001,3,2488]
-[10118001,4,2430]
-[10118001,5,2420]
-[10118002,1,2732]
-[10118002,2,2774]
-[10118002,3,2785]
-[10118005,1,3218]
-[10118005,2,3226]
-[10118005,3,3301]
-[10118006,1,2409]
-[10118006,2,2357]
-[10118007,1,1997]
-[10118007,2,1974]
-[10118010,1,1709]
-[10119001,1,1999]
-[10119001,2,1981]
-[10119003,1,2027]
-[10119003,2,2053]
-[10119003,3,2069]
-[10119003,4,2013]
-[10119005,1,2316]
-[10119005,2,2362]
-[10119005,3,2323]
-[10119005,4,2372]
-[10119006,1,3739]
-[10119006,2,3755]
-[10119012,1,2538]
-[10119012,2,2483]
-[10119012,3,2506]
-[10119013,1,1801]
-[10119013,2,1795]
-[10119016,1,3309]
-[10119017,1,2960]
-[10119017,2,3012]
-[10120002,1,1425]
-[10120002,2,1421]
-[10120002,3,1394]
-[10120006,1,1675]
-[10120006,2,1689]
-[10120006,3,1716]
-[10120007,1,1578]
-[10120007,2,1593]
-[10120008,1,1370]
-[10120008,2,1414]
-[10120008,3,1414]
-[10120008,4,1342]
-[10120010,1,2207]
-[10120010,2,2183]
-[10120012,1,1696]
-[10120015,1,1634]
-[10120015,2,1677]
-[10120015,3,1657]
-[10120015,4,1681]
-[10120016,1,1783]
-[10120016,2,1781]
-[10120019,1,1744]
-[10120019,2,1736]
-[10120019,3,1705]
-[10120022,1,1273]
-[10120022,2,1306]
-[10120022,3,1299]
-[10120022,4,1308]
-[10120022,5,1241]
-[10120024,1,1706]
-[10120024,2,1689]
-[10120024,3,1654]
-[10120025,1,1452]
-[10120025,2,1420]
-[10120025,3,1419]
-[10120025,4,1420]
-[10121002,1,2029]
-[10121002,2,2048]
-[10121002,3,2045]
-[10121002,4,2013]
-[10121002,5,1984]
-[10121002,6,1980]
-[10121004,1,1615]
-[10121004,2,1622]
-[10121004,3,1564]
-[10121007,1,1100]
-[10121007,2,1112]
-[10121008,1,2005]
-[10121008,2,2004]
-[10121008,3,2029]
-[10121013,1,561]
-[10122003,1,1607]
-[10122003,2,1634]
-[10122003,3,1597]
-[10122005,1,1528]
-[10122005,2,1566]
-[10122005,3,1530]
-[10122005,4,1570]
-[10122005,5,1607]
-[10122005,6,1596]
-[10122006,1,3646]
-[10122008,1,2050]
-[10122008,2,2086]
-[10122008,3,2079]
-[10122010,1,1067]
-[10122010,2,1069]
-[10122011,1,1511]
-[10122011,2,1532]
-[10122011,3,1507]
-[10122011,4,1455]
-[10122013,1,1466]
-[10122013,2,1477]
-[10122013,3,1447]
-[10122013,4,1460]
-[10122013,5,1391]
-[10122015,1,2364]
-[10122015,2,2296]
-[10122015,3,2360]
-[10122015,4,2282]
-[10122021,1,1777]
-[10122021,2,1750]
-[10122021,3,1706]
-[10122021,4,1727]
-[10122021,5,1763]
-[10122026,1,1312]
-[10122026,2,1334]
-[10122027,1,1781]
-[10122027,2,1758]
-[10122029,1,2181]
-[10122029,2,2121]
-[10122029,3,2107]
-[10122030,1,2002]
-[10122030,2,1940]
-[10122030,3,2004]
-[10122030,4,1950]
-[10122033,1,1335]
-[10122033,2,1327]
-[10122033,3,1278]
-[10122035,1,819]
-[10122043,1,1183]
-[10122043,2,1212]
-[10122043,3,1195]
-[20101001,1,1882]
-[20101001,2,1879]
-[20101001,3,1918]
-[20101003,1,1563]
-[20101003,2,1474]
-[20101005,1,1711]
-[20101005,2,1701]
-[20101006,1,1955]
-[20101006,2,1867]
-[20101008,1,1745]
-[20101009,1,1720]
-[20101009,2,1740]
-[20101009,3,1747]
-[20101010,1,2269]
-[20101010,2,2250]
-[20101010,3,2250]
-[20101013,1,2538]
-[20101013,2,2472]
-[20101015,1,1868]
-[20101015,2,1877]
-[20101015,3,1866]
-[20101015,4,1759]
-[20101017,1,2069]
-[20101017,2,2043]
-[20101017,3,2010]
-[20101019,1,1973]
-[20101019,2,2001]
-[20101020,1,2069]
-[20101020,2,2015]
-[20101021,1,1661]
-[20101021,2,1643]
-[20101022,1,2443]
-[20101022,2,2494]
-[20101022,3,2449]
-[20101032,1,3251]
-[20101032,2,3164]
-[20101036,1,1357]
-[20101036,2,1387]
-[20102001,1,3545]
-[20102002,1,2580]
-[20201001,1,3156]
-[20201001,2,3124]
-[20201004,1,3151]
-[20201004,2,3133]
-[20201004,3,3148]
-[20201008,1,3515]
-[20202001,1,1371]
-[20301001,1,2500]
-[20301001,2,2509]
-[20301003,1,1530]
-[20301006,1,1707]
-[20301006,2,1627]
-[20301007,1,1578]
-[20301009,1,1672]
-[20301010,1,2164]
-[20301011,1,1572]
-[20301011,2,1567]
-[20301012,1,2939]
-[20301012,2,2932]
-[20301013,1,3790]
-[20301015,1,1432]
-[20301015,2,1401]
-[20301017,1,2382]
-[20301017,2,2418]
-[20301018,1,3413]
-[20301018,2,3428]
-[20301020,1,2818]
-[20301020,2,2844]
-[20301023,1,2156]
-[20301023,2,2178]
-[20301025,1,2540]
-[20301025,2,2548]
-[20301026,1,1917]
-[20301026,2,1916]
-[20301027,1,2224]
-[20301027,2,2143]
-[20301028,1,2278]
-[20301028,2,2224]
-[20301029,1,3348]
-[20301029,2,3397]
-[20301030,1,2729]
-[20301030,2,2738]
-[20301030,3,2626]
-[20301031,1,3466]
-[20301032,1,3357]
-[20301040,1,1548]
-[20301045,1,3161]
-[20301045,2,3096]
-[20301052,1,2823]
-[20301053,1,2441]
-[20301054,1,2262]
-[20301054,2,2285]
-[20301062,1,1688]
-[20301062,2,1694]
-[20302001,1,2770]
-[20302001,2,2721]
-[20302001,3,2751]
-[20302004,1,3346]
-[20302004,2,3335]
-[20302005,1,3630]
-[20302005,2,3677]
-[20302005,3,3690]
-[20302006,1,3699]
-[20302011,1,1940]
-[20302013,1,1987]
-[20302013,2,2007]
-[20302013,3,1966]
-[20302014,1,1307]
-[20302014,2,1277]
-[20302016,1,2258]
-[20302016,2,2254]
-[20302019,1,2860]
-[20302019,2,2868]
-[20302021,1,1787]
-[20302022,1,2926]
-[20302022,2,2950]
-[20302024,1,2506]
-[20302024,2,2470]
-[20302026,1,2488]
-[20302026,2,2462]
-[20302027,1,1607]
-[20302028,1,1792]
-[20302028,2,1685]
-[20302028,3,1726]
-[20302028,4,1763]
-[20302032,1,2677]
-[20302032,2,2578]
-[20302033,1,2896]
-[20302033,2,2918]
-[20302033,3,2860]
-[20302036,1,2810]
-[20302036,2,2781]
-[20302038,1,2210]
-[20302038,2,2188]
-[20302040,1,2176]
-[20302040,2,2149]
-[20302041,1,3623]
-[20302041,2,3600]
-[20302044,1,1141]
-[20302053,1,1403]
-[20302053,2,1418]
-[20302053,3,1256]
-[20303001,1,3521]
-[20304001,1,3723]
-[20305001,1,2258]
-[20306004,1,3381]
-[20306004,2,3304]
-[20306004,3,3372]
-[20401002,1,2869]
-[20401002,2,2834]
-[20401002,3,2831]
-[20401002,4,2743]
-[20402002,1,2581]
-[20402002,2,2584]
-[20403002,1,4035]
-[20501001,1,3737]
-[20501001,2,3692]
-[20502001,1,2063]
-[20601002,1,2206]
-[20601002,2,2268]
-[20601002,3,2230]
-[20601002,4,2197]
-[20601003,1,2109]
-[20601003,2,2049]
-[20601003,3,2044]
-[20601003,4,2087]
-[20601006,1,2282]
-[20601006,2,2277]
-[20601006,3,2209]
-[20601006,4,2325]
-[20601006,5,2229]
-[20601017,1,2950]
-[20601017,2,2849]
-[20601017,3,2851]
-[20601018,1,2480]
-[20602001,1,1815]
-[20603001,1,2080]
-[20603001,2,2088]
-[20604002,1,2407]
-[20604002,2,2354]
-[20701002,1,3717]
-[20701002,2,3694]
-[20701005,1,3860]
-[20701005,2,3830]
-[20701007,1,2137]
-[20702001,1,2373]
-[20702001,2,2322]
-[20801001,1,2665]
-[20801001,2,2719]
-[20801001,3,2687]
-[20802001,1,1596]
-[20803001,1,2928]
-[20901004,1,3052]
-[20901004,2,2973]
-[20901004,3,2977]
-[20901004,4,3087]
-[20901004,5,3057]
-[20901006,1,2388]
-[20901006,2,2324]
-[20901006,3,2358]
-[20902001,1,2579]
-[20903001,1,1913]
-[20904001,1,2499]
-[21001001,1,3260]
-[21002001,1,1131]
-[21003001,1,3702]
-[21004001,1,2159]
-[21005001,1,1818]
-[21006001,1,2289]
-[21101001,1,2623]
-[21101001,2,2600]
-[21101001,3,2668]
-[21101001,4,2649]
-[21101001,5,2660]
-[21101001,6,2657]
-[21102001,1,2551]
-[21103001,1,2028]
-[21201001,1,2620]
-[21201001,2,2626]
-[21201002,1,2842]
-[21201004,1,2173]
-[21201004,2,2110]
-[21201005,1,3107]
-[21201006,1,3333]
-[21201006,2,3214]
-[21201006,3,3202]
-[21201011,1,2822]
-[21201011,2,2834]
-[21201014,1,2000]
-[21201014,2,1993]
-[21201018,1,2028]
-[21201018,2,2072]
-[21201018,3,2094]
-[21201018,4,2078]
-[21201019,1,2036]
-[21201019,2,2040]
-[21201020,1,2206]
-[21201020,2,2171]
-[21201021,1,1784]
-[21201021,2,1757]
-[21201021,3,1774]
-[21201024,1,1660]
-[21201024,2,1668]
-[21201025,1,1534]
-[21201025,2,1553]
-[21201025,3,1495]
-[21201027,1,1738]
-[21201028,1,1604]
-[21201028,2,1620]
-[21201028,3,1590]
-[21201029,1,1451]
-[21201029,2,1454]
-[21201029,3,1423]
-[21201030,1,2420]
-[21201030,2,2435]
-[21201032,1,2539]
-[21201034,1,2398]
-[21201034,2,2361]
-[21201035,1,1855]
-[21201035,2,1869]
-[21201035,3,1843]
-[21201036,1,1773]
-[21201036,2,1779]
-[21201036,3,1743]
-[21201040,1,1791]
-[21201040,2,1751]
-[21201040,3,1788]
-[21201040,4,1752]
-[21201052,1,3118]
-[21301001,1,1898]
-[21301001,2,1879]
-[21301002,1,2478]
-[21301003,1,1666]
-[21301003,2,1644]
-[21301004,1,2240]
-[21301004,2,2275]
-[21301010,1,1951]
-[21301011,1,2415]
-[21301011,2,2425]
-[21301011,3,2356]
-[21301012,1,1150]
-[21301012,2,1132]
-[21301014,1,2012]
-[21301014,2,1960]
-[21301014,3,1988]
-[21301014,4,1934]
-[21301015,1,2673]
-[21301015,2,2658]
-[21301015,3,2586]
-[21301020,1,2799]
-[21301020,2,2727]
-[21301021,1,2345]
-[21301021,2,2327]
-[21301021,3,2350]
-[21301025,1,1523]
-[21301025,2,1488]
-[21301026,1,1653]
-[21301026,2,1666]
-[21301027,1,1485]
-[21301027,2,1460]
-[21301028,1,2722]
-[21301028,2,2725]
-[21301028,3,2764]
-[21301028,4,2676]
-[21301028,5,2743]
-[21301032,1,1854]
-[21301032,2,1821]
-[21301033,1,1909]
-[21301035,1,3133]
-[21301035,2,3178]
-[21301036,1,2318]
-[21301036,2,2350]
-[21301050,1,2388]
-[21301057,1,2711]
-[21301057,2,2697]
-[21301086,1,2788]
-[21301087,1,1800]
-[21301087,2,1793]
-[21302002,1,1951]
-[21302002,2,1914]
-[21302003,1,1876]
-[21302003,2,1816]
-[21302005,1,2415]
-[21302005,2,2396]
-[21302006,1,1712]
-[21302006,2,1717]
-[21302007,1,3014]
-[21302008,1,1859]
-[21302008,2,1894]
-[21302009,1,2169]
-[21302010,1,1631]
-[21302010,2,1574]
-[21302010,3,1593]
-[21302013,1,1790]
-[21302013,2,1772]
-[21302016,1,1845]
-[21302016,2,1804]
-[21302016,3,1754]
-[21302016,4,1801]
-[21302017,1,1799]
-[21302017,2,1761]
-[21302018,1,3074]
-[21302022,1,2715]
-[21302022,2,2742]
-[21401001,1,2969]
-[21401002,1,3226]
-[21401002,2,3229]
-[21401003,1,1753]
-[21401003,2,1774]
-[21401005,1,2431]
-[21401007,1,3973]
-[21401007,2,4000]
-[21401008,1,1880]
-[21401009,1,3245]
-[21401009,2,3271]
-[21401009,3,3267]
-[21401010,1,2525]
-[21401013,1,1911]
-[21401013,2,1799]
-[21401016,1,2690]
-[21401016,2,2678]
-[21401016,3,2678]
-[21501002,1,3023]
-[21501002,2,3018]
-[21501004,1,2098]
-[21501004,2,2116]
-[21501004,3,2066]
-[21501004,4,2143]
-[21502001,1,2856]
-[21502002,1,2545]
-[21502002,2,2576]
-[21601005,1,2136]
-[21601005,2,2122]
-[21601007,1,4012]
-[21601007,2,4037]
-[21601007,3,4015]
-[21602001,1,676]
-[21701001,1,1262]
-[21701001,2,1265]
-[21701001,3,1262]
-[21701002,1,1467]
-[21701002,2,1452]
-[21701003,1,1422]
-[21701003,2,1397]
-[21701003,3,1310]
-[21701003,4,1236]
-[21701004,1,1095]
-[21701004,2,1151]
-[21701004,3,1121]
-[21701005,1,1118]
-[21701005,2,1114]
-[21701006,1,952]
-[21701006,2,959]
-[21701007,1,1038]
-[21701007,2,1031]
-[21701007,3,1048]
-[21701009,1,1343]
-[21701009,2,1363]
-[21702001,1,1248]
-[21702001,2,1225]
-[21702002,1,1236]
-[21702002,2,1231]
-[21801002,1,2599]
-[21801004,1,2929]
-[21801004,2,2816]
-[21802001,1,928]
-[21901002,1,3263]
-[21901002,2,3316]
-[21902001,1,948]
-[22001001,1,2855]
-[22001001,2,2864]
-[22002002,1,1673]
-[22101001,1,2862]
-[22101001,2,2905]
-[22102001,1,824]
-[30101001,1,4071]
-[30101001,2,4045]
-[30101002,1,2366]
-[30101002,2,2305]
-[30101006,1,3690]
-[30101006,2,3752]
-[30102001,1,3161]
-[30103001,1,3398]
-[30104001,1,3229]
-[30105001,1,3702]
-[30106001,1,3432]
-[30201001,1,2125]
-[30201001,2,2117]
-[30202002,1,2436]
-[30202002,2,2421]
-[30202003,1,3760]
-[30203001,1,1233]
-[30204001,1,1805]
-[30205003,1,3543]
-[30301001,1,3457]
-[30301001,2,3504]
-[30301001,3,3528]
-[30301002,1,2061]
-[30301002,2,2025]
-[30301008,1,2907]
-[30301008,2,2953]
-[30301010,1,2978]
-[30301010,2,3026]
-[30301010,3,2952]
-[30301017,1,2398]
-[30302001,1,2582]
-[30303001,1,3136]
-[30303001,2,3046]
-[30303001,3,3011]
-[30304001,1,3009]
-[30304001,2,3013]
-[30304001,3,2982]
-[30304004,1,1922]
-[30305002,1,3915]
-[30305002,2,3903]
-[30401001,1,3486]
-[30401001,2,3512]
-[30402001,1,3111]
-[30403001,1,3270]
-[30403006,1,2159]
-[30403006,2,2108]
-[30403010,1,2512]
-[30501001,1,2679]
-[30501001,2,2711]
-[30501001,3,2736]
-[30501005,1,2765]
-[30501005,2,2757]
-[30502003,1,3410]
-[30601003,1,3395]
-[30601004,1,1800]
-[30601004,2,1754]
-[30601005,1,3284]
-[30601005,2,3239]
-[30601007,1,1524]
-[30601007,2,1541]
-[30601009,1,3543]
-[30601010,1,3473]
-[30601011,1,2750]
-[30601012,1,2432]
-[30601013,1,1975]
-[30601013,2,1968]
-[30601014,1,2161]
-[30601015,1,1947]
-[30601015,2,1940]
-[30601016,1,2098]
-[30601016,2,2080]
-[30601017,1,3892]
-[30601022,1,2299]
-[30601022,2,2299]
-[30601024,1,3225]
-[30601025,1,3284]
-[30601025,2,3295]
-[30601028,1,3024]
-[30601029,1,1836]
-[30601030,1,2440]
-[30601031,1,2008]
-[30601031,2,2030]
-[30601038,1,2446]
-[30602001,1,2949]
-[30602001,2,2998]
-[30603002,1,2801]
-[30603002,2,2840]
-[30603004,1,3433]
-[30603004,2,3442]
-[30603004,3,3350]
-[30604001,1,2504]
-[30604001,2,2517]
-[30701005,1,3114]
-[30701005,2,3005]
-[30701008,1,2304]
-[30701008,2,2345]
-[30701014,1,3665]
-[30701015,1,3988]
-[30701019,1,3342]
-[30701019,2,3319]
-[30701021,1,4072]
-[30701022,1,2289]
-[30701022,2,2274]
-[40101001,1,2085]
-[40101001,2,2075]
-[40101001,3,2088]
-[40101004,1,2607]
-[40101005,1,1864]
-[40101006,1,2036]
-[40101006,2,2045]
-[40101006,3,2003]
-[40101006,4,2075]
-[40101009,1,2062]
-[40101009,2,2056]
-[40101009,3,2106]
-[40101010,1,2983]
-[40101011,1,2645]
-[40101011,2,2588]
-[40101012,1,2814]
-[40101012,2,2761]
-[40101013,1,1534]
-[40101013,2,1513]
-[40102001,1,2536]
-[40102002,1,951]
-[40103001,1,1330]
-[40103001,2,1303]
-[40103001,3,1307]
-[40103001,4,1313]
-[40103001,5,1292]
-[40103003,1,3350]
-[40103003,2,3271]
-[40103005,1,1529]
-[40103005,2,1466]
-[40103005,3,1440]
-[40103005,4,1448]
-[40103005,5,1528]
-[40103005,6,1517]
-[40103005,7,1483]
-[40103008,1,2279]
-[40103008,2,2273]
-[40103008,3,2266]
-[40103012,1,1663]
-[40103012,2,1605]
-[40103012,3,1667]
-[40103012,4,1664]
-[40103012,5,1608]
-[40103014,1,1839]
-[40103014,2,1806]
-[40103014,3,1789]
-[40103014,4,1821]
-[40103014,5,1816]
-[40103016,1,3087]
-[40103021,1,1126]
-[40103021,2,1146]
-[40104001,1,1846]
-[40104001,2,1881]
-[40104001,3,1859]
-[40104003,1,2414]
-[40104003,2,2399]
-[40104003,3,2385]
-[40104005,1,1998]
-[40104008,1,1891]
-[40104008,2,1903]
-[40104008,3,1933]
-[40104011,1,2301]
-[40104011,2,2249]
-[40104011,3,2318]
-[40104011,4,2297]
-[40104013,1,2151]
-[40104013,2,2053]
-[40104013,3,2044]
-[40104015,1,1950]
-[40104015,2,1978]
-[40104016,1,1425]
-[40104016,2,1405]
-[40105008,1,3397]
-[40105008,2,3304]
-[40105008,3,3435]
-[40105008,4,3385]
-[40105008,5,3385]
-[40105010,1,2707]
-[40105010,2,2728]
-[40105010,3,2689]
-[40105012,1,1565]
-[40105012,2,1566]
-[40105015,1,3335]
-[40105015,2,3339]
-[40105015,3,3260]
-[40105016,1,2259]
-[40105016,2,2177]
-[40106002,1,2526]
-[40106002,2,2567]
-[40106002,3,2532]
-[40106004,1,1468]
-[40106004,2,1453]
-[40106004,3,1545]
-[40106004,4,1493]
-[40106004,5,1524]
-[40106004,6,1502]
-[40106008,1,1034]
-[40106008,2,1002]
-[40106008,3,1007]
-[40106010,1,3300]
-[40106010,2,3235]
-[40106010,3,3321]
-[40106014,1,3886]
-[40106014,2,3759]
-[40106014,3,3730]
-[40106014,4,3682]
-[40106016,1,1703]
-[40106016,2,1685]
-[40107001,1,2179]
-[40107001,2,2174]
-[40107002,1,2674]
-[40107003,1,2209]
-[40107004,1,2238]
-[40107005,1,3405]
-[40107005,2,3410]
-[40107008,1,2599]
-[40107008,2,2633]
-[40107008,3,2607]
-[40107008,4,2572]
-[40107008,5,2451]
-[40107012,1,1561]
-[40107012,2,1539]
-[40107012,3,1502]
-[40107013,1,861]
-[40107013,2,852]
-[40107014,1,1692]
-[40107014,2,1733]
-[40107014,3,1732]
-[40107019,1,1757]
-[40108001,1,1708]
-[40108002,1,3182]
-[40108002,2,3187]
-[40108002,3,3221]
-[40108004,1,2028]
-[40108006,1,2332]
-[40108006,2,2368]
-[40108009,1,3780]
-[40108009,2,3735]
-[40108010,1,3971]
-[40108011,1,3252]
-[40108011,2,3244]
-[40108013,1,2043]
-[40108013,2,2053]
-[40108014,1,2509]
-[40108014,2,2459]
-[40108014,3,2479]
-[40108014,4,2429]
-[40108014,5,2469]
-[40108017,1,1723]
-[40201005,1,2485]
-[40201005,2,2475]
-[40201005,3,2447]
-[40201006,1,2698]
-[40201006,2,2744]
-[40201006,3,2738]
-[40201006,4,2747]
-[40201006,5,2741]
-[40201008,1,1726]
-[40201008,2,1667]
-[40201012,1,2895]
-[40201012,2,2883]
-[40201012,3,2815]
-[40201012,4,2937]
-[40201012,5,2874]
-[40202001,1,3563]
-[40202001,2,3620]
-[40202001,3,3604]
-[40202001,4,3526]
-[40202005,1,1630]
-[40202005,2,1618]
-[40202007,1,3262]
-[40202009,1,3170]
-[40202009,2,3135]
-[40202009,3,3107]
-[40202013,1,3339]
-[40202013,2,3326]
-[40202013,3,3347]
-[40202013,4,3172]
-[40202015,1,3326]
-[40203001,1,2636]
-[40203003,1,3852]
-[40203003,2,3886]
-[40203003,3,3873]
-[40204001,1,1104]
-[40205001,1,3269]
-[40205001,2,3214]
-[40205003,1,3450]
-[40205003,2,3220]
-[40205003,3,3262]
-[40205003,4,3315]
-[40205005,1,2400]
-[40205005,2,2449]
-[40301007,1,3230]
-[40301007,2,3251]
-[40301007,3,3149]
-[40301007,4,3312]
-[40301007,5,3216]
-[40301009,1,2758]
-[40301009,2,2728]
-[40301009,3,2823]
-[40301009,4,2799]
-[40301010,1,3502]
-[40301010,2,3483]
-[40301010,3,3542]
-[40301010,4,3452]
-[40302001,1,3345]
-[40302001,2,3352]
-[40302001,3,3425]
-[40302001,4,3361]
-[40302001,5,3455]
-[40303001,1,2146]
-[40304001,1,2581]
-[40304001,2,2485]
-[40304001,3,2581]
-[40304001,4,2426]
-[40304001,5,2536]
-[40304001,6,2462]
-[40304001,7,2482]
-[40304006,1,3103]
-[40304006,2,3143]
-[40304006,3,3172]
-[40304006,4,3109]
-[40304006,5,3101]
-[40305001,1,2274]
-[40305001,2,2309]
-[40401001,1,2896]
-[40401001,2,2871]
-[40401002,1,2932]
-[40401002,2,2954]
-[40401009,1,2351]
-[40402001,1,1168]
-[40403001,1,1354]
-[40404001,1,914]
-[40501001,1,3024]
-[40501001,2,3043]
-[40501011,1,3106]
-[40501011,2,3090]
-[40501011,3,3101]
-[40601003,1,2347]
-[40601003,2,2352]
-[40601003,3,2352]
-[40601003,4,2390]
-[40601003,5,2387]
-[40601007,1,2162]
-[40601007,2,2197]
-[40601007,3,2169]
-[40601007,4,2155]
-[40601007,5,2169]
-[40601007,6,2083]
-[40601007,7,1955]
-[40601010,1,2280]
-[40601010,2,2311]
-[40601010,3,2358]
-[40601010,4,2307]
-[40601010,5,2247]
-[40601013,1,2898]
-[40601013,2,2840]
-[40601013,3,2777]
-[40601014,1,2342]
-[40601014,2,2358]
-[40601014,3,2376]
-[40601014,4,2256]
-[40601014,5,2301]
-[40601016,1,1841]
-[40601016,2,1825]
-[40601016,3,1834]
-[40601017,1,2878]
-[40601017,2,2850]
-[40601017,3,2837]
-[40602001,1,3046]
-[40602001,2,3102]
-[40701002,1,2675]
-[40701002,2,2695]
-[40701002,3,2676]
-[40702001,1,1900]
-[40703001,1,3203]
-[40704002,1,1625]
-[40801003,1,3043]
-[40801003,2,3084]
-[40801003,3,3051]
-[40801003,4,2998]
-[40801003,5,2944]
-[40801005,1,3816]
-[40801005,2,3913]
-[40801005,3,3899]
-[40801009,1,3786]
-[40801009,2,3667]
-[40801010,1,3803]
-[40801010,2,3833]
-[40801010,3,3885]
-[40801010,4,3925]
-[40801015,1,2003]
-[40801015,2,1997]
-[40802001,1,3134]
-[40802001,2,3207]
-[40802001,3,3190]
-[40802007,1,2574]
-[40803002,1,3262]
-[40803002,2,3275]
-[40803002,3,3242]
-[40803002,4,3291]
-[40804001,1,3223]
-[40804002,1,2337]
-[40805001,1,4002]
-[40805002,1,459]
-[40901001,1,2679]
-[40901001,2,2599]
-[40901001,3,2685]
-[40901001,4,2572]
-[40901001,5,2668]
-[40901004,1,2513]
-[40901004,2,2548]
-[40901004,3,2467]
-[40901004,4,2477]
-[40902002,1,3069]
-[40902002,2,3100]
-[40902002,3,3127]
-[40902004,1,3830]
-[40902004,2,3890]
-[40902005,1,2141]
-[40902005,2,2168]
-[40902007,1,2477]
-[40902007,2,2507]
-[40902007,3,2483]
-[40902007,4,2484]
-[40902007,5,2518]
-[41001002,1,2260]
-[41001002,2,2269]
-[41001002,3,2202]
-[41001003,1,3699]
-[41001005,1,3316]
-[41001006,1,2596]
-[41001006,2,2583]
-[41001006,3,2637]
-[41101001,1,2650]
-[41101001,2,2680]
-[41101003,1,2153]
-[41101003,2,2115]
-[41101004,1,2809]
-[41101004,2,2822]
-[41101004,3,2825]
-[41101004,4,2775]
-[41101006,1,3801]
-[41101006,2,3762]
-[41201001,1,3440]
-[41201001,2,3355]
-[41201001,3,3262]
-[41201001,4,3274]
-[41201003,1,3412]
-[41201003,2,3359]
-[41202003,1,2649]
-[41301002,1,2841]
-[41301002,2,2870]
-[41301002,3,2786]
-[41301002,4,2767]
-[41301005,1,1760]
-[41301007,1,2434]
-[41301007,2,2393]
-[41301007,3,2331]
-[41301007,4,2378]
-[41301007,5,2394]
-[41301012,1,1322]
-[41301012,2,1301]
-[41301012,3,1336]
-[41302009,1,2182]
-[41302009,2,2148]
-[41302009,3,2143]
-[41302010,1,2309]
-[41302010,2,2311]
-[41302010,3,2260]
-[41302010,4,2335]
-[41302010,5,2284]
-[41302012,1,2126]
-[41302012,2,2103]
-[41302012,3,2089]
-[41302012,4,2064]
-[41302012,5,2171]
-[41302012,6,2127]
-[41302013,1,2194]
-[41302013,2,2255]
-[41302013,3,2169]
-[41302013,4,2238]
-[41302014,1,2320]
-[41302014,2,2362]
-[41302014,3,2341]
-[41401002,1,3360]
-[41401002,2,3323]
-[41401016,1,2548]
-[41401016,2,2497]
-[41501001,1,2794]
-[41501001,2,2745]
-[41501001,3,2714]
-[41502001,1,3101]
-[41601003,1,3967]
-[41601003,2,3952]
-[41601004,1,2973]
-[41601004,2,2986]
-[41601007,1,3940]
-[41601007,2,3770]
-[41601007,3,3764]
-[41601007,4,3733]
-[41701001,1,3227]
-[41701001,2,3289]
-[41701001,3,3315]
-[41701002,1,2662]
-[41701002,2,2615]
-[41701004,1,3477]
-[41701004,2,3411]
-[41701004,3,3475]
-[41701004,4,3324]
-[41701009,1,2461]
-[41701009,2,2498]
-[41701009,3,2450]
-[41701009,4,2518]
-[41701009,5,2440]
-[41701009,6,2428]
-[41701013,1,2843]
-[41701015,1,2400]
-[41701015,2,2423]
-[41702001,1,2844]
-[41702001,2,2871]
-[41702001,3,2882]
-[41702003,1,2929]
-[41702003,2,2879]
-[41702003,3,2979]
-[41703001,1,3620]
-[41703001,2,3619]
-[41703001,3,3497]
-[41801001,1,2995]
-[41801001,2,2992]
-[41801004,1,2129]
-[50101001,1,3580]
-[50101001,2,3578]
-[50102001,1,1578]
-[50103001,1,2452]
-[50103001,2,2435]
-[50104003,1,2996]
-[50201001,1,2458]
-[50201001,2,2476]
-[50202001,1,2232]
-[50202001,2,2238]
-[50202001,3,2211]
-[50202002,1,1844]
-[50202002,2,1813]
-[50202002,3,1816]
-[50203001,1,2518]
-[50203001,2,2504]
-[50204001,1,2211]
-[50205001,1,3620]
-[50206001,1,3240]
-[50207001,1,2827]
-[50207001,2,2778]
-[50207002,1,2418]
-[50207002,2,2426]
-[50207002,3,2394]
-[50207004,1,2120]
-[50207004,2,2141]
-[50207005,1,2231]
-[50207006,1,2773]
-[50207006,2,2768]
-[50207008,1,1938]
-[50207008,2,1963]
-[50207009,1,1814]
-[50207009,2,1790]
-[50207010,1,1469]
-[50207010,2,1478]
-[50208001,1,2977]
-[50208001,2,2982]
-[50208002,1,3276]
-[50208002,2,3176]
-[50208004,1,3907]
-[50208004,2,3915]
-[50208007,1,1476]
-[50208007,2,1509]
-[50208007,3,1518]
-[50208009,1,3327]
-[50209001,1,2508]
-[50209001,2,2502]
-[50209001,3,2561]
-[50209002,1,3661]
-[50209002,2,3613]
-[50209002,3,3589]
-[50209005,1,2161]
-[50209006,1,1802]
-[50209006,2,1790]
-[50209007,1,1271]
-[50209010,1,3548]
-[50209010,2,3610]
-[50209010,3,3554]
-[50210002,1,3515]
-[50210002,2,3319]
-[50210002,3,3385]
-[50210002,4,3331]
-[50210005,1,3240]
-[50210005,2,3382]
-[50210005,3,3318]
-[50210005,4,3319]
-[50210005,5,3323]
-[50210006,1,2024]
-[50210006,2,2000]
-[50211001,1,1148]
-[50211001,2,1105]
-[50211001,3,1131]
-[50211001,4,1123]
-[50211005,1,2365]
-[50211005,2,2333]
-[50211005,3,2284]
-[50211006,1,1502]
-[50211006,2,1500]
-[50211007,1,2011]
-[50211007,2,1977]
-[50211013,1,3459]
-[50211014,1,4003]
-[50211014,2,3952]
-[50211016,1,1145]
-[50212001,1,2515]
-[50212001,2,2535]
-[50213001,1,2391]
-[50214001,1,2504]
-[50214003,1,2283]
-[50301001,1,840]
-[50301002,1,1613]
-[50302001,1,3628]
-[50302001,2,3626]
-[50302003,1,3068]
-[50302003,2,3052]
-[50302003,3,3041]
-[50302003,4,2868]
-[50302004,1,3795]
-[50302004,2,3763]
-[50303001,1,2230]
-[50303001,2,2212]
-[50401002,1,1892]
-[50401002,2,1869]
-[50401004,1,2466]
-[50401004,2,2482]
-[50401005,1,2378]
-[50401005,2,2375]
-[50401006,1,2206]
-[50401006,2,2164]
-[50401007,1,1513]
-[50401008,1,2397]
-[50401011,1,1067]
-[50401023,1,2598]
-[50402001,1,2534]
-[50403001,1,2504]
-[50404002,1,2078]
-[50404002,2,2105]
-[50501001,1,2164]
-[50502001,1,2303]
-[50502001,2,2310]
-[50503001,1,3905]
-[50503001,2,3963]
-[50503007,1,2878]
-[50504001,1,2937]
-[50504001,2,2873]
-[50601001,1,1839]
-[50601001,2,1796]
-[50601001,3,1773]
-[50601004,1,1856]
-[50601004,2,1837]
-[50601006,1,2596]
-[50601007,1,2055]
-[50601007,2,2097]
-[50601007,3,2094]
-[50601009,1,2604]
-[50601017,1,1317]
-[50601022,1,3263]
-[50601023,1,3073]
-[50602001,1,2529]
-[50603001,1,4016]
-[50603003,1,477]
-[50604001,1,2639]
-[50604001,2,2646]
-[50701001,1,2550]
-[50701001,2,2542]
-[50702001,1,3806]
-[50702001,2,3731]
-[50703001,1,3193]
-[50703001,2,3137]
-[50704001,1,3200]
-[50704001,2,3258]
-[50801001,1,2988]
-[50801001,2,2988]
-[50801001,3,3024]
-[50802001,1,1819]
-[50802002,1,2053]
-[50803001,1,1798]
-[50804003,1,1222]
-[50901001,1,2695]
-[50901001,2,2730]
-[50902004,1,2921]
-[50902006,1,1801]
-[50902007,1,3190]
-[50902007,2,3262]
-[50902007,3,3278]
-[50902007,4,3191]
-[50902007,5,3096]
-[51001001,1,3241]
-[51001001,2,3259]
-[51001001,3,3004]
-[51001002,1,3338]
-[51001002,2,3327]
-[51001004,1,2012]
-[51001004,2,2084]
-[51001005,1,3015]
-[51001005,2,2972]
-[51001005,3,2966]
-[51001006,1,3045]
-[51001006,2,3012]
-[51002001,1,2414]
-[51002001,2,2457]
-[51003002,1,3944]
-[51101002,1,3451]
-[51101002,2,3464]
-[51101002,3,3504]
-[51101002,4,3558]
-[51102002,1,2810]
-[51103003,1,468]
-[51201001,1,2021]
-[51201001,2,1981]
-[51201003,1,1340]
-[51202001,1,3225]
-[51203002,1,2698]
-[60101005,1,3104]
-[60101005,2,3041]
-[60101007,1,3171]
-[60101007,2,3103]
-[60101011,1,1524]
-[60101012,1,1530]
-[60101016,1,3166]
-[60101016,2,3163]
-[60101019,1,2270]
-[60101019,2,2251]
-[60101019,3,2273]
-[60101019,4,2278]
-[60101021,1,2600]
-[60101021,2,2517]
-[60101021,3,2506]
-[60101021,4,2541]
-[60101022,1,2859]
-[60101022,2,2810]
-[60101022,3,2765]
-[60101022,4,2770]
-[60101037,1,3871]
-[60101037,2,3931]
-[60102004,1,2869]
-[60102004,2,2863]
-[60102004,3,2846]
-[60102004,4,2846]
-[60102004,5,2672]
-[60102005,1,3357]
-[60102005,2,3403]
-[60102007,1,2389]
-[60102007,2,2342]
-[60102011,1,2910]
-[60102011,2,2914]
-[60102011,3,2843]
-[60102012,1,2256]
-[60102012,2,2285]
-[60102015,1,3742]
-[60102015,2,3645]
-[60102016,1,3176]
-[60102016,2,3141]
-[60103001,1,3848]
-[60103001,2,3911]
-[60103001,3,3889]
-[60103002,1,3611]
-[60103002,2,3515]
-[60103002,3,3463]
-[60103002,4,3495]
-[60103006,1,2614]
-[60103006,2,2616]
-[60103011,1,3568]
-[60103011,2,3587]
-[60103011,3,3621]
-[60104001,1,3672]
-[60104001,2,3685]
-[60104001,3,3737]
-[60104003,1,2840]
-[60104003,2,2867]
-[60104003,3,2898]
-[60104004,1,3882]
-[60104004,2,3792]
-[60104004,3,3818]
-[60104004,4,3874]
-[60104015,1,2247]
-[60104015,2,2273]
-[60104016,1,3423]
-[60104016,2,3462]
-[60104016,3,3481]
-[60104016,4,3425]
-[60104031,1,1422]
-[60104031,2,1441]
-[60105003,1,1668]
-[60105004,1,2782]
-[60105004,2,2778]
-[60105004,3,2729]
-[60105004,4,2805]
-[60105010,1,3903]
-[60105010,2,3936]
-[60105010,3,3890]
-[60105015,1,3112]
-[60105015,2,3170]
-[60105016,1,3108]
-[60105016,2,3083]
-[60105023,1,3601]
-[60105023,2,3589]
-[60105023,3,3638]
-[60105023,4,3683]
-[60106001,1,2391]
-[60106003,1,1956]
-[60106003,2,1991]
-[60106004,1,1566]
-[60106005,1,2112]
-[60106005,2,2118]
-[60106005,3,1985]
-[60106006,1,1667]
-[60106008,1,2964]
-[60106008,2,2954]
-[60106011,1,936]
-[60106011,2,938]
-[60106013,1,1696]
-[60106013,2,1706]
-[60106015,1,1480]
-[60106015,2,1477]
-[60106015,3,1411]
-[60106015,4,1445]
-[60106015,5,1429]
-[60106015,6,1406]
-[60107001,1,895]
-[60107001,2,886]
-[60107003,1,1067]
-[60107003,2,1091]
-[60107003,3,1104]
-[60107004,1,1264]
-[60107004,2,1308]
-[60107004,3,1318]
-[60107004,4,1231]
-[60107005,1,1994]
-[60107006,1,1427]
-[60107006,2,1332]
-[60107006,3,1310]
-[60107006,4,1346]
-[60107007,1,919]
-[60107007,2,939]
-[60107008,1,1331]
-[60107008,2,1389]
-[60107008,3,1350]
-[60107008,4,1342]
-[60107008,5,1371]
-[60107008,6,1386]
-[60107010,1,1563]
-[60107010,2,1442]
-[60107010,3,1462]
-[60107010,4,1506]
-[60107010,5,1433]
-[60107010,6,1447]
-[60108004,1,1856]
-[60108004,2,1804]
-[60108007,1,2654]
-[60108007,2,2458]
-[60108012,1,3690]
-[60108012,2,3584]
-[60108012,3,3553]
-[60108012,4,3518]
-[60108014,1,2148]
-[60108014,2,2148]
-[60108014,3,2006]
-[60108014,4,2007]
-[60108014,5,2062]
-[60108014,6,2079]
-[60108014,7,2055]
-[60108015,1,2228]
-[60108015,2,2186]
-[60108015,3,2181]
-[60108015,4,2207]
-[60108018,1,2205]
-[60108018,2,2212]
-[60108018,3,2209]
-[60108019,1,2311]
-[60108019,2,2240]
-[60108019,3,2262]
-[60108019,4,2327]
-[60108019,5,2246]
-[60108020,1,2830]
-[60108020,2,2802]
-[60108020,3,2770]
-[60108020,4,2774]
-[60108023,1,1376]
-[60108025,1,2781]
-[60108025,2,2724]
-[60108025,3,2722]
-[60109005,1,3800]
-[60109005,2,3872]
-[60110002,1,3382]
-[60110002,2,3424]
-[60110002,3,3461]
-[60201004,1,2381]
-[60201004,2,2428]
-[60201005,1,3773]
-[60201005,2,3760]
-[60201010,1,3217]
-[60201010,2,3240]
-[60201012,1,3965]
-[60201012,2,3941]
-[60202001,1,2502]
-[60202001,2,2524]
-[60203001,1,1245]
-[60204002,1,2410]
-[60205001,1,978]
-[60206007,1,2713]
-[60206007,2,2751]
-[60301001,1,2813]
-[60301001,2,2810]
-[60301001,3,2784]
-[60301003,1,2515]
-[60301003,2,2498]
-[60301005,1,3296]
-[60301005,2,3297]
-[60301009,1,2866]
-[60301009,2,2839]
-[60301017,1,2596]
-[60301017,2,2568]
-[60301022,1,2348]
-[60301022,2,2358]
-[60301023,1,2269]
-[60301023,2,2231]
-[60301025,1,2034]
-[60301025,2,2020]
-[60301026,1,1272]
-[60301027,1,1428]
-[60301027,2,1388]
-[60302003,1,2607]
-[60302003,2,2591]
-[60302008,1,2887]
-[60302008,2,2934]
-[60302010,1,3447]
-[60302011,1,3080]
-[60302011,2,3102]
-[60302013,1,2116]
-[60302013,2,2114]
-[60302014,1,3508]
-[60302014,2,3512]
-[60302014,3,3452]
-[60303001,1,1581]
-[60303003,1,3269]
-[60303003,2,3246]
-[60303003,3,3164]
-[60303005,1,2057]
-[60303005,2,2032]
-[60303010,1,2972]
-[60303010,2,3000]
-[60303010,3,2903]
-[60303012,1,3850]
-[60303016,1,2975]
-[60303016,2,2965]
-[60303017,1,2277]
-[60303017,2,2236]
-[60303018,1,2950]
-[60303018,2,2969]
-[60303020,1,2771]
-[60303020,2,2816]
-[60303020,3,2762]
-[60304005,1,3312]
-[60304005,2,3329]
-[60304007,1,1966]
-[60304007,2,2018]
-[60304007,3,2021]
-[60304007,4,2019]
-[60304007,5,2006]
-[60304008,1,1744]
-[60304013,1,2586]
-[60304013,2,2614]
-[60304014,1,1863]
-[60304014,2,1861]
-[60304016,1,2397]
-[60304017,1,2928]
-[60304017,2,2794]
-[60304017,3,2847]
-[60304017,4,2841]
-[60305003,1,2742]
-[60305003,2,2732]
-[60305005,1,3122]
-[60305005,2,3068]
-[60305005,3,3064]
-[60306004,1,2764]
-[60306004,2,2751]
-[60306005,1,3057]
-[60306005,2,3009]
-[60306005,3,3090]
-[60306006,1,1638]
-[60307003,1,1363]
-[60308003,1,1618]
-[60309001,1,1675]
-[60401007,1,2577]
-[60401007,2,2600]
-[60401007,3,2563]
-[60401007,4,2582]
-[60401011,1,2566]
-[60401011,2,2544]
-[60401011,3,2645]
-[60401011,4,2621]
-[60401011,5,2571]
-[60401015,1,2728]
-[60401015,2,2859]
-[60401015,3,2823]
-[60401015,4,2844]
-[60401015,5,2825]
-[60401015,6,2689]
-[60401020,1,2429]
-[60401020,2,2312]
-[60401020,3,2350]
-[60401020,4,2334]
-[60401020,5,2440]
-[60401020,6,2454]
-[60401024,1,2350]
-[60402001,1,2974]
-[60402001,2,2913]
-[60403001,1,2798]
-[60403001,2,2829]
-[60501007,1,2631]
-[60501007,2,2727]
-[60501007,3,2629]
-[60501007,4,2701]
-[60501007,5,2663]
-[60501011,1,462]
-[60501013,1,676]
-[60502001,1,1297]
-[60601002,1,3922]
-[60602001,1,1814]
-[60603001,1,746]
-[60604001,1,2396]
-[60604009,1,2110]
-[60605002,1,2835]
-[60605002,2,2882]
-[60701003,1,3244]
-[60701003,2,3249]
-[60701003,3,3189]
-[60701003,4,3302]
-[60701005,1,3537]
-[60701008,1,830]
-[60702001,1,2535]
-[60702001,2,2543]
-[60703002,1,2811]
-[60703002,2,2803]
-[60801001,1,2836]
-[60801001,2,2878]
-[60801005,1,2841]
-[60801008,1,2580]
-[60802001,1,2463]
-[60802001,2,2413]
-[60803001,1,2784]
-[60803001,2,2801]
-[60803005,1,2764]
-[60804001,1,1989]
-[60901006,1,3229]
-[60901006,2,3194]
-[60901006,3,3216]
-[60901006,4,3279]
-[60901015,1,2176]
-[60901018,1,3124]
-[60902001,1,1474]
-[61001001,1,2347]
-[61001001,2,2331]
-[61001001,3,2343]
-[61001001,4,2382]
-[61001007,1,2040]
-[61001012,1,2038]
-[61001012,2,2009]
-[61101001,1,2758]
-[61101001,2,2710]
-[61101001,3,2721]
-[61101003,1,3100]
-[70101001,1,2387]
-[70101001,2,2417]
-[70101001,3,2407]
-[70101002,1,1653]
-[70101002,2,1677]
-[70101004,1,2123]
-[70101004,2,2107]
-[70101007,1,1667]
-[70101007,2,1684]
-[70101009,1,2604]
-[70102001,1,2561]
-[70102001,2,2605]
-[70103001,1,1854]
-[70103001,2,1836]
-[70103002,1,600]
-[70103004,1,1308]
-[70201001,1,2753]
-[70201001,2,2704]
-[70201002,1,3113]
-[70201002,2,3164]
-[70201003,1,2947]
-[70201003,2,2955]
-[70201003,3,2892]
-[70201006,1,3464]
-[70201006,2,3417]
-[70201007,1,2700]
-[70201007,2,2660]
-[70201009,1,2827]
-[70201011,1,2363]
-[70201011,2,2359]
-[70201014,1,2268]
-[70201014,2,2269]
-[70202001,1,2768]
-[70202001,2,2777]
-[70202003,1,3784]
-[70203001,1,2815]
-[70203001,2,2805]
-[70203002,1,3733]
-[70203002,2,3717]
-[70203004,1,2804]
-[70203004,2,2737]
-[70203004,3,2762]
-[70203009,1,3189]
-[70203009,2,3083]
-[70203009,3,3118]
-[70203010,1,3435]
-[70203010,2,3375]
-[70301003,1,3116]
-[70301003,2,3123]
-[70301004,1,2474]
-[70301004,2,2466]
-[70301007,1,2313]
-[70301007,2,2309]
-[70301012,1,2379]
-[70301012,2,2390]
-[70301012,3,2360]
-[70301012,4,2339]
-[70301012,5,2393]
-[70301020,1,3518]
-[70302001,1,3778]
-[70302001,2,3733]
-[70302001,3,3765]
-[70302003,1,2749]
-[70302003,2,2746]
-[70302003,3,2721]
-[70302005,1,3117]
-[70302005,2,3142]
-[70302006,1,2809]
-[70302006,2,2835]
-[70401001,1,2328]
-[70401001,2,2339]
-[70401001,3,2359]
-[70401001,4,2391]
-[70401004,1,2222]
-[70401004,2,2297]
-[70401004,3,2210]
-[70401004,4,2283]
-[70401004,5,2231]
-[70401005,1,2922]
-[70401005,2,2931]
-[70401005,3,2863]
-[70401010,1,1443]
-[70401010,2,1438]
-[70401011,1,2930]
-[70401011,2,2858]
-[70401012,1,2965]
-[70401012,2,2966]
-[70401014,1,1854]
-[70401014,2,1846]
-[70401015,1,2344]
-[70401015,2,2283]
-[70401015,3,2355]
-[70401015,4,2286]
-[70401016,1,2287]
-[70401016,2,2264]
-[70401016,3,2286]
-[70401016,4,2326]
-[70401016,5,2355]
-[70401020,1,3909]
-[70401020,2,3893]
-[70401023,1,2847]
-[70401023,2,2812]
-[70402001,1,1544]
-[70402001,2,1554]
-[70402001,3,1425]
-[70402002,1,1318]
-[70402002,2,1295]
-[70402002,3,1319]
-[70402003,1,1533]
-[70402003,2,1487]
-[70402004,1,1350]
-[70402004,2,1337]
-[70403002,1,1868]
-[70403002,2,1887]
-[70403003,1,2802]
-[70403003,2,2772]
-[70403003,3,2713]
-[70501002,1,2365]
-[70501002,2,2381]
-[70501002,3,2356]
-[70501004,1,2251]
-[70501004,2,2278]
-[70501006,1,2339]
-[70501011,1,2062]
-[70601001,1,3781]
-[70601005,1,2575]
-[70601005,2,2578]
-[70601006,1,2786]
-[70601008,1,1604]
-[70601009,1,3963]
-[70601009,2,4031]
-[70601011,1,2843]
-[70601011,2,2809]
-[70601011,3,2820]
-[70601012,1,3167]
-[70601017,1,2487]
-[70601018,1,2171]
-[70601019,1,2191]
-[70602002,1,1145]
-[70602004,1,2343]
-[70602004,2,2320]
-[70701001,1,2954]
-[70701001,2,2967]
-[70701004,1,2659]
-[70701004,2,2692]
-[70702001,1,2020]
-[70702001,2,2051]
-[70702003,1,967]
-[70702003,2,899]
-[70702004,1,2744]
-[70703001,1,2112]
-[70703001,2,2144]
-[70703003,1,918]
-[70703004,1,2417]
-[70703004,2,2407]
-[70703005,1,3341]
-[70703005,2,3332]
-[70703005,3,3380]
-[70703006,1,3253]
-[70703006,2,3262]
-[70703006,3,3170]
-[70704003,1,3310]
-[70704003,2,3261]
-[70704005,1,2974]
-[70704005,2,2997]
-[70704007,1,2707]
-[70704007,2,2687]
-[70704008,1,2410]
-[70704008,2,2369]
-[70704009,1,1359]
-[70704009,2,1358]
-[70704009,3,1392]
-[70704009,4,1362]
-[70704011,1,3077]
-[70704011,2,3131]
-[70704014,1,3828]
-[70704015,1,2403]
-[70704015,2,2419]
-[70705002,1,3277]
-[70705002,2,3210]
-[70705002,3,3183]
-[70705005,1,1399]
-[70705005,2,1429]
-[70705005,3,1405]
-[70705006,1,2695]
-[70705006,2,2708]
-[70705007,1,3049]
-[70705010,1,2482]
-[70705010,2,2442]
-[70706001,1,2122]
-[70706001,2,2138]
-[70707001,1,3121]
-[70707001,2,3079]
-[70708001,1,2649]
-[70801001,1,2514]
-[70801001,2,2446]
-[70801001,3,2477]
-[70801002,1,1670]
-[70801002,2,1643]
-[70801002,3,1671]
-[70801002,4,1694]
-[70801006,1,2353]
-[70801006,2,2332]
-[70801007,1,2696]
-[70801007,2,2747]
-[70801007,3,2745]
-[70801008,1,2945]
-[70801008,2,2860]
-[70801008,3,2888]
-[70901001,1,2969]
-[70901002,1,2336]
-[70901002,2,2327]
-[70901003,1,2336]
-[70901003,2,2339]
-[70901003,3,2366]
-[70901004,1,2029]
-[70901005,1,2103]
-[70901005,2,2163]
-[70901005,3,2140]
-[70901005,4,2165]
-[70902001,1,2089]
-[70902001,2,2123]
-[70903001,1,1728]
-[70903001,2,1684]
-[70903001,3,1719]
-[70904002,1,1791]
-[70904002,2,1782]
-[70904003,1,2705]
-[70904003,2,2703]
-[70904004,1,1389]
-[70904004,2,1419]
-[70904004,3,1369]
-[70904005,1,2067]
-[70904006,1,1689]
-[70904006,2,1697]
-[70904007,1,1759]
-[70904007,2,1792]
-[70904008,1,2687]
-[70904008,2,2652]
-[70904009,1,2553]
-[70904009,2,2430]
-[70904009,3,2449]
-[70904009,4,2512]
-[70904009,5,2564]
-[70904009,6,2454]
-[70904010,1,2812]
-[70904010,2,2776]
-[70904010,3,2788]
-[70904011,1,2628]
-[70904011,2,2639]
-[70904012,1,3329]
-[70904012,2,3404]
-[70904014,1,2235]
-[70904014,2,2198]
-[70904014,3,2224]
-[70904015,1,1780]
-[70904016,1,2268]
-[70904016,2,2211]
-[70904016,3,2201]
-[70904016,4,2203]
-[70904018,1,2871]
-[70904018,2,2875]
-[70904018,3,2804]
-[70904019,1,2392]
-[70904019,2,2368]
-[70904020,1,2364]
-[70904020,2,2369]
-[70904021,1,2466]
-[70904021,2,2497]
-[70904023,1,2489]
-[70904023,2,2464]
-[70904023,3,2506]
-[70904023,4,2496]
-[70904024,1,2799]
-[70904024,2,2784]
-[70904025,1,2159]
-[70904025,2,2214]
-[70904025,3,2203]
-[70904025,4,2151]
-[70904026,1,2748]
-[70904027,1,3848]
-[70904027,2,3826]
-[70904027,3,3750]
-[70904029,1,2313]
-[70904029,2,2260]
-[70904030,1,3306]
-[70904031,1,2003]
-[70904031,2,2025]
-[70904032,1,2543]
-[70904032,2,2469]
-[70904032,3,2464]
-[70904033,1,2541]
-[70904033,2,2550]
-[70904033,3,2585]
-[70904034,1,2488]
-[70904034,2,2459]
-[70904034,3,2515]
-[70904035,1,2440]
-[70904035,2,2454]
-[70904035,3,2456]
-[70904035,4,2506]
-[70904036,1,3579]
-[70904037,1,3176]
-[70904037,2,3197]
-[70904039,1,2224]
-[70904039,2,2239]
-[70904053,1,2606]
-[70904098,1,2837]
-[70904098,2,2802]
-[70904108,1,2047]
-[70904108,2,2075]
-[70904108,3,2044]
-[70904108,4,2054]
-[70905001,1,2282]
-[70905001,2,2257]
-[70905001,3,2256]
-[70905002,1,1347]
-[70905002,2,1306]
-[70905004,1,2093]
-[70905006,1,2626]
-[70905006,2,2635]
-[70905007,1,1341]
-[70905008,1,1379]
-[70905008,2,1394]
-[70906001,1,1509]
-[70906001,2,1407]
-[70906001,3,1390]
-[70906001,4,1412]
-[70906001,5,1432]
-[70906001,6,1394]
-[70906002,1,1139]
-[70906002,2,1120]
-[70906002,3,1098]
-[70906003,1,1187]
-[70906003,2,1191]
-[70906003,3,1206]
-[70906004,1,1168]
-[70906004,2,1182]
-[70906004,3,1168]
-[70906005,1,1243]
-[70906005,2,1157]
-[70906005,3,1175]
-[70906005,4,1131]
-[70906006,1,984]
-[70906006,2,988]
-[70906006,3,1002]
-[70906007,1,1363]
-[70906007,2,1345]
-[70906007,3,1384]
-[70906007,4,1319]
-[70906007,5,1331]
-[70906007,6,1326]
-[70906007,7,1301]
-[70906008,1,1002]
-[70906008,2,1024]
-[70906008,3,998]
-[70906009,1,1550]
-[70906009,2,1556]
-[70906009,3,1501]
-[70906010,1,1765]
-[70906010,2,1741]
-[70906010,3,1726]
-[70906011,1,1134]
-[70906011,2,1180]
-[70906011,3,1161]
-[70906011,4,1184]
-[70906011,5,1158]
-[70906011,6,1202]
-[70906012,1,1197]
-[70906012,2,1202]
-[70906012,3,1199]
-[70906012,4,1165]
-[70906012,5,1168]
-[70906013,1,1211]
-[70906013,2,1236]
-[70906013,3,1190]
-[70906013,4,1235]
-[70906013,5,1236]
-[70906013,6,1102]
-[70906014,1,1016]
-[70906014,2,1007]
-[70906014,3,1002]
-[70906015,1,988]
-[70906015,2,1003]
-[70906016,1,1302]
-[70906016,2,1284]
-[70906016,3,1249]
-[70906016,4,1261]
-[70906016,5,1255]
-[70906016,6,1268]
-[70906016,7,1233]
-[70906017,1,1082]
-[70906017,2,1046]
-[70906017,3,1054]
-[70906017,4,1066]
-[70906018,1,1673]
-[70906018,2,1683]
-[70906018,3,1632]
-[70906018,4,1619]
-[70906019,1,1183]
-[70906019,2,1187]
-[70906019,3,1196]
-[70906019,4,1153]
-[70906021,1,933]
-[70906021,2,921]
-[70906023,1,1369]
-[70906023,2,1322]
-[70906023,3,1331]
-[70907001,1,1694]
-[70907001,2,1721]
-[70907002,1,2291]
-[70907002,2,2286]
-[70907003,1,3618]
-[70907004,1,2596]
-[70907004,2,2627]
-[70907005,1,2674]
-[70907005,2,2655]
-[70907006,1,2099]
-[70907006,2,2131]
-[70907006,3,2070]
-[70907007,1,1482]
-[70907007,2,1472]
-[70907008,1,1928]
-[70907009,1,1621]
-[70907010,1,3624]
-[70907013,1,2919]
-[70907013,2,2939]
-[70907014,1,2141]
-[70907016,1,2356]
-[70907016,2,2366]
-[70907016,3,2315]
-[70908003,1,1686]
-[70908003,2,1673]
-[70908004,1,2033]
-[70908004,2,2033]
-[70908004,3,2024]
-[70908007,1,1772]
-[70908007,2,1773]
-[70908009,1,2636]
-[70908009,2,2588]
-[70908009,3,2656]
-[70908009,4,2531]
-[70908010,1,1849]
-[70908010,2,1893]
-[70908010,3,1879]
-[70908011,1,1949]
-[70908011,2,1913]
-[70908012,1,1965]
-[70908012,2,1938]
-[70908012,3,1923]
-[70908013,1,2001]
-[70908013,2,1951]
-[70908013,3,1944]
-[70908013,4,1991]
-[70908014,1,1660]
-[70908014,2,1652]
-[70908014,3,1643]
-[70908015,1,2260]
-[70908016,1,2134]
-[70908016,2,2122]
-[70908016,3,2099]
-[70908019,1,2395]
-[70908019,2,2447]
-[70908020,1,1946]
-[70908021,1,2316]
-[70908021,2,2265]
-[70908021,3,2286]
-[70908021,4,2219]
-[70908022,1,2550]
-[70908022,2,2551]
-[70908022,3,2468]
-[70908022,4,2538]
-[70908022,5,2518]
-[70908022,6,2348]
-[70908023,1,2213]
-[70908023,2,2166]
-[70908023,3,2151]
-[70908024,1,1532]
-[70908024,2,1543]
-[70908025,1,2560]
-[70908025,2,2619]
-[70908025,3,2598]
-[70908027,1,2093]
-[70908027,2,2077]
-[70908027,3,2031]
-[70908027,4,2025]
-[70908037,1,1845]
-[70909001,1,2778]
-[70909001,2,2749]
-[71001002,1,3374]
-[71001002,2,3316]
-[71001002,3,3307]
-[71001005,1,1732]
-[71001006,1,869]
-[71001009,1,2923]
-[71001009,2,2866]
-[71101001,1,2693]
-[71101001,2,2671]
-[71101002,1,2305]
-[71101002,2,2252]
-[71101002,3,2318]
-[71101002,4,2275]
-[71101002,5,2356]
-[71101004,1,3116]
-[71101005,1,2512]
-[71101005,2,2493]
-[71101006,1,2665]
-[71101010,1,2546]
-[71101010,2,2539]
-[71101010,3,2510]
-[71101011,1,2099]
-[71101011,2,2100]
-[71101011,3,2118]
-[71101013,1,3160]
-[71101013,2,3083]
-[71101013,3,3077]
-[71101016,1,2633]
-[71101017,1,3576]
-[71101018,1,1974]
-[71101018,2,1942]
-[71101018,3,1959]
-[71101020,1,3245]
-[71101021,1,1937]
-[71101023,1,2396]
-[71101023,2,2370]
-[71101023,3,2353]
-[71101026,1,2626]
-[71101026,2,2604]
-[71101027,1,2847]
-[71101027,2,2916]
-[71101027,3,2868]
-[71201002,1,2103]
-[71201002,2,2068]
-[71201003,1,1908]
-[71201003,2,1909]
-[71201005,1,2257]
-[71201005,2,2304]
-[71201005,3,2273]
-[71201007,1,1954]
-[71201007,2,1947]
-[71201007,3,1923]
-[71201007,4,1906]
-[71201008,1,1615]
-[71201008,2,1551]
-[71201008,3,1508]
-[71201008,4,1472]
-[71201009,1,1589]
-[71201009,2,1602]
-[71201009,3,1592]
-[71201009,4,1622]
-[71201010,1,1409]
-[71201010,2,1444]
-[71201010,3,1361]
-[71201011,1,1349]
-[71201011,2,1350]
-[71201012,1,1167]
-[71201012,2,1156]
-[71201012,3,1195]
-[71201012,4,1215]
-[71201012,5,1177]
-[71201013,1,1495]
-[71201013,2,1540]
-[71201013,3,1525]
-[71201013,4,1541]
-[71201014,1,1326]
-[71201015,1,2433]
-[71201015,2,2405]
-[71201016,1,2297]
-[71201016,2,2266]
-[71201016,3,2246]
-[71201016,4,2265]
-[71201019,1,2257]
-[71201019,2,2283]
-[71201020,1,1958]
-[71201020,2,1822]
-[71201021,1,2239]
-[71201021,2,2180]
-[71201021,3,2214]
-[71201021,4,2196]
-[71201021,5,2086]
-[71201026,1,3025]
-[71201031,1,1675]
-[71201031,2,1683]
-[71301001,1,2135]
-[71301001,2,2120]
-[71301001,3,2025]
-[71301001,4,2038]
-[71301006,1,1602]
-[71301006,2,1573]
-[71301006,3,1619]
-[71301007,1,2163]
-[71301007,2,2218]
-[71301007,3,2210]
-[71301008,1,1893]
-[71301008,2,1872]
-[71301008,3,1848]
-[71301008,4,1888]
-[71301008,5,1779]
-[71301008,6,1753]
-[71301009,1,1330]
-[71301009,2,1303]
-[71301009,3,1324]
-[71301009,4,1328]
-[71301009,5,1263]
-[71301010,1,1425]
-[71301010,2,1416]
-[71301010,3,1356]
-[71301010,4,1366]
-[71301010,5,1351]
-[71301010,6,1381]
-[71301010,7,1390]
-[71301010,8,1285]
-[71301011,1,1939]
-[71301012,1,1415]
-[71301012,2,1405]
-[71301013,1,1141]
-[71301013,2,1153]
-[71301013,3,1155]
-[71401001,1,3122]
-[71401001,2,3203]
-[71401001,3,3132]
-[71401001,4,3203]
-[71401001,5,2990]
-[71401002,1,3138]
-[71401002,2,3029]
-[71401002,3,3086]
-[71401002,4,3040]
-[71401006,1,3076]
-[71401006,2,3042]
-[71401006,3,3037]
-[71401007,1,768]
-[71401008,1,2900]
-[71401013,1,2763]
-[71401013,2,2771]
-[71401013,3,2675]
-[71401014,1,2257]
-[71401014,2,2223]
-[71401016,1,3536]
-[71401016,2,3547]
-[71401016,3,3494]
-[71401016,4,3408]
-[71401018,1,3853]
-[71401018,2,3901]
-[71401018,3,3896]
-[71402003,1,4030]
-[71402003,2,3975]
-[71402003,3,4114]
-[71402003,4,4064]
-[71402009,1,2732]
-[71402009,2,2769]
-[71402009,3,2770]
-[80101001,1,2204]
-[80101001,2,2243]
-[80102001,1,3431]
-[80102001,2,3462]
-[80201003,1,3349]
-[80201003,2,3335]
-[80201003,3,3320]
-[80201003,4,3419]
-[80201006,1,3049]
-[80201006,2,3071]
-[80201006,3,2998]
-[80201008,1,3358]
-[80201008,2,3359]
-[80201008,3,3321]
-[80201008,4,3405]
-[80201008,5,3354]
-[80201009,1,2332]
-[80201009,2,2283]
-[80201009,3,2324]
-[80201011,1,3882]
-[80201012,1,2073]
-[80201012,2,2085]
-[80201013,1,2400]
-[80201013,2,2419]
-[80301001,1,3583]
-[80301001,2,3538]
-[80302001,1,1657]
-[80401001,1,3949]
-[80401001,2,3984]
-[80401001,3,3851]
-[80501001,1,2832]
-[80501001,2,2876]
-[80501001,3,2782]
-[80502001,1,1383]
-[80601001,1,1992]
-[80601001,2,2020]
-[80601005,1,3673]
-[80601005,2,3576]
-[80601007,1,2939]
-[80601007,2,2957]
-[80601009,1,2017]
-[80601009,2,1973]
-[80601010,1,3084]
-[80601010,2,3078]
-[80601013,1,2997]
-[80601013,2,3003]
-[80601013,3,2903]
-[80601017,1,2759]
-[80601017,2,2701]
-[80601020,1,1677]
-[80601020,2,1678]
-[80601022,1,2563]
-[80601022,2,2583]
-[80601023,1,3338]
-[80601023,2,3343]
-[80601023,3,3393]
-[80601025,1,2471]
-[80602001,1,1062]
-[80603001,1,2856]
-[80701006,1,3443]
-[80701006,2,3236]
-[80701006,3,3221]
-[80701006,4,3247]
-[80701012,1,2960]
-[80701012,2,2867]
-[80701012,3,2901]
-[80801001,1,2647]
-[80801001,2,2594]
-[80802001,1,2925]
-[80901002,1,3089]
-[80901002,2,3057]
-[80901002,3,3084]
-[80901005,1,2111]
-[80901005,2,2134]
-[90101001,1,1744]
-[90101001,2,1752]
-[90101004,1,2475]
-[90102001,1,2964]
-[90102005,1,1774]
-[90103001,1,2393]
-[90104001,1,724]
-[90201002,1,3578]
-[90202001,1,1976]
-[90203003,1,1501]
-[90301001,1,1777]
-[90301001,2,1792]
-[90301004,1,2229]
-[90302001,1,1589]
-[90303001,1,1904]
-[90304001,1,3867]
-[90305001,1,2047]
-[90306001,1,1706]
-[90401002,1,2325]
-[90401003,1,3532]
-[90401004,1,2392]
-[90401005,1,1562]
-[90401005,2,1485]
-[90401006,1,3241]
-[90401006,2,3172]
-[90401007,1,3688]
-[90401009,1,2262]
-[90401010,1,2700]
-[90401010,2,2740]
-[90401014,1,2341]
-[90402001,1,3646]
-[90402004,1,3430]
-[90402004,2,3452]
-[90402006,1,2133]
-[90402006,2,2139]
-[90402009,1,1700]
-[90402010,1,3719]
-[90402010,2,3722]
-[90402013,1,3114]
-[90402013,2,3112]
-[90402014,1,1724]
-[90402014,2,1704]
-[90402015,1,4029]
-[90402017,1,2191]
-[90402017,2,2178]
-[90402018,1,1534]
-[90402018,2,1517]
-[90402019,1,3854]
-[90402020,1,1457]
-[90402020,2,1474]
-[90402021,1,1789]
-[90402021,2,1792]
-[90402022,1,2082]
-[90402023,1,1730]
-[90402023,2,1731]
-[90402024,1,1791]
-[90402024,2,1813]
-[90402025,1,1435]
-[90402025,2,1404]
-[90403001,1,2118]
-[90403001,2,2148]
-[90403003,1,2501]
-[90403003,2,2465]
-[90403005,1,1272]
-[90403005,2,1277]
-[90403006,1,2359]
-[90403008,1,3638]
-[90403008,2,3620]
-[90403009,1,2456]
-[90403009,2,2464]
-[90403011,1,1179]
-[90403011,2,1188]
-[90403011,3,1201]
-[90403013,1,1599]
-[90403014,1,1881]
-[90403014,2,1870]
-[90403016,1,3297]
-[90403020,1,2239]
-[90404001,1,2757]
-[90404002,1,2976]
-[90404006,1,3418]
-[90404008,1,1020]
-[90501002,1,2670]
-[90501003,1,2548]
-[90501003,2,2593]
-[90501004,1,3065]
-[90501004,2,3052]
-[90501008,1,2171]
-[90501008,2,2179]
-[90502003,1,1350]
-[90503001,1,604]
-[90504001,1,1238]
-[90505001,1,1777]
-[90505001,2,1798]
-[90601001,1,3792]
-[90601004,1,1861]
-[90602001,1,286]
-[90603002,1,827]
-[90604001,1,830]
-[90605001,1,1057]
-[90701001,1,2019]
-[90701001,2,2048]
-[90701002,1,2779]
-[90701003,1,2325]
-[90701003,2,2309]
-[90702001,1,2115]
-[90702001,2,2090]
-[90703001,1,2714]
-[90704001,1,3515]
-[90705001,1,3091]
-[90706001,1,2785]
-[90706002,1,2262]
-[90707002,1,2440]
-[90708001,1,1537]
-[90709001,1,1608]
-[90801001,1,2370]
-[90801001,2,2344]
-[90801004,1,3424]
-[90801009,1,1752]
-[90801013,1,38]
-[90802001,1,948]
-[90802003,1,1111]
-[90803004,1,704]
-[90804001,1,2202]
-[90804001,2,2167]
-[90805001,1,2199]
-[90901002,1,1991]
-[90901002,2,2005]
-[90901004,1,2238]
-[90901004,2,2195]
-[90901006,1,2188]
-[90902001,1,2288]
-[90902005,1,1983]
-[90903002,1,1313]
-[91001002,1,3066]
-[91001002,2,3052]
-[91001003,1,3040]
-[91001003,2,3081]
-[91001003,3,3031]
-[91001007,1,3039]
-[91001007,2,2992]
-[91001009,1,2257]
-[91001009,2,2236]
-[91001009,3,2229]
-[91001011,1,2259]
-[91001013,1,1712]
-[91001013,2,1718]
-[91001013,3,1659]
-[91001015,1,1932]
-[91001019,1,2513]
-[91001019,2,2559]
-[91001019,3,2563]
-[91001019,4,2458]
-[91001022,1,3476]
-[91001022,2,3538]
-[91001024,1,3716]
-[91001027,1,2543]
-[91001028,1,2036]
-[91001029,1,3068]
-[91002001,1,2356]
-[91002001,2,2339]
-[91002002,1,2645]
-[91002002,2,2540]
-[91002002,3,2524]
-[91002003,1,821]
-[91002003,2,806]
-[91002005,1,1976]
-[91002005,2,1974]
-[91002006,1,1623]
-[91002009,1,2143]
-[91002009,2,2101]
-[91002011,1,2394]
-[91002013,1,1360]
-[91002013,2,1348]
-[91002013,3,1347]
-[91002014,1,2952]
-[91002014,2,2945]
-[91003001,1,2404]
-[91003001,2,2401]
-[91003001,3,2368]
-[91003004,1,2205]
-[91003004,2,2213]
-[91003004,3,2207]
-[91003008,1,2733]
-[91004001,1,2764]
-[91004007,1,1804]
-[91005001,1,1253]
-[91006001,1,3179]
-[91007001,1,2007]
-[91101001,1,2752]
-[91101001,2,2710]
-[91102001,1,2607]
-[91103001,1,2356]
-[91201002,1,3485]
-[91201002,2,3573]
-[91201002,3,3526]
-[91201008,1,2317]
-[91201011,1,2795]
-[91202002,1,2633]
-[91202002,2,2601]
-[91301001,1,3613]
-[91301001,2,3607]
-[91301002,1,2671]
-[91301004,1,3969]
-[91301005,1,2265]
-[91302001,1,998]
-[91303002,1,1387]
-[91304001,1,1834]
-[91305001,1,977]
-[91401001,1,2072]
-[91401001,2,2088]
-[91401003,1,2174]
-[91401003,2,2160]
-[91401005,1,3006]
-[91401005,2,2955]
-[91501006,1,1681]
-[91501006,2,1665]
-[91501007,1,2833]
-[91502001,1,1363]
-[91503002,1,3046]
-[91503002,2,3039]
-[91601001,1,3751]
-[91601001,2,3766]
-[91601003,1,2364]
-[91601004,1,2455]
-[91601005,1,2867]
-[91602001,1,1583]
-[91602001,2,1580]
-[91602001,3,1595]
-[91602001,4,1552]
-[91602002,1,3132]
-[91602002,2,2971]
-[91602002,3,2963]
-[91701001,1,3860]
-[91701009,1,2396]
-[91702007,1,2427]
-[91801002,1,2055]
-[91801002,2,2037]
-[91801007,1,1683]
-[91802005,1,3374]
-[91803006,1,1903]
-[91901002,1,2225]
-[91901002,2,2256]
-[91901003,1,2202]
-[91901003,2,2243]
-[92001004,1,2174]
-[92001004,2,2158]
-[92002001,1,1395]
-[92003001,1,2336]
-[92101001,1,2463]
-[92101001,2,2462]
-[92101004,1,2513]
-[92201001,1,3480]
-[92301002,1,1611]
-[92301003,1,2538]
-[92302001,1,1696]
-[92401001,1,2155]
-[92401001,2,2174]
-[92402003,1,1892]
-[92501001,1,3124]
-[92501002,1,2630]
-[100101011,1,1670]
-[100101011,2,1658]
-[100101012,1,3044]
-[100101012,2,2969]
-[100101012,3,2969]
-[100101013,1,3618]
-[100101013,2,3530]
-[100101013,3,3508]
-[100101015,1,3644]
-[100101015,2,3544]
-[100101015,3,3515]
-[100101015,4,3550]
-[100101015,5,3564]
-[100101017,1,3874]
-[100101017,2,3958]
-[100101017,3,3938]
-[100101019,1,2667]
-[100101019,2,2713]
-[100101021,1,3400]
-[100101021,2,3397]
-[100101021,3,3406]
-[100101021,4,3424]
-[100102001,1,3589]
-[100201001,1,3329]
-[100201001,2,3363]
-[100201001,3,3351]
-[100201001,4,3260]
-[100201001,5,3259]
-[100202001,1,1117]
-[100301001,1,3607]
-[100301001,2,3658]
-[100301009,1,3407]
-[100301009,2,3477]
-[100301009,3,3372]
-[100301009,4,3390]
-[100301009,5,3436]
-[100301012,1,3531]
-[100301012,2,3490]
-[100301012,3,3407]
-[100301013,1,3260]
-[100301013,2,3247]
-[100301014,1,3740]
-[100301014,2,3668]
-[100301014,3,3641]
-[100301016,1,4184]
-[100301016,2,4088]
-[100301016,3,4072]
-[100301016,4,4220]
-[100301016,5,4091]
-[100301016,6,3942]
-[100302001,1,1050]
-[100303001,1,2155]
-[100304001,1,3078]
-[100401003,1,4081]
-[100401003,2,3972]
-[100401003,3,4078]
-[100401003,4,4043]
-[100401003,5,3867]
-[100401003,6,3809]
-[100401009,1,3430]
-[100401009,2,3499]
-[100401009,3,3420]
-[100402001,1,3107]
-[100403002,1,616]
-[100404001,1,1995]
-[100405001,1,3121]
-[100406001,1,2152]
-[100407001,1,3186]
-[100501001,1,3800]
-[100501001,2,3761]
-[100501002,1,2934]
-[100501002,2,2962]
-[100501002,3,2957]
-[100501004,1,3659]
-[100501004,2,3595]
-[100502001,1,2494]
-[100601002,1,3330]
-[100601003,1,3448]
-[100601003,2,3339]
-[100601005,1,2451]
-[100601005,2,2459]
-[100601006,1,3263]
-[100601006,2,3251]
-[100601007,1,3870]
-[100601010,1,2857]
-[100601010,2,2776]
-[100601010,3,2743]
-[100601013,1,2953]
-[100601013,2,3009]
-[100601013,3,2951]
-[100601015,1,3100]
-[100601015,2,3118]
-[100601015,3,3006]
-[100601016,1,217]
-[100601017,1,2027]
-[100601021,1,3456]
-[100601022,1,3957]
-[100601022,2,3873]
-[100601024,1,1674]
-[100601024,2,1661]
-[100601025,1,2319]
-[100601026,1,1837]
-[100601026,2,1847]
-[100601029,1,209]
-[100602001,1,2469]
-[100603001,1,1591]
-[100701002,1,3893]
-[100701002,2,3783]
-[100701002,3,3733]
-[100701002,4,3836]
-[100701002,5,3839]
-[100701006,1,3393]
-[100701006,2,3351]
-[100701006,3,3453]
-[100701006,4,3332]
-[100701006,5,3303]
-[100702001,1,2102]
-[100801001,1,3401]
-[100801001,2,3400]
-[100801001,3,3300]
-[100802001,1,2450]
-[100803001,1,1386]
-[100901001,1,3876]
-[100901001,2,3938]
-[101001001,1,3353]
-[101001001,2,3369]
-[101001001,3,3434]
-[101001001,4,3391]
-[101002001,1,1380]
-[101003001,1,2926]
-[101003001,2,2890]
-[101101001,1,3718]
-[101101001,2,3664]
-[101101003,1,2660]
-[101101003,2,2639]
-[101201001,1,3355]
-[101201001,2,3302]
-[101202001,1,2129]
-[101203001,1,3522]
-[101204002,1,2188]
-[101301001,1,3074]
-[101301001,2,3146]
-[101301001,3,3136]
-[101302002,1,814]
-[101401001,1,3211]
-[101401001,2,3278]
-[101401001,3,3258]
-[101501001,1,2961]
-[101501001,2,2968]
-[101501001,3,2894]
-[101502001,1,2284]
-[101502001,2,2244]
-[110101001,1,2564]
-[110101001,2,2456]
-[110101001,3,2462]
-[110101002,1,2496]
-[110101002,2,2515]
-[110101006,1,3298]
-[110101007,1,1171]
-[110101017,1,2248]
-[110101017,2,2210]
-[110102001,1,2288]
-[110102001,2,2286]
-[110102004,1,1762]
-[110102005,1,2239]
-[110102005,2,2231]
-[110201001,1,1131]
-[110201001,2,1137]
-[110201001,3,1089]
-[110201003,1,1407]
-[110201003,2,1366]
-[110201005,1,1318]
-[110201005,2,1291]
-[110201007,1,1645]
-[110201007,2,1638]
-[110201008,1,1441]
-[110201008,2,1434]
-[110201009,1,1195]
-[110201009,2,1185]
-[110201010,1,1185]
-[110201010,2,1189]
-[110201010,3,1153]
-[110201011,1,1453]
-[110201011,2,1479]
-[110201012,1,1299]
-[110201012,2,1289]
-[110201012,3,1290]
-[110201013,1,1315]
-[110201014,1,1108]
-[110201014,2,1127]
-[110201014,3,1098]
-[110201014,4,1096]
-[110201016,1,1221]
-[110201016,2,1226]
-[110201016,3,1240]
-[110201016,4,1245]
-[110201018,1,1244]
-[110201018,2,1226]
-[110201018,3,1207]
-[110201020,1,1849]
-[110201020,2,1824]
-[110201020,3,1777]
-[110201021,1,2582]
-[110201022,1,1370]
-[110201022,2,1352]
-[110201022,3,1366]
-[110201022,4,1291]
-[110201023,1,1430]
-[110201023,2,1434]
-[110201023,3,1389]
-[110201024,1,1669]
-[110201024,2,1650]
-[110201025,1,1255]
-[110201025,2,1280]
-[110201026,1,1419]
-[110201026,2,1402]
-[110201029,1,1240]
-[110201029,2,1237]
-[110201031,1,1191]
-[110201031,2,1191]
-[110201034,1,1889]
-[110201034,2,1850]
-[110201034,3,1850]
-[110201035,1,2808]
-[110201035,2,2790]
-[110201036,1,2287]
-[110201036,2,2256]
-[110201037,1,2579]
-[110201037,2,2557]
-[110201044,1,2868]
-[110202001,1,1072]
-[110202003,1,1519]
-[110202003,2,1456]
-[110202003,3,1459]
-[110202004,1,2054]
-[110202004,2,2016]
-[110202004,3,2006]
-[110202009,1,1647]
-[110202009,2,1617]
-[110202009,3,1616]
-[110202009,4,1628]
-[110202010,1,1828]
-[110202010,2,1843]
-[110202012,1,2492]
-[110202015,1,1939]
-[110202016,1,1970]
-[110202016,2,1948]
-[110202016,3,1925]
-[110202017,1,2099]
-[110202022,1,2128]
-[110202022,2,2132]
-[110202023,1,2438]
-[110202023,2,2483]
-[110202024,1,1144]
-[110202024,2,1166]
-[110202026,1,1091]
-[110202026,2,1095]
-[110202026,3,1112]
-[110202027,1,1547]
-[110202027,2,1521]
-[110202027,3,1518]
-[110202028,1,1084]
-[110202028,2,1090]
-[110202028,3,1072]
-[110202030,1,1216]
-[110202030,2,1201]
-[110202030,3,1222]
-[110202031,1,1740]
-[110202031,2,1738]
-[110202032,1,1874]
-[110202032,2,1871]
-[110202034,1,1188]
-[110202034,2,1219]
-[110202034,3,1200]
-[110202034,4,1185]
-[110202035,1,998]
-[110202035,2,1010]
-[110202038,1,2249]
-[110202038,2,2221]
-[110202039,1,2248]
-[110202039,2,2243]
-[110202039,3,2234]
-[110202040,1,1724]
-[110202040,2,1683]
-[110202040,3,1669]
-[110202043,1,2157]
-[110202045,1,1204]
-[110202045,2,1224]
-[110202046,1,1839]
-[110202046,2,1823]
-[110202047,1,1446]
-[110202047,2,1425]
-[110202049,1,1951]
-[110202049,2,1912]
-[110202050,1,2415]
-[110202050,2,2364]
-[110202052,1,1187]
-[110202052,2,1183]
-[110202062,1,2222]
-[110203001,1,1396]
-[110203001,2,1243]
-[110203001,3,1222]
-[110203001,4,1235]
-[110203001,5,1219]
-[110203001,6,1264]
-[110203001,7,1271]
-[110203001,8,1299]
-[110203001,9,1266]
-[110203002,1,2121]
-[110203002,2,2050]
-[110203003,1,1816]
-[110203003,2,1833]
-[110203004,1,1342]
-[110203004,2,1298]
-[110203004,3,1334]
-[110203004,4,1320]
-[110203004,5,1260]
-[110203006,1,1649]
-[110203006,2,1657]
-[110203006,3,1624]
-[110203008,1,3682]
-[110203008,2,3604]
-[110203009,1,1268]
-[110203009,2,1249]
-[110203009,3,1253]
-[110203009,4,1271]
-[110203013,1,1924]
-[110203013,2,1930]
-[110203015,1,2382]
-[110203015,2,2374]
-[110203016,1,1083]
-[110203018,1,879]
-[110203018,2,885]
-[110204001,1,3053]
-[110204001,2,3085]
-[110204002,1,2563]
-[110204003,1,1750]
-[110204003,2,1747]
-[110204004,1,2555]
-[110204004,2,2464]
-[110204005,1,2276]
-[110204005,2,2239]
-[110204007,1,3073]
-[110204008,1,2155]
-[110204008,2,2130]
-[110204010,1,2918]
-[110204013,1,2503]
-[110204013,2,2528]
-[110204013,3,2580]
-[110204013,4,2550]
-[110204015,1,3086]
-[110204016,1,1935]
-[110204016,2,1967]
-[110204017,1,2430]
-[110204017,2,2394]
-[110204017,3,2437]
-[110204019,1,2660]
-[110204019,2,2623]
-[110204019,3,2622]
-[110204023,1,2302]
-[110204023,2,2285]
-[110204027,1,2451]
-[110204027,2,2430]
-[110204028,1,2677]
-[110204028,2,2640]
-[110204029,1,2214]
-[110204029,2,2155]
-[110204029,3,2170]
-[110204030,1,3107]
-[110204035,1,2216]
-[110204039,1,1798]
-[110204039,2,1792]
-[110205001,1,2623]
-[110205001,2,2691]
-[110205001,3,2653]
-[110205001,4,2701]
-[110205002,1,2510]
-[110205002,2,2465]
-[110205004,1,2276]
-[110205004,2,2299]
-[110205006,1,2533]
-[110205006,2,2505]
-[110206001,1,2070]
-[110206001,2,2068]
-[110206003,1,3603]
-[110206004,1,3335]
-[110206006,1,2675]
-[110206006,2,2590]
-[110206007,1,2260]
-[110206007,2,2225]
-[110206010,1,2391]
-[110206010,2,2394]
-[110206012,1,2019]
-[110206013,1,3552]
-[110206020,1,1858]
-[110206020,2,1830]
-[110207001,1,2308]
-[110207001,2,2325]
-[110207003,1,3442]
-[110207004,1,2183]
-[110207004,2,2144]
-[110207005,1,2654]
-[110207007,1,1621]
-[110207007,2,1647]
-[110207008,1,2492]
-[110207008,2,2384]
-[110207008,3,2368]
-[110207008,4,2364]
-[110207015,1,2492]
-[110207015,2,2502]
-[110207015,3,2502]
-[110207016,1,3467]
-[110207016,2,3550]
-[110207016,3,3490]
-[110207018,1,3823]
-[110207018,2,3832]
-[110207018,3,3674]
-[110207019,1,2701]
-[110207019,2,2768]
-[110207019,3,2762]
-[110207021,1,2883]
-[110207025,1,2658]
-[110207025,2,2663]
-[110207030,1,2531]
-[110207030,2,2519]
-[110207030,3,2427]
-[110207032,1,2183]
-[110207032,2,2188]
-[110207032,3,2158]
-[110207033,1,2625]
-[110207033,2,2691]
-[110207033,3,2695]
-[110207035,1,4163]
-[110207038,1,3163]
-[110207038,2,3103]
-[110207039,1,4010]
-[110207039,2,3935]
-[110207041,1,2708]
-[110207041,2,2728]
-[110207041,3,2763]
-[110207042,1,2186]
-[110207042,2,2146]
-[110207045,1,1670]
-[110207045,2,1685]
-[110207048,1,2480]
-[110207048,2,2466]
-[110207048,3,2500]
-[110207048,4,2368]
-[110207053,1,3083]
-[110207053,2,3070]
-[110207053,3,3016]
-[110207056,1,2290]
-[110207056,2,2325]
-[110207056,3,2324]
-[110207057,1,2274]
-[110207057,2,2255]
-[110207057,3,2195]
-[110207058,1,2606]
-[110207058,2,2630]
-[110207058,3,2671]
-[110207059,1,2539]
-[110207059,2,2532]
-[110207059,3,2553]
-[110207060,1,3117]
-[110207060,2,3078]
-[110207061,1,2763]
-[110207061,2,2810]
-[110207061,3,2731]
-[110207064,1,2266]
-[110207064,2,2233]
-[110207104,1,3372]
-[110208002,1,3854]
-[110208002,2,3850]
-[110208003,1,3224]
-[110208003,2,3160]
-[110209001,1,2537]
-[110209001,2,2510]
-[110210001,1,3173]
-[110210001,2,3237]
-[110210001,3,3194]
-[110301001,1,2554]
-[110301001,2,2557]
-[110301001,3,2523]
-[110301001,4,2612]
-[110301004,1,2988]
-[110301004,2,2985]
-[110301005,1,2994]
-[110301005,2,3075]
-[110301005,3,3031]
-[110302001,1,2556]
-[110302001,2,2549]
-[110303001,1,2533]
-[110304005,1,3177]
-[110305002,1,1063]
-[110306007,1,3726]
-[110306007,2,3720]
-[110307006,1,3745]
-[110307006,2,3695]
-[110308001,1,2892]
-[110308001,2,2809]
-[110308001,3,2839]
-[110401002,1,2422]
-[110401002,2,2361]
-[110401002,3,2366]
-[110401005,1,3157]
-[110401005,2,3165]
-[110401009,1,2929]
-[110401009,2,2938]
-[110401009,3,2974]
-[110401009,4,2958]
-[110401020,1,3903]
-[110401020,2,3909]
-[110401032,1,3768]
-[110401032,2,3708]
-[110401032,3,3766]
-[110402001,1,3761]
-[110403001,1,3460]
-[110403001,2,3472]
-[110403001,3,3564]
-[110404001,1,3039]
-[110404001,2,3008]
-[110405001,1,3849]
-[110405001,2,3779]
-[110406002,1,2676]
-[110407007,1,3192]
-[110407007,2,3180]
-[110408001,1,1408]
-[110501001,1,1473]
-[110501001,2,1458]
-[110501001,3,1436]
-[110501001,4,1452]
-[110501001,5,1498]
-[110501003,1,1678]
-[110501003,2,1680]
-[110501006,1,1005]
-[110501006,2,987]
-[110501007,1,2015]
-[110501007,2,1987]
-[110501011,1,1472]
-[110501011,2,1470]
-[110501012,1,1874]
-[110501012,2,1838]
-[110501013,1,2028]
-[110501013,2,2022]
-[110501013,3,1997]
-[110501014,1,2185]
-[110501014,2,2229]
-[110501014,3,2224]
-[110501014,4,2264]
-[110501017,1,1497]
-[110502001,1,1361]
-[110502004,1,2234]
-[110502004,2,2300]
-[110502004,3,2286]
-[110502004,4,2208]
-[110502007,1,2407]
-[110502007,2,2344]
-[110502007,3,2395]
-[110502008,1,2491]
-[110502009,1,2756]
-[110502009,2,2715]
-[110502011,1,1137]
-[110502011,2,1135]
-[110502011,3,1105]
-[110502012,1,1429]
-[110502012,2,1409]
-[110502012,3,1389]
-[110502014,1,1647]
-[110502014,2,1640]
-[110502015,1,1222]
-[110502015,2,1197]
-[110502021,1,1277]
-[110502021,2,1290]
-[110502021,3,1283]
-[110502022,1,901]
-[110502022,2,902]
-[110502024,1,846]
-[110502024,2,829]
-[110502026,1,1836]
-[110503001,1,3051]
-[110503001,2,3118]
-[110503001,3,3097]
-[110601003,1,2276]
-[110601003,2,2221]
-[110601003,3,2225]
-[110601009,1,2567]
-[110601009,2,2607]
-[110601009,3,2579]
-[110601010,1,2994]
-[110601010,2,3038]
-[110601011,1,2394]
-[110601011,2,2354]
-[110601013,1,2855]
-[110601013,2,2875]
-[110601013,3,2815]
-[110601017,1,2706]
-[110601017,2,2666]
-[110601017,3,2642]
-[110601018,1,1946]
-[110601018,2,1981]
-[110601018,3,1999]
-[110601019,1,3172]
-[110601019,2,3155]
-[110601019,3,3211]
-[110601023,1,3284]
-[110601023,2,3227]
-[110601023,3,3268]
-[110601023,4,3108]
-[110602001,1,3455]
-[110603001,1,3257]
-[110603001,2,3300]
-[110604003,1,2734]
-[110605001,1,3598]
-[110606001,1,3918]
-[110607001,1,1105]
-[110608001,1,2762]
-[110609001,1,2889]
-[110610001,1,1047]
-[110611001,1,2929]
-[110611001,2,2932]
-[110612003,1,3411]
-[110612003,2,3478]
-[110613001,1,321]
-[110614001,1,2678]
-[110614001,2,2624]
-[110615002,1,2205]
-[110615002,2,2204]
-[110616001,1,2086]
-[110617001,1,1364]
-[110701001,1,3011]
-[110701001,2,3066]
-[110701001,3,3042]
-[110701001,4,3100]
-[110701009,1,3934]
-[110702001,1,2203]
-[110702001,2,2221]
-[110702007,1,3951]
-[110703001,1,2682]
-[110704001,1,2857]
-[110704001,2,2878]
-[110704001,3,2756]
-[110704007,1,2546]
-[110704007,2,2549]
-[110801001,1,2950]
-[110801001,2,2935]
-[110801002,1,2899]
-[110801002,2,2860]
-[110801005,1,3005]
-[110801006,1,2751]
-[110801008,1,2469]
-[110802002,1,2030]
-[110802008,1,3456]
-[110803009,1,3933]
-[110901002,1,3604]
-[110901002,2,3538]
-[110901002,3,3554]
-[110902001,1,3732]
-[110902001,2,3760]
-[110903002,1,2400]
-[110903002,2,2399]
-[120101001,1,3165]
-[120102002,1,1859]
-[120102003,1,2151]
-[120102003,2,2102]
-[120103002,1,1500]
-[120104001,1,3845]
-[120104001,2,3855]
-[120104002,1,3220]
-[120104002,2,3213]
-[120105003,1,3407]
-[120105003,2,3419]
-[120105005,1,3056]
-[120105005,2,3049]
-[120105005,3,3066]
-[120106002,1,2382]
-[120106002,2,2419]
-[120106004,1,3222]
-[120106004,2,3227]
-[120106007,1,3826]
-[120107001,1,2769]
-[120107001,2,2718]
-[120107003,1,3365]
-[120107003,2,3360]
-[120107003,3,3437]
-[120107006,1,2551]
-[120107012,1,2489]
-[120107012,2,2505]
-[120201001,1,2583]
-[120201001,2,2608]
-[120201012,1,1775]
-[120201015,1,2472]
-[120301001,1,2465]
-[120302001,1,567]
-[120303003,1,1378]
-[120304001,1,1238]
-[120305001,1,674]
-[120306001,1,1967]
-[120307001,1,1509]
-[120401001,1,662]
-[120402001,1,2380]
-[120403001,1,2179]
-[120403002,1,1170]
-[120404001,1,900]
-[120405001,1,2075]
-[120405001,2,2045]
-[120405001,3,2080]
-[120405003,1,1968]
-[120405003,2,1967]
-[120405003,3,1931]
-[120405009,1,3400]
-[120405009,2,3412]
-[120406001,1,3285]
-[120406001,2,3262]
-[120406002,1,2159]
-[120406002,2,2158]
-[120406002,3,2128]
-[120406004,1,3616]
-[120406004,2,3540]
-[120406005,1,1787]
-[120406005,2,1804]
-[120406007,1,2212]
-[120406007,2,2187]
-[120407001,1,3183]
-[120407004,1,2552]
-[120407004,2,2598]
-[120501001,1,3747]
-[120502001,1,879]
-[120503001,1,2578]
-[120601001,1,3144]
-[120601001,2,3163]
-[120601004,1,1649]
-[120602001,1,1860]
-[120701001,1,3559]
-[120702001,1,1282]
-[120801001,1,1973]
-[120801001,2,1975]
-[120801001,3,1999]
-[120801005,1,2858]
-[120801005,2,2858]
-[120802001,1,1721]
-[120802001,2,1691]
-[120802001,3,1737]
-[120803001,1,2002]
-[120803001,2,1978]
-[120803001,3,2020]
-[120803004,1,2330]
-[120803005,1,1719]
-[120803005,2,1711]
-[120803006,1,2068]
-[120803006,2,2102]
-[120803007,1,1133]
-[120804001,1,1229]
-[120804001,2,1230]
-[120804001,3,1198]
-[120804002,1,1940]
-[120804002,2,1965]
-[120804002,3,1955]
-[120804003,1,784]
-[120804003,2,787]
-[120805001,1,934]
-[120805001,2,945]
-[120805002,1,1377]
-[120805002,2,1374]
-[120805002,3,1391]
-[120805002,4,1355]
-[120805003,1,1038]
-[120805003,2,1053]
-[120805004,1,1521]
-[120805005,1,1157]
-[120805005,2,1153]
-[120806001,1,2871]
-[120806001,2,2838]
-[120806001,3,2905]
-[120806003,1,2101]
-[120806003,2,2115]
-[120806004,1,2004]
-[120806004,2,2020]
-[120807002,1,1877]
-[120807002,2,1856]
-[120807002,3,1865]
-[120807006,1,2743]
-[120807006,2,2780]
-[120807008,1,1461]
-[120807009,1,1649]
-[120807009,2,1646]
-[120807010,1,1510]
-[120807010,2,1502]
-[120808001,1,812]
-[120808003,1,1959]
-[120808003,2,1924]
-[120809002,1,2305]
-[120809002,2,2322]
-[120809002,3,2356]
-[120809003,1,2203]
-[120809003,2,2221]
-[120810001,1,1709]
-[120810001,2,1687]
-[120810001,3,1680]
-[120810002,1,1593]
-[120810002,2,1591]
-[120811001,1,1523]
-[120811001,2,1536]
-[120811001,3,1513]
-[120811003,1,1123]
-[120811003,2,1097]
-[120811003,3,1148]
-[120811003,4,1117]
-[120811004,1,822]
-[120811004,2,812]
-[120812004,1,1894]
-[120812004,2,1854]
-[120812004,3,1913]
-[120812004,4,1912]
-[120812005,1,1350]
-[120812005,2,1379]
-[120813001,1,2667]
-[120813001,2,2624]
-[120813004,1,1438]
-[120813004,2,1521]
-[120813004,3,1499]
-[120813004,4,1516]
-[120813004,5,1498]
-[120813004,6,1412]
-[120813005,1,1844]
-[120813005,2,1864]
-[120813005,3,1816]
-[120814001,1,1362]
-[120815001,1,592]
-[120901001,1,2353]
-[120901001,2,2383]
-[120901001,3,2333]
-[120901002,1,2006]
-[120901002,2,2018]
-[121001001,1,3169]
-[121001001,2,3074]
-[121001001,3,3097]
-[121001007,1,1490]
-[121002001,1,1517]
-[121003001,1,1042]
-[121004001,1,1199]
-[121101002,1,2367]
-[121101002,2,2420]
-[121101002,3,2428]
-[121101002,4,2390]
-[121101011,1,3174]
-[121102001,1,3348]
-[121103002,1,1749]
-[121201001,1,2621]
-[121201001,2,2579]
-[121201005,1,3589]
-[121202001,1,2488]
-[121202001,2,2452]
-[121203002,1,3670]
-[121301001,1,3625]
-[121301001,2,3646]
-[121301002,1,3663]
-[121302002,1,3906]
-[121401001,1,3715]
-[121402001,1,2909]
-[121501001,1,3336]
-[121501001,2,3378]
-[121601001,1,2498]
-[121601001,2,2505]
-[121602001,1,2401]
-[121603001,1,2532]
-[121604001,1,1013]
-[121605001,1,1289]
-[121701001,1,3573]
-[121701001,2,3615]
-[121701003,1,3126]
-[121702001,1,2488]
-[121801002,1,2813]
-[121801002,2,2855]
-[121801004,1,3786]
-[121801004,2,3769]
-[121802002,1,2759]
-[121802002,2,2725]
-[121803001,1,2999]
-[121804001,1,3732]
-[121804001,2,3705]
-[121805001,1,2960]
-[121806003,1,1709]
-[121901001,1,2354]
-[121901001,2,2346]
-[121901001,3,2346]
-[121902001,1,2426]
-[121902001,2,2488]
-[121902001,3,2455]
-[121902003,1,2764]
-[121902003,2,2777]
-[121902003,3,2809]
-[121903001,1,1551]
-[121904001,1,1706]
-[122001001,1,3387]
-[122001002,1,2898]
-[122001002,2,2811]
-[122002001,1,1440]
-[122002002,1,3657]
-[122003001,1,2577]
-[122004001,1,2099]
-[122101001,1,2347]
-[122201001,1,1373]
-[122201001,2,1363]
-[122202001,1,839]
-[122301001,1,1880]
-[122301001,2,1886]
-[122301001,3,1831]
-[122302001,1,1916]
-[130101001,1,3136]
-[130101001,2,3160]
-[130101004,1,2237]
-[130101004,2,2223]
-[130101006,1,3236]
-[130101019,1,3771]
-[130102001,1,2413]
-[130102002,1,2193]
-[130103002,1,3898]
-[130104001,1,3832]
-[130104006,1,2097]
-[130104012,1,1225]
-[130105001,1,2259]
-[130105001,2,2228]
-[130106001,1,2504]
-[130106001,2,2539]
-[130107003,1,3712]
-[130108002,1,2682]
-[130108002,2,2662]
-[130201002,1,3185]
-[130201002,2,3219]
-[130201003,1,3346]
-[130201003,2,3336]
-[130201003,3,3244]
-[130201006,1,3260]
-[130202002,1,3966]
-[130202002,2,3884]
-[130203001,1,2991]
-[130203001,2,3018]
-[130203001,3,2958]
-[130301001,1,3424]
-[130301005,1,2580]
-[130301005,2,2528]
-[130301005,3,2553]
-[130301010,1,1890]
-[130301010,2,1903]
-[130301010,3,1804]
-[130301011,1,1293]
-[130301011,2,1255]
-[130301012,1,2075]
-[130301013,1,2108]
-[130301014,1,2412]
-[130301014,2,2335]
-[130301015,1,1236]
-[130301015,2,1147]
-[130301015,3,1180]
-[130301016,1,984]
-[130301016,2,943]
-[130301017,1,1166]
-[130301017,2,1153]
-[130301018,1,1978]
-[130301018,2,1996]
-[130301019,1,2405]
-[130301019,2,2417]
-[130301019,3,2463]
-[130301019,4,2483]
-[130301020,1,1573]
-[130301020,2,1590]
-[130301021,1,2752]
-[130301021,2,2771]
-[130301021,3,2729]
-[130301022,1,2090]
-[130301022,2,2011]
-[130301022,3,2033]
-[130301026,1,2368]
-[130301027,1,1471]
-[130301027,2,1481]
-[130301030,1,1453]
-[130301030,2,1440]
-[130301032,1,3093]
-[130301032,2,3112]
-[130301033,1,1872]
-[130301033,2,1807]
-[130301034,1,1941]
-[130301035,1,2425]
-[130301035,2,2414]
-[130301037,1,2900]
-[130301037,2,2854]
-[130301039,1,2336]
-[130301040,1,2116]
-[130301045,1,2166]
-[130301045,2,2173]
-[130301046,1,1434]
-[130301049,1,1685]
-[130301049,2,1680]
-[130301049,3,1623]
-[130301050,1,3053]
-[130301051,1,2065]
-[130301052,1,897]
-[130301052,2,913]
-[130301053,1,1572]
-[130301053,2,1591]
-[130301054,1,1291]
-[130301055,1,1662]
-[130301057,1,2278]
-[130301057,2,2296]
-[130301059,1,3038]
-[130301062,1,3286]
-[130301062,2,3224]
-[130301066,1,524]
-[130301068,1,176]
-[130301072,1,1967]
-[130301072,2,1961]
-[130302002,1,2115]
-[130302002,2,2128]
-[130302007,1,2198]
-[130302007,2,2203]
-[130302007,3,2221]
-[130303001,1,3968]
-[130303001,2,3993]
-[130304002,1,2772]
-[130304002,2,2769]
-[130304003,1,1538]
-[130305001,1,2833]
-[130306001,1,2228]
-[130307003,1,811]
-[130307004,1,1708]
-[130401001,1,2031]
-[130401001,2,1994]
-[130401007,1,2548]
-[130401007,2,2594]
-[130401007,3,2514]
-[130401015,1,2450]
-[130401015,2,2453]
-[130401017,1,2066]
-[130401017,2,2035]
-[130401020,1,3788]
-[130401021,1,3792]
-[130401021,2,3757]
-[130401023,1,2083]
-[130401023,2,2022]
-[130401023,3,1959]
-[130401023,4,1988]
-[130401023,5,2019]
-[130401023,6,2019]
-[130402002,1,3329]
-[130402004,1,2941]
-[130402004,2,2951]
-[130402004,3,2954]
-[130402009,1,3811]
-[130402009,2,3623]
-[130402009,3,3633]
-[130402011,1,3766]
-[130402011,2,3515]
-[130402011,3,3478]
-[130402011,4,3478]
-[130402011,5,3529]
-[130501005,1,3136]
-[130501005,2,3102]
-[130501005,3,3102]
-[130501006,1,2833]
-[130501006,2,2820]
-[130501006,3,2766]
-[130501008,1,4005]
-[130501008,2,3923]
-[130501013,1,2986]
-[130501013,2,3012]
-[130501015,1,3718]
-[130501015,2,3768]
-[130501016,1,2696]
-[130501016,2,2677]
-[130501018,1,3323]
-[130501018,2,3304]
-[130501021,1,3105]
-[130501021,2,3058]
-[130501021,3,3109]
-[130501023,1,3355]
-[130501023,2,3352]
-[130501027,1,2671]
-[130501029,1,3022]
-[130501029,2,2937]
-[130502001,1,1272]
-[130503002,1,3064]
-[130503002,2,3063]
-[130601001,1,2446]
-[130601001,2,2371]
-[130601003,1,2230]
-[130601003,2,2208]
-[130601005,1,3914]
-[130602002,1,2555]
-[130602002,2,2579]
-[130603002,1,3011]
-[130604001,1,992]
-[130605001,1,2212]
-[130701001,1,2841]
-[130701003,1,2921]
-[130701003,2,2899]
-[130701005,1,2506]
-[130701006,1,3080]
-[130701006,2,3044]
-[130701010,1,2241]
-[130701011,1,2472]
-[130701014,1,2683]
-[130701015,1,3353]
-[130701017,1,3483]
-[130701019,1,2999]
-[130701019,2,3004]
-[130701021,1,3348]
-[130701021,2,3292]
-[130701021,3,3296]
-[130701023,1,3903]
-[130701026,1,3807]
-[130701026,2,3716]
-[130801001,1,3418]
-[130801003,1,2232]
-[130801003,2,2172]
-[130801003,3,2210]
-[130801004,1,2642]
-[130801004,2,2670]
-[130801004,3,2656]
-[130801004,4,2660]
-[130801006,1,1611]
-[130801006,2,1470]
-[130801006,3,1515]
-[130801006,4,1476]
-[130801006,5,1586]
-[130801006,6,1507]
-[130801006,7,1478]
-[130801011,1,3801]
-[130801011,2,3854]
-[130801011,3,3783]
-[130801015,1,2776]
-[130801015,2,2765]
-[130801016,1,1995]
-[130801016,2,2032]
-[130801016,3,2021]
-[130801016,4,1993]
-[130801016,5,1893]
-[130801017,1,1994]
-[130801017,2,2036]
-[130801017,3,2028]
-[130801017,4,1974]
-[130801018,1,2968]
-[130801019,1,2737]
-[130801019,2,2734]
-[130801023,1,2948]
-[130801023,2,2933]
-[130801023,3,2881]
-[130801024,1,2956]
-[130801026,1,1549]
-[130801027,1,3300]
-[130801027,2,3285]
-[130801029,1,1269]
-[130801030,1,1679]
-[130801031,1,2244]
-[130801031,2,2257]
-[130801031,3,2270]
-[130801034,1,2367]
-[130801034,2,2375]
-[130801039,1,2251]
-[130801039,2,2192]
-[130801039,3,2188]
-[130801039,4,2169]
-[130801040,1,2577]
-[130801040,2,2551]
-[130801043,1,3404]
-[130801051,1,1425]
-[130801051,2,1406]
-[130801052,1,1447]
-[130901002,1,1236]
-[130901002,2,1247]
-[130901003,1,1274]
-[130901003,2,1253]
-[130901003,3,1254]
-[130901003,4,1225]
-[130901003,5,1266]
-[130901003,6,1300]
-[130901004,1,1081]
-[130901004,2,1077]
-[130901005,1,1230]
-[130901005,2,1185]
-[130901006,1,1890]
-[130901006,2,1878]
-[130901006,3,1900]
-[130901007,1,2030]
-[130901008,1,2091]
-[130901008,2,1950]
-[130901008,3,1935]
-[130901008,4,1910]
-[130901008,5,1915]
-[130901008,6,2027]
-[130901008,7,2016]
-[130901010,1,1615]
-[130901012,1,2202]
-[130901012,2,2273]
-[130901012,3,2219]
-[130901012,4,2236]
-[130901012,5,2212]
-[130901012,6,2179]
-[130901012,7,2262]
-[130901012,8,2143]
-[130901012,9,2091]
-[130901012,10,1751]
-[130901018,1,2487]
-[130901018,2,2333]
-[130901023,1,1266]
-[130901023,2,1212]
-[130901023,3,1222]
-[130901023,4,1175]
-[130901025,1,1578]
-[130901025,2,1577]
-[130901025,3,1578]
-[130901025,4,1459]
-[130901029,1,1302]
-[130901029,2,1318]
-[130901030,1,1430]
-[130901030,2,1445]
-[130901030,3,1392]
-[130901030,4,1379]
-[130901030,5,1415]
-[130901030,6,1426]
-[130901031,1,849]
-[130901031,2,849]
-[130901033,1,1087]
-[130901035,1,1563]
-[130901035,2,1564]
-[130901035,3,1531]
-[130901036,1,1326]
-[130901036,2,1314]
-[130901036,3,1309]
-[130901039,1,1146]
-[130901039,2,1140]
-[130901039,3,1175]
-[130901040,1,815]
-[130901040,2,818]
-[130901041,1,972]
-[130901041,2,959]
-[130901043,1,2314]
-[130901043,2,2287]
-[130901043,3,2258]
-[130901044,1,1134]
-[130901044,2,1165]
-[130901044,3,1182]
-[130901044,4,1182]
-[130901044,5,1174]
-[130901044,6,1096]
-[130901048,1,1329]
-[130901048,2,1268]
-[130901048,3,1296]
-[130901048,4,1288]
-[130901048,5,1301]
-[130901049,1,1048]
-[130901049,2,1037]
-[130901050,1,1118]
-[130901050,2,1097]
-[130901051,1,1573]
-[130901051,2,1555]
-[130901057,1,1993]
-[130901057,2,2027]
-[130901057,3,1992]
-[130901059,1,2062]
-[130901059,2,2075]
-[130901059,3,2114]
-[130901059,4,2136]
-[130901060,1,1050]
-[130901062,1,2798]
-[130901062,2,2750]
-[130901065,1,2309]
-[130901065,2,2273]
-[130901065,3,2276]
-[130901065,4,2287]
-[130901067,1,2724]
-[130901067,2,2662]
-[130901070,1,2445]
-[130901070,2,2424]
-[130901070,3,2475]
-[130901071,1,2588]
-[130901071,2,2636]
-[130901071,3,2625]
-[130901071,4,2558]
-[130901074,1,2195]
-[130901074,2,2259]
-[130901074,3,2223]
-[130901074,4,2102]
-[130901074,5,2076]
-[130901074,6,2233]
-[130901074,7,2116]
-[130901074,8,2050]
-[130901078,1,1657]
-[130901078,2,1620]
-[130901078,3,1622]
-[130901080,1,3505]
-[130901080,2,3563]
-[130901080,3,3421]
-[130901084,1,3334]
-[130901084,2,3406]
-[130901084,3,3448]
-[130901084,4,3260]
-[130901090,1,1935]
-[130901090,2,1888]
-[130901090,3,1893]
-[130901091,1,2066]
-[130901091,2,2052]
-[130901093,1,1318]
-[130901093,2,1304]
-[130901093,3,1306]
-[130901093,4,1281]
-[130901093,5,1203]
-[130901096,1,3653]
-[130901096,2,3735]
-[130901096,3,3463]
-[130901096,4,3681]
-[130901096,5,3746]
-[130901096,6,3577]
-[130901096,7,3498]
-[130901096,8,3414]
-[130901098,1,2358]
-[130901098,2,2372]
-[130901098,3,2432]
-[130901100,1,2082]
-[130901100,2,2067]
-[130901107,1,3847]
-[130901111,1,2383]
-[130901111,2,2426]
-[130901111,3,2361]
-[130901111,4,2397]
-[130901113,1,1451]
-[130901113,2,1438]
-[130901113,3,1451]
-[130901113,4,1461]
-[130901113,5,1477]
-[130901114,1,836]
-[130902001,1,1413]
-[130902001,2,1393]
-[130902002,1,1270]
-[130902002,2,1274]
-[130902002,3,1294]
-[130902002,4,1250]
-[130902003,1,1037]
-[130902003,2,1013]
-[130902007,1,1705]
-[130902007,2,1697]
-[130902007,3,1696]
-[130902007,4,1625]
-[130902007,5,1704]
-[130902007,6,1585]
-[130902012,1,1552]
-[130902012,2,1557]
-[130902013,1,1335]
-[130902014,1,1219]
-[130902016,1,1595]
-[130902016,2,1539]
-[130902016,3,1547]
-[130902018,1,377]
-[130902020,1,2233]
-[130902021,1,1588]
-[130902021,2,1627]
-[130902021,3,1580]
-[130902021,4,1594]
-[130902022,1,1707]
-[130902022,2,1630]
-[130902022,3,1666]
-[130902022,4,1677]
-[130902022,5,1668]
-[130902024,1,1843]
-[130902024,2,1800]
-[130902024,3,1846]
-[130902024,4,1889]
-[130902024,5,1841]
-[130902024,6,1872]
-[130903001,1,1803]
-[130903001,2,1781]
-[130903001,3,1816]
-[130903002,1,2202]
-[130903002,2,2224]
-[130903003,1,3679]
-[130903003,2,3647]
-[130903005,1,2420]
-[130903005,2,2496]
-[130903005,3,2470]
-[130903005,4,2443]
-[130903007,1,2028]
-[130903007,2,2049]
-[130904001,1,2651]
-[130904001,2,2626]
-[130904001,3,2572]
-[130904001,4,2569]
-[130904007,1,3199]
-[130904007,2,3120]
-[130904007,3,3135]
-[130905001,1,3225]
-[130905001,2,3381]
-[130905001,3,3375]
-[130905001,4,3291]
-[130905001,5,3220]
-[130905006,1,3104]
-[130905010,1,1131]
-[131001001,1,3073]
-[131001001,2,3127]
-[131001001,3,3121]
-[131001004,1,3480]
-[131001004,2,3493]
-[131001004,3,3522]
-[131001010,1,3236]
-[131001010,2,3150]
-[131001010,3,3210]
-[131001010,4,3112]
-[131001011,1,3706]
-[131001018,1,1953]
-[131001018,2,1954]
-[131001019,1,2287]
-[131001019,2,2310]
-[131001023,1,2298]
-[131001023,2,2263]
-[131001023,3,2253]
-[131002001,1,3092]
-[131002006,1,1984]
-[131002007,1,3120]
-[131002007,2,3046]
-[131002008,1,2216]
-[131002008,2,2205]
-[131002009,1,1234]
-[131002010,1,3559]
-[131002010,2,3566]
-[131101002,1,2219]
-[131101007,1,2257]
-[131101007,2,2313]
-[131101007,3,2299]
-[131101010,1,2872]
-[131101010,2,2842]
-[131101014,1,3028]
-[131101014,2,2996]
-[131101014,3,3033]
-[131101016,1,1720]
-[131101016,2,1757]
-[131101016,3,1678]
-[131101016,4,1669]
-[131101016,5,1723]
-[131101017,1,2554]
-[131101017,2,2535]
-[131101017,3,2637]
-[131101017,4,2612]
-[131101018,1,2323]
-[131101018,2,2318]
-[131101018,3,2289]
-[131101024,1,2414]
-[131101024,2,2429]
-[131101024,3,2357]
-[131101025,1,3664]
-[131101025,2,3727]
-[131101025,3,3650]
-[131101025,4,3634]
-[131101026,1,1658]
-[131101026,2,1620]
-[131101026,3,1611]
-[131101026,4,1655]
-[131101031,1,1797]
-[131101031,2,1830]
-[131101031,3,1841]
-[131101031,4,1767]
-[131101032,1,2014]
-[131101032,2,1989]
-[131101032,3,2049]
-[131101032,4,1982]
-[131101038,1,3923]
-[131101043,1,261]
-[131102001,1,3422]
-[131102001,2,3467]
-[131102002,1,2062]
-[131102002,2,2097]
-[131102003,1,2189]
-[131201001,1,3410]
-[131201001,2,3465]
-[131201001,3,3418]
-[131201005,1,3521]
-[131201006,1,2550]
-[131201006,2,2520]
-[131201008,1,3846]
-[131201008,2,3836]
-[131201009,1,2826]
-[131201009,2,2860]
-[131201010,1,2489]
-[131201010,2,2442]
-[131201011,1,1646]
-[131201011,2,1624]
-[131201011,3,1633]
-[131201013,1,3504]
-[131201013,2,3481]
-[131201016,1,2417]
-[131201016,2,2431]
-[131201017,1,3307]
-[131201019,1,3719]
-[131202001,1,774]
-[131202005,1,3134]
-[131202005,2,3148]
-[131202005,3,3193]
-[131301001,1,1304]
-[131301001,2,1293]
-[131301001,3,1303]
-[131301002,1,1359]
-[131301002,2,1321]
-[131301002,3,1299]
-[131301002,4,1332]
-[131301003,1,1803]
-[131301004,1,1696]
-[131301004,2,1665]
-[131301008,1,1693]
-[131301009,1,1543]
-[131301009,2,1477]
-[131301009,3,1476]
-[131301009,4,1463]
-[131301010,1,1462]
-[131301010,2,1372]
-[131301010,3,1414]
-[131301010,4,1365]
-[131301010,5,1353]
-[131301010,6,1377]
-[131301012,1,1737]
-[131301012,2,1711]
-[131301012,3,1698]
-[131301012,4,1737]
-[131301014,1,1963]
-[131301015,1,1108]
-[131301015,2,1128]
-[131301015,3,1096]
-[131301015,4,1122]
-[131301017,1,1410]
-[131301017,2,1493]
-[131301017,3,1499]
-[131301017,4,1482]
-[131301017,5,1495]
-[131301017,6,1411]
-[131301017,7,1384]
-[131401002,1,2713]
-[131401002,2,2747]
-[131401002,3,2719]
-[131401003,1,3365]
-[131401004,1,2553]
-[131402001,1,1298]
-[131501001,1,3047]
-[131501001,2,3113]
-[131501001,3,3119]
-[131501005,1,2254]
-[131501006,1,2951]
-[131501007,1,958]
-[131501014,1,1213]
-[131501014,2,1222]
-[131502010,1,3072]
-[131502010,2,3082]
-[131601002,1,1436]
-[131601002,2,1414]
-[131601002,3,1397]
-[131601002,4,1386]
-[131601002,5,1414]
-[131601003,1,1226]
-[131601003,2,1250]
-[131601003,3,1224]
-[131601004,1,1390]
-[131601004,2,1407]
-[131601005,1,908]
-[131601005,2,902]
-[131601007,1,1248]
-[131601007,2,1252]
-[131601007,3,1262]
-[131601007,4,1192]
-[131601008,1,1274]
-[131601008,2,1257]
-[131601009,1,1359]
-[131601009,2,1366]
-[131601009,3,1378]
-[131601011,1,1352]
-[131601011,2,1347]
-[131601012,1,1192]
-[131601012,2,1212]
-[131601012,3,1198]
-[131601014,1,1118]
-[131601014,2,1090]
-[131601014,3,1097]
-[131601015,1,1476]
-[131601015,2,1457]
-[131601015,3,1453]
-[131601015,4,1461]
-[131601015,5,1367]
-[131601016,1,823]
-[131601016,2,825]
-[131601018,1,1293]
-[131601018,2,1334]
-[131601018,3,1310]
-[131601019,1,1382]
-[131601019,2,1381]
-[131601019,3,1381]
-[131601019,4,1329]
-[131601020,1,1223]
-[131601020,2,1187]
-[131601021,1,1429]
-[131601021,2,1451]
-[131601021,3,1457]
-[131601022,1,1013]
-[131601022,2,1024]
-[131601022,3,1021]
-[131601023,1,858]
-[131601023,2,870]
-[131601025,1,1393]
-[131601025,2,1368]
-[131601025,3,1354]
-[131601025,4,1340]
-[131601025,5,1360]
-[131601025,6,1342]
-[131601025,7,1365]
-[131601026,1,1964]
-[131601026,2,1997]
-[131601026,3,2040]
-[131601026,4,2020]
-[131601030,1,1072]
-[131601030,2,1083]
-[131601032,1,1526]
-[131601033,1,1424]
-[131601035,1,2484]
-[131601035,2,2396]
-[131601036,1,1961]
-[131601037,1,1710]
-[131601037,2,1712]
-[131601039,1,2310]
-[131601039,2,2276]
-[131601040,1,2495]
-[131601040,2,2487]
-[131601041,1,1317]
-[131601041,2,1306]
-[131601041,3,1265]
-[131601041,4,1334]
-[131601041,5,1334]
-[131601041,6,1259]
-[131601041,7,1333]
-[131601041,8,1154]
-[131601042,1,1456]
-[131601042,2,1455]
-[131601044,1,1170]
-[131601044,2,1143]
-[131601044,3,1164]
-[131601046,1,1038]
-[131601046,2,985]
-[131601046,3,983]
-[131601047,1,1278]
-[131601047,2,1283]
-[131601048,1,2773]
-[131601050,1,1491]
-[131601050,2,1439]
-[131601050,3,1443]
-[131601054,1,1246]
-[131601054,2,1262]
-[131601054,3,1254]
-[131601064,1,1624]
-[131601064,2,1596]
-[131602001,1,1190]
-[131602001,2,1194]
-[131602001,3,1174]
-[131602001,4,1195]
-[131602002,1,1056]
-[131602002,2,1073]
-[131602005,1,1394]
-[131602005,2,1384]
-[131602006,1,1239]
-[131602006,2,1235]
-[131602009,1,1153]
-[131602009,2,1048]
-[131602009,3,1071]
-[131602009,4,1045]
-[131602010,1,1116]
-[131602010,2,1096]
-[131602010,3,1081]
-[131602011,1,1331]
-[131602011,2,1346]
-[131602011,3,1332]
-[131602011,4,1290]
-[131602011,5,1305]
-[131602014,1,799]
-[131602014,2,786]
-[131602015,1,1303]
-[131602015,2,1330]
-[131602015,3,1313]
-[131602015,4,1308]
-[131602015,5,1303]
-[131602016,1,1489]
-[131602016,2,1495]
-[131602018,1,1326]
-[131602019,1,1361]
-[131602020,1,954]
-[131602020,2,963]
-[131602021,1,814]
-[131602021,2,830]
-[131603001,1,1428]
-[131603001,2,1396]
-[131603001,3,1431]
-[131603001,4,1456]
-[131603001,5,1435]
-[131603001,6,1392]
-[131603001,7,1388]
-[131603002,1,1948]
-[131603002,2,1939]
-[131603002,3,1924]
-[131603002,4,1943]
-[131603002,5,1871]
-[131603003,1,1739]
-[131603006,1,1898]
-[131603006,2,1802]
-[131603007,1,2774]
-[131603008,1,1826]
-[131603009,1,1771]
-[131603009,2,1803]
-[131603009,3,1749]
-[131701001,1,1919]
-[131701001,2,1853]
-[131701003,1,1806]
-[131701003,2,1725]
-[131701004,1,2475]
-[131701004,2,2493]
-[131701005,1,1238]
-[131701005,2,1214]
-[131701005,3,1241]
-[131701007,1,3425]
-[131701008,1,1553]
-[131701008,2,1531]
-[131701009,1,2052]
-[131701009,2,2074]
-[131701011,1,1266]
-[131701011,2,1236]
-[131701011,3,1217]
-[131701012,1,1699]
-[131701012,2,1664]
-[131701017,1,1229]
-[131801001,1,1230]
-[131801002,1,1622]
-[131801002,2,1568]
-[131801002,3,1617]
-[131801002,4,1592]
-[131801004,1,1502]
-[131801004,2,1452]
-[131801004,3,1422]
-[131801004,4,1440]
-[131801004,5,1442]
-[131801007,1,1308]
-[131801007,2,1284]
-[131801009,1,1162]
-[131801009,2,1189]
-[131801009,3,1193]
-[131801010,1,1622]
-[131801010,2,1579]
-[131801010,3,1594]
-[131801010,4,1591]
-[131801010,5,1535]
-[131801011,1,1965]
-[131801011,2,1966]
-[131801011,3,2038]
-[131801011,4,2025]
-[131801011,5,1959]
-[131801011,6,2003]
-[131801013,1,1319]
-[131801013,2,1349]
-[131801013,3,1362]
-[131801013,4,1327]
-[131801014,1,1367]
-[131801014,2,1361]
-[131801014,3,1359]
-[131801014,4,1381]
-[131801015,1,1705]
-[131801015,2,1688]
-[131801016,1,1557]
-[131801016,2,1575]
-[131801017,1,1418]
-[131801017,2,1398]
-[131801018,1,951]
-[131801018,2,937]
-[131801019,1,1507]
-[131801019,2,1594]
-[131801019,3,1540]
-[131801019,4,1563]
-[131801019,5,1567]
-[131801019,6,1561]
-[131801022,1,1517]
-[131801022,2,1505]
-[131801022,3,1527]
-[131801024,1,1493]
-[131801024,2,1501]
-[131801028,1,783]
-[131901001,1,936]
-[131901001,2,952]
-[131901002,1,1146]
-[131901002,2,1110]
-[131901003,1,1313]
-[131901003,2,1326]
-[131901003,3,1273]
-[131901003,4,1312]
-[131901003,5,1305]
-[131901003,6,1299]
-[131901004,1,1167]
-[131901004,2,1164]
-[131901006,1,1858]
-[131901007,1,1884]
-[131901007,2,1879]
-[131901007,3,1903]
-[131901007,4,1922]
-[131901009,1,2263]
-[131901009,2,2231]
-[131901010,1,1216]
-[131901010,2,1188]
-[131901010,3,1222]
-[131901010,4,1202]
-[131901010,5,1199]
-[131901011,1,1141]
-[131901011,2,1096]
-[131901011,3,1098]
-[131901012,1,1896]
-[131901013,1,1101]
-[131901016,1,1089]
-[131901016,2,1071]
-[131901016,3,1076]
-[131901018,1,1231]
-[131901018,2,1178]
-[131901018,3,1212]
-[131901018,4,1205]
-[131901018,5,1191]
-[132001002,1,3711]
-[132001002,2,3694]
-[132001002,3,3648]
-[132001005,1,868]
-[132001007,1,3466]
-[132101001,1,2281]
-[132101001,2,2295]
-[132101003,1,2578]
-[132101007,1,899]
-[132101009,1,2161]
-[132101014,1,2045]
-[132102001,1,911]
-[140101001,1,3246]
-[140101001,2,3157]
-[140101001,3,3162]
-[140102001,1,2605]
-[140102001,2,2554]
-[140201001,1,3692]
-[140201007,1,3417]
-[140201007,2,3469]
-[140201013,1,2983]
-[140201013,2,3011]
-[140201013,3,3054]
-[140201019,1,3009]
-[140201019,2,3054]
-[140301002,1,2846]
-[140301002,2,2804]
-[140301002,3,2809]
-[140302002,1,2659]
-[140302002,2,2636]
-[140303001,1,3326]
-[140304001,1,2648]
-[140305001,1,2057]
-[140306001,1,1689]
-[140401003,1,3525]
-[140401003,2,3585]
-[140401003,3,3532]
-[140401003,4,3512]
-[140402001,1,2071]
-[140402001,2,2050]
-[140403001,1,3441]
-[140404001,1,2289]
-[140501001,1,3229]
-[140501001,2,3323]
-[140501001,3,3253]
-[140501002,1,3698]
-[140501002,2,3668]
-[140501010,1,3707]
-[140501010,2,3499]
-[140501011,1,2825]
-[140501011,2,2749]
-[140501011,3,2854]
-[140502003,1,3609]
-[140502003,2,3648]
-[140601005,1,3797]
-[140601005,2,3883]
-[140601005,3,3783]
-[140601005,4,3904]
-[140601008,1,2369]
-[140601008,2,2366]
-[140602002,1,2579]
-[140603001,1,979]
-[140604001,1,3551]
-[140701001,1,3228]
-[140701001,2,3169]
-[140702001,1,4039]
-[140702001,2,4046]
-[140703001,1,3709]
-[140704002,1,3239]
-[140704002,2,3261]
-[140705001,1,2829]
-[140705001,2,2803]
-[140705004,1,1762]
-[140705006,1,1876]
-[140706001,1,3252]
-[140706001,2,3217]
-[140706001,3,3228]
-[140706004,1,2650]
-[140706004,2,2670]
-[140706004,3,2726]
-[140706004,4,2706]
-[140706006,1,3567]
-[140706015,1,3496]
-[140706015,2,3413]
-[140706015,3,3383]
-[140706015,4,3365]
-[140706020,1,3506]
-[140706020,2,3420]
-[140706020,3,3456]
-[140706020,4,3443]
-[140706020,5,3454]
-[140706024,1,3076]
-[140706024,2,3133]
-[140706024,3,3103]
-[140706024,4,3188]
-[140706025,1,3356]
-[140706025,2,3379]
-[140706025,3,3391]
-[140706025,4,3324]
-[140707001,1,2388]
-[140707003,1,2505]
-[140707003,2,2458]
-[140707007,1,3228]
-[140707007,2,3235]
-[140707008,1,3981]
-[140707008,2,3938]
-[140707009,1,3026]
-[140707009,2,2988]
-[140707009,3,2981]
-[140707015,1,1997]
-[140708001,1,2676]
-[140708001,2,2624]
-[140708002,1,2848]
-[140708002,2,2865]
-[140708002,3,2858]
-[140708007,1,3870]
-[140708007,2,3866]
-[140708008,1,2209]
-[140708008,2,2253]
-[140708014,1,2432]
-[140708014,2,2406]
-[140708016,1,3133]
-[140708016,2,3109]
-[140708016,3,3141]
-[140708018,1,3368]
-[140708018,2,3459]
-[140708018,3,3404]
-[140708030,1,3332]
-[140709001,1,3055]
-[140709001,2,3042]
-[140709001,3,3080]
-[140709001,4,3072]
-[140709001,5,3117]
-[140709005,1,3041]
-[140709005,2,2992]
-[140710005,1,2537]
-[140710005,2,2543]
-[140710007,1,1896]
-[140710007,2,1926]
-[140710010,1,3062]
-[140710010,2,3020]
-[140710010,3,3074]
-[140710014,1,3662]
-[140710014,2,3593]
-[140710014,3,3587]
-[140710019,1,1136]
-[140710019,2,1161]
-[140710019,3,1143]
-[140710020,1,1266]
-[140710020,2,1270]
-[140710021,1,2567]
-[140710022,1,2663]
-[140710022,2,2620]
-[140710022,3,2693]
-[140710022,4,2685]
-[140710024,1,1807]
-[140710025,1,1761]
-[140710026,1,3428]
-[140710030,1,2983]
-[140710030,2,3022]
-[140710030,3,2946]
-[140710030,4,3019]
-[140710030,5,2921]
-[140710030,6,2946]
-[140710035,1,2344]
-[140710037,1,3489]
-[140710040,1,1449]
-[140710042,1,1677]
-[140710045,1,3491]
-[140710054,1,3589]
-[140710060,1,2176]
-[140710060,2,2188]
-[140801001,1,3388]
-[140801001,2,3443]
-[140802003,1,2809]
-[140802003,2,2762]
-[140803001,1,3680]
-[140804002,1,2697]
-[140805001,1,2227]
-[140806002,1,2145]
-[140807001,1,3339]
-[140807001,2,3386]
-[140901001,1,3135]
-[140901001,2,3119]
-[140901005,1,2249]
-[140901008,1,2275]
-[140902004,1,3215]
-[140902004,2,3158]
-[140902006,1,1512]
-[140902006,2,1531]
-[141001001,1,3522]
-[141001001,2,3610]
-[141001001,3,3526]
-[141002001,1,3687]
-[141002002,1,901]
-[141101002,1,3090]
-[141101002,2,3140]
-[141101004,1,2100]
-[141101004,2,2069]
-[141201001,1,3717]
-[141201001,2,3646]
-[141301002,1,3512]
-[141301002,2,3573]
-[150101001,1,2321]
-[150101001,2,2295]
-[150101004,1,1651]
-[150101004,2,1674]
-[150101005,1,1928]
-[150101007,1,1805]
-[150101007,2,1816]
-[150101007,3,1847]
-[150101009,1,2317]
-[150101010,1,1846]
-[150201001,1,1975]
-[150201001,2,1976]
-[150201001,3,2003]
-[150201004,1,1857]
-[150201004,2,1829]
-[150201005,1,3589]
-[150201005,2,3574]
-[150201010,1,2073]
-[150201011,1,3369]
-[150201011,2,3365]
-[150202001,1,2829]
-[150202001,2,2856]
-[150202001,3,2835]
-[150202003,1,2965]
-[150301001,1,2619]
-[150301001,2,2633]
-[150301005,1,4122]
-[150302001,1,1923]
-[150302001,2,1935]
-[150303001,1,1803]
-[150303001,2,1818]
-[150304001,1,1615]
-[150305002,1,3355]
-[150305002,2,3342]
-[150401001,1,2302]
-[150401001,2,2263]
-[150401002,1,2348]
-[150401002,2,2339]
-[150401002,3,2276]
-[150401004,1,1679]
-[150401004,2,1655]
-[150402001,1,1708]
-[150402001,2,1713]
-[150402001,3,1744]
-[150402002,1,1051]
-[150402002,2,1038]
-[150402003,1,1707]
-[150402003,2,1664]
-[150402004,1,1339]
-[150402004,2,1365]
-[150402004,3,1369]
-[150402006,1,1346]
-[150402006,2,1359]
-[150501002,1,2596]
-[150501002,2,2579]
-[150501002,3,2623]
-[150501006,1,2104]
-[150501006,2,2087]
-[150501006,3,2118]
-[150502001,1,2264]
-[150502001,2,2240]
-[150502002,1,2643]
-[150502002,2,2621]
-[150601001,1,2643]
-[150601001,2,2578]
-[150601001,3,2580]
-[150601005,1,1715]
-[150601008,1,2093]
-[150601008,2,2050]
-[150601009,1,1578]
-[150601009,2,1518]
-[150601010,1,1241]
-[150601010,2,1174]
-[150601013,1,2783]
-[150601014,1,1789]
-[150601014,2,1800]
-[150601018,1,2243]
-[150601018,2,2244]
-[150601019,1,1763]
-[150601019,2,1758]
-[150601019,3,1728]
-[150601020,1,2892]
-[150601021,1,2214]
-[150601021,2,2202]
-[150601023,1,2610]
-[150601024,1,3040]
-[150601026,1,2204]
-[150601026,2,2227]
-[150601026,3,2176]
-[150601027,1,2321]
-[150601027,2,2310]
-[150601029,1,2570]
-[150601030,1,2158]
-[150601030,2,2157]
-[150601030,3,2087]
-[150601030,4,2143]
-[150701001,1,2145]
-[150701001,2,2168]
-[150701002,1,3377]
-[150702001,1,3454]
-[150702001,2,3427]
-[150702004,1,815]
-[150702005,1,1377]
-[150801001,1,1995]
-[150801001,2,1972]
-[150802001,1,2025]
-[150802002,1,1009]
-[150901001,1,2040]
-[150901001,2,2028]
-[150901002,1,2762]
-[150901006,1,3716]
-[150901008,1,3126]
-[150901011,1,1122]
-[150901012,1,1488]
-[150902002,1,3750]
-[150902005,1,1633]
-[151001001,1,2406]
-[151001001,2,2423]
-[151001003,1,2163]
-[151001003,2,2135]
-[151001004,1,2037]
-[151001005,1,1978]
-[151001005,2,1951]
-[151001010,1,3598]
-[151101001,1,2312]
-[151101001,2,2270]
-[151101004,1,1512]
-[151101004,2,1483]
-[151102001,1,2607]
-[151102001,2,2615]
-[151102001,3,2598]
-[151102002,1,2291]
-[151102002,2,2279]
-[151102002,3,2228]
-[151102003,1,2544]
-[151102004,1,2822]
-[151102004,2,2860]
-[151102005,1,1670]
-[151102005,2,1648]
-[151102007,1,959]
-[151102009,1,1119]
-[160101005,1,2661]
-[160101005,2,2629]
-[160101007,1,2432]
-[160101007,2,2446]
-[160101008,1,2433]
-[160101008,2,2425]
-[160101012,1,3860]
-[160101014,1,871]
-[160101014,2,882]
-[160101015,1,1766]
-[160101016,1,2381]
-[160101017,1,1893]
-[160101017,2,1911]
-[160101021,1,1810]
-[160101022,1,2929]
-[160101022,2,2977]
-[160101027,1,4039]
-[160101030,1,2471]
-[160101030,2,2420]
-[160101033,1,1398]
-[160101035,1,3907]
-[160101041,1,2236]
-[160101041,2,2277]
-[160101045,1,3044]
-[160101047,1,3358]
-[160101047,2,3352]
-[160101055,1,935]
-[160101057,1,2628]
-[160101062,1,2631]
-[160101062,2,2623]
-[160102001,1,2651]
-[160102001,2,2585]
-[160102002,1,2565]
-[160201002,1,2535]
-[160201002,2,2568]
-[160201006,1,2520]
-[160201006,2,2476]
-[160201012,1,2593]
-[160201013,1,1302]
-[160201018,1,2585]
-[160201018,2,2585]
-[160201023,1,3603]
-[160202006,1,3597]
-[160202011,1,725]
-[160301001,1,2218]
-[160301003,1,2365]
-[160301003,2,2366]
-[160301005,1,2851]
-[160301005,2,2844]
-[160301010,1,1413]
-[160301012,1,2916]
-[160301013,1,1528]
-[160301013,2,1518]
-[160301014,1,2521]
-[160301014,2,2495]
-[160301016,1,1544]
-[160301016,2,1496]
-[160301017,1,3263]
-[160301019,1,2491]
-[160301020,1,1776]
-[160301022,1,2401]
-[160301023,1,2446]
-[160301023,2,2437]
-[160301026,1,2621]
-[160301026,2,2650]
-[160301028,1,2043]
-[160301028,2,2051]
-[160301029,1,2216]
-[160301029,2,2188]
-[160301031,1,2817]
-[160301031,2,2754]
-[160301036,1,1840]
-[160301037,1,3342]
-[160301037,2,3406]
-[160301040,1,2450]
-[160301040,2,2410]
-[160301043,1,356]
-[160301045,1,2514]
-[160301046,1,2056]
-[160301046,2,2021]
-[160301049,1,3411]
-[160301051,1,3291]
-[160301059,1,2495]
-[160301066,1,3039]
-[160301080,1,3054]
-[160302001,1,1851]
-[160303001,1,1593]
-[160303005,1,2645]
-[160303005,2,2671]
-[160303008,1,1786]
-[160304001,1,2164]
-[160304002,1,3785]
-[160305002,1,1362]
-[160401001,1,2567]
-[160401001,2,2520]
-[160401003,1,2618]
-[160401003,2,2662]
-[160401010,1,2102]
-[160401011,1,2425]
-[160401014,1,2836]
-[160402001,1,2372]
-[160403004,1,3521]
-[160501001,1,3788]
-[160501001,2,3849]
-[160501002,1,3407]
-[160501002,2,3456]
-[160501011,1,1339]
-[160501019,1,1241]
-[160502001,1,3008]
-[160502001,2,2983]
-[160503003,1,3417]
-[160503003,2,3418]
-[160601002,1,3595]
-[160601003,1,2762]
-[160601006,1,2111]
-[160601006,2,2083]
-[160601008,1,3372]
-[160601008,2,3318]
-[160601009,1,1987]
-[160601009,2,1968]
-[160601012,1,3254]
-[160601012,2,3188]
-[160601015,1,3495]
-[160601015,2,3477]
-[160601020,1,3688]
-[160601022,1,2868]
-[160601022,2,2950]
-[160601022,3,2895]
-[160601023,1,2608]
-[160601024,1,3573]
-[160601026,1,3025]
-[160601028,1,2309]
-[160601028,2,2361]
-[160601028,3,2357]
-[160601034,1,2162]
-[160601034,2,2121]
-[160601035,1,1723]
-[160601035,2,1695]
-[160601039,1,3127]
-[160601039,2,3096]
-[160601040,1,3615]
-[160601040,2,3580]
-[160601040,3,3645]
-[160601041,1,2308]
-[160601041,2,2343]
-[160601042,1,3642]
-[160601049,1,2152]
-[160601049,2,2182]
-[160601059,1,1880]
-[160602001,1,3239]
-[160602001,2,3216]
-[160603002,1,3435]
-[160604003,1,3585]
-[160701003,1,2480]
-[160701003,2,2430]
-[160701003,3,2428]
-[160701006,1,3968]
-[160701006,2,3932]
-[160702001,1,2719]
-[160703003,1,2368]
-[160704003,1,2132]
-[160704003,2,2169]
-[160705002,1,1403]
-[160706004,1,2542]
-[160706005,1,1599]
-[160801003,1,2993]
-[160801003,2,2996]
-[160801004,1,2735]
-[160801004,2,2747]
-[160801009,1,1982]
-[160801011,1,3352]
-[160801011,2,3371]
-[160801012,1,2790]
-[160801012,2,2785]
-[160801019,1,669]
-[160801022,1,1920]
-[160802002,1,2652]
-[160802002,2,2694]
-[160803001,1,3142]
-[160804001,1,3732]
-[160901002,1,2690]
-[160901002,2,2702]
-[160901002,3,2726]
-[160901012,1,2496]
-[160901012,2,2482]
-[160901017,1,699]
-[160902001,1,2364]
-[161001001,1,2995]
-[161001003,1,3484]
-[161001003,2,3463]
-[161001014,1,3638]
-[161101001,1,2146]
-[161101003,1,2596]
-[161102007,1,3550]
-[161102008,1,1191]
-[161102010,1,1534]
-[161201001,1,1625]
-[161201004,1,2994]
-[161201008,1,2522]
-[161201008,2,2505]
-[161202001,1,2842]
-[161202001,2,2820]
-[161301003,1,2929]
-[161301006,1,2608]
-[161301008,1,3735]
-[161302001,1,900]
-[161303001,1,1547]
-[161401001,1,3303]
-[161401006,1,996]
-[161401007,1,2341]
-[161401007,2,2345]
-[161402002,1,2473]
-[170101001,1,3629]
-[170101001,2,3587]
-[170101004,1,3026]
-[170101004,2,3051]
-[170101015,1,2131]
-[170101018,1,2380]
-[170102002,1,3300]
-[170103001,1,3995]
-[170104002,1,2686]
-[170104002,2,2660]
-[170105003,1,2220]
-[170201001,1,2167]
-[170201001,2,2187]
-[170201015,1,3083]
-[170201025,1,2842]
-[170201025,2,2865]
-[170202001,1,2580]
-[170203001,1,1426]
-[170204001,1,1855]
-[170205001,1,2023]
-[170206001,1,1514]
-[170301001,1,3111]
-[170301002,1,3606]
-[170301004,1,2067]
-[170301004,2,2053]
-[170301005,1,2210]
-[170301005,2,2234]
-[170301006,1,2082]
-[170301008,1,2343]
-[170301008,2,2296]
-[170301010,1,2230]
-[170301010,2,2271]
-[170301010,3,2228]
-[170301012,1,3553]
-[170301012,2,3499]
-[170301012,3,3550]
-[170301017,1,2687]
-[170302001,1,2555]
-[170302003,1,1352]
-[170302004,1,3564]
-[170302006,1,3785]
-[170302006,2,3699]
-[170302007,1,1995]
-[170302007,2,1938]
-[170302007,3,1982]
-[170302008,1,429]
-[170303001,1,1977]
-[170303001,2,1975]
-[170304002,1,3889]
-[170304002,2,3774]
-[170304003,1,2504]
-[170304003,2,2523]
-[170304004,1,2970]
-[170304005,1,2404]
-[170304005,2,2397]
-[170305001,1,2089]
-[170305001,2,2071]
-[170401002,1,3988]
-[170401002,2,3926]
-[170402001,1,4022]
-[170403001,1,2648]
-[170501001,1,3002]
-[170501001,2,3045]
-[170501005,1,2015]
-[170502001,1,3040]
-[170503001,1,1440]
-[170504001,1,1731]
-[170505002,1,1663]
-[170601001,1,2391]
-[170601001,2,2370]
-[170601003,1,2667]
-[170601006,1,1783]
-[170601012,1,2176]
-[170701002,1,3596]
-[170701002,2,3568]
-[170701004,1,2185]
-[170701004,2,2142]
-[170701005,1,3247]
-[170702001,1,2338]
-[170702001,2,2338]
-[170703001,1,2098]
-[170703001,2,2065]
-[170703005,1,1281]
-[170704002,1,2132]
-[170704002,2,2098]
-[170705001,1,2359]
-[170705001,2,2407]
-[170706002,1,2222]
-[170706002,2,2244]
-[170801001,1,3267]
-[170801001,2,3296]
-[170801001,3,3279]
-[170801001,4,3122]
-[170801002,1,3940]
-[170801002,2,3932]
-[170802001,1,1817]
-[170802004,1,2165]
-[170802004,2,2147]
-[170803001,1,3690]
-[170804001,1,1659]
-[170805002,1,2446]
-[170805002,2,2460]
-[170901009,1,2848]
-[170901010,1,1779]
-[170901010,2,1749]
-[170901012,1,3026]
-[170901012,2,3048]
-[170901013,1,2523]
-[170901013,2,2499]
-[170901013,3,2520]
-[170901013,4,2565]
-[170901015,1,2511]
-[170901015,2,2500]
-[170901015,3,2557]
-[170901016,1,2790]
-[170901016,2,2837]
-[170901017,1,3015]
-[170901017,2,3012]
-[170901018,1,3236]
-[170901018,2,3244]
-[170901020,1,1975]
-[170901020,2,1985]
-[170901020,3,1982]
-[170901023,1,2980]
-[170901023,2,2991]
-[170901028,1,2814]
-[170901028,2,2916]
-[170901028,3,2853]
-[170901028,4,2816]
-[170901031,1,2720]
-[170901031,2,2684]
-[170901032,1,1864]
-[170901032,2,1839]
-[170901035,1,1414]
-[170901046,1,2116]
-[170901046,2,2100]
-[170902004,1,1828]
-[170902004,2,1848]
-[170902005,1,2745]
-[170902005,2,2774]
-[170902007,1,2380]
-[170902009,1,2677]
-[170902010,1,2314]
-[170902010,2,2263]
-[170902010,3,2244]
-[170902011,1,2091]
-[170902011,2,2008]
-[170902011,3,2048]
-[170902018,1,3986]
-[170902019,1,2949]
-[170903003,1,1961]
-[170903005,1,3223]
-[170903006,1,2336]
-[170903006,2,2281]
-[170903007,1,2663]
-[170903008,1,1692]
-[170903009,1,1733]
-[170903010,1,2502]
-[170903010,2,2550]
-[170903010,3,2494]
-[170903012,1,2275]
-[170903012,2,2253]
-[170903014,1,2076]
-[170903014,2,2050]
-[170903018,1,504]
-[170903019,1,3009]
-[170903019,2,2877]
-[170903019,3,2873]
-[170903021,1,1331]
-[170903022,1,2440]
-[170903022,2,2421]
-[170903023,1,1992]
-[170903025,1,640]
-[170904004,1,2373]
-[170904004,2,2373]
-[170904006,1,1402]
-[170904006,2,1394]
-[170904006,3,1423]
-[170904007,1,1718]
-[170904007,2,1717]
-[170904007,3,1752]
-[170904007,4,1695]
-[170904011,1,1253]
-[170904011,2,1267]
-[170904012,1,2522]
-[170904012,2,2564]
-[170904012,3,2578]
-[170904013,1,2688]
-[170904013,2,2665]
-[170904015,1,2681]
-[170904020,1,2403]
-[170905001,1,2478]
-[170905001,2,2509]
-[170905002,1,2161]
-[170905002,2,2191]
-[170906003,1,2782]
-[170906003,2,2739]
-[170907002,1,3152]
-[170907002,2,3159]
-[170907002,3,3074]
-[171001001,1,3263]
-[171001001,2,3234]
-[171001002,1,2397]
-[171001002,2,2396]
-[171001003,1,2845]
-[171001003,2,2817]
-[171001009,1,2590]
-[171002001,1,1109]
-[171003001,1,3347]
-[171004002,1,1623]
-[171101001,1,3426]
-[171101001,2,3443]
-[171101002,1,2888]
-[171101002,2,2895]
-[171102001,1,2964]
-[171102003,1,2772]
-[171201001,1,3674]
-[171201002,1,3205]
-[171202001,1,1019]
-[171301003,1,2171]
-[171301003,2,2197]
-[171301005,1,1658]
-[171301012,1,3226]
-[171302001,1,3683]
-[171302008,1,3209]
-[171401002,1,2498]
-[171401003,1,2408]
-[171401003,2,2427]
-[171401004,1,1858]
-[171401005,1,1104]
-[171401006,1,2877]
-[171401009,1,1504]
-[171501002,1,3298]
-[171501002,2,3246]
-[171501002,3,3324]
-[171501002,4,3317]
-[171502001,1,2686]
-[171502001,2,2711]
-[171503002,1,2623]
-[171503002,2,2629]
-[180101001,1,2240]
-[180101001,2,2217]
-[180101003,1,1543]
-[180101003,2,1555]
-[180101006,1,1919]
-[180101006,2,1938]
-[180101006,3,1953]
-[180101007,1,2526]
-[180101008,1,1925]
-[180101008,2,1948]
-[180101009,1,2150]
-[180101009,2,2174]
-[180101016,1,2357]
-[180101016,2,2367]
-[180102001,1,3059]
-[180103002,1,2054]
-[180201001,1,3311]
-[180201002,1,2488]
-[180201003,1,2499]
-[180201003,2,2433]
-[180201004,1,3179]
-[180201007,1,2599]
-[180201008,1,2261]
-[180201009,1,3641]
-[180201009,2,3618]
-[180201010,1,2986]
-[180201010,2,3007]
-[180201012,1,2882]
-[180201012,2,2821]
-[180201014,1,2810]
-[180202001,1,2055]
-[180202001,2,2038]
-[180203002,1,1068]
-[180204002,1,1341]
-[180301001,1,1520]
-[180301001,2,1502]
-[180301003,1,1321]
-[180301003,2,1316]
-[180301004,1,2393]
-[180301004,2,2426]
-[180301004,3,2449]
-[180301004,4,2423]
-[180302001,1,2988]
-[180302001,2,2910]
-[180303001,1,1978]
-[180401001,1,1713]
-[180401001,2,1734]
-[180401002,1,1857]
-[180401002,2,1852]
-[180401003,1,1681]
-[180401003,2,1656]
-[180401003,3,1671]
-[180401004,1,1720]
-[180401004,2,1733]
-[180401004,3,1703]
-[180401007,1,1934]
-[180401007,2,1980]
-[180401007,3,1916]
-[180401009,1,1908]
-[180401009,2,1863]
-[180401011,1,1532]
-[180401011,2,1537]
-[180401013,1,1844]
-[180401013,2,1848]
-[180401015,1,3116]
-[180401015,2,3097]
-[180401016,1,1978]
-[180401016,2,1974]
-[180401017,1,2125]
-[180401017,2,2109]
-[180401020,1,1266]
-[180401023,1,1756]
-[180401023,2,1766]
-[180402001,1,1572]
-[180403001,1,2217]
-[180403001,2,2163]
-[180403002,1,2211]
-[180403002,2,2239]
-[180403002,3,2218]
-[180501002,1,2187]
-[180501002,2,2249]
-[180501002,3,2202]
-[180501002,4,2268]
-[180501003,1,2160]
-[180501003,2,2176]
-[180501003,3,2120]
-[180501004,1,1672]
-[180501004,2,1674]
-[180501028,1,1579]
-[180501028,2,1560]
-[180502002,1,1512]
-[180503001,1,1685]
-[180601001,1,2612]
-[180601001,2,2673]
-[180601001,3,2608]
-[180601004,1,3474]
-[180601005,1,2047]
-[180601005,2,2064]
-[180601005,3,2001]
-[180601007,1,2220]
-[180601007,2,2120]
-[180601007,3,2148]
-[180601007,4,2185]
-[180601015,1,1899]
-[180601015,2,1888]
-[180601015,3,1868]
-[180601016,1,1133]
-[180601016,2,1123]
-[180601016,3,1127]
-[180602001,1,2802]
-[180602001,2,2674]
-[180602001,3,2687]
-[180602010,1,2724]
-[180602010,2,2700]
-[180603001,1,525]
-[180603002,1,733]
-[180604001,1,1190]
-[180701001,1,2628]
-[180701001,2,2634]
-[180702001,1,1908]
-[180702001,2,1935]
-[180801001,1,1277]
-[180801001,2,1267]
-[180801001,3,1254]
-[180801002,1,1310]
-[180801002,2,1311]
-[180801002,3,1298]
-[180801003,1,1681]
-[180801003,2,1643]
-[180801003,3,1663]
-[180801004,1,2248]
-[180801004,2,2236]
-[180801006,1,1798]
-[180801006,2,1839]
-[180801006,3,1773]
-[180801008,1,2045]
-[180801008,2,2014]
-[180801011,1,2150]
-[180801011,2,2126]
-[180801012,1,2026]
-[180801013,1,2164]
-[180801013,2,2085]
-[180801014,1,2349]
-[180801014,2,2373]
-[180801016,1,1816]
-[180801016,2,1754]
-[180801018,1,1833]
-[180801018,2,1793]
-[180801018,3,1780]
-[180801020,1,1645]
-[180801020,2,1626]
-[180801020,3,1586]
-[180801021,1,3344]
-[180801025,1,1406]
-[180801025,2,1405]
-[180801025,3,1415]
-[180801034,1,1488]
-[180801034,2,1500]
-[180801035,1,2051]
-[180802002,1,1543]
-[180802002,2,1403]
-[180802002,3,1375]
-[180802002,4,1426]
-[180802002,5,1425]
-[180802005,1,1600]
-[180802006,1,1538]
-[180802006,2,1524]
-[180802006,3,1476]
-[180802007,1,1427]
-[180802007,2,1408]
-[180802007,3,1387]
-[180802008,1,878]
-[180802008,2,878]
-[180802010,1,1201]
-[180802010,2,1225]
-[180802010,3,1211]
-[180802011,1,757]
-[180802011,2,758]
-[180802012,1,1396]
-[180802012,2,1396]
-[180802012,3,1407]
-[180802012,4,1390]
-[180802013,1,1203]
-[180802013,2,1160]
-[180802014,1,1427]
-[180802016,1,875]
-[180802016,2,877]
-[180802017,1,1366]
-[180802017,2,1358]
-[180802017,3,1416]
-[180802017,4,1401]
-[180802017,5,1366]
-[180802018,1,1298]
-[180802018,2,1270]
-[180802024,1,1520]
-[180802024,2,1474]
-[180803002,1,2316]
-[180803002,2,2215]
-[180803004,1,2022]
-[180803004,2,2029]
-[180803005,1,1764]
-[180803006,1,1913]
-[180803006,2,1919]
-[180803007,1,1745]
-[180803007,2,1684]
-[180803008,1,1915]
-[180803008,2,1899]
-[180803009,1,1672]
-[180803009,2,1620]
-[180803010,1,957]
-[180803010,2,979]
-[180803011,1,1759]
-[180803012,1,1201]
-[180803012,2,1177]
-[180803012,3,1167]
-[180803013,1,1298]
-[180803013,2,1279]
-[180803014,1,1137]
-[180803014,2,1143]
-[180803014,3,1151]
-[180803015,1,1903]
-[180803015,2,1896]
-[180803015,3,1832]
-[180803016,1,2348]
-[180803017,1,1664]
-[180803017,2,1643]
-[180803019,1,1562]
-[180803021,1,1679]
-[180803024,1,1108]
-[180803024,2,1097]
-[180803028,1,1973]
-[180803029,1,1505]
-[180803029,2,1514]
-[180803030,1,1149]
-[180803030,2,1161]
-[180803033,1,1285]
-[180803033,2,1259]
-[180804001,1,2385]
-[180804001,2,2359]
-[180804001,3,2298]
-[180804007,1,2547]
-[180804007,2,2583]
-[180805001,1,1009]
-[180901002,1,3095]
-[180901003,1,2787]
-[180901003,2,2725]
-[180902001,1,2372]
-[180903003,1,1643]
-[180904002,1,1725]
-[181001002,1,1402]
-[181001002,2,1399]
-[181001004,1,2494]
-[181001004,2,2468]
-[181001004,3,2445]
-[181001009,1,2959]
-[181001014,1,3020]
-[181001014,2,3014]
-[181101003,1,3531]
-[181101003,2,3502]
-[181101003,3,3556]
-[181101003,4,3418]
-[181101003,5,3519]
-[181101004,1,2714]
-[181101004,2,2652]
-[181101004,3,2710]
-[181102001,1,2287]
-[181103002,1,2747]
-[181201001,1,2209]
-[181201001,2,2158]
-[181201001,3,2186]
-[181201002,1,2083]
-[181201002,2,2062]
-[181201004,1,1477]
-[181201004,2,1489]
-[181201004,3,1437]
-[181201011,1,2137]
-[181201011,2,2144]
-[181201011,3,2182]
-[181201019,1,2241]
-[181201019,2,2272]
-[181301002,1,2861]
-[181301002,2,2781]
-[181301002,3,2823]
-[181301007,1,2170]
-[181301007,2,2156]
-[181401001,1,2910]
-[181401001,2,2872]
-[181402001,1,2076]
-[181403001,1,2834]
-[181404001,1,1582]
-[181404001,2,1596]
-[181501001,1,2844]
-[181501001,2,2752]
-[181501001,3,2777]
-[181501001,4,2714]
-[181501001,5,2779]
-[181502002,1,3643]
-[181601001,1,1860]
-[181601001,2,1864]
-[181601002,1,2494]
-[181601002,2,2513]
-[181601003,1,2316]
-[181601003,2,2291]
-[181601004,1,2810]
-[181601009,1,2275]
-[181601010,1,2589]
-[181601011,1,3373]
-[181602002,1,2678]
-[181602002,2,2691]
-[181602003,1,1888]
-[181701001,1,1920]
-[181701001,2,1920]
-[181702001,1,1873]
-[181703001,1,455]
-[181801001,1,2915]
-[181801001,2,2723]
-[181801001,3,2672]
-[181801001,4,2651]
-[181801001,5,2718]
-[181801001,6,2658]
-[181901001,1,2507]
-[181901001,2,2553]
-[181901001,3,2532]
-[181901007,1,2707]
-[181902002,1,2819]
-[181902002,2,2815]
-[181903006,1,2611]
-[181903006,2,2681]
-[181903006,3,2637]
-[182001001,1,2960]
-[182001001,2,2980]
-[182001001,3,3018]
-[182002004,1,2526]
-[182003004,1,3063]
-[182003004,2,3108]
-[182101001,1,2777]
-[182101001,2,2717]
-[182102003,1,2556]
-[182103001,1,2376]
-[182201001,1,2429]
-[182201001,2,2459]
-[182201001,3,2396]
-[182301002,1,3205]
-[182301002,2,3237]
-[182401001,1,1859]
-[182401001,2,1818]
-[182501001,1,2371]
-[182501001,2,2360]
-[182501001,3,2370]
-[182601001,1,2527]
-[182601001,2,2496]
-[182701001,1,2196]
-[182801001,1,3471]
-[182801002,1,2010]
-[182801002,2,1995]
-[182801003,1,2452]
-[182801003,2,2464]
-[182801006,1,2152]
-[182801006,2,2165]
-[182801007,1,3057]
-[182801007,2,3028]
-[182801007,3,3102]
-[182901001,1,3358]
-[182901001,2,3350]
-[190101001,1,2339]
-[190101002,1,1502]
-[190102001,1,1939]
-[190102002,1,1984]
-[190103001,1,3562]
-[190104001,1,3221]
-[190201001,1,3444]
-[190201001,2,3491]
-[190201002,1,3010]
-[190201002,2,3073]
-[190201004,1,3256]
-[190202004,1,3231]
-[190202004,2,3119]
-[190202004,3,3145]
-[190202006,1,2812]
-[190202006,2,2847]
-[190202006,3,2758]
-[190203001,1,3416]
-[190204001,1,2734]
-[190205003,1,3186]
-[190206001,1,2992]
-[190207004,1,3799]
-[190208001,1,3082]
-[190209001,1,3766]
-[190210001,1,3010]
-[190211002,1,1114]
-[190212001,1,1150]
-[190301003,1,3985]
-[190301003,2,4037]
-[190301004,1,687]
-[190302001,1,3680]
-[190303002,1,2442]
-[190303002,2,2405]
-[190304004,1,1837]
-[190305001,1,1706]
-[190401001,1,3383]
-[190401001,2,3345]
-[190401008,1,3403]
-[190402001,1,1884]
-[190402001,2,1897]
-[190402004,1,638]
-[190403001,1,2148]
-[190404001,1,1940]
-[190501001,1,2306]
-[190501004,1,3849]
-[190501004,2,3855]
-[190501007,1,700]
-[190502001,1,3374]
-[190502001,2,3359]
-[190502006,1,433]
-[190503001,1,1719]
-[190503004,1,2314]
-[190503004,2,2297]
-[190504001,1,1992]
-[190504002,1,2572]
-[190504002,2,2576]
-[190505001,1,2203]
-[190505002,1,1058]
-[190506001,1,2746]
-[190507001,1,3402]
-[190601001,1,2644]
-[190601001,2,2620]
-[190602001,1,3911]
-[190602005,1,541]
-[190603001,1,2533]
-[190603001,2,2565]
-[190604001,1,3148]
-[190605001,1,778]
-[190605002,1,972]
-[190606001,1,2976]
-[190701001,1,2402]
-[190701001,2,2428]
-[190701001,3,2333]
-[190701004,1,2248]
-[190701004,2,2238]
-[190701004,3,2196]
-[190701010,1,2675]
-[190701010,2,2703]
-[190701012,1,3346]
-[190701012,2,3332]
-[190701012,3,3281]
-[190701016,1,2954]
-[190701017,1,987]
-[190701019,1,2631]
-[190701019,2,2653]
-[190701020,1,1009]
-[190702001,1,1613]
-[190702001,2,1621]
-[190702001,3,1593]
-[190702003,1,1628]
-[190702003,2,1650]
-[190702004,1,3349]
-[190702006,1,1384]
-[190702006,2,1361]
-[190702007,1,2846]
-[190702007,2,2828]
-[190702009,1,1409]
-[190702009,2,1380]
-[190702009,3,1392]
-[190702009,4,1349]
-[190703001,1,2730]
-[190703001,2,2722]
-[190703003,1,2497]
-[190704003,1,1698]
-[190704007,1,1035]
-[190704008,1,3262]
-[190705001,1,2337]
-[190705001,2,2317]
-[190705002,1,750]
-[190705003,1,807]
-[190706001,1,3747]
-[190706001,2,3745]
-[190706002,1,1962]
-[190801001,1,3273]
-[190801006,1,1657]
-[190801007,1,3391]
-[190802001,1,1653]
-[190803001,1,856]
-[190804001,1,2264]
-[190805001,1,1466]
-[190806001,1,2351]
-[190807003,1,2276]
-[190901002,1,3681]
-[190901002,2,3640]
-[190902001,1,1083]
-[190903001,1,1783]
-[190904001,1,3320]
-[190905001,1,571]
-[191001001,1,2551]
-[191001001,2,2593]
-[191002001,1,2103]
-[191002001,2,2139]
-[191003001,1,921]
-[191101002,1,3997]
-[191101002,2,3996]
-[191102001,1,1373]
-[191103001,1,2711]
-[191201001,1,3046]
-[191201001,2,2986]
-[191202001,1,2782]
-[191202001,2,2744]
-[191203001,1,3697]
-[191203001,2,3769]
-[191203001,3,3685]
-[191204001,1,2949]
-[191204001,2,2911]
-[191204001,3,2920]
-[191301002,1,2662]
-[191301002,2,2625]
-[191301003,1,1536]
-[191301003,2,1535]
-[191302001,1,2174]
-[191302001,2,2119]
-[191302001,3,2138]
-[191302003,1,534]
-[191303001,1,3011]
-[191303002,1,2786]
-[191303002,2,2816]
-[191303002,3,2837]
-[191303004,1,1541]
-[191304001,1,1938]
-[191304002,1,2553]
-[191304003,1,1025]
-[191401001,1,3562]
-[191401001,2,3567]
-[191402001,1,2580]
-[191403001,1,3711]
-[191403001,2,3671]
-[191404001,1,1186]
-[191501002,1,2373]
-[191501002,2,2347]
-[191502001,1,1516]
-[191503001,1,2614]
-[191504003,1,2549]
-[191601001,1,2441]
-[191601001,2,2471]
-[191602001,1,3005]
-[191603001,1,2027]
-[191701001,1,2996]
-[191702001,1,427]
-[191703001,1,980]
-[191801001,1,3452]
-[191802005,1,1731]
-[191901001,1,3370]
-[191902001,1,759]
-[191903002,1,3295]
-[191904001,1,2186]
-[191904001,2,2180]
-[192001002,1,3631]
-[192001002,2,3651]
-[192002005,1,2856]
-[192002005,2,2848]
-[192003002,1,2957]
-[200101001,1,3371]
-[200101002,1,1814]
-[200101005,1,2280]
-[200101007,1,1995]
-[200101010,1,1171]
-[200101013,1,2171]
-[200101013,2,2165]
-[200101015,1,1981]
-[200101017,1,2055]
-[200101021,1,1203]
-[200201003,1,2886]
-[200201006,1,2396]
-[200201006,2,2454]
-[200201006,3,2423]
-[200201006,4,2394]
-[200201006,5,2483]
-[200201010,1,3647]
-[200201010,2,3568]
-[200201010,3,3590]
-[200201014,1,2504]
-[200201014,2,2464]
-[200201017,1,2090]
-[200201021,1,3307]
-[200202002,1,2611]
-[200202002,2,2549]
-[200202009,1,3187]
-[200301003,1,3593]
-[200301003,2,3531]
-[200301006,1,3289]
-[200301007,1,3906]
-[200301009,1,3278]
-[200301009,2,3312]
-[200301013,1,3242]
-[200301017,1,2705]
-[200301028,1,799]
-[200301035,1,890]
-[200302001,1,931]
-[200302002,1,2652]
-[200302002,2,2678]
-[200302006,1,1042]
-[200302007,1,1299]
-[200302012,1,727]
-[200303002,1,1931]
-[200401001,1,1614]
-[200401001,2,1609]
-[200401001,3,1574]
-[200401003,1,2120]
-[200401003,2,2149]
-[200401005,1,1212]
-[200401005,2,1191]
-[200401007,1,1449]
-[200401007,2,1447]
-[200401008,1,1240]
-[200401008,2,1235]
-[200401010,1,3455]
-[200401010,2,3492]
-[200401014,1,2299]
-[200401015,1,2069]
-[200401015,2,2051]
-[200401017,1,2443]
-[200401020,1,3293]
-[200401020,2,3281]
-[200402002,1,3688]
-[200402002,2,3721]
-[200402009,1,3268]
-[200402013,1,2605]
-[200402013,2,2647]
-[200402015,1,1937]
-[200403005,1,3055]
-[200403006,1,3037]
-[200403006,2,2973]
-[200501001,1,2277]
-[200501001,2,2289]
-[200501001,3,2190]
-[200501002,1,2949]
-[200501004,1,1291]
-[200501009,1,2329]
-[200601002,1,2345]
-[200601009,1,3476]
-[200601013,1,2367]
-[200601015,1,815]
-[200601021,1,2652]
-[200601021,2,2700]
-[200701001,1,3380]
-[200701001,2,3262]
-[200701003,1,3173]
-[200701003,2,3118]
-[200701005,1,3111]
-[200701005,2,3113]
-[200701006,1,3000]
-[200701006,2,3028]
-[200701007,1,3434]
-[200701007,2,3360]
-[200701007,3,3405]
-[200701014,1,2616]
-[200701014,2,2606]
-[200701018,1,3160]
-[200701018,2,3127]
-[200701024,1,3493]
-[200701029,1,2757]
-[200701029,2,2721]
-[200702004,1,2681]
-[200702004,2,2644]
-[200801001,1,3696]
-[200801002,1,1550]
-[200801004,1,2286]
-[200801005,1,1950]
-[200801006,1,896]
-[200801007,1,1733]
-[200901002,1,2882]
-[200901003,1,3808]
-[200901004,1,2512]
-[200901006,1,1730]
-[201001001,1,2383]
-[201001001,2,2426]
-[201001001,3,2362]
-[201001002,1,1938]
-[201001002,2,1914]
-[201001002,3,1904]
-[201001003,1,3179]
-[201001006,1,2470]
-[201001008,1,888]
-[201001009,1,1143]
-[201001010,1,2133]
-[201001010,2,2173]
-[201001014,1,1061]
-[201101001,1,2621]
-[201101003,1,1368]
-[201101004,1,2381]
-[201101004,2,2341]
-[201101006,1,2682]
-[201101007,1,2117]
-[201101007,2,2090]
-[201101008,1,1625]
-[201101008,2,1636]
-[201101012,1,2263]
-[201101013,1,1992]
-[201101013,2,1997]
-[201101014,1,2502]
-[201101014,2,2480]
-[201101016,1,633]
-[201101018,1,2037]
-[201101021,1,1460]
-[201101023,1,948]
-[201101027,1,1633]
-[201201001,1,3208]
-[201201001,2,3192]
-[201201007,1,3202]
-[201201013,1,1626]
-[201201014,1,2017]
-[201301002,1,1996]
-[201301002,2,1989]
-[201301004,1,2117]
-[201301005,1,3375]
-[201301007,1,651]
-[201301011,1,1496]
-[201401004,1,3223]
-[201401006,1,821]
-[201401008,1,2434]
-[201401008,2,2361]
-[201402001,1,1835]
-[201402003,1,1404]
-[201402004,1,3059]
-[201402005,1,2048]
-[201402016,1,489]
-[210101008,1,3846]
-[210101008,2,3829]
-[210102001,1,2651]
-[210102001,2,2691]
-[210102001,3,2728]
-[210102004,1,2358]
-[210102004,2,2340]
-[210103001,1,2403]
-[210103001,2,2376]
-[210103001,3,2373]
-[210104003,1,3357]
-[210105001,1,2552]
-[210105001,2,2534]
-[210106001,1,3142]
-[210106001,2,3154]
-[210106002,1,2622]
-[210106002,2,2600]
-[210106008,1,2333]
-[210106008,2,2326]
-[210201002,1,3181]
-[210202001,1,2749]
-[210202001,2,2726]
-[210202001,3,2671]
-[210202001,4,2715]
-[210202004,1,2313]
-[210202004,2,2314]
-[210202006,1,1761]
-[210202006,2,1749]
-[210203001,1,2465]
-[210203001,2,2516]
-[210203001,3,2519]
-[210203001,4,2493]
-[210204001,1,1986]
-[210204001,2,1991]
-[210301004,1,1895]
-[210301004,2,1883]
-[210301004,3,1902]
-[210302001,1,2566]
-[210302001,2,2533]
-[210302001,3,2559]
-[210303012,1,3043]
-[210303012,2,3027]
-[210303012,3,3083]
-[210303012,4,3019]
-[210304001,1,2244]
-[210304001,2,2136]
-[210304001,3,2100]
-[210304001,4,2132]
-[210304001,5,2120]
-[210305001,1,1953]
-[210305001,2,1902]
-[210305001,3,1956]
-[210305005,1,2153]
-[210305005,2,2161]
-[210305005,3,2157]
-[210305006,1,2659]
-[210305006,2,2649]
-[210305008,1,2383]
-[210305008,2,2446]
-[210305008,3,2396]
-[210305009,1,3073]
-[210305018,1,1216]
-[210305018,2,1220]
-[210401001,1,3720]
-[210401001,2,3669]
-[210401001,3,3706]
-[210402001,1,3348]
-[210402001,2,3293]
-[210402002,1,3241]
-[210402002,2,3177]
-[210402002,3,3248]
-[210402003,1,2059]
-[210402006,1,3918]
-[210402006,2,3893]
-[210402007,1,1979]
-[210403002,1,2519]
-[210404001,1,3581]
-[210404001,2,3660]
-[210404001,3,3511]
-[210404001,4,3634]
-[210404001,5,3504]
-[210404001,6,3632]
-[210404004,1,3644]
-[210404004,2,3610]
-[210405001,1,2874]
-[210405001,2,2898]
-[210405001,3,2885]
-[210406002,1,3202]
-[210406002,2,3137]
-[210406002,3,3141]
-[210407005,1,3014]
-[210407005,2,2984]
-[210407006,1,2132]
-[210407007,1,3651]
-[210407007,2,3721]
-[210407009,1,2472]
-[210407009,2,2489]
-[210407011,1,3437]
-[210501001,1,1433]
-[210501001,2,1457]
-[210501002,1,1641]
-[210501002,2,1674]
-[210501002,3,1648]
-[210501003,1,1483]
-[210501003,2,1403]
-[210501003,3,1405]
-[210501003,4,1428]
-[210501003,5,1420]
-[210501004,1,1152]
-[210501004,2,1163]
-[210501005,1,1262]
-[210501005,2,1278]
-[210502001,1,1831]
-[210502002,1,1935]
-[210502002,2,1983]
-[210502002,3,1916]
-[210502002,4,1945]
-[210502006,1,2046]
-[210502006,2,2020]
-[210502006,3,1985]
-[210502007,1,1198]
-[210502007,2,1205]
-[210502007,3,1197]
-[210502008,1,1323]
-[210502008,2,1321]
-[210502008,3,1293]
-[210502010,1,1554]
-[210502010,2,1581]
-[210502010,3,1555]
-[210502011,1,1661]
-[210502011,2,1635]
-[210502012,1,1869]
-[210502012,2,1848]
-[210502013,1,2217]
-[210502013,2,2165]
-[210502013,3,2222]
-[210502013,4,2227]
-[210502016,1,1601]
-[210502016,2,1611]
-[210502017,1,1159]
-[210502017,2,1180]
-[210502019,1,2213]
-[210502019,2,2239]
-[210502020,1,1216]
-[210502020,2,1232]
-[210502022,1,2496]
-[210502023,1,2396]
-[210502023,2,2382]
-[210503002,1,2405]
-[210503002,2,2353]
-[210503002,3,2405]
-[210503003,1,2022]
-[210503005,1,3461]
-[210503006,1,2798]
-[210503007,1,2002]
-[210503007,2,1997]
-[210503007,3,2007]
-[210503007,4,2045]
-[210503009,1,2115]
-[210503009,2,2091]
-[210503009,3,2117]
-[210503012,1,1978]
-[210503012,2,1939]
-[210503013,1,2221]
-[210503013,2,2238]
-[210503014,1,1582]
-[210503014,2,1520]
-[210503015,1,1419]
-[210503015,2,1391]
-[210503016,1,2215]
-[210503017,1,1243]
-[210503017,2,1217]
-[210503018,1,1767]
-[210503018,2,1790]
-[210503019,1,1073]
-[210503019,2,1062]
-[210503020,1,2086]
-[210503020,2,2028]
-[210503022,1,2365]
-[210503022,2,2321]
-[210503024,1,1798]
-[210503024,2,1787]
-[210503025,1,2424]
-[210503026,1,2167]
-[210503026,2,2159]
-[210503027,1,1576]
-[210503027,2,1599]
-[210504001,1,1918]
-[210504002,1,1662]
-[210504002,2,1651]
-[210504002,3,1646]
-[210504003,1,1516]
-[210504003,2,1480]
-[210504004,1,2206]
-[210504004,2,2249]
-[210504005,1,1656]
-[210504005,2,1607]
-[210504005,3,1645]
-[210504006,1,1923]
-[210504006,2,1939]
-[210504006,3,1878]
-[210504007,1,1968]
-[210504007,2,1936]
-[210504009,1,1400]
-[210504009,2,1420]
-[210504009,3,1425]
-[210504009,4,1400]
-[210504011,1,1677]
-[210504011,2,1686]
-[210504012,1,1708]
-[210504012,2,1678]
-[210504012,3,1735]
-[210504012,4,1707]
-[210505001,1,1236]
-[210505001,2,1248]
-[210505002,1,1815]
-[210505002,2,1811]
-[210505003,1,1833]
-[210505004,1,1648]
-[210505005,1,1317]
-[210505005,2,1316]
-[210505006,1,1211]
-[210505006,2,1190]
-[210505007,1,1580]
-[210505007,2,1607]
-[210505008,1,1732]
-[210505008,2,1698]
-[210505008,3,1685]
-[210505011,1,1221]
-[210505011,2,1237]
-[210505012,1,1390]
-[210505012,2,1431]
-[210505012,3,1402]
-[210506001,1,1318]
-[210506001,2,1306]
-[210506001,3,1309]
-[210506001,4,1278]
-[210506001,5,1263]
-[210506003,1,1722]
-[210506003,2,1715]
-[210506004,1,1464]
-[210506004,2,1463]
-[210506004,3,1470]
-[210506004,4,1450]
-[210506004,5,1437]
-[210506005,1,1532]
-[210506005,2,1580]
-[210506005,3,1532]
-[210506005,4,1571]
-[210506006,1,2069]
-[210506006,2,2074]
-[210506007,1,1673]
-[210506007,2,1600]
-[210506008,1,1238]
-[210506009,1,1733]
-[210506009,2,1706]
-[210506011,1,1308]
-[210506011,2,1312]
-[210506011,3,1358]
-[210506011,4,1334]
-[210506011,5,1323]
-[210506012,1,1219]
-[210506012,2,1251]
-[210506012,3,1231]
-[210506012,4,1216]
-[210506012,5,1255]
-[210506013,1,1286]
-[210506013,2,1292]
-[210506013,3,1282]
-[210506014,1,1493]
-[210506014,2,1552]
-[210506014,3,1549]
-[210506014,4,1523]
-[210506014,5,1501]
-[210506015,1,1220]
-[210506015,2,1202]
-[210506019,1,1731]
-[210507001,1,1683]
-[210507001,2,1677]
-[210507001,3,1693]
-[210507001,4,1696]
-[210507001,5,1668]
-[210507002,1,1959]
-[210507003,1,2278]
-[210507003,2,2322]
-[210507003,3,2326]
-[210507006,1,1481]
-[210507006,2,1489]
-[210507006,3,1521]
-[210507007,1,2058]
-[210507007,2,2003]
-[210507007,3,1974]
-[210507008,1,1758]
-[210507008,2,1674]
-[210507008,3,1662]
-[210507009,1,2090]
-[210507009,2,2050]
-[210507009,3,2055]
-[210507010,1,1409]
-[210507010,2,1405]
-[210507010,3,1421]
-[210507010,4,1344]
-[210507011,1,1574]
-[210507011,2,1588]
-[210507011,3,1567]
-[210507012,1,1056]
-[210507012,2,1042]
-[210507019,1,1553]
-[210508001,1,2054]
-[210508001,2,2058]
-[210508001,3,2083]
-[210508001,4,2096]
-[210508002,1,1785]
-[210508002,2,1723]
-[210508004,1,1460]
-[210508005,1,1780]
-[210508005,2,1776]
-[210508005,3,1758]
-[210508005,4,1674]
-[210508006,1,1522]
-[210508006,2,1543]
-[210508006,3,1467]
-[210508006,4,1335]
-[210508009,1,2089]
-[210508009,2,2065]
-[210508010,1,1584]
-[210508010,2,1545]
-[210508010,3,1520]
-[210508010,4,1545]
-[210508010,5,1528]
-[210508011,1,1070]
-[210508011,2,1070]
-[210508012,1,2572]
-[210508012,2,2616]
-[210508023,1,1930]
-[210509001,1,692]
-[210509002,1,2499]
-[210509002,2,2444]
-[210509004,1,2739]
-[210509004,2,2749]
-[210509005,1,1854]
-[210509005,2,1915]
-[210509005,3,1899]
-[210509005,4,1912]
-[210509006,1,2524]
-[210509006,2,2468]
-[210509006,3,2548]
-[210509007,1,2945]
-[210509008,1,2223]
-[210509008,2,2234]
-[210509008,3,2268]
-[210509009,1,3035]
-[210509011,1,2385]
-[210509013,1,2636]
-[210509013,2,2603]
-[210509015,1,2022]
-[210509015,2,2055]
-[210509015,3,2011]
-[210509016,1,1393]
-[210509017,1,3125]
-[210509017,2,3067]
-[210509021,1,1954]
-[210509023,1,2298]
-[210509025,1,1580]
-[210510001,1,1691]
-[210510002,1,1526]
-[210510002,2,1522]
-[210510003,1,1792]
-[210510003,2,1787]
-[210510003,3,1782]
-[210510004,1,2381]
-[210510004,2,2395]
-[210510006,1,1969]
-[210510006,2,1962]
-[210510007,1,2508]
-[210510008,1,1926]
-[210510008,2,1933]
-[210510010,1,1866]
-[210510010,2,1889]
-[210510011,1,2242]
-[210510011,2,2288]
-[210510012,1,1980]
-[210510014,1,1827]
-[210510014,2,1795]
-[210510014,3,1769]
-[210510016,1,1959]
-[210510016,2,1927]
-[210510018,1,1444]
-[210510018,2,1424]
-[210511001,1,1722]
-[210511001,2,1733]
-[210511001,3,1730]
-[210511002,1,1535]
-[210511002,2,1527]
-[210511003,1,1989]
-[210511003,2,1989]
-[210511004,1,1522]
-[210511005,1,2080]
-[210511005,2,2114]
-[210511007,1,1355]
-[210511007,2,1321]
-[210511008,1,1805]
-[210511008,2,1786]
-[210511009,1,1521]
-[210511009,2,1541]
-[210511010,1,1696]
-[210511011,1,1475]
-[210511011,2,1471]
-[210511012,1,1629]
-[210511012,2,1631]
-[210511012,3,1601]
-[210511013,1,1249]
-[210511013,2,1267]
-[210511013,3,1250]
-[210512002,1,1732]
-[210512002,2,1734]
-[210512003,1,1619]
-[210512003,2,1652]
-[210512003,3,1617]
-[210512004,1,1355]
-[210512004,2,1382]
-[210512004,3,1400]
-[210512004,4,1342]
-[210512005,1,1903]
-[210512005,2,1933]
-[210512006,1,1569]
-[210512006,2,1531]
-[210512006,3,1543]
-[210512008,1,1932]
-[210512008,2,1907]
-[210512009,1,1686]
-[210512009,2,1667]
-[210512009,3,1640]
-[210512010,1,421]
-[210512011,1,1156]
-[210512012,1,1282]
-[210512012,2,1308]
-[210512012,3,1320]
-[210512012,4,1317]
-[210512012,5,1353]
-[210512015,1,1995]
-[210512015,2,2026]
-[210513001,1,2074]
-[210513001,2,2040]
-[210513002,1,2272]
-[210513002,2,2282]
-[210513002,3,2215]
-[210513003,1,1993]
-[210513003,2,1952]
-[210513003,3,1963]
-[210513003,4,2040]
-[210513005,1,3469]
-[210513006,1,3596]
-[210513007,1,2293]
-[210513007,2,2153]
-[210513008,1,3255]
-[210513009,1,1793]
-[210513009,2,1797]
-[210513009,3,1778]
-[210513009,4,1689]
-[210513010,1,2278]
-[210513010,2,2278]
-[210513010,3,2189]
-[210513011,1,2387]
-[210513011,2,2352]
-[210513012,1,2174]
-[210513012,2,2037]
-[210513012,3,2026]
-[210513012,4,2031]
-[210513012,5,1992]
-[210513013,1,1793]
-[210513013,2,1813]
-[210513016,1,2321]
-[210513016,2,2240]
-[210513016,3,2185]
-[210513017,1,2480]
-[210513017,2,2507]
-[210513018,1,2907]
-[210513021,1,1685]
-[210513024,1,2760]
-[210513025,1,1057]
-[210513027,1,901]
-[210513029,1,2586]
-[210513030,1,1471]
-[210513032,1,491]
-[210513033,1,486]
-[210513034,1,1028]
-[210513035,1,441]
-[210513036,1,450]
-[210513042,1,385]
-[210514001,1,1908]
-[210514004,1,1759]
-[210514004,2,1776]
-[210514005,1,1708]
-[210514005,2,1654]
-[210514006,1,1499]
-[210514006,2,1521]
-[210514007,1,2385]
-[210514007,2,2353]
-[210514007,3,2346]
-[210514008,1,2105]
-[210514008,2,2087]
-[210514008,3,2068]
-[210514009,1,2438]
-[210514012,1,1969]
-[210514012,2,1978]
-[210514012,3,1972]
-[210514013,1,2076]
-[210514013,2,2058]
-[210514013,3,1886]
-[210514014,1,2141]
-[210514015,1,1640]
-[210514015,2,1668]
-[210514019,1,2085]
-[210514020,1,1592]
-[210514020,2,1592]
-[210514020,3,1560]
-[210515001,1,2790]
-[210515001,2,2668]
-[210515001,3,2654]
-[210515001,4,2670]
-[210515002,1,2499]
-[210515002,2,2557]
-[210515002,3,2522]
-[210515003,1,2743]
-[210515003,2,2635]
-[210515003,3,2623]
-[210515004,1,2349]
-[210515004,2,2302]
-[210515006,1,2816]
-[210515007,1,2122]
-[210516001,1,2283]
-[210516002,1,2393]
-[210516002,2,2473]
-[210516002,3,2336]
-[210516002,4,2422]
-[210516002,5,2357]
-[210516002,6,2430]
-[210516002,7,2443]
-[210516004,1,2234]
-[210516004,2,2266]
-[210516004,3,2263]
-[210516004,4,2288]
-[210516005,1,1988]
-[210516005,2,1972]
-[210516008,1,2876]
-[210516008,2,2810]
-[210516010,1,2399]
-[210516011,1,2913]
-[210516012,1,2785]
-[210516012,2,2795]
-[210516013,1,1627]
-[210516013,2,1630]
-[210516022,1,2397]
-[210516022,2,2377]
-[210517002,1,2624]
-[210517002,2,2605]
-[210517002,3,2557]
-[210517002,4,2615]
-[210517002,5,2601]
-[210517003,1,3352]
-[210517004,1,3232]
-[210517005,1,1880]
-[210517005,2,1884]
-[210517005,3,1822]
-[210517006,1,1758]
-[210517006,2,1815]
-[210517007,1,2000]
-[210517007,2,1988]
-[210517011,1,2685]
-[210517014,1,3328]
-[210517014,2,3371]
-[210518001,1,3248]
-[210518001,2,3281]
-[210518002,1,2032]
-[210518002,2,2054]
-[210518002,3,1984]
-[210518003,1,2205]
-[210518003,2,2186]
-[210601002,1,2054]
-[210601002,2,2052]
-[210602002,1,3005]
-[210602002,2,3011]
-[210603003,1,2646]
-[210603003,2,2644]
-[210604002,1,3663]
-[210604005,1,3203]
-[210604005,2,3146]
-[210604005,3,3103]
-[210605006,1,2412]
-[210605006,2,2361]
-[210605006,3,2361]
-[210605007,1,3630]
-[210605007,2,3469]
-[210605007,3,3535]
-[210605007,4,3431]
-[210605007,5,3456]
-[210605012,1,3339]
-[210605012,2,3386]
-[210605012,3,3374]
-[210701001,1,3725]
-[210701001,2,3707]
-[210701001,3,3704]
-[210701001,4,3645]
-[210701001,5,3564]
-[210701002,1,2677]
-[210701002,2,2693]
-[210701014,1,2868]
-[210701014,2,2880]
-[210701014,3,2906]
-[210701018,1,3175]
-[210702003,1,3330]
-[210702003,2,3260]
-[210703001,1,3622]
-[210703001,2,3600]
-[210703001,3,3551]
-[210704004,1,3339]
-[210704004,2,3331]
-[210801001,1,2489]
-[210801001,2,2388]
-[210801001,3,2447]
-[210801001,4,2406]
-[210801001,5,2447]
-[210802001,1,2334]
-[210802001,2,2358]
-[210802001,3,2340]
-[210802001,4,2250]
-[210803001,1,2410]
-[210803001,2,2397]
-[210803004,1,2168]
-[210803004,2,2224]
-[210803004,3,2183]
-[210803005,1,2158]
-[210803006,1,3347]
-[210803010,1,1926]
-[210803010,2,1922]
-[210803011,1,2279]
-[210803011,2,2195]
-[210803011,3,2202]
-[210803012,1,2413]
-[210803014,1,2935]
-[210803014,2,2912]
-[210803014,3,2923]
-[210803015,1,1489]
-[210803015,2,1486]
-[210803016,1,1899]
-[210803016,2,1902]
-[210804001,1,1984]
-[210804001,2,2013]
-[210901003,1,3352]
-[210901003,2,3351]
-[210902004,1,2074]
-[210902004,2,2040]
-[210903004,1,2213]
-[210903004,2,2232]
-[210904001,1,2676]
-[210904001,2,2678]
-[210904001,3,2633]
-[210904005,1,3032]
-[210904005,2,2980]
-[210905001,1,2000]
-[210905001,2,1998]
-[210906001,1,2171]
-[210906001,2,2156]
-[211001001,1,2943]
-[211001001,2,2956]
-[211002001,1,2243]
-[211002001,2,2200]
-[211003001,1,1956]
-[211003001,2,1955]
-[211003001,3,1967]
-[211004002,1,2574]
-[211004002,2,2567]
-[211004002,3,2526]
-[211005002,1,2661]
-[211005002,2,2675]
-[211005002,3,2685]
-[211005002,4,2707]
-[211005002,5,2490]
-[211005003,1,1973]
-[211005003,2,1983]
-[211005003,3,1893]
-[211005003,4,1931]
-[211101002,1,2214]
-[211102002,1,1646]
-[211102002,2,1654]
-[211102002,3,1659]
-[211102003,1,1192]
-[211102003,2,1205]
-[211102004,1,1347]
-[211102004,2,1339]
-[211102005,1,2031]
-[211102005,2,2003]
-[211102006,1,2383]
-[211102006,2,2380]
-[211102007,1,2679]
-[211102009,1,1775]
-[211102009,2,1774]
-[211102010,1,1559]
-[211102010,2,1577]
-[211102010,3,1582]
-[211102011,1,1697]
-[211102011,2,1725]
-[211102012,1,2682]
-[211102012,2,2683]
-[211102013,1,1964]
-[211102013,2,1954]
-[211102014,1,1534]
-[211102014,2,1540]
-[211102015,1,1438]
-[211102015,2,1409]
-[211102016,1,2596]
-[211102016,2,2550]
-[211102017,1,2587]
-[211102019,1,2631]
-[211102019,2,2637]
-[211102020,1,1784]
-[211102022,1,1258]
-[211102022,2,1274]
-[211102024,1,3267]
-[211103002,1,1860]
-[211103002,2,1846]
-[211103003,1,1315]
-[211103003,2,1318]
-[211103004,1,2086]
-[211103004,2,2126]
-[211103006,1,1270]
-[211103006,2,1271]
-[211103007,1,1411]
-[211103007,2,1411]
-[211103009,1,3036]
-[211103015,1,1985]
-[211103015,2,2017]
-[211104001,1,1809]
-[211104001,2,1846]
-[211105002,1,1585]
-[211105002,2,1628]
-[211105002,3,1617]
-[211105003,1,2312]
-[211105003,2,2241]
-[211105003,3,2250]
-[211105004,1,1795]
-[211105004,2,1748]
-[211105004,3,1762]
-[211105005,1,1668]
-[211105005,2,1645]
-[211105007,1,3647]
-[211201004,1,2359]
-[211201004,2,2329]
-[211201004,3,2373]
-[211202001,1,2774]
-[211202001,2,2753]
-[211202001,3,2749]
-[211202001,4,2663]
-[211301001,1,3474]
-[211302001,1,3527]
-[211302001,2,3518]
-[211303001,1,2769]
-[211303001,2,2867]
-[211303001,3,2807]
-[211303001,4,2816]
-[211303001,5,2737]
-[211303005,1,2498]
-[211303005,2,2492]
-[211303006,1,1514]
-[211303006,2,1493]
-[211303007,1,2438]
-[211303007,2,2362]
-[211303007,3,2389]
-[211303008,1,3070]
-[211303008,2,3056]
-[211303008,3,3024]
-[211303008,4,3113]
-[211401001,1,2005]
-[211401001,2,2001]
-[211401001,3,1993]
-[211401001,4,2023]
-[211401004,1,1668]
-[211401004,2,1688]
-[211401005,1,1482]
-[211401005,2,1454]
-[211401006,1,1398]
-[211401006,2,1413]
-[211401007,1,1764]
-[211401007,2,1776]
-[211401008,1,1604]
-[211401008,2,1589]
-[211401010,1,1859]
-[211401010,2,1874]
-[211401011,1,2557]
-[211401011,2,2560]
-[211401013,1,1509]
-[211401013,2,1530]
-[211402002,1,2203]
-[211402002,2,2237]
-[211402002,3,2192]
-[211402004,1,1499]
-[211402004,2,1495]
-[211402005,1,1642]
-[211402006,1,1623]
-[211402006,2,1538]
-[211402008,1,2880]
-[211402008,2,2838]
-[211402009,1,2666]
-[211402010,1,1749]
-[211402010,2,1728]
-[211403001,1,2273]
-[211403001,2,2274]
-[211403003,1,2046]
-[211403003,2,2054]
-[211403003,3,1970]
-[211403005,1,2265]
-[211403005,2,2281]
-[211403006,1,2563]
-[211403006,2,2581]
-[211403008,1,2105]
-[211403008,2,2084]
-[211403008,3,2092]
-[211403015,1,2072]
-[211404001,1,2150]
-[211404002,1,2232]
-[211404002,2,2209]
-[211404003,1,1438]
-[211404003,2,1394]
-[211404004,1,2751]
-[211404006,1,1419]
-[211404006,2,1435]
-[211404007,1,1970]
-[211404008,1,1722]
-[211404008,2,1752]
-[211404010,1,1186]
-[211404012,1,684]
-[211405001,1,2045]
-[211405001,2,2092]
-[211405001,3,2082]
-[211406002,1,2157]
-[211406002,2,2124]
-[211406003,1,1280]
-[211406003,2,1262]
-[211406004,1,2044]
-[211406004,2,2034]
-[211406006,1,2222]
-[211406006,2,2233]
-[211406009,1,1814]
-[211406009,2,1750]
-[211406009,3,1762]
-[211406012,1,1705]
-[211406012,2,1684]
-[211407001,1,2019]
-[211407001,2,1989]
-[211407002,1,1821]
-[211407003,1,2139]
-[211407003,2,2120]
-[211407005,1,2259]
-[211407009,1,1945]
-[211408001,1,2300]
-[211408001,2,2270]
-[211408001,3,2277]
-[211408003,1,1163]
-[211408007,1,3431]
-[211408008,1,2285]
-[211408008,2,2291]
-[211409006,1,3961]
-[211501004,1,3034]
-[211501004,2,3076]
-[211501004,3,3106]
-[211502001,1,2672]
-[211502001,2,2715]
-[211502001,3,2718]
-[211502001,4,2716]
-[211502002,1,2222]
-[211502004,1,1407]
-[211502004,2,1372]
-[211502006,1,2244]
-[211503002,1,2325]
-[211503002,2,2353]
-[211503002,3,2387]
-[211601001,1,3823]
-[211601001,2,3869]
-[211601001,3,3882]
-[211602001,1,2687]
-[211602001,2,2549]
-[211602001,3,2539]
-[211602002,1,2712]
-[211602002,2,2693]
-[211602003,1,2410]
-[211602003,2,2389]
-[211602005,1,2138]
-[211602005,2,2172]
-[211602009,1,2913]
-[211602009,2,2918]
-[211602011,1,3532]
-[211602011,2,3570]
-[211602016,1,2113]
-[211603004,1,2725]
-[211603004,2,2702]
-[211603004,3,2633]
-[211604002,1,2214]
-[211604002,2,2199]
-[211701001,1,2500]
-[211702001,1,3316]
-[211702003,1,3262]
-[211801001,1,2460]
-[211801001,2,2473]
-[211801001,3,2438]
-[211801003,1,3421]
-[211801004,1,3320]
-[211802001,1,2221]
-[211802001,2,2203]
-[211802002,1,1965]
-[211802002,2,1993]
-[211802003,1,3387]
-[211802005,1,2531]
-[211802005,2,2567]
-[211802007,1,1072]
-[211802009,1,2221]
-[211802009,2,2228]
-[211802010,1,2028]
-[211802010,2,2053]
-[211802011,1,1818]
-[211802012,1,2934]
-[211802013,1,2434]
-[211802014,1,2080]
-[211802014,2,2106]
-[211802014,3,2118]
-[211802015,1,1857]
-[211802015,2,1807]
-[211802017,1,2053]
-[211802018,1,1430]
-[211803001,1,2539]
-[211803001,2,2585]
-[211803002,1,2250]
-[211803002,2,2250]
-[211803003,1,2214]
-[211803006,1,1621]
-[211803006,2,1635]
-[211803006,3,1603]
-[211803006,4,1647]
-[211803007,1,2232]
-[211803007,2,2177]
-[211803008,1,2120]
-[211803008,2,2088]
-[211803009,1,1586]
-[211803009,2,1567]
-[211803011,1,1655]
-[211803011,2,1641]
-[211803012,1,2090]
-[211803013,1,1685]
-[211803013,2,1682]
-[211803013,3,1706]
-[211803014,1,1410]
-[211803014,2,1412]
-[211803015,1,3167]
-[211803015,2,3199]
-[211803017,1,3011]
-[211803017,2,2916]
-[211803018,1,1732]
-[211803018,2,1678]
-[211803019,1,2295]
-[211803020,1,3200]
-[211803021,1,3416]
-[211803022,1,3667]
-[211803025,1,2591]
-[211804001,1,3191]
-[211804001,2,3239]
-[211804004,1,1981]
-[211804005,1,2273]
-[211805001,1,3593]
-[211805001,2,3510]
-[211805002,1,3028]
-[211805002,2,2957]
-[211805007,1,3045]
-[211805008,1,2008]
-[211805009,1,2465]
-[211805009,2,2414]
-[211805009,3,2386]
-[211805010,1,2905]
-[211805010,2,2913]
-[211805011,1,2681]
-[211805011,2,2652]
-[211805012,1,2169]
-[211805012,2,2170]
-[211805012,3,2143]
-[211805013,1,2844]
-[211805013,2,2784]
-[211805014,1,1967]
-[211805015,1,2321]
-[211805016,1,3133]
-[211805017,1,2957]
-[211805018,1,2132]
-[211805020,1,3613]
-[211805020,2,3569]
-[211805021,1,3503]
-[211805021,2,3497]
-[211805022,1,2011]
-[211805022,2,2016]
-[211805037,1,1640]
-[211806001,1,2832]
-[211806001,2,2723]
-[211806002,1,1726]
-[211806003,1,2112]
-[211806004,1,3391]
-[211806006,1,2238]
-[211806006,2,2225]
-[211806007,1,2151]
-[211806007,2,2135]
-[211806008,1,2012]
-[211806012,1,881]
-[211901003,1,1902]
-[211901003,2,1868]
-[211902002,1,2758]
-[211902002,2,2782]
-[211902002,3,2718]
-[211902002,4,2727]
-[212001001,1,3234]
-[212001001,2,3163]
-[212001002,1,1883]
-[212001002,2,1876]
-[212002001,1,2676]
-[212002001,2,2655]
-[212003001,1,2482]
-[212101001,1,2521]
-[212101001,2,2471]
-[212101001,3,2554]
-[212101001,4,2502]
-[212102001,1,2073]
-[212102001,2,2097]
-[212102001,3,2040]
-[212102001,4,2028]
-[212102002,1,1916]
-[212102002,2,1889]
-[212102004,1,2351]
-[212102004,2,2368]
-[212103002,1,3242]
-[220101002,1,2825]
-[220101002,2,2873]
-[220101005,1,2616]
-[220101005,2,2687]
-[220101005,3,2621]
-[220101009,1,1850]
-[220101009,2,1824]
-[220101011,1,2710]
-[220101011,2,2671]
-[220102001,1,2781]
-[220102001,2,2753]
-[220102001,3,2835]
-[220102002,1,2042]
-[220102002,2,2010]
-[220102004,1,2766]
-[220102004,2,2735]
-[220102005,1,2678]
-[220102005,2,2633]
-[220102005,3,2645]
-[220102008,1,3700]
-[220102012,1,832]
-[220103001,1,1871]
-[220103002,1,2701]
-[220103004,1,1316]
-[220104001,1,1771]
-[220104001,2,1791]
-[220104003,1,2532]
-[220201002,1,1310]
-[220201003,1,3030]
-[220301001,1,1480]
-[220401001,1,1580]
-[220501001,1,2025]
-[220502001,1,1649]
-[220601001,1,2547]
-[220701001,1,1103]
-[230101001,1,3114]
-[230101001,2,3108]
-[230102001,1,2455]
-[230102001,2,2448]
-[230103001,1,2738]
-[230103001,2,2705]
-[230103001,3,2714]
-[230104001,1,3043]
-[230104001,2,3090]
-[230104001,3,3099]
-[230104013,1,724]
-[230104014,1,166]
-[230105004,1,3624]
-[230105004,2,3644]
-[230106001,1,3422]
-[230106001,2,3334]
-[230106001,3,3320]
-[230107003,1,3209]
-[230107003,2,3179]
-[230108009,1,3208]
-[230108009,2,3208]
-[230201001,1,2551]
-[230201001,2,2585]
-[230202001,1,3565]
-[230301001,1,2972]
-[230301001,2,2938]
-[230302001,1,1140]
-[230303001,1,2096]
-[230303001,2,2055]
-[230304001,1,2448]
-[230304001,2,2413]
-[230305001,1,1774]
-[230306004,1,1364]
-[230401001,1,2021]
-[230401001,2,2040]
-[230402004,1,1938]
-[230403004,1,3255]
-[230404005,1,3279]
-[230404005,2,3189]
-[230404005,3,3182]
-[230405004,1,1682]
-[240101002,1,2751]
-[240101002,2,2780]
-[240101005,1,1460]
-[240101005,2,1430]
-[240101009,1,2795]
-[240101009,2,2807]
-[240101009,3,2741]
-[240101009,4,2743]
-[240101012,1,1664]
-[240101012,2,1648]
-[240101012,3,1644]
-[240101012,4,1680]
-[240101012,5,1548]
-[240102001,1,2828]
-[240102005,1,2715]
-[240102005,2,2663]
-[240102005,3,2707]
-[240102011,1,3130]
-[240102011,2,3158]
-[240102011,3,3166]
-[240102017,1,2436]
-[240103004,1,2298]
-[240103004,2,2318]
-[240104001,1,4165]
-[240104001,2,3939]
-[240104001,3,4029]
-[240104001,4,3907]
-[240104001,5,3890]
-[240104006,1,3715]
-[240104006,2,3792]
-[240104006,3,3834]
-[240104007,1,3939]
-[240104007,2,3912]
-[240104010,1,3693]
-[240104010,2,3636]
-[240104010,3,3559]
-[240104010,4,3604]
-[240104011,1,2274]
-[240104015,1,2418]
-[240104015,2,2361]
-[240104015,3,2352]
-[240105009,1,3506]
-[240105009,2,3546]
-[240105009,3,3530]
-[240105011,1,2464]
-[240105011,2,2476]
-[240105011,3,2480]
-[240106001,1,2822]
-[240106001,2,2785]
-[240106001,3,2735]
-[240106002,1,3080]
-[240106005,1,1499]
-[240106005,2,1474]
-[240107002,1,2111]
-[240107002,2,2076]
-[240107009,1,3887]
-[240107009,2,3779]
-[240107009,3,3764]
-[240107011,1,3471]
-[240107011,2,3375]
-[240107011,3,3387]
-[240107011,4,3345]
-[240108001,1,2824]
-[240108001,2,2807]
-[240108002,1,3693]
-[240108002,2,3661]
-[240109003,1,1742]
-[240109005,1,2484]
-[240109005,2,2483]
-[240110001,1,3625]
-[240110001,2,3684]
-[240110001,3,3618]
-[240110001,4,3673]
-[240110004,1,2327]
-[240110006,1,1836]
-[240110006,2,1811]
-[240110006,3,1828]
-[240111003,1,3475]
-[240111003,2,3375]
-[240111003,3,3356]
-[240111004,1,3091]
-[240111011,1,2959]
-[240111011,2,2964]
-[240111011,3,2864]
-[240111016,1,3549]
-[240111016,2,3564]
-[240111016,3,3458]
+  [10101002,1,2050],
+  [10101002,2,2010],
+  [10101002,3,2018],
+  [10101003,1,2107],
+  [10101003,2,2079],
+  [10101003,3,2116],
+  [10101006,1,2040],
+  [10101006,2,2052],
+  [10101006,3,1998],
+  [10101008,1,2205],
+  [10101008,2,2164],
+  [10101008,3,2169],
+  [10101009,1,2189],
+  [10101009,2,2172],
+  [10101010,1,2137],
+  [10101010,2,2140],
+  [10102006,1,2349],
+  [10102006,2,2261],
+  [10102006,3,2234],
+  [10102006,4,2217],
+  [10102008,1,2331],
+  [10102008,2,2319],
+  [10102009,1,1273],
+  [10102009,2,1292],
+  [10102009,3,1281],
+  [10102010,1,1952],
+  [10102010,2,2027],
+  [10102010,3,2036],
+  [10102010,4,1984],
+  [10102010,5,1991],
+  [10102010,6,1880],
+  [10102011,1,2104],
+  [10102011,2,2066],
+  [10102011,3,2101],
+  [10102012,1,1788],
+  [10102013,1,1649],
+  [10102013,2,1659],
+  [10102014,1,1057],
+  [10102014,2,1067],
+  [10102015,1,1680],
+  [10102015,2,1706],
+  [10102017,1,1976],
+  [10103001,1,3404],
+  [10103001,2,3323],
+  [10103001,3,3320],
+  [10103005,1,2956],
+  [10103005,2,3001],
+  [10104002,1,2018],
+  [10104002,2,1990],
+  [10104004,1,3434],
+  [10104004,2,3455],
+  [10104012,1,2180],
+  [10104012,2,2200],
+  [10104012,3,2174],
+  [10104014,1,2549],
+  [10104014,2,2589],
+  [10104014,3,2589],
+  [10104018,1,2770],
+  [10104018,2,2817],
+  [10104022,1,2442],
+  [10104022,2,2385],
+  [10104022,3,2394],
+  [10104024,1,2069],
+  [10104024,2,2044],
+  [10104025,1,2156],
+  [10104025,2,2137],
+  [10104028,1,3204],
+  [10104029,1,2906],
+  [10104030,1,1720],
+  [10104030,2,1724],
+  [10104033,1,2135],
+  [10104033,2,2105],
+  [10104036,1,1958],
+  [10104036,2,1955],
+  [10104038,1,2122],
+  [10104038,2,2137],
+  [10105002,1,2317],
+  [10105002,2,2284],
+  [10105008,1,1847],
+  [10105008,2,1820],
+  [10105008,3,1799],
+  [10105010,1,3521],
+  [10105013,1,3181],
+  [10105013,2,3155],
+  [10105015,1,3838],
+  [10105016,1,2064],
+  [10105016,2,2054],
+  [10105017,1,1847],
+  [10105017,2,1864],
+  [10106002,1,3854],
+  [10106003,1,2465],
+  [10106003,2,2444],
+  [10106003,3,2468],
+  [10106004,1,1976],
+  [10106004,2,1981],
+  [10106004,3,1834],
+  [10106010,1,2203],
+  [10106010,2,2185],
+  [10106010,3,2230],
+  [10106010,4,2186],
+  [10106010,5,2134],
+  [10106012,1,2371],
+  [10106022,1,1967],
+  [10107002,1,3666],
+  [10107002,2,3557],
+  [10107002,3,3579],
+  [10107010,1,2065],
+  [10107010,2,2045],
+  [10107010,3,1982],
+  [10107010,4,2098],
+  [10107010,5,2048],
+  [10107010,6,1954],
+  [10107011,1,2302],
+  [10107011,2,2204],
+  [10107012,1,2515],
+  [10107012,2,2541],
+  [10107012,3,2513],
+  [10107013,1,2744],
+  [10107013,2,2744],
+  [10107013,3,2806],
+  [10107016,1,2243],
+  [10107016,2,2202],
+  [10107017,1,2088],
+  [10107017,2,2059],
+  [10107021,1,1996],
+  [10107021,2,2058],
+  [10107021,3,2074],
+  [10107021,4,2014],
+  [10107021,5,2049],
+  [10107022,1,1887],
+  [10107022,2,1894],
+  [10107024,1,1650],
+  [10107024,2,1623],
+  [10107028,1,2112],
+  [10107028,2,2075],
+  [10107028,3,2033],
+  [10108003,1,1760],
+  [10108003,2,1742],
+  [10108004,1,1929],
+  [10108005,1,1651],
+  [10108005,2,1619],
+  [10108006,1,2228],
+  [10108006,2,2203],
+  [10108007,1,2408],
+  [10108007,2,2424],
+  [10108010,1,2905],
+  [10108010,2,2844],
+  [10108011,1,3140],
+  [10108013,1,2261],
+  [10108013,2,2192],
+  [10108013,3,2179],
+  [10108016,1,2044],
+  [10108016,2,2038],
+  [10108016,3,2002],
+  [10108016,4,2034],
+  [10108019,1,2311],
+  [10108019,2,2276],
+  [10108020,1,1614],
+  [10108020,2,1586],
+  [10108021,1,2990],
+  [10108025,1,2645],
+  [10108025,2,2596],
+  [10108026,1,2655],
+  [10108027,1,2125],
+  [10108027,2,2150],
+  [10108028,1,2063],
+  [10108028,2,2087],
+  [10108037,1,2236],
+  [10108038,1,2051],
+  [10108038,2,2059],
+  [10108039,1,2924],
+  [10108040,1,2319],
+  [10108040,2,2337],
+  [10109001,1,1437],
+  [10109001,2,1412],
+  [10109002,1,2608],
+  [10109003,1,2913],
+  [10109004,1,2384],
+  [10109004,2,2414],
+  [10109004,3,2346],
+  [10109006,1,1997],
+  [10109006,2,2027],
+  [10110002,1,2949],
+  [10110002,2,2967],
+  [10110002,3,2914],
+  [10110003,1,3094],
+  [10110004,1,2058],
+  [10110004,2,2077],
+  [10110011,1,2603],
+  [10110011,2,2495],
+  [10110011,3,2585],
+  [10110011,4,2631],
+  [10110011,5,2594],
+  [10110011,6,2459],
+  [10110016,1,2149],
+  [10110016,2,2182],
+  [10110016,3,2167],
+  [10110016,4,2180],
+  [10110016,5,2194],
+  [10110021,1,2288],
+  [10110021,2,2306],
+  [10110021,3,2365],
+  [10110021,4,2349],
+  [10110021,5,2332],
+  [10110021,6,2177],
+  [10110026,1,2095],
+  [10110026,2,2039],
+  [10110026,3,2008],
+  [10110026,4,2019],
+  [10110028,1,2293],
+  [10110028,2,2231],
+  [10110031,1,2660],
+  [10110031,2,2680],
+  [10110032,1,2678],
+  [10110032,2,2670],
+  [10110034,1,2393],
+  [10110034,2,2449],
+  [10110034,3,2409],
+  [10110035,1,2088],
+  [10110035,2,2082],
+  [10110038,1,2714],
+  [10110038,2,2740],
+  [10110041,1,2103],
+  [10110041,2,2139],
+  [10110041,3,2153],
+  [10110041,4,2166],
+  [10110041,5,1981],
+  [10110044,1,2368],
+  [10110044,2,2374],
+  [10110044,3,2328],
+  [10110051,1,3212],
+  [10110051,2,3260],
+  [10110051,3,3286],
+  [10110052,1,3300],
+  [10110052,2,3326],
+  [10110056,1,2388],
+  [10110056,2,2455],
+  [10110056,3,2453],
+  [10110056,4,2364],
+  [10110056,5,2351],
+  [10110056,6,2458],
+  [10110057,1,2894],
+  [10110057,2,2886],
+  [10110062,1,2727],
+  [10110062,2,2686],
+  [10110064,1,2197],
+  [10110064,2,2219],
+  [10110065,1,2012],
+  [10110065,2,2046],
+  [10110065,3,2030],
+  [10110067,1,2215],
+  [10110067,2,2231],
+  [10110071,1,1934],
+  [10110071,2,1966],
+  [10110079,1,2583],
+  [10110079,2,2584],
+  [10110080,1,2177],
+  [10110080,2,2172],
+  [10110083,1,2081],
+  [10110083,2,2099],
+  [10110086,1,3450],
+  [10110086,2,3461],
+  [10110086,3,3433],
+  [10110086,4,3249],
+  [10110090,1,2400],
+  [10110090,2,2379],
+  [10110090,3,2396],
+  [10110092,1,1916],
+  [10110092,2,1911],
+  [10110095,1,3285],
+  [10110095,2,3307],
+  [10110096,1,2721],
+  [10110096,2,2760],
+  [10110096,3,2750],
+  [10110097,1,2929],
+  [10110100,1,2675],
+  [10110100,2,2671],
+  [10110101,1,2464],
+  [10110101,2,2479],
+  [10110106,1,2953],
+  [10110110,1,3247],
+  [10110110,2,3257],
+  [10110113,1,3332],
+  [10110113,2,3242],
+  [10110113,3,3351],
+  [10110113,4,3235],
+  [10110114,1,3536],
+  [10110114,2,3510],
+  [10110120,1,2933],
+  [10110120,2,2968],
+  [10110120,3,2913],
+  [10110120,4,2971],
+  [10110121,1,2194],
+  [10110173,1,1147],
+  [10111001,1,2440],
+  [10111001,2,2354],
+  [10111001,3,2335],
+  [10111001,4,2357],
+  [10111002,1,2952],
+  [10111002,2,2983],
+  [10111002,3,2871],
+  [10111004,1,3369],
+  [10111004,2,3403],
+  [10111008,1,3639],
+  [10111008,2,3705],
+  [10111012,1,2896],
+  [10111012,2,2870],
+  [10111013,1,3483],
+  [10111013,2,3450],
+  [10111014,1,2737],
+  [10111014,2,2716],
+  [10111015,1,3542],
+  [10111015,2,3495],
+  [10111019,1,2582],
+  [10111019,2,2575],
+  [10111026,1,2222],
+  [10111026,2,2236],
+  [10111028,1,3897],
+  [10112001,1,2817],
+  [10112010,1,3054],
+  [10112010,2,3058],
+  [10112010,3,3016],
+  [10112011,1,3737],
+  [10112011,2,3665],
+  [10112011,3,3638],
+  [10112011,4,3681],
+  [10112016,1,3237],
+  [10112016,2,3180],
+  [10112018,1,3795],
+  [10112018,2,3825],
+  [10112018,3,3832],
+  [10112019,1,3721],
+  [10112019,2,3601],
+  [10112019,3,3725],
+  [10112019,4,3636],
+  [10112036,1,3706],
+  [10112036,2,3734],
+  [10112036,3,3580],
+  [10112037,1,2068],
+  [10112037,2,2029],
+  [10112039,1,3089],
+  [10112039,2,3078],
+  [10112039,3,3045],
+  [10112039,4,3083],
+  [10112044,1,3449],
+  [10112044,2,3390],
+  [10113002,1,2428],
+  [10113003,1,1295],
+  [10113004,1,3417],
+  [10113006,1,2883],
+  [10113006,2,2933],
+  [10113010,1,1204],
+  [10113010,2,1226],
+  [10113011,1,1748],
+  [10113011,2,1703],
+  [10113011,3,1705],
+  [10113011,4,1708],
+  [10113012,1,1654],
+  [10113013,1,1422],
+  [10113014,1,1163],
+  [10113014,2,1172],
+  [10113015,1,1305],
+  [10113015,2,1312],
+  [10113016,1,1232],
+  [10113017,1,2937],
+  [10113018,1,1006],
+  [10113019,1,1756],
+  [10113019,2,1784],
+  [10113020,1,1549],
+  [10113021,1,1383],
+  [10113022,1,2767],
+  [10113024,1,1921],
+  [10113024,2,1933],
+  [10113024,3,1960],
+  [10113025,1,1380],
+  [10113026,1,1428],
+  [10113028,1,1702],
+  [10113028,2,1712],
+  [10113028,3,1654],
+  [10113029,1,1320],
+  [10113029,2,1338],
+  [10113030,1,1623],
+  [10113030,2,1622],
+  [10113031,1,1338],
+  [10113034,1,1832],
+  [10113035,1,1674],
+  [10113035,2,1653],
+  [10113035,3,1690],
+  [10113035,4,1638],
+  [10113036,1,1512],
+  [10113037,1,1915],
+  [10113037,2,1909],
+  [10113040,1,1269],
+  [10113041,1,2012],
+  [10113041,2,2018],
+  [10113042,1,1321],
+  [10113052,1,1469],
+  [10113052,2,1461],
+  [10113054,1,1564],
+  [10114002,1,2193],
+  [10114002,2,2245],
+  [10114002,3,2216],
+  [10114002,4,2194],
+  [10114005,1,2331],
+  [10114005,2,2315],
+  [10114010,1,3298],
+  [10114010,2,3326],
+  [10114010,3,3249],
+  [10114011,1,2278],
+  [10114011,2,2247],
+  [10114013,1,2465],
+  [10114013,2,2492],
+  [10114013,3,2508],
+  [10114015,1,3722],
+  [10114015,2,3655],
+  [10114018,1,2125],
+  [10114018,2,2132],
+  [10114020,1,2180],
+  [10114020,2,2137],
+  [10114020,3,2172],
+  [10114020,4,2178],
+  [10114021,1,2107],
+  [10114021,2,2083],
+  [10114021,3,2071],
+  [10114022,1,1690],
+  [10114022,2,1657],
+  [10114023,1,2686],
+  [10114023,2,2706],
+  [10114026,1,2523],
+  [10114026,2,2523],
+  [10114026,3,2543],
+  [10114029,1,2450],
+  [10114029,2,2406],
+  [10114029,3,2408],
+  [10114030,1,2930],
+  [10114030,2,2967],
+  [10114036,1,2973],
+  [10114036,2,2945],
+  [10114039,1,2199],
+  [10114039,2,2189],
+  [10114039,3,2213],
+  [10114040,1,3037],
+  [10114040,2,3014],
+  [10115001,1,2200],
+  [10115001,2,2188],
+  [10115002,1,3116],
+  [10115002,2,3175],
+  [10115004,1,2747],
+  [10115004,2,2734],
+  [10115006,1,3341],
+  [10115007,1,3329],
+  [10115009,1,1323],
+  [10115009,2,1329],
+  [10115009,3,1402],
+  [10115009,4,1360],
+  [10115009,5,1395],
+  [10115009,6,1365],
+  [10115010,1,2247],
+  [10115010,2,2260],
+  [10115010,3,2251],
+  [10115011,1,1115],
+  [10115011,2,1115],
+  [10115011,3,1107],
+  [10115012,1,2012],
+  [10115015,1,1230],
+  [10115015,2,1220],
+  [10115015,3,1216],
+  [10115015,4,1210],
+  [10115016,1,1212],
+  [10115016,2,1219],
+  [10115017,1,2786],
+  [10115021,1,3747],
+  [10115021,2,3739],
+  [10115021,3,3670],
+  [10115024,1,2051],
+  [10115024,2,2023],
+  [10115025,1,2871],
+  [10115025,2,2832],
+  [10115026,1,3069],
+  [10115026,2,3089],
+  [10115028,1,3221],
+  [10115030,1,2564],
+  [10115030,2,2563],
+  [10115039,1,2547],
+  [10115039,2,2519],
+  [10116001,1,3015],
+  [10116001,2,3052],
+  [10116002,1,3324],
+  [10116002,2,3429],
+  [10116002,3,3309],
+  [10116002,4,3323],
+  [10116002,5,3385],
+  [10116006,1,3007],
+  [10116006,2,2961],
+  [10116009,1,2635],
+  [10116009,2,2619],
+  [10116012,1,3604],
+  [10116012,2,3526],
+  [10116014,1,2803],
+  [10117001,1,1822],
+  [10117001,2,1823],
+  [10117003,1,1704],
+  [10117003,2,1677],
+  [10117008,1,2102],
+  [10117008,2,2103],
+  [10117008,3,2069],
+  [10117012,1,3622],
+  [10117012,2,3666],
+  [10117015,1,2158],
+  [10117015,2,2132],
+  [10117015,3,2175],
+  [10117018,1,2683],
+  [10117018,2,2712],
+  [10117019,1,3856],
+  [10117019,2,3883],
+  [10117020,1,3570],
+  [10117020,2,3574],
+  [10117020,3,3485],
+  [10117022,1,2586],
+  [10117022,2,2547],
+  [10117023,1,3164],
+  [10117027,1,2130],
+  [10117027,2,2143],
+  [10117028,1,1983],
+  [10117029,1,2493],
+  [10117029,2,2522],
+  [10117032,1,2415],
+  [10117032,2,2341],
+  [10117032,3,2405],
+  [10117032,4,2328],
+  [10117033,1,1848],
+  [10117033,2,1837],
+  [10117033,3,1879],
+  [10117033,4,1880],
+  [10117036,1,2249],
+  [10117036,2,2281],
+  [10117037,1,1911],
+  [10117037,2,1925],
+  [10117037,3,1864],
+  [10117040,1,2339],
+  [10117040,2,2305],
+  [10118001,1,2472],
+  [10118001,2,2446],
+  [10118001,3,2488],
+  [10118001,4,2430],
+  [10118001,5,2420],
+  [10118002,1,2732],
+  [10118002,2,2774],
+  [10118002,3,2785],
+  [10118005,1,3218],
+  [10118005,2,3226],
+  [10118005,3,3301],
+  [10118006,1,2409],
+  [10118006,2,2357],
+  [10118007,1,1997],
+  [10118007,2,1974],
+  [10118010,1,1709],
+  [10119001,1,1999],
+  [10119001,2,1981],
+  [10119003,1,2027],
+  [10119003,2,2053],
+  [10119003,3,2069],
+  [10119003,4,2013],
+  [10119005,1,2316],
+  [10119005,2,2362],
+  [10119005,3,2323],
+  [10119005,4,2372],
+  [10119006,1,3739],
+  [10119006,2,3755],
+  [10119012,1,2538],
+  [10119012,2,2483],
+  [10119012,3,2506],
+  [10119013,1,1801],
+  [10119013,2,1795],
+  [10119016,1,3309],
+  [10119017,1,2960],
+  [10119017,2,3012],
+  [10120002,1,1425],
+  [10120002,2,1421],
+  [10120002,3,1394],
+  [10120006,1,1675],
+  [10120006,2,1689],
+  [10120006,3,1716],
+  [10120007,1,1578],
+  [10120007,2,1593],
+  [10120008,1,1370],
+  [10120008,2,1414],
+  [10120008,3,1414],
+  [10120008,4,1342],
+  [10120010,1,2207],
+  [10120010,2,2183],
+  [10120012,1,1696],
+  [10120015,1,1634],
+  [10120015,2,1677],
+  [10120015,3,1657],
+  [10120015,4,1681],
+  [10120016,1,1783],
+  [10120016,2,1781],
+  [10120019,1,1744],
+  [10120019,2,1736],
+  [10120019,3,1705],
+  [10120022,1,1273],
+  [10120022,2,1306],
+  [10120022,3,1299],
+  [10120022,4,1308],
+  [10120022,5,1241],
+  [10120024,1,1706],
+  [10120024,2,1689],
+  [10120024,3,1654],
+  [10120025,1,1452],
+  [10120025,2,1420],
+  [10120025,3,1419],
+  [10120025,4,1420],
+  [10121002,1,2029],
+  [10121002,2,2048],
+  [10121002,3,2045],
+  [10121002,4,2013],
+  [10121002,5,1984],
+  [10121002,6,1980],
+  [10121004,1,1615],
+  [10121004,2,1622],
+  [10121004,3,1564],
+  [10121007,1,1100],
+  [10121007,2,1112],
+  [10121008,1,2005],
+  [10121008,2,2004],
+  [10121008,3,2029],
+  [10121013,1,561],
+  [10122003,1,1607],
+  [10122003,2,1634],
+  [10122003,3,1597],
+  [10122005,1,1528],
+  [10122005,2,1566],
+  [10122005,3,1530],
+  [10122005,4,1570],
+  [10122005,5,1607],
+  [10122005,6,1596],
+  [10122006,1,3646],
+  [10122008,1,2050],
+  [10122008,2,2086],
+  [10122008,3,2079],
+  [10122010,1,1067],
+  [10122010,2,1069],
+  [10122011,1,1511],
+  [10122011,2,1532],
+  [10122011,3,1507],
+  [10122011,4,1455],
+  [10122013,1,1466],
+  [10122013,2,1477],
+  [10122013,3,1447],
+  [10122013,4,1460],
+  [10122013,5,1391],
+  [10122015,1,2364],
+  [10122015,2,2296],
+  [10122015,3,2360],
+  [10122015,4,2282],
+  [10122021,1,1777],
+  [10122021,2,1750],
+  [10122021,3,1706],
+  [10122021,4,1727],
+  [10122021,5,1763],
+  [10122026,1,1312],
+  [10122026,2,1334],
+  [10122027,1,1781],
+  [10122027,2,1758],
+  [10122029,1,2181],
+  [10122029,2,2121],
+  [10122029,3,2107],
+  [10122030,1,2002],
+  [10122030,2,1940],
+  [10122030,3,2004],
+  [10122030,4,1950],
+  [10122033,1,1335],
+  [10122033,2,1327],
+  [10122033,3,1278],
+  [10122035,1,819],
+  [10122043,1,1183],
+  [10122043,2,1212],
+  [10122043,3,1195],
+  [20101001,1,1882],
+  [20101001,2,1879],
+  [20101001,3,1918],
+  [20101003,1,1563],
+  [20101003,2,1474],
+  [20101005,1,1711],
+  [20101005,2,1701],
+  [20101006,1,1955],
+  [20101006,2,1867],
+  [20101008,1,1745],
+  [20101009,1,1720],
+  [20101009,2,1740],
+  [20101009,3,1747],
+  [20101010,1,2269],
+  [20101010,2,2250],
+  [20101010,3,2250],
+  [20101013,1,2538],
+  [20101013,2,2472],
+  [20101015,1,1868],
+  [20101015,2,1877],
+  [20101015,3,1866],
+  [20101015,4,1759],
+  [20101017,1,2069],
+  [20101017,2,2043],
+  [20101017,3,2010],
+  [20101019,1,1973],
+  [20101019,2,2001],
+  [20101020,1,2069],
+  [20101020,2,2015],
+  [20101021,1,1661],
+  [20101021,2,1643],
+  [20101022,1,2443],
+  [20101022,2,2494],
+  [20101022,3,2449],
+  [20101032,1,3251],
+  [20101032,2,3164],
+  [20101036,1,1357],
+  [20101036,2,1387],
+  [20102001,1,3545],
+  [20102002,1,2580],
+  [20201001,1,3156],
+  [20201001,2,3124],
+  [20201004,1,3151],
+  [20201004,2,3133],
+  [20201004,3,3148],
+  [20201008,1,3515],
+  [20202001,1,1371],
+  [20301001,1,2500],
+  [20301001,2,2509],
+  [20301003,1,1530],
+  [20301006,1,1707],
+  [20301006,2,1627],
+  [20301007,1,1578],
+  [20301009,1,1672],
+  [20301010,1,2164],
+  [20301011,1,1572],
+  [20301011,2,1567],
+  [20301012,1,2939],
+  [20301012,2,2932],
+  [20301013,1,3790],
+  [20301015,1,1432],
+  [20301015,2,1401],
+  [20301017,1,2382],
+  [20301017,2,2418],
+  [20301018,1,3413],
+  [20301018,2,3428],
+  [20301020,1,2818],
+  [20301020,2,2844],
+  [20301023,1,2156],
+  [20301023,2,2178],
+  [20301025,1,2540],
+  [20301025,2,2548],
+  [20301026,1,1917],
+  [20301026,2,1916],
+  [20301027,1,2224],
+  [20301027,2,2143],
+  [20301028,1,2278],
+  [20301028,2,2224],
+  [20301029,1,3348],
+  [20301029,2,3397],
+  [20301030,1,2729],
+  [20301030,2,2738],
+  [20301030,3,2626],
+  [20301031,1,3466],
+  [20301032,1,3357],
+  [20301040,1,1548],
+  [20301045,1,3161],
+  [20301045,2,3096],
+  [20301052,1,2823],
+  [20301053,1,2441],
+  [20301054,1,2262],
+  [20301054,2,2285],
+  [20301062,1,1688],
+  [20301062,2,1694],
+  [20302001,1,2770],
+  [20302001,2,2721],
+  [20302001,3,2751],
+  [20302004,1,3346],
+  [20302004,2,3335],
+  [20302005,1,3630],
+  [20302005,2,3677],
+  [20302005,3,3690],
+  [20302006,1,3699],
+  [20302011,1,1940],
+  [20302013,1,1987],
+  [20302013,2,2007],
+  [20302013,3,1966],
+  [20302014,1,1307],
+  [20302014,2,1277],
+  [20302016,1,2258],
+  [20302016,2,2254],
+  [20302019,1,2860],
+  [20302019,2,2868],
+  [20302021,1,1787],
+  [20302022,1,2926],
+  [20302022,2,2950],
+  [20302024,1,2506],
+  [20302024,2,2470],
+  [20302026,1,2488],
+  [20302026,2,2462],
+  [20302027,1,1607],
+  [20302028,1,1792],
+  [20302028,2,1685],
+  [20302028,3,1726],
+  [20302028,4,1763],
+  [20302032,1,2677],
+  [20302032,2,2578],
+  [20302033,1,2896],
+  [20302033,2,2918],
+  [20302033,3,2860],
+  [20302036,1,2810],
+  [20302036,2,2781],
+  [20302038,1,2210],
+  [20302038,2,2188],
+  [20302040,1,2176],
+  [20302040,2,2149],
+  [20302041,1,3623],
+  [20302041,2,3600],
+  [20302044,1,1141],
+  [20302053,1,1403],
+  [20302053,2,1418],
+  [20302053,3,1256],
+  [20303001,1,3521],
+  [20304001,1,3723],
+  [20305001,1,2258],
+  [20306004,1,3381],
+  [20306004,2,3304],
+  [20306004,3,3372],
+  [20401002,1,2869],
+  [20401002,2,2834],
+  [20401002,3,2831],
+  [20401002,4,2743],
+  [20402002,1,2581],
+  [20402002,2,2584],
+  [20403002,1,4035],
+  [20501001,1,3737],
+  [20501001,2,3692],
+  [20502001,1,2063],
+  [20601002,1,2206],
+  [20601002,2,2268],
+  [20601002,3,2230],
+  [20601002,4,2197],
+  [20601003,1,2109],
+  [20601003,2,2049],
+  [20601003,3,2044],
+  [20601003,4,2087],
+  [20601006,1,2282],
+  [20601006,2,2277],
+  [20601006,3,2209],
+  [20601006,4,2325],
+  [20601006,5,2229],
+  [20601017,1,2950],
+  [20601017,2,2849],
+  [20601017,3,2851],
+  [20601018,1,2480],
+  [20602001,1,1815],
+  [20603001,1,2080],
+  [20603001,2,2088],
+  [20604002,1,2407],
+  [20604002,2,2354],
+  [20701002,1,3717],
+  [20701002,2,3694],
+  [20701005,1,3860],
+  [20701005,2,3830],
+  [20701007,1,2137],
+  [20702001,1,2373],
+  [20702001,2,2322],
+  [20801001,1,2665],
+  [20801001,2,2719],
+  [20801001,3,2687],
+  [20802001,1,1596],
+  [20803001,1,2928],
+  [20901004,1,3052],
+  [20901004,2,2973],
+  [20901004,3,2977],
+  [20901004,4,3087],
+  [20901004,5,3057],
+  [20901006,1,2388],
+  [20901006,2,2324],
+  [20901006,3,2358],
+  [20902001,1,2579],
+  [20903001,1,1913],
+  [20904001,1,2499],
+  [21001001,1,3260],
+  [21002001,1,1131],
+  [21003001,1,3702],
+  [21004001,1,2159],
+  [21005001,1,1818],
+  [21006001,1,2289],
+  [21101001,1,2623],
+  [21101001,2,2600],
+  [21101001,3,2668],
+  [21101001,4,2649],
+  [21101001,5,2660],
+  [21101001,6,2657],
+  [21102001,1,2551],
+  [21103001,1,2028],
+  [21201001,1,2620],
+  [21201001,2,2626],
+  [21201002,1,2842],
+  [21201004,1,2173],
+  [21201004,2,2110],
+  [21201005,1,3107],
+  [21201006,1,3333],
+  [21201006,2,3214],
+  [21201006,3,3202],
+  [21201011,1,2822],
+  [21201011,2,2834],
+  [21201014,1,2000],
+  [21201014,2,1993],
+  [21201018,1,2028],
+  [21201018,2,2072],
+  [21201018,3,2094],
+  [21201018,4,2078],
+  [21201019,1,2036],
+  [21201019,2,2040],
+  [21201020,1,2206],
+  [21201020,2,2171],
+  [21201021,1,1784],
+  [21201021,2,1757],
+  [21201021,3,1774],
+  [21201024,1,1660],
+  [21201024,2,1668],
+  [21201025,1,1534],
+  [21201025,2,1553],
+  [21201025,3,1495],
+  [21201027,1,1738],
+  [21201028,1,1604],
+  [21201028,2,1620],
+  [21201028,3,1590],
+  [21201029,1,1451],
+  [21201029,2,1454],
+  [21201029,3,1423],
+  [21201030,1,2420],
+  [21201030,2,2435],
+  [21201032,1,2539],
+  [21201034,1,2398],
+  [21201034,2,2361],
+  [21201035,1,1855],
+  [21201035,2,1869],
+  [21201035,3,1843],
+  [21201036,1,1773],
+  [21201036,2,1779],
+  [21201036,3,1743],
+  [21201040,1,1791],
+  [21201040,2,1751],
+  [21201040,3,1788],
+  [21201040,4,1752],
+  [21201052,1,3118],
+  [21301001,1,1898],
+  [21301001,2,1879],
+  [21301002,1,2478],
+  [21301003,1,1666],
+  [21301003,2,1644],
+  [21301004,1,2240],
+  [21301004,2,2275],
+  [21301010,1,1951],
+  [21301011,1,2415],
+  [21301011,2,2425],
+  [21301011,3,2356],
+  [21301012,1,1150],
+  [21301012,2,1132],
+  [21301014,1,2012],
+  [21301014,2,1960],
+  [21301014,3,1988],
+  [21301014,4,1934],
+  [21301015,1,2673],
+  [21301015,2,2658],
+  [21301015,3,2586],
+  [21301020,1,2799],
+  [21301020,2,2727],
+  [21301021,1,2345],
+  [21301021,2,2327],
+  [21301021,3,2350],
+  [21301025,1,1523],
+  [21301025,2,1488],
+  [21301026,1,1653],
+  [21301026,2,1666],
+  [21301027,1,1485],
+  [21301027,2,1460],
+  [21301028,1,2722],
+  [21301028,2,2725],
+  [21301028,3,2764],
+  [21301028,4,2676],
+  [21301028,5,2743],
+  [21301032,1,1854],
+  [21301032,2,1821],
+  [21301033,1,1909],
+  [21301035,1,3133],
+  [21301035,2,3178],
+  [21301036,1,2318],
+  [21301036,2,2350],
+  [21301050,1,2388],
+  [21301057,1,2711],
+  [21301057,2,2697],
+  [21301086,1,2788],
+  [21301087,1,1800],
+  [21301087,2,1793],
+  [21302002,1,1951],
+  [21302002,2,1914],
+  [21302003,1,1876],
+  [21302003,2,1816],
+  [21302005,1,2415],
+  [21302005,2,2396],
+  [21302006,1,1712],
+  [21302006,2,1717],
+  [21302007,1,3014],
+  [21302008,1,1859],
+  [21302008,2,1894],
+  [21302009,1,2169],
+  [21302010,1,1631],
+  [21302010,2,1574],
+  [21302010,3,1593],
+  [21302013,1,1790],
+  [21302013,2,1772],
+  [21302016,1,1845],
+  [21302016,2,1804],
+  [21302016,3,1754],
+  [21302016,4,1801],
+  [21302017,1,1799],
+  [21302017,2,1761],
+  [21302018,1,3074],
+  [21302022,1,2715],
+  [21302022,2,2742],
+  [21401001,1,2969],
+  [21401002,1,3226],
+  [21401002,2,3229],
+  [21401003,1,1753],
+  [21401003,2,1774],
+  [21401005,1,2431],
+  [21401007,1,3973],
+  [21401007,2,4000],
+  [21401008,1,1880],
+  [21401009,1,3245],
+  [21401009,2,3271],
+  [21401009,3,3267],
+  [21401010,1,2525],
+  [21401013,1,1911],
+  [21401013,2,1799],
+  [21401016,1,2690],
+  [21401016,2,2678],
+  [21401016,3,2678],
+  [21501002,1,3023],
+  [21501002,2,3018],
+  [21501004,1,2098],
+  [21501004,2,2116],
+  [21501004,3,2066],
+  [21501004,4,2143],
+  [21502001,1,2856],
+  [21502002,1,2545],
+  [21502002,2,2576],
+  [21601005,1,2136],
+  [21601005,2,2122],
+  [21601007,1,4012],
+  [21601007,2,4037],
+  [21601007,3,4015],
+  [21602001,1,676],
+  [21701001,1,1262],
+  [21701001,2,1265],
+  [21701001,3,1262],
+  [21701002,1,1467],
+  [21701002,2,1452],
+  [21701003,1,1422],
+  [21701003,2,1397],
+  [21701003,3,1310],
+  [21701003,4,1236],
+  [21701004,1,1095],
+  [21701004,2,1151],
+  [21701004,3,1121],
+  [21701005,1,1118],
+  [21701005,2,1114],
+  [21701006,1,952],
+  [21701006,2,959],
+  [21701007,1,1038],
+  [21701007,2,1031],
+  [21701007,3,1048],
+  [21701009,1,1343],
+  [21701009,2,1363],
+  [21702001,1,1248],
+  [21702001,2,1225],
+  [21702002,1,1236],
+  [21702002,2,1231],
+  [21801002,1,2599],
+  [21801004,1,2929],
+  [21801004,2,2816],
+  [21802001,1,928],
+  [21901002,1,3263],
+  [21901002,2,3316],
+  [21902001,1,948],
+  [22001001,1,2855],
+  [22001001,2,2864],
+  [22002002,1,1673],
+  [22101001,1,2862],
+  [22101001,2,2905],
+  [22102001,1,824],
+  [30101001,1,4071],
+  [30101001,2,4045],
+  [30101002,1,2366],
+  [30101002,2,2305],
+  [30101006,1,3690],
+  [30101006,2,3752],
+  [30102001,1,3161],
+  [30103001,1,3398],
+  [30104001,1,3229],
+  [30105001,1,3702],
+  [30106001,1,3432],
+  [30201001,1,2125],
+  [30201001,2,2117],
+  [30202002,1,2436],
+  [30202002,2,2421],
+  [30202003,1,3760],
+  [30203001,1,1233],
+  [30204001,1,1805],
+  [30205003,1,3543],
+  [30301001,1,3457],
+  [30301001,2,3504],
+  [30301001,3,3528],
+  [30301002,1,2061],
+  [30301002,2,2025],
+  [30301008,1,2907],
+  [30301008,2,2953],
+  [30301010,1,2978],
+  [30301010,2,3026],
+  [30301010,3,2952],
+  [30301017,1,2398],
+  [30302001,1,2582],
+  [30303001,1,3136],
+  [30303001,2,3046],
+  [30303001,3,3011],
+  [30304001,1,3009],
+  [30304001,2,3013],
+  [30304001,3,2982],
+  [30304004,1,1922],
+  [30305002,1,3915],
+  [30305002,2,3903],
+  [30401001,1,3486],
+  [30401001,2,3512],
+  [30402001,1,3111],
+  [30403001,1,3270],
+  [30403006,1,2159],
+  [30403006,2,2108],
+  [30403010,1,2512],
+  [30501001,1,2679],
+  [30501001,2,2711],
+  [30501001,3,2736],
+  [30501005,1,2765],
+  [30501005,2,2757],
+  [30502003,1,3410],
+  [30601003,1,3395],
+  [30601004,1,1800],
+  [30601004,2,1754],
+  [30601005,1,3284],
+  [30601005,2,3239],
+  [30601007,1,1524],
+  [30601007,2,1541],
+  [30601009,1,3543],
+  [30601010,1,3473],
+  [30601011,1,2750],
+  [30601012,1,2432],
+  [30601013,1,1975],
+  [30601013,2,1968],
+  [30601014,1,2161],
+  [30601015,1,1947],
+  [30601015,2,1940],
+  [30601016,1,2098],
+  [30601016,2,2080],
+  [30601017,1,3892],
+  [30601022,1,2299],
+  [30601022,2,2299],
+  [30601024,1,3225],
+  [30601025,1,3284],
+  [30601025,2,3295],
+  [30601028,1,3024],
+  [30601029,1,1836],
+  [30601030,1,2440],
+  [30601031,1,2008],
+  [30601031,2,2030],
+  [30601038,1,2446],
+  [30602001,1,2949],
+  [30602001,2,2998],
+  [30603002,1,2801],
+  [30603002,2,2840],
+  [30603004,1,3433],
+  [30603004,2,3442],
+  [30603004,3,3350],
+  [30604001,1,2504],
+  [30604001,2,2517],
+  [30701005,1,3114],
+  [30701005,2,3005],
+  [30701008,1,2304],
+  [30701008,2,2345],
+  [30701014,1,3665],
+  [30701015,1,3988],
+  [30701019,1,3342],
+  [30701019,2,3319],
+  [30701021,1,4072],
+  [30701022,1,2289],
+  [30701022,2,2274],
+  [40101001,1,2085],
+  [40101001,2,2075],
+  [40101001,3,2088],
+  [40101004,1,2607],
+  [40101005,1,1864],
+  [40101006,1,2036],
+  [40101006,2,2045],
+  [40101006,3,2003],
+  [40101006,4,2075],
+  [40101009,1,2062],
+  [40101009,2,2056],
+  [40101009,3,2106],
+  [40101010,1,2983],
+  [40101011,1,2645],
+  [40101011,2,2588],
+  [40101012,1,2814],
+  [40101012,2,2761],
+  [40101013,1,1534],
+  [40101013,2,1513],
+  [40102001,1,2536],
+  [40102002,1,951],
+  [40103001,1,1330],
+  [40103001,2,1303],
+  [40103001,3,1307],
+  [40103001,4,1313],
+  [40103001,5,1292],
+  [40103003,1,3350],
+  [40103003,2,3271],
+  [40103005,1,1529],
+  [40103005,2,1466],
+  [40103005,3,1440],
+  [40103005,4,1448],
+  [40103005,5,1528],
+  [40103005,6,1517],
+  [40103005,7,1483],
+  [40103008,1,2279],
+  [40103008,2,2273],
+  [40103008,3,2266],
+  [40103012,1,1663],
+  [40103012,2,1605],
+  [40103012,3,1667],
+  [40103012,4,1664],
+  [40103012,5,1608],
+  [40103014,1,1839],
+  [40103014,2,1806],
+  [40103014,3,1789],
+  [40103014,4,1821],
+  [40103014,5,1816],
+  [40103016,1,3087],
+  [40103021,1,1126],
+  [40103021,2,1146],
+  [40104001,1,1846],
+  [40104001,2,1881],
+  [40104001,3,1859],
+  [40104003,1,2414],
+  [40104003,2,2399],
+  [40104003,3,2385],
+  [40104005,1,1998],
+  [40104008,1,1891],
+  [40104008,2,1903],
+  [40104008,3,1933],
+  [40104011,1,2301],
+  [40104011,2,2249],
+  [40104011,3,2318],
+  [40104011,4,2297],
+  [40104013,1,2151],
+  [40104013,2,2053],
+  [40104013,3,2044],
+  [40104015,1,1950],
+  [40104015,2,1978],
+  [40104016,1,1425],
+  [40104016,2,1405],
+  [40105008,1,3397],
+  [40105008,2,3304],
+  [40105008,3,3435],
+  [40105008,4,3385],
+  [40105008,5,3385],
+  [40105010,1,2707],
+  [40105010,2,2728],
+  [40105010,3,2689],
+  [40105012,1,1565],
+  [40105012,2,1566],
+  [40105015,1,3335],
+  [40105015,2,3339],
+  [40105015,3,3260],
+  [40105016,1,2259],
+  [40105016,2,2177],
+  [40106002,1,2526],
+  [40106002,2,2567],
+  [40106002,3,2532],
+  [40106004,1,1468],
+  [40106004,2,1453],
+  [40106004,3,1545],
+  [40106004,4,1493],
+  [40106004,5,1524],
+  [40106004,6,1502],
+  [40106008,1,1034],
+  [40106008,2,1002],
+  [40106008,3,1007],
+  [40106010,1,3300],
+  [40106010,2,3235],
+  [40106010,3,3321],
+  [40106014,1,3886],
+  [40106014,2,3759],
+  [40106014,3,3730],
+  [40106014,4,3682],
+  [40106016,1,1703],
+  [40106016,2,1685],
+  [40107001,1,2179],
+  [40107001,2,2174],
+  [40107002,1,2674],
+  [40107003,1,2209],
+  [40107004,1,2238],
+  [40107005,1,3405],
+  [40107005,2,3410],
+  [40107008,1,2599],
+  [40107008,2,2633],
+  [40107008,3,2607],
+  [40107008,4,2572],
+  [40107008,5,2451],
+  [40107012,1,1561],
+  [40107012,2,1539],
+  [40107012,3,1502],
+  [40107013,1,861],
+  [40107013,2,852],
+  [40107014,1,1692],
+  [40107014,2,1733],
+  [40107014,3,1732],
+  [40107019,1,1757],
+  [40108001,1,1708],
+  [40108002,1,3182],
+  [40108002,2,3187],
+  [40108002,3,3221],
+  [40108004,1,2028],
+  [40108006,1,2332],
+  [40108006,2,2368],
+  [40108009,1,3780],
+  [40108009,2,3735],
+  [40108010,1,3971],
+  [40108011,1,3252],
+  [40108011,2,3244],
+  [40108013,1,2043],
+  [40108013,2,2053],
+  [40108014,1,2509],
+  [40108014,2,2459],
+  [40108014,3,2479],
+  [40108014,4,2429],
+  [40108014,5,2469],
+  [40108017,1,1723],
+  [40201005,1,2485],
+  [40201005,2,2475],
+  [40201005,3,2447],
+  [40201006,1,2698],
+  [40201006,2,2744],
+  [40201006,3,2738],
+  [40201006,4,2747],
+  [40201006,5,2741],
+  [40201008,1,1726],
+  [40201008,2,1667],
+  [40201012,1,2895],
+  [40201012,2,2883],
+  [40201012,3,2815],
+  [40201012,4,2937],
+  [40201012,5,2874],
+  [40202001,1,3563],
+  [40202001,2,3620],
+  [40202001,3,3604],
+  [40202001,4,3526],
+  [40202005,1,1630],
+  [40202005,2,1618],
+  [40202007,1,3262],
+  [40202009,1,3170],
+  [40202009,2,3135],
+  [40202009,3,3107],
+  [40202013,1,3339],
+  [40202013,2,3326],
+  [40202013,3,3347],
+  [40202013,4,3172],
+  [40202015,1,3326],
+  [40203001,1,2636],
+  [40203003,1,3852],
+  [40203003,2,3886],
+  [40203003,3,3873],
+  [40204001,1,1104],
+  [40205001,1,3269],
+  [40205001,2,3214],
+  [40205003,1,3450],
+  [40205003,2,3220],
+  [40205003,3,3262],
+  [40205003,4,3315],
+  [40205005,1,2400],
+  [40205005,2,2449],
+  [40301007,1,3230],
+  [40301007,2,3251],
+  [40301007,3,3149],
+  [40301007,4,3312],
+  [40301007,5,3216],
+  [40301009,1,2758],
+  [40301009,2,2728],
+  [40301009,3,2823],
+  [40301009,4,2799],
+  [40301010,1,3502],
+  [40301010,2,3483],
+  [40301010,3,3542],
+  [40301010,4,3452],
+  [40302001,1,3345],
+  [40302001,2,3352],
+  [40302001,3,3425],
+  [40302001,4,3361],
+  [40302001,5,3455],
+  [40303001,1,2146],
+  [40304001,1,2581],
+  [40304001,2,2485],
+  [40304001,3,2581],
+  [40304001,4,2426],
+  [40304001,5,2536],
+  [40304001,6,2462],
+  [40304001,7,2482],
+  [40304006,1,3103],
+  [40304006,2,3143],
+  [40304006,3,3172],
+  [40304006,4,3109],
+  [40304006,5,3101],
+  [40305001,1,2274],
+  [40305001,2,2309],
+  [40401001,1,2896],
+  [40401001,2,2871],
+  [40401002,1,2932],
+  [40401002,2,2954],
+  [40401009,1,2351],
+  [40402001,1,1168],
+  [40403001,1,1354],
+  [40404001,1,914],
+  [40501001,1,3024],
+  [40501001,2,3043],
+  [40501011,1,3106],
+  [40501011,2,3090],
+  [40501011,3,3101],
+  [40601003,1,2347],
+  [40601003,2,2352],
+  [40601003,3,2352],
+  [40601003,4,2390],
+  [40601003,5,2387],
+  [40601007,1,2162],
+  [40601007,2,2197],
+  [40601007,3,2169],
+  [40601007,4,2155],
+  [40601007,5,2169],
+  [40601007,6,2083],
+  [40601007,7,1955],
+  [40601010,1,2280],
+  [40601010,2,2311],
+  [40601010,3,2358],
+  [40601010,4,2307],
+  [40601010,5,2247],
+  [40601013,1,2898],
+  [40601013,2,2840],
+  [40601013,3,2777],
+  [40601014,1,2342],
+  [40601014,2,2358],
+  [40601014,3,2376],
+  [40601014,4,2256],
+  [40601014,5,2301],
+  [40601016,1,1841],
+  [40601016,2,1825],
+  [40601016,3,1834],
+  [40601017,1,2878],
+  [40601017,2,2850],
+  [40601017,3,2837],
+  [40602001,1,3046],
+  [40602001,2,3102],
+  [40701002,1,2675],
+  [40701002,2,2695],
+  [40701002,3,2676],
+  [40702001,1,1900],
+  [40703001,1,3203],
+  [40704002,1,1625],
+  [40801003,1,3043],
+  [40801003,2,3084],
+  [40801003,3,3051],
+  [40801003,4,2998],
+  [40801003,5,2944],
+  [40801005,1,3816],
+  [40801005,2,3913],
+  [40801005,3,3899],
+  [40801009,1,3786],
+  [40801009,2,3667],
+  [40801010,1,3803],
+  [40801010,2,3833],
+  [40801010,3,3885],
+  [40801010,4,3925],
+  [40801015,1,2003],
+  [40801015,2,1997],
+  [40802001,1,3134],
+  [40802001,2,3207],
+  [40802001,3,3190],
+  [40802007,1,2574],
+  [40803002,1,3262],
+  [40803002,2,3275],
+  [40803002,3,3242],
+  [40803002,4,3291],
+  [40804001,1,3223],
+  [40804002,1,2337],
+  [40805001,1,4002],
+  [40805002,1,459],
+  [40901001,1,2679],
+  [40901001,2,2599],
+  [40901001,3,2685],
+  [40901001,4,2572],
+  [40901001,5,2668],
+  [40901004,1,2513],
+  [40901004,2,2548],
+  [40901004,3,2467],
+  [40901004,4,2477],
+  [40902002,1,3069],
+  [40902002,2,3100],
+  [40902002,3,3127],
+  [40902004,1,3830],
+  [40902004,2,3890],
+  [40902005,1,2141],
+  [40902005,2,2168],
+  [40902007,1,2477],
+  [40902007,2,2507],
+  [40902007,3,2483],
+  [40902007,4,2484],
+  [40902007,5,2518],
+  [41001002,1,2260],
+  [41001002,2,2269],
+  [41001002,3,2202],
+  [41001003,1,3699],
+  [41001005,1,3316],
+  [41001006,1,2596],
+  [41001006,2,2583],
+  [41001006,3,2637],
+  [41101001,1,2650],
+  [41101001,2,2680],
+  [41101003,1,2153],
+  [41101003,2,2115],
+  [41101004,1,2809],
+  [41101004,2,2822],
+  [41101004,3,2825],
+  [41101004,4,2775],
+  [41101006,1,3801],
+  [41101006,2,3762],
+  [41201001,1,3440],
+  [41201001,2,3355],
+  [41201001,3,3262],
+  [41201001,4,3274],
+  [41201003,1,3412],
+  [41201003,2,3359],
+  [41202003,1,2649],
+  [41301002,1,2841],
+  [41301002,2,2870],
+  [41301002,3,2786],
+  [41301002,4,2767],
+  [41301005,1,1760],
+  [41301007,1,2434],
+  [41301007,2,2393],
+  [41301007,3,2331],
+  [41301007,4,2378],
+  [41301007,5,2394],
+  [41301012,1,1322],
+  [41301012,2,1301],
+  [41301012,3,1336],
+  [41302009,1,2182],
+  [41302009,2,2148],
+  [41302009,3,2143],
+  [41302010,1,2309],
+  [41302010,2,2311],
+  [41302010,3,2260],
+  [41302010,4,2335],
+  [41302010,5,2284],
+  [41302012,1,2126],
+  [41302012,2,2103],
+  [41302012,3,2089],
+  [41302012,4,2064],
+  [41302012,5,2171],
+  [41302012,6,2127],
+  [41302013,1,2194],
+  [41302013,2,2255],
+  [41302013,3,2169],
+  [41302013,4,2238],
+  [41302014,1,2320],
+  [41302014,2,2362],
+  [41302014,3,2341],
+  [41401002,1,3360],
+  [41401002,2,3323],
+  [41401016,1,2548],
+  [41401016,2,2497],
+  [41501001,1,2794],
+  [41501001,2,2745],
+  [41501001,3,2714],
+  [41502001,1,3101],
+  [41601003,1,3967],
+  [41601003,2,3952],
+  [41601004,1,2973],
+  [41601004,2,2986],
+  [41601007,1,3940],
+  [41601007,2,3770],
+  [41601007,3,3764],
+  [41601007,4,3733],
+  [41701001,1,3227],
+  [41701001,2,3289],
+  [41701001,3,3315],
+  [41701002,1,2662],
+  [41701002,2,2615],
+  [41701004,1,3477],
+  [41701004,2,3411],
+  [41701004,3,3475],
+  [41701004,4,3324],
+  [41701009,1,2461],
+  [41701009,2,2498],
+  [41701009,3,2450],
+  [41701009,4,2518],
+  [41701009,5,2440],
+  [41701009,6,2428],
+  [41701013,1,2843],
+  [41701015,1,2400],
+  [41701015,2,2423],
+  [41702001,1,2844],
+  [41702001,2,2871],
+  [41702001,3,2882],
+  [41702003,1,2929],
+  [41702003,2,2879],
+  [41702003,3,2979],
+  [41703001,1,3620],
+  [41703001,2,3619],
+  [41703001,3,3497],
+  [41801001,1,2995],
+  [41801001,2,2992],
+  [41801004,1,2129],
+  [50101001,1,3580],
+  [50101001,2,3578],
+  [50102001,1,1578],
+  [50103001,1,2452],
+  [50103001,2,2435],
+  [50104003,1,2996],
+  [50201001,1,2458],
+  [50201001,2,2476],
+  [50202001,1,2232],
+  [50202001,2,2238],
+  [50202001,3,2211],
+  [50202002,1,1844],
+  [50202002,2,1813],
+  [50202002,3,1816],
+  [50203001,1,2518],
+  [50203001,2,2504],
+  [50204001,1,2211],
+  [50205001,1,3620],
+  [50206001,1,3240],
+  [50207001,1,2827],
+  [50207001,2,2778],
+  [50207002,1,2418],
+  [50207002,2,2426],
+  [50207002,3,2394],
+  [50207004,1,2120],
+  [50207004,2,2141],
+  [50207005,1,2231],
+  [50207006,1,2773],
+  [50207006,2,2768],
+  [50207008,1,1938],
+  [50207008,2,1963],
+  [50207009,1,1814],
+  [50207009,2,1790],
+  [50207010,1,1469],
+  [50207010,2,1478],
+  [50208001,1,2977],
+  [50208001,2,2982],
+  [50208002,1,3276],
+  [50208002,2,3176],
+  [50208004,1,3907],
+  [50208004,2,3915],
+  [50208007,1,1476],
+  [50208007,2,1509],
+  [50208007,3,1518],
+  [50208009,1,3327],
+  [50209001,1,2508],
+  [50209001,2,2502],
+  [50209001,3,2561],
+  [50209002,1,3661],
+  [50209002,2,3613],
+  [50209002,3,3589],
+  [50209005,1,2161],
+  [50209006,1,1802],
+  [50209006,2,1790],
+  [50209007,1,1271],
+  [50209010,1,3548],
+  [50209010,2,3610],
+  [50209010,3,3554],
+  [50210002,1,3515],
+  [50210002,2,3319],
+  [50210002,3,3385],
+  [50210002,4,3331],
+  [50210005,1,3240],
+  [50210005,2,3382],
+  [50210005,3,3318],
+  [50210005,4,3319],
+  [50210005,5,3323],
+  [50210006,1,2024],
+  [50210006,2,2000],
+  [50211001,1,1148],
+  [50211001,2,1105],
+  [50211001,3,1131],
+  [50211001,4,1123],
+  [50211005,1,2365],
+  [50211005,2,2333],
+  [50211005,3,2284],
+  [50211006,1,1502],
+  [50211006,2,1500],
+  [50211007,1,2011],
+  [50211007,2,1977],
+  [50211013,1,3459],
+  [50211014,1,4003],
+  [50211014,2,3952],
+  [50211016,1,1145],
+  [50212001,1,2515],
+  [50212001,2,2535],
+  [50213001,1,2391],
+  [50214001,1,2504],
+  [50214003,1,2283],
+  [50301001,1,840],
+  [50301002,1,1613],
+  [50302001,1,3628],
+  [50302001,2,3626],
+  [50302003,1,3068],
+  [50302003,2,3052],
+  [50302003,3,3041],
+  [50302003,4,2868],
+  [50302004,1,3795],
+  [50302004,2,3763],
+  [50303001,1,2230],
+  [50303001,2,2212],
+  [50401002,1,1892],
+  [50401002,2,1869],
+  [50401004,1,2466],
+  [50401004,2,2482],
+  [50401005,1,2378],
+  [50401005,2,2375],
+  [50401006,1,2206],
+  [50401006,2,2164],
+  [50401007,1,1513],
+  [50401008,1,2397],
+  [50401011,1,1067],
+  [50401023,1,2598],
+  [50402001,1,2534],
+  [50403001,1,2504],
+  [50404002,1,2078],
+  [50404002,2,2105],
+  [50501001,1,2164],
+  [50502001,1,2303],
+  [50502001,2,2310],
+  [50503001,1,3905],
+  [50503001,2,3963],
+  [50503007,1,2878],
+  [50504001,1,2937],
+  [50504001,2,2873],
+  [50601001,1,1839],
+  [50601001,2,1796],
+  [50601001,3,1773],
+  [50601004,1,1856],
+  [50601004,2,1837],
+  [50601006,1,2596],
+  [50601007,1,2055],
+  [50601007,2,2097],
+  [50601007,3,2094],
+  [50601009,1,2604],
+  [50601017,1,1317],
+  [50601022,1,3263],
+  [50601023,1,3073],
+  [50602001,1,2529],
+  [50603001,1,4016],
+  [50603003,1,477],
+  [50604001,1,2639],
+  [50604001,2,2646],
+  [50701001,1,2550],
+  [50701001,2,2542],
+  [50702001,1,3806],
+  [50702001,2,3731],
+  [50703001,1,3193],
+  [50703001,2,3137],
+  [50704001,1,3200],
+  [50704001,2,3258],
+  [50801001,1,2988],
+  [50801001,2,2988],
+  [50801001,3,3024],
+  [50802001,1,1819],
+  [50802002,1,2053],
+  [50803001,1,1798],
+  [50804003,1,1222],
+  [50901001,1,2695],
+  [50901001,2,2730],
+  [50902004,1,2921],
+  [50902006,1,1801],
+  [50902007,1,3190],
+  [50902007,2,3262],
+  [50902007,3,3278],
+  [50902007,4,3191],
+  [50902007,5,3096],
+  [51001001,1,3241],
+  [51001001,2,3259],
+  [51001001,3,3004],
+  [51001002,1,3338],
+  [51001002,2,3327],
+  [51001004,1,2012],
+  [51001004,2,2084],
+  [51001005,1,3015],
+  [51001005,2,2972],
+  [51001005,3,2966],
+  [51001006,1,3045],
+  [51001006,2,3012],
+  [51002001,1,2414],
+  [51002001,2,2457],
+  [51003002,1,3944],
+  [51101002,1,3451],
+  [51101002,2,3464],
+  [51101002,3,3504],
+  [51101002,4,3558],
+  [51102002,1,2810],
+  [51103003,1,468],
+  [51201001,1,2021],
+  [51201001,2,1981],
+  [51201003,1,1340],
+  [51202001,1,3225],
+  [51203002,1,2698],
+  [60101005,1,3104],
+  [60101005,2,3041],
+  [60101007,1,3171],
+  [60101007,2,3103],
+  [60101011,1,1524],
+  [60101012,1,1530],
+  [60101016,1,3166],
+  [60101016,2,3163],
+  [60101019,1,2270],
+  [60101019,2,2251],
+  [60101019,3,2273],
+  [60101019,4,2278],
+  [60101021,1,2600],
+  [60101021,2,2517],
+  [60101021,3,2506],
+  [60101021,4,2541],
+  [60101022,1,2859],
+  [60101022,2,2810],
+  [60101022,3,2765],
+  [60101022,4,2770],
+  [60101037,1,3871],
+  [60101037,2,3931],
+  [60102004,1,2869],
+  [60102004,2,2863],
+  [60102004,3,2846],
+  [60102004,4,2846],
+  [60102004,5,2672],
+  [60102005,1,3357],
+  [60102005,2,3403],
+  [60102007,1,2389],
+  [60102007,2,2342],
+  [60102011,1,2910],
+  [60102011,2,2914],
+  [60102011,3,2843],
+  [60102012,1,2256],
+  [60102012,2,2285],
+  [60102015,1,3742],
+  [60102015,2,3645],
+  [60102016,1,3176],
+  [60102016,2,3141],
+  [60103001,1,3848],
+  [60103001,2,3911],
+  [60103001,3,3889],
+  [60103002,1,3611],
+  [60103002,2,3515],
+  [60103002,3,3463],
+  [60103002,4,3495],
+  [60103006,1,2614],
+  [60103006,2,2616],
+  [60103011,1,3568],
+  [60103011,2,3587],
+  [60103011,3,3621],
+  [60104001,1,3672],
+  [60104001,2,3685],
+  [60104001,3,3737],
+  [60104003,1,2840],
+  [60104003,2,2867],
+  [60104003,3,2898],
+  [60104004,1,3882],
+  [60104004,2,3792],
+  [60104004,3,3818],
+  [60104004,4,3874],
+  [60104015,1,2247],
+  [60104015,2,2273],
+  [60104016,1,3423],
+  [60104016,2,3462],
+  [60104016,3,3481],
+  [60104016,4,3425],
+  [60104031,1,1422],
+  [60104031,2,1441],
+  [60105003,1,1668],
+  [60105004,1,2782],
+  [60105004,2,2778],
+  [60105004,3,2729],
+  [60105004,4,2805],
+  [60105010,1,3903],
+  [60105010,2,3936],
+  [60105010,3,3890],
+  [60105015,1,3112],
+  [60105015,2,3170],
+  [60105016,1,3108],
+  [60105016,2,3083],
+  [60105023,1,3601],
+  [60105023,2,3589],
+  [60105023,3,3638],
+  [60105023,4,3683],
+  [60106001,1,2391],
+  [60106003,1,1956],
+  [60106003,2,1991],
+  [60106004,1,1566],
+  [60106005,1,2112],
+  [60106005,2,2118],
+  [60106005,3,1985],
+  [60106006,1,1667],
+  [60106008,1,2964],
+  [60106008,2,2954],
+  [60106011,1,936],
+  [60106011,2,938],
+  [60106013,1,1696],
+  [60106013,2,1706],
+  [60106015,1,1480],
+  [60106015,2,1477],
+  [60106015,3,1411],
+  [60106015,4,1445],
+  [60106015,5,1429],
+  [60106015,6,1406],
+  [60107001,1,895],
+  [60107001,2,886],
+  [60107003,1,1067],
+  [60107003,2,1091],
+  [60107003,3,1104],
+  [60107004,1,1264],
+  [60107004,2,1308],
+  [60107004,3,1318],
+  [60107004,4,1231],
+  [60107005,1,1994],
+  [60107006,1,1427],
+  [60107006,2,1332],
+  [60107006,3,1310],
+  [60107006,4,1346],
+  [60107007,1,919],
+  [60107007,2,939],
+  [60107008,1,1331],
+  [60107008,2,1389],
+  [60107008,3,1350],
+  [60107008,4,1342],
+  [60107008,5,1371],
+  [60107008,6,1386],
+  [60107010,1,1563],
+  [60107010,2,1442],
+  [60107010,3,1462],
+  [60107010,4,1506],
+  [60107010,5,1433],
+  [60107010,6,1447],
+  [60108004,1,1856],
+  [60108004,2,1804],
+  [60108007,1,2654],
+  [60108007,2,2458],
+  [60108012,1,3690],
+  [60108012,2,3584],
+  [60108012,3,3553],
+  [60108012,4,3518],
+  [60108014,1,2148],
+  [60108014,2,2148],
+  [60108014,3,2006],
+  [60108014,4,2007],
+  [60108014,5,2062],
+  [60108014,6,2079],
+  [60108014,7,2055],
+  [60108015,1,2228],
+  [60108015,2,2186],
+  [60108015,3,2181],
+  [60108015,4,2207],
+  [60108018,1,2205],
+  [60108018,2,2212],
+  [60108018,3,2209],
+  [60108019,1,2311],
+  [60108019,2,2240],
+  [60108019,3,2262],
+  [60108019,4,2327],
+  [60108019,5,2246],
+  [60108020,1,2830],
+  [60108020,2,2802],
+  [60108020,3,2770],
+  [60108020,4,2774],
+  [60108023,1,1376],
+  [60108025,1,2781],
+  [60108025,2,2724],
+  [60108025,3,2722],
+  [60109005,1,3800],
+  [60109005,2,3872],
+  [60110002,1,3382],
+  [60110002,2,3424],
+  [60110002,3,3461],
+  [60201004,1,2381],
+  [60201004,2,2428],
+  [60201005,1,3773],
+  [60201005,2,3760],
+  [60201010,1,3217],
+  [60201010,2,3240],
+  [60201012,1,3965],
+  [60201012,2,3941],
+  [60202001,1,2502],
+  [60202001,2,2524],
+  [60203001,1,1245],
+  [60204002,1,2410],
+  [60205001,1,978],
+  [60206007,1,2713],
+  [60206007,2,2751],
+  [60301001,1,2813],
+  [60301001,2,2810],
+  [60301001,3,2784],
+  [60301003,1,2515],
+  [60301003,2,2498],
+  [60301005,1,3296],
+  [60301005,2,3297],
+  [60301009,1,2866],
+  [60301009,2,2839],
+  [60301017,1,2596],
+  [60301017,2,2568],
+  [60301022,1,2348],
+  [60301022,2,2358],
+  [60301023,1,2269],
+  [60301023,2,2231],
+  [60301025,1,2034],
+  [60301025,2,2020],
+  [60301026,1,1272],
+  [60301027,1,1428],
+  [60301027,2,1388],
+  [60302003,1,2607],
+  [60302003,2,2591],
+  [60302008,1,2887],
+  [60302008,2,2934],
+  [60302010,1,3447],
+  [60302011,1,3080],
+  [60302011,2,3102],
+  [60302013,1,2116],
+  [60302013,2,2114],
+  [60302014,1,3508],
+  [60302014,2,3512],
+  [60302014,3,3452],
+  [60303001,1,1581],
+  [60303003,1,3269],
+  [60303003,2,3246],
+  [60303003,3,3164],
+  [60303005,1,2057],
+  [60303005,2,2032],
+  [60303010,1,2972],
+  [60303010,2,3000],
+  [60303010,3,2903],
+  [60303012,1,3850],
+  [60303016,1,2975],
+  [60303016,2,2965],
+  [60303017,1,2277],
+  [60303017,2,2236],
+  [60303018,1,2950],
+  [60303018,2,2969],
+  [60303020,1,2771],
+  [60303020,2,2816],
+  [60303020,3,2762],
+  [60304005,1,3312],
+  [60304005,2,3329],
+  [60304007,1,1966],
+  [60304007,2,2018],
+  [60304007,3,2021],
+  [60304007,4,2019],
+  [60304007,5,2006],
+  [60304008,1,1744],
+  [60304013,1,2586],
+  [60304013,2,2614],
+  [60304014,1,1863],
+  [60304014,2,1861],
+  [60304016,1,2397],
+  [60304017,1,2928],
+  [60304017,2,2794],
+  [60304017,3,2847],
+  [60304017,4,2841],
+  [60305003,1,2742],
+  [60305003,2,2732],
+  [60305005,1,3122],
+  [60305005,2,3068],
+  [60305005,3,3064],
+  [60306004,1,2764],
+  [60306004,2,2751],
+  [60306005,1,3057],
+  [60306005,2,3009],
+  [60306005,3,3090],
+  [60306006,1,1638],
+  [60307003,1,1363],
+  [60308003,1,1618],
+  [60309001,1,1675],
+  [60401007,1,2577],
+  [60401007,2,2600],
+  [60401007,3,2563],
+  [60401007,4,2582],
+  [60401011,1,2566],
+  [60401011,2,2544],
+  [60401011,3,2645],
+  [60401011,4,2621],
+  [60401011,5,2571],
+  [60401015,1,2728],
+  [60401015,2,2859],
+  [60401015,3,2823],
+  [60401015,4,2844],
+  [60401015,5,2825],
+  [60401015,6,2689],
+  [60401020,1,2429],
+  [60401020,2,2312],
+  [60401020,3,2350],
+  [60401020,4,2334],
+  [60401020,5,2440],
+  [60401020,6,2454],
+  [60401024,1,2350],
+  [60402001,1,2974],
+  [60402001,2,2913],
+  [60403001,1,2798],
+  [60403001,2,2829],
+  [60501007,1,2631],
+  [60501007,2,2727],
+  [60501007,3,2629],
+  [60501007,4,2701],
+  [60501007,5,2663],
+  [60501011,1,462],
+  [60501013,1,676],
+  [60502001,1,1297],
+  [60601002,1,3922],
+  [60602001,1,1814],
+  [60603001,1,746],
+  [60604001,1,2396],
+  [60604009,1,2110],
+  [60605002,1,2835],
+  [60605002,2,2882],
+  [60701003,1,3244],
+  [60701003,2,3249],
+  [60701003,3,3189],
+  [60701003,4,3302],
+  [60701005,1,3537],
+  [60701008,1,830],
+  [60702001,1,2535],
+  [60702001,2,2543],
+  [60703002,1,2811],
+  [60703002,2,2803],
+  [60801001,1,2836],
+  [60801001,2,2878],
+  [60801005,1,2841],
+  [60801008,1,2580],
+  [60802001,1,2463],
+  [60802001,2,2413],
+  [60803001,1,2784],
+  [60803001,2,2801],
+  [60803005,1,2764],
+  [60804001,1,1989],
+  [60901006,1,3229],
+  [60901006,2,3194],
+  [60901006,3,3216],
+  [60901006,4,3279],
+  [60901015,1,2176],
+  [60901018,1,3124],
+  [60902001,1,1474],
+  [61001001,1,2347],
+  [61001001,2,2331],
+  [61001001,3,2343],
+  [61001001,4,2382],
+  [61001007,1,2040],
+  [61001012,1,2038],
+  [61001012,2,2009],
+  [61101001,1,2758],
+  [61101001,2,2710],
+  [61101001,3,2721],
+  [61101003,1,3100],
+  [70101001,1,2387],
+  [70101001,2,2417],
+  [70101001,3,2407],
+  [70101002,1,1653],
+  [70101002,2,1677],
+  [70101004,1,2123],
+  [70101004,2,2107],
+  [70101007,1,1667],
+  [70101007,2,1684],
+  [70101009,1,2604],
+  [70102001,1,2561],
+  [70102001,2,2605],
+  [70103001,1,1854],
+  [70103001,2,1836],
+  [70103002,1,600],
+  [70103004,1,1308],
+  [70201001,1,2753],
+  [70201001,2,2704],
+  [70201002,1,3113],
+  [70201002,2,3164],
+  [70201003,1,2947],
+  [70201003,2,2955],
+  [70201003,3,2892],
+  [70201006,1,3464],
+  [70201006,2,3417],
+  [70201007,1,2700],
+  [70201007,2,2660],
+  [70201009,1,2827],
+  [70201011,1,2363],
+  [70201011,2,2359],
+  [70201014,1,2268],
+  [70201014,2,2269],
+  [70202001,1,2768],
+  [70202001,2,2777],
+  [70202003,1,3784],
+  [70203001,1,2815],
+  [70203001,2,2805],
+  [70203002,1,3733],
+  [70203002,2,3717],
+  [70203004,1,2804],
+  [70203004,2,2737],
+  [70203004,3,2762],
+  [70203009,1,3189],
+  [70203009,2,3083],
+  [70203009,3,3118],
+  [70203010,1,3435],
+  [70203010,2,3375],
+  [70301003,1,3116],
+  [70301003,2,3123],
+  [70301004,1,2474],
+  [70301004,2,2466],
+  [70301007,1,2313],
+  [70301007,2,2309],
+  [70301012,1,2379],
+  [70301012,2,2390],
+  [70301012,3,2360],
+  [70301012,4,2339],
+  [70301012,5,2393],
+  [70301020,1,3518],
+  [70302001,1,3778],
+  [70302001,2,3733],
+  [70302001,3,3765],
+  [70302003,1,2749],
+  [70302003,2,2746],
+  [70302003,3,2721],
+  [70302005,1,3117],
+  [70302005,2,3142],
+  [70302006,1,2809],
+  [70302006,2,2835],
+  [70401001,1,2328],
+  [70401001,2,2339],
+  [70401001,3,2359],
+  [70401001,4,2391],
+  [70401004,1,2222],
+  [70401004,2,2297],
+  [70401004,3,2210],
+  [70401004,4,2283],
+  [70401004,5,2231],
+  [70401005,1,2922],
+  [70401005,2,2931],
+  [70401005,3,2863],
+  [70401010,1,1443],
+  [70401010,2,1438],
+  [70401011,1,2930],
+  [70401011,2,2858],
+  [70401012,1,2965],
+  [70401012,2,2966],
+  [70401014,1,1854],
+  [70401014,2,1846],
+  [70401015,1,2344],
+  [70401015,2,2283],
+  [70401015,3,2355],
+  [70401015,4,2286],
+  [70401016,1,2287],
+  [70401016,2,2264],
+  [70401016,3,2286],
+  [70401016,4,2326],
+  [70401016,5,2355],
+  [70401020,1,3909],
+  [70401020,2,3893],
+  [70401023,1,2847],
+  [70401023,2,2812],
+  [70402001,1,1544],
+  [70402001,2,1554],
+  [70402001,3,1425],
+  [70402002,1,1318],
+  [70402002,2,1295],
+  [70402002,3,1319],
+  [70402003,1,1533],
+  [70402003,2,1487],
+  [70402004,1,1350],
+  [70402004,2,1337],
+  [70403002,1,1868],
+  [70403002,2,1887],
+  [70403003,1,2802],
+  [70403003,2,2772],
+  [70403003,3,2713],
+  [70501002,1,2365],
+  [70501002,2,2381],
+  [70501002,3,2356],
+  [70501004,1,2251],
+  [70501004,2,2278],
+  [70501006,1,2339],
+  [70501011,1,2062],
+  [70601001,1,3781],
+  [70601005,1,2575],
+  [70601005,2,2578],
+  [70601006,1,2786],
+  [70601008,1,1604],
+  [70601009,1,3963],
+  [70601009,2,4031],
+  [70601011,1,2843],
+  [70601011,2,2809],
+  [70601011,3,2820],
+  [70601012,1,3167],
+  [70601017,1,2487],
+  [70601018,1,2171],
+  [70601019,1,2191],
+  [70602002,1,1145],
+  [70602004,1,2343],
+  [70602004,2,2320],
+  [70701001,1,2954],
+  [70701001,2,2967],
+  [70701004,1,2659],
+  [70701004,2,2692],
+  [70702001,1,2020],
+  [70702001,2,2051],
+  [70702003,1,967],
+  [70702003,2,899],
+  [70702004,1,2744],
+  [70703001,1,2112],
+  [70703001,2,2144],
+  [70703003,1,918],
+  [70703004,1,2417],
+  [70703004,2,2407],
+  [70703005,1,3341],
+  [70703005,2,3332],
+  [70703005,3,3380],
+  [70703006,1,3253],
+  [70703006,2,3262],
+  [70703006,3,3170],
+  [70704003,1,3310],
+  [70704003,2,3261],
+  [70704005,1,2974],
+  [70704005,2,2997],
+  [70704007,1,2707],
+  [70704007,2,2687],
+  [70704008,1,2410],
+  [70704008,2,2369],
+  [70704009,1,1359],
+  [70704009,2,1358],
+  [70704009,3,1392],
+  [70704009,4,1362],
+  [70704011,1,3077],
+  [70704011,2,3131],
+  [70704014,1,3828],
+  [70704015,1,2403],
+  [70704015,2,2419],
+  [70705002,1,3277],
+  [70705002,2,3210],
+  [70705002,3,3183],
+  [70705005,1,1399],
+  [70705005,2,1429],
+  [70705005,3,1405],
+  [70705006,1,2695],
+  [70705006,2,2708],
+  [70705007,1,3049],
+  [70705010,1,2482],
+  [70705010,2,2442],
+  [70706001,1,2122],
+  [70706001,2,2138],
+  [70707001,1,3121],
+  [70707001,2,3079],
+  [70708001,1,2649],
+  [70801001,1,2514],
+  [70801001,2,2446],
+  [70801001,3,2477],
+  [70801002,1,1670],
+  [70801002,2,1643],
+  [70801002,3,1671],
+  [70801002,4,1694],
+  [70801006,1,2353],
+  [70801006,2,2332],
+  [70801007,1,2696],
+  [70801007,2,2747],
+  [70801007,3,2745],
+  [70801008,1,2945],
+  [70801008,2,2860],
+  [70801008,3,2888],
+  [70901001,1,2969],
+  [70901002,1,2336],
+  [70901002,2,2327],
+  [70901003,1,2336],
+  [70901003,2,2339],
+  [70901003,3,2366],
+  [70901004,1,2029],
+  [70901005,1,2103],
+  [70901005,2,2163],
+  [70901005,3,2140],
+  [70901005,4,2165],
+  [70902001,1,2089],
+  [70902001,2,2123],
+  [70903001,1,1728],
+  [70903001,2,1684],
+  [70903001,3,1719],
+  [70904002,1,1791],
+  [70904002,2,1782],
+  [70904003,1,2705],
+  [70904003,2,2703],
+  [70904004,1,1389],
+  [70904004,2,1419],
+  [70904004,3,1369],
+  [70904005,1,2067],
+  [70904006,1,1689],
+  [70904006,2,1697],
+  [70904007,1,1759],
+  [70904007,2,1792],
+  [70904008,1,2687],
+  [70904008,2,2652],
+  [70904009,1,2553],
+  [70904009,2,2430],
+  [70904009,3,2449],
+  [70904009,4,2512],
+  [70904009,5,2564],
+  [70904009,6,2454],
+  [70904010,1,2812],
+  [70904010,2,2776],
+  [70904010,3,2788],
+  [70904011,1,2628],
+  [70904011,2,2639],
+  [70904012,1,3329],
+  [70904012,2,3404],
+  [70904014,1,2235],
+  [70904014,2,2198],
+  [70904014,3,2224],
+  [70904015,1,1780],
+  [70904016,1,2268],
+  [70904016,2,2211],
+  [70904016,3,2201],
+  [70904016,4,2203],
+  [70904018,1,2871],
+  [70904018,2,2875],
+  [70904018,3,2804],
+  [70904019,1,2392],
+  [70904019,2,2368],
+  [70904020,1,2364],
+  [70904020,2,2369],
+  [70904021,1,2466],
+  [70904021,2,2497],
+  [70904023,1,2489],
+  [70904023,2,2464],
+  [70904023,3,2506],
+  [70904023,4,2496],
+  [70904024,1,2799],
+  [70904024,2,2784],
+  [70904025,1,2159],
+  [70904025,2,2214],
+  [70904025,3,2203],
+  [70904025,4,2151],
+  [70904026,1,2748],
+  [70904027,1,3848],
+  [70904027,2,3826],
+  [70904027,3,3750],
+  [70904029,1,2313],
+  [70904029,2,2260],
+  [70904030,1,3306],
+  [70904031,1,2003],
+  [70904031,2,2025],
+  [70904032,1,2543],
+  [70904032,2,2469],
+  [70904032,3,2464],
+  [70904033,1,2541],
+  [70904033,2,2550],
+  [70904033,3,2585],
+  [70904034,1,2488],
+  [70904034,2,2459],
+  [70904034,3,2515],
+  [70904035,1,2440],
+  [70904035,2,2454],
+  [70904035,3,2456],
+  [70904035,4,2506],
+  [70904036,1,3579],
+  [70904037,1,3176],
+  [70904037,2,3197],
+  [70904039,1,2224],
+  [70904039,2,2239],
+  [70904053,1,2606],
+  [70904098,1,2837],
+  [70904098,2,2802],
+  [70904108,1,2047],
+  [70904108,2,2075],
+  [70904108,3,2044],
+  [70904108,4,2054],
+  [70905001,1,2282],
+  [70905001,2,2257],
+  [70905001,3,2256],
+  [70905002,1,1347],
+  [70905002,2,1306],
+  [70905004,1,2093],
+  [70905006,1,2626],
+  [70905006,2,2635],
+  [70905007,1,1341],
+  [70905008,1,1379],
+  [70905008,2,1394],
+  [70906001,1,1509],
+  [70906001,2,1407],
+  [70906001,3,1390],
+  [70906001,4,1412],
+  [70906001,5,1432],
+  [70906001,6,1394],
+  [70906002,1,1139],
+  [70906002,2,1120],
+  [70906002,3,1098],
+  [70906003,1,1187],
+  [70906003,2,1191],
+  [70906003,3,1206],
+  [70906004,1,1168],
+  [70906004,2,1182],
+  [70906004,3,1168],
+  [70906005,1,1243],
+  [70906005,2,1157],
+  [70906005,3,1175],
+  [70906005,4,1131],
+  [70906006,1,984],
+  [70906006,2,988],
+  [70906006,3,1002],
+  [70906007,1,1363],
+  [70906007,2,1345],
+  [70906007,3,1384],
+  [70906007,4,1319],
+  [70906007,5,1331],
+  [70906007,6,1326],
+  [70906007,7,1301],
+  [70906008,1,1002],
+  [70906008,2,1024],
+  [70906008,3,998],
+  [70906009,1,1550],
+  [70906009,2,1556],
+  [70906009,3,1501],
+  [70906010,1,1765],
+  [70906010,2,1741],
+  [70906010,3,1726],
+  [70906011,1,1134],
+  [70906011,2,1180],
+  [70906011,3,1161],
+  [70906011,4,1184],
+  [70906011,5,1158],
+  [70906011,6,1202],
+  [70906012,1,1197],
+  [70906012,2,1202],
+  [70906012,3,1199],
+  [70906012,4,1165],
+  [70906012,5,1168],
+  [70906013,1,1211],
+  [70906013,2,1236],
+  [70906013,3,1190],
+  [70906013,4,1235],
+  [70906013,5,1236],
+  [70906013,6,1102],
+  [70906014,1,1016],
+  [70906014,2,1007],
+  [70906014,3,1002],
+  [70906015,1,988],
+  [70906015,2,1003],
+  [70906016,1,1302],
+  [70906016,2,1284],
+  [70906016,3,1249],
+  [70906016,4,1261],
+  [70906016,5,1255],
+  [70906016,6,1268],
+  [70906016,7,1233],
+  [70906017,1,1082],
+  [70906017,2,1046],
+  [70906017,3,1054],
+  [70906017,4,1066],
+  [70906018,1,1673],
+  [70906018,2,1683],
+  [70906018,3,1632],
+  [70906018,4,1619],
+  [70906019,1,1183],
+  [70906019,2,1187],
+  [70906019,3,1196],
+  [70906019,4,1153],
+  [70906021,1,933],
+  [70906021,2,921],
+  [70906023,1,1369],
+  [70906023,2,1322],
+  [70906023,3,1331],
+  [70907001,1,1694],
+  [70907001,2,1721],
+  [70907002,1,2291],
+  [70907002,2,2286],
+  [70907003,1,3618],
+  [70907004,1,2596],
+  [70907004,2,2627],
+  [70907005,1,2674],
+  [70907005,2,2655],
+  [70907006,1,2099],
+  [70907006,2,2131],
+  [70907006,3,2070],
+  [70907007,1,1482],
+  [70907007,2,1472],
+  [70907008,1,1928],
+  [70907009,1,1621],
+  [70907010,1,3624],
+  [70907013,1,2919],
+  [70907013,2,2939],
+  [70907014,1,2141],
+  [70907016,1,2356],
+  [70907016,2,2366],
+  [70907016,3,2315],
+  [70908003,1,1686],
+  [70908003,2,1673],
+  [70908004,1,2033],
+  [70908004,2,2033],
+  [70908004,3,2024],
+  [70908007,1,1772],
+  [70908007,2,1773],
+  [70908009,1,2636],
+  [70908009,2,2588],
+  [70908009,3,2656],
+  [70908009,4,2531],
+  [70908010,1,1849],
+  [70908010,2,1893],
+  [70908010,3,1879],
+  [70908011,1,1949],
+  [70908011,2,1913],
+  [70908012,1,1965],
+  [70908012,2,1938],
+  [70908012,3,1923],
+  [70908013,1,2001],
+  [70908013,2,1951],
+  [70908013,3,1944],
+  [70908013,4,1991],
+  [70908014,1,1660],
+  [70908014,2,1652],
+  [70908014,3,1643],
+  [70908015,1,2260],
+  [70908016,1,2134],
+  [70908016,2,2122],
+  [70908016,3,2099],
+  [70908019,1,2395],
+  [70908019,2,2447],
+  [70908020,1,1946],
+  [70908021,1,2316],
+  [70908021,2,2265],
+  [70908021,3,2286],
+  [70908021,4,2219],
+  [70908022,1,2550],
+  [70908022,2,2551],
+  [70908022,3,2468],
+  [70908022,4,2538],
+  [70908022,5,2518],
+  [70908022,6,2348],
+  [70908023,1,2213],
+  [70908023,2,2166],
+  [70908023,3,2151],
+  [70908024,1,1532],
+  [70908024,2,1543],
+  [70908025,1,2560],
+  [70908025,2,2619],
+  [70908025,3,2598],
+  [70908027,1,2093],
+  [70908027,2,2077],
+  [70908027,3,2031],
+  [70908027,4,2025],
+  [70908037,1,1845],
+  [70909001,1,2778],
+  [70909001,2,2749],
+  [71001002,1,3374],
+  [71001002,2,3316],
+  [71001002,3,3307],
+  [71001005,1,1732],
+  [71001006,1,869],
+  [71001009,1,2923],
+  [71001009,2,2866],
+  [71101001,1,2693],
+  [71101001,2,2671],
+  [71101002,1,2305],
+  [71101002,2,2252],
+  [71101002,3,2318],
+  [71101002,4,2275],
+  [71101002,5,2356],
+  [71101004,1,3116],
+  [71101005,1,2512],
+  [71101005,2,2493],
+  [71101006,1,2665],
+  [71101010,1,2546],
+  [71101010,2,2539],
+  [71101010,3,2510],
+  [71101011,1,2099],
+  [71101011,2,2100],
+  [71101011,3,2118],
+  [71101013,1,3160],
+  [71101013,2,3083],
+  [71101013,3,3077],
+  [71101016,1,2633],
+  [71101017,1,3576],
+  [71101018,1,1974],
+  [71101018,2,1942],
+  [71101018,3,1959],
+  [71101020,1,3245],
+  [71101021,1,1937],
+  [71101023,1,2396],
+  [71101023,2,2370],
+  [71101023,3,2353],
+  [71101026,1,2626],
+  [71101026,2,2604],
+  [71101027,1,2847],
+  [71101027,2,2916],
+  [71101027,3,2868],
+  [71201002,1,2103],
+  [71201002,2,2068],
+  [71201003,1,1908],
+  [71201003,2,1909],
+  [71201005,1,2257],
+  [71201005,2,2304],
+  [71201005,3,2273],
+  [71201007,1,1954],
+  [71201007,2,1947],
+  [71201007,3,1923],
+  [71201007,4,1906],
+  [71201008,1,1615],
+  [71201008,2,1551],
+  [71201008,3,1508],
+  [71201008,4,1472],
+  [71201009,1,1589],
+  [71201009,2,1602],
+  [71201009,3,1592],
+  [71201009,4,1622],
+  [71201010,1,1409],
+  [71201010,2,1444],
+  [71201010,3,1361],
+  [71201011,1,1349],
+  [71201011,2,1350],
+  [71201012,1,1167],
+  [71201012,2,1156],
+  [71201012,3,1195],
+  [71201012,4,1215],
+  [71201012,5,1177],
+  [71201013,1,1495],
+  [71201013,2,1540],
+  [71201013,3,1525],
+  [71201013,4,1541],
+  [71201014,1,1326],
+  [71201015,1,2433],
+  [71201015,2,2405],
+  [71201016,1,2297],
+  [71201016,2,2266],
+  [71201016,3,2246],
+  [71201016,4,2265],
+  [71201019,1,2257],
+  [71201019,2,2283],
+  [71201020,1,1958],
+  [71201020,2,1822],
+  [71201021,1,2239],
+  [71201021,2,2180],
+  [71201021,3,2214],
+  [71201021,4,2196],
+  [71201021,5,2086],
+  [71201026,1,3025],
+  [71201031,1,1675],
+  [71201031,2,1683],
+  [71301001,1,2135],
+  [71301001,2,2120],
+  [71301001,3,2025],
+  [71301001,4,2038],
+  [71301006,1,1602],
+  [71301006,2,1573],
+  [71301006,3,1619],
+  [71301007,1,2163],
+  [71301007,2,2218],
+  [71301007,3,2210],
+  [71301008,1,1893],
+  [71301008,2,1872],
+  [71301008,3,1848],
+  [71301008,4,1888],
+  [71301008,5,1779],
+  [71301008,6,1753],
+  [71301009,1,1330],
+  [71301009,2,1303],
+  [71301009,3,1324],
+  [71301009,4,1328],
+  [71301009,5,1263],
+  [71301010,1,1425],
+  [71301010,2,1416],
+  [71301010,3,1356],
+  [71301010,4,1366],
+  [71301010,5,1351],
+  [71301010,6,1381],
+  [71301010,7,1390],
+  [71301010,8,1285],
+  [71301011,1,1939],
+  [71301012,1,1415],
+  [71301012,2,1405],
+  [71301013,1,1141],
+  [71301013,2,1153],
+  [71301013,3,1155],
+  [71401001,1,3122],
+  [71401001,2,3203],
+  [71401001,3,3132],
+  [71401001,4,3203],
+  [71401001,5,2990],
+  [71401002,1,3138],
+  [71401002,2,3029],
+  [71401002,3,3086],
+  [71401002,4,3040],
+  [71401006,1,3076],
+  [71401006,2,3042],
+  [71401006,3,3037],
+  [71401007,1,768],
+  [71401008,1,2900],
+  [71401013,1,2763],
+  [71401013,2,2771],
+  [71401013,3,2675],
+  [71401014,1,2257],
+  [71401014,2,2223],
+  [71401016,1,3536],
+  [71401016,2,3547],
+  [71401016,3,3494],
+  [71401016,4,3408],
+  [71401018,1,3853],
+  [71401018,2,3901],
+  [71401018,3,3896],
+  [71402003,1,4030],
+  [71402003,2,3975],
+  [71402003,3,4114],
+  [71402003,4,4064],
+  [71402009,1,2732],
+  [71402009,2,2769],
+  [71402009,3,2770],
+  [80101001,1,2204],
+  [80101001,2,2243],
+  [80102001,1,3431],
+  [80102001,2,3462],
+  [80201003,1,3349],
+  [80201003,2,3335],
+  [80201003,3,3320],
+  [80201003,4,3419],
+  [80201006,1,3049],
+  [80201006,2,3071],
+  [80201006,3,2998],
+  [80201008,1,3358],
+  [80201008,2,3359],
+  [80201008,3,3321],
+  [80201008,4,3405],
+  [80201008,5,3354],
+  [80201009,1,2332],
+  [80201009,2,2283],
+  [80201009,3,2324],
+  [80201011,1,3882],
+  [80201012,1,2073],
+  [80201012,2,2085],
+  [80201013,1,2400],
+  [80201013,2,2419],
+  [80301001,1,3583],
+  [80301001,2,3538],
+  [80302001,1,1657],
+  [80401001,1,3949],
+  [80401001,2,3984],
+  [80401001,3,3851],
+  [80501001,1,2832],
+  [80501001,2,2876],
+  [80501001,3,2782],
+  [80502001,1,1383],
+  [80601001,1,1992],
+  [80601001,2,2020],
+  [80601005,1,3673],
+  [80601005,2,3576],
+  [80601007,1,2939],
+  [80601007,2,2957],
+  [80601009,1,2017],
+  [80601009,2,1973],
+  [80601010,1,3084],
+  [80601010,2,3078],
+  [80601013,1,2997],
+  [80601013,2,3003],
+  [80601013,3,2903],
+  [80601017,1,2759],
+  [80601017,2,2701],
+  [80601020,1,1677],
+  [80601020,2,1678],
+  [80601022,1,2563],
+  [80601022,2,2583],
+  [80601023,1,3338],
+  [80601023,2,3343],
+  [80601023,3,3393],
+  [80601025,1,2471],
+  [80602001,1,1062],
+  [80603001,1,2856],
+  [80701006,1,3443],
+  [80701006,2,3236],
+  [80701006,3,3221],
+  [80701006,4,3247],
+  [80701012,1,2960],
+  [80701012,2,2867],
+  [80701012,3,2901],
+  [80801001,1,2647],
+  [80801001,2,2594],
+  [80802001,1,2925],
+  [80901002,1,3089],
+  [80901002,2,3057],
+  [80901002,3,3084],
+  [80901005,1,2111],
+  [80901005,2,2134],
+  [90101001,1,1744],
+  [90101001,2,1752],
+  [90101004,1,2475],
+  [90102001,1,2964],
+  [90102005,1,1774],
+  [90103001,1,2393],
+  [90104001,1,724],
+  [90201002,1,3578],
+  [90202001,1,1976],
+  [90203003,1,1501],
+  [90301001,1,1777],
+  [90301001,2,1792],
+  [90301004,1,2229],
+  [90302001,1,1589],
+  [90303001,1,1904],
+  [90304001,1,3867],
+  [90305001,1,2047],
+  [90306001,1,1706],
+  [90401002,1,2325],
+  [90401003,1,3532],
+  [90401004,1,2392],
+  [90401005,1,1562],
+  [90401005,2,1485],
+  [90401006,1,3241],
+  [90401006,2,3172],
+  [90401007,1,3688],
+  [90401009,1,2262],
+  [90401010,1,2700],
+  [90401010,2,2740],
+  [90401014,1,2341],
+  [90402001,1,3646],
+  [90402004,1,3430],
+  [90402004,2,3452],
+  [90402006,1,2133],
+  [90402006,2,2139],
+  [90402009,1,1700],
+  [90402010,1,3719],
+  [90402010,2,3722],
+  [90402013,1,3114],
+  [90402013,2,3112],
+  [90402014,1,1724],
+  [90402014,2,1704],
+  [90402015,1,4029],
+  [90402017,1,2191],
+  [90402017,2,2178],
+  [90402018,1,1534],
+  [90402018,2,1517],
+  [90402019,1,3854],
+  [90402020,1,1457],
+  [90402020,2,1474],
+  [90402021,1,1789],
+  [90402021,2,1792],
+  [90402022,1,2082],
+  [90402023,1,1730],
+  [90402023,2,1731],
+  [90402024,1,1791],
+  [90402024,2,1813],
+  [90402025,1,1435],
+  [90402025,2,1404],
+  [90403001,1,2118],
+  [90403001,2,2148],
+  [90403003,1,2501],
+  [90403003,2,2465],
+  [90403005,1,1272],
+  [90403005,2,1277],
+  [90403006,1,2359],
+  [90403008,1,3638],
+  [90403008,2,3620],
+  [90403009,1,2456],
+  [90403009,2,2464],
+  [90403011,1,1179],
+  [90403011,2,1188],
+  [90403011,3,1201],
+  [90403013,1,1599],
+  [90403014,1,1881],
+  [90403014,2,1870],
+  [90403016,1,3297],
+  [90403020,1,2239],
+  [90404001,1,2757],
+  [90404002,1,2976],
+  [90404006,1,3418],
+  [90404008,1,1020],
+  [90501002,1,2670],
+  [90501003,1,2548],
+  [90501003,2,2593],
+  [90501004,1,3065],
+  [90501004,2,3052],
+  [90501008,1,2171],
+  [90501008,2,2179],
+  [90502003,1,1350],
+  [90503001,1,604],
+  [90504001,1,1238],
+  [90505001,1,1777],
+  [90505001,2,1798],
+  [90601001,1,3792],
+  [90601004,1,1861],
+  [90602001,1,286],
+  [90603002,1,827],
+  [90604001,1,830],
+  [90605001,1,1057],
+  [90701001,1,2019],
+  [90701001,2,2048],
+  [90701002,1,2779],
+  [90701003,1,2325],
+  [90701003,2,2309],
+  [90702001,1,2115],
+  [90702001,2,2090],
+  [90703001,1,2714],
+  [90704001,1,3515],
+  [90705001,1,3091],
+  [90706001,1,2785],
+  [90706002,1,2262],
+  [90707002,1,2440],
+  [90708001,1,1537],
+  [90709001,1,1608],
+  [90801001,1,2370],
+  [90801001,2,2344],
+  [90801004,1,3424],
+  [90801009,1,1752],
+  [90801013,1,38],
+  [90802001,1,948],
+  [90802003,1,1111],
+  [90803004,1,704],
+  [90804001,1,2202],
+  [90804001,2,2167],
+  [90805001,1,2199],
+  [90901002,1,1991],
+  [90901002,2,2005],
+  [90901004,1,2238],
+  [90901004,2,2195],
+  [90901006,1,2188],
+  [90902001,1,2288],
+  [90902005,1,1983],
+  [90903002,1,1313],
+  [91001002,1,3066],
+  [91001002,2,3052],
+  [91001003,1,3040],
+  [91001003,2,3081],
+  [91001003,3,3031],
+  [91001007,1,3039],
+  [91001007,2,2992],
+  [91001009,1,2257],
+  [91001009,2,2236],
+  [91001009,3,2229],
+  [91001011,1,2259],
+  [91001013,1,1712],
+  [91001013,2,1718],
+  [91001013,3,1659],
+  [91001015,1,1932],
+  [91001019,1,2513],
+  [91001019,2,2559],
+  [91001019,3,2563],
+  [91001019,4,2458],
+  [91001022,1,3476],
+  [91001022,2,3538],
+  [91001024,1,3716],
+  [91001027,1,2543],
+  [91001028,1,2036],
+  [91001029,1,3068],
+  [91002001,1,2356],
+  [91002001,2,2339],
+  [91002002,1,2645],
+  [91002002,2,2540],
+  [91002002,3,2524],
+  [91002003,1,821],
+  [91002003,2,806],
+  [91002005,1,1976],
+  [91002005,2,1974],
+  [91002006,1,1623],
+  [91002009,1,2143],
+  [91002009,2,2101],
+  [91002011,1,2394],
+  [91002013,1,1360],
+  [91002013,2,1348],
+  [91002013,3,1347],
+  [91002014,1,2952],
+  [91002014,2,2945],
+  [91003001,1,2404],
+  [91003001,2,2401],
+  [91003001,3,2368],
+  [91003004,1,2205],
+  [91003004,2,2213],
+  [91003004,3,2207],
+  [91003008,1,2733],
+  [91004001,1,2764],
+  [91004007,1,1804],
+  [91005001,1,1253],
+  [91006001,1,3179],
+  [91007001,1,2007],
+  [91101001,1,2752],
+  [91101001,2,2710],
+  [91102001,1,2607],
+  [91103001,1,2356],
+  [91201002,1,3485],
+  [91201002,2,3573],
+  [91201002,3,3526],
+  [91201008,1,2317],
+  [91201011,1,2795],
+  [91202002,1,2633],
+  [91202002,2,2601],
+  [91301001,1,3613],
+  [91301001,2,3607],
+  [91301002,1,2671],
+  [91301004,1,3969],
+  [91301005,1,2265],
+  [91302001,1,998],
+  [91303002,1,1387],
+  [91304001,1,1834],
+  [91305001,1,977],
+  [91401001,1,2072],
+  [91401001,2,2088],
+  [91401003,1,2174],
+  [91401003,2,2160],
+  [91401005,1,3006],
+  [91401005,2,2955],
+  [91501006,1,1681],
+  [91501006,2,1665],
+  [91501007,1,2833],
+  [91502001,1,1363],
+  [91503002,1,3046],
+  [91503002,2,3039],
+  [91601001,1,3751],
+  [91601001,2,3766],
+  [91601003,1,2364],
+  [91601004,1,2455],
+  [91601005,1,2867],
+  [91602001,1,1583],
+  [91602001,2,1580],
+  [91602001,3,1595],
+  [91602001,4,1552],
+  [91602002,1,3132],
+  [91602002,2,2971],
+  [91602002,3,2963],
+  [91701001,1,3860],
+  [91701009,1,2396],
+  [91702007,1,2427],
+  [91801002,1,2055],
+  [91801002,2,2037],
+  [91801007,1,1683],
+  [91802005,1,3374],
+  [91803006,1,1903],
+  [91901002,1,2225],
+  [91901002,2,2256],
+  [91901003,1,2202],
+  [91901003,2,2243],
+  [92001004,1,2174],
+  [92001004,2,2158],
+  [92002001,1,1395],
+  [92003001,1,2336],
+  [92101001,1,2463],
+  [92101001,2,2462],
+  [92101004,1,2513],
+  [92201001,1,3480],
+  [92301002,1,1611],
+  [92301003,1,2538],
+  [92302001,1,1696],
+  [92401001,1,2155],
+  [92401001,2,2174],
+  [92402003,1,1892],
+  [92501001,1,3124],
+  [92501002,1,2630],
+  [100101011,1,1670],
+  [100101011,2,1658],
+  [100101012,1,3044],
+  [100101012,2,2969],
+  [100101012,3,2969],
+  [100101013,1,3618],
+  [100101013,2,3530],
+  [100101013,3,3508],
+  [100101015,1,3644],
+  [100101015,2,3544],
+  [100101015,3,3515],
+  [100101015,4,3550],
+  [100101015,5,3564],
+  [100101017,1,3874],
+  [100101017,2,3958],
+  [100101017,3,3938],
+  [100101019,1,2667],
+  [100101019,2,2713],
+  [100101021,1,3400],
+  [100101021,2,3397],
+  [100101021,3,3406],
+  [100101021,4,3424],
+  [100102001,1,3589],
+  [100201001,1,3329],
+  [100201001,2,3363],
+  [100201001,3,3351],
+  [100201001,4,3260],
+  [100201001,5,3259],
+  [100202001,1,1117],
+  [100301001,1,3607],
+  [100301001,2,3658],
+  [100301009,1,3407],
+  [100301009,2,3477],
+  [100301009,3,3372],
+  [100301009,4,3390],
+  [100301009,5,3436],
+  [100301012,1,3531],
+  [100301012,2,3490],
+  [100301012,3,3407],
+  [100301013,1,3260],
+  [100301013,2,3247],
+  [100301014,1,3740],
+  [100301014,2,3668],
+  [100301014,3,3641],
+  [100301016,1,4184],
+  [100301016,2,4088],
+  [100301016,3,4072],
+  [100301016,4,4220],
+  [100301016,5,4091],
+  [100301016,6,3942],
+  [100302001,1,1050],
+  [100303001,1,2155],
+  [100304001,1,3078],
+  [100401003,1,4081],
+  [100401003,2,3972],
+  [100401003,3,4078],
+  [100401003,4,4043],
+  [100401003,5,3867],
+  [100401003,6,3809],
+  [100401009,1,3430],
+  [100401009,2,3499],
+  [100401009,3,3420],
+  [100402001,1,3107],
+  [100403002,1,616],
+  [100404001,1,1995],
+  [100405001,1,3121],
+  [100406001,1,2152],
+  [100407001,1,3186],
+  [100501001,1,3800],
+  [100501001,2,3761],
+  [100501002,1,2934],
+  [100501002,2,2962],
+  [100501002,3,2957],
+  [100501004,1,3659],
+  [100501004,2,3595],
+  [100502001,1,2494],
+  [100601002,1,3330],
+  [100601003,1,3448],
+  [100601003,2,3339],
+  [100601005,1,2451],
+  [100601005,2,2459],
+  [100601006,1,3263],
+  [100601006,2,3251],
+  [100601007,1,3870],
+  [100601010,1,2857],
+  [100601010,2,2776],
+  [100601010,3,2743],
+  [100601013,1,2953],
+  [100601013,2,3009],
+  [100601013,3,2951],
+  [100601015,1,3100],
+  [100601015,2,3118],
+  [100601015,3,3006],
+  [100601016,1,217],
+  [100601017,1,2027],
+  [100601021,1,3456],
+  [100601022,1,3957],
+  [100601022,2,3873],
+  [100601024,1,1674],
+  [100601024,2,1661],
+  [100601025,1,2319],
+  [100601026,1,1837],
+  [100601026,2,1847],
+  [100601029,1,209],
+  [100602001,1,2469],
+  [100603001,1,1591],
+  [100701002,1,3893],
+  [100701002,2,3783],
+  [100701002,3,3733],
+  [100701002,4,3836],
+  [100701002,5,3839],
+  [100701006,1,3393],
+  [100701006,2,3351],
+  [100701006,3,3453],
+  [100701006,4,3332],
+  [100701006,5,3303],
+  [100702001,1,2102],
+  [100801001,1,3401],
+  [100801001,2,3400],
+  [100801001,3,3300],
+  [100802001,1,2450],
+  [100803001,1,1386],
+  [100901001,1,3876],
+  [100901001,2,3938],
+  [101001001,1,3353],
+  [101001001,2,3369],
+  [101001001,3,3434],
+  [101001001,4,3391],
+  [101002001,1,1380],
+  [101003001,1,2926],
+  [101003001,2,2890],
+  [101101001,1,3718],
+  [101101001,2,3664],
+  [101101003,1,2660],
+  [101101003,2,2639],
+  [101201001,1,3355],
+  [101201001,2,3302],
+  [101202001,1,2129],
+  [101203001,1,3522],
+  [101204002,1,2188],
+  [101301001,1,3074],
+  [101301001,2,3146],
+  [101301001,3,3136],
+  [101302002,1,814],
+  [101401001,1,3211],
+  [101401001,2,3278],
+  [101401001,3,3258],
+  [101501001,1,2961],
+  [101501001,2,2968],
+  [101501001,3,2894],
+  [101502001,1,2284],
+  [101502001,2,2244],
+  [110101001,1,2564],
+  [110101001,2,2456],
+  [110101001,3,2462],
+  [110101002,1,2496],
+  [110101002,2,2515],
+  [110101006,1,3298],
+  [110101007,1,1171],
+  [110101017,1,2248],
+  [110101017,2,2210],
+  [110102001,1,2288],
+  [110102001,2,2286],
+  [110102004,1,1762],
+  [110102005,1,2239],
+  [110102005,2,2231],
+  [110201001,1,1131],
+  [110201001,2,1137],
+  [110201001,3,1089],
+  [110201003,1,1407],
+  [110201003,2,1366],
+  [110201005,1,1318],
+  [110201005,2,1291],
+  [110201007,1,1645],
+  [110201007,2,1638],
+  [110201008,1,1441],
+  [110201008,2,1434],
+  [110201009,1,1195],
+  [110201009,2,1185],
+  [110201010,1,1185],
+  [110201010,2,1189],
+  [110201010,3,1153],
+  [110201011,1,1453],
+  [110201011,2,1479],
+  [110201012,1,1299],
+  [110201012,2,1289],
+  [110201012,3,1290],
+  [110201013,1,1315],
+  [110201014,1,1108],
+  [110201014,2,1127],
+  [110201014,3,1098],
+  [110201014,4,1096],
+  [110201016,1,1221],
+  [110201016,2,1226],
+  [110201016,3,1240],
+  [110201016,4,1245],
+  [110201018,1,1244],
+  [110201018,2,1226],
+  [110201018,3,1207],
+  [110201020,1,1849],
+  [110201020,2,1824],
+  [110201020,3,1777],
+  [110201021,1,2582],
+  [110201022,1,1370],
+  [110201022,2,1352],
+  [110201022,3,1366],
+  [110201022,4,1291],
+  [110201023,1,1430],
+  [110201023,2,1434],
+  [110201023,3,1389],
+  [110201024,1,1669],
+  [110201024,2,1650],
+  [110201025,1,1255],
+  [110201025,2,1280],
+  [110201026,1,1419],
+  [110201026,2,1402],
+  [110201029,1,1240],
+  [110201029,2,1237],
+  [110201031,1,1191],
+  [110201031,2,1191],
+  [110201034,1,1889],
+  [110201034,2,1850],
+  [110201034,3,1850],
+  [110201035,1,2808],
+  [110201035,2,2790],
+  [110201036,1,2287],
+  [110201036,2,2256],
+  [110201037,1,2579],
+  [110201037,2,2557],
+  [110201044,1,2868],
+  [110202001,1,1072],
+  [110202003,1,1519],
+  [110202003,2,1456],
+  [110202003,3,1459],
+  [110202004,1,2054],
+  [110202004,2,2016],
+  [110202004,3,2006],
+  [110202009,1,1647],
+  [110202009,2,1617],
+  [110202009,3,1616],
+  [110202009,4,1628],
+  [110202010,1,1828],
+  [110202010,2,1843],
+  [110202012,1,2492],
+  [110202015,1,1939],
+  [110202016,1,1970],
+  [110202016,2,1948],
+  [110202016,3,1925],
+  [110202017,1,2099],
+  [110202022,1,2128],
+  [110202022,2,2132],
+  [110202023,1,2438],
+  [110202023,2,2483],
+  [110202024,1,1144],
+  [110202024,2,1166],
+  [110202026,1,1091],
+  [110202026,2,1095],
+  [110202026,3,1112],
+  [110202027,1,1547],
+  [110202027,2,1521],
+  [110202027,3,1518],
+  [110202028,1,1084],
+  [110202028,2,1090],
+  [110202028,3,1072],
+  [110202030,1,1216],
+  [110202030,2,1201],
+  [110202030,3,1222],
+  [110202031,1,1740],
+  [110202031,2,1738],
+  [110202032,1,1874],
+  [110202032,2,1871],
+  [110202034,1,1188],
+  [110202034,2,1219],
+  [110202034,3,1200],
+  [110202034,4,1185],
+  [110202035,1,998],
+  [110202035,2,1010],
+  [110202038,1,2249],
+  [110202038,2,2221],
+  [110202039,1,2248],
+  [110202039,2,2243],
+  [110202039,3,2234],
+  [110202040,1,1724],
+  [110202040,2,1683],
+  [110202040,3,1669],
+  [110202043,1,2157],
+  [110202045,1,1204],
+  [110202045,2,1224],
+  [110202046,1,1839],
+  [110202046,2,1823],
+  [110202047,1,1446],
+  [110202047,2,1425],
+  [110202049,1,1951],
+  [110202049,2,1912],
+  [110202050,1,2415],
+  [110202050,2,2364],
+  [110202052,1,1187],
+  [110202052,2,1183],
+  [110202062,1,2222],
+  [110203001,1,1396],
+  [110203001,2,1243],
+  [110203001,3,1222],
+  [110203001,4,1235],
+  [110203001,5,1219],
+  [110203001,6,1264],
+  [110203001,7,1271],
+  [110203001,8,1299],
+  [110203001,9,1266],
+  [110203002,1,2121],
+  [110203002,2,2050],
+  [110203003,1,1816],
+  [110203003,2,1833],
+  [110203004,1,1342],
+  [110203004,2,1298],
+  [110203004,3,1334],
+  [110203004,4,1320],
+  [110203004,5,1260],
+  [110203006,1,1649],
+  [110203006,2,1657],
+  [110203006,3,1624],
+  [110203008,1,3682],
+  [110203008,2,3604],
+  [110203009,1,1268],
+  [110203009,2,1249],
+  [110203009,3,1253],
+  [110203009,4,1271],
+  [110203013,1,1924],
+  [110203013,2,1930],
+  [110203015,1,2382],
+  [110203015,2,2374],
+  [110203016,1,1083],
+  [110203018,1,879],
+  [110203018,2,885],
+  [110204001,1,3053],
+  [110204001,2,3085],
+  [110204002,1,2563],
+  [110204003,1,1750],
+  [110204003,2,1747],
+  [110204004,1,2555],
+  [110204004,2,2464],
+  [110204005,1,2276],
+  [110204005,2,2239],
+  [110204007,1,3073],
+  [110204008,1,2155],
+  [110204008,2,2130],
+  [110204010,1,2918],
+  [110204013,1,2503],
+  [110204013,2,2528],
+  [110204013,3,2580],
+  [110204013,4,2550],
+  [110204015,1,3086],
+  [110204016,1,1935],
+  [110204016,2,1967],
+  [110204017,1,2430],
+  [110204017,2,2394],
+  [110204017,3,2437],
+  [110204019,1,2660],
+  [110204019,2,2623],
+  [110204019,3,2622],
+  [110204023,1,2302],
+  [110204023,2,2285],
+  [110204027,1,2451],
+  [110204027,2,2430],
+  [110204028,1,2677],
+  [110204028,2,2640],
+  [110204029,1,2214],
+  [110204029,2,2155],
+  [110204029,3,2170],
+  [110204030,1,3107],
+  [110204035,1,2216],
+  [110204039,1,1798],
+  [110204039,2,1792],
+  [110205001,1,2623],
+  [110205001,2,2691],
+  [110205001,3,2653],
+  [110205001,4,2701],
+  [110205002,1,2510],
+  [110205002,2,2465],
+  [110205004,1,2276],
+  [110205004,2,2299],
+  [110205006,1,2533],
+  [110205006,2,2505],
+  [110206001,1,2070],
+  [110206001,2,2068],
+  [110206003,1,3603],
+  [110206004,1,3335],
+  [110206006,1,2675],
+  [110206006,2,2590],
+  [110206007,1,2260],
+  [110206007,2,2225],
+  [110206010,1,2391],
+  [110206010,2,2394],
+  [110206012,1,2019],
+  [110206013,1,3552],
+  [110206020,1,1858],
+  [110206020,2,1830],
+  [110207001,1,2308],
+  [110207001,2,2325],
+  [110207003,1,3442],
+  [110207004,1,2183],
+  [110207004,2,2144],
+  [110207005,1,2654],
+  [110207007,1,1621],
+  [110207007,2,1647],
+  [110207008,1,2492],
+  [110207008,2,2384],
+  [110207008,3,2368],
+  [110207008,4,2364],
+  [110207015,1,2492],
+  [110207015,2,2502],
+  [110207015,3,2502],
+  [110207016,1,3467],
+  [110207016,2,3550],
+  [110207016,3,3490],
+  [110207018,1,3823],
+  [110207018,2,3832],
+  [110207018,3,3674],
+  [110207019,1,2701],
+  [110207019,2,2768],
+  [110207019,3,2762],
+  [110207021,1,2883],
+  [110207025,1,2658],
+  [110207025,2,2663],
+  [110207030,1,2531],
+  [110207030,2,2519],
+  [110207030,3,2427],
+  [110207032,1,2183],
+  [110207032,2,2188],
+  [110207032,3,2158],
+  [110207033,1,2625],
+  [110207033,2,2691],
+  [110207033,3,2695],
+  [110207035,1,4163],
+  [110207038,1,3163],
+  [110207038,2,3103],
+  [110207039,1,4010],
+  [110207039,2,3935],
+  [110207041,1,2708],
+  [110207041,2,2728],
+  [110207041,3,2763],
+  [110207042,1,2186],
+  [110207042,2,2146],
+  [110207045,1,1670],
+  [110207045,2,1685],
+  [110207048,1,2480],
+  [110207048,2,2466],
+  [110207048,3,2500],
+  [110207048,4,2368],
+  [110207053,1,3083],
+  [110207053,2,3070],
+  [110207053,3,3016],
+  [110207056,1,2290],
+  [110207056,2,2325],
+  [110207056,3,2324],
+  [110207057,1,2274],
+  [110207057,2,2255],
+  [110207057,3,2195],
+  [110207058,1,2606],
+  [110207058,2,2630],
+  [110207058,3,2671],
+  [110207059,1,2539],
+  [110207059,2,2532],
+  [110207059,3,2553],
+  [110207060,1,3117],
+  [110207060,2,3078],
+  [110207061,1,2763],
+  [110207061,2,2810],
+  [110207061,3,2731],
+  [110207064,1,2266],
+  [110207064,2,2233],
+  [110207104,1,3372],
+  [110208002,1,3854],
+  [110208002,2,3850],
+  [110208003,1,3224],
+  [110208003,2,3160],
+  [110209001,1,2537],
+  [110209001,2,2510],
+  [110210001,1,3173],
+  [110210001,2,3237],
+  [110210001,3,3194],
+  [110301001,1,2554],
+  [110301001,2,2557],
+  [110301001,3,2523],
+  [110301001,4,2612],
+  [110301004,1,2988],
+  [110301004,2,2985],
+  [110301005,1,2994],
+  [110301005,2,3075],
+  [110301005,3,3031],
+  [110302001,1,2556],
+  [110302001,2,2549],
+  [110303001,1,2533],
+  [110304005,1,3177],
+  [110305002,1,1063],
+  [110306007,1,3726],
+  [110306007,2,3720],
+  [110307006,1,3745],
+  [110307006,2,3695],
+  [110308001,1,2892],
+  [110308001,2,2809],
+  [110308001,3,2839],
+  [110401002,1,2422],
+  [110401002,2,2361],
+  [110401002,3,2366],
+  [110401005,1,3157],
+  [110401005,2,3165],
+  [110401009,1,2929],
+  [110401009,2,2938],
+  [110401009,3,2974],
+  [110401009,4,2958],
+  [110401020,1,3903],
+  [110401020,2,3909],
+  [110401032,1,3768],
+  [110401032,2,3708],
+  [110401032,3,3766],
+  [110402001,1,3761],
+  [110403001,1,3460],
+  [110403001,2,3472],
+  [110403001,3,3564],
+  [110404001,1,3039],
+  [110404001,2,3008],
+  [110405001,1,3849],
+  [110405001,2,3779],
+  [110406002,1,2676],
+  [110407007,1,3192],
+  [110407007,2,3180],
+  [110408001,1,1408],
+  [110501001,1,1473],
+  [110501001,2,1458],
+  [110501001,3,1436],
+  [110501001,4,1452],
+  [110501001,5,1498],
+  [110501003,1,1678],
+  [110501003,2,1680],
+  [110501006,1,1005],
+  [110501006,2,987],
+  [110501007,1,2015],
+  [110501007,2,1987],
+  [110501011,1,1472],
+  [110501011,2,1470],
+  [110501012,1,1874],
+  [110501012,2,1838],
+  [110501013,1,2028],
+  [110501013,2,2022],
+  [110501013,3,1997],
+  [110501014,1,2185],
+  [110501014,2,2229],
+  [110501014,3,2224],
+  [110501014,4,2264],
+  [110501017,1,1497],
+  [110502001,1,1361],
+  [110502004,1,2234],
+  [110502004,2,2300],
+  [110502004,3,2286],
+  [110502004,4,2208],
+  [110502007,1,2407],
+  [110502007,2,2344],
+  [110502007,3,2395],
+  [110502008,1,2491],
+  [110502009,1,2756],
+  [110502009,2,2715],
+  [110502011,1,1137],
+  [110502011,2,1135],
+  [110502011,3,1105],
+  [110502012,1,1429],
+  [110502012,2,1409],
+  [110502012,3,1389],
+  [110502014,1,1647],
+  [110502014,2,1640],
+  [110502015,1,1222],
+  [110502015,2,1197],
+  [110502021,1,1277],
+  [110502021,2,1290],
+  [110502021,3,1283],
+  [110502022,1,901],
+  [110502022,2,902],
+  [110502024,1,846],
+  [110502024,2,829],
+  [110502026,1,1836],
+  [110503001,1,3051],
+  [110503001,2,3118],
+  [110503001,3,3097],
+  [110601003,1,2276],
+  [110601003,2,2221],
+  [110601003,3,2225],
+  [110601009,1,2567],
+  [110601009,2,2607],
+  [110601009,3,2579],
+  [110601010,1,2994],
+  [110601010,2,3038],
+  [110601011,1,2394],
+  [110601011,2,2354],
+  [110601013,1,2855],
+  [110601013,2,2875],
+  [110601013,3,2815],
+  [110601017,1,2706],
+  [110601017,2,2666],
+  [110601017,3,2642],
+  [110601018,1,1946],
+  [110601018,2,1981],
+  [110601018,3,1999],
+  [110601019,1,3172],
+  [110601019,2,3155],
+  [110601019,3,3211],
+  [110601023,1,3284],
+  [110601023,2,3227],
+  [110601023,3,3268],
+  [110601023,4,3108],
+  [110602001,1,3455],
+  [110603001,1,3257],
+  [110603001,2,3300],
+  [110604003,1,2734],
+  [110605001,1,3598],
+  [110606001,1,3918],
+  [110607001,1,1105],
+  [110608001,1,2762],
+  [110609001,1,2889],
+  [110610001,1,1047],
+  [110611001,1,2929],
+  [110611001,2,2932],
+  [110612003,1,3411],
+  [110612003,2,3478],
+  [110613001,1,321],
+  [110614001,1,2678],
+  [110614001,2,2624],
+  [110615002,1,2205],
+  [110615002,2,2204],
+  [110616001,1,2086],
+  [110617001,1,1364],
+  [110701001,1,3011],
+  [110701001,2,3066],
+  [110701001,3,3042],
+  [110701001,4,3100],
+  [110701009,1,3934],
+  [110702001,1,2203],
+  [110702001,2,2221],
+  [110702007,1,3951],
+  [110703001,1,2682],
+  [110704001,1,2857],
+  [110704001,2,2878],
+  [110704001,3,2756],
+  [110704007,1,2546],
+  [110704007,2,2549],
+  [110801001,1,2950],
+  [110801001,2,2935],
+  [110801002,1,2899],
+  [110801002,2,2860],
+  [110801005,1,3005],
+  [110801006,1,2751],
+  [110801008,1,2469],
+  [110802002,1,2030],
+  [110802008,1,3456],
+  [110803009,1,3933],
+  [110901002,1,3604],
+  [110901002,2,3538],
+  [110901002,3,3554],
+  [110902001,1,3732],
+  [110902001,2,3760],
+  [110903002,1,2400],
+  [110903002,2,2399],
+  [120101001,1,3165],
+  [120102002,1,1859],
+  [120102003,1,2151],
+  [120102003,2,2102],
+  [120103002,1,1500],
+  [120104001,1,3845],
+  [120104001,2,3855],
+  [120104002,1,3220],
+  [120104002,2,3213],
+  [120105003,1,3407],
+  [120105003,2,3419],
+  [120105005,1,3056],
+  [120105005,2,3049],
+  [120105005,3,3066],
+  [120106002,1,2382],
+  [120106002,2,2419],
+  [120106004,1,3222],
+  [120106004,2,3227],
+  [120106007,1,3826],
+  [120107001,1,2769],
+  [120107001,2,2718],
+  [120107003,1,3365],
+  [120107003,2,3360],
+  [120107003,3,3437],
+  [120107006,1,2551],
+  [120107012,1,2489],
+  [120107012,2,2505],
+  [120201001,1,2583],
+  [120201001,2,2608],
+  [120201012,1,1775],
+  [120201015,1,2472],
+  [120301001,1,2465],
+  [120302001,1,567],
+  [120303003,1,1378],
+  [120304001,1,1238],
+  [120305001,1,674],
+  [120306001,1,1967],
+  [120307001,1,1509],
+  [120401001,1,662],
+  [120402001,1,2380],
+  [120403001,1,2179],
+  [120403002,1,1170],
+  [120404001,1,900],
+  [120405001,1,2075],
+  [120405001,2,2045],
+  [120405001,3,2080],
+  [120405003,1,1968],
+  [120405003,2,1967],
+  [120405003,3,1931],
+  [120405009,1,3400],
+  [120405009,2,3412],
+  [120406001,1,3285],
+  [120406001,2,3262],
+  [120406002,1,2159],
+  [120406002,2,2158],
+  [120406002,3,2128],
+  [120406004,1,3616],
+  [120406004,2,3540],
+  [120406005,1,1787],
+  [120406005,2,1804],
+  [120406007,1,2212],
+  [120406007,2,2187],
+  [120407001,1,3183],
+  [120407004,1,2552],
+  [120407004,2,2598],
+  [120501001,1,3747],
+  [120502001,1,879],
+  [120503001,1,2578],
+  [120601001,1,3144],
+  [120601001,2,3163],
+  [120601004,1,1649],
+  [120602001,1,1860],
+  [120701001,1,3559],
+  [120702001,1,1282],
+  [120801001,1,1973],
+  [120801001,2,1975],
+  [120801001,3,1999],
+  [120801005,1,2858],
+  [120801005,2,2858],
+  [120802001,1,1721],
+  [120802001,2,1691],
+  [120802001,3,1737],
+  [120803001,1,2002],
+  [120803001,2,1978],
+  [120803001,3,2020],
+  [120803004,1,2330],
+  [120803005,1,1719],
+  [120803005,2,1711],
+  [120803006,1,2068],
+  [120803006,2,2102],
+  [120803007,1,1133],
+  [120804001,1,1229],
+  [120804001,2,1230],
+  [120804001,3,1198],
+  [120804002,1,1940],
+  [120804002,2,1965],
+  [120804002,3,1955],
+  [120804003,1,784],
+  [120804003,2,787],
+  [120805001,1,934],
+  [120805001,2,945],
+  [120805002,1,1377],
+  [120805002,2,1374],
+  [120805002,3,1391],
+  [120805002,4,1355],
+  [120805003,1,1038],
+  [120805003,2,1053],
+  [120805004,1,1521],
+  [120805005,1,1157],
+  [120805005,2,1153],
+  [120806001,1,2871],
+  [120806001,2,2838],
+  [120806001,3,2905],
+  [120806003,1,2101],
+  [120806003,2,2115],
+  [120806004,1,2004],
+  [120806004,2,2020],
+  [120807002,1,1877],
+  [120807002,2,1856],
+  [120807002,3,1865],
+  [120807006,1,2743],
+  [120807006,2,2780],
+  [120807008,1,1461],
+  [120807009,1,1649],
+  [120807009,2,1646],
+  [120807010,1,1510],
+  [120807010,2,1502],
+  [120808001,1,812],
+  [120808003,1,1959],
+  [120808003,2,1924],
+  [120809002,1,2305],
+  [120809002,2,2322],
+  [120809002,3,2356],
+  [120809003,1,2203],
+  [120809003,2,2221],
+  [120810001,1,1709],
+  [120810001,2,1687],
+  [120810001,3,1680],
+  [120810002,1,1593],
+  [120810002,2,1591],
+  [120811001,1,1523],
+  [120811001,2,1536],
+  [120811001,3,1513],
+  [120811003,1,1123],
+  [120811003,2,1097],
+  [120811003,3,1148],
+  [120811003,4,1117],
+  [120811004,1,822],
+  [120811004,2,812],
+  [120812004,1,1894],
+  [120812004,2,1854],
+  [120812004,3,1913],
+  [120812004,4,1912],
+  [120812005,1,1350],
+  [120812005,2,1379],
+  [120813001,1,2667],
+  [120813001,2,2624],
+  [120813004,1,1438],
+  [120813004,2,1521],
+  [120813004,3,1499],
+  [120813004,4,1516],
+  [120813004,5,1498],
+  [120813004,6,1412],
+  [120813005,1,1844],
+  [120813005,2,1864],
+  [120813005,3,1816],
+  [120814001,1,1362],
+  [120815001,1,592],
+  [120901001,1,2353],
+  [120901001,2,2383],
+  [120901001,3,2333],
+  [120901002,1,2006],
+  [120901002,2,2018],
+  [121001001,1,3169],
+  [121001001,2,3074],
+  [121001001,3,3097],
+  [121001007,1,1490],
+  [121002001,1,1517],
+  [121003001,1,1042],
+  [121004001,1,1199],
+  [121101002,1,2367],
+  [121101002,2,2420],
+  [121101002,3,2428],
+  [121101002,4,2390],
+  [121101011,1,3174],
+  [121102001,1,3348],
+  [121103002,1,1749],
+  [121201001,1,2621],
+  [121201001,2,2579],
+  [121201005,1,3589],
+  [121202001,1,2488],
+  [121202001,2,2452],
+  [121203002,1,3670],
+  [121301001,1,3625],
+  [121301001,2,3646],
+  [121301002,1,3663],
+  [121302002,1,3906],
+  [121401001,1,3715],
+  [121402001,1,2909],
+  [121501001,1,3336],
+  [121501001,2,3378],
+  [121601001,1,2498],
+  [121601001,2,2505],
+  [121602001,1,2401],
+  [121603001,1,2532],
+  [121604001,1,1013],
+  [121605001,1,1289],
+  [121701001,1,3573],
+  [121701001,2,3615],
+  [121701003,1,3126],
+  [121702001,1,2488],
+  [121801002,1,2813],
+  [121801002,2,2855],
+  [121801004,1,3786],
+  [121801004,2,3769],
+  [121802002,1,2759],
+  [121802002,2,2725],
+  [121803001,1,2999],
+  [121804001,1,3732],
+  [121804001,2,3705],
+  [121805001,1,2960],
+  [121806003,1,1709],
+  [121901001,1,2354],
+  [121901001,2,2346],
+  [121901001,3,2346],
+  [121902001,1,2426],
+  [121902001,2,2488],
+  [121902001,3,2455],
+  [121902003,1,2764],
+  [121902003,2,2777],
+  [121902003,3,2809],
+  [121903001,1,1551],
+  [121904001,1,1706],
+  [122001001,1,3387],
+  [122001002,1,2898],
+  [122001002,2,2811],
+  [122002001,1,1440],
+  [122002002,1,3657],
+  [122003001,1,2577],
+  [122004001,1,2099],
+  [122101001,1,2347],
+  [122201001,1,1373],
+  [122201001,2,1363],
+  [122202001,1,839],
+  [122301001,1,1880],
+  [122301001,2,1886],
+  [122301001,3,1831],
+  [122302001,1,1916],
+  [130101001,1,3136],
+  [130101001,2,3160],
+  [130101004,1,2237],
+  [130101004,2,2223],
+  [130101006,1,3236],
+  [130101019,1,3771],
+  [130102001,1,2413],
+  [130102002,1,2193],
+  [130103002,1,3898],
+  [130104001,1,3832],
+  [130104006,1,2097],
+  [130104012,1,1225],
+  [130105001,1,2259],
+  [130105001,2,2228],
+  [130106001,1,2504],
+  [130106001,2,2539],
+  [130107003,1,3712],
+  [130108002,1,2682],
+  [130108002,2,2662],
+  [130201002,1,3185],
+  [130201002,2,3219],
+  [130201003,1,3346],
+  [130201003,2,3336],
+  [130201003,3,3244],
+  [130201006,1,3260],
+  [130202002,1,3966],
+  [130202002,2,3884],
+  [130203001,1,2991],
+  [130203001,2,3018],
+  [130203001,3,2958],
+  [130301001,1,3424],
+  [130301005,1,2580],
+  [130301005,2,2528],
+  [130301005,3,2553],
+  [130301010,1,1890],
+  [130301010,2,1903],
+  [130301010,3,1804],
+  [130301011,1,1293],
+  [130301011,2,1255],
+  [130301012,1,2075],
+  [130301013,1,2108],
+  [130301014,1,2412],
+  [130301014,2,2335],
+  [130301015,1,1236],
+  [130301015,2,1147],
+  [130301015,3,1180],
+  [130301016,1,984],
+  [130301016,2,943],
+  [130301017,1,1166],
+  [130301017,2,1153],
+  [130301018,1,1978],
+  [130301018,2,1996],
+  [130301019,1,2405],
+  [130301019,2,2417],
+  [130301019,3,2463],
+  [130301019,4,2483],
+  [130301020,1,1573],
+  [130301020,2,1590],
+  [130301021,1,2752],
+  [130301021,2,2771],
+  [130301021,3,2729],
+  [130301022,1,2090],
+  [130301022,2,2011],
+  [130301022,3,2033],
+  [130301026,1,2368],
+  [130301027,1,1471],
+  [130301027,2,1481],
+  [130301030,1,1453],
+  [130301030,2,1440],
+  [130301032,1,3093],
+  [130301032,2,3112],
+  [130301033,1,1872],
+  [130301033,2,1807],
+  [130301034,1,1941],
+  [130301035,1,2425],
+  [130301035,2,2414],
+  [130301037,1,2900],
+  [130301037,2,2854],
+  [130301039,1,2336],
+  [130301040,1,2116],
+  [130301045,1,2166],
+  [130301045,2,2173],
+  [130301046,1,1434],
+  [130301049,1,1685],
+  [130301049,2,1680],
+  [130301049,3,1623],
+  [130301050,1,3053],
+  [130301051,1,2065],
+  [130301052,1,897],
+  [130301052,2,913],
+  [130301053,1,1572],
+  [130301053,2,1591],
+  [130301054,1,1291],
+  [130301055,1,1662],
+  [130301057,1,2278],
+  [130301057,2,2296],
+  [130301059,1,3038],
+  [130301062,1,3286],
+  [130301062,2,3224],
+  [130301066,1,524],
+  [130301068,1,176],
+  [130301072,1,1967],
+  [130301072,2,1961],
+  [130302002,1,2115],
+  [130302002,2,2128],
+  [130302007,1,2198],
+  [130302007,2,2203],
+  [130302007,3,2221],
+  [130303001,1,3968],
+  [130303001,2,3993],
+  [130304002,1,2772],
+  [130304002,2,2769],
+  [130304003,1,1538],
+  [130305001,1,2833],
+  [130306001,1,2228],
+  [130307003,1,811],
+  [130307004,1,1708],
+  [130401001,1,2031],
+  [130401001,2,1994],
+  [130401007,1,2548],
+  [130401007,2,2594],
+  [130401007,3,2514],
+  [130401015,1,2450],
+  [130401015,2,2453],
+  [130401017,1,2066],
+  [130401017,2,2035],
+  [130401020,1,3788],
+  [130401021,1,3792],
+  [130401021,2,3757],
+  [130401023,1,2083],
+  [130401023,2,2022],
+  [130401023,3,1959],
+  [130401023,4,1988],
+  [130401023,5,2019],
+  [130401023,6,2019],
+  [130402002,1,3329],
+  [130402004,1,2941],
+  [130402004,2,2951],
+  [130402004,3,2954],
+  [130402009,1,3811],
+  [130402009,2,3623],
+  [130402009,3,3633],
+  [130402011,1,3766],
+  [130402011,2,3515],
+  [130402011,3,3478],
+  [130402011,4,3478],
+  [130402011,5,3529],
+  [130501005,1,3136],
+  [130501005,2,3102],
+  [130501005,3,3102],
+  [130501006,1,2833],
+  [130501006,2,2820],
+  [130501006,3,2766],
+  [130501008,1,4005],
+  [130501008,2,3923],
+  [130501013,1,2986],
+  [130501013,2,3012],
+  [130501015,1,3718],
+  [130501015,2,3768],
+  [130501016,1,2696],
+  [130501016,2,2677],
+  [130501018,1,3323],
+  [130501018,2,3304],
+  [130501021,1,3105],
+  [130501021,2,3058],
+  [130501021,3,3109],
+  [130501023,1,3355],
+  [130501023,2,3352],
+  [130501027,1,2671],
+  [130501029,1,3022],
+  [130501029,2,2937],
+  [130502001,1,1272],
+  [130503002,1,3064],
+  [130503002,2,3063],
+  [130601001,1,2446],
+  [130601001,2,2371],
+  [130601003,1,2230],
+  [130601003,2,2208],
+  [130601005,1,3914],
+  [130602002,1,2555],
+  [130602002,2,2579],
+  [130603002,1,3011],
+  [130604001,1,992],
+  [130605001,1,2212],
+  [130701001,1,2841],
+  [130701003,1,2921],
+  [130701003,2,2899],
+  [130701005,1,2506],
+  [130701006,1,3080],
+  [130701006,2,3044],
+  [130701010,1,2241],
+  [130701011,1,2472],
+  [130701014,1,2683],
+  [130701015,1,3353],
+  [130701017,1,3483],
+  [130701019,1,2999],
+  [130701019,2,3004],
+  [130701021,1,3348],
+  [130701021,2,3292],
+  [130701021,3,3296],
+  [130701023,1,3903],
+  [130701026,1,3807],
+  [130701026,2,3716],
+  [130801001,1,3418],
+  [130801003,1,2232],
+  [130801003,2,2172],
+  [130801003,3,2210],
+  [130801004,1,2642],
+  [130801004,2,2670],
+  [130801004,3,2656],
+  [130801004,4,2660],
+  [130801006,1,1611],
+  [130801006,2,1470],
+  [130801006,3,1515],
+  [130801006,4,1476],
+  [130801006,5,1586],
+  [130801006,6,1507],
+  [130801006,7,1478],
+  [130801011,1,3801],
+  [130801011,2,3854],
+  [130801011,3,3783],
+  [130801015,1,2776],
+  [130801015,2,2765],
+  [130801016,1,1995],
+  [130801016,2,2032],
+  [130801016,3,2021],
+  [130801016,4,1993],
+  [130801016,5,1893],
+  [130801017,1,1994],
+  [130801017,2,2036],
+  [130801017,3,2028],
+  [130801017,4,1974],
+  [130801018,1,2968],
+  [130801019,1,2737],
+  [130801019,2,2734],
+  [130801023,1,2948],
+  [130801023,2,2933],
+  [130801023,3,2881],
+  [130801024,1,2956],
+  [130801026,1,1549],
+  [130801027,1,3300],
+  [130801027,2,3285],
+  [130801029,1,1269],
+  [130801030,1,1679],
+  [130801031,1,2244],
+  [130801031,2,2257],
+  [130801031,3,2270],
+  [130801034,1,2367],
+  [130801034,2,2375],
+  [130801039,1,2251],
+  [130801039,2,2192],
+  [130801039,3,2188],
+  [130801039,4,2169],
+  [130801040,1,2577],
+  [130801040,2,2551],
+  [130801043,1,3404],
+  [130801051,1,1425],
+  [130801051,2,1406],
+  [130801052,1,1447],
+  [130901002,1,1236],
+  [130901002,2,1247],
+  [130901003,1,1274],
+  [130901003,2,1253],
+  [130901003,3,1254],
+  [130901003,4,1225],
+  [130901003,5,1266],
+  [130901003,6,1300],
+  [130901004,1,1081],
+  [130901004,2,1077],
+  [130901005,1,1230],
+  [130901005,2,1185],
+  [130901006,1,1890],
+  [130901006,2,1878],
+  [130901006,3,1900],
+  [130901007,1,2030],
+  [130901008,1,2091],
+  [130901008,2,1950],
+  [130901008,3,1935],
+  [130901008,4,1910],
+  [130901008,5,1915],
+  [130901008,6,2027],
+  [130901008,7,2016],
+  [130901010,1,1615],
+  [130901012,1,2202],
+  [130901012,2,2273],
+  [130901012,3,2219],
+  [130901012,4,2236],
+  [130901012,5,2212],
+  [130901012,6,2179],
+  [130901012,7,2262],
+  [130901012,8,2143],
+  [130901012,9,2091],
+  [130901012,10,1751],
+  [130901018,1,2487],
+  [130901018,2,2333],
+  [130901023,1,1266],
+  [130901023,2,1212],
+  [130901023,3,1222],
+  [130901023,4,1175],
+  [130901025,1,1578],
+  [130901025,2,1577],
+  [130901025,3,1578],
+  [130901025,4,1459],
+  [130901029,1,1302],
+  [130901029,2,1318],
+  [130901030,1,1430],
+  [130901030,2,1445],
+  [130901030,3,1392],
+  [130901030,4,1379],
+  [130901030,5,1415],
+  [130901030,6,1426],
+  [130901031,1,849],
+  [130901031,2,849],
+  [130901033,1,1087],
+  [130901035,1,1563],
+  [130901035,2,1564],
+  [130901035,3,1531],
+  [130901036,1,1326],
+  [130901036,2,1314],
+  [130901036,3,1309],
+  [130901039,1,1146],
+  [130901039,2,1140],
+  [130901039,3,1175],
+  [130901040,1,815],
+  [130901040,2,818],
+  [130901041,1,972],
+  [130901041,2,959],
+  [130901043,1,2314],
+  [130901043,2,2287],
+  [130901043,3,2258],
+  [130901044,1,1134],
+  [130901044,2,1165],
+  [130901044,3,1182],
+  [130901044,4,1182],
+  [130901044,5,1174],
+  [130901044,6,1096],
+  [130901048,1,1329],
+  [130901048,2,1268],
+  [130901048,3,1296],
+  [130901048,4,1288],
+  [130901048,5,1301],
+  [130901049,1,1048],
+  [130901049,2,1037],
+  [130901050,1,1118],
+  [130901050,2,1097],
+  [130901051,1,1573],
+  [130901051,2,1555],
+  [130901057,1,1993],
+  [130901057,2,2027],
+  [130901057,3,1992],
+  [130901059,1,2062],
+  [130901059,2,2075],
+  [130901059,3,2114],
+  [130901059,4,2136],
+  [130901060,1,1050],
+  [130901062,1,2798],
+  [130901062,2,2750],
+  [130901065,1,2309],
+  [130901065,2,2273],
+  [130901065,3,2276],
+  [130901065,4,2287],
+  [130901067,1,2724],
+  [130901067,2,2662],
+  [130901070,1,2445],
+  [130901070,2,2424],
+  [130901070,3,2475],
+  [130901071,1,2588],
+  [130901071,2,2636],
+  [130901071,3,2625],
+  [130901071,4,2558],
+  [130901074,1,2195],
+  [130901074,2,2259],
+  [130901074,3,2223],
+  [130901074,4,2102],
+  [130901074,5,2076],
+  [130901074,6,2233],
+  [130901074,7,2116],
+  [130901074,8,2050],
+  [130901078,1,1657],
+  [130901078,2,1620],
+  [130901078,3,1622],
+  [130901080,1,3505],
+  [130901080,2,3563],
+  [130901080,3,3421],
+  [130901084,1,3334],
+  [130901084,2,3406],
+  [130901084,3,3448],
+  [130901084,4,3260],
+  [130901090,1,1935],
+  [130901090,2,1888],
+  [130901090,3,1893],
+  [130901091,1,2066],
+  [130901091,2,2052],
+  [130901093,1,1318],
+  [130901093,2,1304],
+  [130901093,3,1306],
+  [130901093,4,1281],
+  [130901093,5,1203],
+  [130901096,1,3653],
+  [130901096,2,3735],
+  [130901096,3,3463],
+  [130901096,4,3681],
+  [130901096,5,3746],
+  [130901096,6,3577],
+  [130901096,7,3498],
+  [130901096,8,3414],
+  [130901098,1,2358],
+  [130901098,2,2372],
+  [130901098,3,2432],
+  [130901100,1,2082],
+  [130901100,2,2067],
+  [130901107,1,3847],
+  [130901111,1,2383],
+  [130901111,2,2426],
+  [130901111,3,2361],
+  [130901111,4,2397],
+  [130901113,1,1451],
+  [130901113,2,1438],
+  [130901113,3,1451],
+  [130901113,4,1461],
+  [130901113,5,1477],
+  [130901114,1,836],
+  [130902001,1,1413],
+  [130902001,2,1393],
+  [130902002,1,1270],
+  [130902002,2,1274],
+  [130902002,3,1294],
+  [130902002,4,1250],
+  [130902003,1,1037],
+  [130902003,2,1013],
+  [130902007,1,1705],
+  [130902007,2,1697],
+  [130902007,3,1696],
+  [130902007,4,1625],
+  [130902007,5,1704],
+  [130902007,6,1585],
+  [130902012,1,1552],
+  [130902012,2,1557],
+  [130902013,1,1335],
+  [130902014,1,1219],
+  [130902016,1,1595],
+  [130902016,2,1539],
+  [130902016,3,1547],
+  [130902018,1,377],
+  [130902020,1,2233],
+  [130902021,1,1588],
+  [130902021,2,1627],
+  [130902021,3,1580],
+  [130902021,4,1594],
+  [130902022,1,1707],
+  [130902022,2,1630],
+  [130902022,3,1666],
+  [130902022,4,1677],
+  [130902022,5,1668],
+  [130902024,1,1843],
+  [130902024,2,1800],
+  [130902024,3,1846],
+  [130902024,4,1889],
+  [130902024,5,1841],
+  [130902024,6,1872],
+  [130903001,1,1803],
+  [130903001,2,1781],
+  [130903001,3,1816],
+  [130903002,1,2202],
+  [130903002,2,2224],
+  [130903003,1,3679],
+  [130903003,2,3647],
+  [130903005,1,2420],
+  [130903005,2,2496],
+  [130903005,3,2470],
+  [130903005,4,2443],
+  [130903007,1,2028],
+  [130903007,2,2049],
+  [130904001,1,2651],
+  [130904001,2,2626],
+  [130904001,3,2572],
+  [130904001,4,2569],
+  [130904007,1,3199],
+  [130904007,2,3120],
+  [130904007,3,3135],
+  [130905001,1,3225],
+  [130905001,2,3381],
+  [130905001,3,3375],
+  [130905001,4,3291],
+  [130905001,5,3220],
+  [130905006,1,3104],
+  [130905010,1,1131],
+  [131001001,1,3073],
+  [131001001,2,3127],
+  [131001001,3,3121],
+  [131001004,1,3480],
+  [131001004,2,3493],
+  [131001004,3,3522],
+  [131001010,1,3236],
+  [131001010,2,3150],
+  [131001010,3,3210],
+  [131001010,4,3112],
+  [131001011,1,3706],
+  [131001018,1,1953],
+  [131001018,2,1954],
+  [131001019,1,2287],
+  [131001019,2,2310],
+  [131001023,1,2298],
+  [131001023,2,2263],
+  [131001023,3,2253],
+  [131002001,1,3092],
+  [131002006,1,1984],
+  [131002007,1,3120],
+  [131002007,2,3046],
+  [131002008,1,2216],
+  [131002008,2,2205],
+  [131002009,1,1234],
+  [131002010,1,3559],
+  [131002010,2,3566],
+  [131101002,1,2219],
+  [131101007,1,2257],
+  [131101007,2,2313],
+  [131101007,3,2299],
+  [131101010,1,2872],
+  [131101010,2,2842],
+  [131101014,1,3028],
+  [131101014,2,2996],
+  [131101014,3,3033],
+  [131101016,1,1720],
+  [131101016,2,1757],
+  [131101016,3,1678],
+  [131101016,4,1669],
+  [131101016,5,1723],
+  [131101017,1,2554],
+  [131101017,2,2535],
+  [131101017,3,2637],
+  [131101017,4,2612],
+  [131101018,1,2323],
+  [131101018,2,2318],
+  [131101018,3,2289],
+  [131101024,1,2414],
+  [131101024,2,2429],
+  [131101024,3,2357],
+  [131101025,1,3664],
+  [131101025,2,3727],
+  [131101025,3,3650],
+  [131101025,4,3634],
+  [131101026,1,1658],
+  [131101026,2,1620],
+  [131101026,3,1611],
+  [131101026,4,1655],
+  [131101031,1,1797],
+  [131101031,2,1830],
+  [131101031,3,1841],
+  [131101031,4,1767],
+  [131101032,1,2014],
+  [131101032,2,1989],
+  [131101032,3,2049],
+  [131101032,4,1982],
+  [131101038,1,3923],
+  [131101043,1,261],
+  [131102001,1,3422],
+  [131102001,2,3467],
+  [131102002,1,2062],
+  [131102002,2,2097],
+  [131102003,1,2189],
+  [131201001,1,3410],
+  [131201001,2,3465],
+  [131201001,3,3418],
+  [131201005,1,3521],
+  [131201006,1,2550],
+  [131201006,2,2520],
+  [131201008,1,3846],
+  [131201008,2,3836],
+  [131201009,1,2826],
+  [131201009,2,2860],
+  [131201010,1,2489],
+  [131201010,2,2442],
+  [131201011,1,1646],
+  [131201011,2,1624],
+  [131201011,3,1633],
+  [131201013,1,3504],
+  [131201013,2,3481],
+  [131201016,1,2417],
+  [131201016,2,2431],
+  [131201017,1,3307],
+  [131201019,1,3719],
+  [131202001,1,774],
+  [131202005,1,3134],
+  [131202005,2,3148],
+  [131202005,3,3193],
+  [131301001,1,1304],
+  [131301001,2,1293],
+  [131301001,3,1303],
+  [131301002,1,1359],
+  [131301002,2,1321],
+  [131301002,3,1299],
+  [131301002,4,1332],
+  [131301003,1,1803],
+  [131301004,1,1696],
+  [131301004,2,1665],
+  [131301008,1,1693],
+  [131301009,1,1543],
+  [131301009,2,1477],
+  [131301009,3,1476],
+  [131301009,4,1463],
+  [131301010,1,1462],
+  [131301010,2,1372],
+  [131301010,3,1414],
+  [131301010,4,1365],
+  [131301010,5,1353],
+  [131301010,6,1377],
+  [131301012,1,1737],
+  [131301012,2,1711],
+  [131301012,3,1698],
+  [131301012,4,1737],
+  [131301014,1,1963],
+  [131301015,1,1108],
+  [131301015,2,1128],
+  [131301015,3,1096],
+  [131301015,4,1122],
+  [131301017,1,1410],
+  [131301017,2,1493],
+  [131301017,3,1499],
+  [131301017,4,1482],
+  [131301017,5,1495],
+  [131301017,6,1411],
+  [131301017,7,1384],
+  [131401002,1,2713],
+  [131401002,2,2747],
+  [131401002,3,2719],
+  [131401003,1,3365],
+  [131401004,1,2553],
+  [131402001,1,1298],
+  [131501001,1,3047],
+  [131501001,2,3113],
+  [131501001,3,3119],
+  [131501005,1,2254],
+  [131501006,1,2951],
+  [131501007,1,958],
+  [131501014,1,1213],
+  [131501014,2,1222],
+  [131502010,1,3072],
+  [131502010,2,3082],
+  [131601002,1,1436],
+  [131601002,2,1414],
+  [131601002,3,1397],
+  [131601002,4,1386],
+  [131601002,5,1414],
+  [131601003,1,1226],
+  [131601003,2,1250],
+  [131601003,3,1224],
+  [131601004,1,1390],
+  [131601004,2,1407],
+  [131601005,1,908],
+  [131601005,2,902],
+  [131601007,1,1248],
+  [131601007,2,1252],
+  [131601007,3,1262],
+  [131601007,4,1192],
+  [131601008,1,1274],
+  [131601008,2,1257],
+  [131601009,1,1359],
+  [131601009,2,1366],
+  [131601009,3,1378],
+  [131601011,1,1352],
+  [131601011,2,1347],
+  [131601012,1,1192],
+  [131601012,2,1212],
+  [131601012,3,1198],
+  [131601014,1,1118],
+  [131601014,2,1090],
+  [131601014,3,1097],
+  [131601015,1,1476],
+  [131601015,2,1457],
+  [131601015,3,1453],
+  [131601015,4,1461],
+  [131601015,5,1367],
+  [131601016,1,823],
+  [131601016,2,825],
+  [131601018,1,1293],
+  [131601018,2,1334],
+  [131601018,3,1310],
+  [131601019,1,1382],
+  [131601019,2,1381],
+  [131601019,3,1381],
+  [131601019,4,1329],
+  [131601020,1,1223],
+  [131601020,2,1187],
+  [131601021,1,1429],
+  [131601021,2,1451],
+  [131601021,3,1457],
+  [131601022,1,1013],
+  [131601022,2,1024],
+  [131601022,3,1021],
+  [131601023,1,858],
+  [131601023,2,870],
+  [131601025,1,1393],
+  [131601025,2,1368],
+  [131601025,3,1354],
+  [131601025,4,1340],
+  [131601025,5,1360],
+  [131601025,6,1342],
+  [131601025,7,1365],
+  [131601026,1,1964],
+  [131601026,2,1997],
+  [131601026,3,2040],
+  [131601026,4,2020],
+  [131601030,1,1072],
+  [131601030,2,1083],
+  [131601032,1,1526],
+  [131601033,1,1424],
+  [131601035,1,2484],
+  [131601035,2,2396],
+  [131601036,1,1961],
+  [131601037,1,1710],
+  [131601037,2,1712],
+  [131601039,1,2310],
+  [131601039,2,2276],
+  [131601040,1,2495],
+  [131601040,2,2487],
+  [131601041,1,1317],
+  [131601041,2,1306],
+  [131601041,3,1265],
+  [131601041,4,1334],
+  [131601041,5,1334],
+  [131601041,6,1259],
+  [131601041,7,1333],
+  [131601041,8,1154],
+  [131601042,1,1456],
+  [131601042,2,1455],
+  [131601044,1,1170],
+  [131601044,2,1143],
+  [131601044,3,1164],
+  [131601046,1,1038],
+  [131601046,2,985],
+  [131601046,3,983],
+  [131601047,1,1278],
+  [131601047,2,1283],
+  [131601048,1,2773],
+  [131601050,1,1491],
+  [131601050,2,1439],
+  [131601050,3,1443],
+  [131601054,1,1246],
+  [131601054,2,1262],
+  [131601054,3,1254],
+  [131601064,1,1624],
+  [131601064,2,1596],
+  [131602001,1,1190],
+  [131602001,2,1194],
+  [131602001,3,1174],
+  [131602001,4,1195],
+  [131602002,1,1056],
+  [131602002,2,1073],
+  [131602005,1,1394],
+  [131602005,2,1384],
+  [131602006,1,1239],
+  [131602006,2,1235],
+  [131602009,1,1153],
+  [131602009,2,1048],
+  [131602009,3,1071],
+  [131602009,4,1045],
+  [131602010,1,1116],
+  [131602010,2,1096],
+  [131602010,3,1081],
+  [131602011,1,1331],
+  [131602011,2,1346],
+  [131602011,3,1332],
+  [131602011,4,1290],
+  [131602011,5,1305],
+  [131602014,1,799],
+  [131602014,2,786],
+  [131602015,1,1303],
+  [131602015,2,1330],
+  [131602015,3,1313],
+  [131602015,4,1308],
+  [131602015,5,1303],
+  [131602016,1,1489],
+  [131602016,2,1495],
+  [131602018,1,1326],
+  [131602019,1,1361],
+  [131602020,1,954],
+  [131602020,2,963],
+  [131602021,1,814],
+  [131602021,2,830],
+  [131603001,1,1428],
+  [131603001,2,1396],
+  [131603001,3,1431],
+  [131603001,4,1456],
+  [131603001,5,1435],
+  [131603001,6,1392],
+  [131603001,7,1388],
+  [131603002,1,1948],
+  [131603002,2,1939],
+  [131603002,3,1924],
+  [131603002,4,1943],
+  [131603002,5,1871],
+  [131603003,1,1739],
+  [131603006,1,1898],
+  [131603006,2,1802],
+  [131603007,1,2774],
+  [131603008,1,1826],
+  [131603009,1,1771],
+  [131603009,2,1803],
+  [131603009,3,1749],
+  [131701001,1,1919],
+  [131701001,2,1853],
+  [131701003,1,1806],
+  [131701003,2,1725],
+  [131701004,1,2475],
+  [131701004,2,2493],
+  [131701005,1,1238],
+  [131701005,2,1214],
+  [131701005,3,1241],
+  [131701007,1,3425],
+  [131701008,1,1553],
+  [131701008,2,1531],
+  [131701009,1,2052],
+  [131701009,2,2074],
+  [131701011,1,1266],
+  [131701011,2,1236],
+  [131701011,3,1217],
+  [131701012,1,1699],
+  [131701012,2,1664],
+  [131701017,1,1229],
+  [131801001,1,1230],
+  [131801002,1,1622],
+  [131801002,2,1568],
+  [131801002,3,1617],
+  [131801002,4,1592],
+  [131801004,1,1502],
+  [131801004,2,1452],
+  [131801004,3,1422],
+  [131801004,4,1440],
+  [131801004,5,1442],
+  [131801007,1,1308],
+  [131801007,2,1284],
+  [131801009,1,1162],
+  [131801009,2,1189],
+  [131801009,3,1193],
+  [131801010,1,1622],
+  [131801010,2,1579],
+  [131801010,3,1594],
+  [131801010,4,1591],
+  [131801010,5,1535],
+  [131801011,1,1965],
+  [131801011,2,1966],
+  [131801011,3,2038],
+  [131801011,4,2025],
+  [131801011,5,1959],
+  [131801011,6,2003],
+  [131801013,1,1319],
+  [131801013,2,1349],
+  [131801013,3,1362],
+  [131801013,4,1327],
+  [131801014,1,1367],
+  [131801014,2,1361],
+  [131801014,3,1359],
+  [131801014,4,1381],
+  [131801015,1,1705],
+  [131801015,2,1688],
+  [131801016,1,1557],
+  [131801016,2,1575],
+  [131801017,1,1418],
+  [131801017,2,1398],
+  [131801018,1,951],
+  [131801018,2,937],
+  [131801019,1,1507],
+  [131801019,2,1594],
+  [131801019,3,1540],
+  [131801019,4,1563],
+  [131801019,5,1567],
+  [131801019,6,1561],
+  [131801022,1,1517],
+  [131801022,2,1505],
+  [131801022,3,1527],
+  [131801024,1,1493],
+  [131801024,2,1501],
+  [131801028,1,783],
+  [131901001,1,936],
+  [131901001,2,952],
+  [131901002,1,1146],
+  [131901002,2,1110],
+  [131901003,1,1313],
+  [131901003,2,1326],
+  [131901003,3,1273],
+  [131901003,4,1312],
+  [131901003,5,1305],
+  [131901003,6,1299],
+  [131901004,1,1167],
+  [131901004,2,1164],
+  [131901006,1,1858],
+  [131901007,1,1884],
+  [131901007,2,1879],
+  [131901007,3,1903],
+  [131901007,4,1922],
+  [131901009,1,2263],
+  [131901009,2,2231],
+  [131901010,1,1216],
+  [131901010,2,1188],
+  [131901010,3,1222],
+  [131901010,4,1202],
+  [131901010,5,1199],
+  [131901011,1,1141],
+  [131901011,2,1096],
+  [131901011,3,1098],
+  [131901012,1,1896],
+  [131901013,1,1101],
+  [131901016,1,1089],
+  [131901016,2,1071],
+  [131901016,3,1076],
+  [131901018,1,1231],
+  [131901018,2,1178],
+  [131901018,3,1212],
+  [131901018,4,1205],
+  [131901018,5,1191],
+  [132001002,1,3711],
+  [132001002,2,3694],
+  [132001002,3,3648],
+  [132001005,1,868],
+  [132001007,1,3466],
+  [132101001,1,2281],
+  [132101001,2,2295],
+  [132101003,1,2578],
+  [132101007,1,899],
+  [132101009,1,2161],
+  [132101014,1,2045],
+  [132102001,1,911],
+  [140101001,1,3246],
+  [140101001,2,3157],
+  [140101001,3,3162],
+  [140102001,1,2605],
+  [140102001,2,2554],
+  [140201001,1,3692],
+  [140201007,1,3417],
+  [140201007,2,3469],
+  [140201013,1,2983],
+  [140201013,2,3011],
+  [140201013,3,3054],
+  [140201019,1,3009],
+  [140201019,2,3054],
+  [140301002,1,2846],
+  [140301002,2,2804],
+  [140301002,3,2809],
+  [140302002,1,2659],
+  [140302002,2,2636],
+  [140303001,1,3326],
+  [140304001,1,2648],
+  [140305001,1,2057],
+  [140306001,1,1689],
+  [140401003,1,3525],
+  [140401003,2,3585],
+  [140401003,3,3532],
+  [140401003,4,3512],
+  [140402001,1,2071],
+  [140402001,2,2050],
+  [140403001,1,3441],
+  [140404001,1,2289],
+  [140501001,1,3229],
+  [140501001,2,3323],
+  [140501001,3,3253],
+  [140501002,1,3698],
+  [140501002,2,3668],
+  [140501010,1,3707],
+  [140501010,2,3499],
+  [140501011,1,2825],
+  [140501011,2,2749],
+  [140501011,3,2854],
+  [140502003,1,3609],
+  [140502003,2,3648],
+  [140601005,1,3797],
+  [140601005,2,3883],
+  [140601005,3,3783],
+  [140601005,4,3904],
+  [140601008,1,2369],
+  [140601008,2,2366],
+  [140602002,1,2579],
+  [140603001,1,979],
+  [140604001,1,3551],
+  [140701001,1,3228],
+  [140701001,2,3169],
+  [140702001,1,4039],
+  [140702001,2,4046],
+  [140703001,1,3709],
+  [140704002,1,3239],
+  [140704002,2,3261],
+  [140705001,1,2829],
+  [140705001,2,2803],
+  [140705004,1,1762],
+  [140705006,1,1876],
+  [140706001,1,3252],
+  [140706001,2,3217],
+  [140706001,3,3228],
+  [140706004,1,2650],
+  [140706004,2,2670],
+  [140706004,3,2726],
+  [140706004,4,2706],
+  [140706006,1,3567],
+  [140706015,1,3496],
+  [140706015,2,3413],
+  [140706015,3,3383],
+  [140706015,4,3365],
+  [140706020,1,3506],
+  [140706020,2,3420],
+  [140706020,3,3456],
+  [140706020,4,3443],
+  [140706020,5,3454],
+  [140706024,1,3076],
+  [140706024,2,3133],
+  [140706024,3,3103],
+  [140706024,4,3188],
+  [140706025,1,3356],
+  [140706025,2,3379],
+  [140706025,3,3391],
+  [140706025,4,3324],
+  [140707001,1,2388],
+  [140707003,1,2505],
+  [140707003,2,2458],
+  [140707007,1,3228],
+  [140707007,2,3235],
+  [140707008,1,3981],
+  [140707008,2,3938],
+  [140707009,1,3026],
+  [140707009,2,2988],
+  [140707009,3,2981],
+  [140707015,1,1997],
+  [140708001,1,2676],
+  [140708001,2,2624],
+  [140708002,1,2848],
+  [140708002,2,2865],
+  [140708002,3,2858],
+  [140708007,1,3870],
+  [140708007,2,3866],
+  [140708008,1,2209],
+  [140708008,2,2253],
+  [140708014,1,2432],
+  [140708014,2,2406],
+  [140708016,1,3133],
+  [140708016,2,3109],
+  [140708016,3,3141],
+  [140708018,1,3368],
+  [140708018,2,3459],
+  [140708018,3,3404],
+  [140708030,1,3332],
+  [140709001,1,3055],
+  [140709001,2,3042],
+  [140709001,3,3080],
+  [140709001,4,3072],
+  [140709001,5,3117],
+  [140709005,1,3041],
+  [140709005,2,2992],
+  [140710005,1,2537],
+  [140710005,2,2543],
+  [140710007,1,1896],
+  [140710007,2,1926],
+  [140710010,1,3062],
+  [140710010,2,3020],
+  [140710010,3,3074],
+  [140710014,1,3662],
+  [140710014,2,3593],
+  [140710014,3,3587],
+  [140710019,1,1136],
+  [140710019,2,1161],
+  [140710019,3,1143],
+  [140710020,1,1266],
+  [140710020,2,1270],
+  [140710021,1,2567],
+  [140710022,1,2663],
+  [140710022,2,2620],
+  [140710022,3,2693],
+  [140710022,4,2685],
+  [140710024,1,1807],
+  [140710025,1,1761],
+  [140710026,1,3428],
+  [140710030,1,2983],
+  [140710030,2,3022],
+  [140710030,3,2946],
+  [140710030,4,3019],
+  [140710030,5,2921],
+  [140710030,6,2946],
+  [140710035,1,2344],
+  [140710037,1,3489],
+  [140710040,1,1449],
+  [140710042,1,1677],
+  [140710045,1,3491],
+  [140710054,1,3589],
+  [140710060,1,2176],
+  [140710060,2,2188],
+  [140801001,1,3388],
+  [140801001,2,3443],
+  [140802003,1,2809],
+  [140802003,2,2762],
+  [140803001,1,3680],
+  [140804002,1,2697],
+  [140805001,1,2227],
+  [140806002,1,2145],
+  [140807001,1,3339],
+  [140807001,2,3386],
+  [140901001,1,3135],
+  [140901001,2,3119],
+  [140901005,1,2249],
+  [140901008,1,2275],
+  [140902004,1,3215],
+  [140902004,2,3158],
+  [140902006,1,1512],
+  [140902006,2,1531],
+  [141001001,1,3522],
+  [141001001,2,3610],
+  [141001001,3,3526],
+  [141002001,1,3687],
+  [141002002,1,901],
+  [141101002,1,3090],
+  [141101002,2,3140],
+  [141101004,1,2100],
+  [141101004,2,2069],
+  [141201001,1,3717],
+  [141201001,2,3646],
+  [141301002,1,3512],
+  [141301002,2,3573],
+  [150101001,1,2321],
+  [150101001,2,2295],
+  [150101004,1,1651],
+  [150101004,2,1674],
+  [150101005,1,1928],
+  [150101007,1,1805],
+  [150101007,2,1816],
+  [150101007,3,1847],
+  [150101009,1,2317],
+  [150101010,1,1846],
+  [150201001,1,1975],
+  [150201001,2,1976],
+  [150201001,3,2003],
+  [150201004,1,1857],
+  [150201004,2,1829],
+  [150201005,1,3589],
+  [150201005,2,3574],
+  [150201010,1,2073],
+  [150201011,1,3369],
+  [150201011,2,3365],
+  [150202001,1,2829],
+  [150202001,2,2856],
+  [150202001,3,2835],
+  [150202003,1,2965],
+  [150301001,1,2619],
+  [150301001,2,2633],
+  [150301005,1,4122],
+  [150302001,1,1923],
+  [150302001,2,1935],
+  [150303001,1,1803],
+  [150303001,2,1818],
+  [150304001,1,1615],
+  [150305002,1,3355],
+  [150305002,2,3342],
+  [150401001,1,2302],
+  [150401001,2,2263],
+  [150401002,1,2348],
+  [150401002,2,2339],
+  [150401002,3,2276],
+  [150401004,1,1679],
+  [150401004,2,1655],
+  [150402001,1,1708],
+  [150402001,2,1713],
+  [150402001,3,1744],
+  [150402002,1,1051],
+  [150402002,2,1038],
+  [150402003,1,1707],
+  [150402003,2,1664],
+  [150402004,1,1339],
+  [150402004,2,1365],
+  [150402004,3,1369],
+  [150402006,1,1346],
+  [150402006,2,1359],
+  [150501002,1,2596],
+  [150501002,2,2579],
+  [150501002,3,2623],
+  [150501006,1,2104],
+  [150501006,2,2087],
+  [150501006,3,2118],
+  [150502001,1,2264],
+  [150502001,2,2240],
+  [150502002,1,2643],
+  [150502002,2,2621],
+  [150601001,1,2643],
+  [150601001,2,2578],
+  [150601001,3,2580],
+  [150601005,1,1715],
+  [150601008,1,2093],
+  [150601008,2,2050],
+  [150601009,1,1578],
+  [150601009,2,1518],
+  [150601010,1,1241],
+  [150601010,2,1174],
+  [150601013,1,2783],
+  [150601014,1,1789],
+  [150601014,2,1800],
+  [150601018,1,2243],
+  [150601018,2,2244],
+  [150601019,1,1763],
+  [150601019,2,1758],
+  [150601019,3,1728],
+  [150601020,1,2892],
+  [150601021,1,2214],
+  [150601021,2,2202],
+  [150601023,1,2610],
+  [150601024,1,3040],
+  [150601026,1,2204],
+  [150601026,2,2227],
+  [150601026,3,2176],
+  [150601027,1,2321],
+  [150601027,2,2310],
+  [150601029,1,2570],
+  [150601030,1,2158],
+  [150601030,2,2157],
+  [150601030,3,2087],
+  [150601030,4,2143],
+  [150701001,1,2145],
+  [150701001,2,2168],
+  [150701002,1,3377],
+  [150702001,1,3454],
+  [150702001,2,3427],
+  [150702004,1,815],
+  [150702005,1,1377],
+  [150801001,1,1995],
+  [150801001,2,1972],
+  [150802001,1,2025],
+  [150802002,1,1009],
+  [150901001,1,2040],
+  [150901001,2,2028],
+  [150901002,1,2762],
+  [150901006,1,3716],
+  [150901008,1,3126],
+  [150901011,1,1122],
+  [150901012,1,1488],
+  [150902002,1,3750],
+  [150902005,1,1633],
+  [151001001,1,2406],
+  [151001001,2,2423],
+  [151001003,1,2163],
+  [151001003,2,2135],
+  [151001004,1,2037],
+  [151001005,1,1978],
+  [151001005,2,1951],
+  [151001010,1,3598],
+  [151101001,1,2312],
+  [151101001,2,2270],
+  [151101004,1,1512],
+  [151101004,2,1483],
+  [151102001,1,2607],
+  [151102001,2,2615],
+  [151102001,3,2598],
+  [151102002,1,2291],
+  [151102002,2,2279],
+  [151102002,3,2228],
+  [151102003,1,2544],
+  [151102004,1,2822],
+  [151102004,2,2860],
+  [151102005,1,1670],
+  [151102005,2,1648],
+  [151102007,1,959],
+  [151102009,1,1119],
+  [160101005,1,2661],
+  [160101005,2,2629],
+  [160101007,1,2432],
+  [160101007,2,2446],
+  [160101008,1,2433],
+  [160101008,2,2425],
+  [160101012,1,3860],
+  [160101014,1,871],
+  [160101014,2,882],
+  [160101015,1,1766],
+  [160101016,1,2381],
+  [160101017,1,1893],
+  [160101017,2,1911],
+  [160101021,1,1810],
+  [160101022,1,2929],
+  [160101022,2,2977],
+  [160101027,1,4039],
+  [160101030,1,2471],
+  [160101030,2,2420],
+  [160101033,1,1398],
+  [160101035,1,3907],
+  [160101041,1,2236],
+  [160101041,2,2277],
+  [160101045,1,3044],
+  [160101047,1,3358],
+  [160101047,2,3352],
+  [160101055,1,935],
+  [160101057,1,2628],
+  [160101062,1,2631],
+  [160101062,2,2623],
+  [160102001,1,2651],
+  [160102001,2,2585],
+  [160102002,1,2565],
+  [160201002,1,2535],
+  [160201002,2,2568],
+  [160201006,1,2520],
+  [160201006,2,2476],
+  [160201012,1,2593],
+  [160201013,1,1302],
+  [160201018,1,2585],
+  [160201018,2,2585],
+  [160201023,1,3603],
+  [160202006,1,3597],
+  [160202011,1,725],
+  [160301001,1,2218],
+  [160301003,1,2365],
+  [160301003,2,2366],
+  [160301005,1,2851],
+  [160301005,2,2844],
+  [160301010,1,1413],
+  [160301012,1,2916],
+  [160301013,1,1528],
+  [160301013,2,1518],
+  [160301014,1,2521],
+  [160301014,2,2495],
+  [160301016,1,1544],
+  [160301016,2,1496],
+  [160301017,1,3263],
+  [160301019,1,2491],
+  [160301020,1,1776],
+  [160301022,1,2401],
+  [160301023,1,2446],
+  [160301023,2,2437],
+  [160301026,1,2621],
+  [160301026,2,2650],
+  [160301028,1,2043],
+  [160301028,2,2051],
+  [160301029,1,2216],
+  [160301029,2,2188],
+  [160301031,1,2817],
+  [160301031,2,2754],
+  [160301036,1,1840],
+  [160301037,1,3342],
+  [160301037,2,3406],
+  [160301040,1,2450],
+  [160301040,2,2410],
+  [160301043,1,356],
+  [160301045,1,2514],
+  [160301046,1,2056],
+  [160301046,2,2021],
+  [160301049,1,3411],
+  [160301051,1,3291],
+  [160301059,1,2495],
+  [160301066,1,3039],
+  [160301080,1,3054],
+  [160302001,1,1851],
+  [160303001,1,1593],
+  [160303005,1,2645],
+  [160303005,2,2671],
+  [160303008,1,1786],
+  [160304001,1,2164],
+  [160304002,1,3785],
+  [160305002,1,1362],
+  [160401001,1,2567],
+  [160401001,2,2520],
+  [160401003,1,2618],
+  [160401003,2,2662],
+  [160401010,1,2102],
+  [160401011,1,2425],
+  [160401014,1,2836],
+  [160402001,1,2372],
+  [160403004,1,3521],
+  [160501001,1,3788],
+  [160501001,2,3849],
+  [160501002,1,3407],
+  [160501002,2,3456],
+  [160501011,1,1339],
+  [160501019,1,1241],
+  [160502001,1,3008],
+  [160502001,2,2983],
+  [160503003,1,3417],
+  [160503003,2,3418],
+  [160601002,1,3595],
+  [160601003,1,2762],
+  [160601006,1,2111],
+  [160601006,2,2083],
+  [160601008,1,3372],
+  [160601008,2,3318],
+  [160601009,1,1987],
+  [160601009,2,1968],
+  [160601012,1,3254],
+  [160601012,2,3188],
+  [160601015,1,3495],
+  [160601015,2,3477],
+  [160601020,1,3688],
+  [160601022,1,2868],
+  [160601022,2,2950],
+  [160601022,3,2895],
+  [160601023,1,2608],
+  [160601024,1,3573],
+  [160601026,1,3025],
+  [160601028,1,2309],
+  [160601028,2,2361],
+  [160601028,3,2357],
+  [160601034,1,2162],
+  [160601034,2,2121],
+  [160601035,1,1723],
+  [160601035,2,1695],
+  [160601039,1,3127],
+  [160601039,2,3096],
+  [160601040,1,3615],
+  [160601040,2,3580],
+  [160601040,3,3645],
+  [160601041,1,2308],
+  [160601041,2,2343],
+  [160601042,1,3642],
+  [160601049,1,2152],
+  [160601049,2,2182],
+  [160601059,1,1880],
+  [160602001,1,3239],
+  [160602001,2,3216],
+  [160603002,1,3435],
+  [160604003,1,3585],
+  [160701003,1,2480],
+  [160701003,2,2430],
+  [160701003,3,2428],
+  [160701006,1,3968],
+  [160701006,2,3932],
+  [160702001,1,2719],
+  [160703003,1,2368],
+  [160704003,1,2132],
+  [160704003,2,2169],
+  [160705002,1,1403],
+  [160706004,1,2542],
+  [160706005,1,1599],
+  [160801003,1,2993],
+  [160801003,2,2996],
+  [160801004,1,2735],
+  [160801004,2,2747],
+  [160801009,1,1982],
+  [160801011,1,3352],
+  [160801011,2,3371],
+  [160801012,1,2790],
+  [160801012,2,2785],
+  [160801019,1,669],
+  [160801022,1,1920],
+  [160802002,1,2652],
+  [160802002,2,2694],
+  [160803001,1,3142],
+  [160804001,1,3732],
+  [160901002,1,2690],
+  [160901002,2,2702],
+  [160901002,3,2726],
+  [160901012,1,2496],
+  [160901012,2,2482],
+  [160901017,1,699],
+  [160902001,1,2364],
+  [161001001,1,2995],
+  [161001003,1,3484],
+  [161001003,2,3463],
+  [161001014,1,3638],
+  [161101001,1,2146],
+  [161101003,1,2596],
+  [161102007,1,3550],
+  [161102008,1,1191],
+  [161102010,1,1534],
+  [161201001,1,1625],
+  [161201004,1,2994],
+  [161201008,1,2522],
+  [161201008,2,2505],
+  [161202001,1,2842],
+  [161202001,2,2820],
+  [161301003,1,2929],
+  [161301006,1,2608],
+  [161301008,1,3735],
+  [161302001,1,900],
+  [161303001,1,1547],
+  [161401001,1,3303],
+  [161401006,1,996],
+  [161401007,1,2341],
+  [161401007,2,2345],
+  [161402002,1,2473],
+  [170101001,1,3629],
+  [170101001,2,3587],
+  [170101004,1,3026],
+  [170101004,2,3051],
+  [170101015,1,2131],
+  [170101018,1,2380],
+  [170102002,1,3300],
+  [170103001,1,3995],
+  [170104002,1,2686],
+  [170104002,2,2660],
+  [170105003,1,2220],
+  [170201001,1,2167],
+  [170201001,2,2187],
+  [170201015,1,3083],
+  [170201025,1,2842],
+  [170201025,2,2865],
+  [170202001,1,2580],
+  [170203001,1,1426],
+  [170204001,1,1855],
+  [170205001,1,2023],
+  [170206001,1,1514],
+  [170301001,1,3111],
+  [170301002,1,3606],
+  [170301004,1,2067],
+  [170301004,2,2053],
+  [170301005,1,2210],
+  [170301005,2,2234],
+  [170301006,1,2082],
+  [170301008,1,2343],
+  [170301008,2,2296],
+  [170301010,1,2230],
+  [170301010,2,2271],
+  [170301010,3,2228],
+  [170301012,1,3553],
+  [170301012,2,3499],
+  [170301012,3,3550],
+  [170301017,1,2687],
+  [170302001,1,2555],
+  [170302003,1,1352],
+  [170302004,1,3564],
+  [170302006,1,3785],
+  [170302006,2,3699],
+  [170302007,1,1995],
+  [170302007,2,1938],
+  [170302007,3,1982],
+  [170302008,1,429],
+  [170303001,1,1977],
+  [170303001,2,1975],
+  [170304002,1,3889],
+  [170304002,2,3774],
+  [170304003,1,2504],
+  [170304003,2,2523],
+  [170304004,1,2970],
+  [170304005,1,2404],
+  [170304005,2,2397],
+  [170305001,1,2089],
+  [170305001,2,2071],
+  [170401002,1,3988],
+  [170401002,2,3926],
+  [170402001,1,4022],
+  [170403001,1,2648],
+  [170501001,1,3002],
+  [170501001,2,3045],
+  [170501005,1,2015],
+  [170502001,1,3040],
+  [170503001,1,1440],
+  [170504001,1,1731],
+  [170505002,1,1663],
+  [170601001,1,2391],
+  [170601001,2,2370],
+  [170601003,1,2667],
+  [170601006,1,1783],
+  [170601012,1,2176],
+  [170701002,1,3596],
+  [170701002,2,3568],
+  [170701004,1,2185],
+  [170701004,2,2142],
+  [170701005,1,3247],
+  [170702001,1,2338],
+  [170702001,2,2338],
+  [170703001,1,2098],
+  [170703001,2,2065],
+  [170703005,1,1281],
+  [170704002,1,2132],
+  [170704002,2,2098],
+  [170705001,1,2359],
+  [170705001,2,2407],
+  [170706002,1,2222],
+  [170706002,2,2244],
+  [170801001,1,3267],
+  [170801001,2,3296],
+  [170801001,3,3279],
+  [170801001,4,3122],
+  [170801002,1,3940],
+  [170801002,2,3932],
+  [170802001,1,1817],
+  [170802004,1,2165],
+  [170802004,2,2147],
+  [170803001,1,3690],
+  [170804001,1,1659],
+  [170805002,1,2446],
+  [170805002,2,2460],
+  [170901009,1,2848],
+  [170901010,1,1779],
+  [170901010,2,1749],
+  [170901012,1,3026],
+  [170901012,2,3048],
+  [170901013,1,2523],
+  [170901013,2,2499],
+  [170901013,3,2520],
+  [170901013,4,2565],
+  [170901015,1,2511],
+  [170901015,2,2500],
+  [170901015,3,2557],
+  [170901016,1,2790],
+  [170901016,2,2837],
+  [170901017,1,3015],
+  [170901017,2,3012],
+  [170901018,1,3236],
+  [170901018,2,3244],
+  [170901020,1,1975],
+  [170901020,2,1985],
+  [170901020,3,1982],
+  [170901023,1,2980],
+  [170901023,2,2991],
+  [170901028,1,2814],
+  [170901028,2,2916],
+  [170901028,3,2853],
+  [170901028,4,2816],
+  [170901031,1,2720],
+  [170901031,2,2684],
+  [170901032,1,1864],
+  [170901032,2,1839],
+  [170901035,1,1414],
+  [170901046,1,2116],
+  [170901046,2,2100],
+  [170902004,1,1828],
+  [170902004,2,1848],
+  [170902005,1,2745],
+  [170902005,2,2774],
+  [170902007,1,2380],
+  [170902009,1,2677],
+  [170902010,1,2314],
+  [170902010,2,2263],
+  [170902010,3,2244],
+  [170902011,1,2091],
+  [170902011,2,2008],
+  [170902011,3,2048],
+  [170902018,1,3986],
+  [170902019,1,2949],
+  [170903003,1,1961],
+  [170903005,1,3223],
+  [170903006,1,2336],
+  [170903006,2,2281],
+  [170903007,1,2663],
+  [170903008,1,1692],
+  [170903009,1,1733],
+  [170903010,1,2502],
+  [170903010,2,2550],
+  [170903010,3,2494],
+  [170903012,1,2275],
+  [170903012,2,2253],
+  [170903014,1,2076],
+  [170903014,2,2050],
+  [170903018,1,504],
+  [170903019,1,3009],
+  [170903019,2,2877],
+  [170903019,3,2873],
+  [170903021,1,1331],
+  [170903022,1,2440],
+  [170903022,2,2421],
+  [170903023,1,1992],
+  [170903025,1,640],
+  [170904004,1,2373],
+  [170904004,2,2373],
+  [170904006,1,1402],
+  [170904006,2,1394],
+  [170904006,3,1423],
+  [170904007,1,1718],
+  [170904007,2,1717],
+  [170904007,3,1752],
+  [170904007,4,1695],
+  [170904011,1,1253],
+  [170904011,2,1267],
+  [170904012,1,2522],
+  [170904012,2,2564],
+  [170904012,3,2578],
+  [170904013,1,2688],
+  [170904013,2,2665],
+  [170904015,1,2681],
+  [170904020,1,2403],
+  [170905001,1,2478],
+  [170905001,2,2509],
+  [170905002,1,2161],
+  [170905002,2,2191],
+  [170906003,1,2782],
+  [170906003,2,2739],
+  [170907002,1,3152],
+  [170907002,2,3159],
+  [170907002,3,3074],
+  [171001001,1,3263],
+  [171001001,2,3234],
+  [171001002,1,2397],
+  [171001002,2,2396],
+  [171001003,1,2845],
+  [171001003,2,2817],
+  [171001009,1,2590],
+  [171002001,1,1109],
+  [171003001,1,3347],
+  [171004002,1,1623],
+  [171101001,1,3426],
+  [171101001,2,3443],
+  [171101002,1,2888],
+  [171101002,2,2895],
+  [171102001,1,2964],
+  [171102003,1,2772],
+  [171201001,1,3674],
+  [171201002,1,3205],
+  [171202001,1,1019],
+  [171301003,1,2171],
+  [171301003,2,2197],
+  [171301005,1,1658],
+  [171301012,1,3226],
+  [171302001,1,3683],
+  [171302008,1,3209],
+  [171401002,1,2498],
+  [171401003,1,2408],
+  [171401003,2,2427],
+  [171401004,1,1858],
+  [171401005,1,1104],
+  [171401006,1,2877],
+  [171401009,1,1504],
+  [171501002,1,3298],
+  [171501002,2,3246],
+  [171501002,3,3324],
+  [171501002,4,3317],
+  [171502001,1,2686],
+  [171502001,2,2711],
+  [171503002,1,2623],
+  [171503002,2,2629],
+  [180101001,1,2240],
+  [180101001,2,2217],
+  [180101003,1,1543],
+  [180101003,2,1555],
+  [180101006,1,1919],
+  [180101006,2,1938],
+  [180101006,3,1953],
+  [180101007,1,2526],
+  [180101008,1,1925],
+  [180101008,2,1948],
+  [180101009,1,2150],
+  [180101009,2,2174],
+  [180101016,1,2357],
+  [180101016,2,2367],
+  [180102001,1,3059],
+  [180103002,1,2054],
+  [180201001,1,3311],
+  [180201002,1,2488],
+  [180201003,1,2499],
+  [180201003,2,2433],
+  [180201004,1,3179],
+  [180201007,1,2599],
+  [180201008,1,2261],
+  [180201009,1,3641],
+  [180201009,2,3618],
+  [180201010,1,2986],
+  [180201010,2,3007],
+  [180201012,1,2882],
+  [180201012,2,2821],
+  [180201014,1,2810],
+  [180202001,1,2055],
+  [180202001,2,2038],
+  [180203002,1,1068],
+  [180204002,1,1341],
+  [180301001,1,1520],
+  [180301001,2,1502],
+  [180301003,1,1321],
+  [180301003,2,1316],
+  [180301004,1,2393],
+  [180301004,2,2426],
+  [180301004,3,2449],
+  [180301004,4,2423],
+  [180302001,1,2988],
+  [180302001,2,2910],
+  [180303001,1,1978],
+  [180401001,1,1713],
+  [180401001,2,1734],
+  [180401002,1,1857],
+  [180401002,2,1852],
+  [180401003,1,1681],
+  [180401003,2,1656],
+  [180401003,3,1671],
+  [180401004,1,1720],
+  [180401004,2,1733],
+  [180401004,3,1703],
+  [180401007,1,1934],
+  [180401007,2,1980],
+  [180401007,3,1916],
+  [180401009,1,1908],
+  [180401009,2,1863],
+  [180401011,1,1532],
+  [180401011,2,1537],
+  [180401013,1,1844],
+  [180401013,2,1848],
+  [180401015,1,3116],
+  [180401015,2,3097],
+  [180401016,1,1978],
+  [180401016,2,1974],
+  [180401017,1,2125],
+  [180401017,2,2109],
+  [180401020,1,1266],
+  [180401023,1,1756],
+  [180401023,2,1766],
+  [180402001,1,1572],
+  [180403001,1,2217],
+  [180403001,2,2163],
+  [180403002,1,2211],
+  [180403002,2,2239],
+  [180403002,3,2218],
+  [180501002,1,2187],
+  [180501002,2,2249],
+  [180501002,3,2202],
+  [180501002,4,2268],
+  [180501003,1,2160],
+  [180501003,2,2176],
+  [180501003,3,2120],
+  [180501004,1,1672],
+  [180501004,2,1674],
+  [180501028,1,1579],
+  [180501028,2,1560],
+  [180502002,1,1512],
+  [180503001,1,1685],
+  [180601001,1,2612],
+  [180601001,2,2673],
+  [180601001,3,2608],
+  [180601004,1,3474],
+  [180601005,1,2047],
+  [180601005,2,2064],
+  [180601005,3,2001],
+  [180601007,1,2220],
+  [180601007,2,2120],
+  [180601007,3,2148],
+  [180601007,4,2185],
+  [180601015,1,1899],
+  [180601015,2,1888],
+  [180601015,3,1868],
+  [180601016,1,1133],
+  [180601016,2,1123],
+  [180601016,3,1127],
+  [180602001,1,2802],
+  [180602001,2,2674],
+  [180602001,3,2687],
+  [180602010,1,2724],
+  [180602010,2,2700],
+  [180603001,1,525],
+  [180603002,1,733],
+  [180604001,1,1190],
+  [180701001,1,2628],
+  [180701001,2,2634],
+  [180702001,1,1908],
+  [180702001,2,1935],
+  [180801001,1,1277],
+  [180801001,2,1267],
+  [180801001,3,1254],
+  [180801002,1,1310],
+  [180801002,2,1311],
+  [180801002,3,1298],
+  [180801003,1,1681],
+  [180801003,2,1643],
+  [180801003,3,1663],
+  [180801004,1,2248],
+  [180801004,2,2236],
+  [180801006,1,1798],
+  [180801006,2,1839],
+  [180801006,3,1773],
+  [180801008,1,2045],
+  [180801008,2,2014],
+  [180801011,1,2150],
+  [180801011,2,2126],
+  [180801012,1,2026],
+  [180801013,1,2164],
+  [180801013,2,2085],
+  [180801014,1,2349],
+  [180801014,2,2373],
+  [180801016,1,1816],
+  [180801016,2,1754],
+  [180801018,1,1833],
+  [180801018,2,1793],
+  [180801018,3,1780],
+  [180801020,1,1645],
+  [180801020,2,1626],
+  [180801020,3,1586],
+  [180801021,1,3344],
+  [180801025,1,1406],
+  [180801025,2,1405],
+  [180801025,3,1415],
+  [180801034,1,1488],
+  [180801034,2,1500],
+  [180801035,1,2051],
+  [180802002,1,1543],
+  [180802002,2,1403],
+  [180802002,3,1375],
+  [180802002,4,1426],
+  [180802002,5,1425],
+  [180802005,1,1600],
+  [180802006,1,1538],
+  [180802006,2,1524],
+  [180802006,3,1476],
+  [180802007,1,1427],
+  [180802007,2,1408],
+  [180802007,3,1387],
+  [180802008,1,878],
+  [180802008,2,878],
+  [180802010,1,1201],
+  [180802010,2,1225],
+  [180802010,3,1211],
+  [180802011,1,757],
+  [180802011,2,758],
+  [180802012,1,1396],
+  [180802012,2,1396],
+  [180802012,3,1407],
+  [180802012,4,1390],
+  [180802013,1,1203],
+  [180802013,2,1160],
+  [180802014,1,1427],
+  [180802016,1,875],
+  [180802016,2,877],
+  [180802017,1,1366],
+  [180802017,2,1358],
+  [180802017,3,1416],
+  [180802017,4,1401],
+  [180802017,5,1366],
+  [180802018,1,1298],
+  [180802018,2,1270],
+  [180802024,1,1520],
+  [180802024,2,1474],
+  [180803002,1,2316],
+  [180803002,2,2215],
+  [180803004,1,2022],
+  [180803004,2,2029],
+  [180803005,1,1764],
+  [180803006,1,1913],
+  [180803006,2,1919],
+  [180803007,1,1745],
+  [180803007,2,1684],
+  [180803008,1,1915],
+  [180803008,2,1899],
+  [180803009,1,1672],
+  [180803009,2,1620],
+  [180803010,1,957],
+  [180803010,2,979],
+  [180803011,1,1759],
+  [180803012,1,1201],
+  [180803012,2,1177],
+  [180803012,3,1167],
+  [180803013,1,1298],
+  [180803013,2,1279],
+  [180803014,1,1137],
+  [180803014,2,1143],
+  [180803014,3,1151],
+  [180803015,1,1903],
+  [180803015,2,1896],
+  [180803015,3,1832],
+  [180803016,1,2348],
+  [180803017,1,1664],
+  [180803017,2,1643],
+  [180803019,1,1562],
+  [180803021,1,1679],
+  [180803024,1,1108],
+  [180803024,2,1097],
+  [180803028,1,1973],
+  [180803029,1,1505],
+  [180803029,2,1514],
+  [180803030,1,1149],
+  [180803030,2,1161],
+  [180803033,1,1285],
+  [180803033,2,1259],
+  [180804001,1,2385],
+  [180804001,2,2359],
+  [180804001,3,2298],
+  [180804007,1,2547],
+  [180804007,2,2583],
+  [180805001,1,1009],
+  [180901002,1,3095],
+  [180901003,1,2787],
+  [180901003,2,2725],
+  [180902001,1,2372],
+  [180903003,1,1643],
+  [180904002,1,1725],
+  [181001002,1,1402],
+  [181001002,2,1399],
+  [181001004,1,2494],
+  [181001004,2,2468],
+  [181001004,3,2445],
+  [181001009,1,2959],
+  [181001014,1,3020],
+  [181001014,2,3014],
+  [181101003,1,3531],
+  [181101003,2,3502],
+  [181101003,3,3556],
+  [181101003,4,3418],
+  [181101003,5,3519],
+  [181101004,1,2714],
+  [181101004,2,2652],
+  [181101004,3,2710],
+  [181102001,1,2287],
+  [181103002,1,2747],
+  [181201001,1,2209],
+  [181201001,2,2158],
+  [181201001,3,2186],
+  [181201002,1,2083],
+  [181201002,2,2062],
+  [181201004,1,1477],
+  [181201004,2,1489],
+  [181201004,3,1437],
+  [181201011,1,2137],
+  [181201011,2,2144],
+  [181201011,3,2182],
+  [181201019,1,2241],
+  [181201019,2,2272],
+  [181301002,1,2861],
+  [181301002,2,2781],
+  [181301002,3,2823],
+  [181301007,1,2170],
+  [181301007,2,2156],
+  [181401001,1,2910],
+  [181401001,2,2872],
+  [181402001,1,2076],
+  [181403001,1,2834],
+  [181404001,1,1582],
+  [181404001,2,1596],
+  [181501001,1,2844],
+  [181501001,2,2752],
+  [181501001,3,2777],
+  [181501001,4,2714],
+  [181501001,5,2779],
+  [181502002,1,3643],
+  [181601001,1,1860],
+  [181601001,2,1864],
+  [181601002,1,2494],
+  [181601002,2,2513],
+  [181601003,1,2316],
+  [181601003,2,2291],
+  [181601004,1,2810],
+  [181601009,1,2275],
+  [181601010,1,2589],
+  [181601011,1,3373],
+  [181602002,1,2678],
+  [181602002,2,2691],
+  [181602003,1,1888],
+  [181701001,1,1920],
+  [181701001,2,1920],
+  [181702001,1,1873],
+  [181703001,1,455],
+  [181801001,1,2915],
+  [181801001,2,2723],
+  [181801001,3,2672],
+  [181801001,4,2651],
+  [181801001,5,2718],
+  [181801001,6,2658],
+  [181901001,1,2507],
+  [181901001,2,2553],
+  [181901001,3,2532],
+  [181901007,1,2707],
+  [181902002,1,2819],
+  [181902002,2,2815],
+  [181903006,1,2611],
+  [181903006,2,2681],
+  [181903006,3,2637],
+  [182001001,1,2960],
+  [182001001,2,2980],
+  [182001001,3,3018],
+  [182002004,1,2526],
+  [182003004,1,3063],
+  [182003004,2,3108],
+  [182101001,1,2777],
+  [182101001,2,2717],
+  [182102003,1,2556],
+  [182103001,1,2376],
+  [182201001,1,2429],
+  [182201001,2,2459],
+  [182201001,3,2396],
+  [182301002,1,3205],
+  [182301002,2,3237],
+  [182401001,1,1859],
+  [182401001,2,1818],
+  [182501001,1,2371],
+  [182501001,2,2360],
+  [182501001,3,2370],
+  [182601001,1,2527],
+  [182601001,2,2496],
+  [182701001,1,2196],
+  [182801001,1,3471],
+  [182801002,1,2010],
+  [182801002,2,1995],
+  [182801003,1,2452],
+  [182801003,2,2464],
+  [182801006,1,2152],
+  [182801006,2,2165],
+  [182801007,1,3057],
+  [182801007,2,3028],
+  [182801007,3,3102],
+  [182901001,1,3358],
+  [182901001,2,3350],
+  [190101001,1,2339],
+  [190101002,1,1502],
+  [190102001,1,1939],
+  [190102002,1,1984],
+  [190103001,1,3562],
+  [190104001,1,3221],
+  [190201001,1,3444],
+  [190201001,2,3491],
+  [190201002,1,3010],
+  [190201002,2,3073],
+  [190201004,1,3256],
+  [190202004,1,3231],
+  [190202004,2,3119],
+  [190202004,3,3145],
+  [190202006,1,2812],
+  [190202006,2,2847],
+  [190202006,3,2758],
+  [190203001,1,3416],
+  [190204001,1,2734],
+  [190205003,1,3186],
+  [190206001,1,2992],
+  [190207004,1,3799],
+  [190208001,1,3082],
+  [190209001,1,3766],
+  [190210001,1,3010],
+  [190211002,1,1114],
+  [190212001,1,1150],
+  [190301003,1,3985],
+  [190301003,2,4037],
+  [190301004,1,687],
+  [190302001,1,3680],
+  [190303002,1,2442],
+  [190303002,2,2405],
+  [190304004,1,1837],
+  [190305001,1,1706],
+  [190401001,1,3383],
+  [190401001,2,3345],
+  [190401008,1,3403],
+  [190402001,1,1884],
+  [190402001,2,1897],
+  [190402004,1,638],
+  [190403001,1,2148],
+  [190404001,1,1940],
+  [190501001,1,2306],
+  [190501004,1,3849],
+  [190501004,2,3855],
+  [190501007,1,700],
+  [190502001,1,3374],
+  [190502001,2,3359],
+  [190502006,1,433],
+  [190503001,1,1719],
+  [190503004,1,2314],
+  [190503004,2,2297],
+  [190504001,1,1992],
+  [190504002,1,2572],
+  [190504002,2,2576],
+  [190505001,1,2203],
+  [190505002,1,1058],
+  [190506001,1,2746],
+  [190507001,1,3402],
+  [190601001,1,2644],
+  [190601001,2,2620],
+  [190602001,1,3911],
+  [190602005,1,541],
+  [190603001,1,2533],
+  [190603001,2,2565],
+  [190604001,1,3148],
+  [190605001,1,778],
+  [190605002,1,972],
+  [190606001,1,2976],
+  [190701001,1,2402],
+  [190701001,2,2428],
+  [190701001,3,2333],
+  [190701004,1,2248],
+  [190701004,2,2238],
+  [190701004,3,2196],
+  [190701010,1,2675],
+  [190701010,2,2703],
+  [190701012,1,3346],
+  [190701012,2,3332],
+  [190701012,3,3281],
+  [190701016,1,2954],
+  [190701017,1,987],
+  [190701019,1,2631],
+  [190701019,2,2653],
+  [190701020,1,1009],
+  [190702001,1,1613],
+  [190702001,2,1621],
+  [190702001,3,1593],
+  [190702003,1,1628],
+  [190702003,2,1650],
+  [190702004,1,3349],
+  [190702006,1,1384],
+  [190702006,2,1361],
+  [190702007,1,2846],
+  [190702007,2,2828],
+  [190702009,1,1409],
+  [190702009,2,1380],
+  [190702009,3,1392],
+  [190702009,4,1349],
+  [190703001,1,2730],
+  [190703001,2,2722],
+  [190703003,1,2497],
+  [190704003,1,1698],
+  [190704007,1,1035],
+  [190704008,1,3262],
+  [190705001,1,2337],
+  [190705001,2,2317],
+  [190705002,1,750],
+  [190705003,1,807],
+  [190706001,1,3747],
+  [190706001,2,3745],
+  [190706002,1,1962],
+  [190801001,1,3273],
+  [190801006,1,1657],
+  [190801007,1,3391],
+  [190802001,1,1653],
+  [190803001,1,856],
+  [190804001,1,2264],
+  [190805001,1,1466],
+  [190806001,1,2351],
+  [190807003,1,2276],
+  [190901002,1,3681],
+  [190901002,2,3640],
+  [190902001,1,1083],
+  [190903001,1,1783],
+  [190904001,1,3320],
+  [190905001,1,571],
+  [191001001,1,2551],
+  [191001001,2,2593],
+  [191002001,1,2103],
+  [191002001,2,2139],
+  [191003001,1,921],
+  [191101002,1,3997],
+  [191101002,2,3996],
+  [191102001,1,1373],
+  [191103001,1,2711],
+  [191201001,1,3046],
+  [191201001,2,2986],
+  [191202001,1,2782],
+  [191202001,2,2744],
+  [191203001,1,3697],
+  [191203001,2,3769],
+  [191203001,3,3685],
+  [191204001,1,2949],
+  [191204001,2,2911],
+  [191204001,3,2920],
+  [191301002,1,2662],
+  [191301002,2,2625],
+  [191301003,1,1536],
+  [191301003,2,1535],
+  [191302001,1,2174],
+  [191302001,2,2119],
+  [191302001,3,2138],
+  [191302003,1,534],
+  [191303001,1,3011],
+  [191303002,1,2786],
+  [191303002,2,2816],
+  [191303002,3,2837],
+  [191303004,1,1541],
+  [191304001,1,1938],
+  [191304002,1,2553],
+  [191304003,1,1025],
+  [191401001,1,3562],
+  [191401001,2,3567],
+  [191402001,1,2580],
+  [191403001,1,3711],
+  [191403001,2,3671],
+  [191404001,1,1186],
+  [191501002,1,2373],
+  [191501002,2,2347],
+  [191502001,1,1516],
+  [191503001,1,2614],
+  [191504003,1,2549],
+  [191601001,1,2441],
+  [191601001,2,2471],
+  [191602001,1,3005],
+  [191603001,1,2027],
+  [191701001,1,2996],
+  [191702001,1,427],
+  [191703001,1,980],
+  [191801001,1,3452],
+  [191802005,1,1731],
+  [191901001,1,3370],
+  [191902001,1,759],
+  [191903002,1,3295],
+  [191904001,1,2186],
+  [191904001,2,2180],
+  [192001002,1,3631],
+  [192001002,2,3651],
+  [192002005,1,2856],
+  [192002005,2,2848],
+  [192003002,1,2957],
+  [200101001,1,3371],
+  [200101002,1,1814],
+  [200101005,1,2280],
+  [200101007,1,1995],
+  [200101010,1,1171],
+  [200101013,1,2171],
+  [200101013,2,2165],
+  [200101015,1,1981],
+  [200101017,1,2055],
+  [200101021,1,1203],
+  [200201003,1,2886],
+  [200201006,1,2396],
+  [200201006,2,2454],
+  [200201006,3,2423],
+  [200201006,4,2394],
+  [200201006,5,2483],
+  [200201010,1,3647],
+  [200201010,2,3568],
+  [200201010,3,3590],
+  [200201014,1,2504],
+  [200201014,2,2464],
+  [200201017,1,2090],
+  [200201021,1,3307],
+  [200202002,1,2611],
+  [200202002,2,2549],
+  [200202009,1,3187],
+  [200301003,1,3593],
+  [200301003,2,3531],
+  [200301006,1,3289],
+  [200301007,1,3906],
+  [200301009,1,3278],
+  [200301009,2,3312],
+  [200301013,1,3242],
+  [200301017,1,2705],
+  [200301028,1,799],
+  [200301035,1,890],
+  [200302001,1,931],
+  [200302002,1,2652],
+  [200302002,2,2678],
+  [200302006,1,1042],
+  [200302007,1,1299],
+  [200302012,1,727],
+  [200303002,1,1931],
+  [200401001,1,1614],
+  [200401001,2,1609],
+  [200401001,3,1574],
+  [200401003,1,2120],
+  [200401003,2,2149],
+  [200401005,1,1212],
+  [200401005,2,1191],
+  [200401007,1,1449],
+  [200401007,2,1447],
+  [200401008,1,1240],
+  [200401008,2,1235],
+  [200401010,1,3455],
+  [200401010,2,3492],
+  [200401014,1,2299],
+  [200401015,1,2069],
+  [200401015,2,2051],
+  [200401017,1,2443],
+  [200401020,1,3293],
+  [200401020,2,3281],
+  [200402002,1,3688],
+  [200402002,2,3721],
+  [200402009,1,3268],
+  [200402013,1,2605],
+  [200402013,2,2647],
+  [200402015,1,1937],
+  [200403005,1,3055],
+  [200403006,1,3037],
+  [200403006,2,2973],
+  [200501001,1,2277],
+  [200501001,2,2289],
+  [200501001,3,2190],
+  [200501002,1,2949],
+  [200501004,1,1291],
+  [200501009,1,2329],
+  [200601002,1,2345],
+  [200601009,1,3476],
+  [200601013,1,2367],
+  [200601015,1,815],
+  [200601021,1,2652],
+  [200601021,2,2700],
+  [200701001,1,3380],
+  [200701001,2,3262],
+  [200701003,1,3173],
+  [200701003,2,3118],
+  [200701005,1,3111],
+  [200701005,2,3113],
+  [200701006,1,3000],
+  [200701006,2,3028],
+  [200701007,1,3434],
+  [200701007,2,3360],
+  [200701007,3,3405],
+  [200701014,1,2616],
+  [200701014,2,2606],
+  [200701018,1,3160],
+  [200701018,2,3127],
+  [200701024,1,3493],
+  [200701029,1,2757],
+  [200701029,2,2721],
+  [200702004,1,2681],
+  [200702004,2,2644],
+  [200801001,1,3696],
+  [200801002,1,1550],
+  [200801004,1,2286],
+  [200801005,1,1950],
+  [200801006,1,896],
+  [200801007,1,1733],
+  [200901002,1,2882],
+  [200901003,1,3808],
+  [200901004,1,2512],
+  [200901006,1,1730],
+  [201001001,1,2383],
+  [201001001,2,2426],
+  [201001001,3,2362],
+  [201001002,1,1938],
+  [201001002,2,1914],
+  [201001002,3,1904],
+  [201001003,1,3179],
+  [201001006,1,2470],
+  [201001008,1,888],
+  [201001009,1,1143],
+  [201001010,1,2133],
+  [201001010,2,2173],
+  [201001014,1,1061],
+  [201101001,1,2621],
+  [201101003,1,1368],
+  [201101004,1,2381],
+  [201101004,2,2341],
+  [201101006,1,2682],
+  [201101007,1,2117],
+  [201101007,2,2090],
+  [201101008,1,1625],
+  [201101008,2,1636],
+  [201101012,1,2263],
+  [201101013,1,1992],
+  [201101013,2,1997],
+  [201101014,1,2502],
+  [201101014,2,2480],
+  [201101016,1,633],
+  [201101018,1,2037],
+  [201101021,1,1460],
+  [201101023,1,948],
+  [201101027,1,1633],
+  [201201001,1,3208],
+  [201201001,2,3192],
+  [201201007,1,3202],
+  [201201013,1,1626],
+  [201201014,1,2017],
+  [201301002,1,1996],
+  [201301002,2,1989],
+  [201301004,1,2117],
+  [201301005,1,3375],
+  [201301007,1,651],
+  [201301011,1,1496],
+  [201401004,1,3223],
+  [201401006,1,821],
+  [201401008,1,2434],
+  [201401008,2,2361],
+  [201402001,1,1835],
+  [201402003,1,1404],
+  [201402004,1,3059],
+  [201402005,1,2048],
+  [201402016,1,489],
+  [210101008,1,3846],
+  [210101008,2,3829],
+  [210102001,1,2651],
+  [210102001,2,2691],
+  [210102001,3,2728],
+  [210102004,1,2358],
+  [210102004,2,2340],
+  [210103001,1,2403],
+  [210103001,2,2376],
+  [210103001,3,2373],
+  [210104003,1,3357],
+  [210105001,1,2552],
+  [210105001,2,2534],
+  [210106001,1,3142],
+  [210106001,2,3154],
+  [210106002,1,2622],
+  [210106002,2,2600],
+  [210106008,1,2333],
+  [210106008,2,2326],
+  [210201002,1,3181],
+  [210202001,1,2749],
+  [210202001,2,2726],
+  [210202001,3,2671],
+  [210202001,4,2715],
+  [210202004,1,2313],
+  [210202004,2,2314],
+  [210202006,1,1761],
+  [210202006,2,1749],
+  [210203001,1,2465],
+  [210203001,2,2516],
+  [210203001,3,2519],
+  [210203001,4,2493],
+  [210204001,1,1986],
+  [210204001,2,1991],
+  [210301004,1,1895],
+  [210301004,2,1883],
+  [210301004,3,1902],
+  [210302001,1,2566],
+  [210302001,2,2533],
+  [210302001,3,2559],
+  [210303012,1,3043],
+  [210303012,2,3027],
+  [210303012,3,3083],
+  [210303012,4,3019],
+  [210304001,1,2244],
+  [210304001,2,2136],
+  [210304001,3,2100],
+  [210304001,4,2132],
+  [210304001,5,2120],
+  [210305001,1,1953],
+  [210305001,2,1902],
+  [210305001,3,1956],
+  [210305005,1,2153],
+  [210305005,2,2161],
+  [210305005,3,2157],
+  [210305006,1,2659],
+  [210305006,2,2649],
+  [210305008,1,2383],
+  [210305008,2,2446],
+  [210305008,3,2396],
+  [210305009,1,3073],
+  [210305018,1,1216],
+  [210305018,2,1220],
+  [210401001,1,3720],
+  [210401001,2,3669],
+  [210401001,3,3706],
+  [210402001,1,3348],
+  [210402001,2,3293],
+  [210402002,1,3241],
+  [210402002,2,3177],
+  [210402002,3,3248],
+  [210402003,1,2059],
+  [210402006,1,3918],
+  [210402006,2,3893],
+  [210402007,1,1979],
+  [210403002,1,2519],
+  [210404001,1,3581],
+  [210404001,2,3660],
+  [210404001,3,3511],
+  [210404001,4,3634],
+  [210404001,5,3504],
+  [210404001,6,3632],
+  [210404004,1,3644],
+  [210404004,2,3610],
+  [210405001,1,2874],
+  [210405001,2,2898],
+  [210405001,3,2885],
+  [210406002,1,3202],
+  [210406002,2,3137],
+  [210406002,3,3141],
+  [210407005,1,3014],
+  [210407005,2,2984],
+  [210407006,1,2132],
+  [210407007,1,3651],
+  [210407007,2,3721],
+  [210407009,1,2472],
+  [210407009,2,2489],
+  [210407011,1,3437],
+  [210501001,1,1433],
+  [210501001,2,1457],
+  [210501002,1,1641],
+  [210501002,2,1674],
+  [210501002,3,1648],
+  [210501003,1,1483],
+  [210501003,2,1403],
+  [210501003,3,1405],
+  [210501003,4,1428],
+  [210501003,5,1420],
+  [210501004,1,1152],
+  [210501004,2,1163],
+  [210501005,1,1262],
+  [210501005,2,1278],
+  [210502001,1,1831],
+  [210502002,1,1935],
+  [210502002,2,1983],
+  [210502002,3,1916],
+  [210502002,4,1945],
+  [210502006,1,2046],
+  [210502006,2,2020],
+  [210502006,3,1985],
+  [210502007,1,1198],
+  [210502007,2,1205],
+  [210502007,3,1197],
+  [210502008,1,1323],
+  [210502008,2,1321],
+  [210502008,3,1293],
+  [210502010,1,1554],
+  [210502010,2,1581],
+  [210502010,3,1555],
+  [210502011,1,1661],
+  [210502011,2,1635],
+  [210502012,1,1869],
+  [210502012,2,1848],
+  [210502013,1,2217],
+  [210502013,2,2165],
+  [210502013,3,2222],
+  [210502013,4,2227],
+  [210502016,1,1601],
+  [210502016,2,1611],
+  [210502017,1,1159],
+  [210502017,2,1180],
+  [210502019,1,2213],
+  [210502019,2,2239],
+  [210502020,1,1216],
+  [210502020,2,1232],
+  [210502022,1,2496],
+  [210502023,1,2396],
+  [210502023,2,2382],
+  [210503002,1,2405],
+  [210503002,2,2353],
+  [210503002,3,2405],
+  [210503003,1,2022],
+  [210503005,1,3461],
+  [210503006,1,2798],
+  [210503007,1,2002],
+  [210503007,2,1997],
+  [210503007,3,2007],
+  [210503007,4,2045],
+  [210503009,1,2115],
+  [210503009,2,2091],
+  [210503009,3,2117],
+  [210503012,1,1978],
+  [210503012,2,1939],
+  [210503013,1,2221],
+  [210503013,2,2238],
+  [210503014,1,1582],
+  [210503014,2,1520],
+  [210503015,1,1419],
+  [210503015,2,1391],
+  [210503016,1,2215],
+  [210503017,1,1243],
+  [210503017,2,1217],
+  [210503018,1,1767],
+  [210503018,2,1790],
+  [210503019,1,1073],
+  [210503019,2,1062],
+  [210503020,1,2086],
+  [210503020,2,2028],
+  [210503022,1,2365],
+  [210503022,2,2321],
+  [210503024,1,1798],
+  [210503024,2,1787],
+  [210503025,1,2424],
+  [210503026,1,2167],
+  [210503026,2,2159],
+  [210503027,1,1576],
+  [210503027,2,1599],
+  [210504001,1,1918],
+  [210504002,1,1662],
+  [210504002,2,1651],
+  [210504002,3,1646],
+  [210504003,1,1516],
+  [210504003,2,1480],
+  [210504004,1,2206],
+  [210504004,2,2249],
+  [210504005,1,1656],
+  [210504005,2,1607],
+  [210504005,3,1645],
+  [210504006,1,1923],
+  [210504006,2,1939],
+  [210504006,3,1878],
+  [210504007,1,1968],
+  [210504007,2,1936],
+  [210504009,1,1400],
+  [210504009,2,1420],
+  [210504009,3,1425],
+  [210504009,4,1400],
+  [210504011,1,1677],
+  [210504011,2,1686],
+  [210504012,1,1708],
+  [210504012,2,1678],
+  [210504012,3,1735],
+  [210504012,4,1707],
+  [210505001,1,1236],
+  [210505001,2,1248],
+  [210505002,1,1815],
+  [210505002,2,1811],
+  [210505003,1,1833],
+  [210505004,1,1648],
+  [210505005,1,1317],
+  [210505005,2,1316],
+  [210505006,1,1211],
+  [210505006,2,1190],
+  [210505007,1,1580],
+  [210505007,2,1607],
+  [210505008,1,1732],
+  [210505008,2,1698],
+  [210505008,3,1685],
+  [210505011,1,1221],
+  [210505011,2,1237],
+  [210505012,1,1390],
+  [210505012,2,1431],
+  [210505012,3,1402],
+  [210506001,1,1318],
+  [210506001,2,1306],
+  [210506001,3,1309],
+  [210506001,4,1278],
+  [210506001,5,1263],
+  [210506003,1,1722],
+  [210506003,2,1715],
+  [210506004,1,1464],
+  [210506004,2,1463],
+  [210506004,3,1470],
+  [210506004,4,1450],
+  [210506004,5,1437],
+  [210506005,1,1532],
+  [210506005,2,1580],
+  [210506005,3,1532],
+  [210506005,4,1571],
+  [210506006,1,2069],
+  [210506006,2,2074],
+  [210506007,1,1673],
+  [210506007,2,1600],
+  [210506008,1,1238],
+  [210506009,1,1733],
+  [210506009,2,1706],
+  [210506011,1,1308],
+  [210506011,2,1312],
+  [210506011,3,1358],
+  [210506011,4,1334],
+  [210506011,5,1323],
+  [210506012,1,1219],
+  [210506012,2,1251],
+  [210506012,3,1231],
+  [210506012,4,1216],
+  [210506012,5,1255],
+  [210506013,1,1286],
+  [210506013,2,1292],
+  [210506013,3,1282],
+  [210506014,1,1493],
+  [210506014,2,1552],
+  [210506014,3,1549],
+  [210506014,4,1523],
+  [210506014,5,1501],
+  [210506015,1,1220],
+  [210506015,2,1202],
+  [210506019,1,1731],
+  [210507001,1,1683],
+  [210507001,2,1677],
+  [210507001,3,1693],
+  [210507001,4,1696],
+  [210507001,5,1668],
+  [210507002,1,1959],
+  [210507003,1,2278],
+  [210507003,2,2322],
+  [210507003,3,2326],
+  [210507006,1,1481],
+  [210507006,2,1489],
+  [210507006,3,1521],
+  [210507007,1,2058],
+  [210507007,2,2003],
+  [210507007,3,1974],
+  [210507008,1,1758],
+  [210507008,2,1674],
+  [210507008,3,1662],
+  [210507009,1,2090],
+  [210507009,2,2050],
+  [210507009,3,2055],
+  [210507010,1,1409],
+  [210507010,2,1405],
+  [210507010,3,1421],
+  [210507010,4,1344],
+  [210507011,1,1574],
+  [210507011,2,1588],
+  [210507011,3,1567],
+  [210507012,1,1056],
+  [210507012,2,1042],
+  [210507019,1,1553],
+  [210508001,1,2054],
+  [210508001,2,2058],
+  [210508001,3,2083],
+  [210508001,4,2096],
+  [210508002,1,1785],
+  [210508002,2,1723],
+  [210508004,1,1460],
+  [210508005,1,1780],
+  [210508005,2,1776],
+  [210508005,3,1758],
+  [210508005,4,1674],
+  [210508006,1,1522],
+  [210508006,2,1543],
+  [210508006,3,1467],
+  [210508006,4,1335],
+  [210508009,1,2089],
+  [210508009,2,2065],
+  [210508010,1,1584],
+  [210508010,2,1545],
+  [210508010,3,1520],
+  [210508010,4,1545],
+  [210508010,5,1528],
+  [210508011,1,1070],
+  [210508011,2,1070],
+  [210508012,1,2572],
+  [210508012,2,2616],
+  [210508023,1,1930],
+  [210509001,1,692],
+  [210509002,1,2499],
+  [210509002,2,2444],
+  [210509004,1,2739],
+  [210509004,2,2749],
+  [210509005,1,1854],
+  [210509005,2,1915],
+  [210509005,3,1899],
+  [210509005,4,1912],
+  [210509006,1,2524],
+  [210509006,2,2468],
+  [210509006,3,2548],
+  [210509007,1,2945],
+  [210509008,1,2223],
+  [210509008,2,2234],
+  [210509008,3,2268],
+  [210509009,1,3035],
+  [210509011,1,2385],
+  [210509013,1,2636],
+  [210509013,2,2603],
+  [210509015,1,2022],
+  [210509015,2,2055],
+  [210509015,3,2011],
+  [210509016,1,1393],
+  [210509017,1,3125],
+  [210509017,2,3067],
+  [210509021,1,1954],
+  [210509023,1,2298],
+  [210509025,1,1580],
+  [210510001,1,1691],
+  [210510002,1,1526],
+  [210510002,2,1522],
+  [210510003,1,1792],
+  [210510003,2,1787],
+  [210510003,3,1782],
+  [210510004,1,2381],
+  [210510004,2,2395],
+  [210510006,1,1969],
+  [210510006,2,1962],
+  [210510007,1,2508],
+  [210510008,1,1926],
+  [210510008,2,1933],
+  [210510010,1,1866],
+  [210510010,2,1889],
+  [210510011,1,2242],
+  [210510011,2,2288],
+  [210510012,1,1980],
+  [210510014,1,1827],
+  [210510014,2,1795],
+  [210510014,3,1769],
+  [210510016,1,1959],
+  [210510016,2,1927],
+  [210510018,1,1444],
+  [210510018,2,1424],
+  [210511001,1,1722],
+  [210511001,2,1733],
+  [210511001,3,1730],
+  [210511002,1,1535],
+  [210511002,2,1527],
+  [210511003,1,1989],
+  [210511003,2,1989],
+  [210511004,1,1522],
+  [210511005,1,2080],
+  [210511005,2,2114],
+  [210511007,1,1355],
+  [210511007,2,1321],
+  [210511008,1,1805],
+  [210511008,2,1786],
+  [210511009,1,1521],
+  [210511009,2,1541],
+  [210511010,1,1696],
+  [210511011,1,1475],
+  [210511011,2,1471],
+  [210511012,1,1629],
+  [210511012,2,1631],
+  [210511012,3,1601],
+  [210511013,1,1249],
+  [210511013,2,1267],
+  [210511013,3,1250],
+  [210512002,1,1732],
+  [210512002,2,1734],
+  [210512003,1,1619],
+  [210512003,2,1652],
+  [210512003,3,1617],
+  [210512004,1,1355],
+  [210512004,2,1382],
+  [210512004,3,1400],
+  [210512004,4,1342],
+  [210512005,1,1903],
+  [210512005,2,1933],
+  [210512006,1,1569],
+  [210512006,2,1531],
+  [210512006,3,1543],
+  [210512008,1,1932],
+  [210512008,2,1907],
+  [210512009,1,1686],
+  [210512009,2,1667],
+  [210512009,3,1640],
+  [210512010,1,421],
+  [210512011,1,1156],
+  [210512012,1,1282],
+  [210512012,2,1308],
+  [210512012,3,1320],
+  [210512012,4,1317],
+  [210512012,5,1353],
+  [210512015,1,1995],
+  [210512015,2,2026],
+  [210513001,1,2074],
+  [210513001,2,2040],
+  [210513002,1,2272],
+  [210513002,2,2282],
+  [210513002,3,2215],
+  [210513003,1,1993],
+  [210513003,2,1952],
+  [210513003,3,1963],
+  [210513003,4,2040],
+  [210513005,1,3469],
+  [210513006,1,3596],
+  [210513007,1,2293],
+  [210513007,2,2153],
+  [210513008,1,3255],
+  [210513009,1,1793],
+  [210513009,2,1797],
+  [210513009,3,1778],
+  [210513009,4,1689],
+  [210513010,1,2278],
+  [210513010,2,2278],
+  [210513010,3,2189],
+  [210513011,1,2387],
+  [210513011,2,2352],
+  [210513012,1,2174],
+  [210513012,2,2037],
+  [210513012,3,2026],
+  [210513012,4,2031],
+  [210513012,5,1992],
+  [210513013,1,1793],
+  [210513013,2,1813],
+  [210513016,1,2321],
+  [210513016,2,2240],
+  [210513016,3,2185],
+  [210513017,1,2480],
+  [210513017,2,2507],
+  [210513018,1,2907],
+  [210513021,1,1685],
+  [210513024,1,2760],
+  [210513025,1,1057],
+  [210513027,1,901],
+  [210513029,1,2586],
+  [210513030,1,1471],
+  [210513032,1,491],
+  [210513033,1,486],
+  [210513034,1,1028],
+  [210513035,1,441],
+  [210513036,1,450],
+  [210513042,1,385],
+  [210514001,1,1908],
+  [210514004,1,1759],
+  [210514004,2,1776],
+  [210514005,1,1708],
+  [210514005,2,1654],
+  [210514006,1,1499],
+  [210514006,2,1521],
+  [210514007,1,2385],
+  [210514007,2,2353],
+  [210514007,3,2346],
+  [210514008,1,2105],
+  [210514008,2,2087],
+  [210514008,3,2068],
+  [210514009,1,2438],
+  [210514012,1,1969],
+  [210514012,2,1978],
+  [210514012,3,1972],
+  [210514013,1,2076],
+  [210514013,2,2058],
+  [210514013,3,1886],
+  [210514014,1,2141],
+  [210514015,1,1640],
+  [210514015,2,1668],
+  [210514019,1,2085],
+  [210514020,1,1592],
+  [210514020,2,1592],
+  [210514020,3,1560],
+  [210515001,1,2790],
+  [210515001,2,2668],
+  [210515001,3,2654],
+  [210515001,4,2670],
+  [210515002,1,2499],
+  [210515002,2,2557],
+  [210515002,3,2522],
+  [210515003,1,2743],
+  [210515003,2,2635],
+  [210515003,3,2623],
+  [210515004,1,2349],
+  [210515004,2,2302],
+  [210515006,1,2816],
+  [210515007,1,2122],
+  [210516001,1,2283],
+  [210516002,1,2393],
+  [210516002,2,2473],
+  [210516002,3,2336],
+  [210516002,4,2422],
+  [210516002,5,2357],
+  [210516002,6,2430],
+  [210516002,7,2443],
+  [210516004,1,2234],
+  [210516004,2,2266],
+  [210516004,3,2263],
+  [210516004,4,2288],
+  [210516005,1,1988],
+  [210516005,2,1972],
+  [210516008,1,2876],
+  [210516008,2,2810],
+  [210516010,1,2399],
+  [210516011,1,2913],
+  [210516012,1,2785],
+  [210516012,2,2795],
+  [210516013,1,1627],
+  [210516013,2,1630],
+  [210516022,1,2397],
+  [210516022,2,2377],
+  [210517002,1,2624],
+  [210517002,2,2605],
+  [210517002,3,2557],
+  [210517002,4,2615],
+  [210517002,5,2601],
+  [210517003,1,3352],
+  [210517004,1,3232],
+  [210517005,1,1880],
+  [210517005,2,1884],
+  [210517005,3,1822],
+  [210517006,1,1758],
+  [210517006,2,1815],
+  [210517007,1,2000],
+  [210517007,2,1988],
+  [210517011,1,2685],
+  [210517014,1,3328],
+  [210517014,2,3371],
+  [210518001,1,3248],
+  [210518001,2,3281],
+  [210518002,1,2032],
+  [210518002,2,2054],
+  [210518002,3,1984],
+  [210518003,1,2205],
+  [210518003,2,2186],
+  [210601002,1,2054],
+  [210601002,2,2052],
+  [210602002,1,3005],
+  [210602002,2,3011],
+  [210603003,1,2646],
+  [210603003,2,2644],
+  [210604002,1,3663],
+  [210604005,1,3203],
+  [210604005,2,3146],
+  [210604005,3,3103],
+  [210605006,1,2412],
+  [210605006,2,2361],
+  [210605006,3,2361],
+  [210605007,1,3630],
+  [210605007,2,3469],
+  [210605007,3,3535],
+  [210605007,4,3431],
+  [210605007,5,3456],
+  [210605012,1,3339],
+  [210605012,2,3386],
+  [210605012,3,3374],
+  [210701001,1,3725],
+  [210701001,2,3707],
+  [210701001,3,3704],
+  [210701001,4,3645],
+  [210701001,5,3564],
+  [210701002,1,2677],
+  [210701002,2,2693],
+  [210701014,1,2868],
+  [210701014,2,2880],
+  [210701014,3,2906],
+  [210701018,1,3175],
+  [210702003,1,3330],
+  [210702003,2,3260],
+  [210703001,1,3622],
+  [210703001,2,3600],
+  [210703001,3,3551],
+  [210704004,1,3339],
+  [210704004,2,3331],
+  [210801001,1,2489],
+  [210801001,2,2388],
+  [210801001,3,2447],
+  [210801001,4,2406],
+  [210801001,5,2447],
+  [210802001,1,2334],
+  [210802001,2,2358],
+  [210802001,3,2340],
+  [210802001,4,2250],
+  [210803001,1,2410],
+  [210803001,2,2397],
+  [210803004,1,2168],
+  [210803004,2,2224],
+  [210803004,3,2183],
+  [210803005,1,2158],
+  [210803006,1,3347],
+  [210803010,1,1926],
+  [210803010,2,1922],
+  [210803011,1,2279],
+  [210803011,2,2195],
+  [210803011,3,2202],
+  [210803012,1,2413],
+  [210803014,1,2935],
+  [210803014,2,2912],
+  [210803014,3,2923],
+  [210803015,1,1489],
+  [210803015,2,1486],
+  [210803016,1,1899],
+  [210803016,2,1902],
+  [210804001,1,1984],
+  [210804001,2,2013],
+  [210901003,1,3352],
+  [210901003,2,3351],
+  [210902004,1,2074],
+  [210902004,2,2040],
+  [210903004,1,2213],
+  [210903004,2,2232],
+  [210904001,1,2676],
+  [210904001,2,2678],
+  [210904001,3,2633],
+  [210904005,1,3032],
+  [210904005,2,2980],
+  [210905001,1,2000],
+  [210905001,2,1998],
+  [210906001,1,2171],
+  [210906001,2,2156],
+  [211001001,1,2943],
+  [211001001,2,2956],
+  [211002001,1,2243],
+  [211002001,2,2200],
+  [211003001,1,1956],
+  [211003001,2,1955],
+  [211003001,3,1967],
+  [211004002,1,2574],
+  [211004002,2,2567],
+  [211004002,3,2526],
+  [211005002,1,2661],
+  [211005002,2,2675],
+  [211005002,3,2685],
+  [211005002,4,2707],
+  [211005002,5,2490],
+  [211005003,1,1973],
+  [211005003,2,1983],
+  [211005003,3,1893],
+  [211005003,4,1931],
+  [211101002,1,2214],
+  [211102002,1,1646],
+  [211102002,2,1654],
+  [211102002,3,1659],
+  [211102003,1,1192],
+  [211102003,2,1205],
+  [211102004,1,1347],
+  [211102004,2,1339],
+  [211102005,1,2031],
+  [211102005,2,2003],
+  [211102006,1,2383],
+  [211102006,2,2380],
+  [211102007,1,2679],
+  [211102009,1,1775],
+  [211102009,2,1774],
+  [211102010,1,1559],
+  [211102010,2,1577],
+  [211102010,3,1582],
+  [211102011,1,1697],
+  [211102011,2,1725],
+  [211102012,1,2682],
+  [211102012,2,2683],
+  [211102013,1,1964],
+  [211102013,2,1954],
+  [211102014,1,1534],
+  [211102014,2,1540],
+  [211102015,1,1438],
+  [211102015,2,1409],
+  [211102016,1,2596],
+  [211102016,2,2550],
+  [211102017,1,2587],
+  [211102019,1,2631],
+  [211102019,2,2637],
+  [211102020,1,1784],
+  [211102022,1,1258],
+  [211102022,2,1274],
+  [211102024,1,3267],
+  [211103002,1,1860],
+  [211103002,2,1846],
+  [211103003,1,1315],
+  [211103003,2,1318],
+  [211103004,1,2086],
+  [211103004,2,2126],
+  [211103006,1,1270],
+  [211103006,2,1271],
+  [211103007,1,1411],
+  [211103007,2,1411],
+  [211103009,1,3036],
+  [211103015,1,1985],
+  [211103015,2,2017],
+  [211104001,1,1809],
+  [211104001,2,1846],
+  [211105002,1,1585],
+  [211105002,2,1628],
+  [211105002,3,1617],
+  [211105003,1,2312],
+  [211105003,2,2241],
+  [211105003,3,2250],
+  [211105004,1,1795],
+  [211105004,2,1748],
+  [211105004,3,1762],
+  [211105005,1,1668],
+  [211105005,2,1645],
+  [211105007,1,3647],
+  [211201004,1,2359],
+  [211201004,2,2329],
+  [211201004,3,2373],
+  [211202001,1,2774],
+  [211202001,2,2753],
+  [211202001,3,2749],
+  [211202001,4,2663],
+  [211301001,1,3474],
+  [211302001,1,3527],
+  [211302001,2,3518],
+  [211303001,1,2769],
+  [211303001,2,2867],
+  [211303001,3,2807],
+  [211303001,4,2816],
+  [211303001,5,2737],
+  [211303005,1,2498],
+  [211303005,2,2492],
+  [211303006,1,1514],
+  [211303006,2,1493],
+  [211303007,1,2438],
+  [211303007,2,2362],
+  [211303007,3,2389],
+  [211303008,1,3070],
+  [211303008,2,3056],
+  [211303008,3,3024],
+  [211303008,4,3113],
+  [211401001,1,2005],
+  [211401001,2,2001],
+  [211401001,3,1993],
+  [211401001,4,2023],
+  [211401004,1,1668],
+  [211401004,2,1688],
+  [211401005,1,1482],
+  [211401005,2,1454],
+  [211401006,1,1398],
+  [211401006,2,1413],
+  [211401007,1,1764],
+  [211401007,2,1776],
+  [211401008,1,1604],
+  [211401008,2,1589],
+  [211401010,1,1859],
+  [211401010,2,1874],
+  [211401011,1,2557],
+  [211401011,2,2560],
+  [211401013,1,1509],
+  [211401013,2,1530],
+  [211402002,1,2203],
+  [211402002,2,2237],
+  [211402002,3,2192],
+  [211402004,1,1499],
+  [211402004,2,1495],
+  [211402005,1,1642],
+  [211402006,1,1623],
+  [211402006,2,1538],
+  [211402008,1,2880],
+  [211402008,2,2838],
+  [211402009,1,2666],
+  [211402010,1,1749],
+  [211402010,2,1728],
+  [211403001,1,2273],
+  [211403001,2,2274],
+  [211403003,1,2046],
+  [211403003,2,2054],
+  [211403003,3,1970],
+  [211403005,1,2265],
+  [211403005,2,2281],
+  [211403006,1,2563],
+  [211403006,2,2581],
+  [211403008,1,2105],
+  [211403008,2,2084],
+  [211403008,3,2092],
+  [211403015,1,2072],
+  [211404001,1,2150],
+  [211404002,1,2232],
+  [211404002,2,2209],
+  [211404003,1,1438],
+  [211404003,2,1394],
+  [211404004,1,2751],
+  [211404006,1,1419],
+  [211404006,2,1435],
+  [211404007,1,1970],
+  [211404008,1,1722],
+  [211404008,2,1752],
+  [211404010,1,1186],
+  [211404012,1,684],
+  [211405001,1,2045],
+  [211405001,2,2092],
+  [211405001,3,2082],
+  [211406002,1,2157],
+  [211406002,2,2124],
+  [211406003,1,1280],
+  [211406003,2,1262],
+  [211406004,1,2044],
+  [211406004,2,2034],
+  [211406006,1,2222],
+  [211406006,2,2233],
+  [211406009,1,1814],
+  [211406009,2,1750],
+  [211406009,3,1762],
+  [211406012,1,1705],
+  [211406012,2,1684],
+  [211407001,1,2019],
+  [211407001,2,1989],
+  [211407002,1,1821],
+  [211407003,1,2139],
+  [211407003,2,2120],
+  [211407005,1,2259],
+  [211407009,1,1945],
+  [211408001,1,2300],
+  [211408001,2,2270],
+  [211408001,3,2277],
+  [211408003,1,1163],
+  [211408007,1,3431],
+  [211408008,1,2285],
+  [211408008,2,2291],
+  [211409006,1,3961],
+  [211501004,1,3034],
+  [211501004,2,3076],
+  [211501004,3,3106],
+  [211502001,1,2672],
+  [211502001,2,2715],
+  [211502001,3,2718],
+  [211502001,4,2716],
+  [211502002,1,2222],
+  [211502004,1,1407],
+  [211502004,2,1372],
+  [211502006,1,2244],
+  [211503002,1,2325],
+  [211503002,2,2353],
+  [211503002,3,2387],
+  [211601001,1,3823],
+  [211601001,2,3869],
+  [211601001,3,3882],
+  [211602001,1,2687],
+  [211602001,2,2549],
+  [211602001,3,2539],
+  [211602002,1,2712],
+  [211602002,2,2693],
+  [211602003,1,2410],
+  [211602003,2,2389],
+  [211602005,1,2138],
+  [211602005,2,2172],
+  [211602009,1,2913],
+  [211602009,2,2918],
+  [211602011,1,3532],
+  [211602011,2,3570],
+  [211602016,1,2113],
+  [211603004,1,2725],
+  [211603004,2,2702],
+  [211603004,3,2633],
+  [211604002,1,2214],
+  [211604002,2,2199],
+  [211701001,1,2500],
+  [211702001,1,3316],
+  [211702003,1,3262],
+  [211801001,1,2460],
+  [211801001,2,2473],
+  [211801001,3,2438],
+  [211801003,1,3421],
+  [211801004,1,3320],
+  [211802001,1,2221],
+  [211802001,2,2203],
+  [211802002,1,1965],
+  [211802002,2,1993],
+  [211802003,1,3387],
+  [211802005,1,2531],
+  [211802005,2,2567],
+  [211802007,1,1072],
+  [211802009,1,2221],
+  [211802009,2,2228],
+  [211802010,1,2028],
+  [211802010,2,2053],
+  [211802011,1,1818],
+  [211802012,1,2934],
+  [211802013,1,2434],
+  [211802014,1,2080],
+  [211802014,2,2106],
+  [211802014,3,2118],
+  [211802015,1,1857],
+  [211802015,2,1807],
+  [211802017,1,2053],
+  [211802018,1,1430],
+  [211803001,1,2539],
+  [211803001,2,2585],
+  [211803002,1,2250],
+  [211803002,2,2250],
+  [211803003,1,2214],
+  [211803006,1,1621],
+  [211803006,2,1635],
+  [211803006,3,1603],
+  [211803006,4,1647],
+  [211803007,1,2232],
+  [211803007,2,2177],
+  [211803008,1,2120],
+  [211803008,2,2088],
+  [211803009,1,1586],
+  [211803009,2,1567],
+  [211803011,1,1655],
+  [211803011,2,1641],
+  [211803012,1,2090],
+  [211803013,1,1685],
+  [211803013,2,1682],
+  [211803013,3,1706],
+  [211803014,1,1410],
+  [211803014,2,1412],
+  [211803015,1,3167],
+  [211803015,2,3199],
+  [211803017,1,3011],
+  [211803017,2,2916],
+  [211803018,1,1732],
+  [211803018,2,1678],
+  [211803019,1,2295],
+  [211803020,1,3200],
+  [211803021,1,3416],
+  [211803022,1,3667],
+  [211803025,1,2591],
+  [211804001,1,3191],
+  [211804001,2,3239],
+  [211804004,1,1981],
+  [211804005,1,2273],
+  [211805001,1,3593],
+  [211805001,2,3510],
+  [211805002,1,3028],
+  [211805002,2,2957],
+  [211805007,1,3045],
+  [211805008,1,2008],
+  [211805009,1,2465],
+  [211805009,2,2414],
+  [211805009,3,2386],
+  [211805010,1,2905],
+  [211805010,2,2913],
+  [211805011,1,2681],
+  [211805011,2,2652],
+  [211805012,1,2169],
+  [211805012,2,2170],
+  [211805012,3,2143],
+  [211805013,1,2844],
+  [211805013,2,2784],
+  [211805014,1,1967],
+  [211805015,1,2321],
+  [211805016,1,3133],
+  [211805017,1,2957],
+  [211805018,1,2132],
+  [211805020,1,3613],
+  [211805020,2,3569],
+  [211805021,1,3503],
+  [211805021,2,3497],
+  [211805022,1,2011],
+  [211805022,2,2016],
+  [211805037,1,1640],
+  [211806001,1,2832],
+  [211806001,2,2723],
+  [211806002,1,1726],
+  [211806003,1,2112],
+  [211806004,1,3391],
+  [211806006,1,2238],
+  [211806006,2,2225],
+  [211806007,1,2151],
+  [211806007,2,2135],
+  [211806008,1,2012],
+  [211806012,1,881],
+  [211901003,1,1902],
+  [211901003,2,1868],
+  [211902002,1,2758],
+  [211902002,2,2782],
+  [211902002,3,2718],
+  [211902002,4,2727],
+  [212001001,1,3234],
+  [212001001,2,3163],
+  [212001002,1,1883],
+  [212001002,2,1876],
+  [212002001,1,2676],
+  [212002001,2,2655],
+  [212003001,1,2482],
+  [212101001,1,2521],
+  [212101001,2,2471],
+  [212101001,3,2554],
+  [212101001,4,2502],
+  [212102001,1,2073],
+  [212102001,2,2097],
+  [212102001,3,2040],
+  [212102001,4,2028],
+  [212102002,1,1916],
+  [212102002,2,1889],
+  [212102004,1,2351],
+  [212102004,2,2368],
+  [212103002,1,3242],
+  [220101002,1,2825],
+  [220101002,2,2873],
+  [220101005,1,2616],
+  [220101005,2,2687],
+  [220101005,3,2621],
+  [220101009,1,1850],
+  [220101009,2,1824],
+  [220101011,1,2710],
+  [220101011,2,2671],
+  [220102001,1,2781],
+  [220102001,2,2753],
+  [220102001,3,2835],
+  [220102002,1,2042],
+  [220102002,2,2010],
+  [220102004,1,2766],
+  [220102004,2,2735],
+  [220102005,1,2678],
+  [220102005,2,2633],
+  [220102005,3,2645],
+  [220102008,1,3700],
+  [220102012,1,832],
+  [220103001,1,1871],
+  [220103002,1,2701],
+  [220103004,1,1316],
+  [220104001,1,1771],
+  [220104001,2,1791],
+  [220104003,1,2532],
+  [220201002,1,1310],
+  [220201003,1,3030],
+  [220301001,1,1480],
+  [220401001,1,1580],
+  [220501001,1,2025],
+  [220502001,1,1649],
+  [220601001,1,2547],
+  [220701001,1,1103],
+  [230101001,1,3114],
+  [230101001,2,3108],
+  [230102001,1,2455],
+  [230102001,2,2448],
+  [230103001,1,2738],
+  [230103001,2,2705],
+  [230103001,3,2714],
+  [230104001,1,3043],
+  [230104001,2,3090],
+  [230104001,3,3099],
+  [230104013,1,724],
+  [230104014,1,166],
+  [230105004,1,3624],
+  [230105004,2,3644],
+  [230106001,1,3422],
+  [230106001,2,3334],
+  [230106001,3,3320],
+  [230107003,1,3209],
+  [230107003,2,3179],
+  [230108009,1,3208],
+  [230108009,2,3208],
+  [230201001,1,2551],
+  [230201001,2,2585],
+  [230202001,1,3565],
+  [230301001,1,2972],
+  [230301001,2,2938],
+  [230302001,1,1140],
+  [230303001,1,2096],
+  [230303001,2,2055],
+  [230304001,1,2448],
+  [230304001,2,2413],
+  [230305001,1,1774],
+  [230306004,1,1364],
+  [230401001,1,2021],
+  [230401001,2,2040],
+  [230402004,1,1938],
+  [230403004,1,3255],
+  [230404005,1,3279],
+  [230404005,2,3189],
+  [230404005,3,3182],
+  [230405004,1,1682],
+  [240101002,1,2751],
+  [240101002,2,2780],
+  [240101005,1,1460],
+  [240101005,2,1430],
+  [240101009,1,2795],
+  [240101009,2,2807],
+  [240101009,3,2741],
+  [240101009,4,2743],
+  [240101012,1,1664],
+  [240101012,2,1648],
+  [240101012,3,1644],
+  [240101012,4,1680],
+  [240101012,5,1548],
+  [240102001,1,2828],
+  [240102005,1,2715],
+  [240102005,2,2663],
+  [240102005,3,2707],
+  [240102011,1,3130],
+  [240102011,2,3158],
+  [240102011,3,3166],
+  [240102017,1,2436],
+  [240103004,1,2298],
+  [240103004,2,2318],
+  [240104001,1,4165],
+  [240104001,2,3939],
+  [240104001,3,4029],
+  [240104001,4,3907],
+  [240104001,5,3890],
+  [240104006,1,3715],
+  [240104006,2,3792],
+  [240104006,3,3834],
+  [240104007,1,3939],
+  [240104007,2,3912],
+  [240104010,1,3693],
+  [240104010,2,3636],
+  [240104010,3,3559],
+  [240104010,4,3604],
+  [240104011,1,2274],
+  [240104015,1,2418],
+  [240104015,2,2361],
+  [240104015,3,2352],
+  [240105009,1,3506],
+  [240105009,2,3546],
+  [240105009,3,3530],
+  [240105011,1,2464],
+  [240105011,2,2476],
+  [240105011,3,2480],
+  [240106001,1,2822],
+  [240106001,2,2785],
+  [240106001,3,2735],
+  [240106002,1,3080],
+  [240106005,1,1499],
+  [240106005,2,1474],
+  [240107002,1,2111],
+  [240107002,2,2076],
+  [240107009,1,3887],
+  [240107009,2,3779],
+  [240107009,3,3764],
+  [240107011,1,3471],
+  [240107011,2,3375],
+  [240107011,3,3387],
+  [240107011,4,3345],
+  [240108001,1,2824],
+  [240108001,2,2807],
+  [240108002,1,3693],
+  [240108002,2,3661],
+  [240109003,1,1742],
+  [240109005,1,2484],
+  [240109005,2,2483],
+  [240110001,1,3625],
+  [240110001,2,3684],
+  [240110001,3,3618],
+  [240110001,4,3673],
+  [240110004,1,2327],
+  [240110006,1,1836],
+  [240110006,2,1811],
+  [240110006,3,1828],
+  [240111003,1,3475],
+  [240111003,2,3375],
+  [240111003,3,3356],
+  [240111004,1,3091],
+  [240111011,1,2959],
+  [240111011,2,2964],
+  [240111011,3,2864],
+  [240111016,1,3549],
+  [240111016,2,3564],
+  [240111016,3,3458],
 ]
-
-mesas.each do |mesa|
-  Mesa.create :centro_id => mesa[0], :numero => mesa[1], :votantes => mesa[2]
-end
+# mesas.each do |mesa|
+#   Mesa.create :centro_id => mesa[0], :numero => mesa[1], :votantes => mesa[2]
+# end
